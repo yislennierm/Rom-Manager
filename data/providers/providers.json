@@ -1,0 +1,91 @@
+{
+  "console_root": {
+    "Sega": {
+      "Dreamcast": {
+        "name": "Sega Dreamcast Redump Collection",
+        "provider": "Internet Archive",
+        "archive_id": "sega-dreamcast-redump-collection",
+        "base_url": "https://archive.org/download/sega-dreamcast-redump-collection",
+        "files": {
+          "torrent": "https://archive.org/download/sega-dreamcast-redump-collection/sega-dreamcast-redump-collection_archive.torrent",
+          "files_xml": "https://archive.org/download/sega-dreamcast-redump-collection/sega-dreamcast-redump-collection_files.xml",
+          "meta_sqlite": "https://archive.org/download/sega-dreamcast-redump-collection/sega-dreamcast-redump-collection_meta.sqlite",
+          "meta_xml": "https://archive.org/download/sega-dreamcast-redump-collection/sega-dreamcast-redump-collection_meta.xml",
+          "reviews_xml": "https://archive.org/download/sega-dreamcast-redump-collection/sega-dreamcast-redump-collection_reviews.xml"
+        },
+        "rom_extensions": [
+          ".chd",
+          ".gdi",
+          ".cdi"
+        ],
+        "size": "6.3M",
+        "updated": "2025-10-20"
+      },
+      "Game Gear": {
+        "name": "Sega Game Gear ROMSet Ultra (US)",
+        "provider": "Internet Archive",
+        "archive_id": "sega-game-gear-romset-ultra-us",
+        "base_url": "https://archive.org/download/sega-game-gear-romset-ultra-us",
+        "files": {
+          "torrent": "https://archive.org/download/sega-game-gear-romset-ultra-us/sega-game-gear-romset-ultra-us_archive.torrent",
+          "files_xml": "https://archive.org/download/sega-game-gear-romset-ultra-us/sega-game-gear-romset-ultra-us_files.xml",
+          "meta_sqlite": "https://archive.org/download/sega-game-gear-romset-ultra-us/sega-game-gear-romset-ultra-us_meta.sqlite",
+          "meta_xml": "https://archive.org/download/sega-game-gear-romset-ultra-us/sega-game-gear-romset-ultra-us_meta.xml",
+          "reviews_xml": "https://archive.org/download/sega-game-gear-romset-ultra-us/sega-game-gear-romset-ultra-us_reviews.xml"
+        },
+        "rom_extensions": [
+          ".gg",
+          ".sms"
+        ],
+        "size": "161",
+        "updated": "2025-10-20"
+      },
+      "SG-1000": {
+        "name": "SG-1000",
+        "provider": "Internet Archive",
+        "archive_id": "ni-se-sg1000",
+        "base_url": "https://archive.org/download/ni-se-sg1000",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/ni-se-sg1000/ni-se-sg1000_meta.sqlite",
+          "files_xml": "https://archive.org/download/ni-se-sg1000/ni-se-sg1000_files.xml",
+          "torrent": "https://archive.org/download/ni-se-sg1000/ni-se-sg1000_archive.torrent",
+          "meta_xml": "https://archive.org/download/ni-se-sg1000/ni-se-sg1000_meta.xml"
+        },
+        "rom_extensions": [
+          ".sg"
+        ]
+      },
+      "Master System": {
+        "name": "Master",
+        "provider": "Internet Archive",
+        "archive_id": "sega-master-system-romset-ultra-us",
+        "base_url": "https://archive.org/download/sega-master-system-romset-ultra-us",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/sega-master-system-romset-ultra-us/sega-master-system-romset-ultra-us_meta.sqlite",
+          "files_xml": "https://archive.org/download/sega-master-system-romset-ultra-us/sega-master-system-romset-ultra-us_files.xml",
+          "torrent": "https://archive.org/download/sega-master-system-romset-ultra-us/sega-master-system-romset-ultra-us_archive.torrent",
+          "meta_xml": "https://archive.org/download/sega-master-system-romset-ultra-us/sega-master-system-romset-ultra-us_meta.xml",
+          "reviews_xml": "https://archive.org/download/sega-master-system-romset-ultra-us/sega-master-system-romset-ultra-us_reviews.xml"
+        },
+        "rom_extensions": [
+          ".sms"
+        ]
+      }
+    },
+    "Nintendo": {
+      "Gameboy Color": {
+        "name": "gameboy Color",
+        "provider": "Internet Archive",
+        "archive_id": "All game boy color roms",
+        "base_url": "https://archive.org/download/GameBoyColor",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/GameBoyColor/GameBoyColor_meta.sqlite",
+          "files_xml": "https://archive.org/download/GameBoyColor/GameBoyColor_files.xml"
+        },
+        "rom_extensions": [
+          ".gbc"
+        ]
+      }
+    }
+  }
+}

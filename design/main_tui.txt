@@ -1,0 +1,23 @@
+{
+    "Main Menu": [
+        "ROM Explorer",
+        "Download Manager",
+        "Settings",
+        "Exit"
+    ],
+
+    "ROM Explorer": [
+        "Select Consoles",     #Here we can search any rom name from the database
+        "Search",   #Here we can explore by console, then by market or A-something
+        "Back"
+    ],
+    "Download Manager": [
+        (Existing screen is fine)
+        "Back"
+    ],
+    "Settings": [
+        "Providers",  #Providers settings for now
+        "Library",
+        "Back"
+    ]
+}
