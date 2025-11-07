@@ -1,8 +1,22 @@
+
+-[] Detail Screen for ROMs (Libretro explorer)
+-[] Library Settings Section
+-[] Frontend Integration (Retroarch first, playlist etc)
+
+
+
 Consoles / Providers
 ====================
+
+(SEGA)
+
 - Sega SG-1000 — add provider entry. - Done
 - Sega Master System — add provider entry. Done
 - Sega Mega Drive / Genesis — add provider entry.
 - Sega Mega-CD / Sega CD — add provider entry.
 - Sega 32X — add provider entry.
 - Sega Saturn — add provider entry.
+
+
+(NINTENDO)
+- Gameboy Color - Done

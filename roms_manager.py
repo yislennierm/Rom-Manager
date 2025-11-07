@@ -22,6 +22,7 @@ from core.providers import (
     resolve_system,
     validate_providers_schema,
 )
+from utils.library_sync import sync_modules, build_module_index, load_modules, index_exists
 from utils.paths import (
     PROVIDER_FILE,
     SCHEMA_FILE,
@@ -344,6 +345,61 @@ def cmd_providers_remove(args):
         sys.exit(1)
 
 
+def cmd_database_fetch(args):
+    token = os.environ.get("GITHUB_TOKEN")
+    requested = [name.strip() for name in (args.module or []) if name and name.strip()]
+    try:
+        modules = sync_modules(token, names=requested if requested else None)
+    except Exception as exc:
+        print(f"❌ Failed to fetch module list: {exc}")
+        sys.exit(1)
+
+    if requested:
+        synced = {m.get("name") for m in modules}
+        missing = [name for name in requested if name not in synced]
+        for name in missing:
+            print(f"⚠️ Module {name} not found in libretro repo snapshot.")
+
+    count = len(modules)
+    if count == 0:
+        print("⚠️ No modules stored. Specify valid module names or run without --module to sync all consoles.")
+        return
+
+    noun = "definition" if count == 1 else "definitions"
+    print(f"✅ Synced {count} module {noun}.")
+    print("ℹ️ Activate consoles with `python3 roms_manager.py database activate --module \"<name>\"` to build indexes.")
+
+
+def cmd_database_activate(args):
+    requested = [name.strip() for name in (args.module or []) if name and name.strip()]
+    if not requested:
+        print("⚠️ Provide at least one --module value to activate.")
+        return
+
+    modules = load_modules()
+    if not modules:
+        print("⚠️ No module definitions found. Run `python3 roms_manager.py database fetch` first.")
+        return
+
+    available = {m.get("name") for m in modules}
+    missing = [name for name in requested if name not in available]
+    for name in missing:
+        print(f"⚠️ Module {name} is not in the synced list. Run database fetch if you need it.")
+
+    token = os.environ.get("GITHUB_TOKEN")
+    for name in requested:
+        if name in missing:
+            continue
+        if index_exists(name) and not args.force:
+            print(f"⏭️ Skipping {name}; index already exists (use --force to rebuild).")
+            continue
+        try:
+            path = build_module_index(name, token)
+            print(f"✅ Indexed {name}: {path}")
+        except Exception as exc:
+            print(f"⚠️ Failed to index {name}: {exc}")
+
+
 # -------------------------------------------------------------------
 # Main CLI
 # -------------------------------------------------------------------
@@ -376,6 +432,29 @@ def main():
     search_parser.add_argument("--manufacturer", help="Manufacturer key (omit to auto-detect)")
     search_parser.add_argument("--global", action="store_true", dest="global_search", help="Search all cached consoles")
 
+    database_parser = sub.add_parser("database", help="ROM database utilities")
+    database_sub = database_parser.add_subparsers(dest="database_command", required=True)
+
+    database_fetch_parser = database_sub.add_parser("fetch", help="Sync libretro module list")
+    database_fetch_parser.add_argument(
+        "--module",
+        action="append",
+        help="Limit sync to specific module name(s); may be passed multiple times",
+    )
+    database_activate_parser = database_sub.add_parser(
+        "activate", help="Build artwork indexes for synced modules"
+    )
+    database_activate_parser.add_argument(
+        "--module",
+        action="append",
+        required=True,
+        help="Module name to activate (repeat for multiple consoles)",
+    )
+    database_activate_parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Rebuild the index even if a cached version already exists",
+    )
     providers_parser = sub.add_parser("providers", help="Manage provider definitions")
     providers_sub = providers_parser.add_subparsers(dest="providers_command", required=True)
 
@@ -422,6 +501,11 @@ def main():
             cmd_providers_add(args)
         elif args.providers_command == "remove":
             cmd_providers_remove(args)
+    elif args.command == "database":
+        if args.database_command == "fetch":
+            cmd_database_fetch(args)
+        elif args.database_command == "activate":
+            cmd_database_activate(args)
     else:
         parser.print_help()
 

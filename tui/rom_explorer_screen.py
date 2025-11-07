@@ -2,13 +2,13 @@ from textual.app import ComposeResult
 from textual.widgets import Header, Footer, Static, Input, DataTable
 from textual.containers import Container
 from textual.screen import Screen
-from textual import events
 
 import json
 import os
 
 from .message_screen import MessageScreen
 from .download_manager_screen import DownloadManagerScreen
+from .rom_detail_screen import ROMDetailScreen
 from utils.paths import roms_json_path, manufacturer_slug, console_slug
 
 
@@ -19,6 +19,15 @@ DEFAULT_CONSOLE = "Dreamcast"
 class ROMExplorerScreen(Screen):
     """Browse ROMs for the currently selected console."""
 
+    BINDINGS = [
+        ("/", "focus_search", "Search"),
+        ("space", "toggle_selection", "Select ROM"),
+        ("enter", "show_details", "Details"),
+        ("a", "queue_jobs", "Queue Download"),
+        ("escape", "go_back", "Back"),
+        ("backspace", "go_back", "Back"),
+    ]
+
     def __init__(self, manufacturer=None, console=None, roms_path=None):
         super().__init__()
         self._initial_manufacturer = manufacturer
@@ -27,6 +36,7 @@ class ROMExplorerScreen(Screen):
         self.roms = []
         self.selected_names: set[str] = set()
         self.torrent_url = None
+        self.artwork_provider = "libretro"
 
     def compose(self) -> ComposeResult:
         self.label = Static("", id="label")
@@ -111,6 +121,7 @@ class ROMExplorerScreen(Screen):
             app.current_console_slug = console_slug(console)
 
         self.label.update(f"Search ROMs — {manufacturer} / {console} (press / to focus, SPACE to select)")
+        self.filtered = self.roms
         self.apply_filter()
         self._notify(f"Explorer ready for {manufacturer} / {console}", severity="info")
 
@@ -121,6 +132,7 @@ class ROMExplorerScreen(Screen):
     def apply_filter(self) -> None:
         query = (self.search_input.value or "").lower()
         filtered = [rom for rom in self.roms if query in rom["name"].lower()]
+        self.filtered = filtered
         self.display_roms(filtered)
         self._notify(f"Filter applied — {len(filtered)}/{len(self.roms)} ROMs match '{query}'", severity="debug")
 
@@ -212,18 +224,27 @@ class ROMExplorerScreen(Screen):
     def on_input_changed(self, event: Input.Changed) -> None:
         self.apply_filter()
 
-    def on_key(self, event: events.Key) -> None:
-        if event.key == "/":
+    # ------------------------------------------------------------------
+    # Actions / bindings
+    # ------------------------------------------------------------------
+
+    def action_focus_search(self) -> None:
+        if hasattr(self, "search_input"):
             self.set_focus(self.search_input)
-        elif event.key == "space":
+
+    def action_toggle_selection(self) -> None:
+        self._toggle_selection()
+
+    def action_show_details(self) -> None:
+        self._show_details()
+
+    def action_queue_jobs(self) -> None:
+        if not self.selected_names:
             self._toggle_selection()
-        elif event.key == "enter":
-            if not self.selected_names:
-                self.app.bell()
-            else:
-                self._create_jobs()
-        elif event.key in ("escape", "backspace"):
-            self.app.pop_screen()
+        self._create_jobs()
+
+    def action_go_back(self) -> None:
+        self.app.pop_screen()
 
     # ------------------------------------------------------------------
     # Notifications
@@ -236,3 +257,16 @@ class ROMExplorerScreen(Screen):
         else:
             # Fallback for environments without notify support.
             print(f"[{severity.upper()}] {message}")
+
+    def _current_rom(self):
+        if not self.table.row_count:
+            return None
+        row_index = getattr(self.table, "cursor_row", 0)
+        return self.filtered[row_index] if row_index < len(self.filtered) else None
+
+    def _show_details(self):
+        rom = self._current_rom()
+        if not rom:
+            self.app.bell()
+            return
+        self.app.push_screen(ROMDetailScreen(rom, artwork_provider=self.artwork_provider))

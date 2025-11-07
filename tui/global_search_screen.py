@@ -2,7 +2,6 @@ from textual.app import ComposeResult
 from textual.widgets import Header, Footer, Static, Input, DataTable
 from textual.containers import Container
 from textual.screen import Screen
-from textual import events
 
 import json
 import os
@@ -11,16 +10,27 @@ from core.providers import load_cached_roms
 from utils.paths import manufacturer_slug, console_slug
 from .download_manager_screen import DownloadManagerScreen
 from .message_screen import MessageScreen
+from .rom_detail_screen import ROMDetailScreen
 
 
 class GlobalSearchScreen(Screen):
     """Search across all cached ROMs."""
+
+    BINDINGS = [
+        ("/", "focus_search", "Search"),
+        ("space", "toggle_selection", "Select ROM"),
+        ("enter", "show_details", "Details"),
+        ("a", "queue_jobs", "Queue Download"),
+        ("escape", "go_back", "Back"),
+        ("backspace", "go_back", "Back"),
+    ]
 
     def __init__(self):
         super().__init__()
         self.roms = []
         self.filtered = []
         self.selected = set()
+        self.artwork_provider = "libretro"
 
     def compose(self) -> ComposeResult:
         self.label = Static("Global ROM Search", id="label")
@@ -181,15 +191,38 @@ class GlobalSearchScreen(Screen):
     def on_input_changed(self, event: Input.Changed) -> None:
         self.apply_filter()
 
-    def on_key(self, event: events.Key) -> None:
-        if event.key == "/":
+    def _current_rom(self):
+        if not self.table.row_count or not self.filtered:
+            return None
+        row_index = getattr(self.table, "cursor_row", 0)
+        return self.filtered[row_index] if row_index < len(self.filtered) else None
+
+    def _show_details(self):
+        rom = self._current_rom()
+        if not rom:
+            self.app.bell()
+            return
+        self.app.push_screen(ROMDetailScreen(rom, artwork_provider=self.artwork_provider))
+
+    # ------------------------------------------------------------------
+    # Actions / bindings
+    # ------------------------------------------------------------------
+
+    def action_focus_search(self) -> None:
+        if hasattr(self, "search_input"):
             self.set_focus(self.search_input)
-        elif event.key == "space":
-            self._toggle_selection()
-        elif event.key == "enter":
-            self._queue_jobs()
-        elif event.key in ("escape", "backspace"):
-            self.app.pop_screen()
+
+    def action_toggle_selection(self) -> None:
+        self._toggle_selection()
+
+    def action_show_details(self) -> None:
+        self._show_details()
+
+    def action_queue_jobs(self) -> None:
+        self._queue_jobs()
+
+    def action_go_back(self) -> None:
+        self.app.pop_screen()
 
     def _notify(self, message: str, severity: str = "info") -> None:
         app = getattr(self, "app", None)

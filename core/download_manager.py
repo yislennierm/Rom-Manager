@@ -417,7 +417,7 @@ class DownloadManager:
 
         parsed = urlparse(url)
         if parsed.path:
-            safe_path = quote(parsed.path, safe="/")
+            safe_path = quote(parsed.path, safe="/%")
             parsed = parsed._replace(path=safe_path)
             url = urlunparse(parsed)
 

@@ -7,7 +7,7 @@ from .menu_screen import MenuScreen
 
 class ROMManagerApp(App):
     TITLE = "ROMs Manager"
-    SUB_TITLE = "TUI Interface"
+    SUB_TITLE = "LaRaspa"
 
     def on_mount(self) -> None:
         # Share a single DownloadManager across all screens to avoid races.

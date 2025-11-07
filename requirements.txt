@@ -2,3 +2,6 @@ jsonschema
 textual 
 rich
 libtorrent
+rich-pixels
+pillow
+requests
