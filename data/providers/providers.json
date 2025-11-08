@@ -90,6 +90,25 @@
         "rom_extensions": [
           ".md"
         ]
+      },
+      "Mega CD": {
+        "name": "Sega Mega-CD",
+        "provider": "Internet Archive",
+        "archive_id": "rd-se-mcd",
+        "base_url": "https://archive.org/download/rd-se-mcd",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/rd-se-mcd/rd-se-mcd_meta.sqlite",
+          "files_xml": "https://archive.org/download/rd-se-mcd/rd-se-mcd_files.xml",
+          "torrent": "https://archive.org/download/rd-se-mcd/rd-se-mcd_archive.torrent",
+          "meta_xml": "https://archive.org/download/rd-se-mcd/rd-se-mcd_meta.xml"
+        },
+        "rom_extensions": [
+          ".iso",
+          ".bin",
+          ".cue",
+          ".chd",
+          ".m3u"
+        ]
       }
     },
     "Nintendo": {
