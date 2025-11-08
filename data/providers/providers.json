@@ -74,6 +74,22 @@
           ".sms"
         ],
         "libretro_guid": null
+      },
+      "Mega Drive": {
+        "name": "Maga Drive",
+        "provider": "Internet Archive",
+        "archive_id": "sega-genesis-romset-ultra-usa",
+        "base_url": "https://archive.org/download/sega-genesis-romset-ultra-usa",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/sega-genesis-romset-ultra-usa/sega-genesis-romset-ultra-usa_meta.sqlite",
+          "files_xml": "https://archive.org/download/sega-genesis-romset-ultra-usa/sega-genesis-romset-ultra-usa_files.xml",
+          "torrent": "https://archive.org/download/sega-genesis-romset-ultra-usa/sega-genesis-romset-ultra-usa_archive.torrent",
+          "meta_xml": "https://archive.org/download/sega-genesis-romset-ultra-usa/sega-genesis-romset-ultra-usa_meta.xml",
+          "reviews_xml": "https://archive.org/download/sega-genesis-romset-ultra-usa/sega-genesis-romset-ultra-usa_reviews.xml"
+        },
+        "rom_extensions": [
+          ".md"
+        ]
       }
     },
     "Nintendo": {
