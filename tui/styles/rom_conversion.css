@@ -1,0 +1,12 @@
+#conversion_split {
+    height: 1fr;
+}
+
+#conversion_tree {
+    width: 25%;
+    min-width: 24;
+}
+
+#conversion_detail {
+    width: 75%;
+}
