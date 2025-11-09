@@ -11,13 +11,17 @@ Consoles / Providers
 (SEGA)
 
 -[*] Sega SG-1000 — add provider entry. - Done
+
 -[*] Sega Master System — add provider entry. Done
 -[*] Sega Mega Drive / Genesis — add provider entry. (1 added)
 -[*] Sega Mega-CD / Sega CD — add provider entry.
 -[*] Sega 32X — add provider entry.
 -[*] Sega Saturn — add provider entry.
+    validate BIOS per Core
 -[] Sega Nomad??
 -[] Sega Pico
+
+
 
 (NINTENDO)
 - Gameboy Color - Done
