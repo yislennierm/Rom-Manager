@@ -1,16 +1,12 @@
-#storage_container { height: 1fr; }
-#storage_split { height: 1fr; }
-#frontend_table {
-    width: 35%;
-    min-width: 30;
-}
-#storage_detail {
-    width: 65%;
+#storage_container {
+    height: 1fr;
     padding: 1;
 }
-#storage_detail Input {
-    width: 1fr;
+
+#frontend_table {
+    height: 1fr;
 }
-#storage_detail Horizontal Button {
-    width: 3;
+
+#storage_prompt {
+    padding-top: 1;
 }

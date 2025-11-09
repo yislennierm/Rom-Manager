@@ -10,9 +10,9 @@
       "active": false
     },
     "retroarch_standalone": {
-      "name": "RetroArch (Standalone)",
+      "name": "RetroArch MacOS(Standalone)",
       "roms_path": "~/Library/Application Support/RetroArch/downloads",
-      "bios_path": "~/Library/Application Support/RetroArch/system",
+      "bios_path": "~/Documents/RetroArch/system",
       "platform": "macos",
       "active": true
     }

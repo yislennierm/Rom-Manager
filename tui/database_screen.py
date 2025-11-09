@@ -19,6 +19,8 @@ class DatabaseScreen(Screen):
         ("r", "refresh", "Refresh"),
         ("space", "toggle_activation", "Toggle Activation"),
         ("i", "index", "Rebuild Index"),
+        ("enter", "detail", "Details"),
+        ("d", "detail", "Details"),
         ("/", "focus_search", "Search"),
     ]
 
@@ -77,6 +79,20 @@ class DatabaseScreen(Screen):
             self.app.bell()
             return
         self._activate_module(name)
+
+    def action_detail(self):
+        module = self._current_module()
+        if not module:
+            self.app.bell()
+            return
+        manufacturer, console = self._split_module_name(module.get("name") or "")
+        if not manufacturer or not console:
+            self._notify("Module name does not map to a console.", severity="warning")
+            return
+        from .console_detail_modal import ConsoleDetailModal
+
+        modal = ConsoleDetailModal(manufacturer.strip(), console.strip(), module, self._provider_entry(module.get("name")))
+        self.app.push_screen(modal)
 
     def _activate_module(self, name: str, force: bool = False) -> None:
         if not getattr(self, "modules", None):

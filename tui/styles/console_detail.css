@@ -1,0 +1,13 @@
+#console_detail_body {
+    padding: 1;
+    height: 1fr;
+}
+
+#console_detail_section {
+    padding-top: 1;
+}
+
+#console_provider_table,
+#console_bios_table {
+    height: 0.5fr;
+}

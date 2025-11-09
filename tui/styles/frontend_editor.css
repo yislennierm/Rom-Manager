@@ -1,0 +1,11 @@
+#frontend_editor {
+    padding: 1;
+}
+
+#frontend_editor Horizontal {
+    align: left middle;
+}
+
+#frontend_editor_buttons {
+    align: right middle;
+}

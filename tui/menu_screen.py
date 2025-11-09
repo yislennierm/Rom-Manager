@@ -10,7 +10,7 @@ from .message_screen import MessageScreen
 from .database_screen import DatabaseScreen
 from .rom_explorer_screen import ROMExplorerScreen
 from .settings_screen import SettingsScreen
-from .storage_screen import StorageScreen
+from .storage_modal import StorageModal
 from .rom_conversion_screen import ROMConversionScreen
 
 
@@ -74,7 +74,7 @@ class MenuScreen(Screen):
         elif option == "Providers":
             self.app.push_screen(SettingsScreen())
         elif option == "Storage":
-            self.app.push_screen(StorageScreen())
+            self.app.push_screen(StorageModal())
         elif option == "Database":
             self.app.push_screen(DatabaseScreen())
         elif option == "Tools":

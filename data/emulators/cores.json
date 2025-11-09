@@ -1,0 +1,58 @@
+{
+  "retroarch": {
+    "saturn": {
+      "beetle_saturn": {
+        "name": "Beetle Saturn (Mednafen core)",
+        "bios": [
+          {
+            "id": "saturn_us",
+            "filename": "mpr-17933.bin",
+            "md5": "3240872c70984b6cbfda1586cab68dbe",
+            "size": 524288,
+            "notes": "US/EU BIOS\nRequired"
+          },
+          {
+            "id": "saturn_jp",
+            "filename": "mpr-15768.bin",
+            "md5": "85ec9ca47d8f6807718151cbcca8b964",
+            "size": 524288,
+            "notes": "Japan BIOS\nRequired"
+          },
+          {
+            "id": "saturn_eu_alt",
+            "filename": "mpr-18811-mx.ic1",
+            "md5": "255113ba943c92a54facd25a10fd780c",
+            "size": 524288,
+            "notes": "EU BIOS variant\nOptional"
+          }
+        ]
+      },
+      "kronos": {
+        "name": "Kronos",
+        "bios": [
+          {
+            "id": "saturn_us",
+            "filename": "mpr-17933.bin",
+            "md5": "3240872c70984b6cbfda1586cab68dbe",
+            "size": 524288,
+            "notes": "US BIOS"
+          },
+          {
+            "id": "saturn_jp",
+            "filename": "mpr-15768.bin",
+            "md5": "85ec9ca47d8f6807718151cbcca8b964",
+            "size": 524288,
+            "notes": "Japan BIOS"
+          },
+          {
+            "id": "saturn_eu",
+            "filename": "mpr-19367.bin",
+            "md5": "dfe2db9974a7062a62350c0f1efd9610",
+            "size": 524288,
+            "notes": "EU BIOS"
+          }
+        ]
+      }
+    }
+  }
+}
