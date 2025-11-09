@@ -1,0 +1,3 @@
+[submodule "utils/pychd/extern/mame"]
+	path = utils/pychd/extern/mame
+	url = https://github.com/mamedev/mame.git
