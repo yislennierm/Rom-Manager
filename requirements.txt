@@ -5,4 +5,4 @@ libtorrent
 rich-pixels
 pillow
 requests
-pychd
+pychd @ git+https://github.com/yislennierm/pychd.git@main
