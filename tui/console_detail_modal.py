@@ -7,7 +7,7 @@ from textual.containers import Vertical
 from textual.screen import ModalScreen
 
 import json
-from utils.paths import manufacturer_slug, console_slug
+from utils.paths import console_slug
 
 
 def compute_md5(path: Path) -> str:
@@ -36,6 +36,11 @@ class ConsoleDetailModal(ModalScreen):
 
     CSS_PATH = "styles/console_detail.css"
 
+    BINDINGS = [
+        ("escape", "dismiss", "Close"),
+        ("i", "install_bios", "Install BIOS"),
+    ]
+
     def __init__(self, manufacturer: str, console: str, module: dict, provider_entry: dict | None):
         super().__init__()
         self.manufacturer = manufacturer
@@ -44,11 +49,22 @@ class ConsoleDetailModal(ModalScreen):
         self.provider_entry = provider_entry or {}
         self.storage_config = _load_json(CONFIG_PATH)
         self.cores_config = _load_json(CORE_PATH)
+        self._active_frontend = self._resolve_active_frontend()
+        self._roms_path = Path(self._active_frontend.get("roms_path", Path.home())).expanduser()
+        self._bios_path = Path(self._active_frontend.get("bios_path", Path.home())).expanduser()
+        self._missing_bios = []
 
     def compose(self) -> ComposeResult:
         title = f"{self.manufacturer} / {self.console}"
         yield Header(show_clock=False)
         yield Static(f"[b]{title}[/b]\nModules fetched: {self.module.get('name', '—')}", id="console_detail_title")
+        frontend_label = self._active_frontend.get("name", "Unknown frontend")
+        yield Static(
+            f"[b]Frontend:[/b] {frontend_label}\n"
+            f"[b]ROMs path:[/b] {self._roms_path}\n"
+            f"[b]BIOS path:[/b] {self._bios_path}",
+            id="console_detail_paths",
+        )
         self.provider_table = DataTable(id="console_provider_table")
         self.provider_table.add_columns("Name", "Base URL", "Active")
         self.bios_table = DataTable(id="console_bios_table")
@@ -60,11 +76,14 @@ class ConsoleDetailModal(ModalScreen):
             self.bios_table,
             id="console_detail_body",
         )
+        yield Static("Select a BIOS row and press [i] to install missing files.", id="console_detail_actions")
         yield Footer()
 
     def on_mount(self):
         self._load_providers()
         self._load_bios_status()
+        self.bios_table.cursor_type = "row"
+        self.bios_table.focus()
 
     def _load_providers(self):
         self.provider_table.clear()
@@ -83,10 +102,10 @@ class ConsoleDetailModal(ModalScreen):
 
     def _load_bios_status(self):
         self.bios_table.clear()
-        frontend = self.storage_config.get("frontends", {}).get("retroarch_standalone") or {}
-        bios_path = Path(frontend.get("bios_path", Path.home())).expanduser()
+        bios_path = self._bios_path
         platform_slug = console_slug(self.console)
 
+        missing = []
         cores_for_console = self.cores_config.get("retroarch", {}).get(platform_slug, {})
         if not cores_for_console:
             self.bios_table.add_row("—", "No cores defined", "—", "—")
@@ -100,7 +119,6 @@ class ConsoleDetailModal(ModalScreen):
                 filename = entry.get("filename")
                 md5_expected = entry.get("md5", "—")
                 status = "⚠ Missing"
-                md5_actual = "—"
                 bios_file = bios_path / filename if filename else None
                 if bios_file and bios_file.exists():
                     try:
@@ -108,9 +126,63 @@ class ConsoleDetailModal(ModalScreen):
                         status = "✅ OK" if md5_actual.lower() == md5_expected.lower() else "⚠ Hash mismatch"
                     except Exception as exc:
                         status = f"⚠ Error: {exc}"
+                else:
+                    missing.append(entry)
                 self.bios_table.add_row(
                     core_info.get("name", core_key),
                     filename or "—",
                     md5_expected,
                     status,
                 )
+        self._missing_bios = missing
+
+    def _resolve_active_frontend(self) -> dict:
+        frontends = self.storage_config.get("frontends", {})
+        for entry in frontends.values():
+            if entry.get("active"):
+                return entry
+        return next(iter(frontends.values()), {})
+
+    def action_install_bios(self):
+        self._install_bios()
+
+    def _install_bios(self):
+        row = getattr(self.bios_table, "cursor_row", None)
+        if row is None or row < 0 or row >= len(self.bios_table.rows):
+            self.app.bell()
+            return
+        core_name, filename, md5_expected, status = self.bios_table.get_row_at(row)
+        if not status.startswith("⚠") or not filename.strip():
+            self._notify("This BIOS is already satisfied.", severity="info")
+            return
+        bios_entry = next((entry for entry in self._missing_bios if entry.get("filename") == filename), None)
+        if not bios_entry:
+            self._notify("No metadata available for this BIOS.", severity="warning")
+            return
+        source_url = bios_entry.get("url")
+        if not source_url:
+            self._notify("No download URL configured for this BIOS.", severity="warning")
+            return
+        target_path = self._bios_path / filename
+        try:
+            import urllib.request
+
+            target_path.parent.mkdir(parents=True, exist_ok=True)
+            self._notify(f"Downloading {filename}…", severity="info")
+            urllib.request.urlretrieve(source_url, target_path)
+            md5 = compute_md5(target_path)
+            if md5.lower() == md5_expected.lower():
+                self._notify(f"Installed {filename} successfully.", severity="success")
+            else:
+                self._notify(f"Hash mismatch after install (expected {md5_expected}, got {md5}).", severity="warning")
+            self._load_bios_status()
+        except Exception as exc:
+            self._notify(f"Failed to install BIOS: {exc}", severity="error")
+        self._load_bios_status()
+
+    def _notify(self, message: str, severity: str = "info"):
+        app = getattr(self, "app", None)
+        if app and hasattr(app, "notify"):
+            app.notify(message, severity=severity)
+        else:
+            print(f"[{severity.upper()}] {message}")

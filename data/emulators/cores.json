@@ -5,25 +5,36 @@
         "name": "Beetle Saturn (Mednafen core)",
         "bios": [
           {
+            "id": "Saturn JP BIOS",
+            "filename": "sega_101.bin",
+            "md5": "85ec9ca47d8f6807718151cbcca8b964",
+            "size": 524288,
+            "notes": "Saturn JP BIOS - Required for JP games",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/sega_101.bin"
+          },
+          {
             "id": "saturn_us",
             "filename": "mpr-17933.bin",
             "md5": "3240872c70984b6cbfda1586cab68dbe",
             "size": 524288,
-            "notes": "US/EU BIOS\nRequired"
+            "notes": "US/EU BIOS\nRequired",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-17933.bin"
           },
           {
             "id": "saturn_jp",
             "filename": "mpr-15768.bin",
             "md5": "85ec9ca47d8f6807718151cbcca8b964",
             "size": 524288,
-            "notes": "Japan BIOS\nRequired"
+            "notes": "Japan BIOS\nRequired",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-15768.bin"
           },
           {
             "id": "saturn_eu_alt",
             "filename": "mpr-18811-mx.ic1",
             "md5": "255113ba943c92a54facd25a10fd780c",
             "size": 524288,
-            "notes": "EU BIOS variant\nOptional"
+            "notes": "EU BIOS variant\nOptional",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-18811-mx.ic1"
           }
         ]
       },
@@ -35,21 +46,82 @@
             "filename": "mpr-17933.bin",
             "md5": "3240872c70984b6cbfda1586cab68dbe",
             "size": 524288,
-            "notes": "US BIOS"
+            "notes": "US BIOS",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-17933.bin"
           },
           {
             "id": "saturn_jp",
             "filename": "mpr-15768.bin",
             "md5": "85ec9ca47d8f6807718151cbcca8b964",
             "size": 524288,
-            "notes": "Japan BIOS"
+            "notes": "Japan BIOS",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-15768.bin"
           },
           {
             "id": "saturn_eu",
             "filename": "mpr-19367.bin",
             "md5": "dfe2db9974a7062a62350c0f1efd9610",
             "size": 524288,
-            "notes": "EU BIOS"
+            "notes": "EU BIOS",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-19367.bin"
+          }
+        ]
+      },
+      "yabause": {
+        "name": "Yabause",
+        "bios": [
+          {
+            "id": "saturn_us",
+            "filename": "mpr-17933.bin",
+            "md5": "3240872c70984b6cbfda1586cab68dbe",
+            "size": 524288,
+            "notes": "USA BIOS",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-17933.bin"
+          },
+          {
+            "id": "saturn_jp",
+            "filename": "mpr-15768.bin",
+            "md5": "85ec9ca47d8f6807718151cbcca8b964",
+            "size": 524288,
+            "notes": "Japan BIOS",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-15768.bin"
+          },
+          {
+            "id": "saturn_eu",
+            "filename": "mpr-19367.bin",
+            "md5": "dfe2db9974a7062a62350c0f1efd9610",
+            "size": 524288,
+            "notes": "Europe BIOS",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-19367.bin"
+          }
+        ]
+      },
+      "yabasanshiro": {
+        "name": "YabaSanshiro",
+        "bios": [
+          {
+            "id": "saturn_us",
+            "filename": "mpr-17933.bin",
+            "md5": "3240872c70984b6cbfda1586cab68dbe",
+            "size": 524288,
+            "notes": "USA BIOS",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-17933.bin"
+          },
+          {
+            "id": "saturn_jp",
+            "filename": "mpr-15768.bin",
+            "md5": "85ec9ca47d8f6807718151cbcca8b964",
+            "size": 524288,
+            "notes": "Japan BIOS",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-15768.bin"
+          },
+          {
+            "id": "saturn_eu",
+            "filename": "mpr-19367.bin",
+            "md5": "dfe2db9974a7062a62350c0f1efd9610",
+            "size": 524288,
+            "notes": "Europe BIOS",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-19367.bin"
           }
         ]
       }
