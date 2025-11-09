@@ -7,13 +7,15 @@
       "roms_path": "~/Library/Application Support/Steam/steamapps/common/RetroArch/downloads",
       "bios_path": "~/Library/Application Support/Steam/steamapps/common/RetroArch/system",
       "platform": "macos",
-      "active": false
+      "active": false,
+      "supported_guids": []
     },
     "retroarch_standalone": {
       "name": "RetroArch MacOS(Standalone)",
       "roms_path": "~/Documents/RetroArch/system/roms",
       "bios_path": "~/Documents/RetroArch/system",
-      "active": true
+      "active": true,
+      "supported_guids": []
     }
   }
 }

@@ -5,4 +5,5 @@ libtorrent
 rich-pixels
 pillow
 requests
+msgpack
 pychd @ git+https://github.com/yislennierm/pychd.git@main

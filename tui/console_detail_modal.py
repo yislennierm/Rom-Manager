@@ -41,11 +41,10 @@ class ConsoleDetailModal(ModalScreen):
         ("i", "install_bios", "Install BIOS"),
     ]
 
-    def __init__(self, manufacturer: str, console: str, module: dict, provider_entry: dict | None):
+    def __init__(self, module: dict, guid: str, provider_entry: dict | None):
         super().__init__()
-        self.manufacturer = manufacturer
-        self.console = console
         self.module = module
+        self.guid = guid
         self.provider_entry = provider_entry or {}
         self.storage_config = _load_json(CONFIG_PATH)
         self.cores_config = _load_json(CORE_PATH)
@@ -53,6 +52,10 @@ class ConsoleDetailModal(ModalScreen):
         self._roms_path = Path(self._active_frontend.get("roms_path", Path.home())).expanduser()
         self._bios_path = Path(self._active_frontend.get("bios_path", Path.home())).expanduser()
         self._missing_bios = []
+        name = module.get("name", "")
+        parts = [segment.strip() for segment in name.split("-", 1)]
+        self.manufacturer = parts[0] if parts else "Unknown"
+        self.console = parts[1] if len(parts) == 2 else name
 
     def compose(self) -> ComposeResult:
         title = f"{self.manufacturer} / {self.console}"
@@ -103,14 +106,27 @@ class ConsoleDetailModal(ModalScreen):
     def _load_bios_status(self):
         self.bios_table.clear()
         bios_path = self._bios_path
-        platform_slug = console_slug(self.console)
-
         missing = []
-        cores_for_console = self.cores_config.get("retroarch", {}).get(platform_slug, {})
+        cores_for_console = self.cores_config.get("retroarch", {})
+        # Prefer entries matching our GUID
+        cores = cores_for_console.values()
+        if self.guid:
+            cores = [
+                core
+                for console_map in cores_for_console.values()
+                for core in console_map.values()
+                if core.get("libretro_guid") == self.guid
+            ]
+        else:
+            cores = [
+                core
+                for console_map in cores_for_console.values()
+                for core in console_map.values()
+            ]
         if not cores_for_console:
             self.bios_table.add_row("—", "No cores defined", "—", "—")
             return
-        for core_key, core_info in cores_for_console.items():
+        for core_key, core_info in cores_for_console.get(console_slug(self.console), {}).items():
             bios_entries = core_info.get("bios", [])
             if not bios_entries:
                 self.bios_table.add_row(core_info.get("name", core_key), "No BIOS listed", "—", "—")

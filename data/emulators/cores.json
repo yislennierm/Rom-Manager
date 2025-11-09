@@ -13,117 +13,97 @@
             "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/sega_101.bin"
           },
           {
-            "id": "saturn_us",
+            "id": "Saturn US - EU BIOS",
             "filename": "mpr-17933.bin",
             "md5": "3240872c70984b6cbfda1586cab68dbe",
             "size": 524288,
-            "notes": "US/EU BIOS\nRequired",
+            "notes": "Required for US/EU games",
             "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-17933.bin"
           },
           {
-            "id": "saturn_jp",
-            "filename": "mpr-15768.bin",
-            "md5": "85ec9ca47d8f6807718151cbcca8b964",
-            "size": 524288,
-            "notes": "Japan BIOS\nRequired",
-            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-15768.bin"
-          },
-          {
-            "id": "saturn_eu_alt",
+            "id": "The King of Fighters '95 ROM",
             "filename": "mpr-18811-mx.ic1",
             "md5": "255113ba943c92a54facd25a10fd780c",
             "size": 524288,
-            "notes": "EU BIOS variant\nOptional",
+            "notes": "Required for this game",
             "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-18811-mx.ic1"
+          },
+          {
+            "id": "Ultraman: Hikari no Kyojin Densetsu ROM Cartridge",
+            "filename": "mpr-19367-mx.ic1",
+            "md5": "1cd19988d1d72a3e7caa0b73234c96b4",
+            "size": 524288,
+            "notes": "Required for this game",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-19367-mx.ic1"
           }
-        ]
+        ],
+        "libretro_guid": "b4e1a5aa-5431-535e-9650-8c7b6bbc5036"
       },
       "kronos": {
         "name": "Kronos",
         "bios": [
           {
-            "id": "saturn_us",
-            "filename": "mpr-17933.bin",
-            "md5": "3240872c70984b6cbfda1586cab68dbe",
+            "id": "Saturn BIOS",
+            "filename": "saturn_bios.bin",
+            "md5": "af5828fdff51384f99b3c4926be27762",
             "size": 524288,
-            "notes": "US BIOS",
-            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-17933.bin"
+            "notes": "Required for Saturn games",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/saturn_bios.bin"
           },
           {
-            "id": "saturn_jp",
-            "filename": "mpr-15768.bin",
-            "md5": "85ec9ca47d8f6807718151cbcca8b964",
+            "id": "ST-V BIOS",
+            "filename": "stvbios.zip",
+            "md5": "null",
             "size": 524288,
-            "notes": "Japan BIOS",
-            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-15768.bin"
+            "notes": "Required for ST-V games",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/stvbios.zip"
           },
           {
-            "id": "saturn_eu",
-            "filename": "mpr-19367.bin",
-            "md5": "dfe2db9974a7062a62350c0f1efd9610",
+            "id": "The King of Fighters '95 ROM Cartridge",
+            "filename": "mpr-18811-mx.ic1",
+            "md5": "255113ba943c92a54facd25a10fd780c",
             "size": 524288,
-            "notes": "EU BIOS",
-            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-19367.bin"
+            "notes": "Required for this game",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-18811-mx.ic1"
+          },
+          {
+            "id": "Ultraman: Hikari no Kyojin Densetsu ROM Cartridge",
+            "filename": "mpr-19367-mx.ic1",
+            "md5": "1cd19988d1d72a3e7caa0b73234c96b4",
+            "size": 524288,
+            "notes": "Required for this game",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-19367-mx.ic1"
           }
-        ]
+        ],
+        "libretro_guid": "b4e1a5aa-5431-535e-9650-8c7b6bbc5036"
       },
       "yabause": {
         "name": "Yabause",
         "bios": [
           {
-            "id": "saturn_us",
-            "filename": "mpr-17933.bin",
-            "md5": "3240872c70984b6cbfda1586cab68dbe",
+            "id": "Saturn BIOS",
+            "filename": "saturn_bios.bin",
+            "md5": "af5828fdff51384f99b3c4926be27762",
             "size": 524288,
-            "notes": "USA BIOS",
-            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-17933.bin"
-          },
-          {
-            "id": "saturn_jp",
-            "filename": "mpr-15768.bin",
-            "md5": "85ec9ca47d8f6807718151cbcca8b964",
-            "size": 524288,
-            "notes": "Japan BIOS",
-            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-15768.bin"
-          },
-          {
-            "id": "saturn_eu",
-            "filename": "mpr-19367.bin",
-            "md5": "dfe2db9974a7062a62350c0f1efd9610",
-            "size": 524288,
-            "notes": "Europe BIOS",
-            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-19367.bin"
+            "notes": "Optional",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/saturn_bios.bin"
           }
-        ]
+        ],
+        "libretro_guid": "b4e1a5aa-5431-535e-9650-8c7b6bbc5036"
       },
       "yabasanshiro": {
         "name": "YabaSanshiro",
         "bios": [
           {
-            "id": "saturn_us",
-            "filename": "mpr-17933.bin",
-            "md5": "3240872c70984b6cbfda1586cab68dbe",
+            "id": "Saturn BIOS",
+            "filename": "saturn_bios.bin",
+            "md5": "af5828fdff51384f99b3c4926be27762",
             "size": 524288,
-            "notes": "USA BIOS",
-            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-17933.bin"
-          },
-          {
-            "id": "saturn_jp",
-            "filename": "mpr-15768.bin",
-            "md5": "85ec9ca47d8f6807718151cbcca8b964",
-            "size": 524288,
-            "notes": "Japan BIOS",
-            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-15768.bin"
-          },
-          {
-            "id": "saturn_eu",
-            "filename": "mpr-19367.bin",
-            "md5": "dfe2db9974a7062a62350c0f1efd9610",
-            "size": 524288,
-            "notes": "Europe BIOS",
-            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-19367.bin"
+            "notes": "Optional",
+            "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/saturn_bios.bin"
           }
-        ]
+        ],
+        "libretro_guid": "b4e1a5aa-5431-535e-9650-8c7b6bbc5036"
       }
     }
   }

@@ -16,8 +16,7 @@ Consoles / Providers
 -[*] Sega Mega Drive / Genesis — add provider entry. (1 added)
 -[*] Sega Mega-CD / Sega CD — add provider entry.
 -[*] Sega 32X — add provider entry.
--[*] Sega Saturn — add provider entry.
-    validate BIOS per Core
+-[*] Sega Saturn — [*]Validated BIOS 
 -[] Sega Nomad??
 -[] Sega Pico
 

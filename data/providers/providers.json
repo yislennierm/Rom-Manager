@@ -20,7 +20,7 @@
         ],
         "size": "6.3M",
         "updated": "2025-10-20",
-        "libretro_guid": null
+        "libretro_guid": "2530a9bf-3926-52a9-b3fd-401ed1655bcc"
       },
       "Game Gear": {
         "name": "Sega Game Gear ROMSet Ultra (US)",
@@ -40,7 +40,7 @@
         ],
         "size": "161",
         "updated": "2025-10-20",
-        "libretro_guid": null
+        "libretro_guid": "fdb51c61-0560-593b-937f-cccae600d469"
       },
       "SG-1000": {
         "name": "SG-1000",
@@ -56,7 +56,7 @@
         "rom_extensions": [
           ".sg"
         ],
-        "libretro_guid": null
+        "libretro_guid": "ca066374-6220-5f44-828c-302f50a10146"
       },
       "Master System": {
         "name": "Master",
@@ -73,7 +73,7 @@
         "rom_extensions": [
           ".sms"
         ],
-        "libretro_guid": null
+        "libretro_guid": "acc73d91-7629-55cb-aeca-7b90814d8604"
       },
       "Mega Drive": {
         "name": "Maga Drive",
@@ -89,7 +89,8 @@
         },
         "rom_extensions": [
           ".md"
-        ]
+        ],
+        "libretro_guid": "126fc9a7-f783-5a73-9c17-b1e497cc8edd"
       },
       "Mega CD": {
         "name": "Sega Mega-CD",
@@ -108,11 +109,12 @@
           ".cue",
           ".chd",
           ".m3u"
-        ]
+        ],
+        "libretro_guid": "63aab22a-8415-5a15-8d82-f70c218298f6"
       },
       "Sega 32x": {
         "name": "Sega 32x",
-        "provider": "Internect Archive",
+        "provider": "Internet Archive",
         "archive_id": "Sega-32x-Romset-us",
         "base_url": "https://archive.org/download/Sega-32x-Romset-us",
         "files": {
@@ -124,7 +126,8 @@
         },
         "rom_extensions": [
           ".32"
-        ]
+        ],
+        "libretro_guid": "2bf97080-34ce-529a-9e1c-67a5cdab9070"
       },
       "Saturn": {
         "name": "Sega Saturn",
@@ -143,7 +146,8 @@
           ".m3u",
           ".ccd",
           ".chd"
-        ]
+        ],
+        "libretro_guid": "b4e1a5aa-5431-535e-9650-8c7b6bbc5036"
       }
     },
     "Nintendo": {

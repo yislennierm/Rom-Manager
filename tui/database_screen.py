@@ -85,13 +85,13 @@ class DatabaseScreen(Screen):
         if not module:
             self.app.bell()
             return
-        manufacturer, console = self._split_module_name(module.get("name") or "")
-        if not manufacturer or not console:
-            self._notify("Module name does not map to a console.", severity="warning")
+        guid = module.get("guid")
+        if not guid:
+            self._notify("Module GUID missing; run database fetch again.", severity="warning")
             return
         from .console_detail_modal import ConsoleDetailModal
 
-        modal = ConsoleDetailModal(manufacturer.strip(), console.strip(), module, self._provider_entry(module.get("name")))
+        modal = ConsoleDetailModal(module, guid, self._provider_entry_by_guid(guid))
         self.app.push_screen(modal)
 
     def _activate_module(self, name: str, force: bool = False) -> None:
@@ -139,7 +139,7 @@ class DatabaseScreen(Screen):
             if query and query not in name.lower():
                 continue
             checkbox = "☑" if index_exists(name) else "☐"
-            provider_cell = self._provider_cell(name)
+            provider_cell = self._provider_cell(module.get("guid"))
             destination = self._destination_for(name)
             self.table.add_row(checkbox, name or "—", provider_cell, destination)
             self.filtered_modules.append(module)
@@ -179,23 +179,24 @@ class DatabaseScreen(Screen):
             if not isinstance(consoles, dict):
                 continue
             for console_name, entry in consoles.items():
-                key = (self._normalize_label(manufacturer), self._normalize_label(console_name))
-                lookup[key] = entry
+                guid = entry.get("libretro_guid")
+                if guid:
+                    lookup[guid] = entry
         return lookup
 
-    def _provider_cell(self, module_name: str) -> str:
-        entry = self._provider_entry(module_name)
+    def _provider_cell(self, guid: str | None) -> str:
+        if not guid:
+            return "⚠ No GUID"
+        entry = self._provider_entry_by_guid(guid)
         if not entry:
             return "⚠ Missing"
         provider_name = entry.get("provider") or entry.get("name") or "Available"
         return f"✅ {provider_name}"
 
-    def _provider_entry(self, module_name: str):
-        manufacturer, console = self._split_module_name(module_name)
-        if not manufacturer or not console:
+    def _provider_entry_by_guid(self, guid: str | None):
+        if not guid:
             return None
-        key = (self._normalize_label(manufacturer), self._normalize_label(console))
-        return getattr(self, "provider_map", {}).get(key)
+        return getattr(self, "provider_map", {}).get(guid)
 
     @staticmethod
     def _split_module_name(name: str):
