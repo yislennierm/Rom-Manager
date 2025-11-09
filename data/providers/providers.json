@@ -109,6 +109,41 @@
           ".chd",
           ".m3u"
         ]
+      },
+      "Sega 32x": {
+        "name": "Sega 32x",
+        "provider": "Internect Archive",
+        "archive_id": "Sega-32x-Romset-us",
+        "base_url": "https://archive.org/download/Sega-32x-Romset-us",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/Sega-32x-Romset-us/Sega-32x-Romset-us_meta.sqlite",
+          "files_xml": "https://archive.org/download/Sega-32x-Romset-us/Sega-32x-Romset-us_files.xml",
+          "torrent": "https://archive.org/download/Sega-32x-Romset-us/Sega-32x-Romset-us_archive.torrent",
+          "meta_xml": "https://archive.org/download/Sega-32x-Romset-us/Sega-32x-Romset-us_meta.xml",
+          "reviews_xml": "https://archive.org/download/Sega-32x-Romset-us/Sega-32x-Romset-us_reviews.xml"
+        },
+        "rom_extensions": [
+          ".32"
+        ]
+      },
+      "Saturn": {
+        "name": "Sega Saturn",
+        "provider": "Internet Archive",
+        "archive_id": "sega_saturn",
+        "base_url": "https://archive.org/download/sega_saturn",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/sega_saturn/sega_saturn_meta.sqlite",
+          "files_xml": "https://archive.org/download/sega_saturn/sega_saturn_files.xml",
+          "torrent": "https://archive.org/download/sega_saturn/sega_saturn_archive.torrent",
+          "meta_xml": "https://archive.org/download/sega_saturn/sega_saturn_meta.xml"
+        },
+        "rom_extensions": [
+          ".cue",
+          ".toc",
+          ".m3u",
+          ".ccd",
+          ".chd"
+        ]
       }
     },
     "Nintendo": {

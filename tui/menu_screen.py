@@ -11,12 +11,14 @@ from .database_screen import DatabaseScreen
 from .rom_explorer_screen import ROMExplorerScreen
 from .settings_screen import SettingsScreen
 from .storage_screen import StorageScreen
+from .rom_conversion_screen import ROMConversionScreen
 
 
 MENU_STRUCTURE = {
-    "Main Menu": ["ROM Explorer", "Download Manager", "Settings", "Exit"],
+    "Main Menu": ["ROM Explorer", "Download Manager", "Settings", "Tools", "Exit"],
     "ROM Explorer": ["Consoles", "Computers", "Search", "Back"],
     "Settings": ["Providers", "Storage", "Database", "Back"],
+    "Tools": ["Rom Conversion", "Back"],
 }
 
 
@@ -75,6 +77,10 @@ class MenuScreen(Screen):
             self.app.push_screen(StorageScreen())
         elif option == "Database":
             self.app.push_screen(DatabaseScreen())
+        elif option == "Tools":
+            self.app.push_screen(MenuScreen("Tools"))
+        elif option == "Rom Conversion":
+            self.app.push_screen(ROMConversionScreen())
         elif option == "Back":
             self.app.pop_screen()
         elif option == "Exit":
