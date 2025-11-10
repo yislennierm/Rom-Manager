@@ -24,3 +24,32 @@ Consoles / Providers
 
 (NINTENDO)
 - Gameboy Color - Done
+
+
+Enhance
+
+Core Experience
+
+Integrate ROM scanning from active RetroArch directories so the app can flag “installed vs missing” directly in the explorer table. Tie it to storage_config paths and surface counts per console.
+Offer per-console “Launch in RetroArch” by writing .m3u playlists or invoking the CLI with the matching core (cores.json already links BIOS requirements).
+Add a “Verify ROM” action that hashes local files and cross-checks against the libretro RDB entry; highlight mismatches and offer auto-renaming to the canonical title.
+Metadata & Automation
+
+Cache RDB snapshots by GUID/version and expose a diff view so users can see what changed after re-export (new games, metadata updates).
+Build a provider coverage dashboard: for each console show RDB total vs provider total vs downloaded. Use it to recommend additional providers when gaps exist (e.g., “missing JP set, add provider X”).
+Extend BIOS handling with core-specific instructions—auto-create missing directories, compress BIOS zips, and add a scheduled re-check to warn when user paths lose files.
+Exploration & UX
+
+Add advanced filters in explorer (region, genre, release year) using the RDB metadata already stored. Quick toggles (US-only, prototypes, etc.) help locate specific builds fast.
+Provide bulk actions: queue/download entire region sets, export CSV/JSON snapshots, generate .lpl playlists, and sync selection to devices (Steam Deck, SD cards) via rsync.
+Enhance global search with fuzzy matching and favorites; a user could star their top ROMs and keep them pinned across consoles.
+Reliability & Tooling
+
+Persist column widths and view preferences per user (simple JSON) instead of requiring code changes.
+Run background tasks (provider parsing, RDB export) asynchronously with progress bars/toasts, so the TUI stays responsive.
+Add logging + error capture (file + screen) to troubleshoot provider failures or download issues; expose a “Report issue” action that bundles recent logs.
+Future Integrations
+
+Hook into RetroAchievements (if user enables API key) to annotate ROMs with badge counts, hardcore/completion status.
+Offer artwork scraping parity: download snapshots, manuals, and per-game description and show them in the detail modal.
+Provide a scripting hook (maybe YAML recipes) so power users can define pipelines (e.g., “for Saturn, download RDB, compare provider, queue missing, convert CHD”).
