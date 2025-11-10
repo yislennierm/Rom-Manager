@@ -13,6 +13,9 @@ class ConsoleSelectScreen(Screen):
 
     CSS_PATH = "styles/rom_explorer.css"
 
+    def __init__(self):
+        super().__init__(id="console_select_screen")
+
     BINDINGS = [
         ("escape", "go_back", "Back"),
         ("enter", " action_select_console", "Select"),

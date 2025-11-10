@@ -1,4 +1,6 @@
-Screen {
+#rom_explorer_screen,
+#global_search_screen,
+#console_select_screen {
     layout: vertical;
 }
 

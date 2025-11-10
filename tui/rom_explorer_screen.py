@@ -33,7 +33,7 @@ class ROMExplorerScreen(Screen):
     ]
 
     def __init__(self, manufacturer=None, console=None, roms_path=None, module_guid=None):
-        super().__init__()
+        super().__init__(id="rom_explorer_screen")
         self._initial_manufacturer = manufacturer
         self._initial_console = console
         self._explicit_roms_path = roms_path
@@ -77,7 +77,12 @@ class ROMExplorerScreen(Screen):
         self.manager = getattr(app, "download_manager", None)
 
         table.clear()
-        table.add_columns("Selected", "Name", "Region", "Size", "Providers", "MD5")
+        table.add_column("Sel.", width=4)
+        table.add_column("Name", width=60)
+        table.add_column("Region", width=8)
+        table.add_column("Size", width=8)
+        table.add_column("Providers", width=23)
+        table.add_column("MD5", width=36)
         table.cursor_type = "row"
         table.zebra_stripes = True
         table.focus()

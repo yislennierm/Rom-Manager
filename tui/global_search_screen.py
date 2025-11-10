@@ -28,7 +28,7 @@ class GlobalSearchScreen(Screen):
     ]
 
     def __init__(self):
-        super().__init__()
+        super().__init__(id="global_search_screen")
         self.roms: List[Dict] = []
         self.filtered: List[Dict] = []
         self.selected: Set[str] = set()
@@ -40,14 +40,21 @@ class GlobalSearchScreen(Screen):
         yield Container(
             self.label,
             Input(placeholder="Search all consoles...", id="search"),
-            DataTable(id="rom_table"),
+            DataTable(id="global_rom_table"),
         )
         yield Footer()
 
     def on_mount(self) -> None:
-        self.table = self.query_one("#rom_table", DataTable)
+        self.table = self.query_one("#global_rom_table", DataTable)
         self.search_input = self.query_one("#search", Input)
-        self.table.add_columns("Selected", "Manufacturer", "Console", "Name", "Size", "MD5", "Protocol", "Local")
+        self.table.add_column("Sel.", width=4)
+        self.table.add_column("Brand", width=10)
+        self.table.add_column("Console", width=10)
+        self.table.add_column("Name", width=60)
+        self.table.add_column("Size", width=8)
+        self.table.add_column("MD5", width=36)
+        self.table.add_column("Protocol", width=10)
+        self.table.add_column("Local", width=6)
         self.table.cursor_type = "row"
         self.table.zebra_stripes = True
         self.table.focus()
