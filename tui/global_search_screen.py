@@ -113,10 +113,11 @@ class GlobalSearchScreen(Screen):
                     for token in tokens
                 )
             ]
-        self.display_roms(self.filtered)
+        current_row = getattr(self.table, "cursor_row", 0)
+        self.display_roms(self.filtered, cursor_row=current_row)
         self.label.update(f"Global ROM Search — {len(self.filtered)}/{len(self.roms)} match '{query}'")
 
-    def display_roms(self, roms: List[Dict]) -> None:
+    def display_roms(self, roms: List[Dict], cursor_row: int | None = None) -> None:
         self.table.clear()
         for rom in roms:
             selected = "[*]" if rom["_key"] in self.selected else "[ ]"
@@ -132,6 +133,7 @@ class GlobalSearchScreen(Screen):
                 protocol,
                 "✅" if rom.get("_is_local") else "—",
             )
+        self._restore_cursor(cursor_row)
 
     @staticmethod
     def _format_size(size_bytes) -> str:
@@ -158,7 +160,7 @@ class GlobalSearchScreen(Screen):
             self.selected.remove(key)
         else:
             self.selected.add(key)
-        self.apply_filter()
+        self.display_roms(self.filtered, cursor_row=row_index)
         self._notify(f"Selected {len(self.selected)} ROM(s)", severity="debug")
 
     def _queue_jobs(self):
@@ -261,3 +263,15 @@ class GlobalSearchScreen(Screen):
             app.notify(message, severity=severity)
         else:
             print(f"[{severity.upper()}] {message}")
+
+    def _restore_cursor(self, requested_row: int | None) -> None:
+        if not self.table.row_count:
+            return
+        if requested_row is None:
+            requested_row = getattr(self.table, "cursor_row", 0)
+        requested_row = max(0, min(requested_row or 0, self.table.row_count - 1))
+        current_column = getattr(self.table, "cursor_column", 0)
+        try:
+            self.table.cursor_coordinate = (requested_row, current_column)
+        except AttributeError:
+            pass

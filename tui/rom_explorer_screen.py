@@ -158,11 +158,12 @@ class ROMExplorerScreen(Screen):
                 if all(token in rom["_search_blob"] for token in tokens)
             ]
         self.filtered = filtered
-        self.display_roms(filtered)
+        current_row = getattr(self.table, "cursor_row", 0)
+        self.display_roms(filtered, cursor_row=current_row)
         if announce:
             self._notify(f"Filter applied — {len(filtered)}/{len(self.roms)} match '{query}'", severity="debug")
 
-    def display_roms(self, roms: List[Dict]) -> None:
+    def display_roms(self, roms: List[Dict], cursor_row: int | None = None) -> None:
         self.table.clear()
         for rom in roms:
             mark = "[*]" if rom["_key"] in self.selected_keys else "[ ]"
@@ -175,6 +176,7 @@ class ROMExplorerScreen(Screen):
                 providers_cell,
                 rom.get("md5") or "—",
             )
+        self._restore_cursor(cursor_row)
 
     def _format_provider_cell(self, rom: Dict) -> str:
         total = self._provider_total
@@ -222,8 +224,20 @@ class ROMExplorerScreen(Screen):
             self.selected_keys.remove(key)
         else:
             self.selected_keys.add(key)
-        self.display_roms(self.filtered)
+        self.display_roms(self.filtered, cursor_row=row_index)
         self._notify(f"Selected {len(self.selected_keys)} ROM(s)", severity="debug")
+
+    def _restore_cursor(self, requested_row: int | None) -> None:
+        if not self.table.row_count:
+            return
+        if requested_row is None:
+            requested_row = getattr(self.table, "cursor_row", 0)
+        requested_row = max(0, min(requested_row or 0, self.table.row_count - 1))
+        current_column = getattr(self.table, "cursor_column", 0)
+        try:
+            self.table.cursor_coordinate = (requested_row, current_column)
+        except AttributeError:
+            pass
 
     def _create_jobs(self) -> None:
         jobs_created = 0
