@@ -148,6 +148,21 @@
           ".chd"
         ],
         "libretro_guid": "b4e1a5aa-5431-535e-9650-8c7b6bbc5036"
+      },
+      "Pico": {
+        "name": "Sega Pico",
+        "provider": "Internet Archive",
+        "archive_id": "SegaPICO_201809",
+        "base_url": "https://archive.org/download/SegaPICO_201809",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/SegaPICO_201809/SegaPICO_201809_meta.sqlite",
+          "files_xml": "https://archive.org/download/SegaPICO_201809/SegaPICO_201809_files.xml",
+          "torrent": "https://archive.org/download/SegaPICO_201809/SegaPICO_201809_archive.torrent",
+          "meta_xml": "https://archive.org/download/SegaPICO_201809/SegaPICO_201809_meta.xml"
+        },
+        "rom_extensions": [
+          ".md"
+        ]
       }
     },
     "Nintendo": {

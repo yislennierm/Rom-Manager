@@ -39,11 +39,32 @@ def fetch_bytes(source: str) -> bytes:
     return response.content
 
 
-def iter_records(blob: bytes) -> Iterable[dict]:
-    unpacker = msgpack.Unpacker(io.BytesIO(blob), raw=False)
+def _detect_payload_offset(blob: bytes, max_search: int = 4096) -> int:
+    """Heuristically locate the MsgPack payload inside an .rdb file."""
+
+    for offset in range(0, min(max_search, len(blob))):
+        view = memoryview(blob)[offset:]
+        unpacker = msgpack.Unpacker(io.BytesIO(view), raw=False)
+        try:
+            first = next(unpacker)
+        except Exception:
+            continue
+        if isinstance(first, dict) and any(k in first for k in ("name", "title", "serial")):
+            return offset
+    return 0
+
+
+def iter_records(blob: bytes, offset: int) -> Iterable[dict]:
+    unpacker = msgpack.Unpacker(io.BytesIO(blob[offset:]), raw=False)
     for obj in unpacker:
         if isinstance(obj, dict):
             yield obj
+
+
+def _format_hex(value):
+    if isinstance(value, bytes):
+        return value.hex()
+    return value
 
 
 def summarize(records: list[dict], limit: int = 5) -> str:
@@ -52,9 +73,21 @@ def summarize(records: list[dict], limit: int = 5) -> str:
     lines = []
     for idx, entry in enumerate(records[:limit], 1):
         name = entry.get("name") or entry.get("title") or "Unnamed"
-        md5 = entry.get("md5") or entry.get("MD5") or "—"
-        crc = entry.get("crc32") or entry.get("CRC") or "—"
-        lines.append(f"{idx}. {name}\n    CRC32: {crc}\n    MD5: {md5}")
+        md5 = _format_hex(entry.get("md5") or entry.get("MD5") or "—")
+        crc = _format_hex(entry.get("crc32") or entry.get("CRC") or "—")
+        region = entry.get("region") or "—"
+        size = entry.get("size") or entry.get("rom_size") or "—"
+        serial = _format_hex(entry.get("serial") or entry.get("Serial") or "—")
+        developer = entry.get("developer") or entry.get("Developer") or "—"
+        publisher = entry.get("publisher") or entry.get("Publisher") or "—"
+        release = entry.get("releaseyear") or entry.get("releasedate") or "—"
+        lines.append(
+            f"{idx}. {name}\n"
+            f"    Region: {region}    Size: {size}\n"
+            f"    CRC32: {crc}    MD5: {md5}\n"
+            f"    Serial: {serial}\n"
+            f"    Dev: {developer}    Pub: {publisher}    Release: {release}"
+        )
     return "\n".join(lines)
 
 
@@ -70,8 +103,11 @@ def main() -> int:
         print(f"Failed to fetch {args.source}: {exc}", file=sys.stderr)
         return 1
 
+    offset = _detect_payload_offset(blob)
+    if offset:
+        print(f"Detected MsgPack payload at offset {offset} bytes")
     try:
-        records = list(iter_records(blob))
+        records = list(iter_records(blob, offset))
     except Exception as exc:
         print(f"Failed to parse RDB: {exc}", file=sys.stderr)
         return 1

@@ -1,4 +1,6 @@
+import json
 import os
+from pathlib import Path
 
 from textual.app import ComposeResult
 from textual.widgets import Header, Footer, DataTable, Static, Input
@@ -7,9 +9,15 @@ from textual.screen import Screen
 from textual import events
 
 from core.providers import load_providers
-from utils.library_sync import load_modules, build_module_index, index_exists
+from utils.library_sync import (
+    load_modules,
+    build_module_index,
+    index_exists,
+    export_module_rdb,
+)
 from utils.paths import manufacturer_slug, console_slug
 
+STORAGE_CONFIG_PATH = Path("data/storage/storage_config.json")
 
 class DatabaseScreen(Screen):
     """Manage synced consoles from libretro."""
@@ -18,7 +26,8 @@ class DatabaseScreen(Screen):
         ("escape", "go_back", "Back"),
         ("r", "refresh", "Refresh"),
         ("space", "toggle_activation", "Toggle Activation"),
-        ("i", "index", "Rebuild Index"),
+        ("a", "build_artwork", "Build Artwork"),
+        ("i", "export_rdb", "Export RDB"),
         ("enter", "detail", "Details"),
         ("d", "detail", "Details"),
         ("/", "focus_search", "Search"),
@@ -32,7 +41,7 @@ class DatabaseScreen(Screen):
             Static(
                 "Module list is loaded from data/index/libretro_modules.json."
                 "\nUse `python3 roms_manager.py database fetch` to update it."
-                "\nPress '/' to search, [space] to activate, [i] to rebuild."
+                "\nPress '/' to search, [space] to toggle, [a] for artwork, [i] for RDB."
                 "\nDestination shows where ROMs will be stored once active.",
                 id="db_info",
             ),
@@ -47,11 +56,13 @@ class DatabaseScreen(Screen):
         self.table.cursor_type = "row"
         self.table.zebra_stripes = True
         self.table.focus()
+        self.storage_config = self._load_storage_config()
         self.refresh_modules()
 
     def refresh_modules(self):
         self.modules = load_modules()
         self.provider_map = self._build_provider_lookup()
+        self.storage_config = self._load_storage_config()
         self._apply_filter()
 
     def action_refresh(self):
@@ -60,25 +71,46 @@ class DatabaseScreen(Screen):
     def action_go_back(self):
         self.app.pop_screen()
 
-    def action_index(self):
+    def action_build_artwork(self):
         module = self._current_module()
         if not module:
             self.app.bell()
             return
-        name = module.get("name")
-        self._activate_module(name, force=True)
+        self._build_artwork_index(module, force=True)
+
+    def action_export_rdb(self):
+        module = self._current_module()
+        if not module:
+            self.app.bell()
+            return
+        self._export_rdb(module)
 
     def action_toggle_activation(self):
         module = self._current_module()
         if not module:
             self.app.bell()
             return
-        name = module.get("name")
-        if index_exists(name):
-            self._notify(f"{name} is already active. Press [i] to rebuild.", severity="warning")
-            self.app.bell()
+        guid = module.get("guid")
+        if not guid:
+            self._notify("Module GUID missing; run database fetch again.", severity="warning")
             return
-        self._activate_module(name)
+        key, frontend = self._active_frontend_entry()
+        if not frontend:
+            self._notify("No frontend configured. Use Storage settings first.", severity="warning")
+            return
+        supported = frontend.get("supported_guids") or []
+        if guid in supported:
+            supported = [value for value in supported if value != guid]
+            message = f"Deactivated {module.get('name', 'module')} for {frontend.get('name', 'frontend')}."
+        else:
+            supported = supported + [guid]
+            message = f"Activated {module.get('name', 'module')} for {frontend.get('name', 'frontend')}."
+        frontend["supported_guids"] = supported
+        self.storage_config.setdefault("frontends", {})[key] = frontend
+        self._save_storage_config(self.storage_config)
+        self.storage_config = self._load_storage_config()
+        self._apply_filter()
+        self._notify(message, severity="success")
 
     def action_detail(self):
         module = self._current_module()
@@ -94,17 +126,33 @@ class DatabaseScreen(Screen):
         modal = ConsoleDetailModal(module, guid, self._provider_entry_by_guid(guid))
         self.app.push_screen(modal)
 
-    def _activate_module(self, name: str, force: bool = False) -> None:
+    def _build_artwork_index(self, module: dict, force: bool = False) -> None:
         if not getattr(self, "modules", None):
             self.app.bell()
             return
+        name = module.get("name") or ""
+        if not name:
+            self._notify("Module has no name; cannot build index.", severity="error")
+            return
         if not force and index_exists(name):
+            self._notify(f"{name} already has an artwork index. Press [a] again to rebuild.", severity="warning")
             return
         try:
             build_module_index(name)
             self._notify(f"Indexed {name}.", severity="success")
         except Exception as exc:
             self._notify(f"Index failed: {exc}", severity="error")
+            return
+        self.refresh_modules()
+
+    def _export_rdb(self, module: dict) -> None:
+        if not module:
+            return
+        try:
+            path = export_module_rdb(module)
+            self._notify(f"Exported RDB to {path}", severity="info")
+        except Exception as exc:
+            self._notify(f"RDB export failed: {exc}", severity="warning")
         self.refresh_modules()
 
     def action_focus_search(self):
@@ -127,6 +175,36 @@ class DatabaseScreen(Screen):
             return None
         return self.filtered_modules[row_index]
 
+    def _load_storage_config(self) -> dict:
+        if not STORAGE_CONFIG_PATH.exists():
+            return {}
+        try:
+            return json.loads(STORAGE_CONFIG_PATH.read_text())
+        except Exception:
+            return {}
+
+    def _save_storage_config(self, payload: dict) -> None:
+        STORAGE_CONFIG_PATH.parent.mkdir(parents=True, exist_ok=True)
+        STORAGE_CONFIG_PATH.write_text(json.dumps(payload, indent=2))
+
+    def _active_frontend_entry(self):
+        config = getattr(self, "storage_config", {}) or {}
+        frontends = config.get("frontends", {})
+        for key, entry in frontends.items():
+            if entry.get("active"):
+                return key, entry
+        if frontends:
+            return next(iter(frontends.items()))
+        return None, None
+
+    def _is_guid_active(self, guid: str | None) -> bool:
+        if not guid:
+            return False
+        _, frontend = self._active_frontend_entry()
+        if not frontend:
+            return False
+        return guid in (frontend.get("supported_guids") or [])
+
     def _apply_filter(self):
         self.filtered_modules = []
         self.table.clear()
@@ -138,7 +216,7 @@ class DatabaseScreen(Screen):
             name = module.get("name") or ""
             if query and query not in name.lower():
                 continue
-            checkbox = "☑" if index_exists(name) else "☐"
+            checkbox = "☑" if self._is_guid_active(module.get("guid")) else "☐"
             provider_cell = self._provider_cell(module.get("guid"))
             destination = self._destination_for(name)
             self.table.add_row(checkbox, name or "—", provider_cell, destination)

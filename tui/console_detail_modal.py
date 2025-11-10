@@ -7,6 +7,7 @@ from textual.containers import Vertical
 from textual.screen import ModalScreen
 
 import json
+from utils.library_sync import rdb_json_path
 from utils.paths import console_slug
 
 
@@ -56,6 +57,7 @@ class ConsoleDetailModal(ModalScreen):
         parts = [segment.strip() for segment in name.split("-", 1)]
         self.manufacturer = parts[0] if parts else "Unknown"
         self.console = parts[1] if len(parts) == 2 else name
+        self.rdb_info = self._load_rdb_info()
 
     def compose(self) -> ComposeResult:
         title = f"{self.manufacturer} / {self.console}"
@@ -65,7 +67,8 @@ class ConsoleDetailModal(ModalScreen):
         yield Static(
             f"[b]Frontend:[/b] {frontend_label}\n"
             f"[b]ROMs path:[/b] {self._roms_path}\n"
-            f"[b]BIOS path:[/b] {self._bios_path}",
+            f"[b]BIOS path:[/b] {self._bios_path}\n"
+            f"[b]RDB export:[/b] {self._describe_rdb()}",
             id="console_detail_paths",
         )
         self.provider_table = DataTable(id="console_provider_table")
@@ -158,6 +161,44 @@ class ConsoleDetailModal(ModalScreen):
             if entry.get("active"):
                 return entry
         return next(iter(frontends.values()), {})
+
+    def _load_rdb_info(self) -> dict:
+        name = self.module.get("name") if isinstance(self.module, dict) else None
+        if not name:
+            return {"path": None, "exists": False}
+        try:
+            path = rdb_json_path(name)
+        except Exception:
+            return {"path": None, "exists": False}
+        info = {
+            "path": str(path),
+            "exists": path.exists(),
+        }
+        if path.exists():
+            try:
+                payload = json.loads(path.read_text())
+                info["entry_count"] = payload.get("entry_count") or len(payload.get("entries", []))
+                info["fetched_at"] = payload.get("fetched_at")
+            except Exception:
+                info["entry_count"] = None
+                info["fetched_at"] = None
+        return info
+
+    def _describe_rdb(self) -> str:
+        path = self.rdb_info.get("path")
+        if not path:
+            return "Not available"
+        if not self.rdb_info.get("exists"):
+            return f"{path} (not exported)"
+        entry_count = self.rdb_info.get("entry_count")
+        fetched_at = self.rdb_info.get("fetched_at")
+        details = []
+        if entry_count:
+            details.append(f"{entry_count} entries")
+        if fetched_at:
+            details.append(fetched_at)
+        extra = f" ({', '.join(details)})" if details else ""
+        return f"{path}{extra}"
 
     def action_install_bios(self):
         self._install_bios()

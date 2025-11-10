@@ -1,15 +1,17 @@
+import os
+from typing import Dict, List, Set
+
 from textual.app import ComposeResult
 from textual.widgets import Header, Footer, Static, Input, DataTable
 from textual.containers import Container
 from textual.screen import Screen
 
-import json
-import os
+from utils.catalog import build_rom_catalog, resolve_module
+from utils.paths import manufacturer_slug, console_slug
 
 from .message_screen import MessageScreen
 from .download_manager_screen import DownloadManagerScreen
 from .rom_detail_screen import ROMDetailScreen
-from utils.paths import roms_json_path, manufacturer_slug, console_slug
 
 
 DEFAULT_MANUFACTURER = "Sega"
@@ -17,7 +19,9 @@ DEFAULT_CONSOLE = "Dreamcast"
 
 
 class ROMExplorerScreen(Screen):
-    """Browse ROMs for the currently selected console."""
+    """Browse ROMs for the currently selected console (RDB-first)."""
+
+    CSS_PATH = "styles/rom_explorer.css"
 
     BINDINGS = [
         ("/", "focus_search", "Search"),
@@ -28,15 +32,20 @@ class ROMExplorerScreen(Screen):
         ("backspace", "go_back", "Back"),
     ]
 
-    def __init__(self, manufacturer=None, console=None, roms_path=None):
+    def __init__(self, manufacturer=None, console=None, roms_path=None, module_guid=None):
         super().__init__()
         self._initial_manufacturer = manufacturer
         self._initial_console = console
         self._explicit_roms_path = roms_path
-        self.roms = []
-        self.selected_names: set[str] = set()
-        self.torrent_url = None
+        self._explicit_guid = module_guid
+        self.roms: List[Dict] = []
+        self.filtered: List[Dict] = []
+        self.selected_keys: Set[str] = set()
         self.artwork_provider = "libretro"
+        self._provider_total = 0
+        self.rdb_entry_count = 0
+        self.rdb_path: str | None = None
+        self.module_guid: str | None = None
 
     def compose(self) -> ComposeResult:
         self.label = Static("", id="label")
@@ -48,25 +57,19 @@ class ROMExplorerScreen(Screen):
         )
         yield Footer()
 
-    # ------------------------------------------------------------------
-    # Lifecycle
-    # ------------------------------------------------------------------
-
     def on_mount(self) -> None:
         app = getattr(self, "app", None)
 
         manufacturer = self._initial_manufacturer or getattr(app, "current_manufacturer", DEFAULT_MANUFACTURER)
         console = self._initial_console or getattr(app, "current_console", DEFAULT_CONSOLE)
-        roms_path = self._explicit_roms_path or getattr(app, "current_roms_path", None)
+        module_guid = self._explicit_guid or getattr(app, "current_module_guid", None)
+        rdb_path = self._explicit_roms_path or getattr(app, "current_roms_path", None)
 
-        if not roms_path:
-            roms_path = roms_json_path(manufacturer, console)
-        elif not os.path.exists(roms_path):
-            self._notify(
-                f"Provided ROM list not found at {roms_path}; falling back to default cache.",
-                severity="warning",
-            )
-            roms_path = roms_json_path(manufacturer, console)
+        module = resolve_module(manufacturer, console, module_guid)
+        if module:
+            module_guid = module.get("guid")
+
+        self.module_guid = module_guid
 
         table = self.query_one("#rom_table", DataTable)
         self.table = table
@@ -74,7 +77,7 @@ class ROMExplorerScreen(Screen):
         self.manager = getattr(app, "download_manager", None)
 
         table.clear()
-        table.add_columns("Selected", "Console", "Name", "Size", "MD5")
+        table.add_columns("Selected", "Name", "Region", "Size", "Providers", "MD5")
         table.cursor_type = "row"
         table.zebra_stripes = True
         table.focus()
@@ -84,65 +87,103 @@ class ROMExplorerScreen(Screen):
             self.app.push_screen(MessageScreen("Error", "Download manager is not available."))
             return
 
-        if not os.path.exists(roms_path):
-            self._notify(f"ROM list missing: {roms_path}", severity="error")
-            self.app.push_screen(MessageScreen("Error", f"Missing ROM list: {os.path.basename(roms_path)}"))
+        try:
+            catalog = build_rom_catalog(
+                manufacturer,
+                console,
+                module_guid=module_guid,
+                rdb_path=rdb_path,
+            )
+        except FileNotFoundError:
+            message = (
+                f"No RDB export found for {manufacturer}/{console}.\n"
+                "Open the Database screen and press [i] on the module to export."
+            )
+            self._notify(message, severity="warning")
+            self.app.push_screen(MessageScreen("Missing RDB", message))
+            return
+        except Exception as exc:
+            self._notify(f"Failed to build catalog: {exc}", severity="error")
+            self.app.push_screen(MessageScreen("Error", f"Unable to load catalog: {exc}"))
             return
 
-        with open(roms_path) as fh:
-            self.roms = json.load(fh)
-        self._notify(
-            f"Loaded {len(self.roms)} ROM entries from {os.path.basename(roms_path)}",
-            severity="debug",
-        )
-
-        # Normalise metadata for display and downloads.
-        for rom in self.roms:
-            rom.setdefault("manufacturer", manufacturer)
-            rom.setdefault("console", console)
-            if rom.get("torrent_url"):
-                self.torrent_url = rom["torrent_url"]
-            size_value = rom.get("size")
-            try:
-                rom["_size_bytes"] = int(size_value)
-            except (TypeError, ValueError):
-                rom["_size_bytes"] = None
+        self.rdb_path = catalog["rdb_path"]
+        self.rdb_entry_count = catalog["entry_count"]
+        self._provider_total = catalog["provider_total"]
+        self.roms = catalog["roms"]
+        self.filtered = self.roms
 
         self.manufacturer = manufacturer
         self.console = console
-        self.roms_path = roms_path
 
-        # Update shared state for other screens.
         if app is not None:
             app.current_manufacturer = manufacturer
             app.current_console = console
-            app.current_roms_path = roms_path
+            app.current_roms_path = self.rdb_path
             app.current_manufacturer_slug = manufacturer_slug(manufacturer)
             app.current_console_slug = console_slug(console)
+            app.current_module_guid = module_guid
 
-        self.label.update(f"Search ROMs — {manufacturer} / {console} (press / to focus, SPACE to select)")
-        self.filtered = self.roms
-        self.apply_filter()
-        self._notify(f"Explorer ready for {manufacturer} / {console}", severity="info")
+        provider_info = (
+            f"{self._provider_total} provider cache(s)"
+            if self._provider_total
+            else "no provider caches"
+        )
+        self.label.update(
+            f"RDB — {manufacturer} / {console} · {self.rdb_entry_count} entries · {provider_info}"
+        )
+        self.apply_filter(announce=False)
+        self._notify(
+            f"Explorer ready for {manufacturer} / {console} ({self.rdb_entry_count} entries, {provider_info}).",
+            severity="info",
+        )
 
     # ------------------------------------------------------------------
-    # Helpers
+    # Table helpers
     # ------------------------------------------------------------------
 
-    def apply_filter(self) -> None:
-        query = (self.search_input.value or "").lower()
-        filtered = [rom for rom in self.roms if query in rom["name"].lower()]
+    def apply_filter(self, announce: bool = True) -> None:
+        query = (self.search_input.value or "").lower().strip()
+        if not query:
+            filtered = self.roms
+        else:
+            tokens = query.split()
+            filtered = [
+                rom for rom in self.roms
+                if all(token in rom["_search_blob"] for token in tokens)
+            ]
         self.filtered = filtered
         self.display_roms(filtered)
-        self._notify(f"Filter applied — {len(filtered)}/{len(self.roms)} ROMs match '{query}'", severity="debug")
+        if announce:
+            self._notify(f"Filter applied — {len(filtered)}/{len(self.roms)} match '{query}'", severity="debug")
 
-    def display_roms(self, roms: list[dict]) -> None:
+    def display_roms(self, roms: List[Dict]) -> None:
         self.table.clear()
         for rom in roms:
-            mark = "[*]" if rom["name"] in self.selected_names else "[ ]"
-            formatted_size = self._format_size(rom.get("_size_bytes"))
-            md5 = rom.get("md5") or "—"
-            self.table.add_row(mark, rom.get("console", "Unknown"), rom["name"], formatted_size, md5)
+            mark = "[*]" if rom["_key"] in self.selected_keys else "[ ]"
+            providers_cell = self._format_provider_cell(rom)
+            self.table.add_row(
+                mark,
+                rom["name"],
+                rom.get("region", "—"),
+                self._format_size(rom.get("_size_bytes")),
+                providers_cell,
+                rom.get("md5") or "—",
+            )
+
+    def _format_provider_cell(self, rom: Dict) -> str:
+        total = self._provider_total
+        count = rom.get("_provider_count", 0)
+        if total:
+            labels = ", ".join(rom["_provider_labels"][:2])
+            if len(rom["_provider_labels"]) > 2:
+                labels += ", …"
+            suffix = f" ({labels})" if labels else ""
+            return f"{count}/{total}{suffix}"
+        if count:
+            labels = ", ".join(rom["_provider_labels"])
+            return f"{count}{(' (' + labels + ')') if labels else ''}"
+        return "0"
 
     @staticmethod
     def _format_size(size_bytes):
@@ -161,21 +202,27 @@ class ROMExplorerScreen(Screen):
                 return f"{size_bytes / factor:.1f} {unit}"
         return f"{size_bytes} B"
 
+    # ------------------------------------------------------------------
+    # Selection & jobs
+    # ------------------------------------------------------------------
+
     def _toggle_selection(self) -> None:
-        if not self.table.row_count:
+        if not self.table.row_count or not self.filtered:
             return
         row_index = getattr(self.table, "cursor_row", 0)
-        row = self.table.get_row_at(row_index)
-        rom_name = row[2]
-        if rom_name in self.selected_names:
-            self.selected_names.remove(rom_name)
+        row_index = max(0, min(row_index, len(self.filtered) - 1))
+        rom = self.filtered[row_index]
+        key = rom["_key"]
+        if key in self.selected_keys:
+            self.selected_keys.remove(key)
         else:
-            self.selected_names.add(rom_name)
-        self.apply_filter()
-        self._notify(f"Selected {len(self.selected_names)} ROM(s)", severity="debug")
+            self.selected_keys.add(key)
+        self.display_roms(self.filtered)
+        self._notify(f"Selected {len(self.selected_keys)} ROM(s)", severity="debug")
 
     def _create_jobs(self) -> None:
         jobs_created = 0
+        missing_sources = 0
         target_dir = os.path.join(
             "downloads",
             manufacturer_slug(self.manufacturer),
@@ -184,11 +231,17 @@ class ROMExplorerScreen(Screen):
 
         existing_count = 0
         for rom in self.roms:
-            if rom["name"] not in self.selected_names:
+            if rom["_key"] not in self.selected_keys:
                 continue
-            torrent = rom.get("torrent_url") or self.torrent_url
-            http_url = rom.get("http_url")
+            providers = rom.get("_providers") or []
+            if not providers:
+                missing_sources += 1
+                continue
+            preferred = providers[0]["rom"]
+            torrent = preferred.get("torrent_url") or preferred.get("torrent")
+            http_url = preferred.get("http_url")
             if not torrent and not http_url:
+                missing_sources += 1
                 continue
             job = self.manager.add_job(
                 rom_name=rom["name"],
@@ -213,20 +266,20 @@ class ROMExplorerScreen(Screen):
             self._notify(message, severity="info")
             self.app.push_screen(MessageScreen("Already Downloaded", message))
         else:
+            note = "No available download source for the selected ROMs."
+            if missing_sources:
+                note += f" ({missing_sources} selection(s) lack provider data.)"
             self.app.bell()
-            self.app.push_screen(MessageScreen("Info", "No available download source for the selected ROMs."))
+            self.app.push_screen(MessageScreen("Info", note))
             self._notify("No download source found for selected ROMs", severity="warning")
 
     # ------------------------------------------------------------------
-    # Event handlers
+    # Event handlers & actions
     # ------------------------------------------------------------------
 
     def on_input_changed(self, event: Input.Changed) -> None:
-        self.apply_filter()
-
-    # ------------------------------------------------------------------
-    # Actions / bindings
-    # ------------------------------------------------------------------
+        if event.input is self.search_input:
+            self.apply_filter()
 
     def action_focus_search(self) -> None:
         if hasattr(self, "search_input"):
@@ -239,7 +292,7 @@ class ROMExplorerScreen(Screen):
         self._show_details()
 
     def action_queue_jobs(self) -> None:
-        if not self.selected_names:
+        if not self.selected_keys and self.filtered:
             self._toggle_selection()
         self._create_jobs()
 
@@ -247,7 +300,7 @@ class ROMExplorerScreen(Screen):
         self.app.pop_screen()
 
     # ------------------------------------------------------------------
-    # Notifications
+    # Notifications & details
     # ------------------------------------------------------------------
 
     def _notify(self, message: str, severity: str = "info") -> None:
@@ -255,11 +308,10 @@ class ROMExplorerScreen(Screen):
         if app and hasattr(app, "notify"):
             app.notify(message, severity=severity)
         else:
-            # Fallback for environments without notify support.
             print(f"[{severity.upper()}] {message}")
 
     def _current_rom(self):
-        if not self.table.row_count:
+        if not self.table.row_count or not self.filtered:
             return None
         row_index = getattr(self.table, "cursor_row", 0)
         return self.filtered[row_index] if row_index < len(self.filtered) else None

@@ -11,6 +11,8 @@ from .rom_explorer_screen import ROMExplorerScreen
 class ConsoleSelectScreen(Screen):
     """Screen for listing cached consoles and selecting one for browsing."""
 
+    CSS_PATH = "styles/rom_explorer.css"
+
     BINDINGS = [
         ("escape", "go_back", "Back"),
         ("enter", " action_select_console", "Select"),
@@ -39,9 +41,12 @@ class ConsoleSelectScreen(Screen):
         self.table.clear()
         self.consoles = list_cached_consoles()
         if not self.consoles:
-            self.table.add_row("—", "No cached consoles found — export ROM lists first.", "")
+            self.table.add_row("—", "No activated consoles with RDB exports. Use Database screen (space + i).", "")
             self.table.cursor_row = 0
-            self._notify("Console cache is empty. Export ROM lists via CLI first.", severity="warning")
+            self._notify(
+                "No activated consoles found. Toggle a console in Database and press [i] to export its RDB.",
+                severity="warning",
+            )
             return
 
         for entry in self.consoles:
@@ -72,6 +77,7 @@ class ConsoleSelectScreen(Screen):
         self.app.current_roms_path = entry["roms_path"]
         self.app.current_manufacturer_slug = entry["manufacturer_slug"]
         self.app.current_console_slug = entry["console_slug"]
+        self.app.current_module_guid = entry.get("guid")
 
         self._notify(
             f"Switching to {entry['manufacturer']} / {entry['console']} (ROMs: {entry.get('rom_count', 'unknown')})",
@@ -83,6 +89,7 @@ class ConsoleSelectScreen(Screen):
                 manufacturer=entry["manufacturer"],
                 console=entry["console"],
                 roms_path=entry["roms_path"],
+                module_guid=entry.get("guid"),
             )
         )
 

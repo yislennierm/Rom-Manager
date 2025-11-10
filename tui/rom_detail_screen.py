@@ -39,11 +39,12 @@ class ROMDetailScreen(Screen):
 
     def _build_metadata(self) -> Static:
         rom = self.rom
+        size_label = self._format_size(rom.get("_size_bytes")) if "_size_bytes" in rom else rom.get("size") or "Unknown"
         details = dedent(
             f"""
             [b]Name:[/b] {rom.get('name', 'Unknown')}
             [b]Console:[/b] {rom.get('manufacturer', 'Unknown')} / {rom.get('console', 'Unknown')}
-            [b]Size:[/b] {rom.get('size') or 'Unknown'}
+            [b]Size:[/b] {size_label}
             [b]MD5:[/b] {rom.get('md5') or '—'}
             [b]SHA1:[/b] {rom.get('sha1') or '—'}
             [b]CRC32:[/b] {rom.get('crc32') or '—'}
@@ -82,6 +83,21 @@ class ROMDetailScreen(Screen):
 
     def action_go_back(self):
         self.app.pop_screen()
+
+    @staticmethod
+    def _format_size(size_bytes):
+        if size_bytes in (None, 0):
+            return "Unknown"
+        thresholds = [
+            (1 << 40, "TB"),
+            (1 << 30, "GB"),
+            (1 << 20, "MB"),
+            (1 << 10, "KB"),
+        ]
+        for factor, unit in thresholds:
+            if size_bytes >= factor:
+                return f"{size_bytes / factor:.1f} {unit}"
+        return f"{size_bytes} B"
 
     def _notify(self, message: str, severity: str = "info") -> None:
         app = getattr(self, "app", None)

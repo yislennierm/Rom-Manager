@@ -3,6 +3,9 @@ import os
 import re
 from typing import Dict, List, Optional
 
+from data.storage.storage_config_loader import load_storage_config
+from utils.library_sync import load_modules, rdb_json_path
+
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DATA_DIR = os.path.join(PROJECT_ROOT, "data")
@@ -84,64 +87,65 @@ def torrent_file_path(manufacturer: str, console: str, filename: Optional[str] =
 
 
 def list_cached_consoles() -> List[Dict]:
+    """Return activated consoles whose libretro RDB exports exist locally."""
+
+    config = load_storage_config() or {}
+    frontends = config.get("frontends", {})
+    active_guids: List[str] = []
+    for entry in frontends.values():
+        if entry.get("active"):
+            active_guids.extend([guid for guid in entry.get("supported_guids") or [] if guid])
+
+    if not active_guids:
+        return []
+
+    modules = load_modules()
+    module_lookup = {module.get("guid"): module for module in modules if module.get("guid")}
+
     results: List[Dict] = []
-    if not os.path.isdir(CACHE_DIR):
-        return results
+    seen: set[str] = set()
 
-    for manufacturer_slug_name in sorted(os.listdir(CACHE_DIR)):
-        manufacturer_path = os.path.join(CACHE_DIR, manufacturer_slug_name)
-        if not os.path.isdir(manufacturer_path):
+    for guid in active_guids:
+        if guid in seen:
             continue
+        module = module_lookup.get(guid)
+        if not module:
+            continue
+        name = module.get("name") or ""
+        parts = [segment.strip() for segment in name.split("-", 1)]
+        if len(parts) == 2:
+            manufacturer, console = parts
+        else:
+            if parts:
+                manufacturer = parts[0]
+                console = parts[-1]
+            else:
+                manufacturer = console = "Unknown"
 
-        for console_slug_name in sorted(os.listdir(manufacturer_path)):
-            console_path = os.path.join(manufacturer_path, console_slug_name)
-            if not os.path.isdir(console_path):
-                continue
+        rdb_path = rdb_json_path(name)
+        if not rdb_path.exists():
+            continue
+        try:
+            payload = json.loads(rdb_path.read_text())
+            rom_count = payload.get("entry_count")
+            if rom_count is None and isinstance(payload.get("entries"), list):
+                rom_count = len(payload["entries"])
+        except Exception:
+            rom_count = None
 
-            exports_dir = os.path.join(console_path, "exports")
-            if not os.path.isdir(exports_dir):
-                continue
+        results.append({
+            "manufacturer": manufacturer,
+            "manufacturer_slug": manufacturer_slug(manufacturer),
+            "console": console,
+            "console_slug": console_slug(console),
+            "roms_path": str(rdb_path),
+            "rom_count": rom_count,
+            "guid": guid,
+            "module_name": name,
+        })
+        seen.add(guid)
 
-            rom_json = None
-            for fname in os.listdir(exports_dir):
-                if fname.endswith("_roms.json"):
-                    rom_json = os.path.join(exports_dir, fname)
-                    break
-
-            if not rom_json:
-                continue
-
-            display_manufacturer = _slug_to_display(manufacturer_slug_name)
-            display_console = _slug_to_display(console_slug_name)
-
-            rom_count = 0
-            try:
-                with open(rom_json) as fh:
-                    data = json.load(fh)
-                if isinstance(data, list) and data:
-                    rom_count = len(data)
-                    first_entry = data[0]
-                    display_manufacturer = first_entry.get("manufacturer", display_manufacturer)
-                    display_console = first_entry.get("console", display_console)
-                elif isinstance(data, list):
-                    rom_count = len(data)
-                elif isinstance(data, dict):
-                    rom_count = len(data.get("roms", []))
-                    meta = data.get("meta", {})
-                    display_manufacturer = meta.get("manufacturer", display_manufacturer)
-                    display_console = meta.get("console", display_console)
-            except Exception:
-                pass
-
-            results.append({
-                "manufacturer": display_manufacturer,
-                "manufacturer_slug": manufacturer_slug_name,
-                "console": display_console,
-                "console_slug": console_slug_name,
-                "roms_path": rom_json,
-                "rom_count": rom_count,
-            })
-
+    results.sort(key=lambda item: (item["manufacturer"].lower(), item["console"].lower()))
     return results
 
 

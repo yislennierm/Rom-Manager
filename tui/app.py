@@ -22,6 +22,7 @@ class ROMManagerApp(App):
             self.current_roms_path = first["roms_path"]
             self.current_manufacturer_slug = first["manufacturer_slug"]
             self.current_console_slug = first["console_slug"]
+            self.current_module_guid = first.get("guid")
         else:
             # Defaults match the values used by the CLI.
             self.current_manufacturer = "Sega"
@@ -29,6 +30,7 @@ class ROMManagerApp(App):
             self.current_roms_path = None
             self.current_manufacturer_slug = manufacturer_slug(self.current_manufacturer)
             self.current_console_slug = console_slug(self.current_console)
+            self.current_module_guid = None
 
         self.push_screen(MenuScreen("Main Menu"))
 

@@ -1,11 +1,13 @@
 import json
 import os
 import re
+import io
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 from uuid import UUID, uuid5
 
+import msgpack  # type: ignore
 import requests
 
 REPO_OWNER = "libretro-thumbnails"
@@ -13,15 +15,16 @@ REPO_NAME = "libretro-thumbnails"
 RAW_BASE = f"https://raw.githubusercontent.com/{REPO_OWNER}/{REPO_NAME}/master"
 MODULES_FILE = Path("data") / "index" / "libretro_modules.json"
 INDEX_DIR = Path("data") / "index" / "libretro"
+RDB_DIR = Path("data") / "index" / "rdb"
+RDB_BASE = "https://raw.githubusercontent.com/libretro/libretro-database/master/rdb"
 ALLOWED_CATEGORIES = ["Named_Boxarts"]
 GUID_NAMESPACE = UUID("b9ae55f5-9f8f-4a5c-9a1d-8c7f2006100b")
 
 
 def _slugify(value: str) -> str:
-    return "".join(
-        ch if ch.isalnum() else "_"
-        for ch in value.lower()
-    ).strip("_") or "default"
+    slug = re.sub(r"[^a-z0-9]+", "_", value.lower())
+    slug = slug.strip("_")
+    return slug or "default"
 
 
 def _headers(token: Optional[str]) -> Dict[str, str]:
@@ -193,3 +196,63 @@ def _load_existing_guids() -> Dict[str, str]:
         if name and guid:
             existing[name] = guid
     return existing
+
+
+def rdb_json_path(name: str) -> Path:
+    slug = _slugify(name)
+    RDB_DIR.mkdir(parents=True, exist_ok=True)
+    return RDB_DIR / f"{slug}.json"
+
+
+def _detect_msgpack_offset(blob: bytes, max_search: int = 4096) -> int:
+    for offset in range(0, min(max_search, len(blob))):
+        view = memoryview(blob)[offset:]
+        unpacker = msgpack.Unpacker(io.BytesIO(view), raw=False)
+        try:
+            first = next(unpacker)
+        except Exception:
+            continue
+        if isinstance(first, dict) and any(key in first for key in ("name", "title", "serial")):
+            return offset
+    return 0
+
+
+def _jsonify(value):
+    if isinstance(value, dict):
+        return {k: _jsonify(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [_jsonify(v) for v in value]
+    if isinstance(value, bytes):
+        try:
+            return value.decode("utf-8")
+        except Exception:
+            return value.hex()
+    return value
+
+
+def export_module_rdb(module: Dict[str, str]) -> str:
+    name = module.get("name")
+    if not name:
+        raise ValueError("Module missing name; cannot fetch RDB")
+    url = f"{RDB_BASE}/{requests.utils.quote(name)}.rdb"
+    response = requests.get(url, timeout=120)
+    if response.status_code != 200:
+        raise RuntimeError(f"Failed to download RDB: {response.status_code}")
+    blob = response.content
+    offset = _detect_msgpack_offset(blob)
+    unpacker = msgpack.Unpacker(io.BytesIO(blob[offset:]), raw=False)
+    entries = []
+    for obj in unpacker:
+        if isinstance(obj, dict):
+            entries.append(_jsonify(obj))
+    target = rdb_json_path(name)
+    payload = {
+        "module": name,
+        "guid": module.get("guid"),
+        "source_url": url,
+        "entry_count": len(entries),
+        "fetched_at": datetime.utcnow().isoformat(),
+        "entries": entries,
+    }
+    target.write_text(json.dumps(payload, indent=2))
+    return str(target)
