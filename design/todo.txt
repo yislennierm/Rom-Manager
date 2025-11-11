@@ -10,7 +10,11 @@ Consoles / Providers
 
 (SEGA)
 
--[*] Sega SG-1000 — add provider entry. - Done
+Sega SG-1000 
+    -[*] Providers
+    -[] Cores/BIOS
+    -[] Validated
+
 
 -[*] Sega Master System — add provider entry. Done
 -[*] Sega Mega Drive / Genesis — add provider entry. (1 added)

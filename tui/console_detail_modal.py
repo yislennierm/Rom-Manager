@@ -8,7 +8,6 @@ from textual.screen import ModalScreen
 
 import json
 from utils.library_sync import rdb_json_path
-from utils.paths import console_slug
 
 
 def compute_md5(path: Path) -> str:
@@ -110,47 +109,61 @@ class ConsoleDetailModal(ModalScreen):
         self.bios_table.clear()
         bios_path = self._bios_path
         missing = []
-        cores_for_console = self.cores_config.get("retroarch", {})
-        # Prefer entries matching our GUID
-        cores = cores_for_console.values()
-        if self.guid:
-            cores = [
-                core
-                for console_map in cores_for_console.values()
-                for core in console_map.values()
-                if core.get("libretro_guid") == self.guid
-            ]
-        else:
-            cores = [
-                core
-                for console_map in cores_for_console.values()
-                for core in console_map.values()
-            ]
-        if not cores_for_console:
+        configs = self.cores_config or {}
+        bios_registry = configs.get("bios_files", {})
+        core_catalog = configs.get("cores", {})
+
+        if not core_catalog:
             self.bios_table.add_row("—", "No cores defined", "—", "—")
             return
-        for core_key, core_info in cores_for_console.get(console_slug(self.console), {}).items():
-            bios_entries = core_info.get("bios", [])
-            if not bios_entries:
-                self.bios_table.add_row(core_info.get("name", core_key), "No BIOS listed", "—", "—")
+
+        matching_cores: list[tuple[str, dict]] = []
+        for core_id, meta in core_catalog.items():
+            guids = meta.get("console_guids") or []
+            if self.guid and self.guid in guids:
+                matching_cores.append((core_id, meta))
+
+        if not matching_cores:
+            self.bios_table.add_row("—", "No cores reference this console.", "—", "—")
+            return
+
+        for core_id, core_meta in matching_cores:
+            core_name = core_meta.get("name", core_id)
+            bios_ids = core_meta.get("bios_ids") or []
+            if not bios_ids:
+                self.bios_table.add_row(core_name, "No BIOS listed", "—", "—")
                 continue
-            for entry in bios_entries:
-                filename = entry.get("filename")
-                md5_expected = entry.get("md5", "—")
+            for bios_id in bios_ids:
+                bios_entry = bios_registry.get(bios_id)
+                if not bios_entry:
+                    self.bios_table.add_row(core_name, f"⚠ Missing definition ({bios_id})", "—", "No metadata")
+                    continue
+                filename = bios_entry.get("filename")
+                expected_md5 = bios_entry.get("md5")
+                md5_display = expected_md5 or "—"
                 status = "⚠ Missing"
                 bios_file = bios_path / filename if filename else None
                 if bios_file and bios_file.exists():
                     try:
                         md5_actual = compute_md5(bios_file)
-                        status = "✅ OK" if md5_actual.lower() == md5_expected.lower() else "⚠ Hash mismatch"
+                        if expected_md5:
+                            status = "✅ OK" if md5_actual.lower() == expected_md5.lower() else "⚠ Hash mismatch"
+                        else:
+                            status = "✅ Present"
                     except Exception as exc:
                         status = f"⚠ Error: {exc}"
                 else:
-                    missing.append(entry)
+                    missing_entry = bios_entry.copy()
+                    missing_entry.update({
+                        "bios_id": bios_id,
+                        "core_id": core_id,
+                        "core_name": core_name,
+                    })
+                    missing.append(missing_entry)
                 self.bios_table.add_row(
-                    core_info.get("name", core_key),
+                    core_name,
                     filename or "—",
-                    md5_expected,
+                    md5_display,
                     status,
                 )
         self._missing_bios = missing

@@ -3,10 +3,10 @@
   "guid": "ca066374-6220-5f44-828c-302f50a10146",
   "source_url": "https://raw.githubusercontent.com/libretro/libretro-database/master/rdb/Sega%20-%20SG-1000.rdb",
   "entry_count": 279,
-  "fetched_at": "2025-11-10T13:57:28.039021",
+  "fetched_at": "2025-11-10T21:39:21.007290",
   "entries": [
     {
-      "name": "Vexed (World) (v1.03) (Aftermarket) (Unl)",
+      "name": "Vexed (World) (v1.03)",
       "rom_name": "Vexed (World) (v1.03) (Aftermarket) (Unl).sg",
       "size": 32768,
       "crc": "6159a842",
@@ -14,7 +14,7 @@
       "sha1": "aff1f34dab6f92685348d850db28048c43760a6a"
     },
     {
-      "name": "Poseidon Wars + Space Panic + Rambo (France) (En) (SF-7000) (Unl)",
+      "name": "Poseidon Wars + Space Panic + Rambo (France) (En) (SF-7000)",
       "region": "France",
       "rom_name": "Poseidon Wars + Space Panic + Rambo (France) (En) (SF-7000) (Unl).sf",
       "size": 163840,
@@ -23,7 +23,7 @@
       "sha1": "909d6335034cf9e241d7fc4c8074a280b5c4112f"
     },
     {
-      "name": "Kamikaze (France) (En) (SF-7000) (Unl)",
+      "name": "Kamikaze (France) (En) (SF-7000)",
       "region": "France",
       "rom_name": "Kamikaze (France) (En) (SF-7000) (Unl).sf",
       "size": 163840,
@@ -41,7 +41,7 @@
       "sha1": "e12dd5f93df9f536ce4e6f7c445467358c31145a"
     },
     {
-      "name": "Cheril Perils Classic (World) (Aftermarket) (Unl)",
+      "name": "Cheril Perils Classic (World)",
       "rom_name": "Cheril Perils Classic (World) (NTSC) (Aftermarket) (Unl).sg",
       "size": 49152,
       "crc": "60d5c65d",
@@ -49,7 +49,7 @@
       "sha1": "877c7f71daf10c451745d68c2c88e5c06abc5c42"
     },
     {
-      "name": "Arno Dash (World) (v1.03) (Aftermarket) (Unl)",
+      "name": "Arno Dash (World) (v1.03)",
       "rom_name": "Arno Dash (World) (v1.03) (Aftermarket) (Unl).sg",
       "size": 32768,
       "crc": "6dad65d3",
@@ -57,7 +57,7 @@
       "sha1": "b2dd23a7c41bfc74a16894e99647c7e3cd9a1c41"
     },
     {
-      "name": "Arno Dash (World) (v1.00) (Aftermarket) (Unl)",
+      "name": "Arno Dash (World) (v1.00)",
       "rom_name": "Arno Dash (World) (v1.00) (Aftermarket) (Unl).sg",
       "size": 32768,
       "crc": "ea921f7c",
@@ -65,7 +65,7 @@
       "sha1": "445e32896395aa61cb9b260775a0924d0acf1f41"
     },
     {
-      "name": "Zippy Race (Taiwan) (Unl)",
+      "name": "Zippy Race (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Zippy Race (Taiwan) (Unl).sg",
       "size": 32768,
@@ -75,7 +75,7 @@
       "sha1": "f6926d0c3c654a038cd5eec9aaa6876bce86fdaa"
     },
     {
-      "name": "Zaxxon (Taiwan) (Unl)",
+      "name": "Zaxxon (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Zaxxon (Taiwan) (Unl).sg",
       "size": 32768,
@@ -85,7 +85,7 @@
       "sha1": "172a8ff1a574d7920906c5cf60e1d39f31b9b639"
     },
     {
-      "name": "Home Mahjong (Taiwan) (Unl)",
+      "name": "Home Mahjong (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Home Mahjong (Taiwan) (Unl).sg",
       "size": 49152,
@@ -95,7 +95,7 @@
       "sha1": "db98d7461e88cef8160089c44fcd432388e3c9df"
     },
     {
-      "name": "Yie Ar Kung-Fu (Taiwan) (Unl)",
+      "name": "Yie Ar Kung-Fu (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Yie Ar Kung-Fu (Taiwan) (Unl).sg",
       "size": 32768,
@@ -105,7 +105,7 @@
       "sha1": "0a6157837af2e5dec2e9b30d475b48fa7c14cc3e"
     },
     {
-      "name": "Yamato (Taiwan) (Unl)",
+      "name": "Yamato (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Yamato (Taiwan) (Unl).sg",
       "size": 16384,
@@ -115,7 +115,7 @@
       "sha1": "6fbdc967f5c7c39eb1fdea08d2dcabfd64b8e7ee"
     },
     {
-      "name": "Wonder Boy (Taiwan) (Unl)",
+      "name": "Wonder Boy (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Wonder Boy (Taiwan) (Unl).sg",
       "size": 32768,
@@ -124,7 +124,7 @@
       "sha1": "8f261b955162c179fe4c936ece767bbf25c4888c"
     },
     {
-      "name": "Super Tank (Taiwan) (Unl)",
+      "name": "Super Tank (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Super Tank (Taiwan) (Unl).sg",
       "size": 32768,
@@ -133,7 +133,7 @@
       "sha1": "0d014fc9db775b62ff55196b85b8e91c5e3249f3"
     },
     {
-      "name": "Super Tank (Korea) (Unl)",
+      "name": "Super Tank (Korea)",
       "region": "Korea",
       "rom_name": "Super Tank (Korea) (Unl).sg",
       "size": 32768,
@@ -142,7 +142,7 @@
       "sha1": "0a49de909b07b69a24b5c02ad08446e2cd1787d2"
     },
     {
-      "name": "Star Soldier (Taiwan) (Unl)",
+      "name": "Star Soldier (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Star Soldier (Taiwan) (Unl).sg",
       "size": 49152,
@@ -151,7 +151,7 @@
       "sha1": "c1984257809ec5bce80a65d22b9b32561e04922c"
     },
     {
-      "name": "Star Jacker (Taiwan) (Unl)",
+      "name": "Star Jacker (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Star Jacker (Taiwan) (Unl).sg",
       "size": 32768,
@@ -161,7 +161,7 @@
       "sha1": "2bc990615a6ea7f005e8458c9791f0098c4d4a85"
     },
     {
-      "name": "Star Force (Taiwan) (Unl)",
+      "name": "Star Force (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Star Force (Taiwan) (Unl).sg",
       "size": 32768,
@@ -170,7 +170,7 @@
       "sha1": "f3ddf97ddf0e40289e38d9105300f15ec7eab78c"
     },
     {
-      "name": "Star Force (Taiwan) (Unl) (Alt)",
+      "name": "Star Force (Taiwan) (Alt)",
       "region": "Taiwan",
       "rom_name": "Star Force (Taiwan) (Unl) (Alt).sg",
       "size": 32768,
@@ -180,7 +180,7 @@
       "sha1": "ff6e3bdb830e6f74f9997b4d36604fd07d7e6019"
     },
     {
-      "name": "Space Invaders (Taiwan) (Unl)",
+      "name": "Space Invaders (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Space Invaders (Taiwan) (Unl).sg",
       "size": 16384,
@@ -190,7 +190,7 @@
       "sha1": "5a7904697ea8a360066ea8403793227021735969"
     },
     {
-      "name": "Soukoban (Taiwan) (Unl)",
+      "name": "Soukoban (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Soukoban (Taiwan) (Unl).sg",
       "size": 32768,
@@ -199,7 +199,7 @@
       "sha1": "4216770efbaf49f832ff7a78fbc9cd2c8300f52c"
     },
     {
-      "name": "Soukoban (Korea) (Unl)",
+      "name": "Soukoban (Korea)",
       "region": "Korea",
       "rom_name": "Soukoban (Korea) (Unl).sg",
       "size": 32768,
@@ -209,7 +209,7 @@
       "sha1": "a9d77c6dee31956bb382abd14245ff581369578d"
     },
     {
-      "name": "Shinnyushain Tooru-kun (Taiwan) (Unl)",
+      "name": "Shinnyushain Tooru-kun (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Shinnyushain Tooru-kun (Taiwan) (Unl).sg",
       "size": 32768,
@@ -228,7 +228,7 @@
       "sha1": "a5c2acba93cd3809577f401c00fa9d728627ed60"
     },
     {
-      "name": "San-nin Mahjong (Taiwan) (Othello Multivision) (Unl)",
+      "name": "San-nin Mahjong (Taiwan) (Othello Multivision)",
       "region": "Taiwan",
       "rom_name": "San-nin Mahjong (Taiwan) (Othello Multivision) (Unl).sg",
       "size": 16384,
@@ -247,7 +247,7 @@
       "sha1": "1d2ca62c894fc8aab97605e65078e834bbbe3d8b"
     },
     {
-      "name": "Safari Race (Taiwan) (Unl)",
+      "name": "Safari Race (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Safari Race (Taiwan) (Unl).sg",
       "size": 32768,
@@ -257,7 +257,7 @@
       "sha1": "06fe09074bef542b590761ba585911d0998af646"
     },
     {
-      "name": "Safari Hunting (Taiwan) (Unl)",
+      "name": "Safari Hunting (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Safari Hunting (Taiwan) (Unl).sg",
       "size": 16384,
@@ -267,7 +267,7 @@
       "sha1": "e3aa37f4c9f213a673e369f62561f3f80513e4f3"
     },
     {
-      "name": "Rock n' Bolt (Taiwan) (English Logo) (Unl)",
+      "name": "Rock n' Bolt (Taiwan) (English Logo)",
       "region": "Taiwan",
       "rom_name": "Rock n' Bolt (Taiwan) (English Logo) (Unl).sg",
       "size": 32768,
@@ -277,7 +277,7 @@
       "sha1": "e3be08bda8459fc60836abe332e9864e7c596202"
     },
     {
-      "name": "Pippols (Taiwan) (Unl)",
+      "name": "Pippols (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Pippols (Taiwan) (Unl).sg",
       "size": 32768,
@@ -286,7 +286,7 @@
       "sha1": "4a95b98e127fb0c6428d6debcfc92152069ac531"
     },
     {
-      "name": "Ping Pong (Taiwan) (Unl)",
+      "name": "Ping Pong (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Ping Pong (Taiwan) (Unl).sg",
       "size": 32768,
@@ -296,7 +296,7 @@
       "sha1": "cba791acd9e0f46bfa6132645bf44027e100c68a"
     },
     {
-      "name": "Pachinko II (Taiwan) (Unl)",
+      "name": "Pachinko II (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Pachinko II (Taiwan) (Unl).sg",
       "size": 16384,
@@ -306,7 +306,7 @@
       "sha1": "ca0c66b4d48d6ade38e7f9093eea74ad090ecdb7"
     },
     {
-      "name": "Pacar (Taiwan) (Unl)",
+      "name": "Pacar (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Pacar (Taiwan) (Unl).sg",
       "size": 16384,
@@ -325,7 +325,7 @@
       "sha1": "b64859cf509c70251dd8b5ab0e7d621eeb2a26c3"
     },
     {
-      "name": "Okamoto Ayako no Match Play Golf (Taiwan) (Othello Multivision) (Unl)",
+      "name": "Okamoto Ayako no Match Play Golf (Taiwan) (Othello Multivision)",
       "region": "Taiwan",
       "rom_name": "Okamoto Ayako no Match Play Golf (Taiwan) (Othello Multivision) (Unl).sg",
       "size": 32768,
@@ -334,7 +334,7 @@
       "sha1": "543046650e07b10dbd2dca6f20bcafb9dd6dda77"
     },
     {
-      "name": "Ninja Princess (Taiwan) (Unl)",
+      "name": "Ninja Princess (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Ninja Princess (Taiwan) (Unl).sg",
       "size": 32768,
@@ -353,7 +353,7 @@
       "sha1": "32a263110434288d3720e2370241d1e93b3f07a9"
     },
     {
-      "name": "N-Sub (Taiwan) (Unl)",
+      "name": "N-Sub (Taiwan)",
       "region": "Taiwan",
       "rom_name": "N-Sub (Taiwan) (Unl).sg",
       "size": 16384,
@@ -363,7 +363,7 @@
       "sha1": "55a36c77cbdf87530611feccf2f1807bdd2ac0ec"
     },
     {
-      "name": "Castle, The (Taiwan) (Unl)",
+      "name": "Castle, The (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Castle, The (Taiwan) (Unl).sg",
       "size": 49152,
@@ -373,7 +373,7 @@
       "sha1": "5a81d5103487695cabd811aabd9e71f48b9e7996"
     },
     {
-      "name": "Monaco GP (Taiwan) (Unl)",
+      "name": "Monaco GP (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Monaco GP (Taiwan) (Unl).sg",
       "size": 32768,
@@ -383,7 +383,7 @@
       "sha1": "464ec3c9acfefd0ad244a43033985e88798905f9"
     },
     {
-      "name": "Rock n' Bolt (Taiwan) (Chinese Logo) (Unl)",
+      "name": "Rock n' Bolt (Taiwan) (Chinese Logo)",
       "region": "Taiwan",
       "rom_name": "Rock n' Bolt (Taiwan) (Chinese Logo) (Unl).sg",
       "size": 32768,
@@ -393,7 +393,7 @@
       "sha1": "18a6b34d071feaad416704d5e6fd7680374dd669"
     },
     {
-      "name": "Championship Lode Runner (Taiwan) (Unl)",
+      "name": "Championship Lode Runner (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Championship Lode Runner (Taiwan) (Unl).sg",
       "size": 32768,
@@ -402,7 +402,7 @@
       "sha1": "321e2c97645dd9af3e52c66b5db06304250d1bf2"
     },
     {
-      "name": "Lode Runner (Korea) (Unl)",
+      "name": "Lode Runner (Korea)",
       "region": "Korea",
       "rom_name": "Lode Runner (Korea) (Unl).sg",
       "size": 32768,
@@ -411,7 +411,7 @@
       "sha1": "23f22b407df4ae8d7931051eb229efd862bea5f7"
     },
     {
-      "name": "Dragon Wang (Taiwan) (Chinese Logo) (Unl)",
+      "name": "Dragon Wang (Taiwan) (Chinese Logo)",
       "region": "Taiwan",
       "rom_name": "Dragon Wang (Taiwan) (Chinese Logo) (Unl).sg",
       "size": 32768,
@@ -420,7 +420,7 @@
       "sha1": "57ade81eaa044d69621741d8c5f5c5e8650f6c2b"
     },
     {
-      "name": "Dragon Wang (Taiwan) (English Logo) (Unl)",
+      "name": "Dragon Wang (Taiwan) (English Logo)",
       "region": "Taiwan",
       "rom_name": "Dragon Wang (Taiwan) (English Logo) (Unl).sg",
       "size": 32768,
@@ -430,7 +430,7 @@
       "sha1": "b2a3c886677ba3926cb56a1a781e7926852499c7"
     },
     {
-      "name": "I.Q. (Korea) (Unl)",
+      "name": "I.Q. (Korea)",
       "region": "Korea",
       "rom_name": "I.Q. (Korea) (Unl).sg",
       "size": 32768,
@@ -440,7 +440,7 @@
       "sha1": "3a8505aabd165bd9de51369f588ae8c867b7671f"
     },
     {
-      "name": "Hyper Sports (Korea) (Unl)",
+      "name": "Hyper Sports (Korea)",
       "region": "Korea",
       "rom_name": "Hyper Sports (Korea) (Unl).sg",
       "size": 32768,
@@ -449,7 +449,7 @@
       "sha1": "43d67e8c386012d0694f09a2fe31a46d32d39f17"
     },
     {
-      "name": "Hyper Sports (Taiwan) (Unl)",
+      "name": "Hyper Sports (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Hyper Sports (Taiwan) (Unl).sg",
       "size": 32768,
@@ -459,7 +459,7 @@
       "sha1": "bf4218aebc07aa7179cc52853a55436db985b81e"
     },
     {
-      "name": "Hustle Chumy (Taiwan) (Unl)",
+      "name": "Hustle Chumy (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Hustle Chumy (Taiwan) (Unl).sg",
       "size": 16384,
@@ -469,7 +469,7 @@
       "sha1": "e7800d107ef0a7773eea2d482b5db9d866ba74f9"
     },
     {
-      "name": "Zoom 909 (Taiwan) (Unl)",
+      "name": "Zoom 909 (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Zoom 909 (Taiwan) (Unl).sg",
       "size": 32768,
@@ -479,7 +479,7 @@
       "sha1": "7a998a0da19471f7e3e5bd82a9fbaf82a966ee40"
     },
     {
-      "name": "Bomberman Special (Taiwan) (Chinese Logo) (Unl)",
+      "name": "Bomberman Special (Taiwan) (Chinese Logo)",
       "region": "Taiwan",
       "rom_name": "Bomberman Special (Taiwan) (Chinese Logo) (Unl).sg",
       "size": 49152,
@@ -489,7 +489,7 @@
       "sha1": "455838571dd8287d491431e03269b0ccd292c8b8"
     },
     {
-      "name": "Othello (Taiwan) (Unl)",
+      "name": "Othello (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Othello (Taiwan) (Unl).sg",
       "size": 32768,
@@ -499,7 +499,7 @@
       "sha1": "242c29989149b94ff27d59a94f067d0f1c84b4a7"
     },
     {
-      "name": "Hang On II (Taiwan) (English Logo) (Unl)",
+      "name": "Hang On II (Taiwan) (English Logo)",
       "region": "Taiwan",
       "rom_name": "Hang On II (Taiwan) (English Logo) (Unl).sg",
       "size": 32768,
@@ -508,7 +508,7 @@
       "sha1": "1e25fc699baa715710f3f6375dbcb107bfc044f5"
     },
     {
-      "name": "Hang On II (Taiwan) (Chinese Logo) (Unl)",
+      "name": "Hang On II (Taiwan) (Chinese Logo)",
       "region": "Taiwan",
       "rom_name": "Hang On II (Taiwan) (Chinese Logo) (Unl).sg",
       "size": 32768,
@@ -517,7 +517,7 @@
       "sha1": "154669944d899faa1db1cea3fecce9eb162eb3fd"
     },
     {
-      "name": "H.E.R.O. (Taiwan) (Chinese Logo) (Unl)",
+      "name": "H.E.R.O. (Taiwan) (Chinese Logo)",
       "region": "Taiwan",
       "rom_name": "H.E.R.O. (Taiwan) (Chinese Logo) (Unl).sg",
       "size": 32768,
@@ -526,7 +526,7 @@
       "sha1": "3b2d3dfe948a734c3d18b504c89c61b7b1f3d81b"
     },
     {
-      "name": "H.E.R.O. (Taiwan) (English Logo) (Unl)",
+      "name": "H.E.R.O. (Taiwan) (English Logo)",
       "region": "Taiwan",
       "rom_name": "H.E.R.O. (Taiwan) (English Logo) (Unl).sg",
       "size": 32768,
@@ -536,7 +536,7 @@
       "sha1": "82b530feef7c011361e21b62d2c359c626ab8a9c"
     },
     {
-      "name": "Guzzler (Taiwan) (Othello Multivision) (Unl)",
+      "name": "Guzzler (Taiwan) (Othello Multivision)",
       "region": "Taiwan",
       "rom_name": "Guzzler (Taiwan) (Othello Multivision) (Unl).sg",
       "size": 8192,
@@ -546,7 +546,7 @@
       "sha1": "5c51f9846fb8220ab7dd6db5d6911cf4e985bfe9"
     },
     {
-      "name": "Gulkave (Korea) (Unl)",
+      "name": "Gulkave (Korea)",
       "region": "Korea",
       "rom_name": "Gulkave (Korea) (Unl).sg",
       "size": 32768,
@@ -556,7 +556,7 @@
       "sha1": "deabfe970bb450e51909c181430e7de2bd1b1a9e"
     },
     {
-      "name": "Girl's Garden (Taiwan) (Unl)",
+      "name": "Girl's Garden (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Girl's Garden (Taiwan) (Unl).sg",
       "size": 32768,
@@ -566,7 +566,7 @@
       "sha1": "94089be091af476c5628225e0262396faa5394f1"
     },
     {
-      "name": "GP World (Taiwan) (Unl)",
+      "name": "GP World (Taiwan)",
       "region": "Taiwan",
       "rom_name": "GP World (Taiwan) (Unl).sg",
       "size": 32768,
@@ -576,7 +576,7 @@
       "sha1": "11773e7eb2dca727ea293b5aa50ed8094df29f41"
     },
     {
-      "name": "Flicky (Taiwan) (Unl)",
+      "name": "Flicky (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Flicky (Taiwan) (Unl).sg",
       "size": 32768,
@@ -586,7 +586,7 @@
       "sha1": "a04ce8c70eddfac0adbf9489c0abbaaae613037c"
     },
     {
-      "name": "Pitfall II (Taiwan) (English Logo) (Unl)",
+      "name": "Pitfall II (Taiwan) (English Logo)",
       "region": "Taiwan",
       "rom_name": "Pitfall II (Taiwan) (English Logo) (Unl).sg",
       "size": 32768,
@@ -596,7 +596,7 @@
       "sha1": "c98a5bdb2f97e2e85d0a131d58e311544adb416e"
     },
     {
-      "name": "Pitfall II (Taiwan) (Chinese Logo) (Unl)",
+      "name": "Pitfall II (Taiwan) (Chinese Logo)",
       "region": "Taiwan",
       "rom_name": "Pitfall II (Taiwan) (Chinese Logo) (Unl).sg",
       "size": 32768,
@@ -606,7 +606,7 @@
       "sha1": "38c25d7730863877fdae5491724a3aed9c6b04d5"
     },
     {
-      "name": "Exerion (Korea) (Unl)",
+      "name": "Exerion (Korea)",
       "region": "Korea",
       "rom_name": "Exerion (Korea) (Unl).sg",
       "size": 32768,
@@ -615,7 +615,7 @@
       "sha1": "3f569c9d95bc83896bc44dba7c469356961d659c"
     },
     {
-      "name": "Rally-X (Taiwan) (Chinese Logo) (Unl)",
+      "name": "Rally-X (Taiwan) (Chinese Logo)",
       "region": "Taiwan",
       "rom_name": "Rally-X (Taiwan) (Chinese Logo) (Unl).sg",
       "size": 32768,
@@ -625,7 +625,7 @@
       "sha1": "21770691191b62bafec9099bbe0f9942f5480f83"
     },
     {
-      "name": "Drol (Korea) (Unl)",
+      "name": "Drol (Korea)",
       "region": "Korea",
       "rom_name": "Drol (Korea) (Unl).sg",
       "size": 32768,
@@ -634,7 +634,7 @@
       "sha1": "37baf9aac77436b4939c80d6a575e23a7d5cd76d"
     },
     {
-      "name": "Drol (Taiwan) (Unl)",
+      "name": "Drol (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Drol (Taiwan) (Unl).sg",
       "size": 32768,
@@ -644,7 +644,7 @@
       "sha1": "8bb117df0a86508cf3fc139bd070c0aa8c6487dd"
     },
     {
-      "name": "Elevator Action (Taiwan) (Unl)",
+      "name": "Elevator Action (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Elevator Action (Taiwan) (Unl).sg",
       "size": 32768,
@@ -654,7 +654,7 @@
       "sha1": "0c419fdd769371f97c66030c51b21c786b89a105"
     },
     {
-      "name": "Congo Bongo (Taiwan) (Unl)",
+      "name": "Congo Bongo (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Congo Bongo (Taiwan) (Unl).sg",
       "size": 24576,
@@ -681,7 +681,7 @@
       "sha1": "96dd55a63bae0abc666fe317d50612116100d7b1"
     },
     {
-      "name": "Circus Charlie (Taiwan) (Unl)",
+      "name": "Circus Charlie (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Circus Charlie (Taiwan) (Unl).sg",
       "size": 32768,
@@ -690,7 +690,7 @@
       "sha1": "67ec5859d293d9236d21b71e63580b6a53b90244"
     },
     {
-      "name": "Choplifter (Taiwan) (English Logo) (Unl)",
+      "name": "Choplifter (Taiwan) (English Logo)",
       "region": "Taiwan",
       "rom_name": "Choplifter (Taiwan) (English Logo) (Unl).sg",
       "size": 32768,
@@ -699,7 +699,7 @@
       "sha1": "61d1afe62b2be0da26d8a185828387063dd4b06e"
     },
     {
-      "name": "Choplifter (Taiwan) (No Logo) (Unl)",
+      "name": "Choplifter (Taiwan) (No Logo)",
       "region": "Taiwan",
       "rom_name": "Choplifter (Taiwan) (No Logo) (Unl).sg",
       "size": 32768,
@@ -708,7 +708,7 @@
       "sha1": "daf36c050b0e507d2f2470050299a648716c9158"
     },
     {
-      "name": "Choplifter (Taiwan) (Chinese Logo) (Unl)",
+      "name": "Choplifter (Taiwan) (Chinese Logo)",
       "region": "Taiwan",
       "rom_name": "Choplifter (Taiwan) (Chinese Logo) (Unl).sg",
       "size": 32768,
@@ -717,7 +717,7 @@
       "sha1": "af6c40febe02fe2b424ea99e666cf3f451eb5a1f"
     },
     {
-      "name": "Choplifter (Korea) (En) (Unl)",
+      "name": "Choplifter (Korea) (En)",
       "region": "Korea",
       "rom_name": "Choplifter (Korea) (En) (Unl).sg",
       "size": 32768,
@@ -727,7 +727,7 @@
       "sha1": "ef746a242ffd4d624ea378b6d9f20a6bc206f859"
     },
     {
-      "name": "Champion Soccer (Taiwan) (Unl)",
+      "name": "Champion Soccer (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Champion Soccer (Taiwan) (Unl).sg",
       "size": 16384,
@@ -737,7 +737,7 @@
       "sha1": "ad2a72dff1959e3e148c48962ab382897bc06627"
     },
     {
-      "name": "Champion Kendou (Taiwan) (Unl)",
+      "name": "Champion Kendou (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Champion Kendou (Taiwan) (Unl).sg",
       "size": 32768,
@@ -746,7 +746,7 @@
       "sha1": "621cf09649e9244714fa01652b066cd1a477279e"
     },
     {
-      "name": "Champion Ice Hockey (Taiwan) (Unl)",
+      "name": "Champion Ice Hockey (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Champion Ice Hockey (Taiwan) (Unl).sg",
       "size": 32768,
@@ -755,7 +755,7 @@
       "sha1": "a316058604eb47b547986fec8ef18c6017694746"
     },
     {
-      "name": "Champion Ice Hockey (Korea) (En) (Unl)",
+      "name": "Champion Ice Hockey (Korea) (En)",
       "region": "Korea",
       "rom_name": "Champion Ice Hockey (Korea) (En) (Unl).sg",
       "size": 32768,
@@ -764,7 +764,7 @@
       "sha1": "3efbef93040fffbecb8e1d00b8470ac92f002c9b"
     },
     {
-      "name": "Champion Golf (Korea) (En) (Unl)",
+      "name": "Champion Golf (Korea) (En)",
       "region": "Korea",
       "rom_name": "Champion Golf (Korea) (En) (Unl).sg",
       "size": 32768,
@@ -773,7 +773,7 @@
       "sha1": "40ac48ef0ba23653d1763cd04774b00abc49f9a4"
     },
     {
-      "name": "Champion Boxing (Taiwan) (Unl)",
+      "name": "Champion Boxing (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Champion Boxing (Taiwan) (Unl).sg",
       "size": 32768,
@@ -783,7 +783,7 @@
       "sha1": "e55396be42c6cfbf47ff43d3e8faee1dc8fad807"
     },
     {
-      "name": "Champion Billiards (Taiwan) (Unl)",
+      "name": "Champion Billiards (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Champion Billiards (Taiwan) (Unl).sg",
       "size": 32768,
@@ -792,7 +792,7 @@
       "sha1": "37dc5e7b3ebc3a3b0480b16d27bc394d57aac697"
     },
     {
-      "name": "Champion Baseball (Taiwan) (Unl)",
+      "name": "Champion Baseball (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Champion Baseball (Taiwan) (Unl).sg",
       "size": 16384,
@@ -802,7 +802,7 @@
       "sha1": "b674ea2ea50f45b20c60d9dec5bf2e88e2b1cba5"
     },
     {
-      "name": "Chack'n Pop (Taiwan) (Unl)",
+      "name": "Chack'n Pop (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Chack'n Pop (Taiwan) (Unl).sg",
       "size": 32768,
@@ -811,7 +811,7 @@
       "sha1": "75855a3148a57b102c15a436e7e4ffd1ab4808c3"
     },
     {
-      "name": "C_So! (Taiwan) (Unl)",
+      "name": "C_So! (Taiwan)",
       "region": "Taiwan",
       "rom_name": "C_So! (Taiwan) (Unl).sg",
       "size": 32768,
@@ -820,7 +820,7 @@
       "sha1": "7101c42289815d7e0d04b523f8f0e833f2f089b3"
     },
     {
-      "name": "Bomb Jack (Taiwan) (English Logo) (Unl)",
+      "name": "Bomb Jack (Taiwan) (English Logo)",
       "region": "Taiwan",
       "rom_name": "Bomb Jack (Taiwan) (English Logo) (Unl).sg",
       "size": 32768,
@@ -829,7 +829,7 @@
       "sha1": "8d7b786283e5b42e34432ecf1b3744eae00575de"
     },
     {
-      "name": "Bomb Jack (Taiwan) (Chinese Logo) (Unl)",
+      "name": "Bomb Jack (Taiwan) (Chinese Logo)",
       "region": "Taiwan",
       "rom_name": "Bomb Jack (Taiwan) (Chinese Logo) (Unl).sg",
       "size": 32768,
@@ -838,7 +838,7 @@
       "sha1": "ac94ddc1839dcd2ade443da0e8667e643b11f3e7"
     },
     {
-      "name": "Bomb Jack (Korea) (En) (English Logo) (Unl)",
+      "name": "Bomb Jack (Korea) (En) (English Logo)",
       "region": "Korea",
       "rom_name": "Bomb Jack (Korea) (En) (English Logo) (Unl).sg",
       "size": 32768,
@@ -847,7 +847,7 @@
       "sha1": "835d0ea1c0cf1723ae95ba60ea0a929780ebaf71"
     },
     {
-      "name": "Bomb Jack (Korea) (En) (Korean Logo) (Unl)",
+      "name": "Bomb Jack (Korea) (En) (Korean Logo)",
       "region": "Korea",
       "rom_name": "Bomb Jack (Korea) (En) (Korean Logo) (Unl).sg",
       "size": 32768,
@@ -856,7 +856,7 @@
       "sha1": "b6b36a0280344214bdb8d9184244e21e9fb7371f"
     },
     {
-      "name": "Bank Panic (Taiwan) (Unl)",
+      "name": "Bank Panic (Taiwan)",
       "region": "Taiwan",
       "rom_name": "Bank Panic (Taiwan) (Unl).sg",
       "size": 32768,
@@ -866,7 +866,7 @@
       "sha1": "18f7ab9fe95aeacceab36297cdf9374dc7e3233f"
     },
     {
-      "name": "007 James Bond (Taiwan) (Othello Multivision) (Unl)",
+      "name": "007 James Bond (Taiwan) (Othello Multivision)",
       "region": "Taiwan",
       "rom_name": "007 James Bond (Taiwan) (Othello Multivision) (Unl).sg",
       "size": 16384,
@@ -965,7 +965,7 @@
       "serial": "G-1038"
     },
     {
-      "name": "Yie Ar Kung-Fu II (Taiwan) (Unl)",
+      "name": "Yie Ar Kung-Fu II (Taiwan)",
       "genre": "Beat'em Up",
       "region": "Taiwan",
       "rom_name": "Yie Ar Kung-Fu II (Taiwan) (Unl).sg",
@@ -1067,7 +1067,7 @@
       "serial": "C-69"
     },
     {
-      "name": "TwinBee (Taiwan) (Unl)",
+      "name": "TwinBee (Taiwan)",
       "genre": "Shoot'em Up",
       "region": "Taiwan",
       "rom_name": "TwinBee (Taiwan) (Unl).sg",
@@ -1083,7 +1083,7 @@
       "sha1": "a8c30043c145e63f79a3265dde167529f0e08d49"
     },
     {
-      "name": "Tank Battalion (Taiwan) (Unl)",
+      "name": "Tank Battalion (Taiwan)",
       "genre": "Shooter",
       "region": "Taiwan",
       "rom_name": "Tank Battalion (Taiwan) (Unl).sg",
@@ -1345,7 +1345,7 @@
       "crc": "27dacd13"
     },
     {
-      "name": "Sindbad Mystery (Taiwan) (Unl)",
+      "name": "Sindbad Mystery (Taiwan)",
       "genre": "Puzzle-Game",
       "region": "Taiwan",
       "rom_name": "Sindbad Mystery (Taiwan) (Unl).sg",
@@ -1450,7 +1450,7 @@
       "serial": "G-1022"
     },
     {
-      "name": "Sega-Galaga (Taiwan) (Unl)",
+      "name": "Sega-Galaga (Taiwan)",
       "genre": "Shoot'em Up",
       "region": "Taiwan",
       "rom_name": "Sega-Galaga (Taiwan) (Unl).sg",
@@ -1497,7 +1497,7 @@
       "sha1": "e0605e23d80b8b975743d3417f548b28810e0ba3"
     },
     {
-      "name": "Sega Flipper (Taiwan) (Unl)",
+      "name": "Sega Flipper (Taiwan)",
       "genre": "Pinball",
       "region": "Taiwan",
       "rom_name": "Sega Flipper (Taiwan) (Unl).sg",
@@ -1606,7 +1606,7 @@
       "serial": "C-54"
     },
     {
-      "name": "Road Fighter (Taiwan) (Chinese Logo) (Unl)",
+      "name": "Road Fighter (Taiwan) (Chinese Logo)",
       "genre": "Race, Driving",
       "region": "Taiwan",
       "rom_name": "Road Fighter (Taiwan) (Chinese Logo) (Unl).sg",
@@ -1621,7 +1621,7 @@
       "sha1": "4f1a139974e3db27af5973bc9572ed68acd6ea68"
     },
     {
-      "name": "Rally-X (Taiwan) (English Logo) (Unl)",
+      "name": "Rally-X (Taiwan) (English Logo)",
       "genre": "Race, Driving",
       "region": "Taiwan",
       "rom_name": "Rally-X (Taiwan) (English Logo) (Unl).sg",
@@ -1636,7 +1636,7 @@
       "sha1": "0c1957a5faae5254c69f3331e79d87499dd7cf48"
     },
     {
-      "name": "Road Fighter (Taiwan) (English Logo) (Unl)",
+      "name": "Road Fighter (Taiwan) (English Logo)",
       "genre": "Race, Driving",
       "region": "Taiwan",
       "rom_name": "Road Fighter (Taiwan) (English Logo) (Unl).sg",
@@ -1683,7 +1683,7 @@
       "crc": "e04c6083"
     },
     {
-      "name": "Pop Flamer (Taiwan) (Unl)",
+      "name": "Pop Flamer (Taiwan)",
       "genre": "Action",
       "region": "Taiwan",
       "rom_name": "Pop Flamer (Taiwan) (Unl).sg",
@@ -2059,7 +2059,7 @@
       "serial": "G-1004"
     },
     {
-      "name": "Mahjong (Taiwan) (Unl)",
+      "name": "Mahjong (Taiwan)",
       "genre": "Asiatic board game",
       "region": "Taiwan",
       "rom_name": "Mahjong (Taiwan) (Unl).sg",
@@ -2090,7 +2090,7 @@
       "serial": "G-1004"
     },
     {
-      "name": "Magical Tree (Taiwan) (Unl)",
+      "name": "Magical Tree (Taiwan)",
       "genre": "Platform",
       "region": "Taiwan",
       "rom_name": "Magical Tree (Taiwan) (Unl).sg",
@@ -2103,7 +2103,7 @@
       "sha1": "2aecbc9429060ee3adfc865369f67f53408a5881"
     },
     {
-      "name": "Magical Kid Wiz (Taiwan) (Unl)",
+      "name": "Magical Kid Wiz (Taiwan)",
       "genre": "Adventure",
       "region": "Taiwan",
       "rom_name": "Magical Kid Wiz (Taiwan) (Unl).sg",
@@ -2143,7 +2143,7 @@
       "sha1": "f14f216edfda7dfd113f5cb32375a27be8a6409d"
     },
     {
-      "name": "Lode Runner (Taiwan) (Unl)",
+      "name": "Lode Runner (Taiwan)",
       "genre": "Platform",
       "region": "Taiwan",
       "rom_name": "Lode Runner (Taiwan) (Unl).sg",
@@ -2159,7 +2159,7 @@
       "sha1": "fb226a489e5a47eb0182a067fa1031ec944ab455"
     },
     {
-      "name": "Legend of Kage, The (Taiwan) (Unl)",
+      "name": "Legend of Kage, The (Taiwan)",
       "genre": "Platform",
       "region": "Taiwan",
       "rom_name": "Legend of Kage, The (Taiwan) (Unl).sg",
@@ -2174,7 +2174,7 @@
       "sha1": "902dbb122bf0efc76604a876c3fae51c074bdc6a"
     },
     {
-      "name": "Knightmare (Taiwan) (Unl)",
+      "name": "Knightmare (Taiwan)",
       "genre": "Shoot'em Up",
       "region": "Taiwan",
       "rom_name": "Knightmare (Taiwan) (Unl).sg",
@@ -2190,7 +2190,7 @@
       "sha1": "babdb6b109b20e81c28cd892c2042723e9cbff49"
     },
     {
-      "name": "King's Valley (Taiwan) (Unl)",
+      "name": "King's Valley (Taiwan)",
       "genre": "Action",
       "region": "Taiwan",
       "rom_name": "King's Valley (Taiwan) (Unl).sg",
@@ -2213,7 +2213,7 @@
       "crc": "786224dd"
     },
     {
-      "name": "Hyper Sports 2 (Taiwan) (Unl)",
+      "name": "Hyper Sports 2 (Taiwan)",
       "genre": "Sports",
       "region": "Taiwan",
       "rom_name": "Hyper Sports 2 (Taiwan) (Unl).sg",
@@ -2554,7 +2554,7 @@
       "sha1": "839e19487b96d02222ff397b047cbc6a0fbc08ff"
     },
     {
-      "name": "Exerion (Taiwan) (Unl)",
+      "name": "Exerion (Taiwan)",
       "genre": "Shoot'em Up",
       "region": "Taiwan",
       "rom_name": "Exerion (Taiwan) (Unl).sg",
@@ -2686,7 +2686,7 @@
       "serial": "C-50"
     },
     {
-      "name": "Doki Doki Penguin Land (Taiwan) (Unl)",
+      "name": "Doki Doki Penguin Land (Taiwan)",
       "genre": "Puzzle-Game",
       "region": "Taiwan",
       "rom_name": "Doki Doki Penguin Land (Taiwan) (Unl).sg",
@@ -2756,7 +2756,7 @@
       "serial": "G-1007"
     },
     {
-      "name": "Circus Charlie (Korea) (Unl)",
+      "name": "Circus Charlie (Korea)",
       "region": "Korea",
       "rom_name": "Circus Charlie (Korea) (Unl).sg",
       "size": 32768,
@@ -2812,7 +2812,7 @@
       "sha1": "da92459e64ed6cc0ce93b03a60fad049e13a505f"
     },
     {
-      "name": "Cheril Perils Classic (World) (PAL) (Aftermarket) (Unl)",
+      "name": "Cheril Perils Classic (World) (PAL)",
       "genre": "Platform",
       "rom_name": "Cheril Perils Classic (World) (PAL) (Aftermarket) (Unl).sg",
       "size": 49152,
@@ -3195,7 +3195,7 @@
       "crc": "1dd233e9"
     },
     {
-      "name": "Cabbage Patch Kids (Taiwan) (Unl)",
+      "name": "Cabbage Patch Kids (Taiwan)",
       "genre": "Action",
       "region": "Taiwan",
       "rom_name": "Cabbage Patch Kids (Taiwan) (Unl).sg",
@@ -3258,7 +3258,7 @@
       "crc": "33b61124"
     },
     {
-      "name": "Bomberman Special (Taiwan) (English Logo) (Unl)",
+      "name": "Bomberman Special (Taiwan) (English Logo)",
       "genre": "Action",
       "region": "Taiwan",
       "rom_name": "Bomberman Special (Taiwan) (English Logo) (Unl).sg",

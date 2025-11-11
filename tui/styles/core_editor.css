@@ -1,0 +1,23 @@
+#core_editor_body {
+    height: 1fr;
+    padding: 0 1;
+}
+
+#core_meta Input,
+#core_meta Static {
+    margin-bottom: 1;
+}
+
+.core-table {
+    height: 12;
+    margin-bottom: 1;
+}
+
+#core_editor_body Input {
+    margin-bottom: 1;
+}
+
+.button-row {
+    padding: 1;
+    width: auto;
+}
