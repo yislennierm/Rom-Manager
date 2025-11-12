@@ -10,7 +10,7 @@ class DownloadManagerScreen(Screen):
 
     BINDINGS = [
         ("escape", "go_back", "Back"),
-        ("delete", "delete_job", "Remove Job"),
+        ("d", "delete_job", "Remove Job"),
         ("r", "refresh", "Refresh"),
     ]
 
@@ -68,7 +68,7 @@ class DownloadManagerScreen(Screen):
                 else "[red]" if status.startswith("error")
                 else "[dim]"
             )
-            progress = f"{job['progress']:.1f}%" if job.get("progress") else "0%"
+            progress = self._progress_bar(job.get("progress"))
             speed = f"{job.get('speed_kb', 0):.1f} kB/s"
             peers = str(job.get("peers", 0))
             console = job.get("console", "Unknown")
@@ -128,3 +128,15 @@ class DownloadManagerScreen(Screen):
         if size_value == 0:
             return "0 B"
         return f"{size_value} B"
+
+    @staticmethod
+    def _progress_bar(percent_value) -> str:
+        try:
+            value = float(percent_value or 0.0)
+        except (TypeError, ValueError):
+            value = 0.0
+        value = max(0.0, min(100.0, value))
+        filled = int((value / 100.0) * 20)
+        empty = 20 - filled
+        bar = "█" * filled + "░" * empty
+        return f"[cyan]{bar}[/] {value:5.1f}%"

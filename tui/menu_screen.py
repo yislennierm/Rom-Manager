@@ -22,6 +22,15 @@ MENU_STRUCTURE = {
     "Tools": ["Rom Conversion", "Back"],
 }
 
+MENU_ART = r"""
+   __    ___                                                          
+  /__\  /___\/\/\             /\/\   __ _ _ __   __ _  __ _  ___ _ __ 
+ / \// //  //    \   _____   /    \ / _` | '_ \ / _` |/ _` |/ _ \ '__|
+/ _  \/ \_// /\/\ \ |_____| / /\/\ \ (_| | | | | (_| | (_| |  __/ |   
+\/ \_/\___/\/    \/         \/    \/\__,_|_| |_|\__,_|\__, |\___|_|   
+                                                      |___/           
+"""
+
 
 class MenuScreen(Screen):
     """Generic navigation menu screen."""
@@ -44,6 +53,7 @@ class MenuScreen(Screen):
     def compose(self) -> ComposeResult:
         yield Header()
         yield Container(
+            Static(MENU_ART, id="menu_art"),
             Static(f"[b]{self.menu_name}[/b]\n", id="menu_title"),
             Vertical(id="menu_list"),
         )
