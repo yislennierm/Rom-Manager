@@ -167,7 +167,7 @@
     },
     "Nintendo": {
       "Gameboy Color": {
-        "name": "gameboy Color",
+        "name": "Gameboy Color",
         "provider": "Internet Archive",
         "archive_id": "All game boy color roms",
         "base_url": "https://archive.org/download/GameBoyColor",
@@ -179,6 +179,23 @@
           ".gbc"
         ],
         "libretro_guid": "bc81aad5-81d4-537e-9c47-ee9d18a95ee8"
+      },
+      "Family Computer Disk System": {
+        "name": "Family Computer Disk System",
+        "provider": "Internet Archive",
+        "archive_id": "cylums-famicom-disk-system-rom-collection",
+        "base_url": "https://archive.org/download/cylums-famicom-disk-system-rom-collection",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/cylums-famicom-disk-system-rom-collection/cylums-famicom-disk-system-rom-collection_meta.sqlite",
+          "files_xml": "https://archive.org/download/cylums-famicom-disk-system-rom-collection/cylums-famicom-disk-system-rom-collection_files.xml",
+          "torrent": "https://archive.org/download/cylums-famicom-disk-system-rom-collection/cylums-famicom-disk-system-rom-collection_archive.torrent",
+          "meta_xml": "https://archive.org/download/cylums-famicom-disk-system-rom-collection/cylums-famicom-disk-system-rom-collection_meta.xml",
+          "reviews_xml": "https://archive.org/download/cylums-famicom-disk-system-rom-collection/cylums-famicom-disk-system-rom-collection_reviews.xml"
+        },
+        "rom_extensions": [
+          ".nes"
+        ],
+        "guid": "e8d2cd7c-e53c-5916-928d-9af9aa48c409"
       }
     }
   }

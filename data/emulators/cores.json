@@ -4,7 +4,7 @@
       "filename": "sega_101.bin",
       "md5": "85ec9ca47d8f6807718151cbcca8b964",
       "size": 524288,
-      "notes": "Official Japanese Saturn BIOS — required for JP games.",
+      "notes": "Official Japanese Saturn BIOS \u2014 required for JP games.",
       "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/sega_101.bin"
     },
     "saturn_us_eu_bios": {
@@ -60,21 +60,21 @@
       "filename": "bios_CD_E.bin",
       "md5": "e66fa1dc5820d254611fdcdba0662372",
       "size": null,
-      "notes": "Mega CD EU BIOS — required for European Mega CD games.",
+      "notes": "Mega CD EU BIOS \u2014 required for European Mega CD games.",
       "url": null
     },
     "megacd_us_bios": {
       "filename": "bios_CD_U.bin",
       "md5": "854b9150240a198070150e4566ae1290",
       "size": null,
-      "notes": "Sega CD US BIOS — required for North American Sega CD games.",
+      "notes": "Sega CD US BIOS \u2014 required for North American Sega CD games.",
       "url": null
     },
     "megacd_jp_bios": {
       "filename": "bios_CD_J.bin",
       "md5": "278a9397d192149e84e820ac621a8edd",
       "size": null,
-      "notes": "Mega CD JP BIOS — required for Japanese Mega CD games.",
+      "notes": "Mega CD JP BIOS \u2014 required for Japanese Mega CD games.",
       "url": null
     },
     "mastersystem_eu_bootrom": {
@@ -132,6 +132,13 @@
       "size": null,
       "notes": "Game Genie ROM for lock-on functionality.",
       "url": null
+    },
+    "Family Computer Disk System BIOS": {
+      "filename": "disksys.rom",
+      "md5": "ca30b50f880eb660a320674ed365ef7a",
+      "size": null,
+      "url": "https://github.com/Abdess/retroarch_system/blob/libretro/Nintendo%20-%20Famicom%20Disk%20System/disksys.rom",
+      "notes": null
     }
   },
   "cores": {
@@ -143,7 +150,9 @@
         "saturn_kof95_cart",
         "saturn_ultraman_cart"
       ],
-      "console_guids": ["b4e1a5aa-5431-535e-9650-8c7b6bbc5036"]
+      "console_guids": [
+        "b4e1a5aa-5431-535e-9650-8c7b6bbc5036"
+      ]
     },
     "kronos": {
       "name": "Kronos",
@@ -153,35 +162,45 @@
         "saturn_kof95_cart",
         "saturn_ultraman_cart"
       ],
-      "console_guids": ["b4e1a5aa-5431-535e-9650-8c7b6bbc5036"]
+      "console_guids": [
+        "b4e1a5aa-5431-535e-9650-8c7b6bbc5036"
+      ]
     },
     "yabause": {
       "name": "Yabause",
       "bios_ids": [
         "saturn_generic_bios"
       ],
-      "console_guids": ["b4e1a5aa-5431-535e-9650-8c7b6bbc5036"]
+      "console_guids": [
+        "b4e1a5aa-5431-535e-9650-8c7b6bbc5036"
+      ]
     },
     "yabasanshiro": {
       "name": "YabaSanshiro",
       "bios_ids": [
         "saturn_generic_bios"
       ],
-      "console_guids": ["b4e1a5aa-5431-535e-9650-8c7b6bbc5036"]
+      "console_guids": [
+        "b4e1a5aa-5431-535e-9650-8c7b6bbc5036"
+      ]
     },
     "gearsystem": {
       "name": "Gearsystem",
       "bios_ids": [
         "sg1000_boot_rom"
       ],
-      "console_guids": ["ca066374-6220-5f44-828c-302f50a10146"]
+      "console_guids": [
+        "ca066374-6220-5f44-828c-302f50a10146"
+      ]
     },
     "bluemsx": {
       "name": "blueMSX",
       "bios_ids": [
         "sg1000_boot_rom"
       ],
-      "console_guids": ["ca066374-6220-5f44-828c-302f50a10146"]
+      "console_guids": [
+        "ca066374-6220-5f44-828c-302f50a10146"
+      ]
     },
     "genesis_plus_gx": {
       "name": "Genesis Plus GX",
@@ -207,6 +226,17 @@
         "fdb51c61-0560-593b-937f-cccae600d469",
         "ca066374-6220-5f44-828c-302f50a10146",
         "8f06706f-2b37-5d8a-94cc-028c7beef756"
+      ]
+    },
+    "NES / Famicom (Nestopia)": {
+      "name": "Nestopia",
+      "notes": "Nestopia is a cycle accurate emulator for the NES/Famicom. This is the libretro port of the Nestopia emulator, based on the de facto upstream Nestopia JG fork. The libretro port contains an additional overclocking feature.",
+      "bios_ids": [
+        "Family Computer Disk System BIOS"
+      ],
+      "console_guids": [
+        "e8d2cd7c-e53c-5916-928d-9af9aa48c409",
+        "fad2a671-5d13-54b9-8562-3b058c610348"
       ]
     }
   }

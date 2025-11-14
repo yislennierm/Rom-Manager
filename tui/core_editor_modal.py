@@ -25,9 +25,14 @@ class CoreEditorModal(ModalScreen):
         self._core_id = core_id
         self.registry = load_registry()
         self.core_data = self.registry.get("cores", {}).get(core_id, {}) if core_id else {}
-        self.selected_consoles = set(self.core_data.get("console_guids", []))
-        self.selected_bios = set(self.core_data.get("bios_ids", []))
+        self.selected_consoles = {str(guid) for guid in self.core_data.get("console_guids", []) if guid}
+        self.selected_bios = {str(bios_id) for bios_id in self.core_data.get("bios_ids", []) if bios_id}
         self.modules = load_modules()
+
+    @staticmethod
+    def _key_value(row_key):
+        """Unwrap Textual RowKey objects to their primitive value."""
+        return getattr(row_key, "value", row_key)
 
     def compose(self) -> ComposeResult:
         title = f"Edit Core" if self._core_id else "Add Core"
@@ -118,7 +123,7 @@ class CoreEditorModal(ModalScreen):
 
     def on_data_table_row_selected(self, event: DataTable.RowSelected) -> None:
         table_id = event.data_table.id
-        key = event.row_key
+        key = self._key_value(event.row_key)
         if table_id == "console_table" and key:
             if key in self.selected_consoles:
                 self.selected_consoles.remove(key)

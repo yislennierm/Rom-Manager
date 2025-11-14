@@ -40,7 +40,7 @@ def build_rom_catalog(
         raise FileNotFoundError(f"RDB export missing for {module_name or console}.")
 
     entries, entry_count = _load_rdb_entries(rdb_file)
-    catalogs = _load_provider_catalogs(manufacturer, console)
+    catalogs = _load_provider_catalogs(manufacturer, console, module_guid)
     lookup = _build_provider_lookup(catalogs)
     roms = _merge_entries(entries, manufacturer, console, lookup)
 
@@ -63,14 +63,63 @@ def _load_rdb_entries(path: Path) -> Tuple[List[Dict], int]:
     return entries, entry_count
 
 
-def _load_provider_catalogs(manufacturer: str, console: str) -> List[Dict]:
-    dirs = console_dirs(manufacturer, console, ensure=False)
+def _load_providers_data() -> Dict:
+    try:
+        with open(PROVIDER_FILE, "r", encoding="utf-8") as fh:
+            return json.load(fh)
+    except Exception:
+        return {}
+
+
+def _resolve_provider_console(
+    manufacturer: str,
+    console: str,
+    module_guid: Optional[str],
+    providers: Optional[Dict] = None,
+) -> Tuple[str, Optional[Dict]]:
+    providers = providers or _load_providers_data()
+
+    consoles = (
+        providers.get("console_root", {})
+        .get(manufacturer, {})
+    )
+    if not isinstance(consoles, dict):
+        return console, None
+
+    if console in consoles:
+        return console, consoles[console]
+
+    if module_guid:
+        target = module_guid.lower()
+        for name, entry in consoles.items():
+            if not isinstance(entry, dict):
+                continue
+            guid = (entry.get("libretro_guid") or entry.get("guid") or "").lower()
+            if guid and guid == target:
+                return name, entry
+
+    return console, None
+
+
+def _load_provider_catalogs(
+    manufacturer: str,
+    console: str,
+    module_guid: Optional[str] = None,
+) -> List[Dict]:
+    providers = _load_providers_data()
+    provider_console, _ = _resolve_provider_console(
+        manufacturer,
+        console,
+        module_guid,
+        providers=providers,
+    )
+    dirs = console_dirs(manufacturer, provider_console, ensure=False)
     exports_dir = Path(dirs["exports"])
     if not exports_dir.is_dir():
         return []
 
-    labels = _load_provider_labels(manufacturer, console)
-    prefix = f"{path_prefix(manufacturer, console)}_roms"
+    labels = _load_provider_labels(manufacturer, console, module_guid, providers=providers)
+    prefix = f"{path_prefix(manufacturer, provider_console)}_roms"
     catalogs: List[Dict] = []
 
     for json_file in sorted(exports_dir.glob(f"{prefix}*.json")):
@@ -91,17 +140,24 @@ def _load_provider_catalogs(manufacturer: str, console: str) -> List[Dict]:
     return catalogs
 
 
-def _load_provider_labels(manufacturer: str, console: str) -> Dict[str, str]:
-    try:
-        with open(PROVIDER_FILE, "r", encoding="utf-8") as fh:
-            providers = json.load(fh)
-    except Exception:
-        return {}
-    entry = (
-        providers.get("console_root", {})
-        .get(manufacturer, {})
-        .get(console)
-    )
+def _load_provider_labels(
+    manufacturer: str,
+    console: str,
+    module_guid: Optional[str] = None,
+    providers: Optional[Dict] = None,
+) -> Dict[str, str]:
+    providers = providers or _load_providers_data()
+    console_root = providers.get("console_root", {})
+    manufacturer_entry = console_root.get(manufacturer, {})
+    entry = manufacturer_entry.get(console)
+    if not entry and module_guid and isinstance(manufacturer_entry, dict):
+        target = module_guid.lower()
+        for candidate in manufacturer_entry.values():
+            if isinstance(candidate, dict):
+                guid = candidate.get("libretro_guid") or candidate.get("guid")
+                if guid and guid.lower() == target:
+                    entry = candidate
+                    break
     labels: Dict[str, str] = {}
     if isinstance(entry, list):
         for item in entry:
