@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files>
+  <file name="Cylum's Famicom Disk System ROM Collection (02-16-2021).png" source="original">
+    <mtime>1613523869</mtime>
+    <size>435670</size>
+    <md5>410b87b0498a2a0e98105bc8b089380e</md5>
+    <crc32>08a0224f</crc32>
+    <sha1>3012c3c4b7c597b0ef3f78080241e1109b2707e8</sha1>
+    <format>PNG</format>
+  </file>
+  <file name="Cylum's Famicom Disk System ROM Collection (02-16-2021).zip" source="original">
+    <mtime>1613523894</mtime>
+    <size>5637799</size>
+    <md5>7f888f4df422f5cb4b544de38b486e74</md5>
+    <crc32>d7ed36ef</crc32>
+    <sha1>022a4787bd13c44defa586b72eca0a4f91dbdc95</sha1>
+    <format>ZIP</format>
+    <filecount>117</filecount>
+  </file>
+  <file name="Cylum's Famicom Disk System ROM Collection (02-16-2021)_thumb.jpg" source="derivative">
+    <format>JPEG Thumb</format>
+    <original>Cylum's Famicom Disk System ROM Collection (02-16-2021).png</original>
+    <mtime>1613524359</mtime>
+    <size>4514</size>
+    <md5>20d0229f1ba2db068fd26b27ada28822</md5>
+    <crc32>b402c36b</crc32>
+    <sha1>1638be1db7d77dcee831c93c99aab2a0525637e8</sha1>
+  </file>
+  <file name="Gamelist.txt" source="original">
+    <mtime>1613523899</mtime>
+    <size>11027</size>
+    <md5>05c78811131b4b7830927d7a686756a4</md5>
+    <crc32>2ab700d8</crc32>
+    <sha1>7c631c9465bfcc80e40b641d077e0f41d006f5f5</sha1>
+    <format>Text</format>
+  </file>
+  <file name="Update Log.txt" source="original">
+    <mtime>1613523903</mtime>
+    <size>485</size>
+    <md5>6c53a12fd9731d1a2fc841747d4b6bfa</md5>
+    <crc32>11d6387a</crc32>
+    <sha1>108896145d790f67ff50bef6f6faf0c9216d95f9</sha1>
+    <format>Text</format>
+  </file>
+  <file name="__ia_thumb.jpg" source="original">
+    <mtime>1630043588</mtime>
+    <size>9289</size>
+    <md5>28c91850f1767855d137d55b49fea47d</md5>
+    <crc32>1e4848f5</crc32>
+    <sha1>be7bc5e7996350b2f8ba3b5f8762f4f586fa20a7</sha1>
+    <format>Item Tile</format>
+    <rotation>0</rotation>
+  </file>
+  <file name="cylums-famicom-disk-system-rom-collection_archive.torrent" source="metadata">
+    <btih>0fb50cc7e4f4308ef61cd2fd4bafba64232c0009</btih>
+    <mtime>1740196885</mtime>
+    <size>2730</size>
+    <md5>7d18953ae7335c026ec248610a1693ef</md5>
+    <crc32>6a48c179</crc32>
+    <sha1>77f45820b41b14ac5224e346abe1b062db08a159</sha1>
+    <format>Archive BitTorrent</format>
+  </file>
+  <file name="cylums-famicom-disk-system-rom-collection_files.xml" source="original">
+    <format>Metadata</format>
+    <md5>3b9d73ac1d71adb88c2ff1f79f089ec3</md5>
+    <summation>md5</summation>
+  </file>
+  <file name="cylums-famicom-disk-system-rom-collection_meta.sqlite" source="original">
+    <mtime>1613523968</mtime>
+    <size>20480</size>
+    <md5>4046be5a88c393d27ce21418cf135161</md5>
+    <crc32>7dd5f827</crc32>
+    <sha1>4824bf933ab14e38e4dc0a9d54412bf384b5214b</sha1>
+    <format>Metadata</format>
+  </file>
+  <file name="cylums-famicom-disk-system-rom-collection_meta.xml" source="original">
+    <mtime>1690500048</mtime>
+    <size>1467</size>
+    <md5>75bbb86e27262ddc7751ef1796e900f2</md5>
+    <crc32>60e15b47</crc32>
+    <sha1>c64dc62a50e1f8d3ee829ab788c7ef29648c7649</sha1>
+    <format>Metadata</format>
+  </file>
+  <file name="cylums-famicom-disk-system-rom-collection_reviews.xml" source="original">
+    <mtime>1740196883</mtime>
+    <size>576</size>
+    <md5>237b7009aafe7d804ec3021cc319e4f6</md5>
+    <crc32>e171efeb</crc32>
+    <sha1>ee88209b5ec151aac934511659158c970fbe684c</sha1>
+    <format>Metadata</format>
+  </file>
+</files>

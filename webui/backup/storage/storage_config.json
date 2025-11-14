@@ -1,0 +1,26 @@
+{
+  "default_roms": "~/ROMs",
+  "default_bios": "~/BIOS",
+  "frontends": {
+    "retroarch_steam": {
+      "name": "RetroArch (Steam)",
+      "roms_path": "~/Library/Application Support/Steam/steamapps/common/RetroArch/downloads",
+      "bios_path": "~/Library/Application Support/Steam/steamapps/common/RetroArch/system",
+      "platform": "macos",
+      "active": false,
+      "supported_guids": []
+    },
+    "retroarch_standalone": {
+      "name": "RetroArch MacOS(Standalone)",
+      "roms_path": "~/Documents/RetroArch/system/roms",
+      "bios_path": "~/Documents/RetroArch/system",
+      "active": true,
+      "supported_guids": [
+        "b4e1a5aa-5431-535e-9650-8c7b6bbc5036",
+        "2530a9bf-3926-52a9-b3fd-401ed1655bcc",
+        "ca066374-6220-5f44-828c-302f50a10146",
+        "e8d2cd7c-e53c-5916-928d-9af9aa48c409"
+      ]
+    }
+  }
+}

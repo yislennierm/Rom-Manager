@@ -1,0 +1,243 @@
+{
+  "bios_files": {
+    "saturn_jp_bios": {
+      "filename": "sega_101.bin",
+      "md5": "85ec9ca47d8f6807718151cbcca8b964",
+      "size": 524288,
+      "notes": "Official Japanese Saturn BIOS \u2014 required for JP games.",
+      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/sega_101.bin"
+    },
+    "saturn_us_eu_bios": {
+      "filename": "mpr-17933.bin",
+      "md5": "3240872c70984b6cbfda1586cab68dbe",
+      "size": 524288,
+      "notes": "US/EU Saturn BIOS (also known as 1.01a). Required for US/EU games.",
+      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-17933.bin"
+    },
+    "saturn_kof95_cart": {
+      "filename": "mpr-18811-mx.ic1",
+      "md5": "255113ba943c92a54facd25a10fd780c",
+      "size": 524288,
+      "notes": "ROM cartridge required for The King of Fighters '95.",
+      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-18811-mx.ic1"
+    },
+    "saturn_ultraman_cart": {
+      "filename": "mpr-19367-mx.ic1",
+      "md5": "1cd19988d1d72a3e7caa0b73234c96b4",
+      "size": 524288,
+      "notes": "ROM cartridge required for Ultraman: Hikari no Kyojin Densetsu.",
+      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-19367-mx.ic1"
+    },
+    "saturn_generic_bios": {
+      "filename": "saturn_bios.bin",
+      "md5": "af5828fdff51384f99b3c4926be27762",
+      "size": 524288,
+      "notes": "Generic Saturn BIOS used by several cores. Optional for some, recommended for accuracy.",
+      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/saturn_bios.bin"
+    },
+    "stv_bios": {
+      "filename": "stvbios.zip",
+      "md5": null,
+      "size": 524288,
+      "notes": "Sega Titan Video (ST-V) BIOS set. Required for ST-V arcade titles.",
+      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/stvbios.zip"
+    },
+    "sg1000_boot_rom": {
+      "filename": "sg1000.rom",
+      "md5": null,
+      "size": null,
+      "notes": "SG-1000 boot ROM. Optional for some cores, required for blueMSX.",
+      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/sg1000.rom"
+    },
+    "megadrive_boot_rom": {
+      "filename": "bios_MD.bin",
+      "md5": "45e298905a08f9cfb38fd504cd6dbc84",
+      "size": null,
+      "notes": "Mega Drive / Genesis startup ROM (optional boot ROM).",
+      "url": null
+    },
+    "megacd_eu_bios": {
+      "filename": "bios_CD_E.bin",
+      "md5": "e66fa1dc5820d254611fdcdba0662372",
+      "size": null,
+      "notes": "Mega CD EU BIOS \u2014 required for European Mega CD games.",
+      "url": null
+    },
+    "megacd_us_bios": {
+      "filename": "bios_CD_U.bin",
+      "md5": "854b9150240a198070150e4566ae1290",
+      "size": null,
+      "notes": "Sega CD US BIOS \u2014 required for North American Sega CD games.",
+      "url": null
+    },
+    "megacd_jp_bios": {
+      "filename": "bios_CD_J.bin",
+      "md5": "278a9397d192149e84e820ac621a8edd",
+      "size": null,
+      "notes": "Mega CD JP BIOS \u2014 required for Japanese Mega CD games.",
+      "url": null
+    },
+    "mastersystem_eu_bootrom": {
+      "filename": "bios_E.sms",
+      "md5": "840481177270d5642a14ca71ee72844c",
+      "size": null,
+      "notes": "Master System EU BIOS (optional boot ROM).",
+      "url": null
+    },
+    "mastersystem_us_bootrom": {
+      "filename": "bios_U.sms",
+      "md5": "840481177270d5642a14ca71ee72844c",
+      "size": null,
+      "notes": "Master System US BIOS (optional boot ROM).",
+      "url": null
+    },
+    "mastersystem_jp_bootrom": {
+      "filename": "bios_J.sms",
+      "md5": "24a519c53f67b00640d0048ef7089105",
+      "size": null,
+      "notes": "Master System JP BIOS (optional boot ROM).",
+      "url": null
+    },
+    "gamegear_bootrom": {
+      "filename": "bios.gg",
+      "md5": "672e104c3be3a238301aceffc3b23fd6",
+      "size": null,
+      "notes": "Game Gear BIOS (optional boot ROM).",
+      "url": null
+    },
+    "lockon_sonic_knuckles": {
+      "filename": "sk.bin",
+      "md5": "4ea493ea4e9f6c9ebfccbdb15110367e",
+      "size": null,
+      "notes": "Sonic & Knuckles ROM for lock-on functionality (optional).",
+      "url": null
+    },
+    "lockon_sonic_knuckles_upmem": {
+      "filename": "sk2chip.bin",
+      "md5": "b4e76e416b887f4e7413ba76fa735f16",
+      "size": null,
+      "notes": "Sonic & Knuckles UPMEM ROM (lock-on).",
+      "url": null
+    },
+    "lockon_action_replay": {
+      "filename": "areplay.bin",
+      "md5": "a0028b3043f9d59ceeb03da5b073b30d",
+      "size": null,
+      "notes": "Action Replay ROM for lock-on functionality.",
+      "url": null
+    },
+    "lockon_game_genie": {
+      "filename": "ggenie.bin",
+      "md5": "e8af7fe115a75c849f6aab3701e7799b",
+      "size": null,
+      "notes": "Game Genie ROM for lock-on functionality.",
+      "url": null
+    },
+    "Family Computer Disk System BIOS": {
+      "filename": "disksys.rom",
+      "md5": "ca30b50f880eb660a320674ed365ef7a",
+      "size": null,
+      "url": "https://github.com/Abdess/retroarch_system/blob/libretro/Nintendo%20-%20Famicom%20Disk%20System/disksys.rom",
+      "notes": null
+    }
+  },
+  "cores": {
+    "beetle_saturn": {
+      "name": "Beetle Saturn (Mednafen core)",
+      "bios_ids": [
+        "saturn_jp_bios",
+        "saturn_us_eu_bios",
+        "saturn_kof95_cart",
+        "saturn_ultraman_cart"
+      ],
+      "console_guids": [
+        "b4e1a5aa-5431-535e-9650-8c7b6bbc5036"
+      ]
+    },
+    "kronos": {
+      "name": "Kronos",
+      "bios_ids": [
+        "saturn_generic_bios",
+        "stv_bios",
+        "saturn_kof95_cart",
+        "saturn_ultraman_cart"
+      ],
+      "console_guids": [
+        "b4e1a5aa-5431-535e-9650-8c7b6bbc5036"
+      ]
+    },
+    "yabause": {
+      "name": "Yabause",
+      "bios_ids": [
+        "saturn_generic_bios"
+      ],
+      "console_guids": [
+        "b4e1a5aa-5431-535e-9650-8c7b6bbc5036"
+      ]
+    },
+    "yabasanshiro": {
+      "name": "YabaSanshiro",
+      "bios_ids": [
+        "saturn_generic_bios"
+      ],
+      "console_guids": [
+        "b4e1a5aa-5431-535e-9650-8c7b6bbc5036"
+      ]
+    },
+    "gearsystem": {
+      "name": "Gearsystem",
+      "bios_ids": [
+        "sg1000_boot_rom"
+      ],
+      "console_guids": [
+        "ca066374-6220-5f44-828c-302f50a10146"
+      ]
+    },
+    "bluemsx": {
+      "name": "blueMSX",
+      "bios_ids": [
+        "sg1000_boot_rom"
+      ],
+      "console_guids": [
+        "ca066374-6220-5f44-828c-302f50a10146"
+      ]
+    },
+    "genesis_plus_gx": {
+      "name": "Genesis Plus GX",
+      "bios_ids": [
+        "megadrive_boot_rom",
+        "megacd_eu_bios",
+        "megacd_us_bios",
+        "megacd_jp_bios",
+        "mastersystem_eu_bootrom",
+        "mastersystem_us_bootrom",
+        "mastersystem_jp_bootrom",
+        "gamegear_bootrom",
+        "lockon_sonic_knuckles",
+        "lockon_sonic_knuckles_upmem",
+        "lockon_action_replay",
+        "lockon_game_genie",
+        "sg1000_boot_rom"
+      ],
+      "console_guids": [
+        "126fc9a7-f783-5a73-9c17-b1e497cc8edd",
+        "63aab22a-8415-5a15-8d82-f70c218298f6",
+        "acc73d91-7629-55cb-aeca-7b90814d8604",
+        "fdb51c61-0560-593b-937f-cccae600d469",
+        "ca066374-6220-5f44-828c-302f50a10146",
+        "8f06706f-2b37-5d8a-94cc-028c7beef756"
+      ]
+    },
+    "NES / Famicom (Nestopia)": {
+      "name": "Nestopia",
+      "notes": "Nestopia is a cycle accurate emulator for the NES/Famicom. This is the libretro port of the Nestopia emulator, based on the de facto upstream Nestopia JG fork. The libretro port contains an additional overclocking feature.",
+      "bios_ids": [
+        "Family Computer Disk System BIOS"
+      ],
+      "console_guids": [
+        "e8d2cd7c-e53c-5916-928d-9af9aa48c409",
+        "fad2a671-5d13-54b9-8562-3b058c610348"
+      ]
+    }
+  }
+}

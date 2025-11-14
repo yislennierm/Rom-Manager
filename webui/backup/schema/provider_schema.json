@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/provider.schema.json",
+  "title": "ROM Provider Schema",
+  "type": "object",
+  "properties": {
+    "console_root": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Za-z0-9 _-]+$": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z0-9 _-]+$": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "provider": { "type": "string" },
+                "archive_id": { "type": "string" },
+                "base_url": { "type": "string", "format": "uri" },
+                "files": {
+                  "type": "object",
+                  "properties": {
+                    "torrent": { "type": "string", "format": "uri" },
+                    "files_xml": { "type": "string", "format": "uri" },
+                    "meta_sqlite": { "type": "string", "format": "uri" },
+                    "meta_xml": { "type": "string", "format": "uri" },
+                    "reviews_xml": { "type": "string", "format": "uri" }
+                  },
+                  "required": ["meta_sqlite"]
+                },
+                "rom_extensions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^\\.[a-z0-9]+$"
+                  },
+                  "description": "List of known ROM or image file extensions for this console"
+                },
+                "size": { "type": "string" },
+                "updated": { "type": "string", "format": "date" }
+              },
+              "required": [
+                "name",
+                "provider",
+                "archive_id",
+                "base_url",
+                "files"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": ["console_root"]
+}

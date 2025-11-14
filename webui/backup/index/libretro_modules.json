@@ -1,0 +1,1121 @@
+{
+  "fetched_at": "2025-11-07T19:57:16.827661",
+  "modules": [
+    {
+      "name": "Atari - Lynx",
+      "path": "Atari - Lynx",
+      "url": "https://github.com/libretro-thumbnails/Atari_-_Lynx.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "5656b00c-8050-57bd-93ed-0ba9bb176580"
+    },
+    {
+      "name": "Hartung - Game Master",
+      "path": "Hartung - Game Master",
+      "url": "https://github.com/libretro-thumbnails/Hartung_-_Game_Master.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "3a5c3ea5-f514-59fa-9039-75d98e1ca63c"
+    },
+    {
+      "name": "Handheld Electronic Game",
+      "path": "Handheld Electronic Game",
+      "url": "https://github.com/libretro-thumbnails/Handheld_Electronic_Game.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "60e5b2cc-0649-54b1-b0e0-30d0acac4bcc"
+    },
+    {
+      "name": "GamePark - GP32",
+      "path": "GamePark - GP32",
+      "url": "https://github.com/libretro-thumbnails/GamePark_-_GP32.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "a69e967b-f947-5962-8578-03ca389c6231"
+    },
+    {
+      "name": "GCE - Vectrex",
+      "path": "GCE - Vectrex",
+      "url": "https://github.com/libretro-thumbnails/GCE_-_Vectrex.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "0acbb3bd-c595-56ea-893f-60d6d25aa2a4"
+    },
+    {
+      "name": "Funtech - Super Acan",
+      "path": "Funtech - Super Acan",
+      "url": "https://github.com/libretro-thumbnails/Funtech_-_Super_Acan.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "7b81f262-ec70-5234-928d-207322439020"
+    },
+    {
+      "name": "Fairchild - Channel F",
+      "path": "Fairchild - Channel F",
+      "url": "https://github.com/libretro-thumbnails/Fairchild_-_Channel_F.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "fa71743b-728a-59a1-abe8-ce3ec78be77e"
+    },
+    {
+      "name": "FBNeo - Arcade Games",
+      "path": "FBNeo - Arcade Games",
+      "url": "https://github.com/libretro-thumbnails/FBNeo_-_Arcade_Games.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "0dff282f-450a-5188-8f85-18fe5b1a9cf0"
+    },
+    {
+      "name": "Epoch - Super Cassette Vision",
+      "path": "Epoch - Super Cassette Vision",
+      "url": "https://github.com/libretro-thumbnails/Epoch_-_Super_Cassette_Vision.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "947cc03e-2c72-5cd0-92d9-8f69f946d59f"
+    },
+    {
+      "name": "Entex - Adventure Vision",
+      "path": "Entex - Adventure Vision",
+      "url": "https://github.com/libretro-thumbnails/Entex_-_Adventure_Vision.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "2de2782e-37a2-5e1c-9f4e-ffbf96872531"
+    },
+    {
+      "name": "Emerson - Arcadia 2001",
+      "path": "Emerson - Arcadia 2001",
+      "url": "https://github.com/libretro-thumbnails/Emerson_-_Arcadia_2001.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "b7e90431-7e83-585a-90ed-eb636b009779"
+    },
+    {
+      "name": "Dinothawr",
+      "path": "Dinothawr",
+      "url": "https://github.com/libretro-thumbnails/Dinothawr.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "a6894576-a77c-507e-a891-ecfac74c622b"
+    },
+    {
+      "name": "DOS",
+      "path": "DOS",
+      "url": "https://github.com/libretro-thumbnails/DOS.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "e04d2bd8-9262-5166-ab2d-dd0785b31977"
+    },
+    {
+      "name": "DOOM",
+      "path": "DOOM",
+      "url": "https://github.com/libretro-thumbnails/DOOM.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "e6724423-6290-5c38-8e97-388d8bf84f93"
+    },
+    {
+      "name": "Commodore - VIC-20",
+      "path": "Commodore - VIC-20",
+      "url": "https://github.com/libretro-thumbnails/Commodore_-_VIC-20.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "ff4ae4a0-390a-54b0-a121-4d460989045a"
+    },
+    {
+      "name": "Commodore - Plus-4",
+      "path": "Commodore - Plus-4",
+      "url": "https://github.com/libretro-thumbnails/Commodore_-_Plus-4.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "5e21f852-8ffc-5151-9319-85c61463583f"
+    },
+    {
+      "name": "Commodore - 64",
+      "path": "Commodore - 64",
+      "url": "https://github.com/libretro-thumbnails/Commodore_-_64.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "b019227e-815a-5c8b-adb3-75685bf39279"
+    },
+    {
+      "name": "Coleco - ColecoVision",
+      "path": "Coleco - ColecoVision",
+      "url": "https://github.com/libretro-thumbnails/Coleco_-_ColecoVision.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "72c1d004-1fce-5e54-9936-f41a1bcfe733"
+    },
+    {
+      "name": "Cave Story",
+      "path": "Cave Story",
+      "url": "https://github.com/libretro-thumbnails/Cave_Story.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "8124c606-ba40-5dfc-91ad-348926e1a9ce"
+    },
+    {
+      "name": "Casio - PV-1000",
+      "path": "Casio - PV-1000",
+      "url": "https://github.com/libretro-thumbnails/Casio_-_PV-1000.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "71b2e78e-d776-59a6-8bfa-5f84f90e7eca"
+    },
+    {
+      "name": "Casio - Loopy",
+      "path": "Casio - Loopy",
+      "url": "https://github.com/libretro-thumbnails/Casio_-_Loopy.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "632b56c7-fdb2-5eff-81fc-0d9a5be9e208"
+    },
+    {
+      "name": "Bomberman Game Clone",
+      "path": "MrBoom",
+      "url": "https://github.com/libretro-thumbnails/MrBoom.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "d469008a-da73-5457-af7f-8eecb03c464b"
+    },
+    {
+      "name": "Bandai - WonderSwan",
+      "path": "Bandai - WonderSwan",
+      "url": "https://github.com/libretro-thumbnails/Bandai_-_WonderSwan.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "595c8d22-7e81-5e3b-a7f3-52ae0cef34cd"
+    },
+    {
+      "name": "Sega - PICO",
+      "path": "Sega - PICO",
+      "url": "https://github.com/libretro-thumbnails/Sega_-_PICO.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "8f06706f-2b37-5d8a-94cc-028c7beef756"
+    },
+    {
+      "name": "Sega - Mega-CD - Sega CD",
+      "path": "Sega - Mega-CD - Sega CD",
+      "url": "https://github.com/libretro-thumbnails/Sega_-_Mega-CD_-_Sega_CD.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "63aab22a-8415-5a15-8d82-f70c218298f6"
+    },
+    {
+      "name": "Sega - Mega Drive - Genesis",
+      "path": "Sega - Mega Drive - Genesis",
+      "url": "https://github.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "126fc9a7-f783-5a73-9c17-b1e497cc8edd"
+    },
+    {
+      "name": "Sega - Master System - Mark III",
+      "path": "Sega - Master System - Mark III",
+      "url": "https://github.com/libretro-thumbnails/Sega_-_Master_System_-_Mark_III.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "acc73d91-7629-55cb-aeca-7b90814d8604"
+    },
+    {
+      "name": "Sega - Game Gear",
+      "path": "Sega - Game Gear",
+      "url": "https://github.com/libretro-thumbnails/Sega_-_Game_Gear.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "fdb51c61-0560-593b-937f-cccae600d469"
+    },
+    {
+      "name": "Sega - Dreamcast",
+      "path": "Sega - Dreamcast",
+      "url": "https://github.com/libretro-thumbnails/Sega_-_Dreamcast.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "2530a9bf-3926-52a9-b3fd-401ed1655bcc"
+    },
+    {
+      "name": "Sega - 32X",
+      "path": "Sega - 32X",
+      "url": "https://github.com/libretro-thumbnails/Sega_-_32X.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "2bf97080-34ce-529a-9e1c-67a5cdab9070"
+    },
+    {
+      "name": "ScummVM",
+      "path": "ScummVM",
+      "url": "https://github.com/libretro-thumbnails/ScummVM.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "9bc419bc-74d5-57e6-8421-19968dbbed7d"
+    },
+    {
+      "name": "SNK - Neo Geo",
+      "path": "SNK - Neo Geo",
+      "url": "https://github.com/libretro-thumbnails/SNK_-_Neo_Geo.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "e9d5a0d5-42af-5654-848c-a29ea154ba0f"
+    },
+    {
+      "name": "SNK - Neo Geo Pocket",
+      "path": "SNK - Neo Geo Pocket",
+      "url": "https://github.com/libretro-thumbnails/SNK_-_Neo_Geo_Pocket.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "d1c9402f-aa02-5f19-a846-449517ecd7c0"
+    },
+    {
+      "name": "SNK - Neo Geo Pocket Color",
+      "path": "SNK - Neo Geo Pocket Color",
+      "url": "https://github.com/libretro-thumbnails/SNK_-_Neo_Geo_Pocket_Color.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "ef04915a-086b-574d-aa82-e99c2892c331"
+    },
+    {
+      "name": "SNK - Neo Geo CD",
+      "path": "SNK - Neo Geo CD",
+      "url": "https://github.com/libretro-thumbnails/SNK_-_Neo_Geo_CD.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "f86b3c1b-7bf6-5538-b5f3-712173dce0b0"
+    },
+    {
+      "name": "RCA - Studio II",
+      "path": "RCA - Studio II",
+      "url": "https://github.com/libretro-thumbnails/RCA_-_Studio_II.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "713057d9-8ae9-5b0a-9d1b-cf121b9357ae"
+    },
+    {
+      "name": "Bandai - WonderSwan Color",
+      "path": "Bandai - WonderSwan Color",
+      "url": "https://github.com/libretro-thumbnails/Bandai_-_WonderSwan_Color.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "96d28972-81ec-55c8-a748-b621d6612d1c"
+    },
+    {
+      "name": "Atari - 2600",
+      "path": "Atari - 2600",
+      "url": "https://github.com/libretro-thumbnails/Atari_-_2600.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "d4874312-2442-5d55-b0a1-8fbd6b5bb68e"
+    },
+    {
+      "name": "Atari - 5200",
+      "path": "Atari - 5200",
+      "url": "https://github.com/libretro-thumbnails/Atari_-_5200.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "f47fa56b-1c6e-5364-a344-9fafc6ba4bf0"
+    },
+    {
+      "name": "Atari - 7800",
+      "path": "Atari - 7800",
+      "url": "https://github.com/libretro-thumbnails/Atari_-_7800.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "123de432-6905-5c13-b785-0c643bf5cb09"
+    },
+    {
+      "name": "Atari - Jaguar",
+      "path": "Atari - Jaguar",
+      "url": "https://github.com/libretro-thumbnails/Atari_-_Jaguar.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "5565f7db-0d0c-55fe-aa7e-fe719791d1b9"
+    },
+    {
+      "name": "Atari - ST",
+      "path": "Atari - ST",
+      "url": "https://github.com/libretro-thumbnails/Atari_-_ST.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "bc75d7cf-7fbb-5b60-9d41-978df529b183"
+    },
+    {
+      "name": "Lutro",
+      "path": "Lutro",
+      "url": "https://github.com/libretro-thumbnails/Lutro.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "ae6e7d72-f889-5a2f-a5c4-980b8fe04dfe"
+    },
+    {
+      "name": "Magnavox - Odyssey2",
+      "path": "Magnavox - Odyssey2",
+      "url": "https://github.com/libretro-thumbnails/Magnavox_-_Odyssey2.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "a7d519f9-601d-539c-9d49-c7c7f1f17f16"
+    },
+    {
+      "name": "Microsoft - MSX",
+      "path": "Microsoft - MSX",
+      "url": "https://github.com/libretro-thumbnails/Microsoft_-_MSX.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "bba54e85-5571-5304-a61c-f980c5d9a6bd"
+    },
+    {
+      "name": "Microsoft - MSX2",
+      "path": "Microsoft - MSX2",
+      "url": "https://github.com/libretro-thumbnails/Microsoft_-_MSX2.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "82b6c1a3-335d-5951-a1c4-1b87492e31c4"
+    },
+    {
+      "name": "Microsoft - Xbox",
+      "path": "Microsoft - Xbox",
+      "url": "https://github.com/libretro-thumbnails/Microsoft_-_Xbox.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "13092bfb-e034-59d6-932a-fbcc217d41f8"
+    },
+    {
+      "name": "Microsoft - Xbox 360",
+      "path": "Microsoft - Xbox 360",
+      "url": "https://github.com/libretro-thumbnails/Microsoft_-_Xbox_360.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "44ea37e8-f7f5-5737-9e47-df022edf4a76"
+    },
+    {
+      "name": "NEC - PC Engine - TurboGrafx 16",
+      "path": "NEC - PC Engine - TurboGrafx 16",
+      "url": "https://github.com/libretro-thumbnails/NEC_-_PC_Engine_-_TurboGrafx_16.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "2bd2cd12-6d99-5379-86dc-be6a5904e280"
+    },
+    {
+      "name": "NEC - PC Engine CD - TurboGrafx-CD",
+      "path": "NEC - PC Engine CD - TurboGrafx-CD",
+      "url": "https://github.com/libretro-thumbnails/NEC_-_PC_Engine_CD_-_TurboGrafx-CD.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "1ff5f144-8d13-51b9-82c6-365169ba2455"
+    },
+    {
+      "name": "NEC - PC Engine SuperGrafx",
+      "path": "NEC - PC Engine SuperGrafx",
+      "url": "https://github.com/libretro-thumbnails/NEC_-_PC_Engine_SuperGrafx.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "e63c6451-836b-5dbe-8532-63492762b3d9"
+    },
+    {
+      "name": "NEC - PC-FX",
+      "path": "NEC - PC-FX",
+      "url": "https://github.com/libretro-thumbnails/NEC_-_PC-FX.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "98e5f218-c591-5a14-bd69-fa25b516c3ed"
+    },
+    {
+      "name": "Nintendo - Family Computer Disk System",
+      "path": "Nintendo - Family Computer Disk System",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Family_Computer_Disk_System.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "e8d2cd7c-e53c-5916-928d-9af9aa48c409"
+    },
+    {
+      "name": "Nintendo - Game Boy",
+      "path": "Nintendo - Game Boy",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Game_Boy.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "a7d91fb9-7cd4-51ff-9dfd-44a90ad355de"
+    },
+    {
+      "name": "Nintendo - Game Boy Advance",
+      "path": "Nintendo - Game Boy Advance",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "6014b17f-d1fe-5067-b80b-f3e582e492b2"
+    },
+    {
+      "name": "Nintendo - Game Boy Color",
+      "path": "Nintendo - Game Boy Color",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Game_Boy_Color.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "bc81aad5-81d4-537e-9c47-ee9d18a95ee8"
+    },
+    {
+      "name": "Nintendo - GameCube",
+      "path": "Nintendo - GameCube",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_GameCube.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "58d85a09-26d6-5da5-a102-c6b9257853da"
+    },
+    {
+      "name": "Nintendo - Nintendo 3DS",
+      "path": "Nintendo - Nintendo 3DS",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Nintendo_3DS.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "87a9705b-d6c1-57b0-a59f-5fc180a2b342"
+    },
+    {
+      "name": "Nintendo - Nintendo 64",
+      "path": "Nintendo - Nintendo 64",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Nintendo_64.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "bc8c836c-4218-5ff1-bfb2-d895381289b4"
+    },
+    {
+      "name": "Nintendo - Nintendo 64DD",
+      "path": "Nintendo - Nintendo 64DD",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Nintendo_64DD.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "181c391a-2ac2-532b-af04-87046592c200"
+    },
+    {
+      "name": "Nintendo - Nintendo DSi",
+      "path": "Nintendo - Nintendo DSi",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Nintendo_DSi.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "7f574026-e1ef-588c-9ce1-a90da8d55378"
+    },
+    {
+      "name": "Nintendo - Nintendo Entertainment System",
+      "path": "Nintendo - Nintendo Entertainment System",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Nintendo_Entertainment_System.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "fad2a671-5d13-54b9-8562-3b058c610348"
+    },
+    {
+      "name": "Nintendo - Pokemon Mini",
+      "path": "Nintendo - Pokemon Mini",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Pokemon_Mini.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "ed4e8377-e783-581f-ac90-9d8c98e481ae"
+    },
+    {
+      "name": "Nintendo - Satellaview",
+      "path": "Nintendo - Satellaview",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Satellaview.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "78fd1160-3b20-5192-bd96-9c28af2e8a61"
+    },
+    {
+      "name": "Nintendo - Sufami Turbo",
+      "path": "Nintendo - Sufami Turbo",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Sufami_Turbo.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "1ab4ffbd-5190-5b57-9dc1-92b24fec2845"
+    },
+    {
+      "name": "Nintendo - Super Nintendo Entertainment System",
+      "path": "Nintendo - Super Nintendo Entertainment System",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "bf3926b2-106d-56c9-8166-0fe29c33bad0"
+    },
+    {
+      "name": "Nintendo - Virtual Boy",
+      "path": "Nintendo - Virtual Boy",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Virtual_Boy.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "42411369-42f4-5fcc-9500-caa3ed220f32"
+    },
+    {
+      "name": "Nintendo - Wii",
+      "path": "Nintendo - Wii",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Wii.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "ba79594a-da19-5127-9a46-9eee6bccf034"
+    },
+    {
+      "name": "Nintendo - Wii U",
+      "path": "Nintendo - Wii U",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Wii_U.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "f9bc37b4-6d5b-518c-bfe3-e3a9571332ab"
+    },
+    {
+      "name": "Philips - Videopac+",
+      "path": "Philips - Videopac+",
+      "url": "https://github.com/libretro-thumbnails/Philips_-_Videopac.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "390f4a10-ddc9-57bd-bfec-b08cb8250c7b"
+    },
+    {
+      "name": "Quake1",
+      "path": "Quake",
+      "url": "https://github.com/libretro-thumbnails/Quake1.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "7d83b06c-120c-56a7-b92d-b72a822a2ddd"
+    },
+    {
+      "name": "Sega - Saturn",
+      "path": "Sega - Saturn",
+      "url": "https://github.com/libretro-thumbnails/Sega_-_Saturn.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "b4e1a5aa-5431-535e-9650-8c7b6bbc5036"
+    },
+    {
+      "name": "Sega - SG-1000",
+      "path": "Sega - SG-1000",
+      "url": "https://github.com/libretro-thumbnails/Sega_-_SG-1000.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "ca066374-6220-5f44-828c-302f50a10146"
+    },
+    {
+      "name": "Sinclair - ZX 81",
+      "path": "Sinclair - ZX 81",
+      "url": "https://github.com/libretro-thumbnails/Sinclair_-_ZX_81.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "fd10970f-543d-5303-bdb1-39e1e47dd515"
+    },
+    {
+      "name": "Sinclair - ZX Spectrum",
+      "path": "Sinclair - ZX Spectrum",
+      "url": "https://github.com/libretro-thumbnails/Sinclair_-_ZX_Spectrum.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "4d995cb5-a0a8-530e-abee-db7d3d3f667e"
+    },
+    {
+      "name": "Sony - PlayStation",
+      "path": "Sony - PlayStation",
+      "url": "https://github.com/libretro-thumbnails/Sony_-_PlayStation.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "6cbd1842-2231-5e82-92fc-73613e2f21a8"
+    },
+    {
+      "name": "Sony - PlayStation 2",
+      "path": "Sony - PlayStation 2",
+      "url": "https://github.com/libretro-thumbnails/Sony_-_PlayStation_2.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "f250f78e-521b-5d39-b11c-7754f2e8ebc6"
+    },
+    {
+      "name": "Sony - PlayStation 3",
+      "path": "Sony - PlayStation 3",
+      "url": "https://github.com/libretro-thumbnails/Sony_-_PlayStation_3.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "34693a4e-5e7f-5a29-8742-8d1b8988b179"
+    },
+    {
+      "name": "Sony - PlayStation 3 (Downloadable)",
+      "path": "Sony - PlayStation 3 (Downloadable)",
+      "url": "https://github.com/libretro-thumbnails/Sony_-_PlayStation_3_Downloadable.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "c9cff519-a273-5594-abf1-a8639764043e"
+    },
+    {
+      "name": "Sony - PlayStation 4",
+      "path": "Sony - PlayStation 4",
+      "url": "https://github.com/libretro-thumbnails/Sony_-_PlayStation_4.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "46c63a01-210c-596f-aa75-deacd9f45c8c"
+    },
+    {
+      "name": "Sony - PlayStation Portable",
+      "path": "Sony - PlayStation Portable",
+      "url": "https://github.com/libretro-thumbnails/Sony_-_PlayStation_Portable.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "61637bb4-0f3b-5458-b458-8fcc6541c6f8"
+    },
+    {
+      "name": "Sony - PlayStation Vita",
+      "path": "Sony - PlayStation Vita",
+      "url": "https://github.com/libretro-thumbnails/Sony_-_PlayStation_Vita.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "219b39f7-8c82-5053-8efa-b74c7c654aa7"
+    },
+    {
+      "name": "The 3DO Company - 3DO",
+      "path": "The 3DO Company - 3DO",
+      "url": "https://github.com/libretro-thumbnails/The_3DO_Company_-_3DO.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "2ba124e3-51ac-535f-b0fa-0ed4fd88ea00"
+    },
+    {
+      "name": "Tiger - Game.com",
+      "path": "Tiger - Game.com",
+      "url": "https://github.com/libretro-thumbnails/Tiger_-_Game.com.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "cf88421d-dd86-5d2d-85d0-c640b1730604"
+    },
+    {
+      "name": "Tomb Raider",
+      "path": "Tomb Raider",
+      "url": "https://github.com/libretro-thumbnails/Tomb_Raider.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "550d88c0-b1e6-558b-93c7-dc83d14c4d7d"
+    },
+    {
+      "name": "VTech - CreatiVision",
+      "path": "VTech - CreatiVision",
+      "url": "https://github.com/libretro-thumbnails/VTech_-_CreatiVision.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "90188f7f-aeff-501b-a10f-f41fb617829f"
+    },
+    {
+      "name": "VTech - V.Smile",
+      "path": "VTech - V.Smile",
+      "url": "https://github.com/libretro-thumbnails/VTech_-_V.Smile.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "c59cbdeb-e157-529b-b360-a193d53dc65b"
+    },
+    {
+      "name": "Watara - Supervision",
+      "path": "Watara - Supervision",
+      "url": "https://github.com/libretro-thumbnails/Watara_-_Supervision.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "57249b7f-c969-55d0-a129-6a9eb48cd100"
+    },
+    {
+      "name": "ChaiLove",
+      "path": "ChaiLove",
+      "url": "https://github.com/libretro-thumbnails/ChaiLove.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "43c1a32d-e7c8-523e-9470-99f12440b0ff"
+    },
+    {
+      "name": "Rick Dangerous",
+      "path": "Rick Dangerous",
+      "url": "https://github.com/libretro-thumbnails/Rick_Dangerous.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "ec9ce51d-947c-59b1-a50b-7a6a94e8139e"
+    },
+    {
+      "name": "LeapFrog - Leapster Learning Game System",
+      "path": "LeapFrog - Leapster Learning Game System",
+      "url": "https://github.com/libretro-thumbnails/LeapFrog_-_Leapster_Learning_Game_System.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "329862d7-95e7-5bdd-9f9c-291cac53a1a8"
+    },
+    {
+      "name": "RPG Maker",
+      "path": "RPG Maker",
+      "url": "https://github.com/libretro-thumbnails/RPG_Maker.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "98fc3187-6b0f-5a06-b66b-07e83e072231"
+    },
+    {
+      "name": "Nintendo - Nintendo 3DS (DLC)",
+      "path": "Nintendo - Nintendo 3DS (Digital)",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Nintendo_3DS_DLC.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "cbb9242e-fd4a-5c18-954b-d87b9536e279"
+    },
+    {
+      "name": "MAME",
+      "path": "MAME",
+      "url": "https://github.com/libretro-thumbnails/MAME.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "a5df555d-0892-5465-a2ba-2b280eebf2bb"
+    },
+    {
+      "name": "Amstrad - CPC",
+      "path": "Amstrad - CPC",
+      "url": "https://github.com/libretro-thumbnails/Amstrad_-_CPC.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "fe7f2a5c-aa3d-5b5b-a969-e7d656e690cc"
+    },
+    {
+      "name": "Mattel - Intellivision",
+      "path": "Mattel - Intellivision",
+      "url": "https://github.com/libretro-thumbnails/Mattel_-_Intellivision.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "3cf5e7dd-c115-54b5-b395-da2e2c623f7a"
+    },
+    {
+      "name": "Flashback",
+      "path": "Flashback",
+      "url": "https://github.com/libretro-thumbnails/Flashback.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "351be6eb-4349-58dd-bdc7-084110868fc2"
+    },
+    {
+      "name": "Thomson - MOTO",
+      "path": "Thomson - MOTO",
+      "url": "https://github.com/libretro-thumbnails/Thomson_-_MOTO.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "077797ea-7733-518d-8d86-c3abd9d11404"
+    },
+    {
+      "name": "Cannonball",
+      "path": "Cannonball",
+      "url": "https://github.com/libretro-thumbnails/Cannonball.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "9273eb71-fbae-51af-9443-a5760d38dece"
+    },
+    {
+      "name": "Commodore - Amiga",
+      "path": "Commodore - Amiga",
+      "url": "https://github.com/libretro-thumbnails/Commodore_-_Amiga.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "b8b37641-45a0-53c9-a322-99bc842d774b"
+    },
+    {
+      "name": "TIC-80",
+      "path": "TIC-80",
+      "url": "https://github.com/libretro-thumbnails/TIC-80.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "b91eea90-3018-5efb-987b-e2aed4ef02a3"
+    },
+    {
+      "name": "Sharp - X68000",
+      "path": "Sharp - X68000",
+      "url": "https://github.com/libretro-thumbnails/Sharp_-_X68000.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "3ecce2e2-de2f-5762-bbd9-0006d64d5ba2"
+    },
+    {
+      "name": "Quake II",
+      "path": "Quake II",
+      "url": "https://github.com/libretro-thumbnails/Quake_II.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "cb994e86-6983-54b4-8281-1b7986444e57"
+    },
+    {
+      "name": "Quake III",
+      "path": "Quake III",
+      "url": "https://github.com/libretro-thumbnails/Quake_III.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "68163e13-425a-54a6-bbdc-692e65472b3a"
+    },
+    {
+      "name": "Wolfenstein 3D",
+      "path": "Wolfenstein 3D",
+      "url": "https://github.com/libretro-thumbnails/Wolfenstein_3D.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "464ba631-fc9f-5154-9aa6-f9165aea26db"
+    },
+    {
+      "name": "LowRes NX",
+      "path": "LowRes NX",
+      "url": "https://github.com/libretro-thumbnails/LowRes_NX.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "6026730e-17b2-5e18-9ab2-708a582b9903"
+    },
+    {
+      "name": "NEC - PC-98",
+      "path": "NEC - PC-98",
+      "url": "https://github.com/libretro-thumbnails/NEC_-_PC-98.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "fd066a04-144a-5e78-8196-f559f6f1b581"
+    },
+    {
+      "name": "WASM-4",
+      "path": "WASM-4",
+      "url": "https://github.com/libretro-thumbnails/WASM-4.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "c0ff39db-379b-5374-b248-73b56e472724"
+    },
+    {
+      "name": "Amstrad - GX4000",
+      "path": "Amstrad - GX4000",
+      "url": "https://github.com/libretro-thumbnails/Amstrad_-_GX4000.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "e6efac9f-20f1-538e-80f8-152d9adf4678"
+    },
+    {
+      "name": "Atomiswave",
+      "path": "Atomiswave",
+      "url": "https://github.com/libretro-thumbnails/Atomiswave.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "b8ce5afd-6b9d-5d72-a9cb-8aca2c85ad45"
+    },
+    {
+      "name": "Nintendo - Nintendo DS",
+      "path": "Nintendo - Nintendo DS",
+      "url": "https://github.com/libretro-thumbnails/Nintendo_-_Nintendo_DS.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "5651be84-7270-5c43-8625-a744265f04fd"
+    },
+    {
+      "name": "NEC - PC-8001 - PC-8801",
+      "path": "NEC - PC-8001 - PC-8801",
+      "url": "https://github.com/libretro-thumbnails/NEC_-_PC-8001_-_PC-8801.git",
+      "branch": "main",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "748d6945-1d6b-5b52-80c2-c99ca39efe12"
+    },
+    {
+      "name": "Philips - CD-i",
+      "path": "Philips - CD-i",
+      "url": "https://github.com/libretro-thumbnails/Philips_-_CD-i.git",
+      "branch": "main",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "62d4f759-78e5-56b9-bc45-4ee6d42a3704"
+    },
+    {
+      "name": "Sega - Naomi",
+      "path": "Sega - Naomi",
+      "url": "https://github.com/libretro-thumbnails/Sega_-_Naomi.git",
+      "branch": "main",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "b29ed7a5-8359-50f1-a31a-dd32e728dde2"
+    },
+    {
+      "name": "Atari - 8-bit",
+      "path": "Atari - 8-bit Family",
+      "url": "https://github.com/libretro-thumbnails/Atari_-_8-bit.git",
+      "branch": "main",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "cee7b27a-83b2-5b3e-8b38-de60e1564506"
+    },
+    {
+      "name": "Commodore - CD32",
+      "path": "Commodore - CD32",
+      "url": "https://github.com/libretro-thumbnails/Commodore_-_CD32.git",
+      "branch": "main",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "b0ef410b-72a4-57b7-a26a-896c6d751c73"
+    },
+    {
+      "name": "Vircon32",
+      "path": "Vircon32",
+      "url": "https://github.com/libretro-thumbnails/Vircon32.git",
+      "branch": "main",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "aa793209-3962-527b-8a33-df6a783c1341"
+    },
+    {
+      "name": "Commodore - CDTV",
+      "path": "Commodore - CDTV",
+      "url": "https://github.com/libretro-thumbnails/Commodore_-_CDTV.git",
+      "branch": "main",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "9c668a1c-e2b5-5a8c-9f2e-0ec7ef74dd3c"
+    },
+    {
+      "name": "Sega - Naomi 2",
+      "path": "Sega - Naomi 2",
+      "url": "https://github.com/libretro-thumbnails/Sega_-_Naomi_2.git",
+      "branch": "main",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "0593bdf9-06dd-581a-9c53-46b590250005"
+    },
+    {
+      "name": "Sharp - X1",
+      "path": "Sharp - X1",
+      "url": "https://github.com/libretro-thumbnails/Sharp_-_X1.git",
+      "branch": "main",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "54f1a7b8-46db-5313-8ab3-e05d11b9fd3f"
+    },
+    {
+      "name": "Arduboy Inc - Arduboy",
+      "path": "Arduboy Inc - Arduboy",
+      "url": "https://github.com/libretro-thumbnails/Arduboy_Inc_-_Arduboy.git",
+      "branch": "main",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "175ebf15-9e43-5921-b85f-6b71d40ce802"
+    },
+    {
+      "name": "Jump 'n Bump",
+      "path": "Jump 'n Bump",
+      "url": "https://github.com/libretro-thumbnails/Jump_n_Bump.git",
+      "branch": "master",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "77254b88-30df-5c30-8a80-b8586c6c0232"
+    },
+    {
+      "name": "Spectravideo - SVI-318 - SVI-328",
+      "path": "Spectravideo - SVI-318 - SVI-328",
+      "url": "https://github.com/libretro-thumbnails/Spectravideo_-_SVI-318_-_SVI-328.git",
+      "branch": "main",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "3ae42231-2eee-5895-8b4f-1c7d794410a3"
+    },
+    {
+      "name": "Commodore - PET",
+      "path": "Commodore - PET",
+      "url": "https://github.com/libretro-thumbnails/Commodore_-_PET.git",
+      "branch": "main",
+      "ignore": "dirty",
+      "shallow": "true",
+      "guid": "9e11e1d7-613b-59fd-a008-3b51560bcb28"
+    }
+  ]
+}

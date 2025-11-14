@@ -13,12 +13,13 @@ from .settings_screen import SettingsScreen
 from .storage_modal import StorageModal
 from .rom_conversion_screen import ROMConversionScreen
 from .cores_screen import CoresScreen
+from .update_screen import UpdateScreen
 
 
 MENU_STRUCTURE = {
     "Main Menu": ["ROM Explorer", "Download Manager", "Settings", "Tools", "Exit"],
     "ROM Explorer": ["Consoles", "Computers", "Search", "Back"],
-    "Settings": ["Providers", "Storage", "Database", "Cores", "Back"],
+    "Settings": ["Providers", "Storage", "Database", "Cores", "Update", "Back"],
     "Tools": ["Rom Conversion", "Back"],
 }
 
@@ -90,6 +91,8 @@ class MenuScreen(Screen):
             self.app.push_screen(DatabaseScreen())
         elif option == "Cores":
             self.app.push_screen(CoresScreen())
+        elif option == "Update":
+            self.app.push_screen(UpdateScreen())
         elif option == "Tools":
             self.app.push_screen(MenuScreen("Tools"))
         elif option == "Rom Conversion":

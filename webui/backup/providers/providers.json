@@ -1,0 +1,202 @@
+{
+  "console_root": {
+    "Sega": {
+      "Dreamcast": {
+        "name": "Sega Dreamcast Redump Collection",
+        "provider": "Internet Archive",
+        "archive_id": "sega-dreamcast-redump-collection",
+        "base_url": "https://archive.org/download/sega-dreamcast-redump-collection",
+        "files": {
+          "torrent": "https://archive.org/download/sega-dreamcast-redump-collection/sega-dreamcast-redump-collection_archive.torrent",
+          "files_xml": "https://archive.org/download/sega-dreamcast-redump-collection/sega-dreamcast-redump-collection_files.xml",
+          "meta_sqlite": "https://archive.org/download/sega-dreamcast-redump-collection/sega-dreamcast-redump-collection_meta.sqlite",
+          "meta_xml": "https://archive.org/download/sega-dreamcast-redump-collection/sega-dreamcast-redump-collection_meta.xml",
+          "reviews_xml": "https://archive.org/download/sega-dreamcast-redump-collection/sega-dreamcast-redump-collection_reviews.xml"
+        },
+        "rom_extensions": [
+          ".chd",
+          ".gdi",
+          ".cdi"
+        ],
+        "size": "6.3M",
+        "updated": "2025-10-20",
+        "libretro_guid": "2530a9bf-3926-52a9-b3fd-401ed1655bcc"
+      },
+      "Game Gear": {
+        "name": "Sega Game Gear ROMSet Ultra (US)",
+        "provider": "Internet Archive",
+        "archive_id": "sega-game-gear-romset-ultra-us",
+        "base_url": "https://archive.org/download/sega-game-gear-romset-ultra-us",
+        "files": {
+          "torrent": "https://archive.org/download/sega-game-gear-romset-ultra-us/sega-game-gear-romset-ultra-us_archive.torrent",
+          "files_xml": "https://archive.org/download/sega-game-gear-romset-ultra-us/sega-game-gear-romset-ultra-us_files.xml",
+          "meta_sqlite": "https://archive.org/download/sega-game-gear-romset-ultra-us/sega-game-gear-romset-ultra-us_meta.sqlite",
+          "meta_xml": "https://archive.org/download/sega-game-gear-romset-ultra-us/sega-game-gear-romset-ultra-us_meta.xml",
+          "reviews_xml": "https://archive.org/download/sega-game-gear-romset-ultra-us/sega-game-gear-romset-ultra-us_reviews.xml"
+        },
+        "rom_extensions": [
+          ".gg",
+          ".sms"
+        ],
+        "size": "161",
+        "updated": "2025-10-20",
+        "libretro_guid": "fdb51c61-0560-593b-937f-cccae600d469"
+      },
+      "SG-1000": {
+        "name": "SG-1000",
+        "provider": "Internet Archive",
+        "archive_id": "ni-se-sg1000",
+        "base_url": "https://archive.org/download/ni-se-sg1000",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/ni-se-sg1000/ni-se-sg1000_meta.sqlite",
+          "files_xml": "https://archive.org/download/ni-se-sg1000/ni-se-sg1000_files.xml",
+          "torrent": "https://archive.org/download/ni-se-sg1000/ni-se-sg1000_archive.torrent",
+          "meta_xml": "https://archive.org/download/ni-se-sg1000/ni-se-sg1000_meta.xml"
+        },
+        "rom_extensions": [
+          ".sg"
+        ],
+        "libretro_guid": "ca066374-6220-5f44-828c-302f50a10146"
+      },
+      "Master System": {
+        "name": "Master",
+        "provider": "Internet Archive",
+        "archive_id": "sega-master-system-romset-ultra-us",
+        "base_url": "https://archive.org/download/sega-master-system-romset-ultra-us",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/sega-master-system-romset-ultra-us/sega-master-system-romset-ultra-us_meta.sqlite",
+          "files_xml": "https://archive.org/download/sega-master-system-romset-ultra-us/sega-master-system-romset-ultra-us_files.xml",
+          "torrent": "https://archive.org/download/sega-master-system-romset-ultra-us/sega-master-system-romset-ultra-us_archive.torrent",
+          "meta_xml": "https://archive.org/download/sega-master-system-romset-ultra-us/sega-master-system-romset-ultra-us_meta.xml",
+          "reviews_xml": "https://archive.org/download/sega-master-system-romset-ultra-us/sega-master-system-romset-ultra-us_reviews.xml"
+        },
+        "rom_extensions": [
+          ".sms"
+        ],
+        "libretro_guid": "acc73d91-7629-55cb-aeca-7b90814d8604"
+      },
+      "Mega Drive": {
+        "name": "Maga Drive",
+        "provider": "Internet Archive",
+        "archive_id": "sega-genesis-romset-ultra-usa",
+        "base_url": "https://archive.org/download/sega-genesis-romset-ultra-usa",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/sega-genesis-romset-ultra-usa/sega-genesis-romset-ultra-usa_meta.sqlite",
+          "files_xml": "https://archive.org/download/sega-genesis-romset-ultra-usa/sega-genesis-romset-ultra-usa_files.xml",
+          "torrent": "https://archive.org/download/sega-genesis-romset-ultra-usa/sega-genesis-romset-ultra-usa_archive.torrent",
+          "meta_xml": "https://archive.org/download/sega-genesis-romset-ultra-usa/sega-genesis-romset-ultra-usa_meta.xml",
+          "reviews_xml": "https://archive.org/download/sega-genesis-romset-ultra-usa/sega-genesis-romset-ultra-usa_reviews.xml"
+        },
+        "rom_extensions": [
+          ".md"
+        ],
+        "libretro_guid": "126fc9a7-f783-5a73-9c17-b1e497cc8edd"
+      },
+      "Mega CD": {
+        "name": "Sega Mega-CD",
+        "provider": "Internet Archive",
+        "archive_id": "rd-se-mcd",
+        "base_url": "https://archive.org/download/rd-se-mcd",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/rd-se-mcd/rd-se-mcd_meta.sqlite",
+          "files_xml": "https://archive.org/download/rd-se-mcd/rd-se-mcd_files.xml",
+          "torrent": "https://archive.org/download/rd-se-mcd/rd-se-mcd_archive.torrent",
+          "meta_xml": "https://archive.org/download/rd-se-mcd/rd-se-mcd_meta.xml"
+        },
+        "rom_extensions": [
+          ".iso",
+          ".bin",
+          ".cue",
+          ".chd",
+          ".m3u"
+        ],
+        "libretro_guid": "63aab22a-8415-5a15-8d82-f70c218298f6"
+      },
+      "Sega 32x": {
+        "name": "Sega 32x",
+        "provider": "Internet Archive",
+        "archive_id": "Sega-32x-Romset-us",
+        "base_url": "https://archive.org/download/Sega-32x-Romset-us",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/Sega-32x-Romset-us/Sega-32x-Romset-us_meta.sqlite",
+          "files_xml": "https://archive.org/download/Sega-32x-Romset-us/Sega-32x-Romset-us_files.xml",
+          "torrent": "https://archive.org/download/Sega-32x-Romset-us/Sega-32x-Romset-us_archive.torrent",
+          "meta_xml": "https://archive.org/download/Sega-32x-Romset-us/Sega-32x-Romset-us_meta.xml",
+          "reviews_xml": "https://archive.org/download/Sega-32x-Romset-us/Sega-32x-Romset-us_reviews.xml"
+        },
+        "rom_extensions": [
+          ".32"
+        ],
+        "libretro_guid": "2bf97080-34ce-529a-9e1c-67a5cdab9070"
+      },
+      "Saturn": {
+        "name": "Sega Saturn",
+        "provider": "Internet Archive",
+        "archive_id": "sega_saturn",
+        "base_url": "https://archive.org/download/sega_saturn",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/sega_saturn/sega_saturn_meta.sqlite",
+          "files_xml": "https://archive.org/download/sega_saturn/sega_saturn_files.xml",
+          "torrent": "https://archive.org/download/sega_saturn/sega_saturn_archive.torrent",
+          "meta_xml": "https://archive.org/download/sega_saturn/sega_saturn_meta.xml"
+        },
+        "rom_extensions": [
+          ".cue",
+          ".toc",
+          ".m3u",
+          ".ccd",
+          ".chd"
+        ],
+        "libretro_guid": "b4e1a5aa-5431-535e-9650-8c7b6bbc5036"
+      },
+      "Pico": {
+        "name": "Sega Pico",
+        "provider": "Internet Archive",
+        "archive_id": "SegaPICO_201809",
+        "base_url": "https://archive.org/download/SegaPICO_201809",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/SegaPICO_201809/SegaPICO_201809_meta.sqlite",
+          "files_xml": "https://archive.org/download/SegaPICO_201809/SegaPICO_201809_files.xml",
+          "torrent": "https://archive.org/download/SegaPICO_201809/SegaPICO_201809_archive.torrent",
+          "meta_xml": "https://archive.org/download/SegaPICO_201809/SegaPICO_201809_meta.xml"
+        },
+        "rom_extensions": [
+          ".md"
+        ]
+      }
+    },
+    "Nintendo": {
+      "Gameboy Color": {
+        "name": "Gameboy Color",
+        "provider": "Internet Archive",
+        "archive_id": "All game boy color roms",
+        "base_url": "https://archive.org/download/GameBoyColor",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/GameBoyColor/GameBoyColor_meta.sqlite",
+          "files_xml": "https://archive.org/download/GameBoyColor/GameBoyColor_files.xml"
+        },
+        "rom_extensions": [
+          ".gbc"
+        ],
+        "libretro_guid": "bc81aad5-81d4-537e-9c47-ee9d18a95ee8"
+      },
+      "Family Computer Disk System": {
+        "name": "Family Computer Disk System",
+        "provider": "Internet Archive",
+        "archive_id": "cylums-famicom-disk-system-rom-collection",
+        "base_url": "https://archive.org/download/cylums-famicom-disk-system-rom-collection",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/cylums-famicom-disk-system-rom-collection/cylums-famicom-disk-system-rom-collection_meta.sqlite",
+          "files_xml": "https://archive.org/download/cylums-famicom-disk-system-rom-collection/cylums-famicom-disk-system-rom-collection_files.xml",
+          "torrent": "https://archive.org/download/cylums-famicom-disk-system-rom-collection/cylums-famicom-disk-system-rom-collection_archive.torrent",
+          "meta_xml": "https://archive.org/download/cylums-famicom-disk-system-rom-collection/cylums-famicom-disk-system-rom-collection_meta.xml",
+          "reviews_xml": "https://archive.org/download/cylums-famicom-disk-system-rom-collection/cylums-famicom-disk-system-rom-collection_reviews.xml"
+        },
+        "rom_extensions": [
+          ".nes"
+        ],
+        "guid": "e8d2cd7c-e53c-5916-928d-9af9aa48c409"
+      }
+    }
+  }
+}
