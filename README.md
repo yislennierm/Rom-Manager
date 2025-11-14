@@ -1,4 +1,4 @@
-[<img src="logo.webp">]([https://docs.microsoft.com/en-us/windows/console/setconsolemode](https://github.com/yislennierm/Rom-Manager/blob/main/assets))
+![ROMs Manager Logo](assets/logo.webp)
 
 # ROMs Manager (La Raspa)
 
