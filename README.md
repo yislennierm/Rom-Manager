@@ -1,3 +1,5 @@
+[<img src="logo.webp">]([https://docs.microsoft.com/en-us/windows/console/setconsolemode](https://github.com/yislennierm/Rom-Manager/blob/main/assets/))
+
 # ROMs Manager (La Raspa)
 
 La Raspa is a terminal user interface (TUI) for RetroArch players who want to treat their ROM collection like a real library. It combines libretro’s reference databases, your preferred download providers, RetroArch frontends, and BIOS requirements in one place so you can see what exists, what you own, and what’s missing.
