@@ -18,6 +18,7 @@ from .provider_form_screen import ProviderFormScreen
 class SettingsScreen(Screen):
     """Provider management panel."""
 
+    CSS_PATH = "styles/update_screen.css"
     BINDINGS = [
         ("escape", "go_back", "Back"),
         ("r", "refresh", "Refresh"),
@@ -29,20 +30,16 @@ class SettingsScreen(Screen):
     ]
 
     def compose(self) -> ComposeResult:
-        yield Header()
-        yield Container(
-            Static(
-                "[b]Providers[/b]\n"
-                "Use ↑/↓ to highlight a provider, then press:\n"
-                "[f] fetch assets • [e] export ROM list • [v] validate schema",
-                id="label",
-            ),
-            DataTable(id="provider_table"),
+        self.label = Static(
+            "[b]Providers[/b]\nUse ↑/↓ to select, [f] fetch assets, [e] export ROM list, [v] validate schema.",
+            id="panel_status",
         )
+        yield Header()
+        self.table = DataTable(id="provider_table")
+        yield Container(self.label, self.table, id="panel_container")
         yield Footer()
 
     def on_mount(self) -> None:
-        self.table = self.query_one("#provider_table", DataTable)
         self.table.add_columns(
             "Manufacturer",
             "Console",

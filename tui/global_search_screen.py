@@ -8,6 +8,7 @@ from textual.screen import Screen
 
 from utils.catalog import build_rom_catalog
 from utils.paths import manufacturer_slug, console_slug, list_cached_consoles
+from utils.library_sync import load_modules
 from .download_manager_screen import DownloadManagerScreen
 from .message_screen import MessageScreen
 from .rom_detail_screen import ROMDetailScreen
@@ -16,13 +17,14 @@ from .rom_detail_screen import ROMDetailScreen
 class GlobalSearchScreen(Screen):
     """Search across all activated consoles."""
 
-    CSS_PATH = "styles/rom_explorer.css"
+    CSS_PATH = "styles/update_screen.css"
 
     BINDINGS = [
         ("/", "focus_search", "Search"),
         ("space", "toggle_selection", "Select ROM"),
         ("enter", "show_details", "Details"),
         ("a", "queue_jobs", "Queue Download"),
+        ("c", "queue_all", "Download Filter"),
         ("escape", "go_back", "Back"),
         ("backspace", "go_back", "Back"),
     ]
@@ -33,20 +35,19 @@ class GlobalSearchScreen(Screen):
         self.filtered: List[Dict] = []
         self.selected: Set[str] = set()
         self.artwork_provider = "libretro"
+        self.module_lookup: Dict[str, Dict[str, str]] = {}
 
     def compose(self) -> ComposeResult:
-        self.label = Static("Global ROM Search", id="label")
+        self.label = Static("Global ROM Search", id="panel_status")
         yield Header()
-        yield Container(
-            self.label,
-            Input(placeholder="Search all consoles...", id="search"),
-            DataTable(id="global_rom_table"),
-        )
+        self.search_input = Input(placeholder="Search all consoles...", id="search")
+        self.table = DataTable(id="global_rom_table")
+        yield Container(self.label, self.search_input, self.table, id="panel_container")
         yield Footer()
 
     def on_mount(self) -> None:
-        self.table = self.query_one("#global_rom_table", DataTable)
-        self.search_input = self.query_one("#search", Input)
+        self.table = self.table
+        self.search_input = self.search_input
         self.table.add_column("Sel.", width=4)
         self.table.add_column("Brand", width=10)
         self.table.add_column("Console", width=10)
@@ -64,6 +65,7 @@ class GlobalSearchScreen(Screen):
 
     def load_roms(self) -> None:
         self.roms = []
+        self.module_lookup = self._build_module_lookup()
         consoles = list_cached_consoles()
         if not consoles:
             self._notify("No activated consoles with RDB exports. Use Database screen first.", severity="warning")
@@ -180,34 +182,57 @@ class GlobalSearchScreen(Screen):
             if rom["_key"] not in self.selected:
                 continue
             providers = rom.get("_providers") or []
-            provider_rom = providers[0]["rom"] if providers else None
-            torrent = None
-            http_url = None
-            if provider_rom:
-                torrent = provider_rom.get("torrent_url") or provider_rom.get("torrent")
-                http_url = provider_rom.get("http_url")
-            else:
-                torrent = rom.get("torrent_url")
-                http_url = rom.get("http_url")
+            provider_entry = providers[0] if providers else {}
+            provider_rom = provider_entry.get("rom")
+            metadata = provider_entry.get("metadata") or {}
+            torrent = provider_rom.get("torrent_url") or provider_rom.get("torrent") if provider_rom else rom.get("torrent_url")
+            http_url = provider_rom.get("http_url") if provider_rom else rom.get("http_url")
             if not torrent and not http_url:
                 continue
-            manufacturer = rom.get("manufacturer", "Unknown")
-            console = rom.get("console", "Unknown")
-            destination = os.path.join(
+
+            manufacturer = metadata.get("manufacturer") or (provider_rom.get("manufacturer") if provider_rom else rom.get("manufacturer", "Unknown"))
+            console = metadata.get("console") or (provider_rom.get("console") if provider_rom else rom.get("console", "Unknown"))
+            guid = metadata.get("libretro_guid") or (provider_rom or {}).get("libretro_guid") or (provider_rom or {}).get("guid")
+            if guid and guid in self.module_lookup:
+                canonical = self.module_lookup[guid]
+                manufacturer = canonical.get("manufacturer") or manufacturer
+                console = canonical.get("console") or console
+            archive_id = metadata.get("archive_id")
+            target_segments = [
                 "downloads",
                 manufacturer_slug(manufacturer),
                 console_slug(console),
-            )
-            job = manager.add_job(
-                rom_name=rom["name"],
-                source=torrent,
-                http_url=http_url,
-                destination=destination,
-                console=console,
-                manufacturer=manufacturer,
-                size_bytes=rom.get("_size_bytes"),
-                md5=rom.get("md5"),
-            )
+            ]
+            if archive_id:
+                target_segments.append(archive_id)
+            destination = os.path.join(*target_segments)
+            rom_filename = (provider_rom.get("name") if provider_rom else None) or rom["name"]
+            job = None
+            if torrent:
+                job = manager.add_job(
+                    rom_name=rom_filename,
+                    source=torrent,
+                    http_url=None,
+                    destination=destination,
+                    console=console,
+                    manufacturer=manufacturer,
+                    size_bytes=rom.get("_size_bytes"),
+                    md5=rom.get("md5"),
+                )
+                if job.get("status") == "not_found" and http_url:
+                    manager.remove_job(job["id"])
+                    job = None
+            if job is None and http_url:
+                job = manager.add_job(
+                    rom_name=rom_filename,
+                    source=None,
+                    http_url=http_url,
+                    destination=destination,
+                    console=console,
+                    manufacturer=manufacturer,
+                    size_bytes=rom.get("_size_bytes"),
+                    md5=rom.get("md5"),
+                )
             if job.get("protocol") == "local" and job.get("status") == "completed":
                 existing_count += 1
             else:
@@ -224,6 +249,7 @@ class GlobalSearchScreen(Screen):
             self.app.bell()
             self._notify("No valid download source for selected ROMs.", severity="warning")
             self.app.push_screen(MessageScreen("Info", "No download source for selected ROMs."))
+        self.selected.clear()
 
     def on_input_changed(self, event: Input.Changed) -> None:
         self.apply_filter()
@@ -254,6 +280,16 @@ class GlobalSearchScreen(Screen):
     def action_queue_jobs(self) -> None:
         self._queue_jobs()
 
+    def action_queue_all(self) -> None:
+        target = self.filtered if (self.search_input.value or "").strip() else self.roms
+        if not target:
+            self.app.bell()
+            self._notify("No ROMs available for download.", severity="warning")
+            return
+        self.selected = {rom["_key"] for rom in target}
+        self.display_roms(self.filtered, cursor_row=0)
+        self._queue_jobs()
+
     def action_go_back(self) -> None:
         self.app.pop_screen()
 
@@ -275,3 +311,21 @@ class GlobalSearchScreen(Screen):
             self.table.cursor_coordinate = (requested_row, current_column)
         except AttributeError:
             pass
+
+    def _build_module_lookup(self) -> Dict[str, Dict[str, str]]:
+        lookup: Dict[str, Dict[str, str]] = {}
+        for module in load_modules():
+            guid = module.get("guid")
+            if not guid:
+                continue
+            manufacturer, console = self._split_module_name(module.get("name"))
+            lookup[guid] = {"manufacturer": manufacturer, "console": console}
+        return lookup
+
+    def _split_module_name(self, name: str | None) -> tuple[str, str]:
+        if not name:
+            return ("Unknown", "Unknown")
+        parts = [segment.strip() for segment in name.split("-", 1)]
+        if len(parts) == 2:
+            return parts[0], parts[1]
+        return (parts[0], parts[-1])

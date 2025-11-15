@@ -159,6 +159,7 @@ def export_roms_to_json(manufacturer: str, console: str, provider_entry: Dict, w
             "console": console,
             "libretro_guid": provider_entry.get("libretro_guid") or provider_entry.get("guid"),
             "provider_label": provider_entry.get("provider") or provider_entry.get("name"),
+            "archive_id": provider_entry.get("archive_id"),
             "exported_at": datetime.utcnow().isoformat(),
             "roms": roms,
         }

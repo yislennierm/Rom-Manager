@@ -22,13 +22,14 @@ DEFAULT_CONSOLE = "Dreamcast"
 class ROMExplorerScreen(Screen):
     """Browse ROMs for the currently selected console (RDB-first)."""
 
-    CSS_PATH = "styles/rom_explorer.css"
+    CSS_PATH = "styles/update_screen.css"
 
     BINDINGS = [
         ("/", "focus_search", "Search"),
         ("space", "toggle_selection", "Select ROM"),
         ("enter", "show_details", "Details"),
         ("a", "queue_jobs", "Queue Download"),
+        ("c", "queue_all", "Download Filter"),
         ("escape", "go_back", "Back"),
         ("backspace", "go_back", "Back"),
     ]
@@ -50,13 +51,11 @@ class ROMExplorerScreen(Screen):
         self.module_lookup: Dict[str, Dict[str, str]] = {}
 
     def compose(self) -> ComposeResult:
-        self.label = Static("", id="label")
+        self.label = Static("", id="panel_status")
         yield Header()
-        yield Container(
-            self.label,
-            Input(placeholder="Type to search...", id="search"),
-            DataTable(id="rom_table"),
-        )
+        self.search_input = Input(placeholder="Type to search...", id="search")
+        self.table = DataTable(id="rom_table")
+        yield Container(self.label, self.search_input, self.table, id="panel_container")
         yield Footer()
 
     def on_mount(self) -> None:
@@ -73,9 +72,7 @@ class ROMExplorerScreen(Screen):
 
         self.module_guid = module_guid
 
-        table = self.query_one("#rom_table", DataTable)
-        self.table = table
-        self.search_input = self.query_one("#search", Input)
+        table = self.table
         self.manager = getattr(app, "download_manager", None)
 
         table.clear()
@@ -270,23 +267,44 @@ class ROMExplorerScreen(Screen):
                 if canonical:
                     provider_manufacturer = canonical.get("manufacturer") or provider_manufacturer
                     provider_console = canonical.get("console") or provider_console
-            target_dir = os.path.join(
+            archive_id = metadata.get("archive_id")
+            target_segments = [
                 "downloads",
                 manufacturer_slug(provider_manufacturer),
                 console_slug(provider_console),
-            )
+            ]
+            if archive_id:
+                target_segments.append(archive_id)
+            target_dir = os.path.join(*target_segments)
 
-            source = http_url or torrent  # prefer HTTP when available
-            job = self.manager.add_job(
-                rom_name=rom["name"],
-                source=torrent if not http_url else None,
-                http_url=source if http_url else None,
-                destination=target_dir,
-                console=provider_console,
-                manufacturer=provider_manufacturer,
-                size_bytes=rom.get("_size_bytes"),
-                md5=rom.get("md5"),
-            )
+            rom_filename = preferred.get("name") or rom["name"]
+
+            job = None
+            if torrent:
+                job = self.manager.add_job(
+                    rom_name=rom_filename,
+                    source=torrent,
+                    http_url=None,
+                    destination=target_dir,
+                    console=provider_console,
+                    manufacturer=provider_manufacturer,
+                    size_bytes=rom.get("_size_bytes"),
+                    md5=rom.get("md5"),
+                )
+                if job.get("status") == "not_found" and http_url:
+                    self.manager.remove_job(job["id"])
+                    job = None
+            if job is None and http_url:
+                job = self.manager.add_job(
+                    rom_name=rom_filename,
+                    source=None,
+                    http_url=http_url,
+                    destination=target_dir,
+                    console=provider_console,
+                    manufacturer=provider_manufacturer,
+                    size_bytes=rom.get("_size_bytes"),
+                    md5=rom.get("md5"),
+                )
             if job.get("protocol") == "local" and job.get("status") == "completed":
                 existing_count += 1
             else:
@@ -306,6 +324,7 @@ class ROMExplorerScreen(Screen):
             self.app.bell()
             self.app.push_screen(MessageScreen("Info", note))
             self._notify("No download source found for selected ROMs", severity="warning")
+        self.selected_keys.clear()
 
     # ------------------------------------------------------------------
     # Event handlers & actions
@@ -328,6 +347,16 @@ class ROMExplorerScreen(Screen):
     def action_queue_jobs(self) -> None:
         if not self.selected_keys and self.filtered:
             self._toggle_selection()
+        self._create_jobs()
+
+    def action_queue_all(self) -> None:
+        target = self.filtered if (self.search_input.value or "").strip() else self.roms
+        if not target:
+            self.app.bell()
+            self._notify("No ROMs available for download.", severity="warning")
+            return
+        self.selected_keys = {rom["_key"] for rom in target}
+        self.display_roms(self.filtered, cursor_row=0)
         self._create_jobs()
 
     def action_go_back(self) -> None:
