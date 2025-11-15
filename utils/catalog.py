@@ -127,15 +127,21 @@ def _load_provider_catalogs(
         label = labels.get(provider_id) or labels.get("default") or _humanize(provider_id)
         try:
             with json_file.open("r", encoding="utf-8") as fh:
-                entries = json.load(fh)
+                payload = json.load(fh)
         except Exception:
             continue
+        metadata = {}
+        entries = payload
+        if isinstance(payload, dict):
+            metadata = payload
+            entries = payload.get("roms")
         if not isinstance(entries, list):
             continue
         catalogs.append({
             "id": provider_id,
             "label": label,
             "roms": entries,
+            "metadata": metadata,
         })
     return catalogs
 
@@ -195,8 +201,14 @@ def _build_provider_lookup(catalogs: List[Dict]) -> Dict[str, Dict[str, List[Dic
     for catalog in catalogs:
         provider_id = catalog["id"]
         label = catalog["label"]
+        metadata = catalog.get("metadata") or {}
         for rom in catalog["roms"]:
-            record = {"provider_id": provider_id, "provider_label": label, "rom": rom}
+            record = {
+                "provider_id": provider_id,
+                "provider_label": label,
+                "rom": rom,
+                "metadata": metadata,
+            }
             md5 = (rom.get("md5") or "").lower()
             if md5:
                 by_md5.setdefault(md5, []).append(record)

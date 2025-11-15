@@ -11,9 +11,13 @@ from textual.widgets import Header, Footer, Static, DataTable
 from utils.backend_client import (
     BackendError,
     fetch_modules_snapshot,
-    fetch_remote_metadata,
-    load_local_metadata,
     save_modules_snapshot,
+    fetch_modules_remote_metadata,
+    load_modules_local_metadata,
+    fetch_providers_snapshot,
+    save_providers_snapshot,
+    fetch_providers_remote_metadata,
+    load_providers_local_metadata,
 )
 
 TaskHandler = Callable[[], Dict[str, object]]
@@ -36,8 +40,17 @@ class UpdateScreen(Screen):
             "modules": {
                 "label": "Libretro modules",
                 "update_handler": self._update_modules_task,
-                "local_loader": load_local_metadata,
-                "remote_loader": fetch_remote_metadata,
+                "local_loader": load_modules_local_metadata,
+                "remote_loader": fetch_modules_remote_metadata,
+                "local_ts": None,
+                "remote_ts": None,
+                "path": None,
+            },
+            "providers": {
+                "label": "Providers registry",
+                "update_handler": self._update_providers_task,
+                "local_loader": load_providers_local_metadata,
+                "remote_loader": fetch_providers_remote_metadata,
                 "local_ts": None,
                 "remote_ts": None,
                 "path": None,
@@ -134,11 +147,12 @@ class UpdateScreen(Screen):
         if saved_path:
             self.table.update_cell_at((row, 5), saved_path)
 
+        count_display = "?" if modules_count is None else modules_count
         self._set_row(
             task_id,
             status="Completed",
             progress=100,
-            notes=f"{modules_count} entries · fetched {self._format_timestamp(fetched_at)}",
+            notes=f"{count_display} entries · fetched {self._format_timestamp(fetched_at)}",
         )
         self._refresh_metadata(task_id=task_id, remote_only=True)
         self._set_status(f"✅ {label} updated and saved to {saved_path}")
@@ -152,6 +166,18 @@ class UpdateScreen(Screen):
             "fetched_at": snapshot.get("fetched_at"),
             "path": str(path),
             "count": len(snapshot.get("modules") or []),
+        }
+
+    def _update_providers_task(self) -> Dict[str, object]:
+        snapshot = fetch_providers_snapshot()
+        self._set_row("providers", status="Downloading", progress=70, notes="Writing to disk…")
+        path = save_providers_snapshot(snapshot)
+        meta = load_providers_local_metadata() or {}
+        fetched_at = meta.get("fetched_at") or datetime.now().isoformat()
+        return {
+            "fetched_at": fetched_at,
+            "path": str(path),
+            "count": meta.get("count"),
         }
 
     # ------------------------------------------------------------------

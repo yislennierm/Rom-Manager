@@ -2,6 +2,7 @@ import json
 import os
 import shutil
 import xml.etree.ElementTree as ET
+from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 from urllib.parse import urljoin, urlparse, quote
 
@@ -153,8 +154,16 @@ def export_roms_to_json(manufacturer: str, console: str, provider_entry: Dict, w
     json_path = roms_json_path(manufacturer, console)
     if write:
         os.makedirs(os.path.dirname(json_path), exist_ok=True)
+        payload = {
+            "manufacturer": manufacturer,
+            "console": console,
+            "libretro_guid": provider_entry.get("libretro_guid") or provider_entry.get("guid"),
+            "provider_label": provider_entry.get("provider") or provider_entry.get("name"),
+            "exported_at": datetime.utcnow().isoformat(),
+            "roms": roms,
+        }
         with open(json_path, "w") as out:
-            json.dump(roms, out, indent=2)
+            json.dump(payload, out, indent=2)
 
     return roms, json_path
 

@@ -197,6 +197,26 @@
         ],
         "guid": "e8d2cd7c-e53c-5916-928d-9af9aa48c409"
       }
+    },
+    "Atari": {
+      "2600": {
+        "name": "Sega 2600",
+        "provider": "Internet Archive",
+        "archive_id": "atari-2600-roms-ultra",
+        "base_url": "https://archive.org/download/atari-2600-roms-ultra",
+        "files": {
+          "meta_sqlite": "https://archive.org/download/atari-2600-roms-ultra/atari-2600-roms-ultra_meta.sqlite",
+          "files_xml": "https://archive.org/download/atari-2600-roms-ultra/atari-2600-roms-ultra_files.xml",
+          "torrent": "https://archive.org/download/atari-2600-roms-ultra/atari-2600-roms-ultra_archive.torrent",
+          "meta_xml": "https://archive.org/download/atari-2600-roms-ultra/atari-2600-roms-ultra_meta.xml",
+          "reviews_xml": "https://archive.org/download/atari-2600-roms-ultra/atari-2600-roms-ultra_reviews.xml"
+        },
+        "rom_extensions": [
+          ".bin"
+        ],
+        "libretro_guid": "d4874312-2442-5d55-b0a1-8fbd6b5bb68e"
+      }
     }
-  }
+  },
+  "fetched_at": "2025-11-15T02:37:50.927086"
 }

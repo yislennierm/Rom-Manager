@@ -7,6 +7,7 @@ from textual.containers import Container
 from textual.screen import Screen
 
 from utils.catalog import build_rom_catalog, resolve_module
+from utils.library_sync import load_modules
 from utils.paths import manufacturer_slug, console_slug
 
 from .message_screen import MessageScreen
@@ -46,6 +47,7 @@ class ROMExplorerScreen(Screen):
         self.rdb_entry_count = 0
         self.rdb_path: str | None = None
         self.module_guid: str | None = None
+        self.module_lookup: Dict[str, Dict[str, str]] = {}
 
     def compose(self) -> ComposeResult:
         self.label = Static("", id="label")
@@ -91,6 +93,7 @@ class ROMExplorerScreen(Screen):
             self._notify("Download manager instance unavailable.", severity="error")
             self.app.push_screen(MessageScreen("Error", "Download manager is not available."))
             return
+        self.module_lookup = self._build_module_lookup()
 
         try:
             catalog = build_rom_catalog(
@@ -242,12 +245,6 @@ class ROMExplorerScreen(Screen):
     def _create_jobs(self) -> None:
         jobs_created = 0
         missing_sources = 0
-        target_dir = os.path.join(
-            "downloads",
-            manufacturer_slug(self.manufacturer),
-            console_slug(self.console),
-        )
-
         existing_count = 0
         for rom in self.roms:
             if rom["_key"] not in self.selected_keys:
@@ -256,19 +253,37 @@ class ROMExplorerScreen(Screen):
             if not providers:
                 missing_sources += 1
                 continue
-            preferred = providers[0]["rom"]
+            provider_entry = providers[0]
+            preferred = provider_entry["rom"]
+            metadata = provider_entry.get("metadata") or {}
             torrent = preferred.get("torrent_url") or preferred.get("torrent")
             http_url = preferred.get("http_url")
             if not torrent and not http_url:
                 missing_sources += 1
                 continue
+
+            provider_manufacturer = metadata.get("manufacturer") or preferred.get("manufacturer") or rom.get("manufacturer") or self.manufacturer
+            provider_console = metadata.get("console") or preferred.get("console") or rom.get("console") or self.console
+            guid = metadata.get("libretro_guid") or preferred.get("libretro_guid") or preferred.get("guid")
+            if guid:
+                canonical = self.module_lookup.get(guid)
+                if canonical:
+                    provider_manufacturer = canonical.get("manufacturer") or provider_manufacturer
+                    provider_console = canonical.get("console") or provider_console
+            target_dir = os.path.join(
+                "downloads",
+                manufacturer_slug(provider_manufacturer),
+                console_slug(provider_console),
+            )
+
+            source = http_url or torrent  # prefer HTTP when available
             job = self.manager.add_job(
                 rom_name=rom["name"],
-                source=torrent,
-                http_url=http_url,
+                source=torrent if not http_url else None,
+                http_url=source if http_url else None,
                 destination=target_dir,
-                console=rom.get("console", self.console),
-                manufacturer=rom.get("manufacturer", self.manufacturer),
+                console=provider_console,
+                manufacturer=provider_manufacturer,
                 size_bytes=rom.get("_size_bytes"),
                 md5=rom.get("md5"),
             )
@@ -328,6 +343,25 @@ class ROMExplorerScreen(Screen):
             app.notify(message, severity=severity)
         else:
             print(f"[{severity.upper()}] {message}")
+
+    def _build_module_lookup(self) -> Dict[str, Dict[str, str]]:
+        modules = load_modules()
+        lookup: Dict[str, Dict[str, str]] = {}
+        for module in modules:
+            guid = module.get("guid")
+            if not guid:
+                continue
+            manufacturer, console = self._split_module_name(module.get("name"))
+            lookup[guid] = {"manufacturer": manufacturer, "console": console}
+        return lookup
+
+    def _split_module_name(self, name: str | None) -> tuple[str, str]:
+        if not name:
+            return ("Unknown", "Unknown")
+        parts = [segment.strip() for segment in name.split("-", 1)]
+        if len(parts) == 2:
+            return parts[0], parts[1]
+        return (parts[0], parts[-1])
 
     def _current_rom(self):
         if not self.table.row_count or not self.filtered:
