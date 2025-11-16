@@ -23,6 +23,10 @@ def _slugify(value: str) -> str:
     return _slug_re.sub("_", value.lower()).strip("_") or "default"
 
 
+def slugify(value: str) -> str:
+    return _slugify(value)
+
+
 def _slug_to_display(slug: str) -> str:
     if not slug:
         return ""
@@ -37,12 +41,26 @@ def console_slug(name: str) -> str:
     return _slugify(name)
 
 
-def console_cache_dir(manufacturer: str, console: str) -> str:
-    return os.path.join(CACHE_DIR, manufacturer_slug(manufacturer), console_slug(console))
+def provider_slug(value: str | None) -> str | None:
+    if not value:
+        return None
+    return _slugify(value)
 
 
-def console_dirs(manufacturer: str, console: str, ensure: bool = False) -> dict:
-    base = console_cache_dir(manufacturer, console)
+def console_cache_dir(manufacturer: str, console: str, provider: str | None = None) -> str:
+    base = os.path.join(CACHE_DIR, manufacturer_slug(manufacturer), console_slug(console))
+    if provider:
+        base = os.path.join(base, _slugify(provider))
+    return base
+
+
+def console_dirs(
+    manufacturer: str,
+    console: str,
+    provider: str | None = None,
+    ensure: bool = False,
+) -> dict:
+    base = console_cache_dir(manufacturer, console, provider)
     directories = {
         "base": base,
         "metadata": os.path.join(base, "metadata"),
@@ -56,34 +74,52 @@ def console_dirs(manufacturer: str, console: str, ensure: bool = False) -> dict:
     return directories
 
 
-def path_prefix(manufacturer: str, console: str) -> str:
-    return f"{manufacturer_slug(manufacturer)}_{console_slug(console)}"
+def path_prefix(manufacturer: str, console: str, provider: str | None = None) -> str:
+    base = f"{manufacturer_slug(manufacturer)}_{console_slug(console)}"
+    if provider:
+        base = f"{base}_{_slugify(provider)}"
+    return base
 
 
-def metadata_file_path(manufacturer: str, console: str, filename: Optional[str] = None) -> str:
-    dirs = console_dirs(manufacturer, console, ensure=True)
+def metadata_file_path(
+    manufacturer: str,
+    console: str,
+    filename: Optional[str] = None,
+    provider: str | None = None,
+) -> str:
+    dirs = console_dirs(manufacturer, console, provider, ensure=True)
     if filename:
         return os.path.join(dirs["metadata"], filename)
-    return os.path.join(dirs["metadata"], f"{path_prefix(manufacturer, console)}_meta.sqlite")
+    return os.path.join(dirs["metadata"], f"{path_prefix(manufacturer, console, provider)}_meta.sqlite")
 
 
-def files_xml_path(manufacturer: str, console: str, filename: Optional[str] = None) -> str:
-    dirs = console_dirs(manufacturer, console, ensure=True)
+def files_xml_path(
+    manufacturer: str,
+    console: str,
+    filename: Optional[str] = None,
+    provider: str | None = None,
+) -> str:
+    dirs = console_dirs(manufacturer, console, provider, ensure=True)
     if filename:
         return os.path.join(dirs["listings"], filename)
-    return os.path.join(dirs["listings"], f"{path_prefix(manufacturer, console)}_files.xml")
+    return os.path.join(dirs["listings"], f"{path_prefix(manufacturer, console, provider)}_files.xml")
 
 
-def roms_json_path(manufacturer: str, console: str) -> str:
-    dirs = console_dirs(manufacturer, console, ensure=True)
-    return os.path.join(dirs["exports"], f"{path_prefix(manufacturer, console)}_roms.json")
+def roms_json_path(manufacturer: str, console: str, provider: str | None = None) -> str:
+    dirs = console_dirs(manufacturer, console, provider, ensure=True)
+    return os.path.join(dirs["exports"], f"{path_prefix(manufacturer, console, provider)}_roms.json")
 
 
-def torrent_file_path(manufacturer: str, console: str, filename: Optional[str] = None) -> str:
-    dirs = console_dirs(manufacturer, console, ensure=True)
+def torrent_file_path(
+    manufacturer: str,
+    console: str,
+    filename: Optional[str] = None,
+    provider: str | None = None,
+) -> str:
+    dirs = console_dirs(manufacturer, console, provider, ensure=True)
     if filename:
         return os.path.join(dirs["torrents"], filename)
-    return os.path.join(dirs["torrents"], f"{path_prefix(manufacturer, console)}_archive.torrent")
+    return os.path.join(dirs["torrents"], f"{path_prefix(manufacturer, console, provider)}_archive.torrent")
 
 
 def list_cached_consoles() -> List[Dict]:
@@ -149,13 +185,23 @@ def list_cached_consoles() -> List[Dict]:
     return results
 
 
-def cache_status(manufacturer: str, console: str) -> Dict[str, object]:
-    """Return presence information for cached assets of a console."""
-    dirs = console_dirs(manufacturer, console, ensure=False)
+def cache_status(manufacturer: str, console: str, provider: str | None = None) -> Dict[str, object]:
+    """Return presence information for cached assets of a console or provider."""
+    dirs = console_dirs(manufacturer, console, provider, ensure=False)
+    legacy_dirs = None
+
+    def _dir(path_key: str) -> str:
+        path = dirs[path_key]
+        if provider and not os.path.exists(dirs["base"]):
+            nonlocal legacy_dirs
+            if legacy_dirs is None:
+                legacy_dirs = console_dirs(manufacturer, console, None, ensure=False)
+            return legacy_dirs[path_key]
+        return path
 
     metadata_present = False
     metadata_files: List[str] = []
-    metadata_dir = dirs["metadata"]
+    metadata_dir = _dir("metadata")
     if os.path.isdir(metadata_dir):
         metadata_files = [
             os.path.join(metadata_dir, fname)
@@ -166,7 +212,7 @@ def cache_status(manufacturer: str, console: str) -> Dict[str, object]:
 
     listings_present = False
     listings_files: List[str] = []
-    listings_dir = dirs["listings"]
+    listings_dir = _dir("listings")
     if os.path.isdir(listings_dir):
         listings_files = [
             os.path.join(listings_dir, fname)
@@ -177,7 +223,7 @@ def cache_status(manufacturer: str, console: str) -> Dict[str, object]:
 
     torrents_present = False
     torrent_files: List[str] = []
-    torrent_dir = dirs["torrents"]
+    torrent_dir = _dir("torrents")
     if os.path.isdir(torrent_dir):
         torrent_files = [
             os.path.join(torrent_dir, fname)
@@ -186,8 +232,17 @@ def cache_status(manufacturer: str, console: str) -> Dict[str, object]:
         ]
         torrents_present = bool(torrent_files)
 
-    exports_dir = dirs["exports"]
-    rom_json_path = os.path.join(exports_dir, f"{path_prefix(manufacturer, console)}_roms.json")
+    exports_dir = _dir("exports")
+    rom_json_path = os.path.join(
+        exports_dir,
+        f"{path_prefix(manufacturer, console, provider)}_roms.json",
+    )
+    if provider and not os.path.isfile(rom_json_path):
+        legacy_path = os.path.join(
+            console_dirs(manufacturer, console, None, ensure=False)["exports"],
+            f"{path_prefix(manufacturer, console)}_roms.json",
+        )
+        rom_json_path = legacy_path
     rom_json_present = os.path.isfile(rom_json_path)
 
     return {

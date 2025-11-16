@@ -85,6 +85,30 @@ roms_manager.py                 <-- CLI utilities
 
 ---
 
+## Backend Admin UI (preview)
+
+The backend ships with a Vite + React + Ant Design build that FastAPI serves at `/admin`. This is intended for power-user/admin workflows (e.g., editing providers.json) while the TUI remains the end-user interface.
+
+1. Install UI dependencies (once):
+   ```bash
+   cd backend/ui
+   npm install
+   ```
+2. During development run Vite directly:
+   ```bash
+   npm run dev           # opens http://localhost:5173
+   ```
+   Use the dev server when iterating on React components; API calls proxied to FastAPI still hit `http://127.0.0.1:8000`.
+3. Build the UI for FastAPI to serve:
+   ```bash
+   npm run build
+   ```
+4. Start the backend and open `http://127.0.0.1:8000/admin`.
+
+The build output lands in `backend/ui/dist`, and FastAPI mounts it at `/admin` (the bundle is generated with `base='/admin/'` so assets resolve correctly). If FastAPI can’t find a build yet it returns a `503` with instructions.
+
+---
+
 ## Running the TUI
 
 Start with `python3 -m tui`. The main screens:

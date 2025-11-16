@@ -15,7 +15,20 @@ from utils.paths import (
     console_cache_dir,
     files_xml_path,
     roms_json_path,
+    slugify,
 )
+
+
+def _provider_identifier(entry: Dict) -> str:
+    return entry.get("archive_id") or entry.get("provider") or entry.get("name") or "default"
+
+
+def entry_provider_slug(entry: Dict) -> str:
+    return slugify(_provider_identifier(entry))
+
+
+def provider_label(entry: Dict) -> str:
+    return entry.get("provider") or entry.get("name") or entry.get("archive_id") or "Provider"
 
 
 def load_providers() -> Dict:
@@ -29,7 +42,34 @@ def save_providers(providers: Dict) -> None:
         json.dump(providers, fh, indent=2)
 
 
-def resolve_system(console: str, manufacturer: Optional[str] = None, providers: Optional[Dict] = None) -> Tuple[str, Dict]:
+def _select_provider_entry(entry, provider_id: Optional[str]) -> Dict:
+    if isinstance(entry, list):
+        if provider_id:
+            target = slugify(provider_id)
+            for variant in entry:
+                if not isinstance(variant, dict):
+                    continue
+                slug = entry_provider_slug(variant)
+                archive = variant.get("archive_id")
+                if slug == target or (archive and slugify(archive) == target):
+                    return variant
+            raise KeyError(f"Provider variant '{provider_id}' not found.")
+        # default to first entry if not specified
+        for variant in entry:
+            if isinstance(variant, dict):
+                return variant
+        raise KeyError("Provider entry list is empty.")
+    if isinstance(entry, dict):
+        return entry
+    raise KeyError("Invalid provider entry.")
+
+
+def resolve_system(
+    console: str,
+    manufacturer: Optional[str] = None,
+    providers: Optional[Dict] = None,
+    provider_id: Optional[str] = None,
+) -> Tuple[str, Dict]:
     if providers is None:
         providers = load_providers()
 
@@ -39,11 +79,13 @@ def resolve_system(console: str, manufacturer: Optional[str] = None, providers: 
         systems = console_root.get(manufacturer)
         if not systems or console not in systems:
             raise KeyError(f"Console '{console}' not found under manufacturer '{manufacturer}'.")
-        return manufacturer, systems[console]
+        entry = systems[console]
+        return manufacturer, _select_provider_entry(entry, provider_id)
 
     for maker, systems in console_root.items():
         if console in systems:
-            return maker, systems[console]
+            entry = systems[console]
+            return maker, _select_provider_entry(entry, provider_id)
 
     raise KeyError(f"Console '{console}' not found in providers.json.")
 
@@ -62,7 +104,12 @@ def iter_providers(providers: Optional[Dict] = None):
     console_root = providers.get("console_root", {})
     for manufacturer, systems in console_root.items():
         for console, entry in systems.items():
-            yield manufacturer, console, entry
+            if isinstance(entry, list):
+                for variant in entry:
+                    if isinstance(variant, dict):
+                        yield manufacturer, console, variant
+            else:
+                yield manufacturer, console, entry
 
 
 def list_providers_with_status() -> List[Dict[str, object]]:
@@ -70,12 +117,15 @@ def list_providers_with_status() -> List[Dict[str, object]]:
     results: List[Dict[str, object]] = []
 
     for manufacturer, console, entry in iter_providers(providers):
-        status = cache_status(manufacturer, console)
+        slug = entry_provider_slug(entry)
+        status = cache_status(manufacturer, console, slug)
         rom_extensions = entry.get("rom_extensions") or []
         results.append({
             "manufacturer": manufacturer,
             "console": console,
             "entry": entry,
+            "provider_slug": slug,
+            "provider_label": provider_label(entry),
             "status": status,
             "rom_extensions": rom_extensions,
         })
@@ -106,16 +156,27 @@ def validate_providers_schema(providers: Optional[Dict] = None) -> Tuple[bool, L
     return False, issues
 
 
-def export_roms_to_json(manufacturer: str, console: str, provider_entry: Dict, write: bool = True) -> Tuple[List[Dict], str]:
+def export_roms_to_json(
+    manufacturer: str,
+    console: str,
+    provider_entry: Dict,
+    provider_slug: Optional[str] = None,
+    write: bool = True,
+) -> Tuple[List[Dict], str]:
     files = provider_entry.get("files", {})
     xml_url = files.get("files_xml")
     if not xml_url:
         raise ValueError("Provider entry does not define files_xml; cannot export ROM list.")
 
+    slug_value = provider_slug or entry_provider_slug(provider_entry)
     xml_filename = _filename_from_url(xml_url, f"{manufacturer.lower()}_{console.lower()}_files.xml")
-    xml_path = files_xml_path(manufacturer, console, xml_filename)
+    xml_path = files_xml_path(manufacturer, console, xml_filename, slug_value)
     if not os.path.exists(xml_path):
-        raise FileNotFoundError(f"Listing XML not found at {xml_path}. Fetch metadata first.")
+        # fall back to legacy path if present
+        legacy_xml_path = files_xml_path(manufacturer, console, xml_filename, None)
+        if not os.path.exists(legacy_xml_path):
+            raise FileNotFoundError(f"Listing XML not found at {xml_path}. Fetch metadata first.")
+        xml_path = legacy_xml_path
 
     tree = ET.parse(xml_path)
     root = tree.getroot()
@@ -152,6 +213,9 @@ def export_roms_to_json(manufacturer: str, console: str, provider_entry: Dict, w
         })
 
     json_path = roms_json_path(manufacturer, console)
+    if slug_value:
+        json_path = roms_json_path(manufacturer, console, slug_value)
+
     if write:
         os.makedirs(os.path.dirname(json_path), exist_ok=True)
         payload = {
@@ -192,25 +256,61 @@ def add_provider(
     return entry
 
 
-def remove_provider(manufacturer: str, console: str, remove_cache: bool = False) -> Dict:
+def remove_provider(
+    manufacturer: str,
+    console: str,
+    provider_slug: Optional[str] = None,
+    remove_cache: bool = False,
+) -> Dict:
     providers = load_providers()
     console_root = providers.get("console_root", {})
     systems = console_root.get(manufacturer)
     if not systems or console not in systems:
         raise KeyError(f"Provider {manufacturer}/{console} not found.")
 
-    removed = systems.pop(console)
+    entry = systems[console]
+    removed_entry = None
+    if isinstance(entry, list):
+        variants = [variant for variant in entry if isinstance(variant, dict)]
+        if not variants:
+            raise ValueError(f"No provider entries found for {manufacturer}/{console}.")
+        if provider_slug:
+            target_slug = slugify(provider_slug)
+        elif len(variants) == 1:
+            provider_slug = entry_provider_slug(variants[0])
+            target_slug = provider_slug
+        else:
+            raise ValueError("Multiple providers configured; specify provider_slug to remove a specific entry.")
+        remaining = []
+        for variant in entry:
+            if entry_provider_slug(variant) == target_slug and removed_entry is None:
+                removed_entry = variant
+            else:
+                remaining.append(variant)
+        if removed_entry is None:
+            raise KeyError(f"Provider variant '{provider_slug}' not found for {manufacturer}/{console}.")
+        if not remaining:
+            systems.pop(console)
+        elif len(remaining) == 1:
+            systems[console] = remaining[0]
+        else:
+            systems[console] = remaining
+    else:
+        removed_entry = entry
+        systems.pop(console)
+
     if not systems:
         console_root.pop(manufacturer)
 
     save_providers(providers)
 
     if remove_cache:
-        cache_dir = console_cache_dir(manufacturer, console)
+        slug_value = provider_slug or entry_provider_slug(removed_entry)
+        cache_dir = console_cache_dir(manufacturer, console, slug_value)
         if os.path.isdir(cache_dir):
             shutil.rmtree(cache_dir)
 
-    return removed
+    return removed_entry
 
 
 def load_cached_roms() -> List[Dict]:

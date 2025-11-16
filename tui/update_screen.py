@@ -18,7 +18,13 @@ from utils.backend_client import (
     save_providers_snapshot,
     fetch_providers_remote_metadata,
     load_providers_local_metadata,
+    fetch_rom_catalog_metadata,
+    fetch_roms_remote_metadata,
+    load_roms_local_metadata,
+    download_rom_dataset,
+    save_rom_dataset,
 )
+from utils.library_sync import RDB_DIR
 
 TaskHandler = Callable[[], Dict[str, object]]
 
@@ -51,6 +57,15 @@ class UpdateScreen(Screen):
                 "update_handler": self._update_providers_task,
                 "local_loader": load_providers_local_metadata,
                 "remote_loader": fetch_providers_remote_metadata,
+                "local_ts": None,
+                "remote_ts": None,
+                "path": None,
+            },
+            "roms": {
+                "label": "ROM catalogs",
+                "update_handler": self._update_roms_task,
+                "local_loader": load_roms_local_metadata,
+                "remote_loader": fetch_roms_remote_metadata,
                 "local_ts": None,
                 "remote_ts": None,
                 "path": None,
@@ -178,6 +193,38 @@ class UpdateScreen(Screen):
             "fetched_at": fetched_at,
             "path": str(path),
             "count": meta.get("count"),
+        }
+
+    def _update_roms_task(self) -> Dict[str, object]:
+        catalog = fetch_rom_catalog_metadata()
+        roms = catalog.get("roms")
+        if not isinstance(roms, list):
+            raise BackendError("ROM catalog payload missing 'roms' list")
+        total = len(roms) or 1
+        saved = []
+        for index, entry in enumerate(roms, start=1):
+            identifier = entry.get("slug") or entry.get("guid")
+            if not identifier:
+                continue
+            dataset = download_rom_dataset(identifier)
+            path = save_rom_dataset(dataset)
+            saved.append(path)
+            progress = int(index / total * 100)
+            self._set_row(
+                "roms",
+                status="Downloading",
+                progress=progress,
+                notes=f"{index}/{total} catalogs",
+            )
+        fetched_at = None
+        for entry in roms:
+            ts = entry.get("fetched_at") if isinstance(entry, dict) else None
+            if ts and (fetched_at is None or ts > fetched_at):
+                fetched_at = ts
+        return {
+            "fetched_at": fetched_at,
+            "path": str(RDB_DIR),
+            "count": len(saved),
         }
 
     # ------------------------------------------------------------------

@@ -43,6 +43,7 @@ class SettingsScreen(Screen):
         self.table.add_columns(
             "Manufacturer",
             "Console",
+            "Provider",
             "Extensions",
             "Metadata",
             "Listings",
@@ -70,9 +71,11 @@ class SettingsScreen(Screen):
         for provider in self.providers:
             status = provider["status"]
             extensions = ", ".join(provider["rom_extensions"]) or "—"
+            label = provider.get("provider_label") or provider["entry"].get("provider") or provider["entry"].get("archive_id") or "Provider"
             self.table.add_row(
                 provider["manufacturer"],
                 provider["console"],
+                label,
                 extensions,
                 self._status_icon(status.get("metadata")),
                 self._status_icon(status.get("listings")),
@@ -108,8 +111,9 @@ class SettingsScreen(Screen):
             return
         manufacturer = provider["manufacturer"]
         console = provider["console"]
+        slug = provider.get("provider_slug")
         try:
-            summary = fetch_console_metadata(console=console, manufacturer=manufacturer)
+            summary = fetch_console_metadata(console=console, manufacturer=manufacturer, provider_slug=slug)
             self._notify(
                 f"Fetched assets for {manufacturer}/{console}: {', '.join(summary.keys())}",
                 severity="success",
@@ -128,8 +132,9 @@ class SettingsScreen(Screen):
         manufacturer = provider["manufacturer"]
         console = provider["console"]
         entry = provider["entry"]
+        slug = provider.get("provider_slug")
         try:
-            roms, json_path = export_roms_to_json(manufacturer, console, entry)
+            roms, json_path = export_roms_to_json(manufacturer, console, entry, provider_slug=slug)
             self._notify(
                 f"Exported {len(roms)} ROM entries to {json_path}",
                 severity="success",
@@ -168,9 +173,10 @@ class SettingsScreen(Screen):
             return
         manufacturer = provider["manufacturer"]
         console = provider["console"]
+        slug = provider.get("provider_slug")
         try:
-            remove_provider(manufacturer, console, remove_cache=True)
-            self._notify(f"Removed provider {manufacturer}/{console} and purged cache.", severity="warning")
+            remove_provider(manufacturer, console, provider_slug=slug, remove_cache=True)
+            self._notify(f"Removed provider {manufacturer}/{console} ({slug}) and purged cache.", severity="warning")
         except Exception as exc:
             self._notify(f"Remove failed: {exc}", severity="error")
             self.app.push_screen(MessageScreen("Remove Provider Failed", str(exc)))

@@ -1,0 +1,234 @@
+.app-shell {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, rgba(29, 78, 216, 0.3), transparent),
+    #020817;
+}
+
+.workspace {
+  min-height: calc(100vh - 120px);
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: rgba(2, 8, 23, 0.8);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.app-title {
+  color: #f8fafc !important;
+  margin: 0;
+}
+
+.app-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+.nav-sider {
+  background: rgba(2, 8, 23, 0.8) !important;
+  border-right: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 1.5rem;
+}
+
+.tree-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: #cbd5f5;
+}
+
+.tree-error {
+  font-size: 0.8rem;
+}
+
+.nav-tree {
+  background: transparent !important;
+  color: #e2e8f0;
+}
+
+.intro {
+  color: #94a3b8;
+}
+
+.app-alert {
+  margin-bottom: 24px;
+}
+
+.dataset-summary {
+  margin-bottom: 1.5rem;
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 60%;
+}
+
+.toolbar-search {
+  flex: 1;
+}
+
+.quick-nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.app-logo {
+  width: 150px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.app-tagline {
+  max-width: 400px;
+  text-align: right;
+}
+
+.collapsed-nav {
+  position: fixed;
+  top: 96px;
+  left: 0;
+  width: 68px;
+  height: calc(100vh - 96px);
+  background: rgba(2, 8, 23, 0.9);
+  border-right: 1px solid rgba(148, 163, 184, 0.2);
+  display: flex;
+  justify-content: center;
+  padding-top: 1.5rem;
+  z-index: 9;
+}
+
+.collapsed-nav .ant-space-item {
+  display: flex;
+  justify-content: center;
+}
+
+.collapsed-nav .ant-btn {
+  width: 44px;
+  height: 44px;
+}
+
+.rom-toolbar {
+  margin-top: 0.5rem;
+}
+
+.dataset-card {
+  background: rgba(15, 23, 42, 0.85) !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.summary-card {
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 1.5rem;
+  flex: 1;
+  min-width: 280px;
+}
+
+.summary-stats {
+  margin: 1rem 0;
+}
+
+.summary-link {
+  padding: 0;
+}
+
+.dataset-pill {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.dataset-tag {
+  border-radius: 999px;
+}
+
+.endpoint-chip {
+  background: rgba(148, 163, 184, 0.15);
+  padding: 2px 8px;
+  border-radius: 8px;
+  display: inline-block;
+  color: #e2e8f0;
+}
+
+.card-actions {
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.detail-card {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.guid-display {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rom-card {
+  width: 150px;
+  min-height: 320px;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.rom-card .ant-card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rom-card-art {
+  height: 140px;
+  background-color: #0f172a;
+  background-image: url('/rom_artwork.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.rom-card-title {
+  margin-bottom: 0;
+}
+
+.rom-card-hash {
+  font-size: 0.85rem;
+}
+
+.file-list-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.file-list-row .ant-form-item {
+  margin-bottom: 0;
+}
+
+.app-footer {
+  background: transparent;
+  text-align: center;
+  padding: 2rem;
+  color: #475569;
+  font-size: 0.9rem;
+}

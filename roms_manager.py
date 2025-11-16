@@ -15,6 +15,7 @@ from jsonschema import ValidationError, validate
 
 from core.providers import (
     add_provider,
+    entry_provider_slug,
     load_cached_roms,
     list_providers_with_status,
     load_providers,
@@ -55,6 +56,76 @@ def _download_file(url: str, destination: str, label: str) -> None:
         raise
 
 
+def _resolve_console_provider(
+    console: str,
+    manufacturer: Optional[str] = None,
+    provider: Optional[str] = None,
+):
+    providers = load_providers()
+    try:
+        manufacturer_key, system = resolve_system(console, manufacturer, providers, provider)
+    except KeyError as err:
+        raise
+
+    console_entries = (
+        providers.get("console_root", {})
+        .get(manufacturer_key, {})
+        .get(console)
+    )
+
+    if isinstance(console_entries, list):
+        variants = [variant for variant in console_entries if isinstance(variant, dict)]
+        if not variants:
+            raise ValueError(f"No provider definitions found for {manufacturer_key}/{console}.")
+        if provider is None and len(variants) > 1:
+            choices = []
+            for variant in variants:
+                slug_value = entry_provider_slug(variant)
+                label = (
+                    variant.get("provider")
+                    or variant.get("name")
+                    or variant.get("archive_id")
+                    or slug_value
+                )
+                choices.append(f"{slug_value} ({label})")
+            raise ValueError(
+                f"Multiple providers configured for {manufacturer_key}/{console}. "
+                f"Specify --provider with one of: {', '.join(choices)}."
+            )
+
+    slug_value = entry_provider_slug(system)
+    return manufacturer_key, system, slug_value
+
+
+def _roms_json_with_fallback(manufacturer: str, console: str, provider_slug: Optional[str]) -> str:
+    if provider_slug:
+        path = roms_json_path(manufacturer, console, provider_slug)
+        if os.path.exists(path):
+            return path
+        legacy_path = roms_json_path(manufacturer, console)
+        if os.path.exists(legacy_path):
+            return legacy_path
+        return path
+    return roms_json_path(manufacturer, console)
+
+
+def _asset_path_with_fallback(
+    resolver,
+    manufacturer: str,
+    console: str,
+    filename: Optional[str],
+    provider_slug: Optional[str],
+):
+    if filename is None:
+        return None
+    path = resolver(manufacturer, console, filename, provider_slug)
+    if provider_slug and not os.path.exists(path):
+        legacy_path = resolver(manufacturer, console, filename)
+        if os.path.exists(legacy_path):
+            return legacy_path
+    return path
+
+
 # -------------------------------------------------------------------
 # Commands
 # -------------------------------------------------------------------
@@ -79,25 +150,27 @@ def cmd_validate():
         sys.exit(1)
 
 
-def cmd_fetch(console="Dreamcast", manufacturer=None):
+def cmd_fetch(console="Dreamcast", manufacturer=None, provider=None):
     """Download metadata files for a console (SQLite + XML + torrent)."""
-    providers = load_providers()
     try:
-        manufacturer_key, system = resolve_system(console, manufacturer, providers)
+        manufacturer_key, system, slug_value = _resolve_console_provider(console, manufacturer, provider)
     except KeyError as err:
+        print(f"❌ {err}")
+        sys.exit(1)
+    except ValueError as err:
         print(f"❌ {err}")
         sys.exit(1)
 
     files = system["files"]
-    prefix = path_prefix(manufacturer_key, console)
-    console_dirs(manufacturer_key, console, ensure=True)
+    prefix = path_prefix(manufacturer_key, console, slug_value)
+    console_dirs(manufacturer_key, console, slug_value, ensure=True)
 
     meta_url = files.get("meta_sqlite")
     if not meta_url:
         print("❌ Provider entry does not specify a meta_sqlite URL.")
         sys.exit(1)
     meta_filename = _filename_from_url(meta_url, f"{prefix}_meta.sqlite")
-    meta_path = metadata_file_path(manufacturer_key, console, meta_filename)
+    meta_path = metadata_file_path(manufacturer_key, console, meta_filename, slug_value)
 
     files_xml_url = files.get("files_xml")
     torrent_url = files.get("torrent")
@@ -112,7 +185,7 @@ def cmd_fetch(console="Dreamcast", manufacturer=None):
 
     if files_xml_url:
         xml_filename = _filename_from_url(files_xml_url, f"{prefix}_files.xml")
-        xml_path = files_xml_path(manufacturer_key, console, xml_filename)
+        xml_path = files_xml_path(manufacturer_key, console, xml_filename, slug_value)
         if not os.path.exists(xml_path):
             try:
                 _download_file(files_xml_url, xml_path, f"{console} file listing XML")
@@ -125,7 +198,7 @@ def cmd_fetch(console="Dreamcast", manufacturer=None):
 
     if torrent_url:
         torrent_filename = _filename_from_url(torrent_url, f"{prefix}_archive.torrent")
-        torrent_path = torrent_file_path(manufacturer_key, console, torrent_filename)
+        torrent_path = torrent_file_path(manufacturer_key, console, torrent_filename, slug_value)
         if not os.path.exists(torrent_path):
             try:
                 _download_file(torrent_url, torrent_path, f"{console} torrent file")
@@ -139,17 +212,19 @@ def cmd_fetch(console="Dreamcast", manufacturer=None):
     print("✅ All metadata ready.")
 
 
-def cmd_explore(console="Dreamcast", manufacturer=None, export_json=False):
+def cmd_explore(console="Dreamcast", manufacturer=None, provider=None, export_json=False):
     """Explore metadata (list ROM files and sizes, optional JSON export)."""
-    providers = load_providers()
     try:
-        manufacturer_key, system = resolve_system(console, manufacturer, providers)
+        manufacturer_key, system, slug_value = _resolve_console_provider(console, manufacturer, provider)
     except KeyError as err:
+        print(f"❌ {err}")
+        return
+    except ValueError as err:
         print(f"❌ {err}")
         return
 
     files = system.get("files", {})
-    prefix = path_prefix(manufacturer_key, console)
+    prefix = path_prefix(manufacturer_key, console, slug_value)
 
     torrent_url = files.get("torrent")
 
@@ -157,13 +232,13 @@ def cmd_explore(console="Dreamcast", manufacturer=None, export_json=False):
     meta_url = files.get("meta_sqlite")
     if meta_url:
         meta_filename = _filename_from_url(meta_url, f"{prefix}_meta.sqlite")
-    db_path = metadata_file_path(manufacturer_key, console, meta_filename) if meta_filename else None
+    db_path = _asset_path_with_fallback(metadata_file_path, manufacturer_key, console, meta_filename, slug_value)
 
     xml_filename = None
     files_xml_url = files.get("files_xml")
     if files_xml_url:
         xml_filename = _filename_from_url(files_xml_url, f"{prefix}_files.xml")
-    xml_path = files_xml_path(manufacturer_key, console, xml_filename) if xml_filename else None
+    xml_path = _asset_path_with_fallback(files_xml_path, manufacturer_key, console, xml_filename, slug_value)
 
     # Try SQLite first
     if db_path and os.path.exists(db_path):
@@ -227,21 +302,23 @@ def cmd_explore(console="Dreamcast", manufacturer=None, export_json=False):
 
     # Optionally export to JSON
     if export_json:
-        json_path = roms_json_path(manufacturer_key, console)
+        json_path = roms_json_path(manufacturer_key, console, slug_value)
         with open(json_path, "w") as out:
             json.dump(roms, out, indent=2)
         print(f"\n💾 Exported {len(roms)} entries to {json_path}")
 
 
-def load_roms(console="Dreamcast", manufacturer=None):
-    providers = load_providers()
+def load_roms(console="Dreamcast", manufacturer=None, provider=None):
     try:
-        manufacturer_key, _ = resolve_system(console, manufacturer, providers)
+        manufacturer_key, _, slug_value = _resolve_console_provider(console, manufacturer, provider)
     except KeyError as err:
         print(f"❌ {err}")
         sys.exit(1)
+    except ValueError as err:
+        print(f"❌ {err}")
+        sys.exit(1)
 
-    json_path = roms_json_path(manufacturer_key, console)
+    json_path = _roms_json_with_fallback(manufacturer_key, console, slug_value)
     if not os.path.exists(json_path):
         print(f"❌ No ROM list found for {manufacturer_key} {console}. Run `explore --json` first.")
         sys.exit(1)
@@ -249,18 +326,20 @@ def load_roms(console="Dreamcast", manufacturer=None):
         return json.load(f)
 
 
-def cmd_list(console="Dreamcast", manufacturer=None, limit=20):
-    roms = load_roms(console, manufacturer)
+def cmd_list(console="Dreamcast", manufacturer=None, provider=None, limit=20):
+    roms = load_roms(console, manufacturer, provider=provider)
     print(f"📜 Showing first {limit} ROMs ({len(roms)} total):\n")
     for r in roms[:limit]:
         print(f"  {r['name']} ({r['size']} bytes)")
 
 
-def cmd_search(query, console="Dreamcast", manufacturer=None, global_search=False):
+def cmd_search(query, console="Dreamcast", manufacturer=None, provider=None, global_search=False):
     if global_search:
+        if provider:
+            print("⚠️ Ignoring --provider because --global was used.")
         roms = load_cached_roms()
     else:
-        roms = load_roms(console, manufacturer)
+        roms = load_roms(console, manufacturer, provider=provider)
     matches = [r for r in roms if query.lower() in r["name"].lower()]
     print(f"🔍 Found {len(matches)} matches for '{query}':\n")
     for r in matches[:20]:
@@ -338,8 +417,14 @@ def cmd_providers_add(args):
 
 def cmd_providers_remove(args):
     try:
-        remove_provider(args.manufacturer, args.console, remove_cache=args.purge_cache)
-        print(f"🗑️ Removed provider {args.manufacturer}/{args.console}.")
+        remove_provider(
+            args.manufacturer,
+            args.console,
+            provider_slug=args.provider,
+            remove_cache=args.purge_cache,
+        )
+        suffix = f" ({args.provider})" if args.provider else ""
+        print(f"🗑️ Removed provider {args.manufacturer}/{args.console}{suffix}.")
     except Exception as exc:
         print(f"❌ Failed to remove provider: {exc}")
         sys.exit(1)
@@ -415,21 +500,37 @@ def main():
     fetch_parser = sub.add_parser("fetch", help="Download metadata and torrent files")
     fetch_parser.add_argument("--console", default="Dreamcast", help="Console name")
     fetch_parser.add_argument("--manufacturer", help="Manufacturer key (omit to auto-detect)")
+    fetch_parser.add_argument(
+        "--provider",
+        help="Provider slug/archive ID when multiple providers exist for a console",
+    )
 
     explore_parser = sub.add_parser("explore", help="Explore metadata contents")
     explore_parser.add_argument("--console", default="Dreamcast", help="Console name")
     explore_parser.add_argument("--manufacturer", help="Manufacturer key (omit to auto-detect)")
+    explore_parser.add_argument(
+        "--provider",
+        help="Provider slug/archive ID when multiple providers exist for a console",
+    )
     explore_parser.add_argument("--json", action="store_true", help="Export ROM list to JSON")
 
     list_parser = sub.add_parser("list", help="List ROMs from local JSON")
     list_parser.add_argument("--console", default="Dreamcast", help="Console name")
     list_parser.add_argument("--manufacturer", help="Manufacturer key (omit to auto-detect)")
+    list_parser.add_argument(
+        "--provider",
+        help="Provider slug/archive ID when multiple providers exist for a console",
+    )
     list_parser.add_argument("--limit", type=int, default=20, help="Number of entries to show")
 
     search_parser = sub.add_parser("search", help="Search ROMs by name")
     search_parser.add_argument("query", help="Search term")
     search_parser.add_argument("--console", default="Dreamcast", help="Console name")
     search_parser.add_argument("--manufacturer", help="Manufacturer key (omit to auto-detect)")
+    search_parser.add_argument(
+        "--provider",
+        help="Provider slug/archive ID; ignored when --global is supplied",
+    )
     search_parser.add_argument("--global", action="store_true", dest="global_search", help="Search all cached consoles")
 
     database_parser = sub.add_parser("database", help="ROM database utilities")
@@ -480,6 +581,10 @@ def main():
     provider_remove_parser = providers_sub.add_parser("remove", help="Remove an existing provider")
     provider_remove_parser.add_argument("--manufacturer", required=True, help="Manufacturer name")
     provider_remove_parser.add_argument("--console", required=True, help="Console name")
+    provider_remove_parser.add_argument(
+        "--provider",
+        help="Provider slug/archive ID when console has multiple providers",
+    )
     provider_remove_parser.add_argument("--purge-cache", action="store_true", help="Delete cached assets for this provider")
 
     args = parser.parse_args()
@@ -487,13 +592,29 @@ def main():
     if args.command == "validate":
         cmd_validate()
     elif args.command == "fetch":
-        cmd_fetch(console=args.console, manufacturer=args.manufacturer)
+        cmd_fetch(console=args.console, manufacturer=args.manufacturer, provider=args.provider)
     elif args.command == "explore":
-        cmd_explore(console=args.console, manufacturer=args.manufacturer, export_json=args.json)
+        cmd_explore(
+            console=args.console,
+            manufacturer=args.manufacturer,
+            provider=args.provider,
+            export_json=args.json,
+        )
     elif args.command == "list":
-        cmd_list(console=args.console, manufacturer=args.manufacturer, limit=args.limit)
+        cmd_list(
+            console=args.console,
+            manufacturer=args.manufacturer,
+            provider=args.provider,
+            limit=args.limit,
+        )
     elif args.command == "search":
-        cmd_search(args.query, console=args.console, manufacturer=args.manufacturer, global_search=args.global_search)
+        cmd_search(
+            args.query,
+            console=args.console,
+            manufacturer=args.manufacturer,
+            provider=args.provider,
+            global_search=args.global_search,
+        )
     elif args.command == "providers":
         if args.providers_command == "list":
             cmd_providers_list()

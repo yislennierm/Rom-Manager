@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Set, Tuple
 
 from utils.library_sync import load_modules, rdb_json_path
-from utils.paths import console_dirs, path_prefix, PROVIDER_FILE
+from utils.paths import console_dirs, console_cache_dir, path_prefix, PROVIDER_FILE, slugify
 
 
 def resolve_module(manufacturer: str, console: str, guid: Optional[str] = None) -> Optional[Dict]:
@@ -101,6 +101,11 @@ def _resolve_provider_console(
     return console, None
 
 
+def _provider_slug_from_entry(entry: Dict) -> str:
+    raw = entry.get("archive_id") or entry.get("provider") or entry.get("name") or "default"
+    return slugify(raw)
+
+
 def _load_provider_catalogs(
     manufacturer: str,
     console: str,
@@ -113,36 +118,49 @@ def _load_provider_catalogs(
         module_guid,
         providers=providers,
     )
-    dirs = console_dirs(manufacturer, provider_console, ensure=False)
-    exports_dir = Path(dirs["exports"])
-    if not exports_dir.is_dir():
+    base_dir = Path(console_cache_dir(manufacturer, provider_console))
+    if not base_dir.is_dir():
         return []
 
+    provider_dirs: List[Tuple[Optional[str], Path]] = []
+    subdirs = [d for d in base_dir.iterdir() if d.is_dir()]
+    if subdirs:
+        for sub in sorted(subdirs):
+            provider_dirs.append((sub.name, sub))
+    # Include legacy root if exports exist directly under base directory
+    legacy_exports = base_dir / "exports"
+    if legacy_exports.is_dir():
+        provider_dirs.append((None, base_dir))
+
     labels = _load_provider_labels(manufacturer, console, module_guid, providers=providers)
-    prefix = f"{path_prefix(manufacturer, provider_console)}_roms"
     catalogs: List[Dict] = []
 
-    for json_file in sorted(exports_dir.glob(f"{prefix}*.json")):
-        provider_id = _provider_id_from_stem(json_file.stem, prefix)
-        label = labels.get(provider_id) or labels.get("default") or _humanize(provider_id)
-        try:
-            with json_file.open("r", encoding="utf-8") as fh:
-                payload = json.load(fh)
-        except Exception:
+    for slug_value, provider_base in provider_dirs:
+        exports_dir = provider_base / "exports"
+        if not exports_dir.is_dir():
             continue
-        metadata = {}
-        entries = payload
-        if isinstance(payload, dict):
-            metadata = payload
-            entries = payload.get("roms")
-        if not isinstance(entries, list):
-            continue
-        catalogs.append({
-            "id": provider_id,
-            "label": label,
-            "roms": entries,
-            "metadata": metadata,
-        })
+        prefix = f"{path_prefix(manufacturer, provider_console, slug_value)}_roms"
+        for json_file in sorted(exports_dir.glob(f"{prefix}*.json")):
+            provider_id = slug_value or _provider_id_from_stem(json_file.stem, prefix)
+            label = labels.get(provider_id) or labels.get("default") or _humanize(provider_id)
+            try:
+                with json_file.open("r", encoding="utf-8") as fh:
+                    payload = json.load(fh)
+            except Exception:
+                continue
+            metadata = {}
+            entries = payload
+            if isinstance(payload, dict):
+                metadata = payload
+                entries = payload.get("roms")
+            if not isinstance(entries, list):
+                continue
+            catalogs.append({
+                "id": provider_id,
+                "label": label,
+                "roms": entries,
+                "metadata": metadata,
+            })
     return catalogs
 
 
@@ -167,10 +185,15 @@ def _load_provider_labels(
     labels: Dict[str, str] = {}
     if isinstance(entry, list):
         for item in entry:
-            label = item.get("provider") or item.get("name")
-            labels[_slug_identifier(label)] = label or "Provider"
+            if not isinstance(item, dict):
+                continue
+            slug_value = _provider_slug_from_entry(item)
+            label = item.get("provider") or item.get("name") or item.get("archive_id") or "Provider"
+            labels[slug_value] = label
     elif isinstance(entry, dict):
-        label = entry.get("provider") or entry.get("name") or "Provider"
+        slug_value = _provider_slug_from_entry(entry)
+        label = entry.get("provider") or entry.get("name") or entry.get("archive_id") or "Provider"
+        labels[slug_value] = label
         labels["default"] = label
     return labels
 
@@ -220,7 +243,46 @@ def _build_provider_lookup(catalogs: List[Dict]) -> Dict[str, Dict[str, List[Dic
 def _name_keys(value: Optional[str]) -> Set[str]:
     if not value:
         return set()
-    base = os.path.splitext(value)[0]
+    base = value
+    known_exts = {
+        ".zip",
+        ".7z",
+        ".rar",
+        ".gz",
+        ".xz",
+        ".zst",
+        ".nes",
+        ".sfc",
+        ".smc",
+        ".gba",
+        ".gbc",
+        ".gb",
+        ".bin",
+        ".iso",
+        ".img",
+        ".cdi",
+        ".cue",
+        ".chd",
+        ".rom",
+        ".a26",
+        ".sms",
+        ".gg",
+        ".md",
+        ".gen",
+        ".dc",
+        ".n64",
+        ".z64",
+    }
+    while True:
+        root, ext = os.path.splitext(base)
+        if not ext:
+            base = root or base
+            break
+        if ext.lower() in known_exts:
+            base = root
+        else:
+            base = root + ext
+            break
     key = re.sub(r"[^a-z0-9]+", "", base.lower())
     return {key} if key else set()
 

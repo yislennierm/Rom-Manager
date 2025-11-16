@@ -7,7 +7,7 @@ from typing import Dict, Optional
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse
 
-from core.providers import load_providers, resolve_system
+from core.providers import load_providers, resolve_system, entry_provider_slug
 from utils.paths import (
     console_dirs,
     files_xml_path,
@@ -43,28 +43,34 @@ def _download(url: str, destination: str, label: str, force: bool = False) -> bo
         raise
 
 
-def fetch_console_metadata(console: str, manufacturer: Optional[str], force: bool = False) -> Dict[str, str]:
+def fetch_console_metadata(
+    console: str,
+    manufacturer: Optional[str],
+    provider_slug: Optional[str] = None,
+    force: bool = False,
+) -> Dict[str, str]:
     providers = load_providers()
-    manufacturer_key, system = resolve_system(console, manufacturer, providers)
+    manufacturer_key, system = resolve_system(console, manufacturer, providers, provider_slug)
+    slug_value = provider_slug or entry_provider_slug(system)
 
     files = system.get("files", {})
     if "meta_sqlite" not in files:
         raise RuntimeError(f"Provider entry for {manufacturer_key} {console} lacks a meta_sqlite URL.")
 
-    console_dirs(manufacturer_key, console, ensure=True)
-    prefix = path_prefix(manufacturer_key, console)
+    console_dirs(manufacturer_key, console, slug_value, ensure=True)
+    prefix = path_prefix(manufacturer_key, console, slug_value)
 
     meta_url = files.get("meta_sqlite")
     meta_filename = _filename_from_url(meta_url, f"{prefix}_meta.sqlite")
-    meta_path = metadata_file_path(manufacturer_key, console, meta_filename)
+    meta_path = metadata_file_path(manufacturer_key, console, meta_filename, slug_value)
 
     files_xml_url = files.get("files_xml")
     xml_filename = _filename_from_url(files_xml_url, f"{prefix}_files.xml") if files_xml_url else None
-    xml_path = files_xml_path(manufacturer_key, console, xml_filename) if xml_filename else None
+    xml_path = files_xml_path(manufacturer_key, console, xml_filename, slug_value) if xml_filename else None
 
     torrent_url = files.get("torrent")
     torrent_filename = _filename_from_url(torrent_url, f"{prefix}_archive.torrent") if torrent_url else None
-    torrent_path = torrent_file_path(manufacturer_key, console, torrent_filename) if torrent_filename else None
+    torrent_path = torrent_file_path(manufacturer_key, console, torrent_filename, slug_value) if torrent_filename else None
 
     summary = {"meta_sqlite": meta_path}
 

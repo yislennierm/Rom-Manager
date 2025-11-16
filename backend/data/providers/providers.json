@@ -196,11 +196,58 @@
           ".nes"
         ],
         "guid": "e8d2cd7c-e53c-5916-928d-9af9aa48c409"
-      }
+      },
+      "Nintendo 64": [
+        {
+          "provider": "Internet Archive",
+          "archive_id": "roms-bestset-nintendo-64",
+          "base_url": "https://archive.org/download/roms-bestset-nintendo-64",
+          "files": {
+            "meta_sqlite": "https://archive.org/download/roms-bestset-nintendo-64/roms-bestset-nintendo-64_meta.sqlite",
+            "files_xml": "https://archive.org/download/roms-bestset-nintendo-64/roms-bestset-nintendo-64_files.xml",
+            "torrent": "https://archive.org/download/roms-bestset-nintendo-64/roms-bestset-nintendo-64_archive.torrent",
+            "meta_xml": "https://archive.org/download/roms-bestset-nintendo-64/roms-bestset-nintendo-64_meta.xml",
+            "reviews_xml": "https://archive.org/download/roms-bestset-nintendo-64/roms-bestset-nintendo-64_reviews.xml"
+          },
+          "rom_extensions": [
+            ".n64",
+            ".v64",
+            ".z64",
+            ".bin",
+            ".u1",
+            ".ndd",
+            ".gb"
+          ],
+          "libretro_guid": "bc8c836c-4218-5ff1-bfb2-d895381289b4"
+        },
+        {
+          "name": "Nintendo 64",
+          "provider": "Internet Archive",
+          "archive_id": "N64TOSEC",
+          "base_url": "https://archive.org/download/N64TOSEC",
+          "files": {
+            "meta_sqlite": "https://archive.org/download/N64TOSEC/N64TOSEC_meta.sqlite",
+            "files_xml": "https://archive.org/download/N64TOSEC/N64TOSEC_files.xml",
+            "torrent": "https://archive.org/download/N64TOSEC/N64TOSEC_archive.torrent",
+            "meta_xml": "https://archive.org/download/N64TOSEC/N64TOSEC_meta.xml",
+            "reviews_xml": "https://archive.org/download/N64TOSEC/N64TOSEC_reviews.xml"
+          },
+          "rom_extensions": [
+            ".n64",
+            ".v64",
+            ".z64",
+            ".bin",
+            ".u1",
+            ".ndd",
+            ".gb"
+          ],
+          "libretro_guid": "bc8c836c-4218-5ff1-bfb2-d895381289b4"
+        }
+      ]
     },
     "Atari": {
-      "Atari_2600": {
-        "name": "Atari 2600",
+      "2600": {
+        "name": "Sega 2600",
         "provider": "Internet Archive",
         "archive_id": "atari-2600-roms-ultra",
         "base_url": "https://archive.org/download/atari-2600-roms-ultra",
@@ -214,8 +261,9 @@
         "rom_extensions": [
           ".bin"
         ],
-        "guid": "d4874312-2442-5d55-b0a1-8fbd6b5bb68e"
+        "libretro_guid": "d4874312-2442-5d55-b0a1-8fbd6b5bb68e"
       }
     }
-  }
+  },
+  "fetched_at": "2025-11-15T02:37:50.927086"
 }
