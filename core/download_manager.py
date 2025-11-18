@@ -140,13 +140,22 @@ class DownloadManager:
 
     # ---------------- Internal helpers ---------------- #
 
-    def _resolve_torrent_path(self, source: str, manufacturer: Optional[str], console: Optional[str]) -> str:
+    def _resolve_torrent_path(
+        self,
+        source: str,
+        manufacturer: Optional[str],
+        console: Optional[str],
+        provider_slug: Optional[str] = None,
+    ) -> str:
         parsed = urlparse(source)
         path = parsed.path or source
         filename = os.path.basename(path) or path.replace("/", "_")
 
         candidates = []
-        if manufacturer and manufacturer not in ("", "Unknown") and console and console not in ("", "Unknown"):
+        has_console = manufacturer and manufacturer not in ("", "Unknown") and console and console not in ("", "Unknown")
+        if has_console and provider_slug:
+            candidates.append(torrent_file_path(manufacturer, console, filename, provider_slug))
+        if has_console:
             candidates.append(torrent_file_path(manufacturer, console, filename))
         candidates.append(os.path.join(LEGACY_TORRENT_DIR, filename))
 
@@ -192,6 +201,7 @@ class DownloadManager:
         size_bytes=None,
         md5=None,
         http_url=None,
+        provider_slug=None,
     ):
         """Add a new download job; reuse existing torrent handle if possible."""
         with self._lock:
@@ -234,6 +244,8 @@ class DownloadManager:
                     existing["source"] = source
                 if http_url:
                     existing["http_url"] = http_url
+                if provider_slug and not existing.get("provider_slug"):
+                    existing["provider_slug"] = provider_slug
                 if existing.get("protocol") in (None, "Unknown"):
                     existing["protocol"] = "torrent" if source else "http"
                 self._write_jobs_to_disk()
@@ -259,6 +271,7 @@ class DownloadManager:
                     "size_bytes": size_bytes,
                     "md5": md5,
                     "local_path": target_path,
+                    "provider_slug": provider_slug,
                 }
                 self.jobs.append(job)
                 self._write_jobs_to_disk()
@@ -271,7 +284,7 @@ class DownloadManager:
 
             if source:
                 protocol = "torrent"
-                torrent_path = self._resolve_torrent_path(source, manufacturer, console)
+                torrent_path = self._resolve_torrent_path(source, manufacturer, console, provider_slug)
                 torrent_name = os.path.basename(torrent_path)
 
                 if not os.path.exists(torrent_path):
@@ -308,6 +321,7 @@ class DownloadManager:
                 "added": datetime.now().isoformat(),
                 "size_bytes": size_bytes,
                 "md5": md5,
+                "provider_slug": provider_slug,
             }
             self.jobs.append(job)
 
@@ -360,7 +374,7 @@ class DownloadManager:
                             continue
                         manufacturer = job.get("manufacturer")
                         console = job.get("console")
-                        torrent_path = self._resolve_torrent_path(src, manufacturer, console)
+                        torrent_path = self._resolve_torrent_path(src, manufacturer, console, job.get("provider_slug"))
                         torrents_grouped.setdefault(torrent_path, []).append(job)
                     elif protocol == "http":
                         job["status"] = "downloading"

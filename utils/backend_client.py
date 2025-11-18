@@ -6,10 +6,14 @@ from typing import Dict, Optional
 
 import requests
 
+import shutil
+import tempfile
+
 from utils.library_sync import MODULES_FILE, RDB_DIR, rdb_json_path
-from utils.paths import PROVIDER_FILE
+from utils.paths import PROVIDER_FILE, CACHE_DIR
 
 RDB_PATH = RDB_DIR
+CACHE_PATH = Path(CACHE_DIR)
 
 DEFAULT_API_BASE = "http://localhost:8000"
 PROVIDERS_PATH = Path(PROVIDER_FILE)
@@ -236,3 +240,90 @@ def _file_timestamp(path: Path) -> Optional[str]:
         return datetime.fromtimestamp(path.stat().st_mtime).isoformat()
     except Exception:
         return None
+
+
+def load_cache_local_metadata() -> Optional[Dict[str, object]]:
+    if not CACHE_PATH.exists():
+        return None
+    file_count = 0
+    total_size = 0
+    latest_ts = None
+    for path in CACHE_PATH.rglob("*"):
+        if not path.is_file():
+            continue
+        file_count += 1
+        stats = path.stat()
+        total_size += stats.st_size
+        if latest_ts is None or stats.st_mtime > latest_ts:
+            latest_ts = stats.st_mtime
+    fetched_at = datetime.fromtimestamp(latest_ts).isoformat() if latest_ts else None
+    return {
+        "fetched_at": fetched_at,
+        "count": file_count,
+        "size": total_size,
+        "path": str(CACHE_PATH),
+    }
+
+
+def fetch_cache_remote_metadata() -> Dict[str, object]:
+    url = f"{_api_base()}/cache/meta"
+    try:
+        response = requests.get(url, timeout=20)
+    except requests.RequestException as exc:
+        raise BackendError(f"Backend request failed: {exc}") from exc
+    if response.status_code != 200:
+        raise BackendError(f"Backend returned {response.status_code}: {response.text}")
+    try:
+        payload = response.json()
+    except ValueError as exc:
+        raise BackendError(f"Invalid cache metadata payload: {exc}") from exc
+    return {
+        "fetched_at": payload.get("updated"),
+        "count": payload.get("file_count"),
+        "size": payload.get("size"),
+    }
+
+
+def download_cache_archive() -> Dict[str, object]:
+    url = f"{_api_base()}/cache/archive"
+    try:
+        response = requests.get(url, timeout=300, stream=True)
+    except requests.RequestException as exc:
+        raise BackendError(f"Backend request failed: {exc}") from exc
+    if response.status_code != 200:
+        raise BackendError(f"Backend returned {response.status_code}: {response.text}")
+    tmp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".zip")
+    tmp_path = Path(tmp_file.name)
+    try:
+        with tmp_file:
+            for chunk in response.iter_content(chunk_size=65536):
+                if chunk:
+                    tmp_file.write(chunk)
+    except Exception as exc:
+        tmp_path.unlink(missing_ok=True)
+        raise BackendError(f"Failed to download cache archive: {exc}") from exc
+
+    extract_dir = Path(tempfile.mkdtemp(prefix="cache_sync_"))
+    try:
+        shutil.unpack_archive(str(tmp_path), str(extract_dir))
+        if CACHE_PATH.exists():
+            shutil.rmtree(CACHE_PATH)
+        CACHE_PATH.mkdir(parents=True, exist_ok=True)
+        for item in extract_dir.iterdir():
+            destination = CACHE_PATH / item.name
+            if destination.exists():
+                if destination.is_dir():
+                    shutil.rmtree(destination)
+                else:
+                    destination.unlink()
+            shutil.move(str(item), destination)
+    finally:
+        tmp_path.unlink(missing_ok=True)
+        shutil.rmtree(extract_dir, ignore_errors=True)
+
+    meta = load_cache_local_metadata() or {}
+    return {
+        "fetched_at": meta.get("fetched_at"),
+        "count": meta.get("count"),
+        "path": meta.get("path") or str(CACHE_PATH),
+    }

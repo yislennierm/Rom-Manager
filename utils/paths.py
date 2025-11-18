@@ -8,7 +8,11 @@ from utils.library_sync import load_modules, rdb_json_path
 
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-DATA_DIR = os.path.join(PROJECT_ROOT, "data")
+DATA_ROOT_OVERRIDE = os.environ.get("ROMS_MANAGER_DATA_ROOT")
+if DATA_ROOT_OVERRIDE:
+    DATA_DIR = os.path.abspath(DATA_ROOT_OVERRIDE)
+else:
+    DATA_DIR = os.path.join(PROJECT_ROOT, "data")
 CACHE_DIR = os.path.join(DATA_DIR, "cache")
 PROVIDER_FILE = os.path.join(DATA_DIR, "providers", "providers.json")
 SCHEMA_FILE = os.path.join(DATA_DIR, "schema", "provider_schema.json")

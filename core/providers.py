@@ -212,9 +212,7 @@ def export_roms_to_json(
             "http_url": urljoin(base_url.rstrip("/") + "/", quote(name)) if base_url else None,
         })
 
-    json_path = roms_json_path(manufacturer, console)
-    if slug_value:
-        json_path = roms_json_path(manufacturer, console, slug_value)
+    json_path = roms_json_path(manufacturer, console, slug_value) if slug_value else roms_json_path(manufacturer, console)
 
     if write:
         os.makedirs(os.path.dirname(json_path), exist_ok=True)

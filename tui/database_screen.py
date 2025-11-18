@@ -14,6 +14,7 @@ from utils.library_sync import (
     build_module_index,
     index_exists,
     export_module_rdb,
+    rdb_json_path,
 )
 from utils.paths import manufacturer_slug, console_slug
 
@@ -52,7 +53,7 @@ class DatabaseScreen(Screen):
 
     def on_mount(self) -> None:
         self.search_value = ""
-        self.table.add_columns("Active", "Module", "Provider", "Destination")
+        self.table.add_columns("Active", "Device", "Providers", "Path")
         self.table.cursor_type = "row"
         self.table.zebra_stripes = True
         self.table.focus()
@@ -217,23 +218,21 @@ class DatabaseScreen(Screen):
             if query and query not in name.lower():
                 continue
             checkbox = "☑" if self._is_guid_active(module.get("guid")) else "☐"
-            provider_cell = self._provider_cell(module.get("guid"))
-            destination = self._destination_for(name)
+            provider_cell = self._provider_count_cell(module.get("guid"))
+            destination = self._rdb_destination_for(name)
             self.table.add_row(checkbox, name or "—", provider_cell, destination)
             self.filtered_modules.append(module)
         if not self.filtered_modules:
             self.table.add_row("—", "No matches", "—", "—")
 
-    def _destination_for(self, module_name: str) -> str:
-        manufacturer, console = self._split_module_name(module_name)
-        if manufacturer and console:
-            return os.path.join(
-                "downloads",
-                manufacturer_slug(manufacturer),
-                console_slug(console),
-            )
-        slug = "".join(ch if ch.isalnum() else "_" for ch in (module_name or "").lower()).strip("_") or "default"
-        return f"downloads/libretro/{slug}"
+    def _rdb_destination_for(self, module_name: str | None) -> str:
+        if not module_name:
+            return str(rdb_json_path("module"))
+        try:
+            return str(rdb_json_path(module_name))
+        except Exception:
+            slug = "".join(ch if ch.isalnum() else "_" for ch in module_name.lower()).strip("_") or "default"
+            return os.path.join("data", "index", "rdb", f"{slug}.json")
 
     def on_input_changed(self, event: Input.Changed) -> None:
         if event.input.id != "db_search":
@@ -248,7 +247,7 @@ class DatabaseScreen(Screen):
             self.action_go_back()
 
     def _build_provider_lookup(self):
-        lookup = {}
+        lookup: dict[str, list[dict]] = {}
         try:
             providers = load_providers().get("console_root", {})
         except Exception:
@@ -257,19 +256,20 @@ class DatabaseScreen(Screen):
             if not isinstance(consoles, dict):
                 continue
             for console_name, entry in consoles.items():
-                guid = entry.get("libretro_guid")
-                if guid:
-                    lookup[guid] = entry
+                entries = entry if isinstance(entry, list) else [entry]
+                for variant in entries:
+                    if not isinstance(variant, dict):
+                        continue
+                    guid = variant.get("libretro_guid") or variant.get("guid")
+                    if guid:
+                        lookup.setdefault(guid, []).append(variant)
         return lookup
 
-    def _provider_cell(self, guid: str | None) -> str:
+    def _provider_count_cell(self, guid: str | None) -> str:
         if not guid:
-            return "⚠ No GUID"
-        entry = self._provider_entry_by_guid(guid)
-        if not entry:
-            return "⚠ Missing"
-        provider_name = entry.get("provider") or entry.get("name") or "Available"
-        return f"✅ {provider_name}"
+            return "0"
+        entries = self.provider_map.get(guid) or []
+        return str(len(entries))
 
     def _provider_entry_by_guid(self, guid: str | None):
         if not guid:

@@ -1,18 +1,32 @@
 import json
+import os
+import shutil
+import sys
+import tempfile
+import zipfile
 from datetime import datetime
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Query
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
+from starlette.background import BackgroundTask
 
+ROOT_DIR = Path(__file__).resolve().parents[2]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.append(str(ROOT_DIR))
 
 APP_DIR = Path(__file__).resolve().parents[1]
-ROOT_DIR = Path(__file__).resolve().parents[2]
+os.environ.setdefault("ROMS_MANAGER_DATA_ROOT", str(APP_DIR / "data"))
+
+from core.services import provider_tasks
+from utils.paths import CACHE_DIR
+
 UI_DIR = APP_DIR / "ui"
 UI_BUILD_DIR = UI_DIR / "dist"
 UI_INDEX = UI_BUILD_DIR / "index.html"
+CACHE_PATH = Path(CACHE_DIR)
 
 app = FastAPI(title="ROMs Manager Backend", version="0.1.0")
 
@@ -64,7 +78,12 @@ PROVIDERS_FILE.parent.mkdir(parents=True, exist_ok=True)
 ROMS_DIR = _resolve_data_dir("roms")
 
 
+def _cache_dir() -> Path:
+    return CACHE_PATH
+
+
 class ProviderEntryModel(BaseModel):
+    name: str | None = None
     provider: str | None = None
     archive_id: str
     base_url: str | None = None
@@ -86,6 +105,20 @@ class ProviderDeleteRequest(BaseModel):
     brand: str
     console: str
     archive_id: str
+
+
+class ProviderTaskRequest(BaseModel):
+    brand: str
+    console: str
+    provider_slug: str | None = None
+
+
+class ProviderFetchRequest(ProviderTaskRequest):
+    force: bool = False
+
+
+class ProviderExportRequest(ProviderTaskRequest):
+    write: bool = True
 
 
 def _load_modules_payload() -> dict:
@@ -231,6 +264,8 @@ def _upsert_provider_entry(payload: dict, request: ProviderUpsertRequest) -> dic
     archive_id = entry.get("archive_id")
     if not archive_id:
         raise HTTPException(status_code=400, detail="archive_id is required")
+    entry_name = entry.get("name") or entry.get("provider") or archive_id
+    entry["name"] = entry_name
     brand_block, entries = _normalize_brand_console_entries(console_root, brand, console)
     target_archive = request.previous_archive_id or archive_id
     replaced = False
@@ -345,6 +380,43 @@ async def upsert_provider(request: ProviderUpsertRequest) -> dict:
     }
 
 
+def _collect_cache_metadata() -> dict:
+    cache_dir = _cache_dir()
+    if not cache_dir.is_dir():
+        return {
+            "updated": None,
+            "file_count": 0,
+            "size": 0,
+        }
+    file_count = 0
+    total_size = 0
+    latest_mtime = None
+    for path in cache_dir.rglob("*"):
+        if path.is_file():
+            file_count += 1
+            stats = path.stat()
+            total_size += stats.st_size
+            if latest_mtime is None or stats.st_mtime > latest_mtime:
+                latest_mtime = stats.st_mtime
+    updated = datetime.fromtimestamp(latest_mtime).isoformat() if latest_mtime else None
+    return {
+        "updated": updated,
+        "file_count": file_count,
+        "size": total_size,
+    }
+
+
+def _cleanup_temp_file(path: Path) -> None:
+    try:
+        if path.exists():
+            path.unlink()
+    finally:
+        try:
+            path.parent.rmdir()
+        except Exception:
+            pass
+
+
 @app.delete("/providers")
 async def delete_provider(request: ProviderDeleteRequest) -> dict:
     payload = _load_providers_payload()
@@ -354,3 +426,91 @@ async def delete_provider(request: ProviderDeleteRequest) -> dict:
         "target": "providers",
         "providers": payload,
     }
+
+
+def _normalize_task_fields(request: ProviderTaskRequest) -> tuple[str, str, str | None]:
+    brand = request.brand.strip()
+    console = request.console.strip()
+    provider_slug = request.provider_slug.strip() if request.provider_slug else None
+    if not brand or not console:
+        raise HTTPException(status_code=400, detail="Brand and console are required")
+    return brand, console, provider_slug
+
+
+@app.post("/providers/tasks/fetch")
+async def fetch_provider_assets(request: ProviderFetchRequest) -> dict:
+    brand, console, provider_slug = _normalize_task_fields(request)
+    try:
+        summary = provider_tasks.fetch_console_metadata(
+            console=console,
+            manufacturer=brand,
+            provider_slug=provider_slug,
+            force=request.force,
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+    return {
+        "brand": brand,
+        "console": console,
+        "provider": provider_slug,
+        "summary": summary,
+    }
+
+
+@app.post("/providers/tasks/export")
+async def export_provider_roms(request: ProviderExportRequest) -> dict:
+    brand, console, provider_slug = _normalize_task_fields(request)
+    try:
+        roms, json_path = provider_tasks.export_console_roms(
+            console=console,
+            manufacturer=brand,
+            provider_slug=provider_slug,
+            write=request.write,
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+    return {
+        "brand": brand,
+        "console": console,
+        "provider": provider_slug,
+        "count": len(roms),
+        "path": json_path,
+    }
+
+
+@app.post("/providers/tasks/validate")
+async def validate_providers_dataset() -> dict:
+    ok, issues = provider_tasks.validate_providers()
+    return {
+        "valid": ok,
+        "issues": issues,
+    }
+
+
+@app.get("/cache/meta")
+async def cache_metadata() -> dict:
+    meta = _collect_cache_metadata()
+    return meta
+
+
+@app.get("/cache/archive")
+async def download_cache_archive() -> FileResponse:
+    cache_dir = _cache_dir()
+    if not cache_dir.is_dir():
+        raise HTTPException(status_code=404, detail="Cache directory is empty.")
+    temp_dir = Path(tempfile.mkdtemp(prefix="cache_export_"))
+    zip_name = f"cache-export-{datetime.utcnow().strftime('%Y%m%d-%H%M%S')}.zip"
+    zip_path = temp_dir / zip_name
+    with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for root, _, files in os.walk(cache_dir):
+            for filename in files:
+                abs_path = Path(root) / filename
+                arcname = abs_path.relative_to(cache_dir)
+                archive.write(abs_path, arcname.as_posix())
+    response = FileResponse(
+        zip_path,
+        filename=zip_name,
+        media_type="application/zip",
+    )
+    response.background = BackgroundTask(_cleanup_temp_file, zip_path)
+    return response

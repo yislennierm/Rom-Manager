@@ -8,7 +8,7 @@ from textual.screen import Screen
 
 from utils.catalog import build_rom_catalog, resolve_module
 from utils.library_sync import load_modules
-from utils.paths import manufacturer_slug, console_slug
+from utils.paths import manufacturer_slug, console_slug, provider_slug as slugify_provider
 
 from .message_screen import MessageScreen
 from .download_manager_screen import DownloadManagerScreen
@@ -268,6 +268,9 @@ class ROMExplorerScreen(Screen):
                     provider_manufacturer = canonical.get("manufacturer") or provider_manufacturer
                     provider_console = canonical.get("console") or provider_console
             archive_id = metadata.get("archive_id")
+            provider_slug_value = provider_entry.get("provider_id") or archive_id
+            if provider_slug_value:
+                provider_slug_value = slugify_provider(provider_slug_value)
             target_segments = [
                 "downloads",
                 manufacturer_slug(provider_manufacturer),
@@ -290,6 +293,7 @@ class ROMExplorerScreen(Screen):
                     manufacturer=provider_manufacturer,
                     size_bytes=rom.get("_size_bytes"),
                     md5=rom.get("md5"),
+                    provider_slug=provider_slug_value,
                 )
                 if job.get("status") == "not_found" and http_url:
                     self.manager.remove_job(job["id"])
@@ -304,6 +308,7 @@ class ROMExplorerScreen(Screen):
                     manufacturer=provider_manufacturer,
                     size_bytes=rom.get("_size_bytes"),
                     md5=rom.get("md5"),
+                    provider_slug=provider_slug_value,
                 )
             if job.get("protocol") == "local" and job.get("status") == "completed":
                 existing_count += 1

@@ -7,7 +7,7 @@ from textual.containers import Container
 from textual.screen import Screen
 
 from utils.catalog import build_rom_catalog
-from utils.paths import manufacturer_slug, console_slug, list_cached_consoles
+from utils.paths import manufacturer_slug, console_slug, list_cached_consoles, provider_slug as slugify_provider
 from utils.library_sync import load_modules
 from .download_manager_screen import DownloadManagerScreen
 from .message_screen import MessageScreen
@@ -198,6 +198,9 @@ class GlobalSearchScreen(Screen):
                 manufacturer = canonical.get("manufacturer") or manufacturer
                 console = canonical.get("console") or console
             archive_id = metadata.get("archive_id")
+            provider_slug_value = provider_entry.get("provider_id") or archive_id
+            if provider_slug_value:
+                provider_slug_value = slugify_provider(provider_slug_value)
             target_segments = [
                 "downloads",
                 manufacturer_slug(manufacturer),
@@ -218,6 +221,7 @@ class GlobalSearchScreen(Screen):
                     manufacturer=manufacturer,
                     size_bytes=rom.get("_size_bytes"),
                     md5=rom.get("md5"),
+                    provider_slug=provider_slug_value,
                 )
                 if job.get("status") == "not_found" and http_url:
                     manager.remove_job(job["id"])
@@ -232,6 +236,7 @@ class GlobalSearchScreen(Screen):
                     manufacturer=manufacturer,
                     size_bytes=rom.get("_size_bytes"),
                     md5=rom.get("md5"),
+                    provider_slug=provider_slug_value,
                 )
             if job.get("protocol") == "local" and job.get("status") == "completed":
                 existing_count += 1

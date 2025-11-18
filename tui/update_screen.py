@@ -23,6 +23,9 @@ from utils.backend_client import (
     load_roms_local_metadata,
     download_rom_dataset,
     save_rom_dataset,
+    load_cache_local_metadata,
+    fetch_cache_remote_metadata,
+    download_cache_archive,
 )
 from utils.library_sync import RDB_DIR
 
@@ -70,13 +73,22 @@ class UpdateScreen(Screen):
                 "remote_ts": None,
                 "path": None,
             },
+            "cache": {
+                "label": "Cache assets",
+                "update_handler": self._update_cache_task,
+                "local_loader": load_cache_local_metadata,
+                "remote_loader": fetch_cache_remote_metadata,
+                "local_ts": None,
+                "remote_ts": None,
+                "path": None,
+            },
         }
         self.row_lookup: Dict[str, int] = {}
         self.row_reverse: Dict[int, str] = {}
         self.status_message = (
             "[b]ROMs Manager Update[/b]\n"
             "Press [u] to update the highlighted task or [Ctrl+U] to update everything.\n"
-            "Data downloads from the backend and is written to your local data folder."
+            "Snapshots download from the backend (modules, providers, ROM catalogs, cache) and sync to your local data."
         )
 
     def compose(self) -> ComposeResult:
@@ -225,6 +237,20 @@ class UpdateScreen(Screen):
             "fetched_at": fetched_at,
             "path": str(RDB_DIR),
             "count": len(saved),
+        }
+
+    def _update_cache_task(self) -> Dict[str, object]:
+        self._set_row("cache", status="Downloading", progress=40, notes="Downloading archive…")
+        result = download_cache_archive()
+        self._set_row("cache", status="Downloading", progress=80, notes="Extracting cache…")
+        meta = load_cache_local_metadata() or {}
+        fetched_at = meta.get("fetched_at") or result.get("fetched_at")
+        count = meta.get("count") or result.get("count")
+        path = meta.get("path") or result.get("path")
+        return {
+            "fetched_at": fetched_at,
+            "path": path,
+            "count": count,
         }
 
     # ------------------------------------------------------------------

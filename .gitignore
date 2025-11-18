@@ -212,4 +212,13 @@ __marimo__/
 
 
 #Project specific
+#Download folder 
 downloads/
+#Temp backup files
+backup/
+#Test tools
+tools/
+# Cached files
+data/cache/
+data/index/
+data/providers/

@@ -33,11 +33,13 @@ import {
   DatabaseOutlined,
   DeleteOutlined,
   EditOutlined,
+  ExportOutlined,
   FolderOpenOutlined,
   HomeOutlined,
   MenuOutlined,
   PlusOutlined,
   ReloadOutlined,
+  SafetyCertificateOutlined,
 } from '@ant-design/icons'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
@@ -247,6 +249,9 @@ function App() {
   const [providerLoading, setProviderLoading] = useState(false)
   const [modulesLoading, setModulesLoading] = useState(false)
   const [providerError, setProviderError] = useState<string | null>(null)
+  const [providerFetchRunning, setProviderFetchRunning] = useState(false)
+  const [providerExportRunning, setProviderExportRunning] = useState(false)
+  const [validationRunning, setValidationRunning] = useState(false)
   const [romSets, setRomSets] = useState<RomSetMeta[]>([])
   const [romMetaLoading, setRomMetaLoading] = useState(false)
   const [romError, setRomError] = useState<string | null>(null)
@@ -460,6 +465,9 @@ function App() {
   const getCollectionKeySuffix = (entry: ProviderEntry, index: number) =>
     entry.archive_id || `collection-${index}`
 
+  const getCollectionLabel = (entry: ProviderEntry, suffix: string) =>
+    entry.name || entry.provider || entry.archive_id || suffix
+
   const getModuleNodeKey = (entry: ModuleEntry, index: number) =>
     `module:${entry.guid ?? `module-${index}`}`
 
@@ -475,7 +483,7 @@ function App() {
         const collectionNodes: DataNode[] = entries.map((collection, index) => {
           const suffix = getCollectionKeySuffix(collection, index)
           const key = `provider:${brand}:${consoleName}:${suffix}`
-          const collectionLabel = collection.archive_id || suffix
+          const collectionLabel = getCollectionLabel(collection, suffix)
           detailLookup[key] = {
             kind: 'collection',
             key,
@@ -554,7 +562,7 @@ function App() {
       key: `provider:${brand}:${consoleName}:${suffix}`,
       brand,
       console: consoleName,
-      collectionLabel: entry.archive_id || entry.provider || suffix,
+      collectionLabel: getCollectionLabel(entry, suffix),
       data: entry,
       archiveId: entry.archive_id || suffix,
       nodeSuffix: suffix,
@@ -744,7 +752,7 @@ function App() {
       key,
       brand,
       console: consoleName,
-      collectionLabel: entry.archive_id || entry.provider || suffix,
+      collectionLabel: getCollectionLabel(entry, suffix),
       data: entry,
       archiveId: entry.archive_id || suffix,
       nodeSuffix: suffix,
@@ -817,6 +825,7 @@ function App() {
     form.setFieldsValue({
       brand: selectedProvider.brand,
       console_name: selectedProvider.console,
+      name: entry.name ?? entry.provider ?? entry.archive_id ?? '',
       provider: entry.provider ?? '',
       archive_id: entry.archive_id ?? '',
       base_url: entry.base_url ?? '',
@@ -854,8 +863,13 @@ function App() {
       const targetConsole = (isCreate ? values.console_name ?? providerModalTarget.console : editTarget?.console) ?? ''
       const normalizedBrand = targetBrand.trim()
       const normalizedConsole = targetConsole.trim()
+      const nameValue = (values.name as string | undefined)?.trim()
       if (!normalizedBrand || !normalizedConsole) {
         messageApi.error('Brand and console are required')
+        return
+      }
+      if (!nameValue) {
+        messageApi.error('Collection name is required')
         return
       }
       const filesMap = PROVIDER_FILE_FIELDS.reduce<Record<string, string>>((acc, field) => {
@@ -875,6 +889,7 @@ function App() {
       const baseEntry = !isCreate && safeEditTarget ? safeEditTarget.data : {}
       const updatedEntry: ProviderEntry = {
         ...baseEntry,
+        name: nameValue,
         provider: values.provider || undefined,
         archive_id: values.archive_id || undefined,
         base_url: values.base_url || undefined,
@@ -1022,6 +1037,136 @@ function App() {
         }
       },
     })
+  }
+
+  const handleProviderFetchAssets = async () => {
+    if (!selectedProvider) {
+      return
+    }
+    const target = selectedProvider
+    setProviderFetchRunning(true)
+    try {
+      const response = await fetch('/providers/tasks/fetch', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          brand: target.brand,
+          console: target.console,
+          provider_slug: target.archiveId,
+        }),
+      })
+      if (!response.ok) {
+        const errorBody = await response.text()
+        throw new Error(errorBody || 'Failed to fetch provider assets')
+      }
+      const payload = await response.json()
+      const summary = payload?.summary
+      const summaryKeys = summary && typeof summary === 'object' ? Object.keys(summary) : []
+      const summaryLabel = summaryKeys.length ? summaryKeys.join(', ') : 'assets'
+      messageApi.success(`Fetched ${summaryLabel} for ${target.collectionLabel}`)
+    } catch (err) {
+      const messageText = err instanceof Error ? err.message : 'Failed to fetch provider assets'
+      messageApi.error(messageText)
+    } finally {
+      setProviderFetchRunning(false)
+    }
+  }
+
+  const handleProviderExport = async () => {
+    if (!selectedProvider) {
+      return
+    }
+    const target = selectedProvider
+    setProviderExportRunning(true)
+    try {
+      const response = await fetch('/providers/tasks/export', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          brand: target.brand,
+          console: target.console,
+          provider_slug: target.archiveId,
+        }),
+      })
+      if (!response.ok) {
+        const errorBody = await response.text()
+        throw new Error(errorBody || 'Failed to export ROM catalog')
+      }
+      const payload = await response.json()
+      const count = typeof payload?.count === 'number' ? payload.count : payload?.summary?.count
+      const destination = payload?.path || 'cache'
+      messageApi.success(
+        count
+          ? `Exported ${count.toLocaleString()} ROMs to ${destination}`
+          : `ROM catalog exported to ${destination}`,
+      )
+      fetchRomMetadata()
+    } catch (err) {
+      const messageText = err instanceof Error ? err.message : 'Failed to export ROM catalog'
+      messageApi.error(messageText)
+    } finally {
+      setProviderExportRunning(false)
+    }
+  }
+
+  const handleValidateProviders = async () => {
+    setValidationRunning(true)
+    try {
+      const response = await fetch('/providers/tasks/validate', {
+        method: 'POST',
+      })
+      if (!response.ok) {
+        const errorBody = await response.text()
+        throw new Error(errorBody || 'Validation request failed')
+      }
+      const payload = await response.json()
+      if (payload?.valid) {
+        messageApi.success('providers.json passed validation')
+      } else {
+        const issues = Array.isArray(payload?.issues) ? payload.issues : []
+        if (!issues.length) {
+          messageApi.error('providers.json failed validation')
+        } else {
+          Modal.error({
+            title: 'providers.json validation errors',
+            content: (
+              <div>
+                <Typography.Paragraph>
+                  Found {issues.length} issue{issues.length === 1 ? '' : 's'}.
+                </Typography.Paragraph>
+                <ul className="validation-issues">
+                  {issues.slice(0, 10).map(
+                    (issue: { path?: (string | number)[]; message?: string }, idx: number) => {
+                      const rawPath = Array.isArray(issue?.path) ? issue.path : []
+                      const label = rawPath.length ? rawPath.join(' / ') : '<root>'
+                      return (
+                        <li key={idx}>
+                          <Typography.Text>
+                            {label}: {issue?.message || 'Invalid entry'}
+                          </Typography.Text>
+                        </li>
+                      )
+                    },
+                  )}
+                </ul>
+                {issues.length > 10 && (
+                  <Typography.Text type="secondary">
+                    …and {issues.length - 10} additional issue{issues.length - 10 === 1 ? '' : 's'}.
+                  </Typography.Text>
+                )}
+              </div>
+            ),
+            width: 520,
+          })
+          messageApi.error('providers.json has validation errors')
+        }
+      }
+    } catch (err) {
+      const messageText = err instanceof Error ? err.message : 'Validation request failed'
+      messageApi.error(messageText)
+    } finally {
+      setValidationRunning(false)
+    }
   }
 
   const openModuleEditModal = () => {
@@ -1383,9 +1528,18 @@ function App() {
         <Typography.Title level={5} style={{ marginBottom: 0 }}>
           Providers overview
         </Typography.Title>
-        <Button type="primary" icon={<PlusOutlined />} onClick={() => openCreateProviderModal()}>
-          New provider
-        </Button>
+        <Space wrap>
+          <Button
+            icon={<SafetyCertificateOutlined />}
+            onClick={handleValidateProviders}
+            loading={validationRunning}
+          >
+            Validate
+          </Button>
+          <Button type="primary" icon={<PlusOutlined />} onClick={() => openCreateProviderModal()}>
+            New provider
+          </Button>
+        </Space>
       </Flex>
       <Flex gap="large" className="summary-stats">
         <Statistic title="Brands" value={providerStats.brands} />
@@ -1562,6 +1716,20 @@ function App() {
                       </Typography.Text>
                     </div>
                     <Space wrap>
+                      <Button
+                        icon={<CloudDownloadOutlined />}
+                        onClick={handleProviderFetchAssets}
+                        loading={providerFetchRunning}
+                      >
+                        Fetch assets
+                      </Button>
+                      <Button
+                        icon={<ExportOutlined />}
+                        onClick={handleProviderExport}
+                        loading={providerExportRunning}
+                      >
+                        Export ROMs
+                      </Button>
                       <Button icon={<EditOutlined />} onClick={openEditModal}>
                         Edit
                       </Button>
@@ -1635,13 +1803,31 @@ function App() {
                   <div>
                     <Typography.Title level={5}>Available files</Typography.Title>
                     {selectedProvider.data.files ? (
-                      <Flex gap="small" wrap>
-                        {Object.entries(selectedProvider.data.files).map(([key, value]) => (
-                          <Button key={key} href={value} target="_blank" rel="noreferrer">
-                            {key}
-                          </Button>
-                        ))}
-                      </Flex>
+                      <Table
+                        size="small"
+                        pagination={false}
+                        dataSource={Object.entries(selectedProvider.data.files).map(([key, value]) => ({
+                          key,
+                          type: key,
+                          url: value,
+                        }))}
+                        columns={[
+                          { title: 'Type', dataIndex: 'type', key: 'type', width: 180 },
+                          {
+                            title: 'URL',
+                            dataIndex: 'url',
+                            key: 'url',
+                            render: (value: string) =>
+                              value ? (
+                                <a href={value} target="_blank" rel="noreferrer">
+                                  {value}
+                                </a>
+                              ) : (
+                                '—'
+                              ),
+                          },
+                        ]}
+                      />
                     ) : (
                       <Typography.Text type="secondary">No file links configured.</Typography.Text>
                     )}
@@ -1774,6 +1960,13 @@ function App() {
             rules={[{ required: providerModalMode === 'create', message: 'Console is required' }]}
           >
             <Input placeholder="2600" disabled={providerModalMode === 'edit'} />
+          </Form.Item>
+          <Form.Item
+            label="Collection name"
+            name="name"
+            rules={[{ required: true, message: 'Collection name is required' }]}
+          >
+            <Input placeholder="Sega Mega-CD (Redump Collection)" />
           </Form.Item>
           <Form.Item label="Provider label" name="provider">
             <Input placeholder="Internet Archive" />

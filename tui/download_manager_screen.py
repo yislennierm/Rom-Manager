@@ -28,18 +28,16 @@ class DownloadManagerScreen(Screen):
             raise RuntimeError("Download manager is not available on the application.")
         self.manager = manager
         self.table = self.query_one("#job_table", DataTable)
-        self.table.add_columns(
-            "ROM",
-            "Console",
-            "Protocol",
-            "Status",
-            "Progress",
-            "Speed",
-            "Peers",
-            "Size",
-            "MD5",
-            "Destination",
-        )
+        self.table.add_column("ROM", width=60)
+        self.table.add_column("Console", width=12)
+        self.table.add_column("Protocol", width=8)
+        self.table.add_column("Status", width=12)
+        self.table.add_column("Progress", width=12)
+        self.table.add_column("Speed", width=8)
+        self.table.add_column("Peers", width=5)
+        self.table.add_column("Size", width=7)
+        self.table.add_column("MD5", width=18)
+        self.table.add_column("Path", width=40)
         self.table.cursor_type = "row"
         self.table.zebra_stripes = True
 
