@@ -21,7 +21,7 @@ APP_DIR = Path(__file__).resolve().parents[1]
 os.environ.setdefault("ROMS_MANAGER_DATA_ROOT", str(APP_DIR / "data"))
 
 from core.services import provider_tasks
-from utils.paths import CACHE_DIR
+from utils.paths import CACHE_DIR, cache_status
 
 UI_DIR = APP_DIR / "ui"
 UI_BUILD_DIR = UI_DIR / "dist"
@@ -119,6 +119,10 @@ class ProviderFetchRequest(ProviderTaskRequest):
 
 class ProviderExportRequest(ProviderTaskRequest):
     write: bool = True
+
+
+class ProviderStatusRequest(ProviderTaskRequest):
+    pass
 
 
 def _load_modules_payload() -> dict:
@@ -484,6 +488,21 @@ async def validate_providers_dataset() -> dict:
     return {
         "valid": ok,
         "issues": issues,
+    }
+
+
+@app.post("/providers/status")
+async def provider_status(request: ProviderStatusRequest) -> dict:
+    brand, console, provider_slug = _normalize_task_fields(request)
+    try:
+        status = cache_status(brand, console, provider_slug)
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+    return {
+        "brand": brand,
+        "console": console,
+        "provider": provider_slug,
+        "status": status,
     }
 
 

@@ -1,4 +1,3 @@
-import type { Key } from 'react'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import {
   Alert,
@@ -20,174 +19,50 @@ import {
   Statistic,
   Table,
   Tag,
-  Tree,
   Typography,
   message,
   theme,
 } from 'antd'
-import type { DataNode, TreeProps } from 'antd/es/tree'
+import type { MenuProps } from 'antd'
+import type { DataNode } from 'antd/es/tree'
 import {
-  AppstoreOutlined,
   CloudDownloadOutlined,
-  CopyOutlined,
-  DatabaseOutlined,
-  DeleteOutlined,
-  EditOutlined,
-  ExportOutlined,
   FolderOpenOutlined,
   HomeOutlined,
-  MenuOutlined,
   PlusOutlined,
   ReloadOutlined,
   SafetyCertificateOutlined,
 } from '@ant-design/icons'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import ModulesList from './components/ModulesList'
+import SummaryCards from './components/SummaryCards'
+import NavigationSider from './components/NavigationSider'
+import TopHeader from './components/TopHeader'
+import DetailPanel from './components/DetailPanel'
+import useModulesData from './hooks/useModulesData'
+import useProvidersData from './hooks/useProvidersData'
+import useRomData from './hooks/useRomData'
+import type {
+  BrandSelection,
+  ConsoleSelection,
+  DatasetCard,
+  DatasetKey,
+  DatasetMeta,
+  ModuleEntry,
+  ProviderEntry,
+  ProviderSelection,
+  ProvidersResponse,
+  RomBrandSelection,
+  RomConsoleSelection,
+  RomSetMeta,
+  Selection,
+} from './types'
 import './App.css'
 
 dayjs.extend(relativeTime)
 
 const logoUrl = `${import.meta.env.BASE_URL}logo.webp`
-
-type DatasetKey = 'modules' | 'providers'
-
-type DatasetMeta = {
-  target: DatasetKey
-  version?: string
-  count?: number
-}
-
-type DatasetCard = {
-  key: DatasetKey
-  title: string
-  description: string
-  endpoint: string
-  accent: string
-}
-
-type ModuleEntry = {
-  name: string
-  guid?: string
-  path?: string
-  url?: string
-  branch?: string
-  ignore?: string
-  shallow?: string
-}
-
-type RomEntry = {
-  name?: string
-  description?: string
-  region?: string
-  rom_name?: string
-  size?: number
-  crc?: string
-  md5?: string
-  sha1?: string
-  [key: string]: unknown
-}
-
-type RomSetMeta = {
-  slug: string
-  module?: string
-  brand?: string
-  console?: string
-  guid?: string
-  entry_count?: number
-  fetched_at?: string
-  source_url?: string
-}
-
-type ProviderEntry = {
-  name?: string
-  provider?: string
-  archive_id?: string
-  base_url?: string
-  files?: Record<string, string>
-  rom_extensions?: string[]
-  size?: string
-  updated?: string
-  libretro_guid?: string
-  [key: string]: unknown
-}
-
-type ProvidersResponse = {
-  target: 'providers'
-  version?: string
-  providers?: {
-    fetched_at?: string
-    console_root?: Record<string, Record<string, ProviderEntry | ProviderEntry[]>>
-  }
-}
-
-type ProviderSelection = {
-  kind: 'collection'
-  key: string
-  brand: string
-  console: string
-  collectionLabel: string
-  data: ProviderEntry
-  archiveId: string
-  nodeSuffix: string
-  entryIndex: number
-}
-
-type BrandSelection = {
-  kind: 'brand'
-  brand: string
-}
-
-type ConsoleSelection = {
-  kind: 'console'
-  brand: string
-  console: string
-}
-
-type DatasetSelection = {
-  kind: 'dataset'
-  dataset: DatasetKey
-}
-
-type ModuleSelection = {
-  kind: 'module'
-  index: number
-  data: ModuleEntry
-}
-
-type RomBrandSelection = {
-  kind: 'rom-brand'
-  brand: string
-}
-
-type RomConsoleSelection = {
-  kind: 'rom-console'
-  meta: RomSetMeta
-}
-
-type HomeSelection = {
-  kind: 'home'
-}
-
-type ProvidersHomeSelection = {
-  kind: 'providers-root'
-}
-
-type DatabaseHomeSelection = {
-  kind: 'database-root'
-}
-
-type Selection =
-  | ProviderSelection
-  | BrandSelection
-  | ConsoleSelection
-  | ModuleSelection
-  | RomBrandSelection
-  | RomConsoleSelection
-  | DatasetSelection
-  | ProvidersHomeSelection
-  | DatabaseHomeSelection
-  | HomeSelection
-  | null
 
 const DATASETS: DatasetCard[] = [
   {
@@ -244,24 +119,27 @@ function App() {
   })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [providerData, setProviderData] = useState<ProvidersResponse | null>(null)
-  const [modulesData, setModulesData] = useState<ModuleEntry[]>([])
-  const [providerLoading, setProviderLoading] = useState(false)
-  const [modulesLoading, setModulesLoading] = useState(false)
-  const [providerError, setProviderError] = useState<string | null>(null)
+  const { providerData, providerLoading, providerError, fetchProviders } = useProvidersData()
+  const { modulesData, setModulesData, modulesLoading, fetchModulesPayload } = useModulesData()
   const [providerFetchRunning, setProviderFetchRunning] = useState(false)
   const [providerExportRunning, setProviderExportRunning] = useState(false)
   const [validationRunning, setValidationRunning] = useState(false)
-  const [romSets, setRomSets] = useState<RomSetMeta[]>([])
-  const [romMetaLoading, setRomMetaLoading] = useState(false)
-  const [romError, setRomError] = useState<string | null>(null)
-  const [romEntriesCache, setRomEntriesCache] = useState<Record<string, RomEntry[]>>({})
-  const [romEntriesLoading, setRomEntriesLoading] = useState(false)
+  const [providerStatus, setProviderStatus] = useState<Record<string, any> | null>(null)
+  const {
+    romSets,
+    romMetaLoading,
+    romError,
+    romEntriesCache,
+    romEntriesLoading,
+    fetchRomMetadata,
+    fetchRomEntries,
+  } = useRomData()
   const [romViewMode, setRomViewMode] = useState<'list' | 'cards'>('list')
-  const [selectedKeys, setSelectedKeys] = useState<Key[]>(['home'])
+  const [selectedKeys, setSelectedKeys] = useState<string[]>(['home'])
   const [selection, setSelection] = useState<Selection>({ kind: 'home' })
-  const [navCollapsed, setNavCollapsed] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
+  const [openKeys, setOpenKeys] = useState<string[]>(['modules-root', 'providers-root'])
+  const [navCollapsed, setNavCollapsed] = useState(false)
   const [providerModalMode, setProviderModalMode] = useState<'edit' | 'create'>('edit')
   const [providerModalTarget, setProviderModalTarget] = useState<{ brand?: string; console?: string }>({})
   const [isEditModalVisible, setEditModalVisible] = useState(false)
@@ -294,107 +172,9 @@ function App() {
     }
   }, [])
 
-  const fetchProviders = useCallback(async () => {
-    setProviderLoading(true)
-    setProviderError(null)
-    try {
-      const response = await fetch('/update?target=providers')
-      if (!response.ok) {
-        throw new Error('Failed to load providers payload')
-      }
-      const payload = (await response.json()) as ProvidersResponse
-      setProviderData(payload)
-      return payload
-    } catch (err) {
-      setProviderError((err as Error).message)
-      return undefined
-    } finally {
-      setProviderLoading(false)
-    }
-  }, [])
-
-  const fetchModulesPayload = useCallback(async () => {
-    setModulesLoading(true)
-    try {
-      const response = await fetch('/update?target=modules')
-      if (!response.ok) {
-        throw new Error('Failed to load modules payload')
-      }
-      const payload = await response.json()
-      if (Array.isArray(payload.modules)) {
-        setModulesData(payload.modules as ModuleEntry[])
-      }
-    } catch (err) {
-      console.error('Failed to load modules payload', err)
-    } finally {
-      setModulesLoading(false)
-    }
-  }, [])
-
-  const fetchRomMetadata = useCallback(async () => {
-    setRomMetaLoading(true)
-    setRomError(null)
-    try {
-      const response = await fetch('/roms')
-      if (!response.ok) {
-        throw new Error('Failed to load ROM metadata')
-      }
-      const payload = await response.json()
-      if (Array.isArray(payload.roms)) {
-        setRomSets(payload.roms as RomSetMeta[])
-      } else {
-        setRomSets([])
-      }
-    } catch (err) {
-      setRomError((err as Error).message)
-    } finally {
-      setRomMetaLoading(false)
-    }
-  }, [])
-
-  const fetchRomEntries = useCallback(async (meta: RomSetMeta) => {
-    const identifier = meta.slug ?? meta.guid
-    if (!identifier) {
-      return
-    }
-    const cacheKey = meta.slug || meta.guid || identifier
-    if (romEntriesCache[cacheKey]) {
-      return
-    }
-    setRomEntriesLoading(true)
-    try {
-      const response = await fetch(`/roms/${encodeURIComponent(identifier)}`)
-      if (!response.ok) {
-        throw new Error(`Failed to load ROM data for ${meta.console || meta.module}`)
-      }
-      const payload = await response.json()
-      const entries = Array.isArray(payload.entries) ? (payload.entries as RomEntry[]) : []
-      setRomEntriesCache((prev) => ({
-        ...prev,
-        [cacheKey]: entries,
-      }))
-    } catch (err) {
-      setRomError((err as Error).message)
-    } finally {
-      setRomEntriesLoading(false)
-    }
-  }, [romEntriesCache])
-
   useEffect(() => {
     fetchMeta()
   }, [fetchMeta])
-
-  useEffect(() => {
-    fetchProviders()
-  }, [fetchProviders])
-
-  useEffect(() => {
-    fetchModulesPayload()
-  }, [fetchModulesPayload])
-
-  useEffect(() => {
-    fetchRomMetadata()
-  }, [fetchRomMetadata])
 
   useEffect(() => {
     if (selection?.kind === 'rom-console') {
@@ -423,6 +203,7 @@ function App() {
   const isRomContext = Boolean(selectedRomBrand || selectedRomConsole)
   const showHomeSummary = !isRomContext && (!selection || selection.kind === 'home')
   const showProvidersOverview = selection?.kind === 'providers-root'
+  const isModulesDataset = selection?.kind === 'dataset' && selection.dataset === 'modules'
   const moduleByGuid = useMemo(() => {
     const lookup: Record<string, ModuleEntry> = {}
     modulesData.forEach((module) => {
@@ -466,7 +247,7 @@ function App() {
     entry.archive_id || `collection-${index}`
 
   const getCollectionLabel = (entry: ProviderEntry, suffix: string) =>
-    entry.name || entry.provider || entry.archive_id || suffix
+    entry.archive_id || entry.provider || entry.name || suffix
 
   const getModuleNodeKey = (entry: ModuleEntry, index: number) =>
     `module:${entry.guid ?? `module-${index}`}`
@@ -571,32 +352,17 @@ function App() {
   }
 
   const romTree = useMemo(() => {
-    const lookup: Record<string, RomSetMeta> = {}
-    const brandMap = new Map<string, RomSetMeta[]>()
+    const brandSet = new Set<string>()
     romSets.forEach((meta) => {
-      const brand = meta.brand || 'Other'
-      if (!brandMap.has(brand)) {
-        brandMap.set(brand, [])
-      }
-      brandMap.get(brand)!.push(meta)
+      brandSet.add(meta.brand || 'Other')
     })
-    const treeNodes: DataNode[] = Array.from(brandMap.entries()).map(([brand, metas]) => ({
+    const treeNodes: DataNode[] = Array.from(brandSet).map((brand) => ({
       key: `roms:${brand}`,
       title: brand,
       selectable: true,
       icon: <FolderOpenOutlined />,
-      children: metas.map((meta) => {
-        const slugOrGuid = meta.slug || meta.guid || meta.module || brand
-        const key = `roms:${brand}:${slugOrGuid}`
-        lookup[key] = meta
-        return {
-          key,
-          title: meta.console || meta.module || slugOrGuid,
-          icon: <CloudDownloadOutlined />,
-        }
-      }),
     }))
-    return { treeNodes, lookup }
+    return { treeNodes }
   }, [romSets])
 
   const moduleTreeNodes = useMemo<DataNode[]>(() => {
@@ -619,6 +385,13 @@ function App() {
       selectable: true,
       icon: <HomeOutlined />,
     }
+    const modulesNode: DataNode = {
+      key: 'modules-root',
+      title: 'Consoles',
+      selectable: true,
+      children: moduleTreeNodes,
+      icon: <FolderOpenOutlined />,
+    }
     const providersNode: DataNode = {
       key: 'providers-root',
       title: 'Providers',
@@ -635,48 +408,87 @@ function App() {
     }
     return [
       homeNode,
-      {
-        key: 'database-root',
-        title: 'Database',
-        selectable: false,
-        children: [
-          {
-            key: 'database:modules',
-            title: 'Libretro modules',
-            icon: <FolderOpenOutlined />,
-            selectable: false,
-            children: moduleTreeNodes,
-          },
-        ],
-      },
+      modulesNode,
       providersNode,
       romsNode,
     ]
   }, [providerTree.treeNodes, moduleTreeNodes, romTree.treeNodes])
 
-  const handleTreeSelect: TreeProps['onSelect'] = (keys) => {
+  type LevelKeysProps = {
+    key?: string
+    children?: LevelKeysProps[]
+  }
+
+  const buildLevelKeys = (items: LevelKeysProps[]) => {
+    const levels: Record<string, number> = {}
+    const walk = (nodes: LevelKeysProps[], level = 1) => {
+      nodes.forEach((node) => {
+        if (node.key) levels[node.key] = level
+        if (node.children) walk(node.children, level + 1)
+      })
+    }
+    walk(items)
+    return levels
+  }
+
+  const navigationMenuItems = useMemo<MenuProps['items']>(() => {
+    const toMenuItems = (nodes: DataNode[]): MenuProps['items'] =>
+      nodes.map((node) => ({
+        key: node.key as string,
+        label: node.title as React.ReactNode,
+        icon: node.icon as React.ReactNode,
+        children: node.children ? toMenuItems(node.children) : undefined,
+      }))
+    return toMenuItems(navigationTree)
+  }, [navigationTree])
+
+  const levelKeys = useMemo(() => buildLevelKeys((navigationMenuItems as LevelKeysProps[]) || []), [navigationMenuItems])
+
+  const handleMenuOpenChange: MenuProps['onOpenChange'] = (nextOpenKeys) => {
+    const currentOpenKey = nextOpenKeys.find((key) => !openKeys.includes(key))
+    if (currentOpenKey !== undefined) {
+      const repeatIndex = nextOpenKeys
+        .filter((key) => key !== currentOpenKey)
+        .findIndex((key) => levelKeys[key] === levelKeys[currentOpenKey])
+      setOpenKeys(
+        nextOpenKeys
+          .filter((_, index) => index !== repeatIndex)
+          .filter((key) => levelKeys[key] <= levelKeys[currentOpenKey]),
+      )
+    } else {
+      setOpenKeys(nextOpenKeys)
+    }
+  }
+
+  const handleMenuSelect: MenuProps['onSelect'] = (info) => {
+    setOpenKeys((prev) => Array.from(new Set([...prev, ...info.keyPath.slice(1)])))
+    handleNavigationSelect(info.key as string)
+  }
+
+  const handleNavigationSelect = (key: string) => {
+    const keys = [key]
     setSelectedKeys(keys)
-    const key = keys[0] as string | undefined
-    if (!key) {
+    const targetKey = keys[0] as string | undefined
+    if (!targetKey) {
       setSelection(null)
       return
     }
-    if (key === 'home') {
+    if (targetKey === 'home') {
       setSelection({ kind: 'home' })
       return
     }
-    if (key === 'providers-root') {
+    if (targetKey === 'modules-root') {
+      setSelection({ kind: 'dataset', dataset: 'modules' })
+      return
+    }
+    if (targetKey === 'providers-root') {
       setSelection({ kind: 'providers-root' })
       return
     }
-    if (key === 'database-root') {
-      setSelection({ kind: 'database-root' })
-      return
-    }
-    if (key.startsWith('provider:')) {
-      const [, brand, consoleName, suffix] = key.split(':')
+    if (targetKey.startsWith('provider:')) {
+      const [, brand, consoleName, suffix] = targetKey.split(':')
       if (brand && consoleName && suffix) {
-        const detail = providerTree.detailLookup[key]
+        const detail = providerTree.detailLookup[targetKey]
         if (detail) {
           setSelection(detail)
         }
@@ -690,14 +502,8 @@ function App() {
         setSelection({ kind: 'brand', brand })
         return
       }
-    } else if (key.startsWith('database:')) {
-      const datasetKey = key.split(':')[1] as DatasetKey | undefined
-      if (datasetKey) {
-        setSelection({ kind: 'dataset', dataset: datasetKey })
-        return
-      }
-    } else if (key.startsWith('module:')) {
-      const moduleEntryIndex = modulesData.findIndex((module, idx) => getModuleNodeKey(module, idx) === key)
+    } else if (targetKey.startsWith('module:')) {
+      const moduleEntryIndex = modulesData.findIndex((module, idx) => getModuleNodeKey(module, idx) === targetKey)
       const data = modulesData[moduleEntryIndex]
       if (data) {
         setSelection({
@@ -707,25 +513,39 @@ function App() {
         })
         return
       }
-    } else if (key.startsWith('roms:')) {
-      const parts = key.split(':')
-      if (parts.length === 2) {
-        const [, brand] = parts
-        setSelection({ kind: 'rom-brand', brand })
-        return
-      }
-      if (parts.length >= 3) {
-        const [, brand, slug] = parts
-        const lookupKey = `roms:${brand}:${slug}`
-        const meta = romTree.lookup[lookupKey]
-        if (meta) {
-          setSelection({ kind: 'rom-console', meta })
-          return
-        }
-      }
+    } else if (targetKey.startsWith('roms:')) {
+      const [, brand] = targetKey.split(':')
+      setSelection({ kind: 'rom-brand', brand })
+      return
     }
     setSelection(null)
   }
+
+  const fetchProviderStatus = useCallback(async (selection: ProviderSelection | null) => {
+    if (!selection) {
+      setProviderStatus(null)
+      return
+    }
+    try {
+      const response = await fetch('/providers/status', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          brand: selection.brand,
+          console: selection.console,
+          provider_slug: selection.archiveId,
+        }),
+      })
+      if (!response.ok) {
+        throw new Error(await response.text())
+      }
+      const payload = await response.json()
+      setProviderStatus(payload.status || null)
+    } catch (err) {
+      setProviderStatus(null)
+      console.error('Failed to fetch provider status', err)
+    }
+  }, [])
 
   const handleRefreshAll = useCallback(() => {
     fetchMeta()
@@ -733,6 +553,24 @@ function App() {
     fetchModulesPayload()
     fetchRomMetadata()
   }, [fetchMeta, fetchProviders, fetchModulesPayload, fetchRomMetadata])
+
+  const handleToggleModuleIgnore = (guid: string | undefined, next: boolean, index: number) => {
+    setModulesData((prev) => {
+      const nextModules = [...prev]
+      const target = { ...(nextModules[index] || {}) }
+      if (guid && target.guid && target.guid !== guid) {
+        return prev
+      }
+      target.ignore = next ? 'true' : undefined
+      nextModules[index] = target as ModuleEntry
+      return nextModules
+    })
+  }
+
+  useEffect(() => {
+    const selectionTyped = selection?.kind === 'collection' ? selection : null
+    fetchProviderStatus(selectionTyped)
+  }, [selection, fetchProviderStatus])
 
   const getConsoleEntries = (brand: string, consoleName: string): ProviderEntry[] =>
     getConsoleEntriesFromDataset(providerData, brand, consoleName)
@@ -758,6 +596,7 @@ function App() {
       nodeSuffix: suffix,
       entryIndex: index,
     })
+    setProviderStatus(null)
   }
 
   const handleRomConsoleNavigate = (meta: RomSetMeta) => {
@@ -766,28 +605,6 @@ function App() {
     const key = `roms:${brand}:${slugOrGuid}`
     setSelectedKeys([key])
     setSelection({ kind: 'rom-console', meta })
-  }
-
-  const handleQuickNav = (target: 'database' | 'providers' | 'roms') => {
-    setNavCollapsed(false)
-    if (target === 'database') {
-      setSelectedKeys(['database-root'])
-      setSelection({ kind: 'database-root' })
-      return
-    }
-    if (target === 'providers') {
-      setSelectedKeys(['providers-root'])
-      setSelection({ kind: 'providers-root' })
-      return
-    }
-    if (target === 'roms') {
-      const node = romTree.treeNodes[0]
-      if (node) {
-        setSelectedKeys([node.key as string])
-        const brandTitle = typeof node.title === 'string' ? node.title : 'ROMs'
-        setSelection({ kind: 'rom-brand', brand: brandTitle })
-      }
-    }
   }
 
   const openCreateProviderModal = (brand?: string, consoleName?: string) => {
@@ -1043,6 +860,7 @@ function App() {
     if (!selectedProvider) {
       return
     }
+    setProviderStatus(null)
     const target = selectedProvider
     setProviderFetchRunning(true)
     try {
@@ -1076,6 +894,7 @@ function App() {
     if (!selectedProvider) {
       return
     }
+    setProviderStatus(null)
     const target = selectedProvider
     setProviderExportRunning(true)
     try {
@@ -1168,6 +987,8 @@ function App() {
       setValidationRunning(false)
     }
   }
+
+  // fetchProviderStatus defined above; keep single definition
 
   const openModuleEditModal = () => {
     if (!selectedModule) {
@@ -1522,6 +1343,10 @@ function App() {
     )
   }
 
+  const renderModulesDataset = () => (
+    <ModulesList modules={modulesData} onToggleIgnore={handleToggleModuleIgnore} />
+  )
+
   const renderProvidersOverview = () => (
     <Card className="summary-card">
       <Flex justify="space-between" align="center" wrap>
@@ -1562,381 +1387,89 @@ function App() {
     >
       {contextHolder}
       <Layout className="app-shell">
-        <Layout.Header className="app-header">
-          <div className="toolbar-left">
-            <Button
-              icon={<MenuOutlined />}
-              shape="circle"
-              aria-label="Toggle navigation"
-              onClick={() => setNavCollapsed((prev) => !prev)}
-            />
-            <img src={logoUrl} alt="ROMs Manager logo" className="app-logo" />
-            <Input.Search
-              placeholder="Search ROMs, providers, modules…"
-              allowClear
-              value={searchQuery}
-              onChange={(event) => setSearchQuery(event.target.value)}
-              onSearch={(value) => setSearchQuery(value)}
-              className="toolbar-search"
-            />
-          </div>
-          <Space align="center" size="large">
-            <Typography.Text type="secondary" className="app-tagline">
-              {headerTagline}
-            </Typography.Text>
-            <Button
-              type="primary"
-              icon={<ReloadOutlined />}
-              onClick={handleRefreshAll}
-              loading={busy}
-            >
-              Refresh
-            </Button>
-          </Space>
-        </Layout.Header>
+        <NavigationSider
+          collapsed={navCollapsed}
+          logoUrl={logoUrl}
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          onSearchSubmit={(value) => setSearchQuery(value)}
+          menuItems={navigationMenuItems}
+          selectedKeys={selectedKeys}
+          openKeys={openKeys}
+          onOpenChange={handleMenuOpenChange}
+          onSelect={handleMenuSelect}
+          providerError={providerError}
+          romMetaLoading={romMetaLoading}
+        />
 
-        {navCollapsed && (
-          <div className="collapsed-nav">
-            <Space direction="vertical" size="large">
-              <Button
-                icon={<DatabaseOutlined />}
-                shape="circle"
-                aria-label="Database shortcuts"
-                onClick={() => handleQuickNav('database')}
-              />
-              <Button
-                icon={<CloudDownloadOutlined />}
-                shape="circle"
-                aria-label="Providers shortcuts"
-                onClick={() => handleQuickNav('providers')}
-              />
-              <Button
-                icon={<AppstoreOutlined />}
-                shape="circle"
-                aria-label="ROMs shortcuts"
-                onClick={() => handleQuickNav('roms')}
-              />
-            </Space>
-          </div>
-        )}
-
-        <Layout className="workspace">
-          <Layout.Sider
-            width={320}
-            className="nav-sider"
-            collapsible
-            collapsed={navCollapsed}
-            collapsedWidth={0}
-            trigger={null}
-          >
-            <div className="tree-header">
-              <Typography.Text strong>Home</Typography.Text>
-              <Space size="small">
-                {romMetaLoading && <Spin size="small" />}
-                {providerError && (
-                  <Typography.Text type="danger" className="tree-error">
-                    {providerError}
-                  </Typography.Text>
-                )}
-              </Space>
-            </div>
-            <Tree
-              treeData={navigationTree}
-              className="nav-tree"
-              showIcon
-              defaultExpandAll
-              selectedKeys={selectedKeys}
-              onSelect={handleTreeSelect}
-            />
-          </Layout.Sider>
+        <Layout className="main-panel">
+          <TopHeader collapsed={navCollapsed} onToggle={() => setNavCollapsed((prev) => !prev)} />
 
           <Layout.Content className="app-content">
-          {showHomeSummary && (
-            <>
-              <Typography.Paragraph className="intro">
-                Pick an item on the left tree to inspect its metadata. Start with <strong>Providers</strong> to view archive URLs, torrent links, and configured ROM extensions.
-              </Typography.Paragraph>
+            {isModulesDataset ? (
+              renderModulesDataset()
+            ) : (
+              <>
+                {showHomeSummary && (
+                  <>
+                    <Flex justify="space-between" align="center" className="home-toolbar">
+                      <Typography.Text type="secondary" className="app-tagline">
+                        {headerTagline}
+                      </Typography.Text>
+                      <Button
+                        type="primary"
+                        icon={<ReloadOutlined />}
+                        onClick={handleRefreshAll}
+                        loading={busy}
+                      >
+                        Refresh
+                      </Button>
+                    </Flex>
+                    <Typography.Paragraph className="intro">
+                      Pick an item on the left tree to inspect its metadata. Start with <strong>Providers</strong> to
+                      view archive URLs, torrent links, and configured ROM extensions.
+                    </Typography.Paragraph>
+                    <SummaryCards datasets={DATASETS} meta={meta} loading={loading} error={error} />
+                  </>
+                )}
 
-              {error && (
-                <Alert
-                  type="error"
-                  showIcon
-                  message="Unable to load dataset metadata"
-                  description={error}
-                  className="app-alert"
+                {showProvidersOverview && renderProvidersOverview()}
+
+                <DetailPanel
+                  selection={selection}
+                  selectedProvider={selectedProvider}
+                  selectedModule={selectedModule}
+                  selectedRomConsole={selectedRomConsole}
+                  selectedRomBrand={selectedRomBrand}
+                  selectedConsole={selectedConsole}
+                  selectedBrand={selectedBrand}
+                  isRomContext={isRomContext}
+                  moduleByGuid={moduleByGuid}
+                  providerStatus={providerStatus}
+                  providerFetchRunning={providerFetchRunning}
+                  providerExportRunning={providerExportRunning}
+                  onFetchAssets={handleProviderFetchAssets}
+                  onExportRoms={handleProviderExport}
+                  onEditProvider={openEditModal}
+                  onDuplicateProvider={handleDuplicate}
+                  onDeleteProvider={handleDelete}
+                  onEditModule={openModuleEditModal}
+                  onDuplicateModule={handleModuleDuplicate}
+                  onDeleteModule={handleModuleDelete}
+                  renderRomConsoleDetail={renderRomConsoleDetail}
+                  renderRomBrandDetail={renderRomBrandDetail}
+                  renderConsoleDetail={renderConsoleDetail}
+                  renderBrandDetail={renderBrandDetail}
                 />
-              )}
-
-              <Flex gap="large" wrap className="dataset-summary">
-                {DATASETS.map((dataset) => {
-                  const datasetMeta = meta[dataset.key]
-                  return (
-                    <Card key={dataset.key} className="summary-card">
-                      <Typography.Title level={5}>{dataset.title}</Typography.Title>
-                      <Typography.Text>{dataset.description}</Typography.Text>
-                      <Flex gap="large" className="summary-stats">
-                        <Statistic
-                          title="Entries"
-                          value={datasetMeta?.count ?? 0}
-                          loading={loading && !datasetMeta}
-                        />
-                        <Statistic
-                          title="Version"
-                          value={datasetMeta?.version ? formatTimestamp(datasetMeta.version) : 'N/A'}
-                        />
-                      </Flex>
-                      <Button
-                        type="link"
-                        href={dataset.endpoint}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="summary-link"
-                      >
-                        Download JSON
-                      </Button>
-                    </Card>
-                  )
-                })}
-              </Flex>
-            </>
-          )}
-
-          {showProvidersOverview && renderProvidersOverview()}
-
-          <Card className="detail-card" title={isRomContext ? undefined : 'Details'}>
-              {selectedProvider ? (
-                <Flex vertical gap="large">
-                  <Flex justify="space-between" align="center" wrap>
-                    <div>
-                      <Typography.Title level={4} style={{ marginBottom: 0 }}>
-                        {selectedProvider.collectionLabel}
-                      </Typography.Title>
-                      <Typography.Text type="secondary">
-                        {selectedProvider.brand} · {selectedProvider.console}
-                      </Typography.Text>
-                    </div>
-                    <Space wrap>
-                      <Button
-                        icon={<CloudDownloadOutlined />}
-                        onClick={handleProviderFetchAssets}
-                        loading={providerFetchRunning}
-                      >
-                        Fetch assets
-                      </Button>
-                      <Button
-                        icon={<ExportOutlined />}
-                        onClick={handleProviderExport}
-                        loading={providerExportRunning}
-                      >
-                        Export ROMs
-                      </Button>
-                      <Button icon={<EditOutlined />} onClick={openEditModal}>
-                        Edit
-                      </Button>
-                      <Button icon={<CopyOutlined />} onClick={handleDuplicate}>
-                        Duplicate
-                      </Button>
-                      <Button icon={<DeleteOutlined />} danger onClick={handleDelete}>
-                        Delete
-                      </Button>
-                    </Space>
-                  </Flex>
-
-                  <Descriptions
-                    bordered
-                    size="small"
-                    column={2}
-                    labelStyle={{ width: 180 }}
-                    items={[
-                      {
-                        key: 'provider',
-                        label: 'Provider',
-                        children: selectedProvider.data.provider || '—',
-                      },
-                      {
-                        key: 'archive',
-                        label: 'Archive ID',
-                        children: selectedProvider.data.archive_id || '—',
-                      },
-                      {
-                        key: 'baseUrl',
-                        label: 'Base URL',
-                        span: 2,
-                        children: selectedProvider.data.base_url ? (
-                          <a href={selectedProvider.data.base_url} target="_blank" rel="noreferrer">
-                            {selectedProvider.data.base_url}
-                          </a>
-                        ) : (
-                          '—'
-                        ),
-                      },
-                      {
-                        key: 'updated',
-                        label: 'Updated',
-                        children: selectedProvider.data.updated || '—',
-                      },
-                      {
-                        key: 'size',
-                        label: 'Reported size',
-                        children: selectedProvider.data.size || '—',
-                      },
-                      {
-                        key: 'guid',
-                        label: 'Console / GUID',
-                        span: 2,
-                        children: selectedProvider.data.libretro_guid ? (
-                          <div className="guid-display">
-                            <Typography.Text>{selectedProvider.data.libretro_guid}</Typography.Text>
-                            {moduleByGuid[selectedProvider.data.libretro_guid] && (
-                              <Typography.Text type="secondary">
-                                {moduleByGuid[selectedProvider.data.libretro_guid].name}
-                              </Typography.Text>
-                            )}
-                          </div>
-                        ) : (
-                          '—'
-                        ),
-                      },
-                    ]}
-                  />
-
-                  <div>
-                    <Typography.Title level={5}>Available files</Typography.Title>
-                    {selectedProvider.data.files ? (
-                      <Table
-                        size="small"
-                        pagination={false}
-                        dataSource={Object.entries(selectedProvider.data.files).map(([key, value]) => ({
-                          key,
-                          type: key,
-                          url: value,
-                        }))}
-                        columns={[
-                          { title: 'Type', dataIndex: 'type', key: 'type', width: 180 },
-                          {
-                            title: 'URL',
-                            dataIndex: 'url',
-                            key: 'url',
-                            render: (value: string) =>
-                              value ? (
-                                <a href={value} target="_blank" rel="noreferrer">
-                                  {value}
-                                </a>
-                              ) : (
-                                '—'
-                              ),
-                          },
-                        ]}
-                      />
-                    ) : (
-                      <Typography.Text type="secondary">No file links configured.</Typography.Text>
-                    )}
-                  </div>
-
-                  <div>
-                    <Typography.Title level={5}>ROM extensions</Typography.Title>
-                    {selectedProvider.data.rom_extensions?.length ? (
-                      <Flex gap="small" wrap>
-                        {selectedProvider.data.rom_extensions.map((ext) => (
-                          <Tag key={ext} color="blue">
-                            {ext}
-                          </Tag>
-                        ))}
-                      </Flex>
-                    ) : (
-                      <Typography.Text type="secondary">Not specified.</Typography.Text>
-                    )}
-                  </div>
-                </Flex>
-              ) : selectedModule ? (
-                <Flex vertical gap="large">
-                  <Flex justify="space-between" align="center" wrap>
-                    <div>
-                      <Typography.Title level={4} style={{ marginBottom: 0 }}>
-                        {selectedModule.data.name || 'Unnamed module'}
-                      </Typography.Title>
-                      <Typography.Text type="secondary">
-                        {selectedModule.data.guid || 'GUID not assigned'}
-                      </Typography.Text>
-                    </div>
-                    <Space wrap>
-                      <Button icon={<EditOutlined />} onClick={openModuleEditModal}>
-                        Edit
-                      </Button>
-                      <Button icon={<CopyOutlined />} onClick={handleModuleDuplicate}>
-                        Duplicate
-                      </Button>
-                      <Button icon={<DeleteOutlined />} danger onClick={handleModuleDelete}>
-                        Delete
-                      </Button>
-                    </Space>
-                  </Flex>
-
-                  <Descriptions
-                    bordered
-                    size="small"
-                    column={2}
-                    labelStyle={{ width: 180 }}
-                    items={[
-                      {
-                        key: 'path',
-                        label: 'Path',
-                        children: selectedModule.data.path || '—',
-                      },
-                      {
-                        key: 'branch',
-                        label: 'Default branch',
-                        children: selectedModule.data.branch || '—',
-                      },
-                      {
-                        key: 'url',
-                        label: 'Repository URL',
-                        span: 2,
-                        children: selectedModule.data.url ? (
-                          <a href={selectedModule.data.url} target="_blank" rel="noreferrer">
-                            {selectedModule.data.url}
-                          </a>
-                        ) : (
-                          '—'
-                        ),
-                      },
-                      {
-                        key: 'ignore',
-                        label: 'Ignore rule',
-                        children: selectedModule.data.ignore || '—',
-                      },
-                      {
-                        key: 'shallow',
-                        label: 'Shallow clone',
-                        children: selectedModule.data.shallow || '—',
-                      },
-                    ]}
-                  />
-                </Flex>
-              ) : selectedRomConsole ? (
-                renderRomConsoleDetail(selectedRomConsole)
-              ) : selectedRomBrand ? (
-                renderRomBrandDetail(selectedRomBrand)
-              ) : selectedConsole ? (
-                renderConsoleDetail(selectedConsole)
-              ) : selectedBrand ? (
-                renderBrandDetail(selectedBrand)
-              ) : selection?.kind === 'dataset' ? (
-                <Typography.Paragraph>
-                  Dataset controls will live here soon. For now, use the summary cards above to monitor libretro module
-                  sync status.
-                </Typography.Paragraph>
-              ) : (
-                <Empty description="Select a resource from the left tree to view its metadata" />
-              )}
-            </Card>
+              </>
+            )}
           </Layout.Content>
-        </Layout>
 
-      <Layout.Footer className="app-footer">
-        ROMs Manager backend · Ant Design prototype
-      </Layout.Footer>
-    </Layout>
+          <Layout.Footer className="app-footer">
+            ROMs Manager backend · Ant Design prototype
+          </Layout.Footer>
+        </Layout>
+      </Layout>
       <Modal
         title={`Edit ${selectedProvider?.collectionLabel ?? 'provider'}`}
         open={isEditModalVisible}
