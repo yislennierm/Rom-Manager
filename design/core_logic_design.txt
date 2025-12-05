@@ -1,0 +1,46 @@
+Inventory of what each file in core/ and utils/ does right now, so we can decide what belongs in the backend:
+
+core/
+
+providers.py: 
+Loads/saves providers.json; provider lookup/slugging; schema validation; iterates providers with cache status; exports ROM listings from provider XML to JSON; resolves provider entries by brand/console; filename helpers.
+
+download_manager.py: 
+Torrent-based download manager (libtorrent). Manages torrent session, per-file jobs, progress/priorities, resumes jobs from disk, persists jobs.json; resolves torrent paths using cache/download dirs.
+
+artwork_providers.py: 
+Handles artwork providers/indexing. Reads artwork provider definitions, hits GitHub to generate per-console artwork indexes (PNG listings) and stores them under data/artwork/index; lists indexed consoles with status.
+
+services/provider_tasks.py: 
+Task helpers for providers: fetches provider assets (downloads metadata/torrent/XML/SQLite/reviews), exports ROM JSON, lists provider cache status, runs validation, resolves cache paths. Uses core.providers, utils.fetch_metadata, utils.library_sync, etc.
+
+
+utils/
+
+artwork.py: 
+Artwork fetch/download utilities; likely downloads artwork assets from provider indexes and writes to disk.
+
+backend_client.py: 
+HTTP client for the FastAPI backend. Fetches modules/providers/ROM catalogs, saves snapshots locally, downloads ROM datasets, reads/writes snapshots, derives paths. Used by TUI to talk to backend.
+
+catalog.py: 
+ROM catalog helpers (e.g., merge/export ROM datasets, maybe filters). Handy for dataset handling in TUI.
+
+cores_registry.py: 
+Registry of cores/modules (mapping names, GUIDs, extensions). Used for lookups in TUI flows.
+
+fetch_metadata.py: 
+Fetches provider metadata/listings/torrents from archive URLs; writes XML/SQLite/torrent to cache; shared by tasks.
+
+library_sync.py: 
+Syncs libretro modules data; manages module files/RDB paths; helpers to write RDB JSON, deduplicate, etc.
+
+paths.py: 
+Centralized path utilities/constants (DATA_DIR, CACHE_DIR, PROVIDER_FILE, SCHEMA_FILE, cache status, slugify, file path builders for XML/JSON/torrents).
+
+validate_providers.py: 
+Validates providers.json against schema; reports errors.
+
+__init__.py: 
+package init.
+In short: core holds provider/artwork/download logic and task orchestration; utils holds path constants, fetch/sync helpers, backend client, validation, and catalog/cores registry bits. Any shared business logic still living in utils (fetch_metadata, library_sync, paths, validation, catalog) is a candidate to migrate into core or service/task modules for the backend, so the TUI isn’t the only consumer.
