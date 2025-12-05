@@ -61,7 +61,7 @@ const NavigationSider: React.FC<Props> = ({
     </div>
 
     <Input.Search
-      placeholder="Search ROMs, providers, modules…"
+      placeholder="Search…"
       allowClear
       value={searchQuery}
       onChange={(event) => onSearchChange(event.target.value)}
