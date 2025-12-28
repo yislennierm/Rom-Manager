@@ -1,0 +1,30 @@
+"name": 
+"Nintendo 64",
+"provider": 
+"Internet Archive",
+"archive_id": 
+"N64TOSEC",
+"base_url": 
+"https://archive.org/download/N64TOSEC",
+Files
+"meta_sqlite": 
+"https://archive.org/download/N64TOSEC/N64TOSEC_meta.sqlite",
+"files_xml": 
+"https://archive.org/download/N64TOSEC/N64TOSEC_files.xml",
+"torrent": 
+"https://archive.org/download/N64TOSEC/N64TOSEC_archive.torrent",
+"meta_xml": 
+"https://archive.org/download/N64TOSEC/N64TOSEC_meta.xml",
+"reviews_xml": 
+"https://archive.org/download/N64TOSEC/N64TOSEC_reviews.xml"
+
+"rom_extensions": 
+            ".n64",
+            ".v64",
+            ".z64",
+            ".bin",
+            ".u1",
+            ".ndd",
+            ".gb" (comma separated extentions)
+"libretro_guid": "bc8c836c-4218-5ff1-bfb2-d895381289b4" (this should be drop down from the libretro modules json)
+       

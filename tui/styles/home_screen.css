@@ -1,0 +1,66 @@
+#home_container {
+    layout: vertical;
+    padding: 1 2;
+    height: 1fr;
+}
+
+#home_header {
+    layout: horizontal;
+    padding: 0 2 0 2;
+    height: auto;
+    width: 1fr;
+    margin-bottom: 1;
+    align: center middle;
+}
+
+#home_content {
+    layout: horizontal;
+    height: 1fr;
+}
+
+#home_top {
+    padding: 0 1 0 0;
+    text-style: bold;
+    color: $accent;
+    width: auto;
+}
+
+#home_tabs {
+    padding-left: 1;
+    margin-left: 2;
+    height: auto;
+    width: auto;
+}
+
+Tabs#home_tabs {
+    background: transparent;
+    border-bottom: solid $surface;
+}
+
+Tabs#home_tabs Tab {
+    background: transparent;
+    color: $text-secondary;
+    padding: 0 1;
+}
+
+Tabs#home_tabs Tab.-active {
+    color: $text-primary;
+    border-bottom: solid $accent;
+    text-style: bold;
+}
+
+#home_summary, #home_actions {
+    background: $panel;
+    border: solid $surface;
+    padding: 1;
+    height: 1fr;
+}
+
+#home_summary {
+    width: 3fr;
+    margin-right: 1;
+}
+
+#home_actions {
+    width: 2fr;
+}

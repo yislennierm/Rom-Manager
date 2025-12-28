@@ -1,0 +1,70 @@
+* {
+    scrollbar-color: $accent 30%;
+    scrollbar-color-hover: $accent 60%;
+    scrollbar-color-active: $accent;
+    scrollbar-background: $surface-darken-1;
+    scrollbar-background-hover: $surface;
+    scrollbar-background-active: $surface;
+    scrollbar-size-vertical: 1;
+}
+
+Screen {
+    background: $background;
+    color: $text-primary;
+}
+
+Static, Container {
+    color: $text-primary;
+}
+
+Button {
+    width: auto;
+    height: auto;
+    background: transparent;
+    color: $accent-lighten-1;
+    min-width: 0;
+    border: none;
+    text-style: none;
+}
+
+Button:focus {
+    text-style: bold reverse;
+}
+
+Button:hover {
+    background: $panel-darken-2;
+    color: $text-primary;
+}
+
+Button.-active {
+    background: $panel;
+    tint: $background 30%;
+    color: $accent;
+}
+
+Input {
+    padding: 0 1;
+    height: 1;
+    background: $surface;
+    border: none;
+}
+
+Input:focus {
+    background: $surface-lighten-1;
+    border-left: outer $accent;
+}
+
+DataTable {
+    color: $text-primary;
+    background: $panel;
+    border: round $surface;
+}
+
+DataTable:focus {
+    border: round $accent;
+}
+
+Footer {
+    background: $panel;
+    color: $text-secondary;
+}

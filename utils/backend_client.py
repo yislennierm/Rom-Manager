@@ -17,6 +17,22 @@ CACHE_PATH = Path(CACHE_DIR)
 
 DEFAULT_API_BASE = "http://localhost:8000"
 PROVIDERS_PATH = Path(PROVIDER_FILE)
+_BACKEND_OVERRIDE: Optional[str] = None
+
+
+def set_backend_base(url: Optional[str]) -> None:
+  """Override the backend base URL for this process (takes precedence over env)."""
+  global _BACKEND_OVERRIDE
+  if url:
+    _BACKEND_OVERRIDE = url.rstrip("/")
+  else:
+    _BACKEND_OVERRIDE = None
+
+
+def get_backend_base() -> str:
+  if _BACKEND_OVERRIDE:
+    return _BACKEND_OVERRIDE
+  return os.environ.get("ROMS_MANAGER_BACKEND", DEFAULT_API_BASE).rstrip("/")
 
 
 class BackendError(RuntimeError):
@@ -24,7 +40,22 @@ class BackendError(RuntimeError):
 
 
 def _api_base() -> str:
-    return os.environ.get("ROMS_MANAGER_BACKEND", DEFAULT_API_BASE).rstrip("/")
+    return get_backend_base()
+
+
+def test_backend() -> Dict:
+    """Ping the backend health endpoint and return payload."""
+    url = f"{_api_base()}/healthz"
+    try:
+        response = requests.get(url, timeout=8)
+    except requests.RequestException as exc:
+        raise BackendError(f"Backend request failed: {exc}") from exc
+    if response.status_code != 200:
+        raise BackendError(f"Backend returned {response.status_code}: {response.text}")
+    try:
+        return response.json()
+    except ValueError as exc:
+        raise BackendError(f"Invalid JSON payload from healthz: {exc}") from exc
 
 
 def _fetch_snapshot(target: str) -> Dict:
