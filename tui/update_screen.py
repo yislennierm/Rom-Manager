@@ -6,7 +6,7 @@ from typing import Callable, Dict, Optional
 from textual.app import ComposeResult
 from textual.containers import Container
 from textual.screen import Screen
-from textual.widgets import Header, Footer, Static, DataTable
+from textual.widgets import Header, Footer, Static, DataTable, Input
 
 from utils.backend_client import (
     BackendError,
@@ -26,6 +26,9 @@ from utils.backend_client import (
     load_cache_local_metadata,
     fetch_cache_remote_metadata,
     download_cache_archive,
+    test_backend,
+    get_backend_base,
+    set_backend_base,
 )
 from utils.library_sync import RDB_DIR
 
@@ -40,6 +43,7 @@ class UpdateScreen(Screen):
     BINDINGS = [
         ("u", "update_selected", "Update Selected"),
         ("ctrl+u", "update_all", "Update All"),
+        ("t", "test_backend", "Test Backend"),
         ("escape", "go_back", "Back"),
     ]
 
@@ -94,6 +98,8 @@ class UpdateScreen(Screen):
     def compose(self) -> ComposeResult:
         yield Header()
         self.status = Static(self.status_message, id="update_status")
+        self.backend_input = Input(value=get_backend_base(), placeholder="Backend URL", id="backend_input")
+        self.backend_label = Static("Backend", id="backend_label")
         self.table = DataTable(id="update_table")
         self.table.add_column("Data", width=30)
         self.table.add_column("Status", width=10)
@@ -116,11 +122,35 @@ class UpdateScreen(Screen):
             self.row_lookup[task_id] = row_index
             self.row_reverse[row_index] = task_id
         self.table.cursor_type = "row"
-        yield Container(self.status, self.table, id="update_container")
+        yield Container(self.backend_label, self.backend_input, self.status, self.table, id="update_container")
         yield Footer()
 
     def on_mount(self) -> None:
         self._refresh_metadata()
+
+    def on_input_submitted(self, event: Input.Submitted) -> None:
+        if event.input.id != "backend_input":
+            return
+        new_base = event.value.strip()
+        set_backend_base(new_base or None)
+        self.app.notify(f"Backend set to {get_backend_base()}", severity="information")
+        self._refresh_metadata()
+
+    def action_test_backend(self) -> None:
+        base = get_backend_base()
+        self._set_status(f"⏳ Testing backend at {base} …")
+        try:
+            payload = test_backend()
+        except BackendError as exc:
+            self._set_status(f"❌ Backend unreachable: {exc}")
+            self.app.notify(str(exc), severity="error")
+            return
+        except Exception as exc:
+            self._set_status(f"❌ Unexpected error: {exc}")
+            self.app.notify(str(exc), severity="error")
+            return
+        self._set_status(f"✅ Backend OK at {base}: {payload}")
+        self.app.notify(f"Backend OK: {base}", severity="information")
 
     # ------------------------------------------------------------------
     # Actions

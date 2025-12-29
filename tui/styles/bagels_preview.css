@@ -1,0 +1,75 @@
+#bp_header {
+    layout: horizontal;
+    padding: 0 2 0 2;
+    height: auto;
+    width: 1fr;
+    align: center middle;
+    margin-bottom: 1;
+}
+
+#bp_title {
+    color: $accent;
+    text-style: bold;
+    padding-right: 2;
+}
+
+#bp_instance {
+    dock: right;
+    color: $text-secondary;
+}
+
+Tabs#bp_tabs {
+    background: transparent;
+    padding-left: 2;
+}
+
+Tabs#bp_tabs Tab {
+    background: transparent;
+    border-bottom: solid $surface;
+    color: $text-secondary;
+    padding: 0 1;
+}
+
+Tabs#bp_tabs Tab.-active {
+    color: $text-primary;
+    border-bottom: solid $accent;
+    text-style: bold;
+}
+
+#bp_body {
+    layout: horizontal;
+    padding: 0 2;
+    height: 1fr;
+}
+
+#bp_left {
+    width: 45%;
+    layout: vertical;
+}
+
+#bp_right {
+    width: 55%;
+    layout: vertical;
+}
+
+.bp_panel {
+    background: $panel;
+    border: solid $surface;
+    padding: 0;
+    margin-bottom: 1;
+}
+
+.bp_panel_title {
+    color: $text-secondary;
+    padding: 0 1;
+}
+
+.bp_panel_body {
+    border: solid $surface;
+    padding: 1;
+    margin: 0 1 1 1;
+}
+
+#bp_records.bp_panel_body {
+    border: solid $accent;
+}

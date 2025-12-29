@@ -269,15 +269,17 @@ class ROMExplorerScreen(Screen):
                     provider_console = canonical.get("console") or provider_console
             archive_id = metadata.get("archive_id")
             provider_slug_value = provider_entry.get("provider_id") or archive_id
-            if provider_slug_value:
-                provider_slug_value = slugify_provider(provider_slug_value)
+            slug_id = None
+            if archive_id:
+                slug_id = slugify_provider(archive_id)
+            elif provider_slug_value:
+                slug_id = slugify_provider(provider_slug_value)
             target_segments = [
                 "downloads",
-                manufacturer_slug(provider_manufacturer),
                 console_slug(provider_console),
             ]
-            if archive_id:
-                target_segments.append(archive_id)
+            if slug_id:
+                target_segments.append(slug_id)
             target_dir = os.path.join(*target_segments)
 
             rom_filename = preferred.get("name") or rom["name"]

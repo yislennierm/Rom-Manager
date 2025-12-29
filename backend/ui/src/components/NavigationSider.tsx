@@ -1,13 +1,10 @@
 import type { MenuProps } from 'antd'
-import { Flex, Input, Layout, Menu, Space, Spin, Typography } from 'antd'
+import { Flex, Layout, Menu, Space, Spin, Typography } from 'antd'
 import React from 'react'
 
 type Props = {
   collapsed: boolean
   logoUrl: string
-  searchQuery: string
-  onSearchChange: (value: string) => void
-  onSearchSubmit: (value: string) => void
   menuItems: MenuProps['items']
   selectedKeys: string[]
   openKeys: string[]
@@ -20,9 +17,6 @@ type Props = {
 const NavigationSider: React.FC<Props> = ({
   collapsed,
   logoUrl,
-  searchQuery,
-  onSearchChange,
-  onSearchSubmit,
   menuItems,
   selectedKeys,
   openKeys,
@@ -59,15 +53,6 @@ const NavigationSider: React.FC<Props> = ({
         )}
       </Space>
     </div>
-
-    <Input.Search
-      placeholder="Search ROMs, providers, modules…"
-      allowClear
-      value={searchQuery}
-      onChange={(event) => onSearchChange(event.target.value)}
-      onSearch={onSearchSubmit}
-      className="sider-search"
-    />
 
     <Menu
       inlineCollapsed={collapsed}

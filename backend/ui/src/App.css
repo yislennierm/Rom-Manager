@@ -12,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0px;
+  padding: 0 12px;
   background: rgba(2, 8, 23, 0.8);
   border-bottom: 1px solid rgba(148, 163, 184, 0.2);
   position: sticky;
@@ -34,7 +34,7 @@
 
 .nav-sider {
   background: rgba(2, 8, 23, 0.8) !important;
-  padding: 1.5rem;
+  padding: 0.5rem;
   border-right: 1px solid rgba(148, 163, 184, 0.2);
 }
 
@@ -67,6 +67,8 @@
 .nav-tree {
   background: transparent !important;
   color: #e2e8f0;
+  border-inline-end: none !important;
+  border-right: none !important;
 }
 
 .intro {
@@ -119,6 +121,11 @@
 .app-tagline {
   max-width: 400px;
   text-align: right;
+}
+
+.header-search {
+  width: 320px;
+  max-width: 50vw;
 }
 
 .collapsed-nav {

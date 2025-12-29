@@ -4,6 +4,7 @@ import os
 import threading
 import time
 import urllib.request
+from urllib.parse import urlparse, unquote
 from datetime import datetime
 from typing import Dict, Optional
 from urllib.parse import urlparse, urlunparse, quote
@@ -69,6 +70,8 @@ class TorrentWrapper:
             return False
 
         matched_path = files.file_path(matched_index)
+        abs_path = os.path.join(self.destination, matched_path)
+        job["local_path"] = abs_path
         print(f"✅ Matched file: {matched_path}")
         self.update_priorities()
         return True
@@ -133,6 +136,8 @@ class DownloadManager:
         self._lock = threading.RLock()
         self.jobs = []
         self.torrent_wrappers = {}  # {torrent_path: TorrentWrapper}
+        self._last_write = 0.0
+        self._write_pending = False
         self.load_jobs()
 
         # Resume any incomplete jobs
@@ -181,9 +186,25 @@ class DownloadManager:
                 self.jobs = []
         return self.jobs
 
+    def _flush_jobs_async(self):
+        with self._lock:
+            with open(JOBS_FILE, "w") as f:
+                json.dump(self.jobs, f, indent=2)
+            self._last_write = time.time()
+            self._write_pending = False
+
     def _write_jobs_to_disk(self):
+        now = time.time()
+        # Throttle writes to reduce churn; schedule a deferred flush if too soon.
+        if (now - self._last_write) < 0.5:
+            if not self._write_pending:
+                self._write_pending = True
+                threading.Timer(0.5, self._flush_jobs_async).start()
+            return
         with open(JOBS_FILE, "w") as f:
             json.dump(self.jobs, f, indent=2)
+        self._last_write = now
+        self._write_pending = False
 
     def save_jobs(self):
         with self._lock:
@@ -214,24 +235,41 @@ class DownloadManager:
                 None,
             )
             if completed:
-                local_path = completed.get("local_path") or os.path.join(destination, os.path.basename(rom_name))
-                if os.path.exists(local_path):
+                resolved = completed.get("local_path")
+                if not resolved:
+                    resolved = completed.get("destination")
+                if not resolved:
+                    resolved = os.path.join(destination, os.path.basename(rom_name))
+                if resolved and os.path.exists(resolved):
                     if source and not completed.get("source"):
                         completed["source"] = source
                     if http_url and not completed.get("http_url"):
                         completed["http_url"] = http_url
                     completed.setdefault("protocol", "local")
-                    completed.setdefault("local_path", local_path)
+                    if os.path.isfile(resolved):
+                        completed.setdefault("local_path", resolved)
+                        completed.setdefault("destination", os.path.dirname(resolved) or destination)
+                    else:
+                        completed.setdefault("destination", resolved)
                     self._write_jobs_to_disk()
-                    print(f"✅ {rom_name} already in library at {local_path}")
+                    print(f"✅ {rom_name} already in library at {resolved}")
                     return completed
+                else:
+                    # File was deleted; drop stale completed job so it can be re-queued.
+                    self.jobs = [j for j in self.jobs if j is not completed]
+                    completed = None
 
             existing = next(
-                (j for j in self.jobs if j["rom_name"] == rom_name and j["status"] in ("downloading", "queued")),
-                None
+                (
+                    j
+                    for j in self.jobs
+                    if j["rom_name"] == rom_name
+                    and j["status"] in ("downloading", "queued", "not_found", "missing")
+                ),
+                None,
             )
             if existing:
-                print(f"⚠️ Job for {rom_name} already exists, skipping.")
+                print(f"⚠️ Job for {rom_name} already exists, reusing.")
                 if console and existing.get("console") in (None, "Unknown"):
                     existing["console"] = console
                 if manufacturer and existing.get("manufacturer") in (None, "Unknown"):
@@ -246,8 +284,13 @@ class DownloadManager:
                     existing["http_url"] = http_url
                 if provider_slug and not existing.get("provider_slug"):
                     existing["provider_slug"] = provider_slug
-                if existing.get("protocol") in (None, "Unknown"):
-                    existing["protocol"] = "torrent" if source else "http"
+                protocol = existing.get("protocol") or ("torrent" if source else "http")
+                existing["protocol"] = protocol
+                # Reset for retry if it was missing/not_found.
+                if existing.get("status") in ("not_found", "missing"):
+                    existing["status"] = "queued"
+                    existing["progress"] = 0.0
+                    existing.pop("error", None)
                 self._write_jobs_to_disk()
                 return existing
 
@@ -348,12 +391,94 @@ class DownloadManager:
 
     def list_jobs(self):
         with self._lock:
+            # Mark stale "completed" jobs as queued if files are gone (auto-eligible for retry).
+            changed = False
+            for job in self.jobs:
+                if job.get("status") == "completed":
+                    dest = job.get("destination", DOWNLOADS_DIR)
+                    local_path = job.get("local_path")
+                    rom_name = job.get("rom_name", "")
+                    candidates = []
+                    # If local_path points to a file, prefer that.
+                    if local_path:
+                        candidates.append(local_path)
+                    # If destination is a file path (not a dir), use it.
+                    if dest and os.path.isfile(dest):
+                        candidates.append(dest)
+                    # Common fallback: destination dir + rom_name
+                    if dest and os.path.isdir(dest):
+                        candidates.append(os.path.join(dest, os.path.basename(rom_name)))
+                    # Loose matching: same basename with common archive/rom extensions.
+                    bases = set()
+                    for path in candidates:
+                        bases.add(os.path.splitext(os.path.basename(path))[0])
+                    if rom_name:
+                        bases.add(os.path.splitext(os.path.basename(rom_name))[0])
+                    http_basename = unquote(os.path.basename(job.get("http_url") or ""))
+                    if http_basename:
+                        bases.add(os.path.splitext(http_basename)[0])
+                    ext_candidates = [".zip", ".7z", ".rar", ".gz", ".xz", ".zst", ".tar", ".cso", ".iso", ".bin", ".chd"]
+                    for base in list(bases):
+                        for ext in ext_candidates:
+                            if dest and os.path.isdir(dest):
+                                candidates.append(os.path.join(dest, base + ext))
+                    found = None
+                    for cand in candidates:
+                        if cand and os.path.exists(cand):
+                            found = cand
+                            break
+                    # As a fallback, search recursively under destination for matching base names.
+                    if not found and dest and os.path.isdir(dest) and bases:
+                        for base in list(bases):
+                            try:
+                                for p in Path(dest).rglob(f"{base}*"):
+                                    if p.is_file():
+                                        found = str(p)
+                                        break
+                                if found:
+                                    break
+                            except Exception:
+                                pass
+                    if found:
+                        job["local_path"] = found
+                    else:
+                        job["status"] = "missing"
+                        job["progress"] = 0.0
+                        job.pop("error", None)
+                        changed = True
+            if changed:
+                self._write_jobs_to_disk()
             return [job.copy() for job in self.jobs]
 
     def remove_job(self, job_id):
         with self._lock:
             self.jobs = [j for j in self.jobs if j["id"] != job_id]
             self._write_jobs_to_disk()
+            # If no jobs remain for a torrent, drop its wrapper to avoid stale state.
+            active_sources = {j.get("source") for j in self.jobs if j.get("source")}
+            for path in list(self.torrent_wrappers.keys()):
+                if path not in active_sources:
+                    try:
+                        del self.torrent_wrappers[path]
+                    except KeyError:
+                        pass
+
+    def requeue_missing(self) -> int:
+        """Mark missing files back to queued for retry; returns count."""
+        changed = 0
+        with self._lock:
+            for job in self.jobs:
+                if job.get("status") == "missing":
+                    job["status"] = "queued"
+                    job["progress"] = 0.0
+                    job.pop("error", None)
+                    changed += 1
+            if changed:
+                self._write_jobs_to_disk()
+        if changed:
+            # Trigger download threads for queued jobs.
+            self.resume_incomplete_jobs()
+        return changed
 
     def resume_incomplete_jobs(self):
         """Resume all previously queued or downloading jobs."""
@@ -437,7 +562,12 @@ class DownloadManager:
 
         destination_dir = job.get("destination") or DOWNLOADS_DIR
         os.makedirs(destination_dir, exist_ok=True)
-        filename = os.path.basename(job["rom_name"])
+        parsed = urlparse(url)
+        url_name = unquote(os.path.basename(parsed.path or ""))
+        fallback_name = os.path.basename(job.get("rom_name", ""))
+        filename = url_name or fallback_name
+        if not os.path.splitext(filename)[1]:
+            filename = fallback_name or "downloaded_rom"
         filepath = os.path.join(destination_dir, filename)
 
         try:
@@ -467,6 +597,7 @@ class DownloadManager:
                 job["speed_kb"] = 0.0
                 job["peers"] = 0
                 job["local_path"] = filepath
+                job["destination"] = destination_dir
                 self._write_jobs_to_disk()
             print(f"✅ Downloaded {job['rom_name']} via HTTP")
         except Exception as exc:

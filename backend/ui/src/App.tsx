@@ -1390,9 +1390,6 @@ function App() {
         <NavigationSider
           collapsed={navCollapsed}
           logoUrl={logoUrl}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          onSearchSubmit={(value) => setSearchQuery(value)}
           menuItems={navigationMenuItems}
           selectedKeys={selectedKeys}
           openKeys={openKeys}
@@ -1403,7 +1400,13 @@ function App() {
         />
 
         <Layout className="main-panel">
-          <TopHeader collapsed={navCollapsed} onToggle={() => setNavCollapsed((prev) => !prev)} />
+          <TopHeader
+            collapsed={navCollapsed}
+            onToggle={() => setNavCollapsed((prev) => !prev)}
+            searchQuery={searchQuery}
+            onSearchChange={setSearchQuery}
+            onSearchSubmit={(value) => setSearchQuery(value)}
+          />
 
           <Layout.Content className="app-content">
             {isModulesDataset ? (

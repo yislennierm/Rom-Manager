@@ -115,6 +115,7 @@ class GlobalSearchScreen(Screen):
                     for token in tokens
                 )
             ]
+
         current_row = getattr(self.table, "cursor_row", 0)
         self.display_roms(self.filtered, cursor_row=current_row)
         self.label.update(f"Global ROM Search — {len(self.filtered)}/{len(self.roms)} match '{query}'")
