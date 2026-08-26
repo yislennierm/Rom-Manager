@@ -1,4 +1,4 @@
-![ROMs Manager Logo](assets/logo.png)
+![ROMs Manager Logo](assets/logo-readme.png)
 
 # ROMs Manager (La Raspa)
 
