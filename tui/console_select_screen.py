@@ -9,7 +9,7 @@ from .rom_explorer_screen import ROMExplorerScreen
 
 
 class ConsoleSelectScreen(Screen):
-    """Screen for listing cached consoles and selecting one for browsing."""
+    """Screen for listing synced library consoles and selecting one for browsing."""
 
     CSS_PATH = "styles/rom_explorer.css"
 
@@ -26,7 +26,7 @@ class ConsoleSelectScreen(Screen):
     def compose(self) -> ComposeResult:
         yield Header()
         yield Container(
-            Static("[b]Cached Consoles[/b]\n(Press [Enter] to select, [R] to refresh, [Esc] to return)", id="label"),
+            Static("[b]Assigned Library[/b]\n(Press [Enter] to select, [R] to refresh, [Esc] to return)", id="label"),
             DataTable(id="console_table"),
         )
         yield Footer()
@@ -34,7 +34,7 @@ class ConsoleSelectScreen(Screen):
     def on_mount(self):
         self._ready_for_selection = False
         self.table = self.query_one("#console_table", DataTable)
-        self.table.add_columns("Manufacturer", "Console", "ROMs")
+        self.table.add_columns("Manufacturer", "Console", "ROMs", "Access", "Frontend")
         self.table.cursor_type = "row"
         self.table.zebra_stripes = True
         self.table.focus()
@@ -44,10 +44,10 @@ class ConsoleSelectScreen(Screen):
         self.table.clear()
         self.consoles = list_cached_consoles()
         if not self.consoles:
-            self.table.add_row("—", "No activated consoles with RDB exports. Use Database screen (space + i).", "")
-            self.table.cursor_row = 0
+            self.table.add_row("—", "No assigned consoles with synced RDB exports. Use Updates > Sync Account.", "", "", "")
+            self.table.move_cursor(row=0, column=0)
             self._notify(
-                "No activated consoles found. Toggle a console in Database and press [i] to export its RDB.",
+                "No synced assigned consoles found. Press [s] in Updates or wait for backend sync.",
                 severity="warning",
             )
             return
@@ -55,8 +55,10 @@ class ConsoleSelectScreen(Screen):
         for entry in self.consoles:
             roms_count = entry.get("rom_count")
             roms_display = f"{roms_count}" if roms_count not in (None, 0) else "—"
-            self.table.add_row(entry["manufacturer"], entry["console"], roms_display)
-        self._notify(f"Loaded {len(self.consoles)} cached console(s).", severity="debug")
+            access = "Assigned" if entry.get("assigned") else "Local"
+            frontend = "Active" if entry.get("frontend_active") else "Not active"
+            self.table.add_row(entry["manufacturer"], entry["console"], roms_display, access, frontend)
+        self._notify(f"Loaded {len(self.consoles)} library console(s).", severity="debug")
         self._ready_for_selection = True
 
     def action_refresh(self):
@@ -112,4 +114,4 @@ class ConsoleSelectScreen(Screen):
         if app and hasattr(app, "notify"):
             app.notify(message, severity=severity)
         else:
-            print(f"[{severity.upper()}] {message}")
+            self.log(f"[{severity.upper()}] {message}")

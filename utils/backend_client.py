@@ -10,27 +10,147 @@ import shutil
 import tempfile
 
 from utils.library_sync import MODULES_FILE, RDB_DIR, rdb_json_path
-from utils.paths import PROVIDER_FILE, CACHE_DIR
+from utils.paths import PROVIDER_FILE, CACHE_DIR, DATA_DIR
 
 RDB_PATH = RDB_DIR
 CACHE_PATH = Path(CACHE_DIR)
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+BACKEND_DATA_PATH = PROJECT_ROOT / "backend" / "data"
 
 DEFAULT_API_BASE = "http://localhost:8000"
 PROVIDERS_PATH = Path(PROVIDER_FILE)
+CLIENT_CONFIG_PATH = Path(DATA_DIR) / "client" / "backend.json"
+_BACKEND_OVERRIDE: Optional[str] = None
+_API_KEY_OVERRIDE: Optional[str] = None
 
 
 class BackendError(RuntimeError):
     """Raised when the backend API returns an error or invalid data."""
 
 
+class ClientDataPathError(BackendError):
+    """Raised when client sync would write into backend-owned data."""
+
+
+def _assert_client_path(path: Path) -> None:
+    try:
+        path.resolve().relative_to(BACKEND_DATA_PATH.resolve())
+    except ValueError:
+        return
+    raise ClientDataPathError(
+        f"Refusing to write client sync data into backend-owned path: {path}. "
+        "Use a separate ROMS_MANAGER_DATA_ROOT for the TUI/client."
+    )
+
+
+def _load_client_config() -> Dict[str, str]:
+    if not CLIENT_CONFIG_PATH.exists():
+        return {}
+    try:
+        payload = json.loads(CLIENT_CONFIG_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
+def _save_client_config(updates: Dict[str, Optional[str]]) -> None:
+    _assert_client_path(CLIENT_CONFIG_PATH)
+    payload = _load_client_config()
+    for key, value in updates.items():
+        if value:
+            payload[key] = value
+        else:
+            payload.pop(key, None)
+    CLIENT_CONFIG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    CLIENT_CONFIG_PATH.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    try:
+        CLIENT_CONFIG_PATH.chmod(0o600)
+    except OSError:
+        pass
+
+
+def set_backend_base(url: Optional[str]) -> None:
+    """Override the backend base URL for this process."""
+    global _BACKEND_OVERRIDE
+    _BACKEND_OVERRIDE = url.rstrip("/") if url else None
+    _save_client_config({"backend_url": _BACKEND_OVERRIDE})
+
+
+def get_backend_base() -> str:
+    if _BACKEND_OVERRIDE:
+        return _BACKEND_OVERRIDE
+    env_value = os.environ.get("ROMS_MANAGER_BACKEND")
+    if env_value:
+        return env_value.rstrip("/")
+    config_value = _load_client_config().get("backend_url")
+    if config_value:
+        return config_value.rstrip("/")
+    return DEFAULT_API_BASE
+
+
 def _api_base() -> str:
-    return os.environ.get("ROMS_MANAGER_BACKEND", DEFAULT_API_BASE).rstrip("/")
+    return get_backend_base()
+
+
+def get_api_key() -> Optional[str]:
+    if _API_KEY_OVERRIDE is not None:
+        return _API_KEY_OVERRIDE
+    config_value = _load_client_config().get("api_key")
+    if config_value:
+        return config_value
+    env_value = os.environ.get("ROMS_MANAGER_API_KEY")
+    if env_value:
+        return env_value
+    return None
+
+
+def set_api_key(api_key: Optional[str]) -> None:
+    global _API_KEY_OVERRIDE
+    _API_KEY_OVERRIDE = api_key.strip() if api_key else None
+    _save_client_config({"api_key": _API_KEY_OVERRIDE})
+
+
+def _headers() -> Dict[str, str]:
+    api_key = get_api_key()
+    if not api_key:
+        return {}
+    return {"Authorization": f"Bearer {api_key}"}
+
+
+def test_backend() -> Dict:
+    """Ping the backend health endpoint and return payload."""
+    url = f"{_api_base()}/healthz"
+    try:
+        response = requests.get(url, timeout=8, headers=_headers())
+    except requests.RequestException as exc:
+        raise BackendError(f"Backend request failed: {exc}") from exc
+    if response.status_code != 200:
+        raise BackendError(f"Backend returned {response.status_code}: {response.text}")
+    try:
+        return response.json()
+    except ValueError as exc:
+        raise BackendError(f"Invalid JSON payload from healthz: {exc}") from exc
+
+
+def fetch_client_sync_manifest() -> Dict:
+    url = f"{_api_base()}/client/sync"
+    try:
+        response = requests.get(url, timeout=20, headers=_headers())
+    except requests.RequestException as exc:
+        raise BackendError(f"Backend request failed: {exc}") from exc
+    if response.status_code != 200:
+        raise BackendError(f"Backend returned {response.status_code}: {response.text}")
+    try:
+        payload = response.json()
+    except ValueError as exc:
+        raise BackendError(f"Invalid sync manifest payload: {exc}") from exc
+    return payload
 
 
 def _fetch_snapshot(target: str) -> Dict:
     url = f"{_api_base()}/update"
     try:
-        response = requests.get(url, timeout=30, params={"target": target})
+        response = requests.get(url, timeout=30, params={"target": target}, headers=_headers())
     except requests.RequestException as exc:
         raise BackendError(f"Backend request failed: {exc}") from exc
     if response.status_code != 200:
@@ -45,7 +165,7 @@ def _fetch_snapshot(target: str) -> Dict:
 def _fetch_metadata(target: str) -> Dict:
     url = f"{_api_base()}/update/meta"
     try:
-        response = requests.get(url, timeout=15, params={"target": target})
+        response = requests.get(url, timeout=15, params={"target": target}, headers=_headers())
     except requests.RequestException as exc:
         raise BackendError(f"Backend request failed: {exc}") from exc
     if response.status_code != 200:
@@ -71,6 +191,7 @@ def fetch_modules_snapshot() -> Dict:
 def save_modules_snapshot(snapshot: Dict) -> Path:
     if "modules" not in snapshot:
         raise BackendError("Snapshot missing modules field.")
+    _assert_client_path(MODULES_FILE)
     MODULES_FILE.parent.mkdir(parents=True, exist_ok=True)
     MODULES_FILE.write_text(json.dumps(snapshot, indent=2))
     return MODULES_FILE
@@ -111,6 +232,7 @@ def fetch_providers_snapshot() -> Dict:
 
 
 def save_providers_snapshot(snapshot: Dict) -> Path:
+    _assert_client_path(PROVIDERS_PATH)
     PROVIDERS_PATH.parent.mkdir(parents=True, exist_ok=True)
     PROVIDERS_PATH.write_text(json.dumps(snapshot, indent=2))
     return PROVIDERS_PATH
@@ -131,6 +253,7 @@ def _rom_dataset_path(dataset: Dict) -> Path:
 
 def save_rom_dataset(dataset: Dict) -> Path:
     path = _rom_dataset_path(dataset)
+    _assert_client_path(path)
     path.write_text(json.dumps(dataset, indent=2))
     return path
 
@@ -168,7 +291,7 @@ def fetch_providers_remote_metadata() -> Dict[str, object]:
 def fetch_rom_catalog_metadata() -> Dict:
     url = f"{_api_base()}/roms"
     try:
-        response = requests.get(url, timeout=30)
+        response = requests.get(url, timeout=30, headers=_headers())
     except requests.RequestException as exc:
         raise BackendError(f"Backend request failed: {exc}") from exc
     if response.status_code != 200:
@@ -183,7 +306,7 @@ def fetch_rom_catalog_metadata() -> Dict:
 def download_rom_dataset(identifier: str) -> Dict:
     url = f"{_api_base()}/roms/{identifier}"
     try:
-        response = requests.get(url, timeout=60)
+        response = requests.get(url, timeout=60, headers=_headers())
     except requests.RequestException as exc:
         raise BackendError(f"Backend request failed: {exc}") from exc
     if response.status_code != 200:
@@ -268,7 +391,7 @@ def load_cache_local_metadata() -> Optional[Dict[str, object]]:
 def fetch_cache_remote_metadata() -> Dict[str, object]:
     url = f"{_api_base()}/cache/meta"
     try:
-        response = requests.get(url, timeout=20)
+        response = requests.get(url, timeout=20, headers=_headers())
     except requests.RequestException as exc:
         raise BackendError(f"Backend request failed: {exc}") from exc
     if response.status_code != 200:
@@ -287,7 +410,7 @@ def fetch_cache_remote_metadata() -> Dict[str, object]:
 def download_cache_archive() -> Dict[str, object]:
     url = f"{_api_base()}/cache/archive"
     try:
-        response = requests.get(url, timeout=300, stream=True)
+        response = requests.get(url, timeout=300, stream=True, headers=_headers())
     except requests.RequestException as exc:
         raise BackendError(f"Backend request failed: {exc}") from exc
     if response.status_code != 200:
@@ -306,6 +429,7 @@ def download_cache_archive() -> Dict[str, object]:
     extract_dir = Path(tempfile.mkdtemp(prefix="cache_sync_"))
     try:
         shutil.unpack_archive(str(tmp_path), str(extract_dir))
+        _assert_client_path(CACHE_PATH)
         if CACHE_PATH.exists():
             shutil.rmtree(CACHE_PATH)
         CACHE_PATH.mkdir(parents=True, exist_ok=True)

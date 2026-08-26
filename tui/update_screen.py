@@ -6,8 +6,10 @@ from typing import Callable, Dict, Optional
 from textual.app import ComposeResult
 from textual.containers import Container
 from textual.screen import Screen
-from textual.widgets import Header, Footer, Static, DataTable
+from textual.widgets import Header, Footer, Static, DataTable, Input
 
+from core.account_reconciler import activate_assigned_frontend_consoles, reconcile_assigned_consoles
+from core.revoked_access import update_assignments_from_manifest
 from utils.backend_client import (
     BackendError,
     fetch_modules_snapshot,
@@ -26,8 +28,15 @@ from utils.backend_client import (
     load_cache_local_metadata,
     fetch_cache_remote_metadata,
     download_cache_archive,
+    test_backend,
+    fetch_client_sync_manifest,
+    get_backend_base,
+    set_backend_base,
+    get_api_key,
+    set_api_key,
 )
 from utils.library_sync import RDB_DIR
+from .revoked_access_screen import RevokedAccessScreen
 
 TaskHandler = Callable[[], Dict[str, object]]
 
@@ -40,6 +49,9 @@ class UpdateScreen(Screen):
     BINDINGS = [
         ("u", "update_selected", "Update Selected"),
         ("ctrl+u", "update_all", "Update All"),
+        ("s", "sync_account", "Sync Account"),
+        ("x", "cleanup_revoked", "Cleanup Revoked"),
+        ("t", "test_backend", "Test Backend"),
         ("escape", "go_back", "Back"),
     ]
 
@@ -87,13 +99,16 @@ class UpdateScreen(Screen):
         self.row_reverse: Dict[int, str] = {}
         self.status_message = (
             "[b]ROMs Manager Update[/b]\n"
-            "Press [u] to update the highlighted task or [Ctrl+U] to update everything.\n"
-            "Snapshots download from the backend (modules, providers, ROM catalogs, cache) and sync to your local data."
+            "Enter the backend URL and client API key once, then press [s] to sync the assigned account.\n"
+            "The sync downloads metadata, providers, ROM catalogs, and backend cache only for consoles assigned to this key."
         )
 
     def compose(self) -> ComposeResult:
         yield Header()
         self.status = Static(self.status_message, id="update_status")
+        self.backend_input = Input(value=get_backend_base(), placeholder="Backend URL", id="backend_input")
+        self.api_key_input = Input(value=get_api_key() or "", placeholder="API key", id="api_key_input", password=True)
+        self.backend_label = Static("Backend", id="backend_label")
         self.table = DataTable(id="update_table")
         self.table.add_column("Data", width=30)
         self.table.add_column("Status", width=10)
@@ -116,11 +131,90 @@ class UpdateScreen(Screen):
             self.row_lookup[task_id] = row_index
             self.row_reverse[row_index] = task_id
         self.table.cursor_type = "row"
-        yield Container(self.status, self.table, id="update_container")
+        yield Container(self.backend_label, self.backend_input, self.api_key_input, self.status, self.table, id="update_container")
         yield Footer()
 
     def on_mount(self) -> None:
+        self._refresh_account_status()
         self._refresh_metadata()
+
+    def on_input_submitted(self, event: Input.Submitted) -> None:
+        if event.input.id == "backend_input":
+            new_base = event.value.strip()
+            set_backend_base(new_base or None)
+            self.app.notify(f"Backend set to {get_backend_base()}", severity="information")
+        elif event.input.id == "api_key_input":
+            set_api_key(event.value.strip() or None)
+            self.app.notify("API key saved for this TUI.", severity="information")
+        else:
+            return
+        self._refresh_account_status()
+        self._refresh_metadata()
+
+    def action_test_backend(self) -> None:
+        base = get_backend_base()
+        self._set_status(f"Testing backend at {base} ...")
+        try:
+            payload = test_backend()
+        except BackendError as exc:
+            self._set_status(f"Backend unreachable: {exc}")
+            self.app.notify(str(exc), severity="error")
+            return
+        except Exception as exc:
+            self._set_status(f"Unexpected error: {exc}")
+            self.app.notify(str(exc), severity="error")
+            return
+        self._set_status(f"Backend OK at {base}: {payload}")
+        self.app.notify(f"Backend OK: {base}", severity="information")
+
+    def action_sync_account(self) -> None:
+        try:
+            manifest = fetch_client_sync_manifest()
+        except BackendError as exc:
+            self._set_status(f"Account sync unavailable: {exc}")
+            self.app.notify(str(exc), severity="error")
+            return
+        user = manifest.get("user") or {}
+        datasets = manifest.get("datasets") or {}
+        label = user.get("name") or user.get("id") or "client"
+        self._set_status(
+            f"Syncing {label}: "
+            f"{datasets.get('modules', {}).get('count', 0)} console(s), "
+            f"{datasets.get('providers', {}).get('count', 0)} provider console(s), "
+            f"{datasets.get('roms', {}).get('count', 0)} ROM catalog(s)."
+        )
+        for task_id in self.tasks.keys():
+            self._run_task(task_id)
+        manager = getattr(self.app, "download_manager", None)
+        if manager is None:
+            self.app.notify("Download manager is not available; skipped RetroArch reconciliation.", severity="warning")
+            return
+        revoked = update_assignments_from_manifest(manifest)
+        frontend_report = activate_assigned_frontend_consoles(manifest)
+        report = reconcile_assigned_consoles(manager, install_ready=True)
+        self._set_status(self._format_reconcile_report(report))
+        frontend_added = frontend_report.get("added", 0)
+        if frontend_added:
+            self.app.notify(
+                f"Activated {frontend_added} assigned console(s) in {frontend_report.get('frontend')}.",
+                severity="information",
+            )
+        frontend_removed = frontend_report.get("removed", 0)
+        if frontend_removed:
+            self.app.notify(f"Deactivated {frontend_removed} revoked console(s) locally.", severity="warning")
+        queued = report.get("jobs_created", 0)
+        completed = report.get("jobs_completed", 0)
+        if queued:
+            self.app.notify(f"Queued {queued} provider collection download(s).", severity="information")
+        elif completed:
+            self.app.notify("Assigned provider collections are downloaded; RetroArch install checked.", severity="success")
+        else:
+            self.app.notify("No collection-level provider archive to queue.", severity="information")
+        if revoked:
+            self.app.notify(f"{len(revoked)} console(s) no longer assigned. Press [x] to review cleanup.", severity="warning")
+
+    def action_cleanup_revoked(self) -> None:
+        self.app.push_screen(RevokedAccessScreen())
 
     # ------------------------------------------------------------------
     # Actions
@@ -257,6 +351,32 @@ class UpdateScreen(Screen):
     # Metadata / UI helpers
     # ------------------------------------------------------------------
 
+    def _refresh_account_status(self) -> None:
+        try:
+            manifest = fetch_client_sync_manifest()
+        except BackendError as exc:
+            self._set_status(
+                "[b]ROMs Manager Update[/b]\n"
+                f"Backend: {get_backend_base()}\n"
+                f"Account not connected: {exc}"
+            )
+            return
+        user = manifest.get("user") or {}
+        datasets = manifest.get("datasets") or {}
+        modules = datasets.get("modules") or {}
+        providers = datasets.get("providers") or {}
+        roms = datasets.get("roms") or {}
+        cache = datasets.get("cache") or {}
+        label = user.get("name") or user.get("id") or "client"
+        self._set_status(
+            "[b]ROMs Manager Update[/b]\n"
+            f"Connected to {get_backend_base()} as {label}.\n"
+            f"Allowed sync: {modules.get('count', 0)} console(s), "
+            f"{providers.get('count', 0)} provider console(s), "
+            f"{roms.get('count', 0)} ROM catalog(s), "
+            f"{cache.get('count', 0)} cache file(s). Press [s] to sync."
+        )
+
     def _refresh_metadata(self, task_id: Optional[str] = None, remote_only: bool = False) -> None:
         task_ids = [task_id] if task_id else list(self.tasks.keys())
         for tid in task_ids:
@@ -312,6 +432,33 @@ class UpdateScreen(Screen):
         self.table.update_cell_at((row, 1), status)
         self.table.update_cell_at((row, 2), self._progress_bar(progress))
         self.table.update_cell_at((row, 6), notes)
+
+    def _format_reconcile_report(self, report: Dict[str, object]) -> str:
+        lines = [
+            "[b]Account sync complete[/b]",
+            f"Collection sources found: {report.get('collection_sources_seen', 0)}",
+            f"Download jobs queued: {report.get('jobs_created', 0)}",
+            f"Completed collection jobs: {report.get('jobs_completed', 0)}",
+        ]
+        install_report = report.get("install_report")
+        if isinstance(install_report, dict):
+            lines.extend(
+                [
+                    "",
+                    f"RetroArch frontend: {install_report.get('frontend')}",
+                    f"ROMs installed: {install_report.get('roms_installed', 0)}",
+                    f"ROMs skipped: {install_report.get('roms_skipped', 0)}",
+                    f"BIOS installed: {install_report.get('bios_installed', 0)}",
+                    f"BIOS skipped: {install_report.get('bios_skipped', 0)}",
+                    f"Playlists written: {len(install_report.get('playlists_written') or [])}",
+                ]
+            )
+        errors = report.get("errors") or []
+        if errors:
+            lines.append("")
+            lines.append("Errors:")
+            lines.extend(str(error) for error in errors)
+        return "\n".join(lines)
 
     @staticmethod
     def _progress_bar(percent_value) -> str:

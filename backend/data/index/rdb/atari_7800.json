@@ -1,0 +1,5260 @@
+{
+  "module": "Atari - 7800",
+  "guid": "123de432-6905-5c13-b785-0c643bf5cb09",
+  "source_url": "https://raw.githubusercontent.com/libretro/libretro-database/master/rdb/Atari%20-%207800.rdb",
+  "entry_count": 525,
+  "fetched_at": "2026-08-04T13:25:28.385928",
+  "entries": [
+    {
+      "name": "Waffle Painter (USA) (v1.3) (Aftermarket) (Vivian Video)",
+      "description": "Waffle Painter (USA) (v1.3) (Aftermarket) (Vivian Video)",
+      "rom_name": "Waffle Painter (USA) (v1.3) (Aftermarket) (Vivian Video).a78",
+      "size": 32896,
+      "crc": "322d4cb3",
+      "md5": "deed2db297e942e5f2c4a8e726874c34",
+      "sha1": "e5d54b9e8e6d2c8a5e54048cdb582c4a83d32812"
+    },
+    {
+      "name": "Waffle Painter (USA) (v1.2) (Aftermarket) (Vivian Video)",
+      "description": "Waffle Painter (USA) (v1.2) (Aftermarket) (Vivian Video)",
+      "rom_name": "Waffle Painter (USA) (v1.2) (Aftermarket) (Vivian Video).a78",
+      "size": 32896,
+      "crc": "4ce5f3ad",
+      "md5": "184eb963a9cee8b41c9dadf4d2e6aeb9",
+      "sha1": "875ce127e24803e4c27afce276eb02381c479a4d"
+    },
+    {
+      "name": "Waffle Painter (USA) (v1.1) (Aftermarket) (Vivian Video)",
+      "description": "Waffle Painter (USA) (v1.1) (Aftermarket) (Vivian Video)",
+      "rom_name": "Waffle Painter (USA) (v1.1) (Aftermarket) (Vivian Video).a78",
+      "size": 32896,
+      "crc": "93a4a0f3",
+      "md5": "717701e350fe704d0fbe8e4455e48d2f",
+      "sha1": "ad034be19465d7386ae08950d6036ff7a0b158d9"
+    },
+    {
+      "name": "Vong (World) (v20091015) (Aftermarket) (Wickeycolumbus)",
+      "description": "Vong (World) (v20091015) (Aftermarket) (Wickeycolumbus)",
+      "rom_name": "Vong (World) (v20091015) (Aftermarket) (Wickeycolumbus).a78",
+      "size": 16512,
+      "crc": "a0ee9bcf",
+      "md5": "3a4bbfbcbfb5f35d1b900358b28746ce",
+      "sha1": "2b2d2c5ffca2fd776aa2606c2272125c6f4deb00"
+    },
+    {
+      "name": "TiME Salvo (USA) (Aftermarket) (Mike Saarna)",
+      "description": "TiME Salvo (USA) (Aftermarket) (Mike Saarna)",
+      "rom_name": "TiME Salvo (USA) (Aftermarket) (Mike Saarna).a78",
+      "size": 49280,
+      "crc": "99908716",
+      "md5": "668c10974001dc1b02466bdaaa6c7d2b",
+      "sha1": "83d24c64ca9def70012c4b3fb50c949ac4ce0560"
+    },
+    {
+      "name": "Roof Pooper (World) (v20161006) (Aftermarket) (frankodragon)",
+      "description": "Roof Pooper (World) (v20161006) (Aftermarket) (frankodragon)",
+      "rom_name": "Roof Pooper (World) (v20161006) (Aftermarket) (frankodragon).a78",
+      "size": 32896,
+      "crc": "w*@S",
+      "md5": "ddab08c09ca4c55959c357dafea1475f",
+      "sha1": "359f199d092df0160ee0c8744c5d443a05548ff9"
+    },
+    {
+      "name": "Plumb Luck DX (USA) (v20230410 RC2) (Aftermarket) (Unl)",
+      "description": "Plumb Luck DX (USA) (v20230410 RC2) (Aftermarket) (Unl)",
+      "rom_name": "Plumb Luck DX (USA) (v20230410 RC2) (Aftermarket) (Unl).a78",
+      "size": 131200,
+      "crc": "cb2ba194",
+      "md5": "312571b777a7d9833c55fbdc03460391",
+      "sha1": "445193dc19198e7ae787d0677c944c7c9b54bdaa"
+    },
+    {
+      "name": "Pineapple (World) (v20220619) (Aftermarket) (Chris Read)",
+      "description": "Pineapple (World) (v20220619) (Aftermarket) (Chris Read)",
+      "rom_name": "Pineapple (World) (v20220619) (Aftermarket) (Chris Read).a78",
+      "size": 32896,
+      "crc": "2d69e588",
+      "md5": "fb418766128d00c2fda38d92aa9c8e2a",
+      "sha1": "de40affa7164a7b764e1a5053ee1315d30a11062"
+    },
+    {
+      "name": "Pac-Man 7800 (USA) (v1.0a) (Bob DeCrescenzo)",
+      "description": "Pac-Man 7800 (USA) (v1.0a) (Bob DeCrescenzo)",
+      "rom_name": "Pac-Man 7800 (USA) (v1.0a) (Bob DeCrescenzo).a78",
+      "size": 16384,
+      "crc": "96159f91",
+      "md5": "8338eca612eedf6ddec57d54942863e7",
+      "sha1": "d2083ad36797b4dd377d72f452ecd9c773cf37d2"
+    },
+    {
+      "name": "Lift (World) (v20240711) (Aftermarket) (Inufuto)",
+      "description": "Lift (World) (v20240711) (Aftermarket) (Inufuto)",
+      "rom_name": "Lift (World) (v20240711) (Aftermarket) (Inufuto).a78",
+      "size": 16512,
+      "crc": "f7c9c471",
+      "md5": "61d1c414c835ea9db7daca739043fa64",
+      "sha1": "6344f9d52010ca54caf00ea9cc5f97c93b4ba107"
+    },
+    {
+      "name": "Knight Guy On Board - 30 Squares Of Fate (USA) (Aftermarket) (vhzc)",
+      "description": "Knight Guy On Board - 30 Squares Of Fate (USA) (Aftermarket) (vhzc)",
+      "rom_name": "Knight Guy On Board - 30 Squares Of Fate (USA) (Aftermarket) (vhzc).a78",
+      "size": 147584,
+      "crc": "676267c7",
+      "md5": "d08626cefd8811efe46c9ae3528d4ed2",
+      "sha1": "aa107e8ae28300d9a2a39fe266986237539a6bd0"
+    },
+    {
+      "name": "I.C.B.M. (USA) (v20230507) (Aftermarket) (Unl)",
+      "description": "I.C.B.M. (USA) (v20230507) (Aftermarket) (Unl)",
+      "rom_name": "I.C.B.M. (USA) (v20230507) (Aftermarket) (Unl).a78",
+      "size": 131200,
+      "crc": "48eeb47d",
+      "md5": "3b1e2f1a5699967b5d182171d9ff6d49",
+      "sha1": "9959d54f226c55b2e3c4118cc4fb8e6ed65a5e91"
+    },
+    {
+      "name": "Hearty Manslapper (World) (v20161130) (Aftermarket) (frankodragon)",
+      "description": "Hearty Manslapper (World) (v20161130) (Aftermarket) (frankodragon)",
+      "rom_name": "Hearty Manslapper (World) (v20161130) (Aftermarket) (frankodragon).a78",
+      "size": 131200,
+      "crc": "b1d3b770",
+      "md5": "2421cbc2626a415ee0c39ef8c1fe332c",
+      "sha1": "9ef312b2cea476b1ab63b27bd63b4c7c341ca02d"
+    },
+    {
+      "name": "Flappy Bird (USA) (Aftermarket) (Matthias L\u00fcdtke)",
+      "description": "Flappy Bird (USA) (Aftermarket) (Matthias L\u00fcdtke)",
+      "rom_name": "Flappy Bird (USA) (Aftermarket) (Matthias L\u00fcdtke).a78",
+      "size": 32896,
+      "crc": "59812261",
+      "md5": "6b3c664b4223085f835ef1a6ca346687",
+      "sha1": "267776f2da752d5b6420252a9176cf430344454f"
+    },
+    {
+      "name": "Crazy Tank (World) (v20180310) (Aftermarket) (frankodragon)",
+      "description": "Crazy Tank (World) (v20180310) (Aftermarket) (frankodragon)",
+      "rom_name": "Crazy Tank (World) (v20180310) (Aftermarket) (frankodragon).a78",
+      "size": 49280,
+      "crc": "94ae618d",
+      "md5": "de7f09aeee397212c6ce538829c18fc0",
+      "sha1": "26c3aebfd6acdb97d349ece413c3af3c4f260c04"
+    },
+    {
+      "name": "Crazy Otto (World) (v20100102) (Aftermarket) (PacManPlus)",
+      "description": "Crazy Otto (World) (v20100102) (Aftermarket) (PacManPlus)",
+      "rom_name": "Crazy Otto (World) (v20100102) (Aftermarket) (PacManPlus).a78",
+      "size": 16512,
+      "crc": "065d8651",
+      "md5": "8093916f93d7c75289742bb7dc3a1710",
+      "sha1": "8007823857081f9d5dd760606cc21b724fdca16f"
+    },
+    {
+      "name": "Beef Drop (NTSC) (Final) (Aftermarket) (AtariAge)",
+      "description": "Beef Drop (NTSC) (Final) (Aftermarket) (AtariAge)",
+      "rom_name": "Beef Drop (NTSC) (Final) (Aftermarket) (AtariAge).a78",
+      "size": 32768,
+      "crc": "055cd1e8",
+      "md5": "78b1061d651ef806becac1dd3fda29a0",
+      "sha1": "a18afb04d26b42fc2e77539d69e260ba68fd224e"
+    },
+    {
+      "name": "Beef Drop (NTSC) (Demo) (Aftermarket) (AtariAge)",
+      "description": "Beef Drop (NTSC) (Demo) (Aftermarket) (AtariAge)",
+      "rom_name": "Beef Drop (NTSC) (Demo) (Aftermarket) (AtariAge).a78",
+      "size": 32896,
+      "crc": "bf3d234f",
+      "md5": "13dee58eda98d049986ecdb42eaaeef8",
+      "sha1": "12822eac332bfafa65fdee7fb0ad522a846f558f"
+    },
+    {
+      "name": "bonQ (World)",
+      "rom_name": "bonQ (World) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "4dd3160d",
+      "md5": "4307a86b0d23d171c3b40bcdbe7638fd",
+      "sha1": "2c8e1f88a142a66555e7c546878bbef57f5209e4"
+    },
+    {
+      "name": "bonQ (World)",
+      "rom_name": "bonQ (World) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "cc71caa1",
+      "md5": "7ba3e43467603413c234518918d9fb76",
+      "sha1": "ba493e783db0768e79a11759d03cb219adc048d2"
+    },
+    {
+      "name": "Worm! (World)",
+      "rom_name": "Worm! (World) (Aftermarket) (Unl).bin",
+      "size": 16384,
+      "crc": "39296da2",
+      "md5": "6813ffff510f930c867b3f0aba78ac85",
+      "sha1": "d1b7cd5c27c2ec39cba55542eb1f90b027abd50b"
+    },
+    {
+      "name": "Worm! (World)",
+      "rom_name": "Worm! (World) (Aftermarket) (Unl).a78",
+      "size": 16512,
+      "crc": "d10fe951",
+      "md5": "407d8305ee6604c2dc727bd774982c35",
+      "sha1": "6aed0c4b4a829221d41f4e326056181e1f926c48"
+    },
+    {
+      "name": "Wordle (World) (v1.07)",
+      "rom_name": "Wordle (World) (v1.07) (Aftermarket) (Unl).bin",
+      "size": 131072,
+      "crc": "02c9ea66",
+      "md5": "71ce8910b0efd5d0014a9695cce3b7ad",
+      "sha1": "66e663e698a2b327f924f46241f8dc720b947506"
+    },
+    {
+      "name": "Wordle (World) (v1.07)",
+      "rom_name": "Wordle (World) (v1.07) (Aftermarket) (Unl).a78",
+      "size": 131200,
+      "crc": "718e07c5",
+      "md5": "f71ec2b94f34b9290b70079550be460c",
+      "sha1": "5d1bfb4f747ac621be1cd85a5663778c15928baf"
+    },
+    {
+      "name": "Wizard's Dungeon (World)",
+      "rom_name": "Wizard's Dungeon (World) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "b5010737",
+      "md5": "846751861993b907c512cc9c10c67035",
+      "sha1": "3ac2f32c9a4f4370bb3b245aec5044939140e1e1"
+    },
+    {
+      "name": "Wizard's Dungeon (World)",
+      "rom_name": "Wizard's Dungeon (World) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "985ed95e",
+      "md5": "9c71f5f9db92217e9508eaa771a8cf56",
+      "sha1": "3e6d18447518d79fd920a4dac99f0931856da282"
+    },
+    {
+      "name": "Wasp! (World)",
+      "rom_name": "Wasp! (World) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "ccdc2dbf",
+      "md5": "412cc5bfa08bd03244b9c4e8d46cd0a0",
+      "sha1": "4e259a2a01e86e970aa58acd94325f8a37eea1cc"
+    },
+    {
+      "name": "Wasp! (World)",
+      "rom_name": "Wasp! (World) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "9b566f99",
+      "md5": "2c50134d55fe9ca98280f90a33709009",
+      "sha1": "45b22dc034444c4511d705473653c47b9c809d49"
+    },
+    {
+      "name": "UniWarS (World) (v1.06)",
+      "rom_name": "UniWarS (World) (v1.06) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "f2cc89f8",
+      "md5": "f982c7dbf74c9c049cf7f875a46ed818",
+      "sha1": "1470397b0af5a72eed91ee7ad7f9fc9f81084e17"
+    },
+    {
+      "name": "UniWarS (World) (v1.06)",
+      "rom_name": "UniWarS (World) (v1.06) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "8b04d33d",
+      "md5": "e64d6f6d258566c882d1edb736ab9bfe",
+      "sha1": "126c214e1b32dbf3dd89a0fe8da0fc3313a19b53"
+    },
+    {
+      "name": "UniWarS (World) (v1.05)",
+      "rom_name": "UniWarS (World) (v1.05) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "2f8df482",
+      "md5": "79df20ee86a989e669158bcb9d113e8a",
+      "sha1": "b25996712608e3a9e9a7c2ee23bf9f3fe4f7b1e1"
+    },
+    {
+      "name": "UniWarS (World) (v1.05)",
+      "rom_name": "UniWarS (World) (v1.05) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "5645ae47",
+      "md5": "1e37bf2a0e6267d49822675540b5a07a",
+      "sha1": "d20e5dbad5c34c96c79b11c9c494198b22793427"
+    },
+    {
+      "name": "Tunnels of Hyperion (World)",
+      "rom_name": "Tunnels of Hyperion (World) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "aca9af3e",
+      "md5": "0d7e2674d802b41286e667bbae3bcc94",
+      "sha1": "5c5f69620cdf8d590615cce0e5c2c60baeed9df6"
+    },
+    {
+      "name": "Tunnels of Hyperion (World)",
+      "rom_name": "Tunnels of Hyperion (World) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "l\u000fQA",
+      "md5": "9fc4b8016564d3070c28ea8436444380",
+      "sha1": "522d80e7194898afa0eed7d2ce8710a0296452bd"
+    },
+    {
+      "name": "Touchdown Challenge (World) (v2.21)",
+      "rom_name": "Touchdown Challenge (World) (v2.21) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "65952659",
+      "md5": "ff825fcbed9bf6993edd422fcc592673",
+      "sha1": "d93f294baaa5e2046cec7ab4242e07a86a414004"
+    },
+    {
+      "name": "Touchdown Challenge (World) (v2.21)",
+      "rom_name": "Touchdown Challenge (World) (v2.21) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "edd00d48",
+      "md5": "9375a630aeb208eb8880609ffe6234d4",
+      "sha1": "7cfcd94b92606211d82db5283447fcd9084be927"
+    },
+    {
+      "name": "Super Stunt Cycle (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "Super Stunt Cycle (USA) (Proto) (1989-05-26).bin",
+      "size": 65536,
+      "releasemonth": 5,
+      "releaseyear": 1989,
+      "crc": "3f4da5c3",
+      "md5": "2e0b41aa4a8989f4e599ebe8d5c661d7",
+      "sha1": "eedfb030e50cf762695199ffed3efa1a56eb91e4"
+    },
+    {
+      "name": "Super Stunt Cycle (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "Super Stunt Cycle (USA) (Proto) (1989-05-26).a78",
+      "size": 65664,
+      "releasemonth": 5,
+      "releaseyear": 1989,
+      "crc": "867c2107",
+      "md5": "d99eddcddf9bf3e0735196b876bc9455",
+      "sha1": "2f772b44d26369d2ff626dbd43a48707a0653ca7"
+    },
+    {
+      "name": "Super Stunt Cycle (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "Super Stunt Cycle (USA) (Proto) (1989-04-14).bin",
+      "size": 65536,
+      "releasemonth": 4,
+      "releaseyear": 1989,
+      "crc": "cb3dff09",
+      "md5": "914a4598882d232af7ac992d594c6896",
+      "sha1": "94b283ca311639371e72b758948c71f19198daca"
+    },
+    {
+      "name": "Super Stunt Cycle (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "Super Stunt Cycle (USA) (Proto) (1989-04-14).a78",
+      "size": 65664,
+      "releasemonth": 4,
+      "releaseyear": 1989,
+      "crc": "850af1b9",
+      "md5": "5d636d3cec0d536734f34c356653b7be",
+      "sha1": "838fb405d7dd807c46c8e724c6ac58ab41393673"
+    },
+    {
+      "name": "Super Stunt Cycle (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "Super Stunt Cycle (USA) (Proto) (1988-11-03).bin",
+      "size": 65536,
+      "releasemonth": 11,
+      "releaseyear": 1988,
+      "crc": "60d253e2",
+      "md5": "2ba7ffb58607d52a5bda7b259d4c6a9c",
+      "sha1": "c03f030e92b7049a20b0517f68ea2dd02c300efc"
+    },
+    {
+      "name": "Super Stunt Cycle (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "Super Stunt Cycle (USA) (Proto) (1988-11-03).a78",
+      "size": 65664,
+      "releasemonth": 11,
+      "releaseyear": 1988,
+      "crc": "0ab7b0a4",
+      "md5": "de35e91830a85714bab7f139752a1bcd",
+      "sha1": "9995e4c1401e2c8dbb77d51f5e447d7f2052e32f"
+    },
+    {
+      "name": "Super Pac-Man (World) (v1.10) (PAL)",
+      "rom_name": "Super Pac-Man (World) (v1.10) (PAL) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "24c93682",
+      "md5": "28aa5db1ae42578e4dad83eb0b78c472",
+      "sha1": "0637e4cf50f7903aa56758b67974c0bf4f3f4563"
+    },
+    {
+      "name": "Super Pac-Man (World) (v1.10) (PAL)",
+      "rom_name": "Super Pac-Man (World) (v1.10) (PAL) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "e94ee02a",
+      "md5": "0b1fc22955c2888f93b6e8c70ba50174",
+      "sha1": "5d016126a4e2b9eb923a6e6a66429f9e12b45201"
+    },
+    {
+      "name": "Super Pac-Man (World) (v1.10)",
+      "rom_name": "Super Pac-Man (World) (v1.10) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "7da18272",
+      "md5": "88b9de0eba37ba516590fa8b860155f0",
+      "sha1": "756f3f28d1ec31d30182cfefa8a57394c3d88dd7"
+    },
+    {
+      "name": "Super Pac-Man (World) (v1.10)",
+      "rom_name": "Super Pac-Man (World) (v1.10) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "451914c8",
+      "md5": "f2bc1c00a444a5835e78b475e4778e03",
+      "sha1": "14123ae1d19676cbd446c64441805f998a943169"
+    },
+    {
+      "name": "Super Pac-Man (World) (v1.09) (PAL)",
+      "rom_name": "Super Pac-Man (World) (v1.09) (PAL) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "e920a2dc",
+      "md5": "61aa4a074ad08c524fbee88d15e369ea",
+      "sha1": "58375542cb3c2ecf2e2800d280c2d56a58804e77"
+    },
+    {
+      "name": "Super Pac-Man (World) (v1.09) (PAL)",
+      "rom_name": "Super Pac-Man (World) (v1.09) (PAL) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "\u04584f",
+      "md5": "db13362052f0614a22381fbb6d257343",
+      "sha1": "1a6cbcb6c7b326d34a99f1481976a8a446e88a27"
+    },
+    {
+      "name": "Super Pac-Man (World) (v1.09)",
+      "rom_name": "Super Pac-Man (World) (v1.09) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "415a28ad",
+      "md5": "7ab539bb0e99e1e5a1c89230bde64610",
+      "sha1": "e1c51fa453b8dc600e5d7f46df1443b99a1507d0"
+    },
+    {
+      "name": "Super Pac-Man (World) (v1.09)",
+      "rom_name": "Super Pac-Man (World) (v1.09) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "79e2be17",
+      "md5": "4e424b43ed2aa588f804bc35f21e7236",
+      "sha1": "0927e0ffd2477d7026a1f24a49d8bb89fd475d55"
+    },
+    {
+      "name": "Super Circus AtariAge (World) (PAL)",
+      "rom_name": "Super Circus AtariAge (World) (PAL) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "2a9088c6",
+      "md5": "2d6c9658cf770a396a106195f81fcc21",
+      "sha1": "d7d39ebd7285827e8173671b15a4a408cb515a9a"
+    },
+    {
+      "name": "Super Circus AtariAge (World) (PAL)",
+      "rom_name": "Super Circus AtariAge (World) (PAL) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "aac29c8b",
+      "md5": "ada191beef74a11f53d59bf51810518f",
+      "sha1": "31d958ca0e8614fd0da4fae2e2cb83bdebe1e667"
+    },
+    {
+      "name": "Super Circus AtariAge (World)",
+      "rom_name": "Super Circus AtariAge (World) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "ec839981",
+      "md5": "81cee326b99d6831de10a566e338bd25",
+      "sha1": "e6bb155d5746d21e1b660c674097f836ba22e773"
+    },
+    {
+      "name": "Super Circus AtariAge (World)",
+      "rom_name": "Super Circus AtariAge (World) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "110b8249",
+      "md5": "67cbc77b3e7908ff8ac4d96a8ad6f6ff",
+      "sha1": "e163a77f2552fa8e5f70316c8ae8afcd6c737943"
+    },
+    {
+      "name": "Stinger (World)",
+      "rom_name": "Stinger (World) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "cfbbd60d",
+      "md5": "32b920423d0e131acfd745c0e5e43e67",
+      "sha1": "e38a104f18df878a6c35c1ca990b76cf445a3edd"
+    },
+    {
+      "name": "Stinger (World)",
+      "rom_name": "Stinger (World) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "2c98ce80",
+      "md5": "8f20411a26326459ee3708da1e1adc59",
+      "sha1": "bcdd587f6da83631207cc2d5e8531688a0e1f700"
+    },
+    {
+      "name": "Space Race (World) (v0.96)",
+      "rom_name": "Space Race (World) (v0.96) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "e59c249d",
+      "md5": "9a11430d4eaeb3f7375bc2b92353c5db",
+      "sha1": "38f0a2646642ec8ff0b9702d4e1c08d537fc28c8"
+    },
+    {
+      "name": "Space Race (World) (v0.96)",
+      "rom_name": "Space Race (World) (v0.96) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "6dd90f8c",
+      "md5": "6bf94f70e3109cf323f6d10e1eb75c43",
+      "sha1": "31a3f2618a17b4479c2f08be6b156f4a52b054cf"
+    },
+    {
+      "name": "Space Invaders (World) (v2.02)",
+      "rom_name": "Space Invaders (World) (v2.02) (Aftermarket) (Unl).bin",
+      "size": 16384,
+      "crc": "be900754",
+      "md5": "783d09ad9542b0bb28aa4cc6ffcf8aa6",
+      "sha1": "d68e4896fc50053a37c66669af4b73b930286ea1"
+    },
+    {
+      "name": "Space Invaders (World) (v2.02)",
+      "rom_name": "Space Invaders (World) (v2.02) (Aftermarket) (Unl).a78",
+      "size": 16512,
+      "crc": "8f873069",
+      "md5": "c3f0acf82157990f1f27334dcf0fbdb8",
+      "sha1": "795026b9e7a753a683d88b27e5d083c10402be55"
+    },
+    {
+      "name": "Space Invaders (World) (v2.01) (PAL)",
+      "rom_name": "Space Invaders (World) (v2.01) (PAL) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "9f36c33d",
+      "md5": "57c5026c60e939c285c44e6fa1bfbc81",
+      "sha1": "6405e4d5f9f5b86addbf83867398233bb128b928"
+    },
+    {
+      "name": "Space Invaders (World) (v2.01) (PAL)",
+      "rom_name": "Space Invaders (World) (v2.01) (PAL) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "a78e5587",
+      "md5": "d751f0a93c7658793842a2b3d3cb548c",
+      "sha1": "4c02d00d28bf6e8d58d1ab5f8d2b69d8325a65cb"
+    },
+    {
+      "name": "Space Invaders (World) (v2.01)",
+      "rom_name": "Space Invaders (World) (v2.01) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 16384,
+      "crc": "9c3086eb",
+      "md5": "6adf79558a3d7f5beca1bb8d34337417",
+      "sha1": "167c06a5d9364f3359bb531d5533f4ff49283d47"
+    },
+    {
+      "name": "Space Invaders (World) (v2.01)",
+      "rom_name": "Space Invaders (World) (v2.01) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 16512,
+      "crc": "f2699e24",
+      "md5": "b8a0ff984ccf7e79edad9b3cc221daae",
+      "sha1": "f04fc68880ba2d6ec57c39012749e413cca144d1"
+    },
+    {
+      "name": "Space Duel (World) (v1.09) (PAL)",
+      "rom_name": "Space Duel (World) (v1.09) (PAL) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "0e6a8443",
+      "md5": "a84c1b2300fbfbf21b1c02387f613dad",
+      "sha1": "03d3c7e6255fc6f1b8bbf6dc3ccdbaf51b7eabf7"
+    },
+    {
+      "name": "Space Duel (World) (v1.09) (PAL)",
+      "rom_name": "Space Duel (World) (v1.09) (PAL) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "36d212f9",
+      "md5": "560e3acf0a07bfa63f57be753c5fc5f2",
+      "sha1": "8fd416c300f438e9ecc15d8f0c885a3b11981e50"
+    },
+    {
+      "name": "Space Duel (World) (v1.09)",
+      "rom_name": "Space Duel (World) (v1.09) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "ef2d2560",
+      "md5": "771cb4609347657f63e6f0eb26036e35",
+      "sha1": "199d06cf7f54bb0a1fa328d3cff955f4bcf90450"
+    },
+    {
+      "name": "Space Duel (World) (v1.09)",
+      "rom_name": "Space Duel (World) (v1.09) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "d795b3da",
+      "md5": "1c34906d1d52d2f517c602d803b24032",
+      "sha1": "de21b55badd1a4f0a5117aab0fd57a2b3db72d1d"
+    },
+    {
+      "name": "Slide Boy in Maze Land (World) (Digital)",
+      "rom_name": "Slide Boy in Maze Land (World) (Digital) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "0dee43de",
+      "md5": "f415904c5b48c294e627ab7dbf697830",
+      "sha1": "3f85be79d26fc09fdbe23dcf97c80a980850d7da"
+    },
+    {
+      "name": "Slide Boy in Maze Land (World) (Digital)",
+      "rom_name": "Slide Boy in Maze Land (World) (Digital) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "85ab68cf",
+      "md5": "538ca983bf806de8b863e28fa0c54cd2",
+      "sha1": "4bc76ad90326fd2a118e797501b6fb35bfa88cb7"
+    },
+    {
+      "name": "Slide Boy in Maze Land (World) (Beta)",
+      "rom_name": "Slide Boy in Maze Land (World) (2021-05-10) (Beta) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "releasemonth": 5,
+      "releaseyear": 2021,
+      "crc": "b4562d58",
+      "md5": "280c599bef1abbd9f70c1e26696ef242",
+      "sha1": "f490347e7c29db7463013cde587e43b13f12b247"
+    },
+    {
+      "name": "Slide Boy in Maze Land (World) (Beta)",
+      "rom_name": "Slide Boy in Maze Land (World) (2021-05-10) (Beta) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "releasemonth": 5,
+      "releaseyear": 2021,
+      "crc": "74f0d327",
+      "md5": "a8dbc39f12401886e8101d63a3cd3e46",
+      "sha1": "7fdb898926d7a922a7b681690b7bfb93faecf148"
+    },
+    {
+      "name": "Sirius XM (World)",
+      "rom_name": "Sirius XM (World) (Aftermarket) (Unl).bin",
+      "size": 131072,
+      "crc": "b0f30a69",
+      "md5": "c044ac97a06a537b68ec116363147086",
+      "sha1": "75ba274c7d3ed2dab32670fdb8f3b60540ba2e06"
+    },
+    {
+      "name": "Sirius XM (World)",
+      "rom_name": "Sirius XM (World) (Aftermarket) (Unl).a78",
+      "size": 131200,
+      "crc": "9b9aedab",
+      "md5": "e2d39741d9646356c7f0c5db1fe77145",
+      "sha1": "8fc5dcafed7d08af7ff4fc3bf3a169704deb9773"
+    },
+    {
+      "name": "Sick Pickles (World)",
+      "rom_name": "Sick Pickles (World) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "632696da",
+      "md5": "96f69b85e0b43bbebbbd59bb8276a372",
+      "sha1": "999b4f2412c7908d4e2eb8e98cd090153b38fe07"
+    },
+    {
+      "name": "Sick Pickles (World)",
+      "rom_name": "Sick Pickles (World) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "4e7948b3",
+      "md5": "491ef8d9e4dd0ab592cfea6f88d09c81",
+      "sha1": "395edcd25a3a42cf6169980e68f128bb8e085e98"
+    },
+    {
+      "name": "Shuriken (World)",
+      "rom_name": "Shuriken (World) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "379a709a",
+      "md5": "16069c1f1416a84c0e7d9325885dd9bc",
+      "sha1": "6b1aed2253900aaefe9f1e4faa1e49000f920e2b"
+    },
+    {
+      "name": "Shuriken (World)",
+      "rom_name": "Shuriken (World) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "\u0539h\u0017",
+      "md5": "f25b213716ffaa2800343846d116519d",
+      "sha1": "3eb4383c78172241226df66b0c0c22085b2c7bf4"
+    },
+    {
+      "name": "Shoot the UFO 2015 (World)",
+      "rom_name": "Shoot the UFO 2015 (World) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "15eead4b",
+      "md5": "19586366f625db75b145f62c1d668f8e",
+      "sha1": "8eabcfb451ce3e60e492cd86ce5625fc1e285d80"
+    },
+    {
+      "name": "Shoot the UFO 2015 (World)",
+      "rom_name": "Shoot the UFO 2015 (World) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "73507bee",
+      "md5": "f7c8b5f422e2412bbfb8d6f40ac67c71",
+      "sha1": "595291f4a19bcd3cb7a56f54e67ceef4b12868b9"
+    },
+    {
+      "name": "Serpentine (World)",
+      "rom_name": "Serpentine (World) (Aftermarket) (Unl).bin",
+      "size": 131072,
+      "crc": "d9660cdc",
+      "md5": "9bd70c06d3386f76f8162881699a777a",
+      "sha1": "8c89962af171ae17bc595b7b81728a89bcc2c9f7"
+    },
+    {
+      "name": "Serpentine (World)",
+      "rom_name": "Serpentine (World) (Aftermarket) (Unl).a78",
+      "size": 131200,
+      "crc": "\u26450",
+      "md5": "9678d452a26e08a4a55c13c809164399",
+      "sha1": "6c43626c1a9b8a447bcb1981196a1cc797f9ae17"
+    },
+    {
+      "name": "Scramble (World) (v1.15) (PAL)",
+      "rom_name": "Scramble (World) (v1.15) (PAL) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "298897c8",
+      "md5": "d79a44f51f21fc5bfe4448453d402d30",
+      "sha1": "d51e3f56665e2c92dba7a7844c5d9bd68041ab7b"
+    },
+    {
+      "name": "Scramble (World) (v1.15) (PAL)",
+      "rom_name": "Scramble (World) (v1.15) (PAL) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "50ec4ad0",
+      "md5": "eeb13dd767793badfc0d0651df048041",
+      "sha1": "4a2db5eac7df8c33bbf4f4e961f74e542076b549"
+    },
+    {
+      "name": "Scramble (World) (v1.15)",
+      "rom_name": "Scramble (World) (v1.15) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "753dca0a",
+      "md5": "31b20a4710e691300bb4aa62cf02284c",
+      "sha1": "bcaba22502bee85d20e4012df2fcd90ffc3de43b"
+    },
+    {
+      "name": "Scramble (World) (v1.15)",
+      "rom_name": "Scramble (World) (v1.15) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "6736d0ff",
+      "md5": "f1653c4399a3b5b5cfb300d55f080b5d",
+      "sha1": "05e73c3a53fadc9214c4cadbed64f73a3c66ee62"
+    },
+    {
+      "name": "Scramble (World) (v1.14) (PAL)",
+      "rom_name": "Scramble (World) (v1.14) (PAL) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "b0ea0214",
+      "md5": "65fe82f419f6583a0f9a736242cb303d",
+      "sha1": "64c22cb614bd2ffcf45a4648c5b0572166189a34"
+    },
+    {
+      "name": "Scramble (World) (v1.14) (PAL)",
+      "rom_name": "Scramble (World) (v1.14) (PAL) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "c98edf0c",
+      "md5": "70fbc19bf5cc8a973a7c2f18b571bf40",
+      "sha1": "33f021b672d19db0540b3d3286a0305bcf1f4c3c"
+    },
+    {
+      "name": "Scramble (World) (v1.14)",
+      "rom_name": "Scramble (World) (v1.14) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "6bbb722a",
+      "md5": "57651b6c8e62811fab0361cea537b79c",
+      "sha1": "dad62d7803cf7ecb3d4f978b3f8b08e97d14ac15"
+    },
+    {
+      "name": "Scramble (World) (v1.14)",
+      "rom_name": "Scramble (World) (v1.14) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "79b068df",
+      "md5": "8ac39665c208638850a29952c630ddc1",
+      "sha1": "2b4796fa6e55928d216c719a9319a0000aaafc8b"
+    },
+    {
+      "name": "Santa Simon (World)",
+      "rom_name": "Santa Simon (World) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "deafa85e",
+      "md5": "ae85689b21bdf85cb9dc57c3b1fec9db",
+      "sha1": "635340bb2e0060fb47b0156f105d0d2e4c2cf635"
+    },
+    {
+      "name": "Santa Simon (World)",
+      "rom_name": "Santa Simon (World) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "8689b7d1",
+      "md5": "c1f23c330d36318cae0617beedcb28f5",
+      "sha1": "be3c8a89d969409a85c36ec1a63c0b3fa78e1c9b"
+    },
+    {
+      "name": "Robot Finds Kitten (World)",
+      "rom_name": "Robot Finds Kitten (World) (2022-03-31) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "releasemonth": 3,
+      "releaseyear": 2022,
+      "crc": "42201cca",
+      "md5": "e4c2179b37693b84aa9c8d85f2527004",
+      "sha1": "9e5b985dc5508019e2bc18ad364fbfb2b3689bb4"
+    },
+    {
+      "name": "Robot Finds Kitten (World)",
+      "rom_name": "Robot Finds Kitten (World) (2022-03-31) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "releasemonth": 3,
+      "releaseyear": 2022,
+      "crc": "a1030447",
+      "md5": "69da9cd0c9fe39710a0f1b9aabe44d2f",
+      "sha1": "3e1d1b795a8431a48db57c70e3b4a523c741ea0a"
+    },
+    {
+      "name": "Robot Finds Kitten (World)",
+      "rom_name": "Robot Finds Kitten (World) (2005-06-19) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "releasemonth": 6,
+      "releaseyear": 2005,
+      "crc": "fcb76abe",
+      "md5": "9646d482a8ad187ae52cd21c0de365fb",
+      "sha1": "9d71e736923a226174126099d3e46197ea4452b8"
+    },
+    {
+      "name": "Robot Finds Kitten (World)",
+      "rom_name": "Robot Finds Kitten (World) (2005-06-19) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "releasemonth": 6,
+      "releaseyear": 2005,
+      "crc": "c1580bba",
+      "md5": "3525de942c18269a5ad1a1d0271d3f32",
+      "sha1": "131035773a422d067ca8d3efcd0a7f9095cd3595"
+    },
+    {
+      "name": "Rip-Off (World) (v1.06) (PAL)",
+      "rom_name": "Rip-Off (World) (v1.06) (PAL) (Aftermarket) (Unl).bin",
+      "size": 16384,
+      "crc": "f2e26485",
+      "md5": "7389b31c8bb7442c708416d818d8d19a",
+      "sha1": "df8dd497f9275d7e8a26298e67aced08afc9b040"
+    },
+    {
+      "name": "Rip-Off (World) (v1.06) (PAL)",
+      "rom_name": "Rip-Off (World) (v1.06) (PAL) (Aftermarket) (Unl).a78",
+      "size": 16512,
+      "crc": "b8c8e216",
+      "md5": "66acec89356bc9e18c2f49e2178af1e2",
+      "sha1": "2dac5e0fbb9c2bfd236d525e031d751ff358c4fe"
+    },
+    {
+      "name": "Rip-Off (World) (v1.06)",
+      "rom_name": "Rip-Off (World) (v1.06) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 16384,
+      "crc": "ac056f59",
+      "md5": "803743fe18600f292456539906464421",
+      "sha1": "2402033a1d275ec6d8e499264f7f388ce576186c"
+    },
+    {
+      "name": "Rip-Off (World) (v1.06)",
+      "rom_name": "Rip-Off (World) (v1.06) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 16512,
+      "crc": "e62fe9ca",
+      "md5": "f8bc85beb039bfca19febf5a60a99fe6",
+      "sha1": "c29c7a8cfaf78b3a6cf7a65294a45e2002c54d07"
+    },
+    {
+      "name": "Rip-Off (World) (v1.05) (PAL)",
+      "rom_name": "Rip-Off (World) (v1.05) (PAL) (Aftermarket) (Unl).bin",
+      "size": 16384,
+      "crc": "b1c8d47d",
+      "md5": "106b409c6f4c219b1a3b3d099ead3b2b",
+      "sha1": "52ddb5fdf55c5862dc435dfec37d0c59948dcb19"
+    },
+    {
+      "name": "Rip-Off (World) (v1.05) (PAL)",
+      "rom_name": "Rip-Off (World) (v1.05) (PAL) (Aftermarket) (Unl).a78",
+      "size": 16512,
+      "crc": "bb7da3e7",
+      "md5": "2535c4315838ec09c7140af4072653c0",
+      "sha1": "e4a8158da9e15712940778e8919c3d84a105c429"
+    },
+    {
+      "name": "Rip-Off (World) (v1.05)",
+      "rom_name": "Rip-Off (World) (v1.05) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 16384,
+      "crc": "ab65a41d",
+      "md5": "43525a0405184875c2ecfd0196886a34",
+      "sha1": "6c377ef750c8a7eebccde2c6cdaa3c0d0df65852"
+    },
+    {
+      "name": "Rip-Off (World) (v1.05)",
+      "rom_name": "Rip-Off (World) (v1.05) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 16512,
+      "crc": "e14f228e",
+      "md5": "6053d17258f0e5307d895fea87314063",
+      "sha1": "ae42664106ef2793eeae48f89b05bcefbe527beb"
+    },
+    {
+      "name": "Poetiru (World)",
+      "rom_name": "Poetiru (World) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "65804dd9",
+      "md5": "f0abd58c1de2ba3e577f90c3d52dd7fc",
+      "sha1": "58fa0e899b1522cfd5d613e44eb011b3e06a010d"
+    },
+    {
+      "name": "Poetiru (World)",
+      "rom_name": "Poetiru (World) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "526b8eac",
+      "md5": "241dcf1e267d38e3d8354628b586ae54",
+      "sha1": "90fe11217b9d3ff09a5c45cc2fe806a13eaea999"
+    },
+    {
+      "name": "Plutos XM (World)",
+      "rom_name": "Plutos XM (World) (Aftermarket) (Unl).bin",
+      "size": 131072,
+      "crc": "w\u3c1b",
+      "md5": "74f0283c566bdee8543e4fdc5cb8b201",
+      "sha1": "0ebe7ae68c3d1771eb9b122500833f700b12aa37"
+    },
+    {
+      "name": "Plutos XM (World)",
+      "rom_name": "Plutos XM (World) (Aftermarket) (Unl).a78",
+      "size": 131200,
+      "crc": "07de21cb",
+      "md5": "f09685feefd44ee75ce1ad65388b7c4a",
+      "sha1": "c7148a825e5a3b1a4f18bf0d42093f050eff000e"
+    },
+    {
+      "name": "Plink (World)",
+      "rom_name": "Plink (World) (Aftermarket) (Unl).bin",
+      "size": 131072,
+      "crc": "f945cbd9",
+      "md5": "851f901cbc78824f6754f362c00ae648",
+      "sha1": "c82ba36a29bd71b36de25368d2e92efbe94d8c57"
+    },
+    {
+      "name": "Plink (World)",
+      "rom_name": "Plink (World) (Aftermarket) (Unl).a78",
+      "size": 131200,
+      "crc": "Qb\u02e5",
+      "md5": "084644ca83a5d9bb15afe5ecb3b48928",
+      "sha1": "68feaeb49026e39cad7a4935e97643484f7047db"
+    },
+    {
+      "name": "Pirate Cove (World)",
+      "rom_name": "Pirate Cove (World) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "6a6678ba",
+      "md5": "a6b91a759b34f6c61462195fc783b6db",
+      "sha1": "2f39f77e07f52e0d189c4d468e3fd8afaaccbb06"
+    },
+    {
+      "name": "Pirate Cove (World)",
+      "rom_name": "Pirate Cove (World) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "cacd77a3",
+      "md5": "32e3673302199e531b7793542f61880a",
+      "sha1": "3a57cab4a10a08838cda74c271951573b1bbf0dd"
+    },
+    {
+      "name": "Pac-Man Plus 320 (World) (PAL)",
+      "rom_name": "Pac-Man Plus 320 (World) (PAL) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "86936d1b",
+      "md5": "1482beef7dbdb122f6bb4b03640888f2",
+      "sha1": "eb01729384c3a2b704b8a3f43afe6e2279839915"
+    },
+    {
+      "name": "Pac-Man Plus 320 (World) (PAL)",
+      "rom_name": "Pac-Man Plus 320 (World) (PAL) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "9c0a6699",
+      "md5": "edb11aed4a1bf7334a885dc2d5274256",
+      "sha1": "42b59d3d3ef9b33db3b2a836d1e9cee97bc48cf7"
+    },
+    {
+      "name": "Pac-Man Plus 320 (World)",
+      "rom_name": "Pac-Man Plus 320 (World) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "43b6c1c0",
+      "md5": "d0bf3b841ad4bbd356e9588874749a13",
+      "sha1": "b9fa09860bd3af0924edff693831964527e760cf"
+    },
+    {
+      "name": "Pac-Man Plus 320 (World)",
+      "rom_name": "Pac-Man Plus 320 (World) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "$\u0311>",
+      "md5": "3db5d43c80ab1398665420c56debaac3",
+      "sha1": "7cc5bd294ef6118bb5ed4276c3c827e00906f20c"
+    },
+    {
+      "name": "Pac-Man Collection - Ultimate Edition (World) (PAL) (Pokey)",
+      "rom_name": "Pac-Man Collection - Ultimate Edition (World) (PAL) (Pokey) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "\rq\u06da",
+      "md5": "41c6dcd63db9c90795903c362a09c5d8",
+      "sha1": "692774c60ff42029efef733213e2e33f491cae6a"
+    },
+    {
+      "name": "Pac-Man Collection - Ultimate Edition (World) (PAL) (Pokey)",
+      "rom_name": "Pac-Man Collection - Ultimate Edition (World) (PAL) (Pokey) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "c\u02a6V",
+      "md5": "9fd0387a0fe057c97905c87103e5dc33",
+      "sha1": "108de34dcd8b89402faeb950ba588c7113a04f6f"
+    },
+    {
+      "name": "Pac-Man Collection - Ultimate Edition (World) (Pokey)",
+      "rom_name": "Pac-Man Collection - Ultimate Edition (World) (NTSC) (Pokey) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "fd2f3867",
+      "md5": "6a432fd1e9d42a294bdb04d2c3d1e17f",
+      "sha1": "20c697c298b05984a2fd333bdce7ffc486d22712"
+    },
+    {
+      "name": "Pac-Man Collection - Ultimate Edition (World) (Pokey)",
+      "rom_name": "Pac-Man Collection - Ultimate Edition (World) (NTSC) (Pokey) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "4c89fd07",
+      "md5": "34e23de8d0f68aa4234f2b4c32d7f357",
+      "sha1": "8365c31cb7930fb59083b6f6add2a9e49f15f693"
+    },
+    {
+      "name": "Pac-Man Collection - Remastered Edition (World) (PAL) (TIA)",
+      "rom_name": "Pac-Man Collection - Remastered Edition (World) (PAL) (TIA) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "5cd69784",
+      "md5": "fddb22207cf6159f91ba31edcb8c5ce5",
+      "sha1": "787251bef5147a34113cc5bc91f4e070db65e454"
+    },
+    {
+      "name": "Pac-Man Collection - Remastered Edition (World) (PAL) (TIA)",
+      "rom_name": "Pac-Man Collection - Remastered Edition (World) (PAL) (TIA) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "8a7b837e",
+      "md5": "e5cf753daa3bf5d03cfc3bfab04f735e",
+      "sha1": "252e5b6fdd143b60690db5b1d4de68a52f9c77c9"
+    },
+    {
+      "name": "Pac-Man Collection - Remastered Edition (World) (TIA)",
+      "rom_name": "Pac-Man Collection - Remastered Edition (World) (NTSC) (TIA) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "a3ac92b3",
+      "md5": "200ef9c7b36afd3b1b6ce32065a259bb",
+      "sha1": "74d8964631b95084f5f09921705ee88fdf0862b4"
+    },
+    {
+      "name": "Pac-Man Collection - Remastered Edition (World) (TIA)",
+      "rom_name": "Pac-Man Collection - Remastered Edition (World) (NTSC) (TIA) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "\u2963Q",
+      "md5": "5d418bbe79e1e31351c4d44f7c137e9f",
+      "sha1": "1efd31d55be8abbe369e47fff5fe97cc04aeff7e"
+    },
+    {
+      "name": "Pac-Man Collection - 40th Anniversary Edition (World) (Digital)",
+      "rom_name": "Pac-Man Collection - 40th Anniversary Edition (World) (Digital) (Aftermarket) (Unl).bin",
+      "size": 131072,
+      "crc": "8fe553a1",
+      "md5": "39dc7f6f39f9b3e341a5ffea76e71fb1",
+      "sha1": "1255af0369ac40718c742b9e416f3b5e3363439a"
+    },
+    {
+      "name": "Pac-Man Collection - 40th Anniversary Edition (World) (Digital)",
+      "rom_name": "Pac-Man Collection - 40th Anniversary Edition (World) (Digital) (Aftermarket) (Unl).a78",
+      "size": 131200,
+      "crc": "9110b4d5",
+      "md5": "65be9f6928eddc24ffcbd471a6bd9850",
+      "sha1": "3830154cd50c0355e55a13611377377fa6442972"
+    },
+    {
+      "name": "Pac-Man Collection (World) (Digital) (PAL)",
+      "rom_name": "Pac-Man Collection (World) (Digital) (PAL) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "20a0873c",
+      "md5": "d622c9de8a823ba1c079510cef6ed817",
+      "sha1": "b9672ada1d272b738eb8b6fe91db682e9485c62c"
+    },
+    {
+      "name": "Pac-Man Collection (World) (Digital) (PAL)",
+      "rom_name": "Pac-Man Collection (World) (Digital) (PAL) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": ";gFa",
+      "md5": "40a409911fa51ff0b5aa3ecad332cfed",
+      "sha1": "1c139b85a151fff18f8921e91dcc8ada35864896"
+    },
+    {
+      "name": "Pac-Man Collection (World) (Digital)",
+      "rom_name": "Pac-Man Collection (World) (Digital) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "0542bff8",
+      "md5": "290dbb0fa08f4750a5934bbdc27dc5bc",
+      "sha1": "f44feb600b9b8f705a17aa10ae820334c6aa4b88"
+    },
+    {
+      "name": "Pac-Man Collection (World) (Digital)",
+      "rom_name": "Pac-Man Collection (World) (Digital) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "1e857ea5",
+      "md5": "06762cfc3c6086a7e0e11c2c3dd7d908",
+      "sha1": "2a8e374e032364b9168d5d70475eda91a23bb6b2"
+    },
+    {
+      "name": "Pac-Man 320 (World) (v1.05) (PAL)",
+      "rom_name": "Pac-Man 320 (World) (v1.05) (PAL) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "1c0dbc7c",
+      "md5": "180121ecb4aabc7daa945b355e15c254",
+      "sha1": "8de5e06d8eaf7c92c7e66140906bb645a5aa2b3a"
+    },
+    {
+      "name": "Pac-Man 320 (World) (v1.05) (PAL)",
+      "rom_name": "Pac-Man 320 (World) (v1.05) (PAL) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "0694b7fe",
+      "md5": "bce39849fe488f06f4b28988acf55c4c",
+      "sha1": "424dd598a224185d8fb0b47cc01e4d5f84dff708"
+    },
+    {
+      "name": "Pac-Man 320 (World) (v1.05)",
+      "rom_name": "Pac-Man 320 (World) (v1.05) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "545e868b",
+      "md5": "60982f430b762343d53e48f70acfa6d0",
+      "sha1": "87d94a984e759708b6f8b251a309e6860d6d9ab9"
+    },
+    {
+      "name": "Pac-Man 320 (World) (v1.05)",
+      "rom_name": "Pac-Man 320 (World) (v1.05) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "\u001b1\u007fr",
+      "md5": "87282c7f50c7af7b85222676e4b77146",
+      "sha1": "a275cd00a0642bc67ea02cf2c1939beb1d47f107"
+    },
+    {
+      "name": "Pac-Man - Energy Drink Edition (World) (v1.02)",
+      "rom_name": "Pac-Man - Energy Drink Edition (World) (v1.02) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "60be7493",
+      "md5": "2b51ebf2f371d0790a5629e27727ebba",
+      "sha1": "b5a67fef7062f2b9525e2e3ccd0ab674c8603193"
+    },
+    {
+      "name": "Pac-Man - Energy Drink Edition (World) (v1.02)",
+      "rom_name": "Pac-Man - Energy Drink Edition (World) (v1.02) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "2dcbfa74",
+      "md5": "50eab1fe52018bad729e623022f33664",
+      "sha1": "b24a11a731fb6cd9832addef89d38a2b0809dc53"
+    },
+    {
+      "name": "Orion Assault (World) (v01.78b) (Proto)",
+      "rom_name": "Orion Assault (World) (v01.78b) (Proto) (Aftermarket) (Unl).bin",
+      "size": 131072,
+      "crc": "625b896e",
+      "md5": "89678ebc7d4605e86cffd2a1ec7cc7b9",
+      "sha1": "22c697d14c705086f36f22c3d774b504a99fbf9d"
+    },
+    {
+      "name": "Orion Assault (World) (v01.78b) (Proto)",
+      "rom_name": "Orion Assault (World) (v01.78b) (Proto) (Aftermarket) (Unl).a78",
+      "size": 131200,
+      "crc": "16f45552",
+      "md5": "0ec73e20f17c37e1abd6b3153d71a33f",
+      "sha1": "fa25a5720b95ae9e88dbbfb8fc92908f1dd2dd18"
+    },
+    {
+      "name": "Oozy the Goo Gaiden (World)",
+      "rom_name": "Oozy the Goo Gaiden (World) (Aftermarket) (Unl).bin",
+      "size": 147456,
+      "crc": "3d73d926",
+      "md5": "3d9c52142f9e53f516d3408daad376f3",
+      "sha1": "1a22b8e7f768d12001b3992168dc34c4ee6d997a"
+    },
+    {
+      "name": "Oozy the Goo Gaiden (World)",
+      "rom_name": "Oozy the Goo Gaiden (World) (Aftermarket) (Unl).a78",
+      "size": 147584,
+      "crc": "f5efd437",
+      "md5": "734f8f4fb5183af926127a5b5a10a139",
+      "sha1": "d38f619b9bfeede74327240a98435151d794e192"
+    },
+    {
+      "name": "Ms. Pac-Man 320 (World) (PAL)",
+      "rom_name": "Ms. Pac-Man 320 (World) (PAL) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "9430a1a1",
+      "md5": "bc56f803d65658f92c17e6c2b271a507",
+      "sha1": "6d8c688ebba1f7a1975064c016cdcc04c55a1c8d"
+    },
+    {
+      "name": "Ms. Pac-Man 320 (World) (PAL)",
+      "rom_name": "Ms. Pac-Man 320 (World) (PAL) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "\u07e8\r.",
+      "md5": "9fb643fb53394e41f28a0edf4f085f12",
+      "sha1": "d0027b21d2cd9d2d2a7c7b9f1c6186552fd8a5ef"
+    },
+    {
+      "name": "Ms. Pac-Man 320 (World)",
+      "rom_name": "Ms. Pac-Man 320 (World) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "65d0da06",
+      "md5": "35433868dfe383ae21fd77507e5a478d",
+      "sha1": "50d6c46158dd80acf6b8be3401915ea2072fe019"
+    },
+    {
+      "name": "Ms. Pac-Man 320 (World)",
+      "rom_name": "Ms. Pac-Man 320 (World) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "a1fe2e34",
+      "md5": "7788661b81a6d85cd80269ef3504e0e2",
+      "sha1": "bb1ac9788f840fdf9dcaa9d9c37e75ed4cee5b9d"
+    },
+    {
+      "name": "Moon Cresta (World) (PAL)",
+      "rom_name": "Moon Cresta (World) (PAL) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "a6c810b2",
+      "md5": "3c05784f55167a10028225d20b38fef5",
+      "sha1": "1b93c4b5797bfd31b63f6d2ef7b6ae812055ceba"
+    },
+    {
+      "name": "Moon Cresta (World) (PAL)",
+      "rom_name": "Moon Cresta (World) (PAL) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "a506bae7",
+      "md5": "619b94832080a6cadd7724d7b2067f40",
+      "sha1": "b5aacc9b3f832111008534a02095c56c97d0ccfb"
+    },
+    {
+      "name": "Moon Cresta (World)",
+      "rom_name": "Moon Cresta (World) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "7e4ae0c3",
+      "md5": "3a15fe7bead3d9b90f3fb13d63e1ee42",
+      "sha1": "e6677db1dacc73eb10663abc88a83da3733967df"
+    },
+    {
+      "name": "Moon Cresta (World)",
+      "rom_name": "Moon Cresta (World) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "9b607d11",
+      "md5": "4e1006e44840fe7c2baef1af29acb6f9",
+      "sha1": "dea2231575f55fecb83a864ea9ce1fae72e0b275"
+    },
+    {
+      "name": "Meteor Shower (World) (v1.06) (PAL)",
+      "rom_name": "Meteor Shower (World) (v1.06) (PAL) (Aftermarket) (Unl).bin",
+      "size": 16384,
+      "crc": "7afc495b",
+      "md5": "198b2f269ddff80aaff066b9318b09e6",
+      "sha1": "228577c293febd6a5ffd20a621a6b146fb2f3276"
+    },
+    {
+      "name": "Meteor Shower (World) (v1.06) (PAL)",
+      "rom_name": "Meteor Shower (World) (v1.06) (PAL) (Aftermarket) (Unl).a78",
+      "size": 16512,
+      "crc": "69aba899",
+      "md5": "e9e83df9fa2abf5fd58708ee64041408",
+      "sha1": "d6e7c6258fab3a447f5da8f70c9d9068b3f58b18"
+    },
+    {
+      "name": "Meteor Shower (World) (v1.06)",
+      "rom_name": "Meteor Shower (World) (v1.06) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 16384,
+      "crc": "aa7fc852",
+      "md5": "a44241d782ee14b53483487cc8216274",
+      "sha1": "687ffa98659be34bd04e3602a74ed678463549a6"
+    },
+    {
+      "name": "Meteor Shower (World) (v1.06)",
+      "rom_name": "Meteor Shower (World) (v1.06) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 16512,
+      "crc": "0F\u001ai",
+      "md5": "5e249d115de5eff6143fbd4f23bfef5e",
+      "sha1": "b1601664cb740b52a867def0dfc876295b248a72"
+    },
+    {
+      "name": "Meteor Shower (World) (v1.05) (PAL)",
+      "rom_name": "Meteor Shower (World) (v1.05) (PAL) (Aftermarket) (Unl).bin",
+      "size": 16384,
+      "crc": "ea240bf3",
+      "md5": "dc0bf52475030c05671dd187e9a99f08",
+      "sha1": "5e06ce4a823407234e9c784ba51bbe6edd7ae7cf"
+    },
+    {
+      "name": "Meteor Shower (World) (v1.05) (PAL)",
+      "rom_name": "Meteor Shower (World) (v1.05) (PAL) (Aftermarket) (Unl).a78",
+      "size": 16512,
+      "crc": "f973ea31",
+      "md5": "9939d7172855e9bac28f880f233b9926",
+      "sha1": "d180f54254bc61323f265323bcc3ebee435621e2"
+    },
+    {
+      "name": "Meteor Shower (World) (v1.05)",
+      "rom_name": "Meteor Shower (World) (v1.05) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 16384,
+      "crc": "1a6b1e88",
+      "md5": "c3f6201d6a9388e860328c963a3301cc",
+      "sha1": "fe49cc7b92b3f1d44c91b4f645ee8348ebe7e017"
+    },
+    {
+      "name": "Meteor Shower (World) (v1.05)",
+      "rom_name": "Meteor Shower (World) (v1.05) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 16512,
+      "crc": "8052ccb3",
+      "md5": "21d1caaeca24e023fad3df23b452b93a",
+      "sha1": "50f743e617c4456ea5f2f1d66725e63b9359fd41"
+    },
+    {
+      "name": "Legend of Silverpeak (World) (v1.01)",
+      "rom_name": "Legend of Silverpeak (World) (v1.01) (Aftermarket) (Unl).bin",
+      "size": 524288,
+      "crc": "55238725",
+      "md5": "271864e0978278a3e2fb04273db69d57",
+      "sha1": "a6dabdbf9c4c82bab5b2ffa9a1ac21ecbb03a6da"
+    },
+    {
+      "name": "Legend of Silverpeak (World) (v1.01)",
+      "rom_name": "Legend of Silverpeak (World) (v1.01) (Aftermarket) (Unl).a78",
+      "size": 524416,
+      "crc": "863579d2",
+      "md5": "b20a8587056848d39abc1a32f2d45a95",
+      "sha1": "cea2b21e00c228718e96dabcbd2dbec8f021c64b"
+    },
+    {
+      "name": "Legend of Silverpeak (World) (v1.00)",
+      "rom_name": "Legend of Silverpeak (World) (v1.00) (Aftermarket) (Unl).bin",
+      "size": 524288,
+      "crc": "6721bcd9",
+      "md5": "8385daccee02ccda081eed45eba1479d",
+      "sha1": "17c8c1dee46a5988d4375eb56a4117be8273011c"
+    },
+    {
+      "name": "Legend of Silverpeak (World) (v1.00)",
+      "rom_name": "Legend of Silverpeak (World) (v1.00) (Aftermarket) (Unl).a78",
+      "size": 524416,
+      "crc": "414c68a4",
+      "md5": "bda93c462522942f54447fb4849f2771",
+      "sha1": "1fb196b41f1736268c649b8988291c03d4b61145"
+    },
+    {
+      "name": "Knight Guy in Low-Res World - Castle Days (World) (RC1.1)",
+      "rom_name": "Knight Guy in Low-Res World - Castle Days (World) (RC1.1) (Aftermarket) (Unl).bin",
+      "size": 147456,
+      "crc": "9b0230c6",
+      "md5": "33dbb58f9ee73e9f476b4ebbc8190c88",
+      "sha1": "889774506923f38d359efa6ab69959a23b8084ea"
+    },
+    {
+      "name": "Knight Guy in Low-Res World - Castle Days (World) (RC1.1)",
+      "rom_name": "Knight Guy in Low-Res World - Castle Days (World) (RC1.1) (Aftermarket) (Unl).a78",
+      "size": 147584,
+      "crc": "539e3dd7",
+      "md5": "95dfe1404d66dc1dc499c8c06171aec3",
+      "sha1": "31e9ef48c43b06aa96df459b72b75c73eddc7633"
+    },
+    {
+      "name": "Keystone Koppers (World)",
+      "rom_name": "Keystone Koppers (World) (Aftermarket) (Unl).bin",
+      "size": 131072,
+      "crc": "6dc46004",
+      "md5": "8151cd4d4bce851b553e0eae51d94f0c",
+      "sha1": "421e5fd929be9234825215c1121e239111c11d53"
+    },
+    {
+      "name": "Keystone Koppers (World)",
+      "rom_name": "Keystone Koppers (World) (Aftermarket) (Unl).a78",
+      "size": 131200,
+      "crc": "817dbb38",
+      "md5": "d2f56ae7b9af53e99db0a6978765bc16",
+      "sha1": "c9bac0534e6f6846da5bba3a5f9536bedce5f987"
+    },
+    {
+      "name": "K.C. Munchkin (World) (v1.01)",
+      "rom_name": "K.C. Munchkin (World) (v1.01) (Aftermarket) (Unl).bin",
+      "size": 16384,
+      "crc": "6bd7388c",
+      "md5": "aa0b9560d6610378bda58f09f265d6ad",
+      "sha1": "7816de63e052338fe43422a455e9191d3153b784"
+    },
+    {
+      "name": "K.C. Munchkin (World) (v1.01)",
+      "rom_name": "K.C. Munchkin (World) (v1.01) (Aftermarket) (Unl).a78",
+      "size": 16512,
+      "crc": "230d6984",
+      "md5": "a8ebc4ce6511a75ef81e5715bae8e4d0",
+      "sha1": "10140ad27acd95545ab7526ae3c84bc41fcf48a3"
+    },
+    {
+      "name": "K.C. Munchkin (World) (v1.00)",
+      "rom_name": "K.C. Munchkin (World) (v1.00) (Aftermarket) (Unl).bin",
+      "size": 16384,
+      "crc": "83cf579d",
+      "md5": "927edf157f88b8f5863254d9a65f05a8",
+      "sha1": "1a9b0cca06c121b4f1e0dbed8ed204cd4e81f8de"
+    },
+    {
+      "name": "K.C. Munchkin (World) (v1.00)",
+      "rom_name": "K.C. Munchkin (World) (v1.00) (Aftermarket) (Unl).a78",
+      "size": 16512,
+      "crc": "cb150695",
+      "md5": "e5b3fcfd214ba332b20c5fbfb1b831b4",
+      "sha1": "740eefe35b319b75269302e4f5c28744470f8722"
+    },
+    {
+      "name": "Jr. Pac-Man (World) (PAL)",
+      "rom_name": "Jr. Pac-Man (World) (PAL) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "b039b160",
+      "md5": "a9211b4fe543aac629ecb7eb0816c4f5",
+      "sha1": "7c61d9e201ba9ed7362a8f0d560b40ee9d9dc864"
+    },
+    {
+      "name": "Jr. Pac-Man (World) (PAL)",
+      "rom_name": "Jr. Pac-Man (World) (PAL) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "12f0cdd0",
+      "md5": "259ef5c1a98ea6bcd0bf5a922828231d",
+      "sha1": "32b4c3561a506b7f6b772727860d6378fbbf510c"
+    },
+    {
+      "name": "Jr. Pac-Man (World)",
+      "rom_name": "Jr. Pac-Man (World) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "1b79aa55",
+      "md5": "bde3abe40d302d8c4c65c9690c05dbc4",
+      "sha1": "350fcb98cd55355bceed043ddc75453bcc6ee7d8"
+    },
+    {
+      "name": "Jr. Pac-Man (World)",
+      "rom_name": "Jr. Pac-Man (World) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "66acfe73",
+      "md5": "b9d8efcc1e5651a578eeb484e34b338b",
+      "sha1": "3e8b869c85a947d3db4694b5316ed7ce296d1b6b"
+    },
+    {
+      "name": "Jacks or Better Poker (World) (v1.37)",
+      "rom_name": "Jacks or Better Poker (World) (v1.37) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "3495bada",
+      "md5": "64717953882a4aebe463f453ca00b9be",
+      "sha1": "f550a66ad1288bea6f10c6fd8675660fdbbab1ab"
+    },
+    {
+      "name": "Jacks or Better Poker (World) (v1.37)",
+      "rom_name": "Jacks or Better Poker (World) (v1.37) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "bcd091cb",
+      "md5": "6e70361a861c5ba3c113abb31f72a778",
+      "sha1": "f60398b483b7a8667f0eb0f36abc3a14dd72132f"
+    },
+    {
+      "name": "Impossible Mission (USA) (Rev 1) (Proto)",
+      "region": "USA",
+      "rom_name": "Impossible Mission (USA) (Rev 1) (Proto).bin",
+      "size": 131072,
+      "crc": "97a0ea98",
+      "md5": "55c959a86b7bbb78b85a3fb3dbafeb6d",
+      "sha1": "cfac849981a15e6bd2c86c26ba935c7931153348"
+    },
+    {
+      "name": "Impossible Mission (USA) (Rev 1) (Proto)",
+      "region": "USA",
+      "rom_name": "Impossible Mission (USA) (Rev 1) (Proto).a78",
+      "size": 131200,
+      "crc": "a7a4adb5",
+      "md5": "3fbb7c2e1f2f40140db285636dcf6928",
+      "sha1": "2ae7d2fa3f0b6682491abbd773c43982a68249e1"
+    },
+    {
+      "name": "High Score Cartridge (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "High Score Cartridge (USA) (Proto).bin",
+      "size": 4096,
+      "crc": "9be408d3",
+      "md5": "c8a73288ab97226c52602204ab894286",
+      "sha1": "a3af676991391a6dd716c79022d4947206b78164"
+    },
+    {
+      "name": "Hat Trick (USA) (Beta)",
+      "region": "USA",
+      "rom_name": "Hat Trick (USA) (Beta) (1987-05-01).bin",
+      "size": 49152,
+      "releasemonth": 5,
+      "releaseyear": 1987,
+      "crc": "70c5d996",
+      "md5": "69766137ade953cbcaad23e6c8cfa197",
+      "sha1": "7a453377ce65eccf6ba3abe2d038af2b813c5fc4"
+    },
+    {
+      "name": "Hat Trick (USA) (Beta)",
+      "region": "USA",
+      "rom_name": "Hat Trick (USA) (Beta) (1987-05-01).a78",
+      "size": 49280,
+      "releasemonth": 5,
+      "releaseyear": 1987,
+      "crc": "2d07ccca",
+      "md5": "fc06fb1cfa303d0969edcebd78e297b0",
+      "sha1": "c43d7970573dc3cae9221f0902f94dd9280ee377"
+    },
+    {
+      "name": "Harpy's Curse (World) (Proto)",
+      "rom_name": "Harpy's Curse (World) (2023-09-17) (Proto) (Aftermarket) (Unl).bin",
+      "size": 131072,
+      "releasemonth": 9,
+      "releaseyear": 2023,
+      "crc": "a0cfae6f",
+      "md5": "ac7444b4f6cffc9c78a4bdf383f21b63",
+      "sha1": "9a1611e3d8b6e09b7b3eca134003e77de938467b"
+    },
+    {
+      "name": "Harpy's Curse (World) (Proto)",
+      "rom_name": "Harpy's Curse (World) (2023-09-17) (Proto) (Aftermarket) (Unl).a78",
+      "size": 131200,
+      "releasemonth": 9,
+      "releaseyear": 2023,
+      "crc": "5b404ce1",
+      "md5": "ce57d614e6104767c8b31c9f762e1475",
+      "sha1": "52144277e6c654551c868c5970bf4d0ec802abaa"
+    },
+    {
+      "name": "GoSub (World) (Digital)",
+      "rom_name": "GoSub (World) (Digital) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "\uc2976",
+      "md5": "e443f7fb5be3283dd44c0f5d80c3a7b3",
+      "sha1": "01691ab12332872eabbb667a97462cb07e8cee22"
+    },
+    {
+      "name": "GoSub (World) (Digital)",
+      "rom_name": "GoSub (World) (Digital) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "b17a6ec6",
+      "md5": "c3808db31a9c8034e65fe3e096a0956f",
+      "sha1": "9be5f2ffe31076057a6c3abb4e9dd216f145674b"
+    },
+    {
+      "name": "Galaxian (World)",
+      "rom_name": "Galaxian (World) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "1e08b8ca",
+      "md5": "0c097bc8c786af182935081ac5cd631f",
+      "sha1": "944ad170253bdf2987b53381b37c7e9b3a10464b"
+    },
+    {
+      "name": "Galaxian (World)",
+      "rom_name": "Galaxian (World) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "d247e353",
+      "md5": "0c60eec2eeeef4256fe8ca48f843f5a5",
+      "sha1": "0161b7251db9f8478402ce9d67dfd909f52c2910"
+    },
+    {
+      "name": "Froggie (World)",
+      "rom_name": "Froggie (World) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "224b93d4",
+      "md5": "6053233cb59c0b4ca633623fd76c4576",
+      "sha1": "586b43ca3acd35307bb58f32d08649c755944c5e"
+    },
+    {
+      "name": "Froggie (World)",
+      "rom_name": "Froggie (World) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "bc3566e7",
+      "md5": "5edd4ed463c4159476a5776350174666",
+      "sha1": "480ff5485ccc3f5a21bfa2d98752ac1637cfa40f"
+    },
+    {
+      "name": "Frenzy (World) (v1.07)",
+      "rom_name": "Frenzy (World) (v1.07) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": ":UG\u0010",
+      "md5": "26031dea7251fb861cb55f86742c9d6e",
+      "sha1": "7eff182169597e9cfce6fd6e01eaf2d638f8acb3"
+    },
+    {
+      "name": "Frenzy (World) (v1.07)",
+      "rom_name": "Frenzy (World) (v1.07) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "7c60adec",
+      "md5": "a8273d973dd7bab0d333dde6a45db4b3",
+      "sha1": "5fa12f0ac0f7b381e7852211e2dcbdeb5261b5c7"
+    },
+    {
+      "name": "Frenzy (World) (v1.06)",
+      "rom_name": "Frenzy (World) (v1.06) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "789e5321",
+      "md5": "e7d89669a7f92ec2cc99d9663a28671c",
+      "sha1": "5b37fb0a4b2f1e5652b9f086e90278b66ab12fda"
+    },
+    {
+      "name": "Frenzy (World) (v1.06)",
+      "rom_name": "Frenzy (World) (v1.06) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "3eabb9dd",
+      "md5": "f99a7316db33795d722365e96ea673d7",
+      "sha1": "1d713f9ab2b1964bacaf952ec59c65111402a0c1"
+    },
+    {
+      "name": "FailSafe (World) (PAL)",
+      "rom_name": "FailSafe (World) (PAL) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "56ac5864",
+      "md5": "84c4b4ed75f41417ac7cbceac71e3856",
+      "sha1": "2d810a0e521e06ce560fe42f9e1c15d759071d4d"
+    },
+    {
+      "name": "FailSafe (World) (PAL)",
+      "rom_name": "FailSafe (World) (PAL) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "75fd728a",
+      "md5": "4b0960ba6706f3db77f8b0523790fa1a",
+      "sha1": "9fc4866549ed221d129991ddcd64253ff80de2b8"
+    },
+    {
+      "name": "FailSafe (World)",
+      "rom_name": "FailSafe (World) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "67ebf1ed",
+      "md5": "6287727ab36391a62f728bbdee88675c",
+      "sha1": "e3221e285adaee30f36b60e85a35b63cb4d63292"
+    },
+    {
+      "name": "FailSafe (World)",
+      "rom_name": "FailSafe (World) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "d31efe1b",
+      "md5": "67f25b1eef9f50bfa81cfebe86e89424",
+      "sha1": "ab7e51b840da47f9e34b061544266eaf02d052a7"
+    },
+    {
+      "name": "Easter Klondike Solitaire (World)",
+      "rom_name": "Easter Klondike Solitaire (World) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "9689894c",
+      "md5": "454f3abc266e8fe4554cc729f530d650",
+      "sha1": "bc98da54c58443de5159eb0f6307aa5fc1181afd"
+    },
+    {
+      "name": "Easter Klondike Solitaire (World)",
+      "rom_name": "Easter Klondike Solitaire (World) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "fecd04de",
+      "md5": "c875b6f5e19a41f7c6d6986776cd34ab",
+      "sha1": "81bc9379b8a391aadcc9b4d9bdc44ce509bd450a"
+    },
+    {
+      "name": "Dungeon Stalker (World) (1.245d)",
+      "rom_name": "Dungeon Stalker (World) (1.245d) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "ba519f24",
+      "md5": "b3143adbbb7d7d189e918e5b29d55a72",
+      "sha1": "b110bd4de900ecd4d8590d1866fe4d77ec676804"
+    },
+    {
+      "name": "Dungeon Stalker (World) (1.245d)",
+      "rom_name": "Dungeon Stalker (World) (1.245d) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "2bbf626f",
+      "md5": "eff3eb9f14d93b128f2c52524e938218",
+      "sha1": "ebb4b845274c2c5c80b9f57a074b11d96e7d2b36"
+    },
+    {
+      "name": "Drelbs (World)",
+      "rom_name": "Drelbs (World) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "ee4cce69",
+      "md5": "e36725e9e8f3963a17e521a89dea1a85",
+      "sha1": "c4b0589369021fd0e861732611e7f2917c28de18"
+    },
+    {
+      "name": "Drelbs (World)",
+      "rom_name": "Drelbs (World) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "1fb72164",
+      "md5": "7e0c3abe0a60f4c9c096255a45ccdb65",
+      "sha1": "239c6d8797420c275048533c7955dce3c7b735fa"
+    },
+    {
+      "name": "Dragon's Descent (World)",
+      "rom_name": "Dragon's Descent (World) (2021-07-31) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "releasemonth": 7,
+      "releaseyear": 2021,
+      "crc": "9478eb46",
+      "md5": "77164df89ae49b4dd72906a21e787233",
+      "sha1": "5c56045fab0f1f8bc7f8d22a01bef542fa195309"
+    },
+    {
+      "name": "Dragon's Descent (World)",
+      "rom_name": "Dragon's Descent (World) (2021-07-31) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "releasemonth": 7,
+      "releaseyear": 2021,
+      "crc": "b927352f",
+      "md5": "4acbc51c91a2ccb8f350e32d7b4305b2",
+      "sha1": "b4e17b54e7935bfe7c5ab499bc951865512ede6d"
+    },
+    {
+      "name": "Dragon's Cache (World)",
+      "rom_name": "Dragon's Cache (World) (2021-02-07) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "releasemonth": 2,
+      "releaseyear": 2021,
+      "crc": "f163c3e6",
+      "md5": "7b7825ca2c79148f1c4ade6baacc1a76",
+      "sha1": "631c1707667638664c6a819fbf9e5a75ac3e68b6"
+    },
+    {
+      "name": "Dragon's Cache (World)",
+      "rom_name": "Dragon's Cache (World) (2021-02-07) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "releasemonth": 2,
+      "releaseyear": 2021,
+      "crc": "dc3c1d8f",
+      "md5": "6bdf0a2203f6bf3171110fd5bc9972e4",
+      "sha1": "1db233e2f339cc798938cefde1ebc2b3ecf249df"
+    },
+    {
+      "name": "Dragon's Cache (World) (BupSystem)",
+      "rom_name": "Dragon's Cache (World) (2020-10-24) (BupSystem) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "releasemonth": 10,
+      "releaseyear": 2020,
+      "crc": "\u048ds\\",
+      "md5": "9bcba331599c03e6b91e69c6874768f8",
+      "sha1": "f6b8a36f5d75c9d2c17136ef5f7ee852fc33213f"
+    },
+    {
+      "name": "Dragon's Cache (World) (BupSystem)",
+      "rom_name": "Dragon's Cache (World) (2020-10-24) (BupSystem) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "releasemonth": 10,
+      "releaseyear": 2020,
+      "crc": "ffd2ad35",
+      "md5": "22b9444a24d6496ba2dafdbb7f0f76fc",
+      "sha1": "27ed9b1d37cd30390864614264eef5e53851ff61"
+    },
+    {
+      "name": "Dragon's Cache (World)",
+      "rom_name": "Dragon's Cache (World) (2020-10-24) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "releasemonth": 10,
+      "releaseyear": 2020,
+      "crc": "4e6270b8",
+      "md5": "e3cdb632ffce5ec97c3e889578aca437",
+      "sha1": "a20c97c7706f706cf7c3da45db575e4956a6ccd0"
+    },
+    {
+      "name": "Dragon's Cache (World)",
+      "rom_name": "Dragon's Cache (World) (2020-10-24) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "releasemonth": 10,
+      "releaseyear": 2020,
+      "crc": "633daed1",
+      "md5": "b514ffe98587caaec7e0492f1aeee7f3",
+      "sha1": "a9babaa6e3d0c64726fea773a6045b1f33582a0c"
+    },
+    {
+      "name": "Destroyer 7800 (World) (v1.03)",
+      "rom_name": "Destroyer 7800 (World) (v1.03) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "82a8141d",
+      "md5": "1b1a9d0676af86bc92dd0c5cef1e1877",
+      "sha1": "05b2bd7f82f4a7b7d33b65af611595fde8011d62"
+    },
+    {
+      "name": "Destroyer 7800 (World) (v1.03)",
+      "rom_name": "Destroyer 7800 (World) (v1.03) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "HTk\\",
+      "md5": "0cb52df4e9b2b1d5fc07d985152cb5c8",
+      "sha1": "f8e659862d26e0895215dfdbd40d5f8b324d3ac4"
+    },
+    {
+      "name": "Desert Falcon (USA) (Beta)",
+      "region": "USA",
+      "rom_name": "Desert Falcon (USA) (Beta) (1987-03-25).bin",
+      "size": 49152,
+      "releasemonth": 3,
+      "releaseyear": 1987,
+      "crc": "63887912",
+      "md5": "f4ed29662536267db967182b6ba8d40e",
+      "sha1": "1bc856c38e299980c66bfa23c283c06ba17e29a1"
+    },
+    {
+      "name": "Desert Falcon (USA) (Beta)",
+      "region": "USA",
+      "rom_name": "Desert Falcon (USA) (Beta) (1987-03-25).a78",
+      "size": 49280,
+      "releasemonth": 3,
+      "releaseyear": 1987,
+      "crc": "c5a9c969",
+      "md5": "27dbbf61c82f90570b26441b32d1c91d",
+      "sha1": "7c677b7812880e6871882e3e32966fb1ae23db5f"
+    },
+    {
+      "name": "DeathMerchant (World) (v1.30) (Digital)",
+      "rom_name": "DeathMerchant (World) (v1.30) (Digital) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "dfe8e67a",
+      "md5": "fab7b59dd580dce0b28be3e74a7b8433",
+      "sha1": "15accd401a9c04f969be8336932741b6537d4f3a"
+    },
+    {
+      "name": "DeathMerchant (World) (v1.30) (Digital)",
+      "rom_name": "DeathMerchant (World) (v1.30) (Digital) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "57adcd6b",
+      "md5": "596297af60645bf3db97e4c78a21f526",
+      "sha1": "e01c232f1c51ad1a7f15b0ec5ecc1a47271bc232"
+    },
+    {
+      "name": "Crazy Bricks (World)",
+      "rom_name": "Crazy Bricks (World) (Aftermarket) (Unl).bin",
+      "size": 16384,
+      "crc": "32a87b61",
+      "md5": "299d31c8e181fdd011df2014451bdf0f",
+      "sha1": "dbf5ef0ef31c44336a8527ca288488d5a6bfd6f3"
+    },
+    {
+      "name": "Crazy Bricks (World)",
+      "rom_name": "Crazy Bricks (World) (Aftermarket) (Unl).a78",
+      "size": 16512,
+      "crc": "f8dafbe6",
+      "md5": "a73306eaf2a2a6f697f3e5ae05e7280a",
+      "sha1": "1be686cde8c58755e18efe27224f67db43dd5ceb"
+    },
+    {
+      "name": "Commando (USA) (Beta)",
+      "region": "USA",
+      "rom_name": "Commando (USA) (Beta) (1988-04-29).bin",
+      "size": 16384,
+      "releasemonth": 4,
+      "releaseyear": 1988,
+      "crc": "9ef973a9",
+      "md5": "2a4f20c216e77048449d26205b62c563",
+      "sha1": "2eacc14a41bb747ec4b431f7d1b092fd2061701e"
+    },
+    {
+      "name": "Commando (USA) (Beta)",
+      "region": "USA",
+      "rom_name": "Commando (USA) (Beta) (1988-04-29).a78",
+      "size": 16512,
+      "releasemonth": 4,
+      "releaseyear": 1988,
+      "crc": "048b2bd8",
+      "md5": "e128ffbbc919959c82164b7e67da9a74",
+      "sha1": "72f340c9f873ad691982d786c6f258e231eaabb6"
+    },
+    {
+      "name": "Centipede (USA) (Beta)",
+      "region": "USA",
+      "rom_name": "Centipede (USA) (Beta) (1984-05-02).bin",
+      "size": 16384,
+      "releasemonth": 5,
+      "releaseyear": 1984,
+      "crc": "0b85a1f2",
+      "md5": "bf7a6103337086840093af257048c834",
+      "sha1": "2446325f139d8cb93743b6668fee96c4fc99fc48"
+    },
+    {
+      "name": "Cartesian Chaos (World)",
+      "rom_name": "Cartesian Chaos (World) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "56cc4aa6",
+      "md5": "825c03c049306c16bd654d9d0e344cf3",
+      "sha1": "4407c39d2de6ef0e71312f314d5c4a085282f733"
+    },
+    {
+      "name": "Cartesian Chaos (World)",
+      "rom_name": "Cartesian Chaos (World) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "29a44422",
+      "md5": "313f715318f0163385cfaa028f52389b",
+      "sha1": "0c10daf78c985e5a3c9cc660104e806cfc28c1de"
+    },
+    {
+      "name": "Bentley Bear's Crystal Quest (World)",
+      "rom_name": "Bentley Bear's Crystal Quest (World) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 147456,
+      "crc": "d44622b3",
+      "md5": "34483432b92f565f4ced82a141119164",
+      "sha1": "4a850d4b97bea621e9b6df142afeec8b398d6d6c"
+    },
+    {
+      "name": "Bentley Bear's Crystal Quest (World)",
+      "rom_name": "Bentley Bear's Crystal Quest (World) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 147584,
+      "crc": "0c7355d4",
+      "md5": "164f7319240747bafcabef6b45ca0d87",
+      "sha1": "992d0db39826ee844541a95c27507be8522acfe0"
+    },
+    {
+      "name": "Baby Pac-Man (World) (Digital)",
+      "rom_name": "Baby Pac-Man (World) (Digital) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "NLM-",
+      "md5": "2b31dfab41dce110dd136fd06606e1ca",
+      "sha1": "4af3c6b26fe465e9434fce3d53a05ab29c7bc341"
+    },
+    {
+      "name": "Baby Pac-Man (World) (Digital)",
+      "rom_name": "Baby Pac-Man (World) (Digital) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "e2b65b38",
+      "md5": "5dda1ced1bc1bc46bdacf3791d9be50e",
+      "sha1": "f1d24d06642f08840e99b09a4d50594a09a7b8c2"
+    },
+    {
+      "name": "Baby Pac-Man (World) (Beta)",
+      "rom_name": "Baby Pac-Man (World) (2019-02-09) (Beta) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "releasemonth": 2,
+      "releaseyear": 2019,
+      "crc": "e2fdd6a9",
+      "md5": "7cdfbe37634e7dcd4dc67db7edbcd3ba",
+      "sha1": "c4bc0b2f03942455105425663aa029d5f6c8d6c9"
+    },
+    {
+      "name": "Baby Pac-Man (World) (Beta)",
+      "rom_name": "Baby Pac-Man (World) (2019-02-09) (Beta) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "releasemonth": 2,
+      "releaseyear": 2019,
+      "crc": "4e07c0bc",
+      "md5": "1d10c83792c1c1a4707cd3f6ac20d1ea",
+      "sha1": "8443560fc1b1029800dab7d9dc16702a7ab4e2a9"
+    },
+    {
+      "name": "Atlas (World)",
+      "rom_name": "Atlas (World) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "045fe06d",
+      "md5": "a6c02ae92d6937cb885f6909c0a8a2e1",
+      "sha1": "2e4ed00ee4c52508da12a6c8ee0bac8722aeef32"
+    },
+    {
+      "name": "Atlas (World)",
+      "rom_name": "Atlas (World) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "41d5f6e5",
+      "md5": "36afd4aef333dea8c870e057b6b648f8",
+      "sha1": "54f0b1ec68c6161131e68b442218cd2443cb1ed3"
+    },
+    {
+      "name": "Atari 7800 Development Card (USA)",
+      "region": "USA",
+      "rom_name": "Atari 7800 Development Card (USA).bin",
+      "size": 16384,
+      "crc": "3fbe74ce",
+      "md5": "0d9452d4db4d1e1cf843f4f10605eb7d",
+      "sha1": "4df3657f57e3086bee26fb5c6ea946c509d08553"
+    },
+    {
+      "name": "Astro Fighter (World)",
+      "rom_name": "Astro Fighter (World) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "c7133ea4",
+      "md5": "b4be9c25ea078608310f0ddc409e7cc1",
+      "sha1": "eeaa4021b24a012720b3234d69704a4d6df62f98"
+    },
+    {
+      "name": "Astro Fighter (World)",
+      "rom_name": "Astro Fighter (World) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "a6d77f38",
+      "md5": "5b75dae35d5822a33998ef3ddf69b4c0",
+      "sha1": "6ffde355256a75492d67259d5a5edff83d9a9046"
+    },
+    {
+      "name": "Astro Blaster (World)",
+      "rom_name": "Astro Blaster (World) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "fb86a5a0",
+      "md5": "55ffe535897c368be7a80d582f6a68cb",
+      "sha1": "093e0317adc0a1ecba5ecb689addf062d1746db7"
+    },
+    {
+      "name": "Astro Blaster (World)",
+      "rom_name": "Astro Blaster (World) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "bbb02d92",
+      "md5": "2fcb54bb5837b01bb0d33fb734c263da",
+      "sha1": "6e8668df288619c468dd2dce9e87e6af8b74e794"
+    },
+    {
+      "name": "Asteroids Deluxe (World) (PAL)",
+      "rom_name": "Asteroids Deluxe (World) (PAL) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "ab72ea89",
+      "md5": "1baf41de200f26ec643625021290bec2",
+      "sha1": "341c7be2823e69e95a61567cb79042c140278c4c"
+    },
+    {
+      "name": "Asteroids Deluxe (World) (PAL)",
+      "rom_name": "Asteroids Deluxe (World) (PAL) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "93ca7c33",
+      "md5": "6161241275a3a2470844b70cddb75ec9",
+      "sha1": "287d1032b1b8fb32682bb35ba12623d8d68978af"
+    },
+    {
+      "name": "Asteroids Deluxe (World)",
+      "rom_name": "Asteroids Deluxe (World) (NTSC) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "56239d62",
+      "md5": "a65f79ad4a0bbdecd59d5f7eb3623fd7",
+      "sha1": "514fb53dcd8c47251fcbe5047bb2d9d13ccf6aef"
+    },
+    {
+      "name": "Asteroids Deluxe (World)",
+      "rom_name": "Asteroids Deluxe (World) (NTSC) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "6e9b0bd8",
+      "md5": "245c582e77c6be151b651ebb3dfc38c4",
+      "sha1": "8eabd12465207566499c30ded9a6fda8183de546"
+    },
+    {
+      "name": "Armor Attack II (World)",
+      "rom_name": "Armor Attack II (World) (Aftermarket) (Unl).bin",
+      "size": 16384,
+      "crc": "6cf67401",
+      "md5": "eea04359df6770d66b0d97c2cea1932f",
+      "sha1": "5921cd22a4d5790d7cc5fb3901ca8dc50d845cb9"
+    },
+    {
+      "name": "Armor Attack II (World)",
+      "rom_name": "Armor Attack II (World) (Aftermarket) (Unl).a78",
+      "size": 16512,
+      "crc": "h\u000faC",
+      "md5": "87d641310f0ce3d6347d3d1d56e96404",
+      "sha1": "a5893a6738580d7a0a8f3dc2d3600d424a79c8b0"
+    },
+    {
+      "name": "Alpha Race (World)",
+      "rom_name": "Alpha Race (World) (Aftermarket) (Unl).bin",
+      "size": 32768,
+      "crc": "dc81ddd0",
+      "md5": "10ff87ebfeec99858cc80293b0c1686e",
+      "sha1": "6963bb6aacda0870209f9dc298e17c5803807f7f"
+    },
+    {
+      "name": "Alpha Race (World)",
+      "rom_name": "Alpha Race (World) (Aftermarket) (Unl).a78",
+      "size": 32896,
+      "crc": "bdecce7f",
+      "md5": "4d45fa7989bb3c026187e5650529df54",
+      "sha1": "d1be28ca38864170558c671fdcbf7f2a091b34ef"
+    },
+    {
+      "name": "2048 (World)",
+      "rom_name": "2048 (World) (Aftermarket) (Unl).bin",
+      "size": 49152,
+      "crc": "7432a34a",
+      "md5": "6f157f421c7ed5d952b393122d37915e",
+      "sha1": "2036b24140427b44ea4fec6e85410e986292e014"
+    },
+    {
+      "name": "2048 (World)",
+      "rom_name": "2048 (World) (Aftermarket) (Unl).a78",
+      "size": 49280,
+      "crc": "118ea84d",
+      "md5": "a43ae0a26441ff804a9fbaf094a3533d",
+      "sha1": "99ed61f87bad6e119c1ef69099e4c348b3bbf143"
+    },
+    {
+      "name": "1942 (World)",
+      "rom_name": "1942 (World) (Aftermarket) (Unl).bin",
+      "size": 262144,
+      "crc": "f9e37618",
+      "md5": "fd9353d42cca5f81fe7af866592b94c3",
+      "sha1": "ff87c796e86d7e0fd29455c44c1f3f4f3aff2bc2"
+    },
+    {
+      "name": "1942 (World)",
+      "rom_name": "1942 (World) (Aftermarket) (Unl).a78",
+      "size": 262272,
+      "crc": "c44cd08a",
+      "md5": "9c1ac6c8a85b4787d4c521189485fa98",
+      "sha1": "c7d22ecdcd7f86b1f114d769cd053c568188bda9"
+    },
+    {
+      "name": "1942 (Small) (World)",
+      "rom_name": "1942 (Small) (World) (Aftermarket) (Unl).bin",
+      "size": 131072,
+      "crc": "75e09ff6",
+      "md5": "0430094ad660d9900a8489c936fa2f20",
+      "sha1": "90763d46cf73dc145103904b1a5fb7be57cd091a"
+    },
+    {
+      "name": "1942 (Small) (World)",
+      "rom_name": "1942 (Small) (World) (Aftermarket) (Unl).a78",
+      "size": 131200,
+      "crc": "f8a336f7",
+      "md5": "2c709a3d4a4c10582ae9beaa544ab748",
+      "sha1": "934aa6bd79b6aa957da2ee3b97dc3c8ad2849530"
+    },
+    {
+      "name": "1942 (Extended) (World)",
+      "rom_name": "1942 (Extended) (World) (Aftermarket) (Unl).bin",
+      "size": 262144,
+      "crc": "98328e15",
+      "md5": "0fec9c1f5973c7a1dc55318ec97d8d17",
+      "sha1": "dbcfbf95d4c62d29f4d4838ac2e0aa959bb2f349"
+    },
+    {
+      "name": "1942 (Extended) (World)",
+      "rom_name": "1942 (Extended) (World) (Aftermarket) (Unl).a78",
+      "size": 262272,
+      "crc": "c87f030c",
+      "md5": "bee92404d49c2136188b296680509874",
+      "sha1": "eaacb56bbcc5e534c12f45de3012681c4749511b"
+    },
+    {
+      "name": "Xevious",
+      "rom_name": "Xevious (1988)(Atari)(NTSC).a78",
+      "size": 32896,
+      "releaseyear": 1988,
+      "crc": "3f8507f3",
+      "md5": "8201465d32c4057bb479959b59374b65",
+      "sha1": "85475e9cb0e6a065960c6c0a337b4a2a65299511"
+    },
+    {
+      "name": "Winter Games",
+      "rom_name": "Winter Games (1987)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1987,
+      "crc": "\u0012E@`",
+      "md5": "53309f5298af58f658cff43c122b8856",
+      "sha1": "baa7f957db2f4f9165a75b0f77866b5f99312769"
+    },
+    {
+      "name": "Water Ski [o]",
+      "rom_name": "Water Ski (1988)(Froggo)(NTSC)[o].a78",
+      "size": 131200,
+      "releaseyear": 1988,
+      "crc": "e4497285",
+      "md5": "b80c718aca6b9d087bbd5d42d6925967",
+      "sha1": "ad52027a4ef5822ff126f3d74350b8215e863f89"
+    },
+    {
+      "name": "Tower Toppler [o]",
+      "rom_name": "Tower Toppler (1988)(Atari)(NTSC)[o].a78",
+      "size": 131200,
+      "releaseyear": 1988,
+      "crc": "c915f181",
+      "md5": "55c33c7aac3b31936312a1697b0263b3",
+      "sha1": "7c5e2a16e8c8d88b044e5ff26355c56510830188"
+    },
+    {
+      "name": "Tank Command [o]",
+      "rom_name": "Tank Command (1988)(Froggo)(NTSC)[o].a78",
+      "size": 131200,
+      "releaseyear": 1988,
+      "crc": "c9a2139c",
+      "md5": "43accd17517c001b8183c8ec12882ec6",
+      "sha1": "b071ddbae6f71b93cf250af6940458e86b024e06"
+    },
+    {
+      "name": "Super Huey UH-1X (Alt 1)",
+      "rom_name": "Super Huey UH-1X (1988)(Atari)(NTSC)[a].a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "f1991b27",
+      "md5": "81b81dd6239255be35c1d9bd2ce701c6",
+      "sha1": "8fe3620de6d630e8a1aeb30291940f7589532956"
+    },
+    {
+      "name": "Super Huey UH-1X",
+      "rom_name": "Super Huey UH-1X (1988)(Atari)(NTSC).a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "\u0003:`X",
+      "md5": "0d5208d60c0a2fd23a09939c6c0fe3a3",
+      "sha1": "9bdbc4d628f06e425d50a4e2a67cc7806360d94d"
+    },
+    {
+      "name": "Summer Games",
+      "rom_name": "Summer Games (1987)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1987,
+      "crc": "8e4cf69c",
+      "md5": "b52e03faf69edc223425e7caf0ed900a",
+      "sha1": "246974b8066019e7b9607cf20359596a9398af85"
+    },
+    {
+      "name": "Sentinel (PAL)",
+      "rom_name": "Sentinel (1991)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1991,
+      "crc": "4c779065",
+      "md5": "37aa591e7000539aa64726de5a8bad92",
+      "sha1": "fb504fec071574d0a33d495c34a467fbb10b2bed"
+    },
+    {
+      "name": "Sentinel (Proto)",
+      "rom_name": "Sentinel (1990)(Atari)(NTSC)(proto).a78",
+      "size": 131200,
+      "releaseyear": 1990,
+      "crc": "51df6e83",
+      "md5": "a3d62d98dbd93d43d3ac04fbb35ef1f9",
+      "sha1": "bfbf9be9ad0788f5c54428cc70ca8b75816eb4a9"
+    },
+    {
+      "name": "Robotron - 2084",
+      "rom_name": "Robotron - 2084 (1987)(Atari)(NTSC).a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "aa06b121",
+      "md5": "eb2110c0fc2655775166219e4877f80c",
+      "sha1": "28fddab1e203610a153ce47f067f8af494a3442e"
+    },
+    {
+      "name": "RealSports Baseball [o]",
+      "rom_name": "RealSports Baseball (1988)(Atari)(NTSC)[o].a78",
+      "size": 131200,
+      "releaseyear": 1988,
+      "crc": "f5fde147",
+      "md5": "f39b3664545d1a13af40a9656c463bfe",
+      "sha1": "ab96b82d698bd59d07d8004f0445699e26137817"
+    },
+    {
+      "name": "Pole Position II",
+      "rom_name": "Pole Position II (1987)(Atari)(NTSC).a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "=Wb:",
+      "md5": "1eb8d721eecc75d57c44eaa3a2635e14",
+      "sha1": "c6c8accd3ff293c249f544688dc49807ca2556cf"
+    },
+    {
+      "name": "Pit Fighter (Proto)[o]",
+      "rom_name": "Pit Fighter (1992)(Atari)(NTSC)(proto)[o].a78",
+      "size": 131200,
+      "releaseyear": 1992,
+      "crc": "5c9ac595",
+      "md5": "b22ee90919dbbceb1cefaf0f83179a4d",
+      "sha1": "d1ad56c792597a83fa51d29e8236ad5b818ada87"
+    },
+    {
+      "name": "One-on-One Basketball",
+      "rom_name": "One-on-One Basketball (1987)(Atari)(NTSC).a78",
+      "size": 49280,
+      "releaseyear": 1987,
+      "crc": "859c8456",
+      "md5": "247163ef4b5a5966bfeecfca376a0533",
+      "sha1": "950ec20374630cbbb53d03543b7c56e6f923b96d"
+    },
+    {
+      "name": "Ms. Pac-Man",
+      "rom_name": "Ms. Pac-Man (1987)(Atari)(NTSC).a78",
+      "size": 16512,
+      "releaseyear": 1987,
+      "crc": "2b11d9f2",
+      "md5": "8b79479dbc5c75b3513319c52ae6fc29",
+      "sha1": "38f044a7267e6beac17f0824325bda3cd2ec3b9b"
+    },
+    {
+      "name": "Mean 18 Ultimate Golf",
+      "rom_name": "Mean 18 Ultimate Golf (1989)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "517d1986",
+      "md5": "870ad5326b05ead675d35a1c679c4b1f",
+      "sha1": "5a3de17714b24eb526d0ec62b327f4bc66a7fe9f"
+    },
+    {
+      "name": "Mat Mania Challenge",
+      "rom_name": "Mat Mania Challenge (1990)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1990,
+      "crc": "a902f3e6",
+      "md5": "bbbca8b82ffb92801f97a9f9bb22f41f",
+      "sha1": "ab08f92c6a9a3346cce40958ad6492e6af00acf1"
+    },
+    {
+      "name": "Mario Bros.",
+      "rom_name": "Mario Bros. (1988)(Atari)(NTSC).a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "fcffc04a",
+      "md5": "ae174ab64a4858cd05a3fc12cc9e140b",
+      "sha1": "18b1645a76cf72ccc9ecfc582f02425daf410004"
+    },
+    {
+      "name": "Klax (Proto)",
+      "rom_name": "Klax (1992)(Atari)(NTSC)(proto).a78",
+      "size": 131200,
+      "releaseyear": 1992,
+      "crc": "729f4b1c",
+      "md5": "6bfab37581cf320bead173ad8667abd5",
+      "sha1": "cf1edf5e8728c0a9bb688ed9fe28994881e081bd"
+    },
+    {
+      "name": "Karateka",
+      "rom_name": "Karateka (1988)(Atari)(NTSC).a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "be689aea",
+      "md5": "66d00c7dec50696650092f65525671f4",
+      "sha1": "32b5ddc7bef1b140e94b17ce002809cf4566929f"
+    },
+    {
+      "name": "Joust",
+      "rom_name": "Joust (1987)(Atari)(NTSC).a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "1646ec7c",
+      "md5": "980bf180e70aee85c5080f1b57e37558",
+      "sha1": "625829093ce079c88a9c9129c0dab709311ff7a0"
+    },
+    {
+      "name": "Impossible Mission (Alt 1)",
+      "rom_name": "Impossible Mission (1987)(Atari)(NTSC)[a].a78",
+      "size": 131200,
+      "releaseyear": 1987,
+      "crc": "0b0bbe47",
+      "md5": "9873fd58983fe5a026ecb457dc538c70",
+      "sha1": "57ddbc1da7d8c91a6a2d3d80af7db98f0daa05e6"
+    },
+    {
+      "name": "Hat Trick",
+      "rom_name": "Hat Trick (1987)(Atari)(NTSC).a78",
+      "size": 49280,
+      "releaseyear": 1987,
+      "crc": "e293793e",
+      "md5": "92f5dedbcd4456436917ce49fc2af923",
+      "sha1": "d419772b1aa40cb4c62faea904000fbb243c0b46"
+    },
+    {
+      "name": "Galaga",
+      "rom_name": "Galaga (1987)(Atari)(NTSC).a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "0a174f9b",
+      "md5": "3303ac4fa80351e2240b097e2781afe1",
+      "sha1": "96515fd5d0c7b3ec507469d5f47d377bdb1ab6fe"
+    },
+    {
+      "name": "GATO (Proto) (Alt 1)",
+      "rom_name": "GATO (1987)(Atari)(NTSC)(proto)[a].a78",
+      "size": 49280,
+      "releaseyear": 1987,
+      "crc": "9fff1924",
+      "md5": "f95af33c24798aeea0a2e4497bf97197",
+      "sha1": "bc8ee7adeb01c875eeeda51d707c533cc4329668"
+    },
+    {
+      "name": "GATO (Proto)",
+      "rom_name": "GATO (1987)(Atari)(NTSC)(proto).a78",
+      "size": 49280,
+      "releaseyear": 1987,
+      "crc": "b45a9f49",
+      "md5": "aef7d1fb101c340bd83dffc90080d7da",
+      "sha1": "252b8d453f297be69a0b0de3a1bfd925a69c76e9"
+    },
+    {
+      "name": "Food Fight",
+      "rom_name": "Food Fight (1987)(Atari)(NTSC).a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "db5b7d3f",
+      "md5": "32cbe0cfaa773749df4fcaf7dbca74db",
+      "sha1": "289726184c13ef554d3e806cf907165206e86945"
+    },
+    {
+      "name": "F-18 Hornet [b2]",
+      "rom_name": "F-18 Hornet (1988)(Absolute Entertainment)(NTSC)[b2].a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "78a02f88",
+      "md5": "f80f02445676f6d26cb77583d189aa0a",
+      "sha1": "b9b673c6cc4abc1f1bfb0d27d07be72b9976a1dd"
+    },
+    {
+      "name": "Donkey Kong Junior",
+      "rom_name": "Donkey Kong Junior (1988)(Atari)(NTSC).a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "812457fb",
+      "md5": "cfff068fe77f35374f90985e096faa3e",
+      "sha1": "f1e66a300bbb2e52c52f180ae15e5e6024323d6d"
+    },
+    {
+      "name": "Donkey Kong",
+      "rom_name": "Donkey Kong (1988)(Atari)(NTSC).a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "24afb84f",
+      "md5": "d5124b0da4338a299498f29a344e413f",
+      "sha1": "cc6feb8236776c49cb57875130c1c3b5e984253e"
+    },
+    {
+      "name": "Dig Dug",
+      "rom_name": "Dig Dug (1987)(Atari)(NTSC).a78",
+      "size": 16512,
+      "releaseyear": 1987,
+      "crc": "a6da053d",
+      "md5": "e61d1792314e6632baa4e6b92e59195d",
+      "sha1": "a60b690351ccc1b03de6f4b8945eb54f2dee762e"
+    },
+    {
+      "name": "Desert Falcon",
+      "rom_name": "Desert Falcon (1987)(Atari)(NTSC).a78",
+      "size": 49280,
+      "releaseyear": 1987,
+      "crc": "5ff04461",
+      "md5": "cbac0bf951e3cd52e5537c926d66440b",
+      "sha1": "30d214753b89b13455830b5d99aacd926127d63a"
+    },
+    {
+      "name": "Commando",
+      "rom_name": "Commando (1989)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "e9bd1c75",
+      "md5": "38b4e11ebf4bbfdc66c7d2ef96115bd2",
+      "sha1": "0d623df344364a5a7db7f4d2409afe4523d7ea08"
+    },
+    {
+      "name": "Choplifter!",
+      "rom_name": "Choplifter! (1987)(Atari)(NTSC).a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "0b0d05d4",
+      "md5": "e9b1db4fea757c6f225e4811353333d4",
+      "sha1": "34f4e33c4d395f3d06197f96fb3e190c72e96f1f"
+    },
+    {
+      "name": "Centipede",
+      "rom_name": "Centipede (1987)(Atari)(NTSC).a78",
+      "size": 16512,
+      "releaseyear": 1987,
+      "crc": "7ca3ec6b",
+      "md5": "061cf56c884c6b4cb1fab16898e1c150",
+      "sha1": "2717f81ca998714edfcc8e8a7cbab452b865c170"
+    },
+    {
+      "name": "Barnyard Blaster",
+      "rom_name": "Barnyard Blaster (1988)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1988,
+      "crc": "36a9f2a5",
+      "md5": "3c66e6e3de8d7b15cd54faa7c03d1c9d",
+      "sha1": "ebc08fbff47e727d3f87b8e838e4e81257a79804"
+    },
+    {
+      "name": "Ballblazer",
+      "rom_name": "Ballblazer (1987)(Atari)(NTSC).a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "5b635cb6",
+      "md5": "8fd2ff3e289f33f53f2792d1a0bc3513",
+      "sha1": "329782dd80a7ef88b81ab348aba4a0d478f0432f"
+    },
+    {
+      "name": "Asteroids",
+      "rom_name": "Asteroids (1987)(Atari)(NTSC).a78",
+      "size": 16512,
+      "releaseyear": 1987,
+      "crc": "c9f1e305",
+      "md5": "273e580f8e4232ee12024656846c69c1",
+      "sha1": "ca1e5aa9359bacaff10bcbb8ff42cf52ce6d9d02"
+    },
+    {
+      "name": "Ace of Aces",
+      "rom_name": "Ace of Aces (1988)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1988,
+      "crc": "fa616e77",
+      "md5": "40f69da10fbb6c77b35b89c32d9c2491",
+      "sha1": "86b33e9169d7e365187c13424fedc2e61beacbc9"
+    },
+    {
+      "name": "3D Asteroids (Proto)",
+      "rom_name": "3D Asteroids (1984)(Atari)(NTSC)(proto).a78",
+      "size": 16512,
+      "releaseyear": 1984,
+      "crc": "2c985a3d",
+      "md5": "e67a169b3a6432342ac9cbf9e6f95873",
+      "sha1": "7874a9c33bcfdea480932c34307a7623891c27de"
+    },
+    {
+      "name": "Xevious (Alt 1)",
+      "description": "Xevious (USA)",
+      "rom_name": "Xevious (1988)(Atari)(NTSC)[a].a78",
+      "size": 32896,
+      "releaseyear": 1988,
+      "crc": "44584fa2",
+      "md5": "6fa5ece1f97f65c207b8c252ee49f97c",
+      "sha1": "652e633776f608a3c2a1030a6796ba0c8669d8f0"
+    },
+    {
+      "name": "Xevious (PAL)",
+      "description": "Xevious (Europe)",
+      "rom_name": "Xevious (1988)(Atari)(PAL).a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "42aaf1ff",
+      "md5": "a9b3fbc9abadad89fa62a28702adcba0",
+      "sha1": "f2a76e8f8d1b79a4859bc9d7a90b4c1f7e013f8a"
+    },
+    {
+      "name": "Xenophobe",
+      "description": "Xenophobe (USA)",
+      "rom_name": "Xenophobe (1989)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "96ee8584",
+      "md5": "46a7909d1fb1dd8ad4a6ae1c251cef33",
+      "sha1": "d70bf96175e9a496b3041c149b727b23fe44e91e"
+    },
+    {
+      "name": "Xenophobe (PAL)",
+      "description": "Xenophobe (Europe)",
+      "rom_name": "Xenophobe (1989)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "sx>S",
+      "md5": "c6c6051f7005c05820065426907f5390",
+      "sha1": "b0499b57a42741ddd672ff7ff1b9ac3bc068ac58"
+    },
+    {
+      "name": "Winter Games (USA)",
+      "description": "Winter Games (USA)",
+      "rom_name": "Winter Games (USA).a78",
+      "size": 131200,
+      "crc": "68db3611",
+      "md5": "2c672efdb4f5eafd1b2ef10ea1ec4185",
+      "sha1": "42283b1297237e04c6ef69234770d093ffef8949"
+    },
+    {
+      "name": "Water Ski",
+      "description": "Water Ski (USA)",
+      "rom_name": "Water Ski (1988)(Froggo)(NTSC).a78",
+      "size": 65664,
+      "releaseyear": 1988,
+      "crc": "09a27634",
+      "md5": "a413c03945cb0627b7f5515dd6e9ea41",
+      "sha1": "169ee9e4f0181108bcdcdf7a92983627d07ba63e"
+    },
+    {
+      "name": "Tower Toppler",
+      "description": "Tower Toppler (USA)",
+      "rom_name": "Tower Toppler (1988)(Atari)(NTSC).a78",
+      "size": 65664,
+      "releaseyear": 1988,
+      "crc": "f701bd43",
+      "md5": "252515a9fea1976a99167a40df1e77a3",
+      "sha1": "e4b5a0dd8bfc9319289076ef0aa4543d94019e5c"
+    },
+    {
+      "name": "Tower Toppler (PAL)",
+      "description": "Tower Toppler (Europe)",
+      "rom_name": "Tower Toppler (1988)(Atari)(PAL).a78",
+      "size": 65664,
+      "releaseyear": 1988,
+      "crc": "b9269acb",
+      "md5": "36575046957046486396e943d10fef9f",
+      "sha1": "601818803ca6cfa55b7c0154fc9841001d7b379f"
+    },
+    {
+      "name": "Touchdown Football",
+      "description": "Touchdown Football (USA)",
+      "rom_name": "Touchdown Football (1988)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1988,
+      "crc": "4162e98f",
+      "md5": "d257805d290cc03ab750fae960ca74d7",
+      "sha1": "4a7afa496ad97bc2b840ac60eb2827a743b01074"
+    },
+    {
+      "name": "Tomcat - The F-14 Fighter Simulator",
+      "description": "Tomcat - The F-14 Fighter Simulator (USA)",
+      "rom_name": "Tomcat - The F-14 Fighter Simulator (1989)(Absolute Entertainment)(NTSC).a78",
+      "size": 32896,
+      "releaseyear": 1989,
+      "crc": "ab48f361",
+      "md5": "176e6378f1d0e769dc6145fdde0a5081",
+      "sha1": "cf5774e0ec2f127b40759e184572eab22b0ac635"
+    },
+    {
+      "name": "Tomcat - The F-14 Fighter Simulator (PAL)",
+      "description": "Tomcat - The F-14 Fighter Simulator (Europe)",
+      "rom_name": "Tomcat - The F-14 Fighter Simulator (1989)(Absolute Entertainment)(PAL).a78",
+      "size": 32896,
+      "releaseyear": 1989,
+      "crc": "957bf79c",
+      "md5": "6bf9d6748a220cb6ff150f575b24aa14",
+      "sha1": "3e95e46a1e5b54908a8cf814478037f745e605d9"
+    },
+    {
+      "name": "Title Match Pro Wrestling",
+      "description": "Title Match Pro Wrestling (USA)",
+      "rom_name": "Title Match Pro Wrestling (1989)(Absolute Entertainment)(NTSC).a78",
+      "size": 32896,
+      "releaseyear": 1989,
+      "crc": "a5742a96",
+      "md5": "574b71c7cc5b0bc7746719cc8ffcf8ef",
+      "sha1": "6ff9937e199ba98934a27170413cb962f5fc1218"
+    },
+    {
+      "name": "Title Match Pro Wrestling (PAL)",
+      "description": "Title Match Pro Wrestling (Europe)",
+      "rom_name": "Title Match Pro Wrestling (1989)(Absolute Entertainment)(PAL).a78",
+      "size": 32896,
+      "releaseyear": 1989,
+      "crc": "d0ff1a1a",
+      "md5": "777646d3852f4232b43fe22f77063e1b",
+      "sha1": "80cc587f905781d50dc32b64ac2c3daf7d159a74"
+    },
+    {
+      "name": "Tank Command",
+      "description": "Tank Command (USA)",
+      "rom_name": "Tank Command (1988)(Froggo)(NTSC).a78",
+      "size": 65664,
+      "releaseyear": 1988,
+      "crc": "9ffc9515",
+      "md5": "66f904276dabed87fe79f18f794c6dd0",
+      "sha1": "807505a3af7458622c5dffc62da1d608826f917a"
+    },
+    {
+      "name": "Super Skateboardin'",
+      "description": "Super Skateboardin' (USA)",
+      "rom_name": "Super Skateboardin' (1988)(Absolute Entertainment)(NTSC).a78",
+      "size": 32896,
+      "releaseyear": 1988,
+      "crc": "faa12091",
+      "md5": "1203a779363886f017e1424a1d90481a",
+      "sha1": "fbf1848df9def28df693a3b85589ffb72273519a"
+    },
+    {
+      "name": "Super Skateboardin' (PAL)",
+      "description": "Super Skateboardin' (Europe)",
+      "rom_name": "Super Skateboardin' (1988)(Absolute Entertainment)(PAL).a78",
+      "size": 32896,
+      "releaseyear": 1988,
+      "crc": "b91c65c4",
+      "md5": "bbc4b9d8e81d46a56ffb9b94fa4e4848",
+      "sha1": "8283a91b59b4a3b25ef479ba855b4af1b3b72a2d"
+    },
+    {
+      "name": "Super Huey UH-1X (Alt 2)",
+      "description": "Super Huey UH-IX (USA)",
+      "rom_name": "Super Huey UH-1X (1988)(Atari)(NTSC)[a2].a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "629d1032",
+      "md5": "324a08b67016600e5bd21218aa3e84f8",
+      "sha1": "58e1a65114689e526ad89a4a47e237161d15ab2b"
+    },
+    {
+      "name": "Super Huey UH-1X (PAL)",
+      "description": "Super Huey UH-IX (Europe)",
+      "rom_name": "Super Huey UH-1X (1988)(Atari)(PAL).a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "^bPr",
+      "md5": "38ca78bccd3f181b3a833e2bcecd921f",
+      "sha1": "35a03c8a15e63e53f5cc4334450bc7d695b7bea8"
+    },
+    {
+      "name": "Summer Games (USA)",
+      "description": "Summer Games (USA)",
+      "rom_name": "Summer Games (USA).a78",
+      "size": 131200,
+      "crc": "05d35694",
+      "md5": "559e0a7566616b83644718f6f501e7a8",
+      "sha1": "86383e6553453a353fb641b60f7021662bfc6553"
+    },
+    {
+      "name": "Sirius (Unknown) (Proto)",
+      "description": "Sirius (Unknown) (Proto)",
+      "rom_name": "Sirius (Unknown) (Proto).a78",
+      "size": 131200,
+      "crc": "9d3cd869",
+      "md5": "ca5e2287229037b0de7f8dd5a6f0514f",
+      "sha1": "6a3f59a755ad14da44d691fa6f1a4b54be0f7a4c"
+    },
+    {
+      "name": "Sentinel (USA) (Proto)",
+      "description": "Sentinel (USA) (Proto)",
+      "rom_name": "Sentinel (USA) (Proto).a78",
+      "size": 131200,
+      "crc": "a7f07116",
+      "md5": "e31bc3ed3a32e17ad5a4a356e66799f1",
+      "sha1": "ab01ab13ce1bf9dd49fd162161c80c9c42999902"
+    },
+    {
+      "name": "Sentinel (Europe)",
+      "description": "Sentinel (Europe)",
+      "rom_name": "Sentinel (Europe).a78",
+      "size": 131200,
+      "crc": "ba588ff0",
+      "md5": "967d09d8c03983cf92df73cabbeeea0e",
+      "sha1": "bf414ce1962f57016b26f545321d49fe13cf1e1e"
+    },
+    {
+      "name": "Scrapyard Dog",
+      "description": "Scrapyard Dog (USA)",
+      "rom_name": "Scrapyard Dog (1990)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1990,
+      "crc": "db61ae81",
+      "md5": "eb1a0b793c58b2e2cacc01b843aebfed",
+      "sha1": "5fec935aa0e284e6373f456e5fb9158892d0f4e8"
+    },
+    {
+      "name": "Scrapyard Dog (PAL)",
+      "description": "Scrapyard Dog (Europe)",
+      "rom_name": "Scrapyard Dog (1990)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1990,
+      "crc": "b435a5cb",
+      "md5": "c3b2f0f462dbbf66d0c8c5c6e457d603",
+      "sha1": "39d2388d4b68c04b905eaa2e5456769da60c11bd"
+    },
+    {
+      "name": "Robotron - 2084 (Alt 1)",
+      "description": "Robotron - 2084 (USA)",
+      "rom_name": "Robotron - 2084 (1987)(Atari)(NTSC)[a].a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "ab7bc9ce",
+      "md5": "5ac3aa823da1a7a9738c208161fbca57",
+      "sha1": "77c3445993f2d0a2acf0a453ef80bc31e047b932"
+    },
+    {
+      "name": "RealSports Baseball",
+      "description": "RealSports Baseball (USA)",
+      "rom_name": "RealSports Baseball (1988)(Atari)(NTSC).a78",
+      "size": 65664,
+      "releaseyear": 1988,
+      "crc": "f33bd4fd",
+      "md5": "83a91c157d4feb13c3513b158d6c825f",
+      "sha1": "d2b8b6dbb600b2e8b70abbabc10984c5a6e391ba"
+    },
+    {
+      "name": "Rampart (Unknown) (Proto)",
+      "description": "Rampart (Unknown) (Proto)",
+      "rom_name": "Rampart (Unknown) (Proto).a78",
+      "size": 131200,
+      "crc": "9113dc54",
+      "md5": "ff265720384857524048270f05339817",
+      "sha1": "c151b761f7fae4e923eb94b6b796405f28a30670"
+    },
+    {
+      "name": "Rampage",
+      "description": "Rampage (USA)",
+      "rom_name": "Rampage (1989)(Activision)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "859d9352",
+      "md5": "312f9df6d593e69567b1de26d283a2be",
+      "sha1": "78b58a68239e2016b15699f0c113984487156c22"
+    },
+    {
+      "name": "Pole Position II (Alt 1)",
+      "description": "Pole Position II (USA)",
+      "rom_name": "Pole Position II (1987)(Atari)(NTSC)[a].a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "4bf501cb",
+      "md5": "8a4f2f898ee79593e2fc30061526ca08",
+      "sha1": "319702e597f1fc419c1a530ed8cff2ea6c76e8fb"
+    },
+    {
+      "name": "Pole Position II (PAL)",
+      "description": "Pole Position II (Europe)",
+      "rom_name": "Pole Position II (1987)(Atari)(PAL).a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "9d44a452",
+      "md5": "a0f09999a960c4df88ebbe652b286c2e",
+      "sha1": "f77e284dbfc472b74177ff0e4a012b44ef2efa6e"
+    },
+    {
+      "name": "Plutos (Unknown) (Proto)",
+      "description": "Plutos (Unknown) (Proto)",
+      "rom_name": "Plutos (Unknown) (Proto).a78",
+      "size": 131200,
+      "crc": "9857c02b",
+      "md5": "80b81a4caf03cd6c4af6d37604037da8",
+      "sha1": "d543e80bc9a08d9e0b683b3dfe413a6b78c09525"
+    },
+    {
+      "name": "Planet Smashers",
+      "description": "Planet Smashers (USA)",
+      "rom_name": "Planet Smashers (1989)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "46342cd3",
+      "md5": "923ee9602e0af45fe5d2131dfd78214c",
+      "sha1": "58a82ff0bbbe418d1c2d950c9ecff7f5c549618f"
+    },
+    {
+      "name": "Planet Smashers (PAL)",
+      "description": "Planet Smashers (Europe)",
+      "rom_name": "Planet Smashers (1989)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "\u8492F",
+      "md5": "dd2428f9f032fc8eed7e2047820b41a3",
+      "sha1": "1e040ac9f9da1f0806dbe0f687ff045c8acd3060"
+    },
+    {
+      "name": "Pit Fighter (Proto)",
+      "description": "Pit Fighter (Unknown) (Proto)",
+      "rom_name": "Pit Fighter (1992)(Atari)(NTSC)(proto).a78",
+      "size": 65664,
+      "releaseyear": 1992,
+      "crc": "f29e8142",
+      "md5": "7152e5c43f700b253480d324affb6792",
+      "sha1": "56134e14414effe6e37d75935dbd9dda00888ff8"
+    },
+    {
+      "name": "Pete Rose Baseball",
+      "description": "Pete Rose Baseball (USA)",
+      "rom_name": "Pete Rose Baseball (1989)(Absolute Entertainment)(NTSC).a78",
+      "size": 32896,
+      "releaseyear": 1989,
+      "crc": "ecece40b",
+      "md5": "e749db4d81db283c1b6628181504b1b8",
+      "sha1": "80ed091b4081c134ea57b8e96fc3825b1d98e7b2"
+    },
+    {
+      "name": "One-on-One Basketball (Alt 1)",
+      "description": "One-on-One Basketball (USA)",
+      "rom_name": "One-on-One Basketball (1987)(Atari)(NTSC)[a].a78",
+      "size": 49280,
+      "releaseyear": 1987,
+      "crc": "4dn\"",
+      "md5": "485478092c2f192eaf29ca199b753d16",
+      "sha1": "b89b8e550ae9c58880ef05e2e7d6ec6de40e96ce"
+    },
+    {
+      "name": "One-on-One Basketball (PAL)",
+      "description": "One-on-One Basketball (Europe)",
+      "rom_name": "One-on-One Basketball (1987)(Atari)(PAL).a78",
+      "size": 49280,
+      "releaseyear": 1987,
+      "crc": "15c95320",
+      "md5": "c6c901171fda11e1deba32ccff1a218d",
+      "sha1": "e360ea84ad560e649852a7cb0220f552c5d8c442"
+    },
+    {
+      "name": "Ninja Golf",
+      "description": "Ninja Golf (USA)",
+      "rom_name": "Ninja Golf (1989)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "9e5d3625",
+      "md5": "bb551483d114dcc5bae7aaa892ee856a",
+      "sha1": "bf0801510a0835e327b1b2edd2d56399551bc047"
+    },
+    {
+      "name": "Ninja Golf (PAL)",
+      "description": "Ninja Golf (Europe)",
+      "rom_name": "Ninja Golf (1989)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "\u000b\u0007\u0002)",
+      "md5": "2376f769c6183f80bf4b791a57dc1554",
+      "sha1": "c8513193616984b872a4e4892abe5ce85611aab9"
+    },
+    {
+      "name": "Ms. Pac-Man (Alt 1)",
+      "description": "Ms. Pac-Man (USA)",
+      "rom_name": "Ms. Pac-Man (1987)(Atari)(NTSC)[a].a78",
+      "size": 16512,
+      "releaseyear": 1987,
+      "crc": "5ec9c910",
+      "md5": "12a6483c57d2060d1d07eed2f4cb63dd",
+      "sha1": "aad5c4b0b2e372f13ffa0a291023c9feee86785d"
+    },
+    {
+      "name": "Ms. Pac-Man (PAL)",
+      "description": "Ms. Pac-Man (Europe)",
+      "rom_name": "Ms. Pac-Man (1987)(Atari)(PAL).a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "9e186149",
+      "md5": "91b24c1e13b39b649d80efe1d9b742ae",
+      "sha1": "e878bde9200cd8bcfe82e3ef51e20d16983328db"
+    },
+    {
+      "name": "Motor Psycho",
+      "description": "Motor Psycho (USA)",
+      "rom_name": "Motor Psycho (1990)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1990,
+      "crc": "fc414689",
+      "md5": "06b27077568fe7529d2d0bdfdd974854",
+      "sha1": "f59f5081979b69b30a6f3cf9f2be5345747ee14e"
+    },
+    {
+      "name": "Motor Psycho (PAL)",
+      "description": "Motor Psycho (Europe)",
+      "rom_name": "Motor Psycho (1990)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1990,
+      "crc": "af9ac9d6",
+      "md5": "42faf283fee9fd61acf0691f349e929e",
+      "sha1": "363006e26a7c30d7140b8172faeaad4dc5f265d5"
+    },
+    {
+      "name": "Missing In Action (Unknown) (Proto)",
+      "description": "Missing In Action (Unknown) (Proto)",
+      "rom_name": "Missing In Action (Unknown) (Proto).a78",
+      "size": 147584,
+      "crc": "c29973d4",
+      "md5": "a4741ba8f3569fdf1c49a3ce4baa0b69",
+      "sha1": "dc4b15f2183e44f5a73acb19b2b862cdc4b45c30"
+    },
+    {
+      "name": "Midnight Mutants",
+      "description": "Midnight Mutants (USA)",
+      "rom_name": "Midnight Mutants (1990)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1990,
+      "crc": "e7157222",
+      "md5": "e0cc5168d910557c01d3c95173ec7d0a",
+      "sha1": "c56e2180b8ad1d37767d01c22bfb098d995f192e"
+    },
+    {
+      "name": "Midnight Mutants (PAL)",
+      "description": "Midnight Mutants (Europe)",
+      "rom_name": "Midnight Mutants (1990)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1990,
+      "crc": "f68c312a",
+      "md5": "6367b42ce5db0d97f8ff994225254e35",
+      "sha1": "d0a24c0238520f666d9b558c79a8ee5131983fee"
+    },
+    {
+      "name": "Meltdown",
+      "description": "Meltdown (USA)",
+      "rom_name": "Meltdown (1990)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1990,
+      "crc": "\u0014P#\u0002",
+      "md5": "548c743c32058950d507861d7993d425",
+      "sha1": "816073f9dd490c34e64db4b246bca0ec0e0834fb"
+    },
+    {
+      "name": "Meltdown (PAL)",
+      "description": "Meltdown (Europe)",
+      "rom_name": "Meltdown (1990)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1990,
+      "crc": "3ce19444",
+      "md5": "56ba37a817e0f434bbec9e9274b84d36",
+      "sha1": "8f626b39072acde7d01470d72dbed547824ed0a0"
+    },
+    {
+      "name": "Mean 18 Ultimate Golf (Alt 1)",
+      "description": "Mean 18 Ultimate Golf (USA)",
+      "rom_name": "Mean 18 Ultimate Golf (1989)(Atari)(NTSC)[a].a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "d22f4b02",
+      "md5": "a2467a3c756505010a37e9a687de57d5",
+      "sha1": "c1f1d13b0a3cff210a6b8fe73efb5588cb4de3c6"
+    },
+    {
+      "name": "Mean 18 Ultimate Golf (PAL)",
+      "description": "Mean 18 Ultimate Golf (Europe)",
+      "rom_name": "Mean 18 Ultimate Golf (1989)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "d7f1d5a5",
+      "md5": "a5a0f6297c29146162bcd6db7d30790e",
+      "sha1": "34e8ae5ecbed5a27635ce0b7aa5e1c154f7c8a6c"
+    },
+    {
+      "name": "Mat Mania Challenge (Alt 1)",
+      "description": "Mat Mania Challenge (USA)",
+      "rom_name": "Mat Mania Challenge (1990)(Atari)(NTSC)[a].a78",
+      "size": 131200,
+      "releaseyear": 1990,
+      "crc": "33bb15ac",
+      "md5": "b34fec30a281a066c4098c44709f30ae",
+      "sha1": "d84a0f727e2176a58ec222c3b4a3364ddd6c4e30"
+    },
+    {
+      "name": "Mat Mania Challenge (PAL)",
+      "description": "Mat Mania Challenge (Europe)",
+      "rom_name": "Mat Mania Challenge (1990)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1990,
+      "crc": "71b58ddb",
+      "md5": "d5cbbe02760e0f13aacf2fb0808d968a",
+      "sha1": "e83dfc8c1546527aa79176444937af1897aff80e"
+    },
+    {
+      "name": "Mario Bros. (Alt 1)",
+      "description": "Mario Bros. (USA)",
+      "rom_name": "Mario Bros. (1988)(Atari)(NTSC)[a].a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "M\u0007*>",
+      "md5": "4e1151e58e14ffca2a445d46981dab65",
+      "sha1": "b0216f9979d0cf75d2f00c2715170b7acf3d92f9"
+    },
+    {
+      "name": "Mario Bros. (PAL)",
+      "description": "Mario Bros. (Europe)",
+      "rom_name": "Mario Bros. (1988)(Atari)(PAL).a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "04d779f4",
+      "md5": "fc806b64f8a6693d5b845eef69603188",
+      "sha1": "3f2905ae606d5e7c2e05d1bf6bb6525f88af31ba"
+    },
+    {
+      "name": "Kung-Fu Master",
+      "description": "Kung-Fu Master (USA)",
+      "rom_name": "Kung-Fu Master (1989)(Absolute Entertainment)(NTSC).a78",
+      "size": 32896,
+      "releaseyear": 1989,
+      "crc": "37816887",
+      "md5": "1d9513a8d2a837caca7bb4e9884a87cb",
+      "sha1": "624a8f70b433f04942d5544289ac156d50b93610"
+    },
+    {
+      "name": "Kung-Fu Master (PAL)",
+      "description": "Kung-Fu Master (Europe)",
+      "rom_name": "Kung-Fu Master (1989)(Absolute Entertainment)(PAL).a78",
+      "size": 32896,
+      "releaseyear": 1989,
+      "crc": "00b75654",
+      "md5": "8c92c54ca423f866886a7955bc5d6996",
+      "sha1": "0ab29674e371db040e41060ae5b3512a3c7f5120"
+    },
+    {
+      "name": "Klax (Proto) (Alt 1)",
+      "description": "Klax (USA) (Proto)",
+      "rom_name": "Klax (1992)(Atari)(NTSC)(proto)[a].a78",
+      "size": 131200,
+      "releaseyear": 1992,
+      "crc": "0ae5c4d3",
+      "md5": "3fa3bf48510bd3c3464e6cc18864b8d8",
+      "sha1": "3ca412fdb435b49f3558c2e0649ac67f513484c7"
+    },
+    {
+      "name": "Karateka (Alt 1)",
+      "description": "Karateka (USA)",
+      "rom_name": "Karateka (1988)(Atari)(NTSC)[a].a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "7089a354",
+      "md5": "a58e0790cf2940e33343daacee0bc864",
+      "sha1": "ef839309a2770efd09955ed3467f0970a64d8243"
+    },
+    {
+      "name": "Karateka (PAL)",
+      "description": "Karateka (Europe)",
+      "rom_name": "Karateka (1988)(Atari)(PAL).a78",
+      "size": 65664,
+      "releaseyear": 1988,
+      "crc": "1ffa97df",
+      "md5": "36dfd705194d331ff828866b7e8ca0ef",
+      "sha1": "e6b6972937d3a77a9badd0ddd32021a2d8efff04"
+    },
+    {
+      "name": "Joust (Alt 1)",
+      "description": "Joust (USA)",
+      "rom_name": "Joust (1987)(Atari)(NTSC)[a].a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "fda13f77",
+      "md5": "6acb6db87bd24ab7eecdbef2f206b384",
+      "sha1": "04e1355f0109864d470a0ff6f8345436a7665b93"
+    },
+    {
+      "name": "Joust (PAL)",
+      "description": "Joust (Europe)",
+      "rom_name": "Joust (1987)(Atari)(PAL).a78",
+      "size": 49280,
+      "releaseyear": 1987,
+      "crc": "9958ff37",
+      "md5": "1cc643e4ef4015ca8b4cac53ac9f8d72",
+      "sha1": "63470ed89bf256fbe33e081bf2793e9c947619fe"
+    },
+    {
+      "name": "Jinks",
+      "description": "Jinks (USA)",
+      "rom_name": "Jinks (1989)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "9571c998",
+      "md5": "f4eaa88fa34b608c5b521ddf821173c4",
+      "sha1": "e8e731a2f19f8cb83617a91c4aaaff28bb89ef7d"
+    },
+    {
+      "name": "Jinks (PAL)",
+      "description": "Jinks (Europe)",
+      "rom_name": "Jinks (1989)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "7a2fa209",
+      "md5": "93630d3b32690f4127edde9993163cba",
+      "sha1": "6b1a67a8639c89bb9ae8e1200c1fa910e9d55476"
+    },
+    {
+      "name": "Impossible Mission",
+      "description": "Impossible Mission (USA)",
+      "rom_name": "Impossible Mission (1987)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1987,
+      "crc": "fa0a683e",
+      "md5": "151ae3590901543a022b7a58c4d20ce6",
+      "sha1": "bdbc60df4fe04072f41b408d5ed97487db9abe34"
+    },
+    {
+      "name": "Impossible Mission (PAL)",
+      "description": "Impossible Mission (Europe)",
+      "rom_name": "Impossible Mission (1987)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1987,
+      "crc": "dc1f3987",
+      "md5": "f9b53a96ad0a408d37fa1f1e745ac2df",
+      "sha1": "aa46b44bb579a82a85a03307bc474a6f19f209ab"
+    },
+    {
+      "name": "Ikari Warriors",
+      "description": "Ikari Warriors (USA)",
+      "rom_name": "Ikari Warriors (1989)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "aa0cfb30",
+      "md5": "09ab678572f2c2953a7dda3cc3cda0df",
+      "sha1": "d276034ad0cb78233f41d62f26ae8c13941b347f"
+    },
+    {
+      "name": "Ikari Warriors (PAL)",
+      "description": "Ikari Warriors (Europe)",
+      "rom_name": "Ikari Warriors (1989)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "9e43a69e",
+      "md5": "605b8fe25fcd5a8166f858f48bd3e454",
+      "sha1": "5a9cb92d46a8f66d848df0915c0533f32db12b62"
+    },
+    {
+      "name": "Hat Trick (Alt 1)",
+      "description": "Hat Trick (USA)",
+      "rom_name": "Hat Trick (1987)(Atari)(NTSC)[a].a78",
+      "size": 49280,
+      "releaseyear": 1987,
+      "crc": "6247efa8",
+      "md5": "e3009bea70564f42dea651aa6fb89bd2",
+      "sha1": "9a154c4faeb10167eeac65206892ad9a1b9f8364"
+    },
+    {
+      "name": "Hat Trick (PAL)",
+      "description": "Hat Trick (Europe)",
+      "rom_name": "Hat Trick (1987)(Atari)(PAL).a78",
+      "size": 49280,
+      "releaseyear": 1987,
+      "crc": "bf258a76",
+      "md5": "f7bf702bd6995df5ec7e377fd17b2689",
+      "sha1": "f1a01335e1311a96561ff799edb05f2c1ad1ef0b"
+    },
+    {
+      "name": "Galaga (Alt 1)",
+      "description": "Galaga (USA)",
+      "rom_name": "Galaga (1987)(Atari)(NTSC)[a].a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "cffaa1b7",
+      "md5": "1dd27b0caf03d6e3948d3be16ac30792",
+      "sha1": "93a3b9c5348bbfd3bad6ec2bd922857a66dbb73a"
+    },
+    {
+      "name": "Galaga (PAL)",
+      "description": "Galaga (Europe)",
+      "rom_name": "Galaga (1987)(Atari)(PAL).a78",
+      "size": 49280,
+      "releaseyear": 1987,
+      "crc": "50c37611",
+      "md5": "712225bf32f418848375012c91bb8554",
+      "sha1": "759d582fdbfa92f451b6c4a8bc739fc3e9f7128e"
+    },
+    {
+      "name": "Food Fight (Alt 1)",
+      "description": "Food Fight (USA)",
+      "rom_name": "Food Fight (1987)(Atari)(NTSC)[a].a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "03ec1894",
+      "md5": "9a3819eef58dddb550fe997e7e6abee2",
+      "sha1": "1d08c9791803e7bacdc0f36414ccabd1fa6b07a0"
+    },
+    {
+      "name": "Food Fight (PAL)",
+      "description": "Food Fight (Europe)",
+      "rom_name": "Food Fight (1987)(Atari)(PAL).a78",
+      "size": 49280,
+      "releaseyear": 1987,
+      "crc": "05b23d02",
+      "md5": "68a62e30225431f4a789dbc957bc28ff",
+      "sha1": "41c8df367c77f15457383140d590c5e6a0ee5f76"
+    },
+    {
+      "name": "Fight Night",
+      "description": "Fight Night (USA)",
+      "rom_name": "Fight Night (1988)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1988,
+      "crc": "28e38bd7",
+      "md5": "c64fb1c181e2d8b807181bb3c0fffbe9",
+      "sha1": "48d87db3dfc85b20c04410104023694d60baf8a1"
+    },
+    {
+      "name": "Fight Night (PAL)",
+      "description": "Fight Night (Europe)",
+      "rom_name": "Fight Night (1988)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1988,
+      "crc": "4b75ad7a",
+      "md5": "57109e6e4e2852c23440300ad27ce3cb",
+      "sha1": "25b8664f51e0e816c9a1c94397bde03ac256686d"
+    },
+    {
+      "name": "Fatal Run",
+      "description": "Fatal Run (USA)",
+      "rom_name": "Fatal Run (1990)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1990,
+      "crc": "718232bb",
+      "md5": "fb28cd747d102114858010f6eb16ab35",
+      "sha1": "aac1881255b4429a2fa13fcb003c2290bce5687c"
+    },
+    {
+      "name": "Fatal Run (PAL)",
+      "description": "Fatal Run (Europe)",
+      "rom_name": "Fatal Run (1990)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1990,
+      "crc": "8a840c36",
+      "md5": "c9551260a5a8e79e38acd8294c791f5a",
+      "sha1": "010773e4d837c4fe4e27b8996c3005435566e656"
+    },
+    {
+      "name": "F-18 Hornet",
+      "description": "F-18 Hornet (USA)",
+      "rom_name": "F-18 Hornet (1988)(Absolute Entertainment)(NTSC).a78",
+      "size": 65664,
+      "releaseyear": 1988,
+      "crc": "fa3e8cbb",
+      "md5": "934a3ee1ae7f9d740c868064862da318",
+      "sha1": "cadbb92d59d373c6f04420319eaf3cb448103b0e"
+    },
+    {
+      "name": "F-18 Hornet (PAL)",
+      "description": "F-18 Hornet (Europe)",
+      "rom_name": "F-18 Hornet (1988)(Absolute Entertainment)(PAL).a78",
+      "size": 65664,
+      "releaseyear": 1988,
+      "crc": "799f3f3d",
+      "md5": "4f6d09b0221636b56014e4756f4a9b17",
+      "sha1": "8f76d508c35f94dddaea0b70b7b0cb81e33a6291"
+    },
+    {
+      "name": "Double Dragon",
+      "description": "Double Dragon (USA)",
+      "rom_name": "Double Dragon (1989)(Activision)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "16e2fc12",
+      "md5": "39c607e68a8e2bc870b2355a0273c973",
+      "sha1": "6ac3621d153e20ad44fabbdaf65b74c20fbb9fdb"
+    },
+    {
+      "name": "Double Dragon (PAL)",
+      "description": "Double Dragon (Europe)",
+      "rom_name": "Double Dragon (1989)(Activision)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "3b1f47a2",
+      "md5": "994efa37ac630a7120b9a86629c8a613",
+      "sha1": "8c782aa3faaef83f76f53e446a676881a4f44eb0"
+    },
+    {
+      "name": "Donkey Kong Junior (Alt 1)",
+      "description": "Donkey Kong Junior (USA)",
+      "rom_name": "Donkey Kong Junior (1988)(Atari)(NTSC)[a].a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "6e989686",
+      "md5": "c4940b2652d6a654cbbecfb59495ba24",
+      "sha1": "2d02b7ec0ef958df5fbe11c1764c8932452e7451"
+    },
+    {
+      "name": "Donkey Kong Junior (PAL)",
+      "description": "Donkey Kong Junior (Europe)",
+      "rom_name": "Donkey Kong Junior (1988)(Atari)(PAL).a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "cd5eb9cd",
+      "md5": "c921a3c7028f03ec2469b92fa4b08d42",
+      "sha1": "90d491e1dcb5aae2bc82e851ace60a5eed7c3b4f"
+    },
+    {
+      "name": "Donkey Kong (Alt 1)",
+      "description": "Donkey Kong (USA)",
+      "rom_name": "Donkey Kong (1988)(Atari)(NTSC)[a].a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "d7a55f95",
+      "md5": "35eabe5b952a4f733b904f73511f884d",
+      "sha1": "46aa055a2cc950f075cf6833e1338c73027459d4"
+    },
+    {
+      "name": "Donkey Kong (PAL)",
+      "description": "Donkey Kong (Europe)",
+      "rom_name": "Donkey Kong (1988)(Atari)(PAL).a78",
+      "size": 49280,
+      "releaseyear": 1988,
+      "crc": "bf164aad",
+      "md5": "124a82890e7723ca9af7c8c063c503ab",
+      "sha1": "5a5a0adb9a081972040eb608051d7e5edd28ee30"
+    },
+    {
+      "name": "Dig Dug (Alt 1)",
+      "description": "Dig Dug (USA)",
+      "rom_name": "Dig Dug (1987)(Atari)(NTSC)[a].a78",
+      "size": 16512,
+      "releaseyear": 1987,
+      "crc": "8ead573d",
+      "md5": "3976abf29e9d6aa000bff8268c0d534e",
+      "sha1": "dd8d50b1b72953d7535aec08880270f3b5245e12"
+    },
+    {
+      "name": "Dig Dug (PAL)",
+      "description": "Dig Dug (Europe)",
+      "rom_name": "Dig Dug (1987)(Atari)(PAL).a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "d0df6f91",
+      "md5": "fa3279ef84d3f6a9df151ff578fcffe5",
+      "sha1": "3a0614b5ed04e878d63143fec23a75b778b9fd9b"
+    },
+    {
+      "name": "Desert Falcon (Alt 1)",
+      "description": "Desert Falcon (USA)",
+      "rom_name": "Desert Falcon (1987)(Atari)(NTSC)[a].a78",
+      "size": 49280,
+      "releaseyear": 1987,
+      "crc": "a6a62e78",
+      "md5": "ec1f38ae5b5e638e1ac84016ee1c0019",
+      "sha1": "0bf324702daf1a033fd8ffe57ecb9e066826780c"
+    },
+    {
+      "name": "Desert Falcon (PAL)",
+      "description": "Desert Falcon (Europe)",
+      "rom_name": "Desert Falcon (1987)(Atari)(PAL).a78",
+      "size": 49280,
+      "releaseyear": 1987,
+      "crc": "Z\u0011w\b",
+      "md5": "a1e78ca5dd1b84ce5a96ab1590abfef1",
+      "sha1": "97fea37888741279cf21e09ec46f6325e87ac2ae"
+    },
+    {
+      "name": "Dark Chambers",
+      "description": "Dark Chambers (USA)",
+      "rom_name": "Dark Chambers (1988)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1988,
+      "crc": "b5a87d19",
+      "md5": "b94b39a2ece024bc79ad350914219a72",
+      "sha1": "8e1866b33515d742bc0e1db0df0165f1c55694b9"
+    },
+    {
+      "name": "Dark Chambers (PAL)",
+      "description": "Dark Chambers (Europe)",
+      "rom_name": "Dark Chambers (1988)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1988,
+      "crc": "3fb402b1",
+      "md5": "26036ccf66b2747fd00d3884a528614c",
+      "sha1": "72c77e330825c0b82af7f6df310304152a54631c"
+    },
+    {
+      "name": "Crossbow",
+      "description": "Crossbow (USA)",
+      "rom_name": "Crossbow (1987)(Atari)(NTSC).a78",
+      "size": 147584,
+      "releaseyear": 1987,
+      "crc": "a2678e2d",
+      "md5": "68ae796ad700df322628ce9dfc82e802",
+      "sha1": "520b6d9ef2ef4edae9a8cdf8da57c85810908a9a"
+    },
+    {
+      "name": "Crossbow (PAL)",
+      "description": "Crossbow (Europe)",
+      "rom_name": "Crossbow (1987)(Atari)(PAL).a78",
+      "size": 147584,
+      "releaseyear": 1987,
+      "crc": "08e6c2cc",
+      "md5": "ff49656b248dd277f9d75dcca0a30116",
+      "sha1": "4f2cd2fdd900c26b4d56bc55349b8c34497e761d"
+    },
+    {
+      "name": "Crack'ed",
+      "description": "Crack'ed (USA)",
+      "rom_name": "Crack'ed (1988)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1988,
+      "crc": "61dcc763",
+      "md5": "5a8344478c246200d0ef987557aae3cd",
+      "sha1": "255e287a2f475731bafe5b7f1cf5075c8723d647"
+    },
+    {
+      "name": "Crack'ed (PAL)",
+      "description": "Crack'ed (Europe)",
+      "rom_name": "Crack'ed (1988)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1988,
+      "crc": "a2257dd0",
+      "md5": "911049690a04e272d28ee80d12329bc9",
+      "sha1": "39836c29772e91acb3db84e526dc62e2bd726fbf"
+    },
+    {
+      "name": "Commando (Alt 1)",
+      "description": "Commando (USA)",
+      "rom_name": "Commando (1989)(Atari)(NTSC)[a].a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "81c6c079",
+      "md5": "95d5eac7b804f3cb1950e0d19a03afe7",
+      "sha1": "3314ce17df8b1b6fc52e13ccf8d6ea1aadbc66c4"
+    },
+    {
+      "name": "Commando (PAL)",
+      "description": "Commando (Europe)",
+      "rom_name": "Commando (1989)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1989,
+      "crc": "2dc7ccc5",
+      "md5": "d59edcc53c3b1e4e565ff7234a5d37a6",
+      "sha1": "7d56547db021ed5ab5511ba1015f395ba1d6c70f"
+    },
+    {
+      "name": "Choplifter! (Alt 1)",
+      "description": "Choplifter! (USA)",
+      "rom_name": "Choplifter! (1987)(Atari)(NTSC)[a].a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "\u04fa`\u007f",
+      "md5": "0826515be7d9bc1fea26a7d6063667c1",
+      "sha1": "6457dd40aeadb9733602c4ad3498780ebd7bf0d1"
+    },
+    {
+      "name": "Choplifter! (PAL)",
+      "description": "Choplifter! (Europe)",
+      "rom_name": "Choplifter! (1987)(Atari)(PAL).a78",
+      "size": 49280,
+      "releaseyear": 1987,
+      "crc": "9f3a7a83",
+      "md5": "028c6757a2528219ea39b26c35b953dc",
+      "sha1": "a7fdc4abfd6c47d867e3c9b165ad902829d723a9"
+    },
+    {
+      "name": "Centipede (Alt 1)",
+      "description": "Centipede (USA)",
+      "rom_name": "Centipede (1987)(Atari)(NTSC)[a].a78",
+      "size": 16512,
+      "releaseyear": 1987,
+      "crc": "5f94939e",
+      "md5": "7612b1bb30320d37d79b7f48b16430b2",
+      "sha1": "8f395f48971ed55e97f41f2286e10dcc5a14c066"
+    },
+    {
+      "name": "Centipede (PAL)",
+      "description": "Centipede (Europe)",
+      "rom_name": "Centipede (1987)(Atari)(PAL).a78",
+      "size": 16512,
+      "releaseyear": 1987,
+      "crc": "cc7061e4",
+      "md5": "57ef570b8595bcdf0e26bc9b5b109b41",
+      "sha1": "a4d28b28960a9473d97d266a69f413834fb4f588"
+    },
+    {
+      "name": "Basketbrawl",
+      "description": "Basketbrawl (USA)",
+      "rom_name": "Basketbrawl (1990)(Atari)(NTSC).a78",
+      "size": 131200,
+      "releaseyear": 1990,
+      "crc": "fd3aec38",
+      "md5": "43b0a082f353919f83e4b37203af280f",
+      "sha1": "6cceb878627fbcae67ae1c7e0fbdbbd7a9dd0693"
+    },
+    {
+      "name": "Basketbrawl (PAL)",
+      "description": "Basketbrawl (Europe)",
+      "rom_name": "Basketbrawl (1990)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1990,
+      "crc": "e4e438a1",
+      "md5": "7da7af81921b61d2757d796a9ff3814c",
+      "sha1": "87b0740a5f042a61a0c38b25c0425638eebeb11f"
+    },
+    {
+      "name": "Baseball (PAL)",
+      "description": "Baseball (Europe)",
+      "rom_name": "Baseball (1989)(Absolute Entertainment)(PAL).a78",
+      "size": 32896,
+      "releaseyear": 1989,
+      "crc": "a8189e81",
+      "md5": "3ddfb8fe20b38500acdbcf158cdba11a",
+      "sha1": "776513b6408bb81ec3436cc8006db826a5bc83fd"
+    },
+    {
+      "name": "Barnyard Blaster (USA)",
+      "description": "Barnyard Blaster (USA)",
+      "rom_name": "Barnyard Blaster (USA).a78",
+      "size": 131200,
+      "crc": "c086ed30",
+      "md5": "98477839e00a9f617a97a0e91a6ff0b1",
+      "sha1": "ff9679a3f2f98d4c5e4a9f5c232f88d2db2bfa92"
+    },
+    {
+      "name": "Barnyard Blaster (PAL)",
+      "description": "Barnyard Blaster (Europe)",
+      "rom_name": "Barnyard Blaster (1988)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1988,
+      "crc": "ac94be39",
+      "md5": "138559499462d88d390d7cf93b344f5f",
+      "sha1": "8f8e37d9b6859953fdcd03beadac1166ecf026e0"
+    },
+    {
+      "name": "Ballblazer (Alt 1)",
+      "description": "Ballblazer (USA)",
+      "rom_name": "Ballblazer (1987)(Atari)(NTSC)[a].a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "DaR`",
+      "md5": "a6659fcf536d601948f57767aef65741",
+      "sha1": "28adab7de3af3ce8658a62a6e95b44f10324ee26"
+    },
+    {
+      "name": "Ballblazer (PAL)",
+      "description": "Ballblazer (Europe)",
+      "rom_name": "Ballblazer (1987)(Atari)(PAL).a78",
+      "size": 32896,
+      "releaseyear": 1987,
+      "crc": "48f75a89",
+      "md5": "554004ca435ca02eb519086f45e44033",
+      "sha1": "ca675c16174f491a99427c25f6aae1f7cbe8e8c5"
+    },
+    {
+      "name": "Asteroids (Alt 1)",
+      "description": "Asteroids (USA)",
+      "rom_name": "Asteroids (1987)(Atari)(NTSC)[a].a78",
+      "size": 16512,
+      "releaseyear": 1987,
+      "crc": "eac69cf0",
+      "md5": "85b5587c5a9406ddd079aa6879093cf7",
+      "sha1": "244136dce7f71c146c4eb8c19b1c56ac3f71f646"
+    },
+    {
+      "name": "Alien Brigade",
+      "description": "Alien Brigade (USA)",
+      "rom_name": "Alien Brigade (1990)(Atari)(NTSC).a78",
+      "size": 147584,
+      "releaseyear": 1990,
+      "crc": "3cef22ca",
+      "md5": "8bf5f92ed9a276c82139c47c9875fd17",
+      "sha1": "eec0c56ff4cd107101e0d44bc55913e6d886da94"
+    },
+    {
+      "name": "Alien Brigade (PAL)",
+      "description": "Alien Brigade (Europe)",
+      "rom_name": "Alien Brigade (1990)(Atari)(PAL).a78",
+      "size": 147584,
+      "releaseyear": 1990,
+      "crc": "0f24ddf1",
+      "md5": "4e5826f8bcdecaae3258cce2da57c569",
+      "sha1": "176a0f60cdd6d07d52bd222cde90c5f96226e3df"
+    },
+    {
+      "name": "Ace Of Aces (Alt 1)",
+      "description": "Ace of Aces (USA)",
+      "rom_name": "Ace Of Aces (1988)(Atari)(NTSC)[a].a78",
+      "size": 131200,
+      "releaseyear": 1988,
+      "crc": "e682c28f",
+      "md5": "4dd96d99c1228bb1fcae8c1b5c239197",
+      "sha1": "384311f2b20c256d755fe470fb82ce8ad094bca0"
+    },
+    {
+      "name": "Ace of Aces (PAL)",
+      "description": "Ace of Aces (Europe)",
+      "rom_name": "Ace of Aces (1988)(Atari)(PAL).a78",
+      "size": 131200,
+      "releaseyear": 1988,
+      "crc": "aa4752dc",
+      "md5": "c31759d77154966654d414eaf1f5283c",
+      "sha1": "ec308d7eaa759bf1cc3f12b07537699c8eafd59d"
+    },
+    {
+      "name": "Xevious (USA) (Beta)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Xevious (USA) (Beta).bin",
+      "size": 32768,
+      "users": 2,
+      "developer": "Namco",
+      "publisher": "Atari",
+      "crc": "6fd15498",
+      "md5": "dbbe99aeeb8cbc0f5f17cd0082d260a0",
+      "sha1": "5f7d2d52ed8c9a3263ee0aefb3bc05a2847665dd"
+    },
+    {
+      "name": "Xevious (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Xevious (USA).bin",
+      "size": 32768,
+      "users": 2,
+      "developer": "Namco",
+      "publisher": "Atari",
+      "crc": "75fc124f",
+      "md5": "d7dc17379aa25e5ae3c14b9e780c6f6d",
+      "sha1": "1d4f0335b152239553534fcbbacdca273802e3bd",
+      "serial": "CX7810"
+    },
+    {
+      "name": "Xenophobe (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Xenophobe (Europe).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Bally Midway",
+      "publisher": "Atari",
+      "crc": "cf0e44f1",
+      "md5": "70937c3184f0be33d06f7f4382ca54de",
+      "sha1": "b2cf7d6164d6e5acd47e9f6d7cf60bb0f775b4a3"
+    },
+    {
+      "name": "Winter Games (USA)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "Winter Games (USA).bin",
+      "size": 131072,
+      "users": 8,
+      "developer": "Action Graphics",
+      "publisher": "Atari",
+      "crc": "8981b531",
+      "md5": "3799d72f78dda2ee87b0ef8bf7b91186",
+      "sha1": "b3725d6f0834c68ac62ce13eb9eb0d01d1124e5e",
+      "serial": "CX7831"
+    },
+    {
+      "name": "Xevious (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Xevious (Europe).bin",
+      "size": 49152,
+      "users": 2,
+      "developer": "Namco",
+      "publisher": "Atari",
+      "crc": "d5ac738b",
+      "md5": "b1a9f196ce5f47ca8caf8fa7bc4ca46c",
+      "sha1": "81647c8ce432f891328631b57dd3268dd315f8e8"
+    },
+    {
+      "name": "Xenophobe (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Xenophobe (USA).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Bally Midway",
+      "publisher": "Atari",
+      "crc": "_\u0661A",
+      "md5": "05fb699db9eef564e2fe45c568746dbc",
+      "sha1": "867adbfd7539ff81e68726ed6f5ff7326409539f",
+      "serial": "CX7858"
+    },
+    {
+      "name": "Water Ski (USA)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "Water Ski (USA).bin",
+      "size": 65536,
+      "users": 1,
+      "developer": "Froggo Games Corporation",
+      "publisher": "Froggo Games Corporation",
+      "crc": "930b30df",
+      "md5": "427cb05d0a1abb068998e2760d77f4fb",
+      "sha1": "621c67c2228843405445222743ba3d7c1f04a3c4",
+      "serial": "FG2002"
+    },
+    {
+      "name": "Tower Toppler (USA)",
+      "genre": "Platform",
+      "region": "USA",
+      "rom_name": "Tower Toppler (USA).bin",
+      "size": 65536,
+      "users": 2,
+      "developer": "Hewson",
+      "publisher": "Atari",
+      "crc": "4407ba04",
+      "md5": "8d64763db3100aadc552db5e6868506a",
+      "sha1": "53976013986e0ad3694ab9c021420b8172465de7",
+      "serial": "CX7856"
+    },
+    {
+      "name": "Tower Toppler (Europe)",
+      "genre": "Platform",
+      "region": "Europe",
+      "rom_name": "Tower Toppler (Europe).bin",
+      "size": 65536,
+      "users": 2,
+      "developer": "Hewson",
+      "publisher": "Atari",
+      "crc": "0f87fd7b",
+      "md5": "32a37244a9c6cc928dcdf02b45365aa8",
+      "sha1": "56e1b795e80382edb376e4536d1dee539d4ac548"
+    },
+    {
+      "name": "Touchdown Football (USA)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "Touchdown Football (USA).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Imagic",
+      "publisher": "Atari",
+      "crc": "aae12695",
+      "md5": "208ef955fa90a29815eb097bce89bace",
+      "sha1": "364bf0fef8a67f7e66761c76a3a6a0dd186f04aa",
+      "serial": "CX7823"
+    },
+    {
+      "name": "Tank Command (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Tank Command (USA).bin",
+      "size": 65536,
+      "users": 1,
+      "developer": "Froggo Games Corporation",
+      "publisher": "Froggo Games Corporation",
+      "crc": "db91b181",
+      "md5": "5c4f752371a523f15e9980fea73b874d",
+      "sha1": "1d2975d754806416a25a821db6a9fe389bf5d946",
+      "serial": "FG2003"
+    },
+    {
+      "name": "Tomcat - The F-14 Fighter Simulator (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Tomcat - The F-14 Fighter Simulator (USA).bin",
+      "size": 32768,
+      "users": 1,
+      "releaseyear": 1989,
+      "developer": "Imagineer",
+      "publisher": "Absolute Entertainment",
+      "crc": "513cb9ee",
+      "md5": "c3903ab01a51222a52197dbfe6538ecf",
+      "sha1": "80c615fb60d0004c1accde25e42759572e030928",
+      "serial": "AV-046"
+    },
+    {
+      "name": "Tomcat - The F-14 Fighter Simulator (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Tomcat - The F-14 Fighter Simulator (Europe).bin",
+      "size": 32768,
+      "users": 1,
+      "developer": "Imagineer",
+      "publisher": "Absolute Entertainment",
+      "crc": "b01205bf",
+      "md5": "682338364243b023ecc9d24f0abfc9a7",
+      "sha1": "825381773593365b5ca7eeca968cca00879eee71"
+    },
+    {
+      "name": "Title Match Pro Wrestling (Europe)",
+      "genre": "Sports",
+      "region": "Europe",
+      "rom_name": "Title Match Pro Wrestling (Europe).bin",
+      "size": 32768,
+      "users": 2,
+      "developer": "Absolute Entertainment",
+      "publisher": "Absolute Entertainment",
+      "crc": "16b54d5b",
+      "md5": "3bb9c8d9adc912dd7f8471c97445cd8d",
+      "sha1": "7ab281c9b69692823b3b6b594856172363c507b5"
+    },
+    {
+      "name": "Title Match Pro Wrestling (USA)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "Title Match Pro Wrestling (USA).bin",
+      "size": 32768,
+      "users": 2,
+      "developer": "Absolute Entertainment",
+      "publisher": "Absolute Entertainment",
+      "crc": "bc23c57b",
+      "md5": "1af475ff6429a160752b592f0f92b287",
+      "sha1": "80d11bcbb953ccd8bf3c3e64162711e7edb95090",
+      "serial": "AV-041"
+    },
+    {
+      "name": "Super Huey UH-IX (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Super Huey UH-IX (USA).bin",
+      "size": 49152,
+      "users": 1,
+      "developer": "Cosmi Corporation",
+      "publisher": "Atari",
+      "crc": "71846500",
+      "md5": "cc18e3b37a507c4217eb6cb1de8c8538",
+      "sha1": "29aea9e90c446942001fd08d3c4c929f4ce048d7",
+      "serial": "CX7828"
+    },
+    {
+      "name": "Sentinel (USA) (Proto)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Sentinel (USA) (Proto).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "/\u076dx",
+      "md5": "b697d9c2d1b9f6cb21041286d1bbfa7f",
+      "sha1": "bd7de03a28b168c992bcaa96539c2310f3bfe30c"
+    },
+    {
+      "name": "Super Skateboardin' (USA)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "Super Skateboardin' (USA).bin",
+      "size": 32768,
+      "users": 1,
+      "developer": "Absolute Entertainment",
+      "publisher": "Absolute Entertainment",
+      "crc": "13b68650",
+      "md5": "59b5793bece1c80f77b55d60fb39cb94",
+      "sha1": "666d9383c112b66026898e6002b803801e269c51",
+      "serial": "AV-047"
+    },
+    {
+      "name": "Super Skateboardin' (Europe)",
+      "genre": "Sports",
+      "region": "Europe",
+      "rom_name": "Super Skateboardin' (Europe).bin",
+      "size": 32768,
+      "users": 1,
+      "developer": "Absolute Entertainment",
+      "publisher": "Absolute Entertainment",
+      "crc": "8f167ba9",
+      "md5": "95d7c321dce8f57623a9c5b4947bb375",
+      "sha1": "fab349584af7b6b3f9b034af3034f43257e2c25f"
+    },
+    {
+      "name": "Super Huey UH-IX (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Super Huey UH-IX (Europe).bin",
+      "size": 49152,
+      "users": 1,
+      "developer": "Cosmi Corporation",
+      "publisher": "Atari",
+      "crc": "6b27ea2c",
+      "md5": "162f9c953f0657689cc74ab20b40280f",
+      "sha1": "469e03ee1e22ef0978c8095a38d662d34a413723"
+    },
+    {
+      "name": "Summer Games (USA)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "Summer Games (USA).bin",
+      "size": 131072,
+      "users": 8,
+      "developer": "Epyx",
+      "publisher": "Atari",
+      "crc": "65c6df3f",
+      "md5": "cbb0746192540a13b4c7775c7ce2021f",
+      "sha1": "31d46b32a2aa8d5bd6028cff1f41037426b22409",
+      "serial": "CX7826"
+    },
+    {
+      "name": "Sirius (USA) (Proto)",
+      "genre": "Shooter",
+      "region": "USA",
+      "rom_name": "Sirius (USA) (Proto).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "Tynesoft",
+      "publisher": "Tynesoft",
+      "crc": "65ae616e",
+      "md5": "2d643ac548c40e58c99d0fe433ba4ba0",
+      "sha1": "cd9f6dea96f102262065d7472e73121b67f9e244"
+    },
+    {
+      "name": "Sentinel (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Sentinel (Europe).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "47340df9",
+      "md5": "5469b4de0608f23a5c4f98f331c9e75f",
+      "sha1": "6d85a73a56d2f02ff439736eace86691aa613444",
+      "serial": "CX7869"
+    },
+    {
+      "name": "Robotron - 2084 (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Robotron - 2084 (USA).bin",
+      "size": 32768,
+      "users": 2,
+      "developer": "Williams",
+      "publisher": "Atari",
+      "crc": "cb22305d",
+      "md5": "66ecaafe1b82ae68ffc96267aaf7a4d7",
+      "sha1": "ccc9753cdcbd2a2f8cb7966b8227801ba0bfd41d",
+      "serial": "CX7809"
+    },
+    {
+      "name": "Scrapyard Dog (USA)",
+      "genre": "Platform",
+      "region": "USA",
+      "rom_name": "Scrapyard Dog (USA).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "BlueSky Software",
+      "publisher": "Atari",
+      "crc": "5cc8c34f",
+      "md5": "980c35ae9625773a450aa7ef51751c04",
+      "sha1": "f2249321d0cc296b9f9e516bbc5ecc9aab56ca22",
+      "serial": "CX7879"
+    },
+    {
+      "name": "Scrapyard Dog (Europe)",
+      "genre": "Platform",
+      "region": "Europe",
+      "rom_name": "Scrapyard Dog (Europe).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "BlueSky Software",
+      "publisher": "Atari",
+      "crc": "F\u0756b",
+      "md5": "53db322c201323fe2ca8f074c0a2bf86",
+      "sha1": "ebfed67cfeebc6a558dbb087e4784e5e5258c2e1"
+    },
+    {
+      "name": "Rescue on Fractalus (USA) (Proto)",
+      "description": "Rescue on Fractalus (USA) (Proto)",
+      "genre": "Shooter",
+      "region": "USA",
+      "rom_name": "Rescue on Fractalus (USA) (Proto).bin",
+      "size": 32768,
+      "developer": "Lars Jensen",
+      "publisher": "Atari",
+      "crc": "9a74fbf2",
+      "md5": "8f7eb10ad0bd75474abf0c6c36c08486",
+      "sha1": "6653022f38e553d475896a918850158eaf8f77ff"
+    },
+    {
+      "name": "RealSports Baseball (USA)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "RealSports Baseball (USA).bin",
+      "size": 65536,
+      "users": 2,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "b1508030",
+      "md5": "383ed9bd1efb9b6cb3388a777678c928",
+      "sha1": "9a9f60251d049630099f56d2d3efb013828b8a2c",
+      "serial": "CX7834"
+    },
+    {
+      "name": "Rampart (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "Rampart (USA) (Proto).bin",
+      "size": 131072,
+      "developer": "Imagitec Design",
+      "publisher": "Atari",
+      "crc": "e8c2a662",
+      "md5": "442761655bb25ddfe5f7ab16bf591c6f",
+      "sha1": "53516794cb442208af5d54760324c006510553b3"
+    },
+    {
+      "name": "Pole Position II (Europe)",
+      "genre": "Racing",
+      "region": "Europe",
+      "rom_name": "Pole Position II (Europe).bin",
+      "size": 32768,
+      "users": 1,
+      "franchise": "Pole Position",
+      "developer": "Namco",
+      "publisher": "Atari",
+      "crc": "d751c7a6",
+      "md5": "865457e0e0f48253b08f77b9e18f93b2",
+      "sha1": "268e53b5b2117bf853e0aae6adb0b2d3aad8ad5c"
+    },
+    {
+      "name": "Rampage (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Rampage (USA).bin",
+      "size": 131072,
+      "users": 2,
+      "franchise": "Rampage",
+      "developer": "Bally Midway",
+      "publisher": "Activision",
+      "crc": "39a316aa",
+      "md5": "ac03806cef2558fc795a7d5d8dba7bc0",
+      "sha1": "13745b5eaaab7e2c992f3312285e112cdeb424f6",
+      "serial": "AM-049"
+    },
+    {
+      "name": "Pole Position II (USA) (Beta)",
+      "genre": "Racing",
+      "region": "USA",
+      "rom_name": "Pole Position II (USA) (Beta).bin",
+      "size": 32768,
+      "users": 1,
+      "franchise": "Pole Position",
+      "developer": "Namco",
+      "publisher": "Atari",
+      "crc": "fd40b838",
+      "md5": "dab84748d29d3854bca3675a8937988b",
+      "sha1": "e65e2bbf62f902c4dee3f2e95ec5a222d151beb4"
+    },
+    {
+      "name": "Pole Position II (USA)",
+      "genre": "Racing",
+      "region": "USA",
+      "rom_name": "Pole Position II (USA).bin",
+      "size": 32768,
+      "users": 1,
+      "franchise": "Pole Position",
+      "developer": "Namco",
+      "publisher": "Atari",
+      "crc": "a85fb962",
+      "md5": "584582bb09ee8122e7fc09dc7d1ed813",
+      "sha1": "ccfa6f3f83ddbed2a2fb32735fea316a718fbaaa",
+      "serial": "CX7808"
+    },
+    {
+      "name": "Plutos (USA) (Proto)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Plutos (USA) (Proto).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Tynesoft",
+      "publisher": "Tynesoft",
+      "crc": "/!\u001f\u007f",
+      "md5": "86546808dc60961cdb1b20e761c50ab1",
+      "sha1": "fa55d6a366b237917f18487fc51817394839a3bc"
+    },
+    {
+      "name": "Planet Smashers (USA)",
+      "genre": "Shooter",
+      "region": "USA",
+      "rom_name": "Planet Smashers (USA).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "4e3b9e64",
+      "md5": "33aea1e2b6634a1dec8c7006d9afda22",
+      "sha1": "503b975fc1f8edc16110ac2c5b884c4e8b2b6efb",
+      "serial": "CX7868"
+    },
+    {
+      "name": "Planet Smashers (Europe)",
+      "genre": "Shooter",
+      "region": "Europe",
+      "rom_name": "Planet Smashers (Europe).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "95dc7e96",
+      "md5": "2837a8fd49b7fc7ccd70fd45b69c5099",
+      "sha1": "f12cbb576607ec38d6111f4346412ccc5bfbcf42"
+    },
+    {
+      "name": "Pit Fighter (USA) (Proto)",
+      "genre": "Fighting",
+      "region": "USA",
+      "rom_name": "Pit Fighter (USA) (Proto).bin",
+      "size": 65536,
+      "users": 2,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "a5e75537",
+      "md5": "05f43244465943ce819780a71a5b572a",
+      "sha1": "378addef67aca55500f0f5f9f0075dcb177406b5"
+    },
+    {
+      "name": "Pete Rose Baseball (USA)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "Pete Rose Baseball (USA).bin",
+      "size": 32768,
+      "users": 2,
+      "developer": "Robert Curtiss",
+      "publisher": "Absolute Entertainment",
+      "crc": "f33d4dfa",
+      "md5": "1a5207870dec6fae9111cb747e20d8e3",
+      "sha1": "ffb4fbed8d8f28ea71668542b7ebd019955c5a11",
+      "serial": "AV-045"
+    },
+    {
+      "name": "One-on-One Basketball (Europe)",
+      "genre": "Sports",
+      "region": "Europe",
+      "rom_name": "One-on-One Basketball (Europe).bin",
+      "size": 49152,
+      "users": 2,
+      "developer": "Computer Magic",
+      "publisher": "Atari",
+      "crc": "7a628295",
+      "md5": "8dba0425f0262e5704581d8757a1a6e3",
+      "sha1": "01dfc5e4e615cf20ee4f07245285f85684ee445d"
+    },
+    {
+      "name": "One-on-One Basketball (USA)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "One-on-One Basketball (USA).bin",
+      "size": 49152,
+      "users": 2,
+      "developer": "Computer Magic",
+      "publisher": "Atari",
+      "crc": "7d9370fb",
+      "md5": "74569571a208f8b0b1ccfb22d7c914e1",
+      "sha1": "5173f892a8d70aeca6c324c138c56208e0db2b98",
+      "serial": "CX7824"
+    },
+    {
+      "name": "Ninja Golf (Europe)",
+      "genre": "Sports",
+      "region": "Europe",
+      "rom_name": "Ninja Golf (Europe).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "BlueSky Software",
+      "publisher": "Atari",
+      "crc": "2b5382b7",
+      "md5": "ea0c859aa54fe5eaf4c1f327fab06221",
+      "sha1": "99ce5711e38ff7ef3311216f954cf0ab70e289cf"
+    },
+    {
+      "name": "Ninja Golf (USA)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "Ninja Golf (USA).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "BlueSky Software",
+      "publisher": "Atari",
+      "crc": "cb48e8dc",
+      "md5": "220121f771fc4b98cef97dc040e8d378",
+      "sha1": "96d0e59e703770eea8d8d9c2c4e5a87ce6f2de76",
+      "serial": "CX7870"
+    },
+    {
+      "name": "Ms. Pac-Man (USA)",
+      "genre": "Platform",
+      "region": "USA",
+      "rom_name": "Ms. Pac-Man (USA).bin",
+      "size": 16384,
+      "users": 2,
+      "esrb_rating": "E",
+      "franchise": "Pac-Man",
+      "developer": "General Computer Corporation",
+      "publisher": "Atari",
+      "crc": "e42fc700",
+      "md5": "fc0ea52a9fac557251b65ee680d951e5",
+      "sha1": "ff22e21fc953a288453c40eb6fc5378d42b871f6",
+      "serial": "CX7807"
+    },
+    {
+      "name": "Ms. Pac-Man (Europe)",
+      "genre": "Platform",
+      "region": "Europe",
+      "rom_name": "Ms. Pac-Man (Europe).bin",
+      "size": 32768,
+      "users": 2,
+      "esrb_rating": "E",
+      "franchise": "Pac-Man",
+      "developer": "General Computer Corporation",
+      "publisher": "Atari",
+      "crc": "8421033a",
+      "md5": "56469e8c5ff8983c6cb8dadc64eb0363",
+      "sha1": "a5b0826a130acf8b8dbc59ef980d40b802c22b30"
+    },
+    {
+      "name": "Motor Psycho (Europe)",
+      "genre": "Racing",
+      "region": "Europe",
+      "rom_name": "Motor Psycho (Europe).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "BlueSky Software",
+      "publisher": "Atari",
+      "crc": "38bb45ba",
+      "md5": "5330bfe428a6b601b7e76c2cfc4cd049",
+      "sha1": "3b72d6b3e28ca9182f1f25dc57115d2ec33aa63e"
+    },
+    {
+      "name": "Motor Psycho (USA)",
+      "genre": "Racing",
+      "region": "USA",
+      "rom_name": "Motor Psycho (USA).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "BlueSky Software",
+      "publisher": "Atari",
+      "crc": "1e219482",
+      "md5": "3bc8f554cf86f8132a623cc2201a564b",
+      "sha1": "b9381f4d0413b6c48e27f26ed94c7a9eb1a49624",
+      "serial": "CX7852"
+    },
+    {
+      "name": "Missing in Action (USA) (Proto)",
+      "genre": "Shooter",
+      "region": "USA",
+      "rom_name": "Missing in Action (USA) (Proto).bin",
+      "size": 147456,
+      "users": 1,
+      "developer": "Sculptured Software",
+      "publisher": "TNT Games",
+      "crc": "ff7a4c60",
+      "md5": "017066f522908081ec3ee624f5e4a8aa",
+      "sha1": "26b0b187a43bf9a9397cb5e8b0033e8833f48f88"
+    },
+    {
+      "name": "Midnight Mutants (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Midnight Mutants (USA).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "Radioactive Software",
+      "publisher": "Atari",
+      "crc": "187ec84e",
+      "md5": "bc1e905db1008493a9632aa83ab4682b",
+      "sha1": "db5ea4c1456f3b403f6b8978432ecbcdac89d432",
+      "serial": "CX7889"
+    },
+    {
+      "name": "Meltdown (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Meltdown (Europe).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "177fc850",
+      "md5": "c80155d7eec9e3dcb79aa6b83c9ccd1e",
+      "sha1": "ac448f369c3c6334415095e4ff344fdd73b473be"
+    },
+    {
+      "name": "Midnight Mutants (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Midnight Mutants (Europe).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "Radioactive Software",
+      "publisher": "Atari",
+      "crc": "7ca6d521",
+      "md5": "6794ea31570eba0b88a0bf1ead3f3f1b",
+      "sha1": "85f0e0556df65c0732f71ab3f2bbde3615355f72"
+    },
+    {
+      "name": "Meltdown (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Meltdown (USA).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "4a8f2171",
+      "md5": "bedc30ec43587e0c98fc38c39c1ef9d0",
+      "sha1": "e601c45aaa1cc25f01493867664c8b9fefeca70e",
+      "serial": "CX7875"
+    },
+    {
+      "name": "Mean 18 Ultimate Golf (USA)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "Mean 18 Ultimate Golf (USA).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Accolade",
+      "publisher": "Accolade",
+      "crc": "cf21d9ac",
+      "md5": "f2f5e5841e4dda89a2faf8933dc33ea6",
+      "sha1": "a3e50c0e56c9675ffb1b6439f40789bc64c606b2",
+      "serial": "CX7847"
+    },
+    {
+      "name": "Mean 18 Ultimate Golf (Europe)",
+      "genre": "Sports",
+      "region": "Europe",
+      "rom_name": "Mean 18 Ultimate Golf (Europe).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Accolade",
+      "publisher": "Accolade",
+      "crc": "3cec4be8",
+      "md5": "2e9dbad6c0fa381a6cd1bb9abf98a104",
+      "sha1": "47702ee71c64af4ada09cd41122c779c7d8d94f1"
+    },
+    {
+      "name": "Mat Mania Challenge (USA)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "Mat Mania Challenge (USA).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "American Technos",
+      "publisher": "Atari",
+      "crc": "aba91829",
+      "md5": "37b5692e33a98115e574185fa8398c22",
+      "sha1": "bb849b603cf1091e4f032936b209ff33fc3b714e",
+      "serial": "CX7863"
+    },
+    {
+      "name": "Mat Mania Challenge (Europe)",
+      "genre": "Sports",
+      "region": "Europe",
+      "rom_name": "Mat Mania Challenge (Europe).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "American Technos",
+      "publisher": "Atari",
+      "crc": "\u0006_8s",
+      "md5": "6819c37b96063b024898a19dbae2df54",
+      "sha1": "119bb784f1a0638cc6778841131ca1766e94a112"
+    },
+    {
+      "name": "Mario Bros. (Europe)",
+      "genre": "Platform",
+      "region": "Europe",
+      "rom_name": "Mario Bros. (Europe).bin",
+      "size": 49152,
+      "users": 2,
+      "franchise": "Mario Bros.",
+      "developer": "Nintendo",
+      "publisher": "Atari",
+      "crc": "efad3d9d",
+      "md5": "d2e861306be78e44248bb71d7475d8a3",
+      "sha1": "881beff5103713e655fed80b32e0bbd774e78ee8"
+    },
+    {
+      "name": "Mario Bros. (USA)",
+      "genre": "Platform",
+      "region": "USA",
+      "rom_name": "Mario Bros. (USA).bin",
+      "size": 49152,
+      "users": 2,
+      "franchise": "Mario Bros.",
+      "developer": "Nintendo",
+      "publisher": "Atari",
+      "crc": "8021a13b",
+      "md5": "431ca060201ee1f9eb49d44962874049",
+      "sha1": "12e04b67094af622641c536379c69ecad2ee98ed",
+      "serial": "CX7850"
+    },
+    {
+      "name": "Klax (USA) (Proto)",
+      "genre": "Puzzle",
+      "region": "USA",
+      "rom_name": "Klax (USA) (Proto).bin",
+      "size": 131072,
+      "users": 1,
+      "releaseyear": 1992,
+      "developer": "Blue Sky Software",
+      "publisher": "Atari",
+      "crc": "f26621e3",
+      "md5": "17b3b764d33eae9b5260f01df7bb9d2f",
+      "sha1": "0ea6a04b8f9713040ce57b6f23a6589f98409d46"
+    },
+    {
+      "name": "Kung-Fu Master (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Kung-Fu Master (USA).bin",
+      "size": 32768,
+      "users": 2,
+      "developer": "Irem",
+      "publisher": "Absolute Entertainment",
+      "crc": "297899bb",
+      "md5": "f57d0af323d4e173fb49ed447f0563d7",
+      "sha1": "8824bffdf4f30a8191e581752a75259a663092ca",
+      "serial": "AM-039"
+    },
+    {
+      "name": "Kung-Fu Master (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Kung-Fu Master (Europe).bin",
+      "size": 32768,
+      "users": 2,
+      "developer": "Irem",
+      "publisher": "Absolute Entertainment",
+      "crc": "c1531fc4",
+      "md5": "2931b75811ad03f3ac9330838f3d231b",
+      "sha1": "0f0e24246d9e684b7f900a362fb08878b232580c"
+    },
+    {
+      "name": "Karateka (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Karateka (USA).bin",
+      "size": 49152,
+      "users": 1,
+      "developer": "Br\u00f8derbund Software",
+      "publisher": "Atari",
+      "crc": "fec21472",
+      "md5": "c3a5a8692a423d43d9d28dd5b7d109d9",
+      "sha1": "9fb97bbc7dcc610251cee1695c48b82a087f32d2",
+      "serial": "CX7822"
+    },
+    {
+      "name": "Karateka (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Karateka (Europe).bin",
+      "size": 65536,
+      "users": 1,
+      "developer": "Br\u00f8derbund Software",
+      "publisher": "Atari",
+      "crc": "6c8d9e68",
+      "md5": "5e0a1e832bbcea6facb832fde23a440a",
+      "sha1": "c5f25c88eefe0c7b3571ab3c3ec5185e537eb151"
+    },
+    {
+      "name": "Joust (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Joust (Europe).bin",
+      "size": 49152,
+      "users": 2,
+      "developer": "Williams",
+      "publisher": "Atari",
+      "crc": "9b3be616",
+      "md5": "f2dae0264a4b4a73762b9d7177e989f6",
+      "sha1": "aae5b9ee00c39d577858aba9d1fd791194be2c0c"
+    },
+    {
+      "name": "Joust (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Joust (USA).bin",
+      "size": 32768,
+      "users": 2,
+      "developer": "Williams",
+      "publisher": "Atari",
+      "crc": "2c430bce",
+      "md5": "f18b3b897a25ab3885b43b4bd141b396",
+      "sha1": "1ccd7c232bcfd5a65d26b9decfe4eceadcbe314c",
+      "serial": "CX7806"
+    },
+    {
+      "name": "Impossible Mission (USA)",
+      "genre": "Platform",
+      "region": "USA",
+      "rom_name": "Impossible Mission (USA).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "Epyx",
+      "publisher": "Atari",
+      "crc": ";\u001f/G",
+      "md5": "baebc9246c087e893dfa489632157180",
+      "sha1": "5437c0efb63a349953ec047efe6ec24144ed6914",
+      "serial": "CX7832"
+    },
+    {
+      "name": "Jinks (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Jinks (Europe).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "Diamond Software",
+      "publisher": "Atari",
+      "crc": "9207ed3b",
+      "md5": "dfb86f4d06f05ad00cf418f0a59a24f7",
+      "sha1": "eb16de0c3d5c4e769ae2314ba21c4dd3bca33c88"
+    },
+    {
+      "name": "Ikari Warriors (USA)",
+      "genre": "Platform",
+      "region": "USA",
+      "rom_name": "Ikari Warriors (USA).bin",
+      "size": 131072,
+      "users": 2,
+      "franchise": "Ikari",
+      "developer": "SNK",
+      "publisher": "Atari",
+      "crc": "8a6c1f15",
+      "md5": "c3672482ca93f70eafd9134b936c3feb",
+      "sha1": "e368c6c7ffca5ffac314dec1effea4e2c809519a",
+      "serial": "CX7862"
+    },
+    {
+      "name": "Jinks (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Jinks (USA).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "Diamond Software",
+      "publisher": "Atari",
+      "crc": "0818d8cd",
+      "md5": "045fd12050b7f2b842d5970f2414e912",
+      "sha1": "472bc12c437b015a9e317bac092529f3295033b8",
+      "serial": "CX7857"
+    },
+    {
+      "name": "Impossible Mission (Europe)",
+      "genre": "Platform",
+      "region": "Europe",
+      "rom_name": "Impossible Mission (Europe).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "Epyx",
+      "publisher": "Atari",
+      "crc": "994af6e0",
+      "md5": "80dead01ea2db5045f6f4443faa6fce8",
+      "sha1": "9770b61472510aba1cf3ea35ceca1859c3493676"
+    },
+    {
+      "name": "Ikari Warriors (Europe)",
+      "genre": "Platform",
+      "region": "Europe",
+      "rom_name": "Ikari Warriors (Europe).bin",
+      "size": 131072,
+      "users": 2,
+      "franchise": "Ikari",
+      "developer": "SNK",
+      "publisher": "Atari",
+      "crc": "cb621cdc",
+      "md5": "8c2c2a1ea6e9a928a44c3151ba5c1ce3",
+      "sha1": "275cae6c693d9bd1906fdc684460ec596869bbad"
+    },
+    {
+      "name": "Hat Trick (Europe)",
+      "genre": "Sports",
+      "region": "Europe",
+      "rom_name": "Hat Trick (Europe).bin",
+      "size": 49152,
+      "users": 2,
+      "developer": "Bally Sente",
+      "publisher": "Atari",
+      "crc": "057d9c3c",
+      "md5": "0baec96787ce17f390e204de1a136e59",
+      "sha1": "0e9fa678bb4aedc7bb7cf5d38fe27556c4c2bbbd"
+    },
+    {
+      "name": "Hat Trick (USA)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "Hat Trick (USA).bin",
+      "size": 49152,
+      "users": 2,
+      "developer": "Bally Sente",
+      "publisher": "Atari",
+      "crc": "cf6f4a6c",
+      "md5": "fd9e78e201b6baafddfd3e1fbfe6ba31",
+      "sha1": "14c0cfd01df1c725f399c23810e4854a639fce52",
+      "serial": "CX7829"
+    },
+    {
+      "name": "Galaga (Europe)",
+      "genre": "Shoot'em Up",
+      "region": "Europe",
+      "rom_name": "Galaga (Europe).bin",
+      "size": 49152,
+      "users": 2,
+      "esrb_rating": "E",
+      "franchise": "Galaxian",
+      "developer": "Namco",
+      "publisher": "Atari",
+      "crc": "5990a9f8",
+      "md5": "f5dc7dc8e38072d3d65bd90a660148ce",
+      "sha1": "f1ae5df03cf90041380d77c1b49c94611443330b"
+    },
+    {
+      "name": "GATO (USA) (Proto)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "GATO (USA) (Proto).bin",
+      "size": 49152,
+      "users": 1,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "a0529db5",
+      "md5": "06204dadc975be5e5e37e7cc66f984cf",
+      "sha1": "d17a710adca8d69e2a864ed93368c1d9f9bcfbd8"
+    },
+    {
+      "name": "Galaga (USA)",
+      "genre": "Shoot'em Up",
+      "region": "USA",
+      "rom_name": "Galaga (USA).bin",
+      "size": 32768,
+      "users": 2,
+      "releasemonth": 8,
+      "releaseyear": 1986,
+      "esrb_rating": "E",
+      "franchise": "Galaxian",
+      "developer": "Namco",
+      "publisher": "Atari",
+      "crc": "1a0a3eb3",
+      "md5": "fb8d803b328b2e442548f7799cfa9a4a",
+      "sha1": "33178d682564d70955e13d0633359e87b512253b",
+      "serial": "CX7805"
+    },
+    {
+      "name": "Food Fight (USA) (Beta)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Food Fight (USA) (Beta).bin",
+      "size": 32768,
+      "users": 2,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "47e94868",
+      "md5": "e05041ad193e354f9fa37c18f3550b5a",
+      "sha1": "ca47caff9cb976da34192e4fb9eea8dedf2222cd"
+    },
+    {
+      "name": "Food Fight (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Food Fight (Europe).bin",
+      "size": 49152,
+      "users": 2,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "c64549ec",
+      "md5": "de0d4f5a9bf1c1bddee3ed2f7ec51209",
+      "sha1": "40b8e5eeb9e9ad7239963ed79dc085092ccbec4c"
+    },
+    {
+      "name": "Food Fight (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Food Fight (USA).bin",
+      "size": 32768,
+      "users": 2,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "e64a5cde",
+      "md5": "cf76b00244105b8e03cdc37677ec1073",
+      "sha1": "3f5f42d5aaf6ccd4979658a1387aac5933549357",
+      "serial": "CX7804"
+    },
+    {
+      "name": "Fight Night (Europe)",
+      "genre": "Sports",
+      "region": "Europe",
+      "rom_name": "Fight Night (Europe).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Sydney Development Corp.",
+      "publisher": "Accolade",
+      "crc": "64d9c4be",
+      "md5": "e80f24e953563e6b61556737d67d3836",
+      "sha1": "ded89f3a4ac0d95aa158c98302b7939e5b89e4c6"
+    },
+    {
+      "name": "Fight Night (USA)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "Fight Night (USA).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Sydney Development Corp.",
+      "publisher": "Accolade",
+      "crc": "720ebc74",
+      "md5": "07dbbfe612a0a28e283c01545e59f25e",
+      "sha1": "1e8a8704a77b15e70cbc72b0ae9bc25fb91d7c21",
+      "serial": "CX7851"
+    },
+    {
+      "name": "Fatal Run (USA)",
+      "genre": "Racing",
+      "region": "USA",
+      "rom_name": "Fatal Run (USA).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "Sculptured Software",
+      "publisher": "Atari",
+      "crc": "a44df354",
+      "md5": "d25d5d19188e9f149977c49eb0367cd1",
+      "sha1": "69aab1e6ef332c6844c693ac41965e4c33ff822a",
+      "serial": "CX7854"
+    },
+    {
+      "name": "F-18 Hornet (Europe)",
+      "genre": "Simulation",
+      "region": "Europe",
+      "rom_name": "F-18 Hornet (Europe).bin",
+      "size": 65536,
+      "users": 1,
+      "developer": "Absolute Entertainment",
+      "publisher": "Absolute Entertainment",
+      "crc": "e5d714b0",
+      "md5": "e7709da8e49d3767301947a0a0b9d2e6",
+      "sha1": "673d912b2f9ab7a43f95e0e90bd80249b360fe0d"
+    },
+    {
+      "name": "Fatal Run (Europe)",
+      "genre": "Racing",
+      "region": "Europe",
+      "rom_name": "Fatal Run (Europe).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "Sculptured Software",
+      "publisher": "Atari",
+      "crc": "2a0a93be",
+      "md5": "23505651ac2e47f3637152066c3aa62f",
+      "sha1": "f23173d2e42bca0767f3d8ecb6bb1c0d23dde996"
+    },
+    {
+      "name": "F-18 Hornet (USA)",
+      "genre": "Simulation",
+      "region": "USA",
+      "rom_name": "F-18 Hornet (USA).bin",
+      "size": 65536,
+      "users": 1,
+      "developer": "Absolute Entertainment",
+      "publisher": "Absolute Entertainment",
+      "crc": "63d1c7c1",
+      "md5": "2251a6a0f3aec84cc0aff66fc9fa91e8",
+      "sha1": "13a18a6b85db6222b01d37800e5e57db616a85a6",
+      "serial": "AP-044"
+    },
+    {
+      "name": "Double Dragon (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Double Dragon (Europe).bin",
+      "size": 131072,
+      "users": 2,
+      "franchise": "Double Dragon",
+      "developer": "Technos Japan Corp.",
+      "publisher": "Activision",
+      "crc": "\uda2b\udf72",
+      "md5": "de2ebafcf0e37aaa9d0e9525a7f4dd62",
+      "sha1": "210f3ac989549e89425e7677127715aee713af32"
+    },
+    {
+      "name": "Donkey Kong Junior (USA)",
+      "genre": "Platform",
+      "region": "USA",
+      "rom_name": "Donkey Kong Junior (USA).bin",
+      "size": 49152,
+      "users": 2,
+      "franchise": "Donkey Kong",
+      "developer": "Nintendo",
+      "publisher": "Atari",
+      "crc": "1c5a1082",
+      "md5": "5e332fbfc1e0fc74223d2e73271ce650",
+      "sha1": "e9392259fff682fcc3476009771a3cfd7d5bdb6d",
+      "serial": "CX7849"
+    },
+    {
+      "name": "Double Dragon (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Double Dragon (USA).bin",
+      "size": 131072,
+      "users": 2,
+      "franchise": "Double Dragon",
+      "developer": "Technos Japan Corp.",
+      "publisher": "Activision",
+      "crc": "aa265865",
+      "md5": "543484c00ba233736bcaba2da20eeea9",
+      "sha1": "c3fb140836a4ed84cda7a999832703e8b72c0d21",
+      "serial": "AM-050"
+    },
+    {
+      "name": "Dig Dug (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Dig Dug (USA).bin",
+      "size": 16384,
+      "users": 2,
+      "franchise": "Dig Dug",
+      "developer": "Namco",
+      "publisher": "Atari",
+      "crc": "50cb13f3",
+      "md5": "731879ea82fc0ca245e39e036fe293e6",
+      "sha1": "19cee8dc40fabd7022bedc27e4896c09e3cadfdd",
+      "serial": "CX7803"
+    },
+    {
+      "name": "Donkey Kong Junior (Europe)",
+      "genre": "Platform",
+      "region": "Europe",
+      "rom_name": "Donkey Kong Junior (Europe).bin",
+      "size": 49152,
+      "users": 2,
+      "franchise": "Donkey Kong",
+      "developer": "Nintendo",
+      "publisher": "Atari",
+      "crc": "\u01c4\u06ec",
+      "md5": "4dc5f88243250461bd61053b13777060",
+      "sha1": "2626a9cd3326b8ce0ee0e834e17a0eedae005669"
+    },
+    {
+      "name": "Donkey Kong (Europe)",
+      "genre": "Platform",
+      "region": "Europe",
+      "rom_name": "Donkey Kong (Europe).bin",
+      "size": 49152,
+      "users": 2,
+      "franchise": "Donkey Kong",
+      "developer": "Nintendo",
+      "publisher": "Atari",
+      "crc": "0a43d1c5",
+      "md5": "8e96ef14ce9b5d84bcbc996b66d6d4c7",
+      "sha1": "dc69fa8fdf3fcba8557195358b8d206463652e0f"
+    },
+    {
+      "name": "Donkey Kong (USA)",
+      "genre": "Platform",
+      "region": "USA",
+      "rom_name": "Donkey Kong (USA).bin",
+      "size": 49152,
+      "users": 2,
+      "franchise": "Donkey Kong",
+      "developer": "Nintendo",
+      "publisher": "Atari",
+      "crc": "\u0006^\u0006?",
+      "md5": "19f1ee292a23636bd57d408b62de79c7",
+      "sha1": "820c852caa7957179bf7d6faf2e6922dde5a1a8e",
+      "serial": "CX7848"
+    },
+    {
+      "name": "Dig Dug (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Dig Dug (Europe).bin",
+      "size": 32768,
+      "users": 2,
+      "franchise": "Dig Dug",
+      "developer": "Namco",
+      "publisher": "Atari",
+      "crc": "efab7077",
+      "md5": "408dca9fc40e2b5d805f403fa0509436",
+      "sha1": "ce05d3270b0e0d36d80a4f0731d0173cb5921bce"
+    },
+    {
+      "name": "Desert Falcon (USA)",
+      "genre": "Shoot'em Up",
+      "region": "USA",
+      "rom_name": "Desert Falcon (USA).bin",
+      "size": 49152,
+      "users": 1,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "a1dc0899",
+      "md5": "95ac811c7d27af0032ba090f28c107bd",
+      "sha1": "725f893f9a98926c627ef37eacc3f241620c3ffc",
+      "serial": "CX7811"
+    },
+    {
+      "name": "Desert Falcon (Europe)",
+      "genre": "Shoot'em Up",
+      "region": "Europe",
+      "rom_name": "Desert Falcon (Europe).bin",
+      "size": 49152,
+      "users": 1,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "33991ee8",
+      "md5": "2d5d99b993a885b063f9f22ce5e6523d",
+      "sha1": "185d104614e23699e074e850d5ab8c36a159071c"
+    },
+    {
+      "name": "Dark Chambers (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Dark Chambers (Europe).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "c93a563e",
+      "md5": "a2b8e2f159642c4b91de82e9a2928494",
+      "sha1": "2b888c95b31109ffd0441f586ba18f21a3a4f22e"
+    },
+    {
+      "name": "Dark Chambers (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Dark Chambers (USA).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "366777f1",
+      "md5": "179b76ff729d4849b8f66a502398acae",
+      "sha1": "848077f15114fec31f8290be2583566f4486fe65",
+      "serial": "CX7837"
+    },
+    {
+      "name": "Crossbow (USA)",
+      "genre": "Shooter",
+      "region": "USA",
+      "rom_name": "Crossbow (USA).bin",
+      "size": 147456,
+      "users": 1,
+      "releaseyear": 1988,
+      "developer": "Exidy, Inc.",
+      "publisher": "Atari",
+      "crc": "d2ea5686",
+      "md5": "a94e4560b6ad053a1c24e096f1262ebf",
+      "sha1": "d5e47da88e232cd9ea059e133e7c0f13d921a04c",
+      "serial": "CX7844"
+    },
+    {
+      "name": "Crossbow (Europe)",
+      "genre": "Shooter",
+      "region": "Europe",
+      "rom_name": "Crossbow (Europe).bin",
+      "size": 147456,
+      "users": 1,
+      "developer": "Exidy, Inc.",
+      "publisher": "Atari",
+      "crc": "e93d8894",
+      "md5": "63db371d67a98daec547b2abd5e7aa95",
+      "sha1": "f26d292210a91a714b4b87712ff53b8e49da611e"
+    },
+    {
+      "name": "Commando (USA)",
+      "genre": "Shooter",
+      "region": "USA",
+      "rom_name": "Commando (USA).bin",
+      "size": 131072,
+      "users": 2,
+      "releasemonth": 9,
+      "releaseyear": 1985,
+      "developer": "Capcom",
+      "publisher": "Atari",
+      "crc": "cd1a98c5",
+      "md5": "2e8e28f6ad8b9b9267d518d880c73ebb",
+      "sha1": "f8ae7da650ad38675b81675b77096794a9cd52e8",
+      "serial": "CX7838"
+    },
+    {
+      "name": "Crack'ed (Europe)",
+      "genre": "Shooter",
+      "region": "Europe",
+      "rom_name": "Crack'ed (Europe).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "50fd19cb",
+      "md5": "7cbe78fa06f47ba6516a67a4b003c9ee",
+      "sha1": "0c1a7806e431efbf0c826a11b92d74eb45e08661"
+    },
+    {
+      "name": "Crack'ed (USA)",
+      "genre": "Shooter",
+      "region": "USA",
+      "rom_name": "Crack'ed (USA).bin",
+      "size": 131072,
+      "users": 1,
+      "releaseyear": 1988,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "e645fd1f",
+      "md5": "db691469128d9a4217ec7e315930b646",
+      "sha1": "664d267d1245d5698cbf6ff0622ee0d629da3a11",
+      "serial": "CX7836"
+    },
+    {
+      "name": "Commando (Europe)",
+      "genre": "Shooter",
+      "region": "Europe",
+      "rom_name": "Commando (Europe).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Capcom",
+      "publisher": "Atari",
+      "crc": "|!\u0016\u0012",
+      "md5": "55da6c6c3974d013f517e725aa60f48e",
+      "sha1": "2bdad24967fe4f5492ae294b1ccf8f148930a419"
+    },
+    {
+      "name": "Choplifter! (USA)",
+      "genre": "Shoot'em Up",
+      "region": "USA",
+      "rom_name": "Choplifter! (USA).bin",
+      "size": 32768,
+      "users": 1,
+      "releasemonth": 7,
+      "releaseyear": 1987,
+      "franchise": "Choplifter",
+      "developer": "Br\u00f8derbund Software",
+      "publisher": "Atari",
+      "crc": "419bff61",
+      "md5": "93e4387864b014c155d7c17877990d1e",
+      "sha1": "6df15e73494d0a498dd044753a27544214210b14",
+      "serial": "CX7821"
+    },
+    {
+      "name": "Choplifter! (Europe)",
+      "genre": "Shoot'em Up",
+      "region": "Europe",
+      "rom_name": "Choplifter! (Europe).bin",
+      "size": 49152,
+      "users": 1,
+      "franchise": "Choplifter",
+      "developer": "Br\u00f8derbund Software",
+      "publisher": "Atari",
+      "crc": "12efeb07",
+      "md5": "59d4edb0230b5acc918b94f6bc94779f",
+      "sha1": "f2fe1c82e5b333f4c59f76a28a9d379228596d89"
+    },
+    {
+      "name": "Centipede (USA)",
+      "genre": "Shoot'em Up",
+      "region": "USA",
+      "rom_name": "Centipede (USA).bin",
+      "size": 16384,
+      "users": 2,
+      "releasemonth": 6,
+      "releaseyear": 1987,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "020efe25",
+      "md5": "5a09946e57dbe30408a8f253a28d07db",
+      "sha1": "c8377ad7fb6afec5c88c14a23a68e2ecebba4e5a",
+      "serial": "CX7801"
+    },
+    {
+      "name": "Centipede (Europe)",
+      "genre": "Shoot'em Up",
+      "region": "Europe",
+      "rom_name": "Centipede (Europe).bin",
+      "size": 16384,
+      "users": 2,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "33f8a8f6",
+      "md5": "38c056a48472d9a9e16ebda5ed91dae7",
+      "sha1": "323f9fc4fde9aa6fcbaac8ae300aaa06bafa745a"
+    },
+    {
+      "name": "Basketbrawl (USA)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "Basketbrawl (USA).bin",
+      "size": 131072,
+      "users": 2,
+      "releasemonth": 6,
+      "releaseyear": 1990,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "\u0239\u05f5",
+      "md5": "f5f6b69c5eb4b55fc163158d1a6b423e",
+      "sha1": "39877a4c88498bf6656451e3d1acaf7e8638bdfd",
+      "serial": "CX7880"
+    },
+    {
+      "name": "Baseball (Europe)",
+      "genre": "Sports",
+      "region": "Europe",
+      "rom_name": "Baseball (Europe).bin",
+      "size": 32768,
+      "users": 2,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "68d48fdc",
+      "md5": "386bded4a944bae455fedf56206dd1dd",
+      "sha1": "c44fe244206590abc26fbbd520a5726353899e35"
+    },
+    {
+      "name": "Barnyard Blaster (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Barnyard Blaster (Europe).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "02764a86",
+      "md5": "babe2bc2976688bafb8b23c192658126",
+      "sha1": "a5797cf7e747bbd755c99fde6936caa15fbba6b1"
+    },
+    {
+      "name": "Basketbrawl (Europe)",
+      "genre": "Sports",
+      "region": "Europe",
+      "rom_name": "Basketbrawl (Europe).bin",
+      "size": 131072,
+      "users": 2,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "a4265d4b",
+      "md5": "fba002089fcfa176454ab507e0eb76cb",
+      "sha1": "e7ef6b11bb6836ff7d11a25f8d4e2c9361fa69b3"
+    },
+    {
+      "name": "Barnyard Blaster (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Barnyard Blaster (USA).bin",
+      "size": 131072,
+      "users": 2,
+      "releasemonth": 6,
+      "releaseyear": 1988,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "ed0a587d",
+      "md5": "42682415906c21c6af80e4198403ffda",
+      "sha1": "cbcde3d85c8778dea402394568677884cd781de3",
+      "serial": "CX7859"
+    },
+    {
+      "name": "Ballblazer (USA)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "Ballblazer (USA).bin",
+      "size": 32768,
+      "users": 2,
+      "releasemonth": 9,
+      "releaseyear": 1988,
+      "developer": "Lucasfilm Games",
+      "publisher": "Atari",
+      "crc": "a4c4808b",
+      "md5": "8fc3a695eaea3984912d98ed4a543376",
+      "sha1": "4eb5424360691a38b199d91a0e2c9095d0862dbe",
+      "serial": "CX7815"
+    },
+    {
+      "name": "Ballblazer (Europe)",
+      "genre": "Sports",
+      "region": "Europe",
+      "rom_name": "Ballblazer (Europe).bin",
+      "size": 32768,
+      "users": 2,
+      "developer": "Lucasfilm Games",
+      "publisher": "Atari",
+      "crc": "aff85565",
+      "md5": "b558814d54904ce0582e2f6a801d03af",
+      "sha1": "1aa1a508ada1521ae1d373a6860681093e3f851c"
+    },
+    {
+      "name": "Alien Brigade (Europe)",
+      "genre": "Shooter",
+      "region": "Europe",
+      "rom_name": "Alien Brigade (Europe).bin",
+      "size": 147456,
+      "users": 1,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "6a19f0fe",
+      "md5": "de3e9496cb7341f865f27e5a72c7f2f5",
+      "sha1": "990711ae451d901a960af8ad9ae70813f16257b1"
+    },
+    {
+      "name": "Asteroids (USA) (Beta)",
+      "genre": "Shooter",
+      "region": "USA",
+      "rom_name": "Asteroids (USA) (Beta).bin",
+      "size": 16384,
+      "users": 2,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "m\u07f5L",
+      "md5": "4332c24e4f3bc72e7fe1b77adf66c2b7",
+      "sha1": "85d9ce187497877005e991f2bf139d21034ccf9d"
+    },
+    {
+      "name": "Asteroids (USA)",
+      "genre": "Shooter",
+      "region": "USA",
+      "rom_name": "Asteroids (USA).bin",
+      "size": 16384,
+      "users": 2,
+      "releasemonth": 11,
+      "releaseyear": 1987,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "\u07f9?@",
+      "md5": "07342c78619ba6ffcc61c10e907e3b50",
+      "sha1": "d96ec4e043fcdacab367d8a69d29904b3b2896f1",
+      "serial": "CX7802"
+    },
+    {
+      "name": "Ace of Aces (Europe)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Ace of Aces (Europe).bin",
+      "size": 131072,
+      "users": 1,
+      "developer": "Artech Studios",
+      "publisher": "Accolade",
+      "crc": "20c5db80",
+      "md5": "aadde920b3aaba03bc10b40bd0619c94",
+      "sha1": "c43249ba2d38441461e5ffe07ad2e0b46ab1c6df"
+    },
+    {
+      "name": "Ace of Aces (USA)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Ace of Aces (USA).bin",
+      "size": 131072,
+      "users": 1,
+      "releasemonth": 6,
+      "releaseyear": 1988,
+      "developer": "Artech Studios",
+      "publisher": "Accolade",
+      "crc": "05a2b94c",
+      "md5": "0be996d25144966d5541c9eb4919b289",
+      "sha1": "efd20bd321a81d67fb6430d9ba93d23fb90d8029",
+      "serial": "CX7846"
+    },
+    {
+      "name": "Alien Brigade (USA)",
+      "genre": "Shooter",
+      "region": "USA",
+      "rom_name": "Alien Brigade (USA).bin",
+      "size": 147456,
+      "users": 1,
+      "releasemonth": 7,
+      "releaseyear": 1990,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "c8849d36",
+      "md5": "877dcc97a775ed55081864b2dbf5f1e2",
+      "sha1": "a8629fac962cc20b263a60bb2d2386d605713387",
+      "serial": "CX7855"
+    },
+    {
+      "count": 524
+    }
+  ]
+}

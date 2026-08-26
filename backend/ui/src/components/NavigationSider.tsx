@@ -4,6 +4,7 @@ import React from 'react'
 
 type Props = {
   collapsed: boolean
+  width: number
   logoUrl: string
   searchQuery: string
   onSearchChange: (value: string) => void
@@ -19,6 +20,7 @@ type Props = {
 
 const NavigationSider: React.FC<Props> = ({
   collapsed,
+  width,
   logoUrl,
   searchQuery,
   onSearchChange,
@@ -32,11 +34,11 @@ const NavigationSider: React.FC<Props> = ({
   romMetaLoading,
 }) => (
   <Layout.Sider
-    width={320}
+    width={width}
     className="nav-sider"
     collapsible
     collapsed={collapsed}
-    collapsedWidth={80}
+    collapsedWidth={64}
     theme="dark"
     trigger={null}
   >

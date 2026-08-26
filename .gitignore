@@ -218,6 +218,19 @@ downloads/
 backup/
 #Test tools
 tools/
+
+# Local runtime artifacts
+.local-tools/
+states/
+data/cache/
+backend/data/cache/
+data/client/
+backend/data/users/
+
+# Generated frontend/runtime files
+*.lpl
+*.lpl.disabled
+*.lpl.backup-*
 # Cached files
 data/cache/
 data/index/

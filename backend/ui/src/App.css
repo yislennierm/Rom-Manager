@@ -1,5 +1,7 @@
 .app-shell {
+  height: 100vh;
   min-height: 100vh;
+  overflow: hidden;
   background: radial-gradient(circle at top, rgba(29, 78, 216, 0.3), transparent),
     #020817;
 }
@@ -26,16 +28,33 @@
 }
 
 .app-content {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  max-width: none;
+  margin: 0;
+  padding: 16px 20px;
   width: 100%;
+}
+
+.main-panel {
+  height: 100vh;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .nav-sider {
   background: rgba(2, 8, 23, 0.8) !important;
-  padding: 1.5rem;
+  padding: 16px 12px;
   border-right: 1px solid rgba(148, 163, 184, 0.2);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.nav-sider .ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .nav-brand {
@@ -65,6 +84,10 @@
 }
 
 .nav-tree {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
   background: transparent !important;
   color: #e2e8f0;
 }
@@ -103,17 +126,33 @@
 }
 
 .app-logo {
-  height: 48px;
+  height: 36px;
   object-fit: contain;
 }
 
 .fold-btn {
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 18px;
+}
+
+.header-session {
+  margin-right: 16px;
+}
+
+.login-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  width: min(420px, 100%);
 }
 
 .app-tagline {
@@ -155,11 +194,15 @@
 
 .summary-card {
   background: rgba(15, 23, 42, 0.85);
-  border-radius: 16px;
+  border-radius: 8px;
   border: 1px solid rgba(148, 163, 184, 0.2);
-  padding: 1.5rem;
+  padding: 16px;
   flex: 1;
   min-width: 280px;
+}
+
+.console-transfer .ant-transfer-list {
+  flex: 1;
 }
 
 .summary-stats {
@@ -198,6 +241,45 @@
   background: rgba(15, 23, 42, 0.9);
   border-radius: 16px;
   border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.console-info-card {
+  display: grid;
+  grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
+  gap: 20px;
+  align-items: stretch;
+  padding: 16px;
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 8px;
+}
+
+.console-info-image {
+  width: 100%;
+  height: 190px;
+  object-fit: contain;
+  background: #020817;
+  border-radius: 6px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.console-info-skeleton-image {
+  width: 100% !important;
+  height: 190px !important;
+}
+
+.console-info-body {
+  min-width: 0;
+}
+
+.console-info-title {
+  margin-bottom: 0 !important;
+}
+
+.console-info-summary {
+  margin: 12px 0 0 !important;
+  max-width: 980px;
+  color: #dbe4f0;
 }
 
 .guid-display {
@@ -253,7 +335,18 @@
 .app-footer {
   background: transparent;
   text-align: center;
-  padding: 2rem;
+  padding: 12px 20px;
   color: #475569;
   font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .console-info-card {
+    grid-template-columns: 1fr;
+  }
+
+  .console-info-image,
+  .console-info-skeleton-image {
+    max-height: 220px;
+  }
 }

@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "consoles": {
+    "5656b00c-8050-57bd-93ed-0ba9bb176580": {
+      "module": "Atari - Lynx",
+      "status": "runtime_validated",
+      "notes": "User previously confirmed Lynx flow worked.",
+      "validated_at": "2026-08-07"
+    },
+    "3a5c3ea5-f514-59fa-9039-75d98e1ca63c": {
+      "module": "Hartung - Game Master",
+      "status": "runtime_validated",
+      "notes": "Validated through MAME softlist after BIOS/hash troubleshooting.",
+      "validated_at": "2026-08-07"
+    },
+    "a69e967b-f947-5962-8578-03ca389c6231": {
+      "module": "GamePark - GP32",
+      "status": "runtime_validated",
+      "notes": "Validated through MAME softlist with gp32 BIOS/hash.",
+      "validated_at": "2026-08-07"
+    },
+    "0acbb3bd-c595-56ea-893f-60d6d25aa2a4": {
+      "module": "GCE - Vectrex",
+      "status": "runtime_validated",
+      "notes": "User confirmed Vectrex worked.",
+      "validated_at": "2026-08-07"
+    },
+    "7b81f262-ec70-5234-928d-207322439020": {
+      "module": "Funtech - Super Acan",
+      "status": "runtime_validated",
+      "notes": "Validated after Super Acan BIOS/hash install.",
+      "validated_at": "2026-08-07"
+    },
+    "fa71743b-728a-59a1-abe8-ce3ec78be77e": {
+      "module": "Fairchild - Channel F",
+      "status": "runtime_validated",
+      "notes": "User confirmed runtime worked.",
+      "validated_at": "2026-08-07"
+    },
+    "947cc03e-2c72-5cd0-92d9-8f69f946d59f": {
+      "module": "Epoch - Super Cassette Vision",
+      "status": "runtime_validated",
+      "notes": "User confirmed runtime worked.",
+      "validated_at": "2026-08-07"
+    },
+    "2de2782e-37a2-5e1c-9f4e-ffbf96872531": {
+      "module": "Entex - Adventure Vision",
+      "status": "runtime_validated",
+      "notes": "User confirmed Adventure Vision worked after disk-space check.",
+      "validated_at": "2026-08-07"
+    },
+    "b7e90431-7e83-585a-90ed-eb636b009779": {
+      "module": "Emerson - Arcadia 2001",
+      "status": "runtime_validated",
+      "notes": "User confirmed runtime worked.",
+      "validated_at": "2026-08-07"
+    },
+    "72c1d004-1fce-5e54-9936-f41a1bcfe733": {
+      "module": "Coleco - ColecoVision",
+      "status": "runtime_validated",
+      "notes": "Validated after coleco.rom BIOS install.",
+      "validated_at": "2026-08-07"
+    },
+    "71b2e78e-d776-59a6-8bfa-5f84f90e7eca": {
+      "module": "Casio - PV-1000",
+      "status": "runtime_validated",
+      "notes": "User confirmed runtime worked.",
+      "validated_at": "2026-08-07"
+    },
+    "632b56c7-fdb2-5eff-81fc-0d9a5be9e208": {
+      "module": "Casio - Loopy",
+      "status": "runtime_validated",
+      "notes": "User confirmed runtime worked.",
+      "validated_at": "2026-08-07"
+    },
+    "595c8d22-7e81-5e3b-a7f3-52ae0cef34cd": {
+      "module": "Bandai - WonderSwan",
+      "status": "runtime_validated",
+      "notes": "Playlist generation issue was fixed and user confirmed.",
+      "validated_at": "2026-08-07"
+    },
+    "8f06706f-2b37-5d8a-94cc-028c7beef756": {
+      "module": "Sega - PICO",
+      "status": "runtime_validated",
+      "notes": "User confirmed runtime worked.",
+      "validated_at": "2026-08-07"
+    },
+    "63aab22a-8415-5a15-8d82-f70c218298f6": {
+      "module": "Sega - Mega-CD - Sega CD",
+      "status": "runtime_validated",
+      "notes": "User confirmed runtime worked after BIOS/source validation.",
+      "validated_at": "2026-08-07"
+    },
+    "126fc9a7-f783-5a73-9c17-b1e497cc8edd": {
+      "module": "Sega - Mega Drive - Genesis",
+      "status": "runtime_validated",
+      "notes": "User confirmed runtime worked.",
+      "validated_at": "2026-08-07"
+    },
+    "acc73d91-7629-55cb-aeca-7b90814d8604": {
+      "module": "Sega - Master System - Mark III",
+      "status": "runtime_validated",
+      "notes": "User confirmed runtime worked.",
+      "validated_at": "2026-08-07"
+    },
+    "fdb51c61-0560-593b-937f-cccae600d469": {
+      "module": "Sega - Game Gear",
+      "status": "runtime_validated",
+      "notes": "User confirmed runtime worked.",
+      "validated_at": "2026-08-07"
+    },
+    "2530a9bf-3926-52a9-b3fd-401ed1655bcc": {
+      "module": "Sega - Dreamcast",
+      "status": "runtime_validated",
+      "notes": "User confirmed runtime worked after BIOS check.",
+      "validated_at": "2026-08-07"
+    },
+    "2bf97080-34ce-529a-9e1c-67a5cdab9070": {
+      "module": "Sega - 32X",
+      "status": "runtime_validated",
+      "notes": "User confirmed runtime worked.",
+      "validated_at": "2026-08-07"
+    },
+    "e9d5a0d5-42af-5654-848c-a29ea154ba0f": {
+      "module": "SNK - Neo Geo",
+      "status": "runtime_validated",
+      "notes": "Validated with caveat: arcade set/core compatibility needs later refinement.",
+      "validated_at": "2026-08-07"
+    },
+    "d1c9402f-aa02-5f19-a846-449517ecd7c0": {
+      "module": "SNK - Neo Geo Pocket",
+      "status": "runtime_validated",
+      "notes": "User confirmed runtime worked after playlist fix.",
+      "validated_at": "2026-08-07"
+    },
+    "ef04915a-086b-574d-aa82-e99c2892c331": {
+      "module": "SNK - Neo Geo Pocket Color",
+      "status": "runtime_validated",
+      "notes": "User confirmed runtime worked.",
+      "validated_at": "2026-08-07"
+    },
+    "f86b3c1b-7bf6-5538-b5f3-712173dce0b0": {
+      "module": "SNK - Neo Geo CD",
+      "status": "runtime_validated",
+      "notes": "User confirmed runtime worked.",
+      "validated_at": "2026-08-07"
+    },
+    "713057d9-8ae9-5b0a-9d1b-cf121b9357ae": {
+      "module": "RCA - Studio II",
+      "status": "runtime_validated",
+      "notes": "Runs with caveats: MAME softlist, game focus, F3/keypad startup.",
+      "validated_at": "2026-08-07"
+    },
+    "96d28972-81ec-55c8-a748-b621d6612d1c": {
+      "module": "Bandai - WonderSwan Color",
+      "status": "runtime_validated",
+      "notes": "User confirmed WonderSwan Color worked.",
+      "validated_at": "2026-08-07"
+    },
+    "d4874312-2442-5d55-b0a1-8fbd6b5bb68e": {
+      "module": "Atari - 2600",
+      "status": "runtime_validated",
+      "notes": "User considered Atari 2600 already happy; smoke test passed.",
+      "validated_at": "2026-08-07"
+    },
+    "f47fa56b-1c6e-5364-a344-9fafc6ba4bf0": {
+      "module": "Atari - 5200",
+      "status": "runtime_validated",
+      "notes": "A5200 smoke test passed; BIOS present.",
+      "validated_at": "2026-08-07"
+    },
+    "123de432-6905-5c13-b785-0c643bf5cb09": {
+      "module": "Atari - 7800",
+      "status": "runtime_validated",
+      "notes": "ProSystem smoke test passed with Food Fight.",
+      "validated_at": "2026-08-07"
+    },
+    "a7d91fb9-7cd4-51ff-9dfd-44a90ad355de": {
+      "module": "Nintendo - Game Boy",
+      "status": "runtime_validated",
+      "notes": "Gambatte smoke test passed with Dr. Mario Rev 0 from the TOSEC provider archive.",
+      "validated_at": "2026-08-07"
+    },
+    "6014b17f-d1fe-5067-b80b-f3e582e492b2": {
+      "module": "Nintendo - Game Boy Advance",
+      "status": "runtime_validated",
+      "notes": "mGBA smoke test passed with They See Me Rollin' from the TOSEC provider archive. Provider coverage is limited until large No-Intro bundles can be indexed on a larger disk.",
+      "validated_at": "2026-08-07"
+    },
+    "bc81aad5-81d4-537e-9c47-ee9d18a95ee8": {
+      "module": "Nintendo - Game Boy Color",
+      "status": "runtime_validated",
+      "notes": "Gambatte smoke test passed with Resident Evil prototype from the No-Intro provider archive.",
+      "validated_at": "2026-08-07"
+    },
+    "58d85a09-26d6-5da5-a102-c6b9257853da": {
+      "module": "Nintendo - GameCube",
+      "status": "runtime_validated",
+      "notes": "Dolphin smoke test passed with Soulcalibur II demo RVZ. Large library providers are registered, but broad installs need substantially more disk space.",
+      "validated_at": "2026-08-07"
+    }
+  },
+  "updated_at": "2026-08-07T15:37:35.673717"
+}

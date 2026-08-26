@@ -35,6 +35,78 @@
       "notes": "Generic Saturn BIOS used by several cores. Optional for some, recommended for accuracy.",
       "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/saturn_bios.bin"
     },
+    "dreamcast_boot_bios": {
+      "filename": "dc/dc_boot.bin",
+      "md5": "e10c53c2f8b90bab96ead2d368858623",
+      "size": 2097152,
+      "notes": "Dreamcast boot ROM used by Flycast. Place under RetroArch system/dc.",
+      "url": null,
+      "sources": [
+        {
+          "id": "abdess_retrobios",
+          "name": "RetroBIOS",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/Abdess/retrobios/main/bios/Sega/Dreamcast/dc_boot.bin",
+          "index_url": "https://github.com/Abdess/retrobios/tree/main/bios/Sega/Dreamcast",
+          "notes": "Public RetroBIOS repository entry matching Libretro Flycast MD5."
+        },
+        {
+          "id": "batoceraplus_bios",
+          "name": "Batocera.PLUS BIOS",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-bios/main/dc_boot.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-bios",
+          "notes": "Public BatoceraPLUS BIOS repository entry for Dreamcast."
+        },
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/dc_boot.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios",
+          "notes": "Public BatoceraPLUS update BIOS repository entry for Dreamcast."
+        }
+      ]
+    },
+    "dreamcast_flash_bios": {
+      "filename": "dc/dc_flash.bin",
+      "md5": "0a93f7940c455905bea6e392dfde92a4",
+      "size": 131072,
+      "notes": "Dreamcast flash/NVRAM file used by Flycast for date, time, language, and related console state. Optional but recommended.",
+      "url": null,
+      "sources": [
+        {
+          "id": "abdess_retrobios",
+          "name": "RetroBIOS",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/Abdess/retrobios/main/bios/Sega/Dreamcast/dc_flash.bin",
+          "index_url": "https://github.com/Abdess/retrobios/tree/main/bios/Sega/Dreamcast",
+          "notes": "Public RetroBIOS repository entry matching Libretro/Redream MD5."
+        },
+        {
+          "id": "batoceraplus_bios",
+          "name": "Batocera.PLUS BIOS",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-bios/main/dc_flash.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-bios",
+          "notes": "Public BatoceraPLUS BIOS repository entry for Dreamcast."
+        },
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/dc_flash.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios",
+          "notes": "Public BatoceraPLUS update BIOS repository entry for Dreamcast."
+        }
+      ]
+    },
     "stv_bios": {
       "filename": "stvbios.zip",
       "md5": null,
@@ -101,9 +173,23 @@
     "gamegear_bootrom": {
       "filename": "bios.gg",
       "md5": "672e104c3be3a238301aceffc3b23fd6",
-      "size": null,
-      "notes": "Game Gear BIOS (optional boot ROM).",
-      "url": null
+      "size": 1024,
+      "notes": "Game Gear boot ROM. Optional for most games, but avoids boot ROM warnings in compatible cores.",
+      "url": null,
+      "sources": [
+        {
+          "id": "retrobios",
+          "url": "https://raw.githubusercontent.com/Abdess/retrobios/main/bios/Sega/Game%20Gear/bios.gg",
+          "index_url": "https://github.com/Abdess/retrobios/blob/main/bios/Sega/Game%20Gear/bios.gg",
+          "notes": "Verified 1024-byte Game Gear BIOS payload with MD5 672e104c3be3a238301aceffc3b23fd6."
+        },
+        {
+          "id": "bios_repo",
+          "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/bios.gg",
+          "index_url": "https://github.com/yislennierm/BIOS-repo/blob/master/BIOS/bios.gg",
+          "notes": "Alternate public BIOS repository copy with matching MD5."
+        }
+      ]
     },
     "lockon_sonic_knuckles": {
       "filename": "sk.bin",
@@ -136,12 +222,874 @@
     "Family Computer Disk System BIOS": {
       "filename": "disksys.rom",
       "md5": "ca30b50f880eb660a320674ed365ef7a",
+      "size": 8192,
+      "notes": "Family Computer Disk System BIOS required by FCEUmm, Nestopia, and Mesen for FDS emulation.",
+      "url": null,
+      "sources": [
+        {
+          "id": "abdess_retrobios",
+          "name": "RetroBIOS",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/Abdess/retrobios/main/bios/Nintendo/Famicom%20Disk%20System/disksys.rom",
+          "index_url": "https://github.com/Abdess/retrobios/blob/main/bios/Nintendo/Famicom%20Disk%20System/disksys.rom",
+          "notes": "Public RetroBIOS repository entry for Famicom Disk System BIOS."
+        }
+      ]
+    },
+    "gmaster_bios": {
+      "filename": "gmaster.zip",
+      "md5": null,
       "size": null,
-      "url": "https://github.com/Abdess/retroarch_system/blob/libretro/Nintendo%20-%20Famicom%20Disk%20System/disksys.rom",
-      "notes": null
+      "notes": "Hartung Game Master MAME BIOS set. Must contain d78c11agf_e19.u1 with MD5 6bff08b5e5f96de405cd56d5f04a08f8.",
+      "url": null,
+      "sources": [
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/gmaster.zip",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/tree/main",
+          "notes": "Public BatoceraPLUS BIOS repository entry for Hartung Game Master."
+        }
+      ],
+      "zip_contents": [
+        {
+          "filename": "d78c11agf_e19.u1",
+          "md5": "6bff08b5e5f96de405cd56d5f04a08f8"
+        }
+      ]
+    },
+    "colecovision_bios": {
+      "filename": "colecovision.rom",
+      "aliases": [
+        "coleco.rom"
+      ],
+      "md5": "2c66f5911e5b42b8ebe113403548eee7",
+      "size": 8192,
+      "notes": "ColecoVision BIOS required by GearColeco.",
+      "url": null,
+      "sources": [
+        {
+          "id": "abdess_retrobios",
+          "name": "RetroBIOS",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/Abdess/retrobios/main/bios/Coleco/ColecoVision/BIOS.col",
+          "index_url": "https://github.com/Abdess/retrobios/blob/main/bios/Coleco/ColecoVision/BIOS.col",
+          "notes": "Verified 8192-byte ColecoVision BIOS payload with MD5 2c66f5911e5b42b8ebe113403548eee7."
+        },
+        {
+          "id": "batoceraplus_bios_index",
+          "name": "Batocera.PLUS BIOS index",
+          "type": "github_reference",
+          "policy": "firmware_user_opt_in",
+          "url": null,
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-bios/blob/main/BIOS.col",
+          "notes": "Repository exposes BIOS.col as a symlink reference to Machines/COL - ColecoVision/coleco.rom; raw symlink URL is not directly installable."
+        }
+      ]
+    },
+    "channelf_psu1_bios": {
+      "filename": "sl31253.bin",
+      "md5": "ac9804d4c0e9d07e33472e3726ed15c3",
+      "size": 1024,
+      "notes": "Fairchild Channel F PSU1 BIOS required by FreeChaF. Channel F II sl90025.bin can be used by the core as an alternate PSU1 BIOS, but sl31253.bin is the primary baseline.",
+      "url": null,
+      "sources": [
+        {
+          "id": "tosec_full_2022_firmware",
+          "name": "TOSEC full 2022 Fairchild firmware",
+          "type": "internet_archive_bundle_member",
+          "policy": "firmware_user_opt_in",
+          "url": "https://archive.org/download/tosec-full-2022-07-10/Fairchild/VES%20%26%20Channel%20F/Firmware/Fairchild%20VES%20%26%20Channel%20F%20-%20Firmware.7z",
+          "index_url": "https://archive.org/details/tosec-full-2022-07-10",
+          "notes": "Bundle member Fairchild VES & Channel F BIOS (1976)(Fairchild)[SL31253].bin verified with FreeChaF MD5."
+        }
+      ]
+    },
+    "channelf_psu2_bios": {
+      "filename": "sl31254.bin",
+      "md5": "da98f4bb3242ab80d76629021bb27585",
+      "size": 1024,
+      "notes": "Fairchild Channel F PSU2 BIOS required by FreeChaF.",
+      "url": null,
+      "sources": [
+        {
+          "id": "tosec_full_2022_firmware",
+          "name": "TOSEC full 2022 Fairchild firmware",
+          "type": "internet_archive_bundle_member",
+          "policy": "firmware_user_opt_in",
+          "url": "https://archive.org/download/tosec-full-2022-07-10/Fairchild/VES%20%26%20Channel%20F/Firmware/Fairchild%20VES%20%26%20Channel%20F%20-%20Firmware.7z",
+          "index_url": "https://archive.org/details/tosec-full-2022-07-10",
+          "notes": "Bundle member Fairchild VES & Channel F BIOS (1976)(Fairchild)[SL31254].bin verified with FreeChaF MD5."
+        }
+      ]
+    },
+    "channelf2_psu1_bios": {
+      "filename": "sl90025.bin",
+      "md5": "95d339631d867c8f1d15a5f2ec26069d",
+      "size": 1024,
+      "notes": "Optional Channel F II PSU1 BIOS. FreeChaF uses this instead of sl31253.bin when present.",
+      "url": null,
+      "sources": [
+        {
+          "id": "tosec_full_2022_firmware",
+          "name": "TOSEC full 2022 Fairchild firmware",
+          "type": "internet_archive_bundle_member",
+          "policy": "firmware_user_opt_in",
+          "url": "https://archive.org/download/tosec-full-2022-07-10/Fairchild/VES%20%26%20Channel%20F/Firmware/Fairchild%20VES%20%26%20Channel%20F%20-%20Firmware.7z",
+          "index_url": "https://archive.org/details/tosec-full-2022-07-10",
+          "notes": "Bundle member Fairchild VES & Channel F BIOS (1976)(Fairchild)[SL90025].bin verified with FreeChaF MD5."
+        }
+      ]
+    },
+    "gp32_bios": {
+      "filename": "gp32.zip",
+      "md5": "e0abd9b6500f3414792b4288da5521fe",
+      "size": null,
+      "notes": "GamePark GP32 MAME machine BIOS set required for MAME software-list launch. Place in RetroArch system root; installer mirrors it to mame/roms/gp32.zip.",
+      "url": null,
+      "zip_contents": [
+        {
+          "filename": "gp32mfv2.bin",
+          "md5": "d4af2bc352bdaf4972ea40902feda114"
+        },
+        {
+          "filename": "gp32100k.bin",
+          "md5": "cac4b56c0db80922cae75403faef40af"
+        },
+        {
+          "filename": "gp32156k.bin",
+          "md5": "1e4d3216719acea231b81dfcf6069aef"
+        },
+        {
+          "filename": "gp32157e.bin",
+          "md5": "19021cc891119c0872d46e87fc0ffe35"
+        },
+        {
+          "filename": "gp32166m.bin",
+          "md5": "f78092f15f6ffe15975901ee4e92c680"
+        },
+        {
+          "filename": "x2c32.jed",
+          "md5": "e64ad881b5e1d86547f2edc3034946d9"
+        }
+      ],
+      "sources": [
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/gp32.zip",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/blob/main/bios/gp32.zip",
+          "notes": "Verified gp32.zip MAME BIOS set with MD5 e0abd9b6500f3414792b4288da5521fe."
+        }
+      ]
+    },
+    "gp32_mame_hash": {
+      "filename": "mame/hash/gp32.xml",
+      "md5": null,
+      "size": null,
+      "notes": "MAME software-list hash file for GamePark GP32 SmartMedia cards.",
+      "url": null,
+      "sources": [
+        {
+          "id": "mamedev_gp32_hash",
+          "name": "MAME gp32.xml",
+          "type": "github_raw",
+          "policy": "metadata_user_opt_in",
+          "url": "https://raw.githubusercontent.com/mamedev/mame/master/hash/gp32.xml",
+          "index_url": "https://github.com/mamedev/mame/blob/master/hash/gp32.xml",
+          "notes": "Official MAME software-list hash file for GP32."
+        }
+      ]
+    },
+    "supracan_mame_hash": {
+      "filename": "mame/hash/supracan.xml",
+      "md5": null,
+      "size": null,
+      "notes": "MAME software-list hash file for Funtech Super Acan cartridges.",
+      "url": null,
+      "sources": [
+        {
+          "id": "mamedev_supracan_hash",
+          "name": "MAME supracan.xml",
+          "type": "github_raw",
+          "policy": "metadata_user_opt_in",
+          "url": "https://raw.githubusercontent.com/mamedev/mame/master/hash/supracan.xml",
+          "index_url": "https://github.com/mamedev/mame/blob/master/hash/supracan.xml",
+          "notes": "Official MAME software-list hash file for Super Acan."
+        }
+      ]
+    },
+    "supracan_bios": {
+      "filename": "supracan.zip",
+      "md5": "8f63cc8c8b03f3dc4e773c22b191742f",
+      "size": 9482,
+      "notes": "MAME machine ROM set for Funtech Super Acan. MAME also searches this set under system/mame/roms/supracan.zip.",
+      "aliases": [
+        "mame/roms/supracan.zip"
+      ],
+      "zip_contents": [
+        {
+          "filename": "internal_68k.bin",
+          "size": 4096,
+          "md5": "53c4343e062bb3b337370bbb58e64d16"
+        },
+        {
+          "filename": "internal_6502_1.bin",
+          "size": 8192,
+          "md5": "c5bab9c8148578cda8a7bc6098e7fb52"
+        },
+        {
+          "filename": "internal_6502_2.bin",
+          "size": 8192,
+          "md5": "3938e12dae1845046b3f2fa023a6a56a"
+        }
+      ],
+      "sources": [
+        {
+          "id": "planetemu_supracan",
+          "name": "Planet Emulation supracan.zip",
+          "type": "http_post",
+          "policy": "firmware_user_opt_in",
+          "url": "https://www.planetemu.net/download/rom",
+          "index_url": "https://www.planetemu.net/rom/mame-roms-merged/supracan",
+          "notes": "POST id 1011030. Inner CRC/SHA1 values verified against MAME supracan.cpp."
+        }
+      ]
+    },
+    "umc6650_bios": {
+      "filename": "umc6650.zip",
+      "md5": "da6cebe6b22a91a34a67074adbbec3a3",
+      "size": 160,
+      "notes": "MAME device ROM set for the UMC6650 lockout chip used by Super Acan. MAME also searches this set under system/mame/roms/umc6650.zip.",
+      "aliases": [
+        "mame/roms/umc6650.zip"
+      ],
+      "zip_contents": [
+        {
+          "filename": "umc6650.bin",
+          "size": 16,
+          "md5": "9172d579799db373cab42638e9bc01d3"
+        }
+      ],
+      "sources": [
+        {
+          "id": "planetemu_umc6650",
+          "name": "Planet Emulation umc6650.zip",
+          "type": "http_post",
+          "policy": "firmware_user_opt_in",
+          "url": "https://www.planetemu.net/download/rom",
+          "index_url": "https://www.planetemu.net/rom/mame-roms-merged/umc6650",
+          "notes": "POST id 1015456. Inner CRC/SHA1 value verified against MAME umc6650.cpp."
+        }
+      ]
+    },
+    "emuscv_bios": {
+      "filename": "upd7801g.s01",
+      "aliases": [
+        "upd7801g.bin",
+        "upd7801g.bios",
+        "bios.rom",
+        "bios.bin"
+      ],
+      "md5": "635a978fd40db9a18ee44eff449fc126",
+      "size": 4096,
+      "notes": "Super Cassette Vision BIOS required by EmuSCV. The core accepts several aliases, but upd7801g.s01 is the standard filename.",
+      "url": null,
+      "sources": [
+        {
+          "id": "tosec_full_2022_scv_firmware",
+          "name": "TOSEC full 2022 Epoch Super Cassette Vision firmware",
+          "type": "internet_archive_bundle_member",
+          "policy": "firmware_user_opt_in",
+          "url": "https://archive.org/download/tosec-full-2022-07-10/Epoch/Super%20Cassette%20Vision/Firmware/Epoch%20Super%20Cassette%20Vision%20-%20Firmware.7z",
+          "index_url": "https://archive.org/details/tosec-full-2022-07-10",
+          "notes": "Bundle member Super Cassette Vision BIOS (1984)(Epoch)(FR-JP).bin verified with EmuSCV MD5."
+        }
+      ]
+    },
+    "scv_bios": {
+      "filename": "scv.zip",
+      "md5": "2f5d468e53640b06c30ae0bf8eecdbc2",
+      "size": null,
+      "notes": "MAME machine ROM set for Epoch Super Cassette Vision. Required for MAME software-list launch; also mirrored to system/mame/roms/scv.zip.",
+      "aliases": [
+        "mame/roms/scv.zip"
+      ],
+      "zip_contents": [
+        {
+          "filename": "upd7801g.s01",
+          "size": 4096,
+          "md5": "635a978fd40db9a18ee44eff449fc126"
+        },
+        {
+          "filename": "epochtv.chr.s02",
+          "size": 1024,
+          "md5": "929617bc739e58e550fe9025cae4158b"
+        },
+        {
+          "filename": "upd1771c-017.s03",
+          "size": 1024,
+          "md5": "9b03b66c6dc89de9a11d5cd908538ac3"
+        }
+      ],
+      "sources": [
+        {
+          "id": "planetemu_scv",
+          "name": "Planet Emulation scv.zip",
+          "type": "http_post",
+          "policy": "firmware_user_opt_in",
+          "url": "https://www.planetemu.net/download/rom",
+          "index_url": "https://www.planetemu.net/rom/mame-roms-merged/scv",
+          "notes": "POST id 1008068. Inner CRC/SHA1 values verified against MAME scv.cpp."
+        }
+      ]
+    },
+    "scv_mame_hash": {
+      "filename": "mame/hash/scv.xml",
+      "md5": null,
+      "size": null,
+      "notes": "MAME software-list hash file for Epoch Super Cassette Vision cartridges.",
+      "url": null,
+      "sources": [
+        {
+          "id": "mamedev_scv_hash",
+          "name": "MAME scv.xml",
+          "type": "github_raw",
+          "policy": "metadata_user_opt_in",
+          "url": "https://raw.githubusercontent.com/mamedev/mame/master/hash/scv.xml",
+          "index_url": "https://github.com/mamedev/mame/blob/master/hash/scv.xml",
+          "notes": "Official MAME software-list hash file for Super Cassette Vision."
+        }
+      ]
+    },
+    "advision_bios": {
+      "filename": "advision.zip",
+      "md5": null,
+      "size": null,
+      "notes": "MAME machine ROM set for Entex Adventure Vision. MAME also searches this set under system/mame/roms/advision.zip.",
+      "aliases": [
+        "mame/roms/advision.zip"
+      ],
+      "normalize_zip_contents": true,
+      "zip_contents": [
+        {
+          "filename": "ins8048-11kdp_n.u5",
+          "size": 1024,
+          "md5": "5729638bd856c475678467a353bd921c",
+          "aliases": [
+            "b225__ins8048-11kdp_n.u5"
+          ]
+        },
+        {
+          "filename": "cop411l-kcn_n.u8",
+          "size": 512,
+          "md5": "fc5e71445e4947a9d00eedbc66b13a8f",
+          "aliases": [
+            "b8223__cop411l-kcn_n.u8"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/advision.zip",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/blob/main/bios/advision.zip",
+          "notes": "Contains the Adventure Vision main CPU and sound CPU ROMs; installer normalizes current MAME filenames."
+        }
+      ]
+    },
+    "advision_mame_hash": {
+      "filename": "mame/hash/advision.xml",
+      "md5": null,
+      "size": null,
+      "notes": "MAME software-list hash file for Entex Adventure Vision cartridges.",
+      "url": null,
+      "sources": [
+        {
+          "id": "mamedev_advision_hash",
+          "name": "MAME advision.xml",
+          "type": "github_raw",
+          "policy": "metadata_user_opt_in",
+          "url": "https://raw.githubusercontent.com/mamedev/mame/master/hash/advision.xml",
+          "index_url": "https://github.com/mamedev/mame/blob/master/hash/advision.xml",
+          "notes": "Official MAME software-list hash file for Adventure Vision."
+        }
+      ]
+    },
+    "arcadia_mame_hash": {
+      "filename": "mame/hash/arcadia.xml",
+      "md5": null,
+      "size": null,
+      "notes": "MAME software-list hash file for Emerson Arcadia 2001 cartridges.",
+      "url": null,
+      "sources": [
+        {
+          "id": "mamedev_arcadia_hash",
+          "name": "MAME arcadia.xml",
+          "type": "github_raw",
+          "policy": "metadata_user_opt_in",
+          "url": "https://raw.githubusercontent.com/mamedev/mame/master/hash/arcadia.xml",
+          "index_url": "https://github.com/mamedev/mame/blob/master/hash/arcadia.xml",
+          "notes": "Official MAME software-list hash file for Arcadia 2001 family cartridges."
+        }
+      ]
+    },
+    "atari_5200_bios": {
+      "filename": "5200.rom",
+      "aliases": [
+        "5200.ROM",
+        "atari5200.rom",
+        "atar5200.rom",
+        "5200.bin",
+        "atari_5200.rom"
+      ],
+      "md5": "281f20ea4320404ec820fb7ec0693b38",
+      "size": 2048,
+      "notes": "Atari 5200 BIOS. A5200 can fall back to an internal BIOS, but the original 5200.rom improves compatibility and removes runtime warnings.",
+      "sources": [
+        {
+          "id": "retrobios",
+          "url": "https://raw.githubusercontent.com/Abdess/retrobios/main/bios/Atari/5200/5200.rom",
+          "index_url": "https://github.com/Abdess/retrobios/blob/main/bios/Atari/5200/5200.rom",
+          "notes": "Verified 2048-byte Atari 5200 BIOS payload with MD5 281f20ea4320404ec820fb7ec0693b38."
+        },
+        {
+          "id": "batocera_plus",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-bios/main/5200.rom",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-bios/blob/main/5200.rom",
+          "notes": "Public BatoceraPLUS BIOS repository entry for Atari 5200."
+        }
+      ]
+    },
+    "pcfx_bios": {
+      "filename": "pcfx.rom",
+      "md5": "08e36edbea28a017f79f8d4f7ff9b6d7",
+      "sha256": "4b44ccf5d84cc83daa2e6a2bee00fdafa14eb58bdf5859e96d8861a891675417",
+      "size": 1048576,
+      "notes": "NEC PC-FX BIOS version 1.00 required by Beetle PC-FX / Mednafen PC-FX. Libretro and Mednafen expect pcfx.rom in RetroArch system.",
+      "url": null,
+      "sources": [
+        {
+          "id": "abdess_retrobios",
+          "name": "RetroBIOS",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/Abdess/retrobios/main/bios/NEC/PC-FX/pcfx.rom",
+          "index_url": "https://github.com/Abdess/retrobios/blob/main/bios/NEC/PC-FX/pcfx.rom",
+          "notes": "Public RetroBIOS repository entry for NEC PC-FX pcfx.rom."
+        }
+      ]
+    },
+    "pv1000_mame_hash": {
+      "filename": "mame/hash/pv1000.xml",
+      "md5": null,
+      "size": null,
+      "notes": "MAME software-list hash file for Casio PV-1000 cartridges. No PV-1000 BIOS is required.",
+      "url": null,
+      "sources": [
+        {
+          "id": "mamedev_pv1000_hash",
+          "name": "MAME pv1000.xml",
+          "type": "github_raw",
+          "policy": "metadata_user_opt_in",
+          "url": "https://raw.githubusercontent.com/mamedev/mame/master/hash/pv1000.xml",
+          "index_url": "https://github.com/mamedev/mame/blob/master/hash/pv1000.xml",
+          "notes": "Official MAME software-list hash file for Casio PV-1000 cartridges."
+        }
+      ]
+    },
+    "studio2_bios": {
+      "filename": "studio2.zip",
+      "md5": "e40185942063a85448c468e9b79e06ef",
+      "size": 7775,
+      "notes": "MAME machine ROM set for RCA Studio II and compatible clones. Required by MAME software-list launch; also mirrored to system/mame/roms/studio2.zip.",
+      "aliases": [
+        "mame/roms/studio2.zip"
+      ],
+      "zip_contents": [
+        {
+          "filename": "84932.ic11",
+          "size": 512,
+          "md5": "05e0bd8fadb27f4e474ea00baf1a0f19"
+        },
+        {
+          "filename": "84933.ic12",
+          "size": 512,
+          "md5": "9dd6d0d9d84a21495af90e5eaf306835"
+        },
+        {
+          "filename": "85456.ic13",
+          "size": 512,
+          "md5": "96ceecb9ad682885a2fb4a68e66899ad"
+        },
+        {
+          "filename": "85457.ic14",
+          "size": 512,
+          "md5": "cc11797b5b259fc87ac9047853c64d3f"
+        }
+      ],
+      "sources": [
+        {
+          "id": "internet_archive_mame_0221_studio2",
+          "name": "Internet Archive MAME 0.221 merged studio2.zip",
+          "type": "internet_archive_file",
+          "policy": "firmware_user_opt_in",
+          "url": "https://archive.org/download/mame-0.221-roms-merged/studio2.zip",
+          "index_url": "https://archive.org/details/mame-0.221-roms-merged",
+          "notes": "Verified ZIP and inner RCA Studio II machine ROM hashes against the downloaded MAME merged set."
+        }
+      ]
+    },
+    "studio2_mame_hash": {
+      "filename": "mame/hash/studio2.xml",
+      "md5": null,
+      "size": null,
+      "notes": "MAME software-list hash file for RCA Studio II cartridges.",
+      "url": null,
+      "sources": [
+        {
+          "id": "mamedev_studio2_hash",
+          "name": "MAME studio2.xml",
+          "type": "github_raw",
+          "policy": "metadata_user_opt_in",
+          "url": "https://raw.githubusercontent.com/mamedev/mame/master/hash/studio2.xml",
+          "index_url": "https://github.com/mamedev/mame/blob/master/hash/studio2.xml",
+          "notes": "Official MAME software-list hash file for RCA Studio II cartridges."
+        }
+      ]
+    },
+    "casloopy_bios": {
+      "filename": "casloopy.zip",
+      "md5": "0e1d8dc0110ecf8201c0cef11ef4a858",
+      "size": 478191,
+      "notes": "MAME machine ROM set for Casio Loopy. Required by MAME software-list launch; also mirrored to system/mame/roms/casloopy.zip.",
+      "aliases": [
+        "mame/roms/casloopy.zip"
+      ],
+      "zip_contents": [
+        {
+          "filename": "hd6437021.lsi302",
+          "md5": "d527e3ed1bf9bd0661154c202a65c5bd"
+        },
+        {
+          "filename": "hn62434fa.lsi352",
+          "md5": "c0f1c899c9ca098663d046d60779711d"
+        }
+      ],
+      "sources": [
+        {
+          "id": "internet_archive_casloopy",
+          "name": "Internet Archive casloopy machine ROM set",
+          "type": "internet_archive_file",
+          "policy": "firmware_user_opt_in",
+          "url": "https://archive.org/download/casloopy/casloopy.zip",
+          "index_url": "https://archive.org/details/casloopy",
+          "notes": "casloopy.zip machine ROM set with hd6437021.lsi302 and hn62434fa.lsi352 verified against MAME/Batocera metadata."
+        }
+      ]
+    },
+    "casloopy_mame_hash": {
+      "filename": "mame/hash/casloopy.xml",
+      "md5": null,
+      "size": null,
+      "notes": "MAME software-list hash file for Casio Loopy cartridges.",
+      "url": null,
+      "sources": [
+        {
+          "id": "mamedev_casloopy_hash",
+          "name": "MAME casloopy.xml",
+          "type": "github_raw",
+          "policy": "metadata_user_opt_in",
+          "url": "https://raw.githubusercontent.com/mamedev/mame/master/hash/casloopy.xml",
+          "index_url": "https://github.com/mamedev/mame/blob/master/hash/casloopy.xml",
+          "notes": "Official MAME software-list hash file for Casio Loopy cartridges."
+        }
+      ]
+    },
+    "neogeo_bios": {
+      "filename": "neogeo.zip",
+      "md5": null,
+      "size": null,
+      "notes": "Neo Geo MVS/AES BIOS ZIP required by MAME and FBNeo. Keep the ZIP intact; do not extract or rename game ROM ZIPs.",
+      "url": null,
+      "sources": [
+        {
+          "id": "internet_archive_neogeo_bios_0251b",
+          "name": "Internet Archive NEOGEO UNI-BIOS/MAME 0.251b set",
+          "type": "internet_archive_file",
+          "policy": "firmware_user_opt_in",
+          "url": "https://archive.org/download/neogeo-bios/neogeo/mame_0251b/roms/neogeo.zip",
+          "index_url": "https://archive.org/details/neogeo-bios",
+          "notes": "Public Internet Archive Neo Geo BIOS ZIP for MAME 0.251b style Neo Geo emulation."
+        },
+        {
+          "id": "neogeoaesmvscomplete_bios",
+          "name": "SNK Neo Geo AES/MVS complete romset BIOS",
+          "type": "internet_archive_file",
+          "policy": "firmware_user_opt_in",
+          "url": "https://archive.org/download/neogeoaesmvscomplete/BIOS/neogeo.zip",
+          "index_url": "https://archive.org/details/neogeoaesmvscomplete",
+          "notes": "Fallback Neo Geo BIOS ZIP bundled in the AES/MVS complete provider."
+        }
+      ],
+      "aliases": [
+        "mame/roms/neogeo.zip"
+      ]
+    },
+    "neocd_bios": {
+      "filename": "neocd/neocdz.zip",
+      "md5": null,
+      "size": null,
+      "notes": "NeoCD libretro requires at least one Neo Geo CD BIOS in RetroArch system/neocd. This ZIP source includes neocd.bin plus front/top loader BIOS files and Y-Zoom ROM data; NeoCD can scan ZIP archives in system/neocd.",
+      "url": null,
+      "sources": [
+        {
+          "id": "internet_archive_mame_0221_neocdz",
+          "name": "Internet Archive MAME 0.221 neocdz BIOS set",
+          "type": "internet_archive_file",
+          "policy": "firmware_user_opt_in",
+          "url": "https://archive.org/download/mame-0.221-roms-merged/neocdz.zip",
+          "index_url": "https://archive.org/download/mame-0.221-roms-merged/neocdz.zip/",
+          "notes": "Merged MAME neocdz.zip containing neocd.bin, front/top BIOS files, uni-bioscd ROMs, and 000-lo.lo."
+        },
+        {
+          "id": "libretro_neocd_bios_docs",
+          "name": "NeoCD libretro BIOS requirements",
+          "type": "documentation",
+          "policy": "metadata_user_opt_in",
+          "url": "https://github.com/libretro/neocd_libretro",
+          "index_url": "https://github.com/libretro/neocd_libretro",
+          "notes": "Primary documentation for required NeoCD BIOS placement and accepted file types."
+        }
+      ],
+      "aliases": [],
+      "zip_contents": [
+        {
+          "filename": "neocd.bin",
+          "size": 524288
+        }
+      ],
+      "normalize_zip_contents": false
+    },
+    "odyssey2_bios": {
+      "filename": "o2rom.bin",
+      "aliases": [
+        "O2ROM.BIN"
+      ],
+      "md5": "562d5ebf9e030a40d6fabfc2f33139fd",
+      "size": 1024,
+      "notes": "Required BIOS for the O2EM RetroArch core.",
+      "sources": [
+        {
+          "id": "batocera_plus",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-bios/main/o2rom.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-bios/blob/main/o2rom.bin",
+          "notes": "Verified 1024-byte Odyssey2 BIOS payload with MD5 562d5ebf9e030a40d6fabfc2f33139fd."
+        },
+        {
+          "id": "batocera_plus_update",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/o2rom.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/blob/main/bios/o2rom.bin",
+          "notes": "Public BatoceraPLUS update BIOS repository entry for Odyssey2."
+        }
+      ]
+    },
+    "game_boy_bios": {
+      "filename": "gb_bios.bin",
+      "md5": "32fbbd84168d3482956eb3c5051637f5",
+      "size": 256,
+      "notes": "Optional original Game Boy boot ROM for Gambatte when the official bootloader option is enabled.",
+      "sources": [
+        {
+          "id": "batocera_plus",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-bios/main/gb_bios.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-bios/blob/main/gb_bios.bin",
+          "notes": "Verified 256-byte Game Boy BIOS payload with MD5 32fbbd84168d3482956eb3c5051637f5."
+        },
+        {
+          "id": "batocera_plus_update",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/gb_bios.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/blob/main/bios/gb_bios.bin",
+          "notes": "Public BatoceraPLUS update BIOS repository entry for Game Boy."
+        }
+      ]
+    },
+    "game_boy_advance_bios": {
+      "filename": "gba_bios.bin",
+      "md5": "a860e8c0b6d573d191e4ec7db1b1e4f6",
+      "size": 16384,
+      "notes": "Optional original Game Boy Advance BIOS for mGBA when the BIOS option is enabled.",
+      "sources": [
+        {
+          "id": "batocera_plus",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-bios/main/gba_bios.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-bios/blob/main/gba_bios.bin",
+          "notes": "Verified 16384-byte GBA BIOS payload with MD5 a860e8c0b6d573d191e4ec7db1b1e4f6."
+        },
+        {
+          "id": "batocera_plus_update",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/gba_bios.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/blob/main/bios/gba_bios.bin",
+          "notes": "Public BatoceraPLUS update BIOS repository entry for GBA."
+        }
+      ]
+    },
+    "dolphin_sys_folder": {
+      "filename": "dolphin-emu/Sys",
+      "notes": "Required Dolphin system folder in RetroArch system directory for reliable Dolphin core behavior.",
+      "sources": [
+        {
+          "id": "libretro_dolphin_repo",
+          "url": "https://github.com/libretro/dolphin/archive/master.zip",
+          "index_url": "https://github.com/libretro/dolphin/tree/master/Data/Sys",
+          "notes": "Install Data/Sys from the libretro Dolphin repository to RETROARCH_SYSTEM_FOLDER/dolphin-emu/Sys."
+        }
+      ]
     }
   },
   "cores": {
+    "stella": {
+      "name": "Stella",
+      "bios_ids": [],
+      "console_guids": [
+        "d4874312-2442-5d55-b0a1-8fbd6b5bb68e"
+      ],
+      "notes": "Recommended RetroArch core for Atari 2600."
+    },
+    "a5200": {
+      "name": "Atari800 / A5200",
+      "bios_ids": [
+        "atari_5200_bios"
+      ],
+      "console_guids": [
+        "f47fa56b-1c6e-5364-a344-9fafc6ba4bf0"
+      ],
+      "notes": "Recommended RetroArch core for Atari 5200."
+    },
+    "prosystem": {
+      "name": "ProSystem",
+      "bios_ids": [],
+      "console_guids": [
+        "123de432-6905-5c13-b785-0c643bf5cb09"
+      ],
+      "notes": "Recommended RetroArch core for Atari 7800."
+    },
+    "gearcoleco": {
+      "name": "GearColeco",
+      "bios_ids": [
+        "colecovision_bios"
+      ],
+      "console_guids": [
+        "72c1d004-1fce-5e54-9936-f41a1bcfe733"
+      ],
+      "notes": "Recommended RetroArch core for ColecoVision. Requires colecovision.rom in RetroArch's system directory; coleco.rom is also accepted by the core."
+    },
+    "freechaf": {
+      "name": "FreeChaF",
+      "bios_ids": [
+        "channelf_psu1_bios",
+        "channelf_psu2_bios"
+      ],
+      "optional_bios_ids": [
+        "channelf2_psu1_bios"
+      ],
+      "console_guids": [
+        "fa71743b-728a-59a1-abe8-ce3ec78be77e"
+      ],
+      "notes": "Recommended RetroArch core for Fairchild Channel F. Requires sl31253.bin and sl31254.bin in the RetroArch system directory; sl90025.bin is an optional Channel F II PSU1 BIOS."
+    },
+    "emuscv": {
+      "name": "EmuSCV",
+      "bios_ids": [
+        "emuscv_bios"
+      ],
+      "console_guids": [
+        "947cc03e-2c72-5cd0-92d9-8f69f946d59f"
+      ],
+      "notes": "Recommended RetroArch core for Epoch Super Cassette Vision. Supports .cart, .bin, .rom, split .0-.3 ROMs, and zipped ROMs."
+    },
+    "mame_scv": {
+      "name": "MAME Current (Super Cassette Vision)",
+      "core_file": "mame",
+      "bios_ids": [
+        "scv_bios",
+        "scv_mame_hash"
+      ],
+      "console_guids": [
+        "947cc03e-2c72-5cd0-92d9-8f69f946d59f"
+      ],
+      "install_strategy": {
+        "type": "mame_softlist_cmd",
+        "machine": "scv",
+        "software_list": "scv",
+        "media": "cart",
+        "hash_file": "scv.xml",
+        "roms_subdir": "scv",
+        "boot_from_cli_option": "mame_boot_from_cli"
+      },
+      "notes": "Fallback RetroArch path for Epoch Super Cassette Vision via MAME software-list emulation. Requires scv.zip and scv.xml."
+    },
+    "handy": {
+      "name": "Handy",
+      "bios_ids": [],
+      "console_guids": [
+        "5656b00c-8050-57bd-93ed-0ba9bb176580"
+      ],
+      "notes": "Recommended RetroArch core for Atari Lynx."
+    },
+    "virtualjaguar": {
+      "name": "Virtual Jaguar",
+      "bios_ids": [],
+      "console_guids": [
+        "5565f7db-0d0c-55fe-aa7e-fe719791d1b9"
+      ],
+      "notes": "Recommended RetroArch core for Atari Jaguar."
+    },
+    "mednafen_pce_fast": {
+      "name": "Beetle PCE Fast",
+      "bios_ids": [],
+      "console_guids": [
+        "2bd2cd12-6d99-5379-86dc-be6a5904e280",
+        "1ff5f144-8d13-51b9-82c6-365169ba2455"
+      ],
+      "notes": "Recommended RetroArch core for PC Engine/TurboGrafx-16 and PC Engine CD/TurboGrafx-CD. CD BIOS metadata still needs explicit validation."
+    },
+    "flycast": {
+      "name": "Flycast",
+      "bios_ids": [
+        "dreamcast_boot_bios"
+      ],
+      "console_guids": [
+        "2530a9bf-3926-52a9-b3fd-401ed1655bcc"
+      ],
+      "notes": "Recommended RetroArch core for Sega Dreamcast."
+    },
+    "picodrive": {
+      "name": "PicoDrive",
+      "bios_ids": [],
+      "console_guids": [
+        "2bf97080-34ce-529a-9e1c-67a5cdab9070",
+        "8f06706f-2b37-5d8a-94cc-028c7beef756"
+      ],
+      "notes": "Lightweight RetroArch fallback core for Sega PICO, 32X, and Mega Drive/Genesis."
+    },
+    "mupen64plus_next": {
+      "name": "Mupen64Plus-Next",
+      "bios_ids": [],
+      "console_guids": [
+        "bc8c836c-4218-5ff1-bfb2-d895381289b4"
+      ],
+      "notes": "Recommended RetroArch core for Nintendo 64."
+    },
     "beetle_saturn": {
       "name": "Beetle Saturn (Mednafen core)",
       "bios_ids": [
@@ -186,12 +1134,13 @@
     },
     "gearsystem": {
       "name": "Gearsystem",
-      "bios_ids": [
-        "sg1000_boot_rom"
-      ],
+      "bios_ids": [],
       "console_guids": [
-        "ca066374-6220-5f44-828c-302f50a10146"
-      ]
+        "ca066374-6220-5f44-828c-302f50a10146",
+        "fdb51c61-0560-593b-937f-cccae600d469",
+        "acc73d91-7629-55cb-aeca-7b90814d8604"
+      ],
+      "notes": "Recommended lightweight RetroArch core for SG-1000, Master System and Game Gear. BIOS files are optional for Game Gear."
     },
     "bluemsx": {
       "name": "blueMSX",
@@ -222,11 +1171,10 @@
       "console_guids": [
         "126fc9a7-f783-5a73-9c17-b1e497cc8edd",
         "63aab22a-8415-5a15-8d82-f70c218298f6",
-        "acc73d91-7629-55cb-aeca-7b90814d8604",
         "fdb51c61-0560-593b-937f-cccae600d469",
-        "ca066374-6220-5f44-828c-302f50a10146",
-        "8f06706f-2b37-5d8a-94cc-028c7beef756"
-      ]
+        "ca066374-6220-5f44-828c-302f50a10146"
+      ],
+      "notes": "Recommended RetroArch core for Mega Drive/Genesis, Sega CD, Game Gear, and SG-1000. BIOS files are optional except Sega CD."
     },
     "NES / Famicom (Nestopia)": {
       "name": "Nestopia",
@@ -238,6 +1186,353 @@
         "e8d2cd7c-e53c-5916-928d-9af9aa48c409",
         "fad2a671-5d13-54b9-8562-3b058c610348"
       ]
+    },
+    "mame": {
+      "name": "MAME Current",
+      "bios_ids": [
+        "gmaster_bios"
+      ],
+      "console_guids": [
+        "3a5c3ea5-f514-59fa-9039-75d98e1ca63c"
+      ],
+      "install_strategy": {
+        "type": "mame_softlist_cmd",
+        "machine": "gmaster",
+        "software_list": "gmaster",
+        "media": "cart",
+        "hash_file": "gmaster.xml",
+        "roms_subdir": "gmaster",
+        "boot_from_cli_option": "mame_boot_from_cli"
+      },
+      "notes": "Required for Hartung Game Master/MESS software-list style emulation."
+    },
+    "mame_gp32": {
+      "name": "MAME Current (GP32)",
+      "core_file": "mame",
+      "bios_ids": [
+        "gp32_bios",
+        "gp32_mame_hash"
+      ],
+      "console_guids": [
+        "a69e967b-f947-5962-8578-03ca389c6231"
+      ],
+      "install_strategy": {
+        "type": "mame_softlist_cmd",
+        "machine": "gp32",
+        "software_list": "gp32",
+        "media": "memc",
+        "hash_file": "gp32.xml",
+        "roms_subdir": "gp32",
+        "boot_from_cli_option": "mame_boot_from_cli"
+      },
+      "notes": "Recommended RetroArch path for GamePark GP32 via MAME software-list emulation. Requires gp32.zip and gp32.xml."
+    },
+    "mame_supracan": {
+      "name": "MAME Current (Super Acan)",
+      "core_file": "mame",
+      "bios_ids": [
+        "supracan_bios",
+        "umc6650_bios",
+        "supracan_mame_hash"
+      ],
+      "console_guids": [
+        "7b81f262-ec70-5234-928d-207322439020"
+      ],
+      "install_strategy": {
+        "type": "mame_softlist_cmd",
+        "machine": "supracan",
+        "software_list": "supracan",
+        "media": "cart",
+        "hash_file": "supracan.xml",
+        "roms_subdir": "supracan",
+        "boot_from_cli_option": "mame_boot_from_cli"
+      },
+      "notes": "Recommended RetroArch path for Funtech Super Acan via MAME software-list emulation. Requires supracan.xml."
+    },
+    "vecx": {
+      "name": "VecX",
+      "bios_ids": [],
+      "console_guids": [
+        "0acbb3bd-c595-56ea-893f-60d6d25aa2a4"
+      ],
+      "notes": "Recommended RetroArch core for GCE Vectrex. Supports .bin and .vec and does not require BIOS."
+    },
+    "mame_advision": {
+      "name": "MAME Current (Adventure Vision)",
+      "core_file": "mame",
+      "bios_ids": [
+        "advision_bios",
+        "advision_mame_hash"
+      ],
+      "console_guids": [
+        "2de2782e-37a2-5e1c-9f4e-ffbf96872531"
+      ],
+      "install_strategy": {
+        "type": "mame_softlist_cmd",
+        "machine": "advision",
+        "software_list": "advision",
+        "media": "cart",
+        "hash_file": "advision.xml",
+        "roms_subdir": "advision",
+        "boot_from_cli_option": "mame_boot_from_cli"
+      },
+      "notes": "Recommended RetroArch path for Entex Adventure Vision via MAME software-list emulation. Requires advision.zip and advision.xml."
+    },
+    "amiarcadia": {
+      "name": "AmiArcadia",
+      "bios_ids": [],
+      "console_guids": [
+        "b7e90431-7e83-585a-90ed-eb636b009779"
+      ],
+      "notes": "Recommended RetroArch core for Emerson Arcadia 2001. Supports .bin/.tvc and does not require BIOS."
+    },
+    "mame_arcadia": {
+      "name": "MAME Current (Arcadia 2001)",
+      "core_file": "mame",
+      "bios_ids": [
+        "arcadia_mame_hash"
+      ],
+      "console_guids": [
+        "b7e90431-7e83-585a-90ed-eb636b009779"
+      ],
+      "install_strategy": {
+        "type": "mame_softlist_cmd",
+        "machine": "arcadia",
+        "software_list": "arcadia",
+        "media": "cart",
+        "hash_file": "arcadia.xml",
+        "roms_subdir": "arcadia",
+        "boot_from_cli_option": "mame_boot_from_cli"
+      },
+      "notes": "Fallback RetroArch path for Emerson Arcadia 2001 via MAME software-list emulation. Requires arcadia.xml."
+    },
+    "mednafen_supergrafx": {
+      "name": "Beetle SuperGrafx",
+      "bios_ids": [],
+      "console_guids": [
+        "e63c6451-836b-5dbe-8532-63492762b3d9"
+      ],
+      "notes": "Recommended RetroArch core for NEC PC Engine SuperGrafx. Libretro Beetle PCE Fast removes the SuperGrafx module; use Beetle SuperGrafx for SGX HuCards."
+    },
+    "mednafen_pcfx": {
+      "name": "Beetle PC-FX",
+      "bios_ids": [
+        "pcfx_bios"
+      ],
+      "console_guids": [
+        "98e5f218-c591-5a14-bd69-fa25b516c3ed"
+      ],
+      "notes": "Recommended RetroArch core for NEC PC-FX. Requires pcfx.rom in the RetroArch system directory."
+    },
+    "fceumm": {
+      "name": "FCEUmm",
+      "bios_ids": [
+        "Family Computer Disk System BIOS"
+      ],
+      "console_guids": [
+        "e8d2cd7c-e53c-5916-928d-9af9aa48c409",
+        "fad2a671-5d13-54b9-8562-3b058c610348"
+      ],
+      "notes": "Recommended RetroArch core for Nintendo Family Computer Disk System and NES/Famicom. Requires disksys.rom for FDS."
+    },
+    "nestopia": {
+      "name": "Nestopia",
+      "bios_ids": [
+        "Family Computer Disk System BIOS"
+      ],
+      "console_guids": [
+        "e8d2cd7c-e53c-5916-928d-9af9aa48c409",
+        "fad2a671-5d13-54b9-8562-3b058c610348"
+      ],
+      "notes": "Accurate RetroArch core for NES/Famicom and Family Computer Disk System. Requires disksys.rom for FDS."
+    },
+    "mame_pv1000": {
+      "name": "MAME Current (Casio PV-1000)",
+      "core_file": "mame",
+      "bios_ids": [
+        "pv1000_mame_hash"
+      ],
+      "console_guids": [
+        "71b2e78e-d776-59a6-8bfa-5f84f90e7eca"
+      ],
+      "install_strategy": {
+        "type": "mame_softlist_cmd",
+        "machine": "pv1000",
+        "software_list": "pv1000",
+        "media": "cart",
+        "hash_file": "pv1000.xml",
+        "roms_subdir": "pv1000",
+        "boot_from_cli_option": "mame_boot_from_cli"
+      },
+      "notes": "Recommended RetroArch path for Casio PV-1000 via MAME software-list emulation. No BIOS required; requires pv1000.xml."
+    },
+    "mame_casloopy": {
+      "name": "MAME Current (Casio Loopy)",
+      "core_file": "mame",
+      "bios_ids": [
+        "casloopy_bios",
+        "casloopy_mame_hash"
+      ],
+      "console_guids": [
+        "632b56c7-fdb2-5eff-81fc-0d9a5be9e208"
+      ],
+      "install_strategy": {
+        "type": "mame_softlist_cmd",
+        "machine": "casloopy",
+        "software_list": "casloopy",
+        "media": "cart",
+        "hash_file": "casloopy.xml",
+        "roms_subdir": "casloopy",
+        "boot_from_cli_option": "mame_boot_from_cli"
+      },
+      "notes": "Recommended RetroArch path for Casio Loopy via MAME software-list emulation. Requires casloopy.zip and casloopy.xml."
+    },
+    "mame_studio2": {
+      "name": "MAME Current (RCA Studio II)",
+      "core_file": "mame",
+      "bios_ids": [
+        "studio2_bios",
+        "studio2_mame_hash"
+      ],
+      "console_guids": [
+        "713057d9-8ae9-5b0a-9d1b-cf121b9357ae"
+      ],
+      "install_strategy": {
+        "type": "mame_softlist_cmd",
+        "machine": "studio2",
+        "software_list": "studio2",
+        "media": "cart1",
+        "hash_file": "studio2.xml",
+        "roms_subdir": "studio2",
+        "boot_from_cli_option": "mame_boot_from_cli"
+      },
+      "notes": "Recommended RetroArch path for RCA Studio II via MAME software-list emulation. Requires studio2.zip and studio2.xml. Studio II games are monochrome and may boot to a corrupted-looking screen until the console receives Clear plus a keypad selection. RetroArch game focus must be enabled so MAME sees keyboard keypad input: Clear is F3; Keypad A 1-9 are Q/W/E/A/S/D/Z/X/C and Keypad A 0 is Left Alt."
+    },
+    "mednafen_wswan": {
+      "name": "Beetle WonderSwan",
+      "bios_ids": [],
+      "console_guids": [
+        "595c8d22-7e81-5e3b-a7f3-52ae0cef34cd",
+        "96d28972-81ec-55c8-a748-b621d6612d1c"
+      ],
+      "notes": "Recommended RetroArch core for Bandai WonderSwan and WonderSwan Color. No BIOS required."
+    },
+    "genesis_plus_gx_pico": {
+      "name": "Genesis Plus GX (Sega PICO)",
+      "core_file": "genesis_plus_gx",
+      "bios_ids": [],
+      "console_guids": [
+        "8f06706f-2b37-5d8a-94cc-028c7beef756"
+      ],
+      "notes": "Recommended RetroArch core profile for Sega PICO. Uses genesis_plus_gx_libretro.so and does not require Sega CD or Master System BIOS files."
+    },
+    "genesis_plus_gx_sms": {
+      "name": "Genesis Plus GX (Master System)",
+      "core_file": "genesis_plus_gx",
+      "bios_ids": [],
+      "console_guids": [
+        "acc73d91-7629-55cb-aeca-7b90814d8604"
+      ],
+      "notes": "RetroArch fallback core profile for Sega Master System / Mark III. Uses genesis_plus_gx_libretro.so; Master System boot ROMs are optional."
+    },
+    "mame_neogeo": {
+      "name": "MAME Current (Neo Geo)",
+      "core_file": "mame",
+      "bios_ids": [
+        "neogeo_bios"
+      ],
+      "console_guids": [
+        "e9d5a0d5-42af-5654-848c-a29ea154ba0f"
+      ],
+      "notes": "Recommended installed RetroArch path for SNK Neo Geo using MAME arcade ZIP sets. Requires neogeo.zip and zipped game sets kept intact."
+    },
+    "fbneo_neogeo": {
+      "name": "FinalBurn Neo (Neo Geo)",
+      "core_file": "fbneo",
+      "bios_ids": [
+        "neogeo_bios"
+      ],
+      "console_guids": [
+        "e9d5a0d5-42af-5654-848c-a29ea154ba0f"
+      ],
+      "notes": "Preferred lightweight arcade path when fbneo_libretro.so is installed. Requires neogeo.zip and FBNeo-compatible zipped game sets."
+    },
+    "mednafen_ngp": {
+      "name": "Beetle NeoPop",
+      "core_file": "mednafen_ngp",
+      "bios_ids": [],
+      "console_guids": [
+        "d1c9402f-aa02-5f19-a846-449517ecd7c0",
+        "ef04915a-086b-574d-aa82-e99c2892c331"
+      ],
+      "notes": "Recommended RetroArch core for SNK Neo Geo Pocket and Neo Geo Pocket Color. No BIOS required."
+    },
+    "race": {
+      "name": "RACE",
+      "bios_ids": [],
+      "console_guids": [
+        "d1c9402f-aa02-5f19-a846-449517ecd7c0",
+        "ef04915a-086b-574d-aa82-e99c2892c331"
+      ],
+      "notes": "Lightweight fallback RetroArch core for SNK Neo Geo Pocket/Color. No BIOS required."
+    },
+    "neocd": {
+      "name": "NeoCD",
+      "core_file": "neocd",
+      "bios_ids": [
+        "neocd_bios"
+      ],
+      "console_guids": [
+        "f86b3c1b-7bf6-5538-b5f3-712173dce0b0"
+      ],
+      "notes": "Recommended dedicated RetroArch core for SNK Neo Geo CD. Supports .cue and .chd; BIOS must be under system/neocd."
+    },
+    "o2em": {
+      "name": "O2EM",
+      "bios_ids": [
+        "odyssey2_bios"
+      ],
+      "console_guids": [
+        "a7d519f9-601d-539c-9d49-c7c7f1f17f16"
+      ],
+      "notes": "Recommended RetroArch core for Magnavox Odyssey2 / Philips Videopac. Requires o2rom.bin in the RetroArch system directory."
+    },
+    "gambatte": {
+      "name": "Gambatte",
+      "bios_ids": [],
+      "optional_bios_ids": [
+        "game_boy_bios"
+      ],
+      "console_guids": [
+        "a7d91fb9-7cd4-51ff-9dfd-44a90ad355de",
+        "bc81aad5-81d4-537e-9c47-ee9d18a95ee8"
+      ],
+      "notes": "Recommended RetroArch core for Nintendo Game Boy and Game Boy Color. Supports .gb, .gbc, and .dmg; gb_bios.bin is optional when official bootloader is enabled."
+    },
+    "mgba": {
+      "name": "mGBA",
+      "bios_ids": [],
+      "optional_bios_ids": [
+        "game_boy_advance_bios",
+        "game_boy_bios"
+      ],
+      "console_guids": [
+        "6014b17f-d1fe-5067-b80b-f3e582e492b2",
+        "a7d91fb9-7cd4-51ff-9dfd-44a90ad355de",
+        "bc81aad5-81d4-537e-9c47-ee9d18a95ee8"
+      ],
+      "notes": "Recommended RetroArch core for Nintendo Game Boy Advance; also supports Game Boy and Game Boy Color. gba_bios.bin is optional when the BIOS option is enabled."
+    },
+    "dolphin": {
+      "name": "Dolphin",
+      "bios_ids": [
+        "dolphin_sys_folder"
+      ],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "58d85a09-26d6-5da5-a102-c6b9257853da"
+      ],
+      "notes": "Recommended RetroArch core for Nintendo GameCube. Supports .elf, .iso, .gcm, .dol, .tgc, .wbfs, .ciso, .gcz, .rvz, and .m3u. Requires dolphin-emu/Sys in RetroArch system directory for reliable operation."
     }
   }
 }

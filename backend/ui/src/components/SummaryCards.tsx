@@ -1,21 +1,16 @@
 import React from 'react'
 import { Alert, Button, Card, Flex, Statistic, Typography } from 'antd'
-
-type DatasetCard = {
-  key: 'modules' | 'providers'
-  title: string
-  description: string
-  endpoint: string
-}
+import type { DatasetCard } from '../types'
 
 type Props = {
   datasets: DatasetCard[]
   meta: Record<string, any>
   loading: boolean
   error: string | null
+  onDownload: (dataset: DatasetCard) => void
 }
 
-export const SummaryCards: React.FC<Props> = ({ datasets, meta, loading, error }) => (
+export const SummaryCards: React.FC<Props> = ({ datasets, meta, loading, error, onDownload }) => (
   <>
     {error && (
       <Alert type="error" showIcon message="Unable to load dataset metadata" description={error} className="app-alert" />
@@ -35,7 +30,7 @@ export const SummaryCards: React.FC<Props> = ({ datasets, meta, loading, error }
                 formatter={(val) => (typeof val === 'string' ? val : 'N/A')}
               />
             </Flex>
-            <Button type="link" href={dataset.endpoint} target="_blank" rel="noreferrer" className="summary-link">
+            <Button type="link" onClick={() => onDownload(dataset)} className="summary-link">
               Download JSON
             </Button>
           </Card>

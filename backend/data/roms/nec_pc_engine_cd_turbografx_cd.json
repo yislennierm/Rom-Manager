@@ -1,0 +1,4977 @@
+{
+  "module": "NEC - PC Engine CD - TurboGrafx-CD",
+  "guid": "1ff5f144-8d13-51b9-82c6-365169ba2455",
+  "dataset_role": "master_rom_list",
+  "source_kind": "libretro_rdb",
+  "source_label": "Libretro database RDB",
+  "source_url": "https://raw.githubusercontent.com/libretro/libretro-database/master/rdb/NEC%20-%20PC%20Engine%20CD%20-%20TurboGrafx-CD.rdb",
+  "entry_count": 498,
+  "fetched_at": "2026-08-03T22:48:56.075273",
+  "entries": [
+    {
+      "name": "Zero Wing (Japan)",
+      "region": "Japan",
+      "rom_name": "Zero Wing (Japan) (Track 02).bin",
+      "size": 3450384,
+      "crc": "7ee5820c",
+      "md5": "a80f0e57b9203709ca9caefe45fb6d0e",
+      "sha1": "cd47abe2a0bdec3183d5dda00061f1bd0fd4cd81",
+      "serial": "NXCD1003"
+    },
+    {
+      "name": "Zero 4 Champ II (Japan)",
+      "region": "Japan",
+      "rom_name": "Zero 4 Champ II (Japan) (Track 02).bin",
+      "size": 25542720,
+      "crc": "a3ecc4eb",
+      "md5": "d6ba82be48cf090b101863b3ebe8ff8e",
+      "sha1": "f64e3bb8c3634c99b00cf7316a6e1848688e72d6",
+      "serial": "MRCD3003"
+    },
+    {
+      "name": "Zan - Kagerou no Toki (Japan)",
+      "region": "Japan",
+      "rom_name": "Zan - Kagerou no Toki (Japan) (Track 02).bin",
+      "size": 3934896,
+      "crc": "0606ebde",
+      "md5": "26906df043f7459a5349eeef8c063976",
+      "sha1": "aec1acc7dcddd33922484376e19ada17fda6657d",
+      "serial": "TPCD1001"
+    },
+    {
+      "name": "Yuu Yuu Hakusho - Yami Shoubu!! Ankoku Bujutsu-kai (Japan)",
+      "region": "Japan",
+      "rom_name": "Yuu Yuu Hakusho - Yami Shoubu!! Ankoku Bujutsu-kai (Japan) (Track 02).bin",
+      "size": 51464112,
+      "crc": "5cfdd7e9",
+      "md5": "c3d83319fcc3cb33c5d390c1afd8febe",
+      "sha1": "3c47d68d443b281ca7910fe0f31f42c2ebd96245",
+      "serial": "BACD3001"
+    },
+    {
+      "name": "Ys IV - The Dawn of Ys (Japan) (Rev 4)",
+      "region": "Japan",
+      "rom_name": "Ys IV - The Dawn of Ys (Japan) (Rev 4) (Track 02).bin",
+      "size": 77954688,
+      "crc": "1baf2525",
+      "md5": "cd294cc0fa003a030fb388450177fd8f",
+      "sha1": "0f721f8877c18f3c9a488fe25f42a9806c275813",
+      "serial": "HCD3051"
+    },
+    {
+      "name": "Ys III - Wanderers from Ys (USA)",
+      "region": "USA",
+      "rom_name": "Ys III - Wanderers from Ys (USA) (Track 02).bin",
+      "size": 58701216,
+      "crc": "2438e447",
+      "md5": "10ddbd55a98baf64df1c64064ef17242",
+      "sha1": "fda4ecab121db0ab443956dcdf236a0f38868f73",
+      "serial": "TGXCD1015"
+    },
+    {
+      "name": "Ys III (Japan)",
+      "region": "Japan",
+      "rom_name": "Ys III (Japan) (Track 02).bin",
+      "size": 58701216,
+      "crc": "\u001b\u0003\u0006m",
+      "md5": "8057622539d9358c822943b1ea219c3a",
+      "sha1": "ec7ded25eaf00a60caef194587fca616420dbecd",
+      "serial": "HCD0015"
+    },
+    {
+      "name": "Ys I & II (Japan) (Alt)",
+      "region": "Japan",
+      "rom_name": "Ys I & II (Japan) (Alt) (Track 02).bin",
+      "size": 20311872,
+      "crc": "8947e68d",
+      "md5": "6687aa586e9dfbff0832f6ad0916d5d8",
+      "sha1": "1d3ad650427b5ca98c080d5ad0195f760ece7e34",
+      "serial": "HCD4074"
+    },
+    {
+      "name": "Ys I & II (Japan)",
+      "region": "Japan",
+      "rom_name": "Ys I & II (Japan) (Track 02).bin",
+      "size": 20309520,
+      "crc": "9fe63aa2",
+      "md5": "d4b799c30a4e1939fd02686c4deb8ab8",
+      "sha1": "c19c6189ffc93a266d13b25e72368037b4a6ad1e",
+      "serial": "HCD9009"
+    },
+    {
+      "name": "Ys Book I & II (USA) (Alt)",
+      "region": "USA",
+      "rom_name": "Ys Book I & II (USA) (Alt) (Track 02).bin",
+      "size": 20309520,
+      "crc": "7eadeb71",
+      "md5": "f0b55a637ce6f1c73941b095f1f28706",
+      "sha1": "a2019e45a4e35416fbbbde16dde3b8a9d35eabee",
+      "serial": "8490072"
+    },
+    {
+      "name": "Ys Book I & II (USA)",
+      "region": "USA",
+      "rom_name": "Ys Book I & II (USA) (Track 02).bin",
+      "size": 20307168,
+      "crc": "8e029ac2",
+      "md5": "e8db8109220893ad3aa9506cf7f13c23",
+      "sha1": "d0498146b90725fee8fc2b00b2aa1ce47973549e",
+      "serial": "TGXCD1002"
+    },
+    {
+      "name": "Yokoyama Mitsuteru Shin Sangokushi - Tenka wa Ware ni (Japan)",
+      "region": "Japan",
+      "rom_name": "Yokoyama Mitsuteru Shin Sangokushi - Tenka wa Ware ni (Japan) (Track 02).bin",
+      "size": 9669072,
+      "crc": "003ad5fa",
+      "md5": "b34ad715d5342b5f8aad0d782b1771df",
+      "sha1": "4400cfcd59bed92cc71948127a977a77d74fd1e5",
+      "serial": "NXCD2009"
+    },
+    {
+      "name": "Yami no Ketsuzoku - Harukanaru Kioku (Japan)",
+      "region": "Japan",
+      "rom_name": "Yami no Ketsuzoku - Harukanaru Kioku (Japan) (Track 02).bin",
+      "size": 89691168,
+      "crc": "251088e9",
+      "md5": "4386d1654d75009cefade1aa4f3bd41d",
+      "sha1": "02acb94f2c5ccf2e300410a746b5ed12e0415183",
+      "serial": "NXCD3024"
+    },
+    {
+      "name": "Yamamura Misa Suspense - Kinsenka Kyouezara Satsujin Jiken (Japan)",
+      "region": "Japan",
+      "rom_name": "Yamamura Misa Suspense - Kinsenka Kyouezara Satsujin Jiken (Japan) (Track 02).bin",
+      "size": 198539376,
+      "crc": "493b5ab0",
+      "md5": "3e42a407c4e8346b6fd004de1272f4d9",
+      "sha1": "4d4f3f8a87a1d142518bb46a2d43377df52ca49b",
+      "serial": "NXCD2006"
+    },
+    {
+      "name": "YaWaRa! A Fashionable Judo Girl! (Japan)",
+      "region": "Japan",
+      "rom_name": "YaWaRa! A Fashionable Judo Girl! (Japan) (Track 2).bin",
+      "size": 311146080,
+      "crc": "6184da09",
+      "md5": "5b42b69e7ac2c1cc5b9b4f2ad1ce32ca",
+      "sha1": "1c5ecadc3ae281349c453cd40de6a5332f7f112f",
+      "serial": "SXCD-2001"
+    },
+    {
+      "name": "YaWaRa! 2 - A Fashionable Judo Girl! (Japan)",
+      "region": "Japan",
+      "rom_name": "YaWaRa! 2 - A Fashionable Judo Girl! (Japan) (Track 2).bin",
+      "size": 155090880,
+      "crc": "211adf59",
+      "md5": "ee9b3983a9f784f584218b53ab1ac474",
+      "sha1": "fd56cf4b1edb48867758385fab4519c25af720ce",
+      "serial": "SXCD4002"
+    },
+    {
+      "name": "Xak III - The Eternal Recurrence (Japan)",
+      "region": "Japan",
+      "rom_name": "Xak III - The Eternal Recurrence (Japan) (Track 02).bin",
+      "size": 54773376,
+      "crc": "b123232d",
+      "md5": "77fabc1b07cf7c868456a0bff75c62d4",
+      "sha1": "f53fa8567c82a8e88d5a713b2aa611d0a382443a",
+      "serial": "HECD4013"
+    },
+    {
+      "name": "Xak (Japan)",
+      "region": "Japan",
+      "rom_name": "Xak (Japan) (Track 05).bin",
+      "size": 24947664,
+      "crc": "5bf7168b",
+      "md5": "c3677751356bd98ba97d509f5f203ac9",
+      "sha1": "3669256499aa8484615c5109cf83314d9631fe40",
+      "serial": "TJCD2032"
+    },
+    {
+      "name": "Wrestling Universe - Fire Pro Joshi - Dome Choujo Taisen - Zenjo vs. JWP (Japan)",
+      "region": "Japan",
+      "rom_name": "Wrestling Universe - Fire Pro Joshi - Dome Choujo Taisen - Zenjo vs. JWP (Japan) (Track 02).bin",
+      "size": 82183584,
+      "crc": "b23bfd2d",
+      "md5": "b8316ab497fdf487a3996135a5b9dffe",
+      "sha1": "57fd639412150d96abb24f5ee27701ab5e00af18",
+      "serial": "HMCD-4008"
+    },
+    {
+      "name": "Wrestle Angels - Double Impact (Japan)",
+      "region": "Japan",
+      "rom_name": "Wrestle Angels - Double Impact (Japan) (Track 2).bin",
+      "size": 212830128,
+      "crc": "\u0003)A5",
+      "md5": "c17da37b882df4281bd1bdaf881f82d5",
+      "sha1": "f20183d5ed78645e5e98289513508f8eeb77f357",
+      "serial": "HECD4012"
+    },
+    {
+      "name": "World Heroes 2 (Japan)",
+      "region": "Japan",
+      "rom_name": "World Heroes 2 (Japan) (Track 02).bin",
+      "size": 20810496,
+      "crc": "c4ae52be",
+      "md5": "4303c5f01b9af12204c39e52cfe32f16",
+      "sha1": "b73ac6a60b504298b0c2f9488d6ec92e79be2042",
+      "serial": "HCD4063"
+    },
+    {
+      "name": "Wonder Boy III - Monster Lair (Japan) (Rev 4)",
+      "region": "Japan",
+      "rom_name": "Wonder Boy III - Monster Lair (Japan) (Rev 4) (Track 02).bin",
+      "size": 20163696,
+      "crc": "6f9efd6d",
+      "md5": "e2a8e54489804ab7aee1c06893a102d3",
+      "sha1": "4250e51173732e463fe60a68d99e5094491ddf95",
+      "serial": "HCD9006"
+    },
+    {
+      "name": "Wonder Boy III - Monster Lair (Japan) (Rev 3)",
+      "region": "Japan",
+      "rom_name": "Wonder Boy III - Monster Lair (Japan) (Rev 3) (Track 02).bin",
+      "size": 20163696,
+      "crc": "a99a8d51",
+      "md5": "a65dc771f67af7394c97830f68f86d37",
+      "sha1": "a6da4e70bed36d2482e05525a9e003a8aab9d9da",
+      "serial": "HCD9006"
+    },
+    {
+      "name": "Wizardry V - Heart of the Maelstrom (Japan)",
+      "region": "Japan",
+      "rom_name": "Wizardry V - Heart of the Maelstrom (Japan) (Track 02).bin",
+      "size": 8187312,
+      "crc": "9904163a",
+      "md5": "2eafcd5af5811df1364d1a5f9277ebab",
+      "sha1": "a6ad2e65905eae61fa8ab72d53162280d48bc304",
+      "serial": "NXCD2011"
+    },
+    {
+      "name": "Wizardry III, IV (Japan)",
+      "region": "Japan",
+      "rom_name": "Wizardry III, IV (Japan) (Track 02).bin",
+      "size": 20836368,
+      "crc": "2631d93e",
+      "md5": "99c93dcf05c8bd992912f244a755cc7f",
+      "sha1": "0c0cbed1ac71a36885744b3cc3a3116d294e9385",
+      "serial": "NXCD4029"
+    },
+    {
+      "name": "Wizardry I, II (Japan)",
+      "region": "Japan",
+      "rom_name": "Wizardry I, II (Japan) (Track 02).bin",
+      "size": 13154736,
+      "crc": "a9445e01",
+      "md5": "bcf0245c85778e18a9d2af73788bbdf7",
+      "sha1": "c3d080be4598084179e9e0153b628909c30644f7",
+      "serial": "NXCD3020"
+    },
+    {
+      "name": "Winds of Thunder (Japan)",
+      "region": "Japan",
+      "rom_name": "Winds of Thunder (Japan) (Track 02).bin",
+      "size": 9320976,
+      "crc": "99ae9dac",
+      "md5": "9555e180a51094a2fececda476d5985c",
+      "sha1": "0d5c19a07c5bd47c5febf0ebb661eac5500702c7",
+      "serial": "HCD3039"
+    },
+    {
+      "name": "Where in the World Is Carmen Sandiego (Japan) (En,Ja)",
+      "region": "Japan",
+      "rom_name": "Where in the World Is Carmen Sandiego (Japan) (En,Ja) (Track 02).bin",
+      "size": 9349200,
+      "crc": "e7ca0aae",
+      "md5": "b95bb14781bbea9b13a342626dc1b8da",
+      "sha1": "dcd94dde22a0b6cab1306ea3a59541cf149f498f",
+      "serial": "PVCD-0001"
+    },
+    {
+      "name": "Virgin Dream (Japan)",
+      "region": "Japan",
+      "rom_name": "Virgin Dream (Japan) (Track 2).bin",
+      "size": 90175680,
+      "crc": "21631af3",
+      "md5": "6c1eed41e32597753e5c95b1bda50304",
+      "sha1": "b3461663218fd33bd556428856166e05ee7cc847",
+      "serial": "TICD-6004"
+    },
+    {
+      "name": "Vasteel 2 (Japan)",
+      "region": "Japan",
+      "rom_name": "Vasteel 2 (Japan) (Track 02).bin",
+      "size": 9586752,
+      "crc": "c5328692",
+      "md5": "c619af4bceefb2daf91d44693b62783e",
+      "sha1": "41d5179e7ed1a3be09ad203522167993d89bb0e0",
+      "serial": "HMCD4007"
+    },
+    {
+      "name": "Vasteel (USA)",
+      "region": "USA",
+      "rom_name": "Vasteel (USA) (Track 02).bin",
+      "size": 127231440,
+      "crc": "J~J{",
+      "md5": "681f42cc06e9793777e94571c7288861",
+      "sha1": "a1949b411eaef375115713f14c79c956e78998ad",
+      "serial": "WTG990801"
+    },
+    {
+      "name": "Vasteel (Japan)",
+      "region": "Japan",
+      "rom_name": "Vasteel (Japan) (Track 02).bin",
+      "size": 98010192,
+      "crc": "cmK2",
+      "md5": "972eddc97dc8c5f0675ea280f89c9d71",
+      "sha1": "dea2d4d077fc6112c3d9f04cff209708fbce1a2b",
+      "serial": "HMCD-0001"
+    },
+    {
+      "name": "Valis IV (Japan)",
+      "region": "Japan",
+      "rom_name": "Valis IV (Japan) (Track 02).bin",
+      "size": 2375520,
+      "crc": "t*jV",
+      "md5": "c3c025b53c4c5b5762963e0e0caa2993",
+      "sha1": "a9aa35c307adf4862450d8418956f00e32f6743d",
+      "serial": "TJCD1017"
+    },
+    {
+      "name": "Valis III (USA)",
+      "region": "USA",
+      "rom_name": "Valis III (USA) (Track 02).bin",
+      "size": 4078368,
+      "crc": "1fea3963",
+      "md5": "2aa65497cb619031070e59b79caec968",
+      "sha1": "ce47a755d8919847b97d1f4d71dec19a839fc1bf",
+      "serial": "TGXCD1024"
+    },
+    {
+      "name": "Valis III (Japan) (Alt)",
+      "region": "Japan",
+      "rom_name": "Valis III (Japan) (Alt) (Track 02).bin",
+      "size": 4080720,
+      "crc": "bab49b9d",
+      "md5": "a782985ff32b9f640adea42094d6a8cc",
+      "sha1": "f7c8cb2618ae7f850cfa08001b36edf2000ee5d6",
+      "serial": "TJCD0009"
+    },
+    {
+      "name": "Valis II (USA)",
+      "region": "USA",
+      "rom_name": "Valis II (USA) (Track 02).bin",
+      "size": 6185760,
+      "crc": "228168ad",
+      "md5": "5f6846f935a8b9a463adebf0967c501e",
+      "sha1": "4baae7579a51a54d959212e81a1432c7e6ff83e0",
+      "serial": "TGXCD1006"
+    },
+    {
+      "name": "Valis II (Japan) (Alt 1)",
+      "region": "Japan",
+      "rom_name": "Valis II (Japan) (Alt 1) (Track 02).bin",
+      "size": 6185760,
+      "crc": "e036867d",
+      "md5": "cf43558cdaba5931af6d739c1004e4bd",
+      "sha1": "c3eb280f61818450696768d092395ec2a08a2947",
+      "serial": "TJCD9001"
+    },
+    {
+      "name": "Urusei Yatsura - Stay with You (Japan)",
+      "region": "Japan",
+      "rom_name": "Urusei Yatsura - Stay with You (Japan) (Track 2).bin",
+      "size": 216979056,
+      "crc": "0b8294cc",
+      "md5": "bba0ef1cfc8ba1e0cda634941dd07ea3",
+      "sha1": "de2dd629753ce0cf68fddd79725b92a5b09d58c9",
+      "serial": "HCD0012"
+    },
+    {
+      "name": "Ultra Box Soukangou (Japan)",
+      "region": "Japan",
+      "rom_name": "Ultra Box Soukangou (Japan) (Track 02).bin",
+      "size": 196568400,
+      "crc": "5d65eaa8",
+      "md5": "12f426c35962510d7a5be53a0855bd91",
+      "sha1": "c5322daadefb4f6fe5b0066f121a7e60f4542122",
+      "serial": "JCCD0601"
+    },
+    {
+      "name": "Ultra Box 6-gou (Japan)",
+      "region": "Japan",
+      "rom_name": "Ultra Box 6-gou (Japan) (Track 02).bin",
+      "size": 125843760,
+      "crc": "b8acede1",
+      "md5": "303b0a653e64184f91d0228de267af98",
+      "sha1": "bd5639ca3fbb003b2ae79f4cd53cc30423f92dcb",
+      "serial": "JCCD2606"
+    },
+    {
+      "name": "Ultra Box 5-gou (Japan)",
+      "region": "Japan",
+      "rom_name": "Ultra Box 5-gou (Japan) (Track 02).bin",
+      "size": 102427248,
+      "crc": "86f0a77e",
+      "md5": "7aae34669d79a31455f09fc73c8e55d1",
+      "sha1": "bd085b769c95f559fd2a3921d3c45962475b2158",
+      "serial": "JCCD1605"
+    },
+    {
+      "name": "Ultra Box 4-gou (Japan)",
+      "region": "Japan",
+      "rom_name": "Ultra Box 4-gou (Japan) (Track 02).bin",
+      "size": 86252544,
+      "crc": "68cae38a",
+      "md5": "868adc2dc18627f8482a453689d7a46d",
+      "sha1": "52bc8ffaae27a30021fc53b75b5f87ca763449e5",
+      "serial": "JCCD1604"
+    },
+    {
+      "name": "Ultra Box 3-gou (Japan)",
+      "region": "Japan",
+      "rom_name": "Ultra Box 3-gou (Japan) (Track 02).bin",
+      "size": 74572512,
+      "crc": "a5de9355",
+      "md5": "2d59f500f264431b330dc644806d9de7",
+      "sha1": "3fbacf5fd0a59e02afb772b3bca2f239fa432b83",
+      "serial": "JCCD0603"
+    },
+    {
+      "name": "Ultra Box 2-gou (Japan)",
+      "region": "Japan",
+      "rom_name": "Ultra Box 2-gou (Japan) (Track 02).bin",
+      "size": 176872752,
+      "crc": "7eea71e2",
+      "md5": "f001b1899cf5fe0c4aa0925fa44c2cf1",
+      "sha1": "e9f0735503c94d61d77cf6f1ae8d40be00e45917",
+      "serial": "JCCD0602"
+    },
+    {
+      "name": "Uchuu Senkan Yamato (Japan)",
+      "region": "Japan",
+      "rom_name": "Uchuu Senkan Yamato (Japan) (Track 02).bin",
+      "size": 82552848,
+      "crc": "367d1aaa",
+      "md5": "0777805cf86602028ff50c6a1ffd09db",
+      "sha1": "b26b651ff8fcd056008deb145cfd9af6bc876c63",
+      "serial": "HMCD-2004"
+    },
+    {
+      "name": "Travellers! Densetsu o Buttobase (Japan)",
+      "region": "Japan",
+      "rom_name": "Travellers! Densetsu o Buttobase (Japan) (Track 2).bin",
+      "size": 73055472,
+      "crc": "9d48097a",
+      "md5": "1d206b95a730599d0bbd2a993ae3dd47",
+      "sha1": "09b76da0838a50eb3c3fe5dd3bdfaf7b5d83fbf6",
+      "serial": "JCCD4015"
+    },
+    {
+      "name": "Travel Eple (Japan)",
+      "region": "Japan",
+      "rom_name": "Travel Eple (Japan) (Track 73).bin",
+      "size": 2043888,
+      "crc": "a12a0aaf",
+      "md5": "4cf21d2b8b6f46b64ad42d94801299e8",
+      "sha1": "688890050472235b820a6b95c260f225f36ffbef",
+      "serial": "TJCD2030"
+    },
+    {
+      "name": "Top o Nerae! GunBuster Vol. 2 (Japan)",
+      "region": "Japan",
+      "rom_name": "Top o Nerae! GunBuster Vol. 2 (Japan) (Track 02).bin",
+      "size": 78178128,
+      "crc": "\u0001-\u02a9",
+      "md5": "6390199a212b04cfaf0e3922cb530e3e",
+      "sha1": "dea6b8e913b3196516665f951815cb44c3425e9e",
+      "serial": "RHCD-3005"
+    },
+    {
+      "name": "Top o Nerae! GunBuster Vol. 1 (Japan)",
+      "region": "Japan",
+      "rom_name": "Top o Nerae! GunBuster Vol. 1 (Japan) (Track 2).bin",
+      "size": 136281936,
+      "crc": "ffaa17cd",
+      "md5": "e82a93eb0fb117f3a12e256c5e456801",
+      "sha1": "1931d4203ec6a8d0f32bf922e163b912dea8037d",
+      "serial": "RHCD-2003"
+    },
+    {
+      "name": "Tokimeki Memorial (Japan) (Rev 1)",
+      "region": "Japan",
+      "rom_name": "Tokimeki Memorial (Japan) (Rev 1) (Track 4).bin",
+      "size": 398485248,
+      "crc": "f70d589b",
+      "md5": "02ecaff7f61a3e55fdc5332a150f453d",
+      "sha1": "9a875a7f2aeac5de848a1acea2572aea28d4ea0c",
+      "serial": "KMCD4007"
+    },
+    {
+      "name": "Todd's Adventures in Slime World (Japan)",
+      "region": "Japan",
+      "rom_name": "Todd's Adventures in Slime World (Japan) (Track 02).bin",
+      "size": 7258272,
+      "crc": "bd8a14de",
+      "md5": "ad71df1c68dec19e16b46cb16d79ab6f",
+      "sha1": "a9b239c09d1c984b57c1e3a210e2133b123e63af",
+      "serial": "MWCD2005"
+    },
+    {
+      "name": "TerraForming (Japan)",
+      "region": "Japan",
+      "rom_name": "TerraForming (Japan) (Track 02).bin",
+      "size": 3205776,
+      "crc": "9eedfbcc",
+      "md5": "80209675804c5bef53026b5d480b7285",
+      "sha1": "f0bf2f68721d6eb45efcab695b6d8b1d9ebe0f6b",
+      "serial": "RSCD-2001"
+    },
+    {
+      "name": "Tenshi no Uta II - Datenshi no Sentaku (Japan)",
+      "region": "Japan",
+      "rom_name": "Tenshi no Uta II - Datenshi no Sentaku (Japan) (Track 02).bin",
+      "size": 22466304,
+      "crc": "35b3f5df",
+      "md5": "ddcf2872e8bf108d1e8e7a6db6435210",
+      "sha1": "e0a7dbed4f3f4d57d4bb044cb1520aa26c0324d4",
+      "serial": "TJCD3033"
+    },
+    {
+      "name": "Tenshi no Uta (Japan)",
+      "region": "Japan",
+      "rom_name": "Tenshi no Uta (Japan) (Track 02).bin",
+      "size": 17592960,
+      "crc": "c0543a83",
+      "md5": "01636e6f93a3d979215637eba0eb132e",
+      "sha1": "804c430e777dc9134185100b203ff46b247330e1",
+      "serial": "TJCD1018"
+    },
+    {
+      "name": "Tengai Makyou - Deden no Den (Japan)",
+      "region": "Japan",
+      "rom_name": "Tengai Makyou - Deden no Den (Japan) (Track 2).bin",
+      "size": 1521744,
+      "crc": "8efbce5d",
+      "md5": "275c8906ea744e31553568b412992ab1",
+      "sha1": "1fcac0e62d31de7802154cd5ee3102b63d41bbe8",
+      "serial": "HCD4064"
+    },
+    {
+      "name": "Tenchi o Kurau (Japan)",
+      "region": "Japan",
+      "rom_name": "Tenchi o Kurau (Japan) (Track 02).bin",
+      "size": 20036688,
+      "crc": "90551d48",
+      "md5": "023f1710c858663def8465dee5830349",
+      "sha1": "0896d98cd6d2d557afcd0af76b4627b973f6f33a",
+      "serial": "NAPR-1030"
+    },
+    {
+      "name": "Tenchi Muyou! Ryououki (Japan)",
+      "region": "Japan",
+      "rom_name": "Tenchi Muyou! Ryououki (Japan) (Track 02).bin",
+      "size": 279721008,
+      "crc": "91414f9a",
+      "md5": "a9138d049081ce0bf8cb5650e28af77f",
+      "sha1": "ad64a0648709d6fe335740fac6a398fd1b7ef2bb",
+      "serial": "NAPR-1048"
+    },
+    {
+      "name": "Tecmo World Cup Super Soccer (Japan)",
+      "region": "Japan",
+      "rom_name": "Tecmo World Cup Super Soccer (Japan) (Track 02).bin",
+      "size": 9483264,
+      "crc": "96d44bb4",
+      "md5": "54f186d2892d5b264348d685215a51e5",
+      "sha1": "c0959ba1892909858677629227a8f65ea0590191",
+      "serial": "MRCD2001"
+    },
+    {
+      "name": "Tanjou - Debut (Japan)",
+      "region": "Japan",
+      "rom_name": "Tanjou - Debut (Japan) (Track 02).bin",
+      "size": 103342176,
+      "crc": "e121873b",
+      "md5": "05e03d06141c2284f3c244977e1f1ad3",
+      "sha1": "9221716ae052481f3c3019fe670fa8b6e913dcb9",
+      "serial": "NAPR-1043"
+    },
+    {
+      "name": "Taiheiki (Japan)",
+      "region": "Japan",
+      "rom_name": "Taiheiki (Japan) (Track 02).bin",
+      "size": 23816352,
+      "crc": "c287e646",
+      "md5": "c2a98d4db050fe165afdbc10782e2f56",
+      "sha1": "d1d7b0d5a733c35144934b92a0edf077de4fe8f4",
+      "serial": "IGCD1003"
+    },
+    {
+      "name": "Tadaima Yuusha Boshuu-chuu (Japan)",
+      "region": "Japan",
+      "rom_name": "Tadaima Yuusha Boshuu-chuu (Japan) (Track 02).bin",
+      "size": 75057024,
+      "crc": "d92774f5",
+      "md5": "5ee9b5056e0fb5abd4bab5d1b780a443",
+      "sha1": "25200690136c3ba101a04f38008f3ad19f84d9d1",
+      "serial": "HMCD3006"
+    },
+    {
+      "name": "TV Show, The (Japan)",
+      "region": "Japan",
+      "rom_name": "TV Show, The (Japan) (Track 02).bin",
+      "size": 21636048,
+      "crc": "cf21f704",
+      "md5": "5bfa4335970231b40fb78b93096eb76e",
+      "sha1": "a715495804a953189d3bee342f712038bc511832",
+      "serial": "RSCD-4005"
+    },
+    {
+      "name": "Sylphia (Japan)",
+      "region": "Japan",
+      "rom_name": "Sylphia (Japan) (Track 02).bin",
+      "size": 20158992,
+      "crc": "92038a9a",
+      "md5": "2f5a69675e80b410cd1682ffc8785b6f",
+      "sha1": "c801f7685106884b6654f79f41fc237242b6064b",
+      "serial": "THCD3001"
+    },
+    {
+      "name": "SydMead's TerraForming (USA)",
+      "region": "USA",
+      "rom_name": "SydMead's TerraForming (USA) (Track 02).bin",
+      "size": 3208128,
+      "crc": "01898223",
+      "md5": "fa3a2b8fad6450ddcfd5dad05db8f23e",
+      "sha1": "af48c053ff06dfcbf8db9f511311e0b52f47c947",
+      "serial": "TGXCD1040"
+    },
+    {
+      "name": "Sword Master (Japan)",
+      "region": "Japan",
+      "rom_name": "Sword Master (Japan) (Track 02).bin",
+      "size": 97612704,
+      "crc": "ec66f9f7",
+      "md5": "224bf8a5c8915aad9c58beae385b0a47",
+      "sha1": "ef58a2ce79342b253713fc69e53a5de88dcadfc0",
+      "serial": "RSCD-3003"
+    },
+    {
+      "name": "Super-CD-Demo^2 (Japan)",
+      "region": "Japan",
+      "rom_name": "Super-CD-Demo^2 (Japan) (Track 02).bin",
+      "size": 10522848,
+      "crc": "bac59348",
+      "md5": "1085ed97e2d9f5d8bcd5da7cd1797fa4",
+      "sha1": "db7a0021869308e9eed129569761120df5481f73"
+    },
+    {
+      "name": "Super Schwarzschild 2 (Japan)",
+      "region": "Japan",
+      "rom_name": "Super Schwarzschild 2 (Japan) (Track 02).bin",
+      "size": 14504784,
+      "crc": "c7680f0e",
+      "md5": "7b279190ccff81b40da592d149a20754",
+      "sha1": "594de39f4b1d9990cf72025233f3545a960b69b3",
+      "serial": "KSCD2003"
+    },
+    {
+      "name": "Super Schwarzschild (Japan)",
+      "region": "Japan",
+      "rom_name": "Super Schwarzschild (Japan) (Track 02).bin",
+      "size": 5247312,
+      "crc": "ef371b2e",
+      "md5": "53f9e0836a6e0b53f1bce591eaecd437",
+      "sha1": "585f7096ed3b2252bcbf025657c2695745b1a2f7",
+      "serial": "KSCD1002"
+    },
+    {
+      "name": "Super Real Mahjong Special - Miki Kasumi Shouko no Omoide yori (Japan)",
+      "region": "Japan",
+      "rom_name": "Super Real Mahjong Special - Miki Kasumi Shouko no Omoide yori (Japan) (Track 70).bin",
+      "size": 8961120,
+      "crc": "f89867e2",
+      "md5": "ea135ce37f4e6fc41086e719848bab06",
+      "sha1": "b02c954d65f6c211d5e98ad049ef444d7a454dcf",
+      "serial": "NXCD2016"
+    },
+    {
+      "name": "Super Real Mahjong PIV Custom (Japan)",
+      "region": "Japan",
+      "rom_name": "Super Real Mahjong PIV Custom (Japan) (Track 02).bin",
+      "size": 22560384,
+      "crc": "14ea3edd",
+      "md5": "8660620f128101ac38a136040f220ffc",
+      "sha1": "936d4fc36ee8ace49f3998b90e9e51a907bb6b73",
+      "serial": "NXCD3027"
+    },
+    {
+      "name": "Super Real Mahjong PII-III Custom (Japan)",
+      "region": "Japan",
+      "rom_name": "Super Real Mahjong PII-III Custom (Japan) (Track 02).bin",
+      "size": 9518544,
+      "crc": "\u01b499",
+      "md5": "433a7e0ae3c37c9a4cd8715984a23d63",
+      "sha1": "f6d3fb890406295eac015a7d511b4f202767204d",
+      "serial": "NXCD4030"
+    },
+    {
+      "name": "Super Real Mahjong P.V Custom (Japan)",
+      "region": "Japan",
+      "rom_name": "Super Real Mahjong P.V Custom (Japan) (Track 02).bin",
+      "size": 28268688,
+      "crc": "ee0fa8ef",
+      "md5": "78721db13c7c13c848eb78b329393ab8",
+      "sha1": "47d00bd4e1fdf2d72e3fda28a13f1d4f1af4a1e4",
+      "serial": "NXCD5032"
+    },
+    {
+      "name": "Super Raiden (Japan)",
+      "region": "Japan",
+      "rom_name": "Super Raiden (Japan) (Track 02).bin",
+      "size": 26758704,
+      "crc": ".9T\u0004",
+      "md5": "f5ae1fa0987a648a383bfd2b7d32b11a",
+      "sha1": "3d61ff3bea1c05e4874553d6d16537ba6d990431",
+      "serial": "HCD2023"
+    },
+    {
+      "name": "Super Mahjong Taikai (Japan)",
+      "region": "Japan",
+      "rom_name": "Super Mahjong Taikai (Japan) (Track 02).bin",
+      "size": 2093280,
+      "crc": "08e4d0b7",
+      "md5": "6c8f3f3d94933bceeb6c7522671d7f7d",
+      "sha1": "57893939bb14b29f1c7ecc75f2750576fbcf0094",
+      "serial": "KOCD2002"
+    },
+    {
+      "name": "Super Darius II (Japan)",
+      "region": "Japan",
+      "rom_name": "Super Darius II (Japan) (Track 02).bin",
+      "size": 13180608,
+      "crc": "01896d4c",
+      "md5": "cf8c010dfc60ff923562e1e9df8628de",
+      "sha1": "7ec282dc2e78e9c174e0414de904c5583380784b",
+      "serial": "NAPR-1031"
+    },
+    {
+      "name": "Super Darius (Japan) (Alt)",
+      "region": "Japan",
+      "rom_name": "Super Darius (Japan) (Alt) (Track 02).bin",
+      "size": 17171952,
+      "crc": "25ad4704",
+      "md5": "b2f7320fd5f848b5b889b63f7cf24371",
+      "sha1": "569396fbed7861db55b11124b083c355e22ac6f6",
+      "serial": "HACD-0003"
+    },
+    {
+      "name": "Super Daisenryaku (Japan)",
+      "region": "Japan",
+      "rom_name": "Super Daisenryaku (Japan) (Track 2).bin",
+      "size": 19528656,
+      "crc": "0db0c71d",
+      "md5": "c4a64f7435a36d653189f89e2880e4d9",
+      "sha1": "5d1b86dbccd96f21aad224759a98ed774c163602",
+      "serial": "MCCD-0001"
+    },
+    {
+      "name": "Super CD-ROM^2 Taiken Soft Shuu (Japan)",
+      "region": "Japan",
+      "rom_name": "Super CD-ROM^2 Taiken Soft Shuu (Japan) (Track 13).bin",
+      "size": 39419520,
+      "crc": "76317a94",
+      "md5": "e76a86e80b9dad372063d74c262fa95a",
+      "sha1": "0b19e74b8f52911a4f48183356ccdf5297257dfc",
+      "serial": "HCD1027"
+    },
+    {
+      "name": "Super Albatross (Japan)",
+      "region": "Japan",
+      "rom_name": "Super Albatross (Japan) (Track 02).bin",
+      "size": 10506384,
+      "crc": "9089a984",
+      "md5": "068362fbdca2ba7f504102c88e306f8a",
+      "sha1": "db3d64c66621843c984054731704302c7a5db097",
+      "serial": "TJCD9002"
+    },
+    {
+      "name": "Super Air Zonk - Rockabilly-Paradise (USA)",
+      "region": "USA",
+      "rom_name": "Super Air Zonk - Rockabilly-Paradise (USA) (Track 02).bin",
+      "size": 6456240,
+      "crc": "7e1e04c8",
+      "md5": "61c81810ce20394946d751155695b0a0",
+      "sha1": "fc6fae87d62a12d1cafbb39912f4107f987104bb",
+      "serial": "TGXCD1042"
+    },
+    {
+      "name": "Summer Carnival '93 - NEXZR Special (Japan)",
+      "region": "Japan",
+      "rom_name": "Summer Carnival '93 - NEXZR Special (Japan) (Track 02).bin",
+      "size": 6380976,
+      "crc": "fe62915c",
+      "md5": "4986b11b412384bd3fc1520e28a5bd4d",
+      "sha1": "531947b9d60aa95e87076e586cea8e787226fdc5",
+      "serial": "NXCD3021"
+    },
+    {
+      "name": "Summer Carnival '92 - Alzadick (Japan)",
+      "region": "Japan",
+      "rom_name": "Summer Carnival '92 - Alzadick (Japan) (Track 02).bin",
+      "size": 3488016,
+      "crc": "4f0782d7",
+      "md5": "b4e56acb475caa3bae416d64e394f101",
+      "sha1": "d65baf987d4011918c91e27ee3811d26bdb82e3f",
+      "serial": "NXCD2012"
+    },
+    {
+      "name": "Sugoroku, The '92 - Nari Tore - Nariagari Trendy (Japan)",
+      "region": "Japan",
+      "rom_name": "Sugoroku, The '92 - Nari Tore - Nariagari Trendy (Japan) (Track 2).bin",
+      "size": 2147376,
+      "crc": ":^2G",
+      "md5": "54019a8369cc2b9d3270c3146df30110",
+      "sha1": "4bd64f58bc46052bf033e09836921109c102ea25",
+      "serial": "TJCD1021"
+    },
+    {
+      "name": "Strider Hiryuu (Japan)",
+      "region": "Japan",
+      "rom_name": "Strider Hiryuu (Japan) (Track 02).bin",
+      "size": 51588768,
+      "crc": "1cb4116b",
+      "md5": "5d2ac08285b387a0d4c25535d192acda",
+      "sha1": "fa75f1edf5779fccf1072619a89dea11b87d69e4",
+      "serial": "NAPR-1041"
+    },
+    {
+      "name": "Steam-Heart's (Japan)",
+      "region": "Japan",
+      "rom_name": "Steam-Heart's (Japan) (Track 02).bin",
+      "size": 41769168,
+      "crc": "87008723",
+      "md5": "2d7fa500c54d974068ee52b01d302988",
+      "sha1": "140f9a4992f61512c55312a1e682256daeef6d8c",
+      "serial": "GLCD6002"
+    },
+    {
+      "name": "Startling Odyssey II - Maryuu Sensou (Japan)",
+      "region": "Japan",
+      "rom_name": "Startling Odyssey II - Maryuu Sensou (Japan) (Track 02).bin",
+      "size": 51327696,
+      "crc": "86465bd6",
+      "md5": "eb2b5d88d62a5c8c8d9e03271e0d16eb",
+      "sha1": "2c6e03007bd33bcfb215e944cfe140bce7224b5a",
+      "serial": "RFCD4003"
+    },
+    {
+      "name": "Startling Odyssey (Japan)",
+      "region": "Japan",
+      "rom_name": "Startling Odyssey (Japan) (Track 02).bin",
+      "size": 52414320,
+      "crc": "e78a4b85",
+      "md5": "495c234f257bf002ae0f328a8888f5e8",
+      "sha1": "244f7c098339f99066d795355bcc1338ff8c7d71",
+      "serial": "RFCD3001"
+    },
+    {
+      "name": "Star Parodier (Japan)",
+      "region": "Japan",
+      "rom_name": "Star Parodier (Japan) (Track 02).bin",
+      "size": 5550720,
+      "crc": "06be5b63",
+      "md5": "212df6a72ce8018c32227a8ac779e5fa",
+      "sha1": "53ed1e9c05cbc863405ca7d75e267468ad63189c",
+      "serial": "HCD2024"
+    },
+    {
+      "name": "Star Mobile (Japan)",
+      "region": "Japan",
+      "rom_name": "Star Mobile (Japan) (Track 02).bin",
+      "size": 1542912,
+      "crc": "70f8c2ec",
+      "md5": "3ee8b88e3fea0207021d225c7364806c",
+      "sha1": "f693cd5c29716345021e5fc481d1c2279b9b5bc9",
+      "serial": "NXCD2013"
+    },
+    {
+      "name": "Star Breaker (Japan)",
+      "region": "Japan",
+      "rom_name": "Star Breaker (Japan) (Track 02).bin",
+      "size": 30510144,
+      "crc": "6d35910f",
+      "md5": "8df7111325db24d873cffc54a4f8f8b3",
+      "sha1": "c001ddb5c63ed8ba3e34734bae547048e8a80dd6",
+      "serial": "RFCD4002"
+    },
+    {
+      "name": "Spriggan Mark 2 - Re Terraform Project (Japan)",
+      "region": "Japan",
+      "rom_name": "Spriggan Mark 2 - Re Terraform Project (Japan) (Track 02).bin",
+      "size": 6364512,
+      "crc": "eb604489",
+      "md5": "8679be50ee1c2d12e3d6cd5a0a3d1707",
+      "sha1": "6db64581490afbd5f7c538f31bc63a6f0695dcb7",
+      "serial": "NXCD2008"
+    },
+    {
+      "name": "Splash Lake - Ostrich Daibouken (Japan)",
+      "region": "Japan",
+      "rom_name": "Splash Lake - Ostrich Daibouken (Japan) (Track 02).bin",
+      "size": 9622032,
+      "crc": "68d322db",
+      "md5": "ac5e8600dcb58e7b82125d5986139cc5",
+      "sha1": "b522e9aa5468e6fa256ab2efa58655b45face592",
+      "serial": "NAPR-1020"
+    },
+    {
+      "name": "Splash Lake (USA)",
+      "region": "USA",
+      "rom_name": "Splash Lake (USA) (Track 02).bin",
+      "size": 9619680,
+      "crc": "9f3d7fa5",
+      "md5": "6b276a3e49066b93d8e5bf0c419e398d",
+      "sha1": "e09c69ea2beb87807a7096c47b4080f1b017d477",
+      "serial": "TGXCD1025"
+    },
+    {
+      "name": "Space Invaders - The Original Game (Japan)",
+      "region": "Japan",
+      "rom_name": "Space Invaders - The Original Game (Japan) (Track 2).bin",
+      "size": 8723568,
+      "crc": "5d99cdb4",
+      "md5": "852ea4ff7af6f69f4f9451ef54e7767d",
+      "sha1": "734464cffc546319deabeadc5062ef3fcff4e230",
+      "serial": "NAPR-1050"
+    },
+    {
+      "name": "Space Adventure Cobra II - Densetsu no Otoko (Japan)",
+      "region": "Japan",
+      "rom_name": "Space Adventure Cobra II - Densetsu no Otoko (Japan) (Track 2).bin",
+      "size": 161126112,
+      "crc": "4b0857df",
+      "md5": "50fdd533aca72e5c068ce4caf0adc874",
+      "sha1": "53ffa6f942161409cff9802cd0d98518ffbbe677",
+      "serial": "HCD1014"
+    },
+    {
+      "name": "Space Adventure Cobra - Kokuryuuou no Densetsu (Japan)",
+      "region": "Japan",
+      "rom_name": "Space Adventure Cobra - Kokuryuuou no Densetsu (Japan) (Track 02).bin",
+      "size": 82101264,
+      "crc": "54120b9a",
+      "md5": "cd4efdb23b453d718ad11c1699e4f95d",
+      "sha1": "6c0add8ec3932ec5db629d245bd716ac50caef5c",
+      "serial": "HCD8004"
+    },
+    {
+      "name": "Sotsugyou Shashin - Miki (Japan)",
+      "region": "Japan",
+      "rom_name": "Sotsugyou Shashin - Miki (Japan) (Track 02).bin",
+      "size": 19051200,
+      "crc": "e6cedfbb",
+      "md5": "c57a9af0a3ea42334cdef1123d0eaa51",
+      "sha1": "3085882715480c46a2981d281eea86cac3be1939",
+      "serial": "CJCD-4005"
+    },
+    {
+      "name": "Sotsugyou II - Neo Generation (Japan)",
+      "region": "Japan",
+      "rom_name": "Sotsugyou II - Neo Generation (Japan) (Track 02).bin",
+      "size": 101380608,
+      "crc": "aca6104e",
+      "md5": "7d1f242c1968feb9a624424bc02e3def",
+      "sha1": "0665be78e03b8505ee4a05b4af55f97b535d2e0c",
+      "serial": "RHCD-4009"
+    },
+    {
+      "name": "Sotsugyou - Graduation (Japan) (Rev 1)",
+      "region": "Japan",
+      "rom_name": "Sotsugyou - Graduation (Japan) (Rev 1) (Track 02).bin",
+      "size": 73053120,
+      "crc": "91b43931",
+      "md5": "7472b316837c921b0f5af0790a64f5fe",
+      "sha1": "a3e7eabd69e3eeba3f074041377dd2074b8b17bc",
+      "serial": "NAPR-1036"
+    },
+    {
+      "name": "Sotsugyou - Graduation (Japan)",
+      "region": "Japan",
+      "rom_name": "Sotsugyou - Graduation (Japan) (Track 02).bin",
+      "size": 73053120,
+      "crc": "\u029f\"^",
+      "md5": "35d24c59ac2a49bd5f9859bdc71595ed",
+      "sha1": "ad6f11757de9ba4596d305fd6d5e67a036a446ee",
+      "serial": "NAPR-1036"
+    },
+    {
+      "name": "Sorcerian (Japan)",
+      "region": "Japan",
+      "rom_name": "Sorcerian (Japan) (Track 02).bin",
+      "size": 10395840,
+      "crc": "<U6>",
+      "md5": "1e46dd4784c7573edb03c86c7927b05e",
+      "sha1": "fbeeb25437405be0a4db8721d086d652e7c275ac",
+      "serial": "JCCD1005"
+    },
+    {
+      "name": "Solid Force (Japan)",
+      "region": "Japan",
+      "rom_name": "Solid Force (Japan) (Track 02).bin",
+      "size": 16762704,
+      "crc": "1e978d03",
+      "md5": "4b312ebfcf5f378d08c4ee943ff8c1cc",
+      "sha1": "dd2f83e78db9415ba4d293f85d6046500ab84ff9",
+      "serial": "HECD5018"
+    },
+    {
+      "name": "Sol Moonarge (Japan)",
+      "region": "Japan",
+      "rom_name": "Sol Moonarge (Japan) (Track 02).bin",
+      "size": 43577856,
+      "crc": "f06138f3",
+      "md5": "710f12dec4b0893e6fbc2df7c84f1b68",
+      "sha1": "7a772e2395b7ad85eb72168dcf95db36ae1c5b23",
+      "serial": "ICCD3004"
+    },
+    {
+      "name": "Sol Bianca (Japan)",
+      "region": "Japan",
+      "rom_name": "Sol Bianca (Japan) (Track 02).bin",
+      "size": 43323840,
+      "crc": "905948b9",
+      "md5": "1227517b0c40b232e76a7b1aa78fd282",
+      "sha1": "0b57d5f675abd3fef0ee4e5b098520c8807a330a",
+      "serial": "NSCD-0002"
+    },
+    {
+      "name": "Snatcher CD-ROMantic - Pilot Disk (Japan)",
+      "region": "Japan",
+      "rom_name": "Snatcher CD-ROMantic - Pilot Disk (Japan) (Track 02).bin",
+      "size": 27238512,
+      "crc": "71c03f14",
+      "md5": "84dbfc205ba586d052e23c5dd2a7fd48",
+      "sha1": "77f94696d017c7cc8c315aaeec08c0fc71563752",
+      "serial": "KMCD2001"
+    },
+    {
+      "name": "Snatcher CD-ROMantic (Japan)",
+      "region": "Japan",
+      "rom_name": "Snatcher CD-ROMantic (Japan) (Track 02).bin",
+      "size": 80779440,
+      "crc": "9fa5e9d2",
+      "md5": "fd6e66d66ac3ee8b594b7474254ee29f",
+      "sha1": "a6bb5d90391b3e7181a6ff5d37563f2b08cf705c",
+      "serial": "KMCD2002"
+    },
+    {
+      "name": "Slot Gambler (Japan)",
+      "region": "Japan",
+      "rom_name": "Slot Gambler (Japan) (Track 02).bin",
+      "size": 8862336,
+      "crc": "ec078bf4",
+      "md5": "c42b197304dba42ad8499694d28605e2",
+      "sha1": "598a27b283736624c2f3d74318dd3fead788da88",
+      "serial": "NBCD5008"
+    },
+    {
+      "name": "SimEarth - The Living Planet (USA)",
+      "region": "USA",
+      "rom_name": "SimEarth - The Living Planet (USA) (Track 02).bin",
+      "size": 10595760,
+      "crc": "fe85b0d8",
+      "md5": "90587a1aaa745eb42490000b37821d2a",
+      "sha1": "4f0d8e852f137ece9b6013b6cee34fb820feebb7",
+      "serial": "TGXCD1036"
+    },
+    {
+      "name": "SimEarth - The Living Planet (Japan)",
+      "region": "Japan",
+      "rom_name": "SimEarth - The Living Planet (Japan) (Track 02).bin",
+      "size": 10595760,
+      "crc": "db155b82",
+      "md5": "7b02bf6b885cc513fc2c1f912b2d5e72",
+      "sha1": "01939aff6233344178bfc00f17375e1168afdff8",
+      "serial": "HCD2040"
+    },
+    {
+      "name": "Shougi Database Kiyuu (Japan)",
+      "region": "Japan",
+      "rom_name": "Shougi Database Kiyuu (Japan) (Track 2).bin",
+      "size": 10520496,
+      "crc": "ae7668c9",
+      "md5": "dc9800c6f89cf92852bae16f7c1d4d2c",
+      "sha1": "e07043b11dfae2594f8375b027e794612898d5bf",
+      "serial": "STCD5001"
+    },
+    {
+      "name": "Shinsetsu Shiawase Usagi f - Yuujou yorimo Aiyoku (Japan)",
+      "region": "Japan",
+      "rom_name": "Shinsetsu Shiawase Usagi f - Yuujou yorimo Aiyoku (Japan) (Unl) (Track 02).bin",
+      "size": 6126960,
+      "crc": "66789110",
+      "md5": "0e35daef2f3bb3d0c93c3698e95abc96",
+      "sha1": "b2afe7d75351600a60c1f13383ad5f430eaf14ac"
+    },
+    {
+      "name": "Shinsetsu Shiawase Usagi 2 - Kairaku e no Invitation (Japan)",
+      "region": "Japan",
+      "rom_name": "Shinsetsu Shiawase Usagi 2 - Kairaku e no Invitation (Japan) (Unl) (Track 02).bin",
+      "size": 10327632,
+      "crc": "b90352de",
+      "md5": "f9b33a1f801211381ab3cb3dd564b1ed",
+      "sha1": "c3ea36625edd900856b81fd9ba7803ceff08676a"
+    },
+    {
+      "name": "Shinsetsu Shiawase Usagi (Japan)",
+      "region": "Japan",
+      "rom_name": "Shinsetsu Shiawase Usagi (Japan) (Unl) (Track 02).bin",
+      "size": 4240656,
+      "crc": "6e02e3c6",
+      "md5": "43792963878ed9110b55aefcb7042bfe",
+      "sha1": "bffbe93627d46881a84e26acc8fd1955d5d245e1"
+    },
+    {
+      "name": "Shin Onryou Senki (Japan)",
+      "region": "Japan",
+      "rom_name": "Shin Onryou Senki (Japan) (Track 2).bin",
+      "size": 150535056,
+      "crc": "ddcf2201",
+      "md5": "85a9fd1f57bde5c2905c33c08e86d767",
+      "sha1": "cf48c93b6d6b4051ef436b5632ceeb5e66836e66",
+      "serial": "FCCD5003"
+    },
+    {
+      "name": "Shin Nihon Pro Wrestling - '94 Battlefield in Tokyo Dome (Japan)",
+      "region": "Japan",
+      "rom_name": "Shin Nihon Pro Wrestling - '94 Battlefield in Tokyo Dome (Japan) (Track 02).bin",
+      "size": 18874800,
+      "crc": "b4c311da",
+      "md5": "c82b59c1aacf91dd927d7ae2be4c28ad",
+      "sha1": "63a1aa7f2cc18a7eda58b65d8970ab9291d3f337",
+      "serial": "FCCD4001"
+    },
+    {
+      "name": "Shin Megami Tensei (Japan) (Rev 2)",
+      "region": "Japan",
+      "rom_name": "Shin Megami Tensei (Japan) (Rev 2) (Track 02).bin",
+      "size": 18630192,
+      "crc": "24cc4e59",
+      "md5": "f3001f32ab45430e546b50ed964ea970",
+      "sha1": "52d39af9f17e0272e651ac26243638f2f21b8093",
+      "serial": "ATCD3006"
+    },
+    {
+      "name": "Shin Megami Tensei (Japan) (Rev 1)",
+      "region": "Japan",
+      "rom_name": "Shin Megami Tensei (Japan) (Rev 1) (Track 02).bin",
+      "size": 18630192,
+      "crc": "H$t\f",
+      "md5": "ef490d8ef977149ae72c0ed822d1eafc",
+      "sha1": "9dddf377c93ee275ac839613e09997b21bf694a7",
+      "serial": "ATCD3006"
+    },
+    {
+      "name": "Shiawase Usagi II - Toraware Usagi Sailor Z (Japan)",
+      "region": "Japan",
+      "rom_name": "Shiawase Usagi II - Toraware Usagi Sailor Z (Japan) (Unl) (Track 02).bin",
+      "size": 3410400,
+      "crc": "2283f7e9",
+      "md5": "60a883becac887326e012470fb9d0ab0",
+      "sha1": "9cc917b8182769563998278b705756c192f3ce09"
+    },
+    {
+      "name": "Shiawase Usagi - Nureta Bishoujo - Hajimete Nanoni... (Japan)",
+      "region": "Japan",
+      "rom_name": "Shiawase Usagi - Nureta Bishoujo - Hajimete Nanoni... (Japan) (Unl) (Track 15).bin",
+      "size": 2664816,
+      "crc": "fed3edeb",
+      "md5": "46ef63fc6d954af648eb2c781ce25882",
+      "sha1": "32636f7d2573839f6f687958fa2ab030b7a9e5cf"
+    },
+    {
+      "name": "Sherlock Holmes - Consulting Detective - Vol. II (USA)",
+      "region": "USA",
+      "rom_name": "Sherlock Holmes - Consulting Detective - Vol. II (USA) (Track 2).bin",
+      "size": 701269968,
+      "crc": "6bd2c196",
+      "md5": "cef3212279a8df0edf87833546aa04dd",
+      "sha1": "17a0234590d08f3b5fbea92aa86891a045838cf5",
+      "serial": "TGXCD1039"
+    },
+    {
+      "name": "Sherlock Holmes - Consulting Detective - Vol. II (Japan)",
+      "region": "Japan",
+      "rom_name": "Sherlock Holmes - Consulting Detective - Vol. II (Japan).bin",
+      "size": 700484400,
+      "crc": "d9be75f1",
+      "md5": "c58c8f47a892080a06caeac34b1a1d7e",
+      "sha1": "735ff871c9b2b39f7bf4c5580b89a676b675fe59",
+      "serial": "JCCD3012"
+    },
+    {
+      "name": "Sherlock Holmes - Consulting Detective (USA)",
+      "region": "USA",
+      "rom_name": "Sherlock Holmes - Consulting Detective (USA).bin",
+      "size": 686254800,
+      "crc": "b617632f",
+      "md5": "17384201fd019eaeec75f0a7a541a344",
+      "sha1": "43b7c020f03e54b1e9debcd9b1ac43fa2c45f6be",
+      "serial": "TGXCD1011"
+    },
+    {
+      "name": "Sherlock Holmes - Consulting Detective (Japan)",
+      "region": "Japan",
+      "rom_name": "Sherlock Holmes - Consulting Detective (Japan).bin",
+      "size": 687066240,
+      "crc": "85bf2f60",
+      "md5": "a819b490eba680e0f81b584f9057f8c5",
+      "sha1": "7ff0600386c3bc3ea5de2723709baba1c75cc474",
+      "serial": "JCCD1004"
+    },
+    {
+      "name": "Shape Shifter (USA)",
+      "region": "USA",
+      "rom_name": "Shape Shifter (USA) (Track 01).bin",
+      "size": 6806688,
+      "crc": "2a49f11e",
+      "md5": "f49a0922d189f2c07b169d8600469f85",
+      "sha1": "5b87a9bad26d4391e7059acce258f48c18e0efef",
+      "serial": "TGXCD1021"
+    },
+    {
+      "name": "Shanghai II (Japan)",
+      "region": "Japan",
+      "rom_name": "Shanghai II (Japan) (Track 13).bin",
+      "size": 2001552,
+      "crc": "\u0004Em ",
+      "md5": "08f955193889f5144012d184bdd52262",
+      "sha1": "1113469a438d3efb95d49b00350193842de09032",
+      "serial": "HCD0010"
+    },
+    {
+      "name": "Shadow of the Beast - Mashou no Okite (Japan)",
+      "region": "Japan",
+      "rom_name": "Shadow of the Beast - Mashou no Okite (Japan) (Track 02).bin",
+      "size": 7065408,
+      "crc": "8adb820b",
+      "md5": "9544f3f0c4894e5ec41c2cbd69ef84b3",
+      "sha1": "8071eb81e268cb08db147b6097830e9e985c7bbe",
+      "serial": "JCCD2008"
+    },
+    {
+      "name": "Shadow of the Beast (USA)",
+      "region": "USA",
+      "rom_name": "Shadow of the Beast (USA) (Track 02).bin",
+      "size": 11188464,
+      "crc": "41d74c5d",
+      "md5": "1521cbc5fee0448c89a0d681cf9013ca",
+      "sha1": "6faf1f59b0cb279cae8ee559b4742c2356d0819d",
+      "serial": "TGXCD1018"
+    },
+    {
+      "name": "Sexy Idol Mahjong - Yakyuuken no Uta (Japan)",
+      "region": "Japan",
+      "rom_name": "Sexy Idol Mahjong - Yakyuuken no Uta (Japan) (Track 02).bin",
+      "size": 21080976,
+      "crc": "eae68702",
+      "md5": "3bcb34c118d28a7492daf50088902b5c",
+      "sha1": "d2a3ab25253f9bf0b95e4436c388439e7c54c559",
+      "serial": "NBCD4007"
+    },
+    {
+      "name": "Sexy Idol Mahjong - Fashion Monogatari (Japan)",
+      "region": "Japan",
+      "rom_name": "Sexy Idol Mahjong - Fashion Monogatari (Japan) (Track 02).bin",
+      "size": 13088880,
+      "crc": "66f95882",
+      "md5": "1766931ebd35ecfb223c0af7123a1927",
+      "sha1": "82181bebe34e950cd79ef49602c2fb90a2435fe5",
+      "serial": "NBCD4006"
+    },
+    {
+      "name": "Sexy Idol Mahjong (Japan)",
+      "region": "Japan",
+      "rom_name": "Sexy Idol Mahjong (Japan) (Track 02).bin",
+      "size": 6964272,
+      "crc": "cbda661b",
+      "md5": "c2af2a92b89eeb07d1b557c38ada1243",
+      "sha1": "883dc9b74aa8d39258f0482f4cce63837ac73197",
+      "serial": "NBCD3004"
+    },
+    {
+      "name": "Sengoku Kantou Sangokushi (Japan)",
+      "region": "Japan",
+      "rom_name": "Sengoku Kantou Sangokushi (Japan) (Track 02).bin",
+      "size": 13832112,
+      "crc": "3d94f0a0",
+      "md5": "f29b0622e81863248b528b84c36ba17a",
+      "sha1": "ec22edf068fa4f73387cfac41eff9a63829e4b31",
+      "serial": "IGCD1002"
+    },
+    {
+      "name": "Seiya Monogatari - Anearth Fantasy Stories (Japan)",
+      "region": "Japan",
+      "rom_name": "Seiya Monogatari - Anearth Fantasy Stories (Japan) (Track 02).bin",
+      "size": 49958832,
+      "crc": "47ddc258",
+      "md5": "ab5643b5d8a75b7087b398ce3532be0f",
+      "sha1": "66acd447ec99006a2071964dda54c6266c5ebb36",
+      "serial": "HCD5071"
+    },
+    {
+      "name": "Seisenshi Denshou - Jantaku no Kishi (Japan)",
+      "region": "Japan",
+      "rom_name": "Seisenshi Denshou - Jantaku no Kishi (Japan) (Track 02).bin",
+      "size": 86184336,
+      "crc": "11a43816",
+      "md5": "bc8fd780c7236ed7c54788e933a9964d",
+      "sha1": "e766463c53c03e63c5ada5795bb92445ff7410ae",
+      "serial": "NBCD4005"
+    },
+    {
+      "name": "Seiryuu Densetsu - Monbit (Japan) (Rev 4)",
+      "region": "Japan",
+      "rom_name": "Seiryuu Densetsu - Monbit (Japan) (Rev 4) (Track 2).bin",
+      "size": 60067728,
+      "crc": "528f0f46",
+      "md5": "d6eeb144655e013e7b20d1ab236e0d73",
+      "sha1": "d7cd691b07b16ba93b0e424cc777d296ab07e1ef",
+      "serial": "HCD1018"
+    },
+    {
+      "name": "Seiryuu Densetsu - Monbit (Japan) (Rev 1)",
+      "region": "Japan",
+      "rom_name": "Seiryuu Densetsu - Monbit (Japan) (Rev 1) (Track 2).bin",
+      "size": 60067728,
+      "crc": "55098954",
+      "md5": "1b35ace8dac221d62fd258c517c3d190",
+      "sha1": "6330e758a082805b678e19ab9e20c418bfa20f28",
+      "serial": "HCD1018"
+    },
+    {
+      "name": "Seirei Senshi Spriggan (Japan)",
+      "region": "Japan",
+      "rom_name": "Seirei Senshi Spriggan (Japan) (Track 02).bin",
+      "size": 4969776,
+      "crc": "14db03f6",
+      "md5": "b954963517d3f32e7bf32b853eb08b49",
+      "sha1": "b2de7d99dd68593a23b7baed3966c3e599f0ee4b",
+      "serial": "NXCD1004"
+    },
+    {
+      "name": "Sangokushi III (Japan)",
+      "region": "Japan",
+      "rom_name": "Sangokushi III (Japan) (Track 02).bin",
+      "size": 9838416,
+      "crc": "\u00ce'I",
+      "md5": "2c1e5e75be1824590942845799837c75",
+      "sha1": "9bfc2b7aaf7847807ae8e26863736223a3f410dc",
+      "serial": "KOCD3003"
+    },
+    {
+      "name": "Sangokushi - Eiketsu Tenka ni Nozomu (Japan)",
+      "region": "Japan",
+      "rom_name": "Sangokushi - Eiketsu Tenka ni Nozomu (Japan) (Track 02).bin",
+      "size": 7225344,
+      "crc": "3c280c92",
+      "md5": "80d1a2c7bb591637853d86fdce1a4a53",
+      "sha1": "792d7061f2fee1f883b14f2454cd1e787663e774",
+      "serial": "NXCD0002"
+    },
+    {
+      "name": "Ryuuko no Ken (Japan) (En,Ja,Es) (FAAT)",
+      "region": "Japan",
+      "rom_name": "Ryuuko no Ken (Japan) (En,Ja,Es) (FAAT) (Track 02).bin",
+      "size": 135583392,
+      "crc": "f50d6126",
+      "md5": "e00a753dcd64ba5ff72957db4cf01caa",
+      "sha1": "4e78b06d56280f9a63073086ff834845153d75e4",
+      "serial": "HCD4061"
+    },
+    {
+      "name": "Ruin - Kami no Isan (Japan)",
+      "region": "Japan",
+      "rom_name": "Ruin - Kami no Isan (Japan) (Track 02).bin",
+      "size": 26330640,
+      "crc": "ef793125",
+      "md5": "2a1563654e40c7391d40ac7ddeef8815",
+      "sha1": "ad0f9285e91152cdf90afd974c70d8348c3986ff",
+      "serial": "JCCD3013"
+    },
+    {
+      "name": "Road Spirits (Japan)",
+      "region": "Japan",
+      "rom_name": "Road Spirits (Japan) (Track 02).bin",
+      "size": 23317728,
+      "crc": "0c57a807",
+      "md5": "3868db35cea705ecdd44f0bed7ea1faa",
+      "sha1": "a569101b23f47a5b9b252e4f1ef1d0d8235a88bc",
+      "serial": "PVCD-1003"
+    },
+    {
+      "name": "Rising Sun (Japan)",
+      "region": "Japan",
+      "rom_name": "Rising Sun (Japan) (Track 02).bin",
+      "size": 20405952,
+      "crc": "a41f586e",
+      "md5": "b2d98a535ebf2f6008baa251ba24b3d9",
+      "sha1": "e9fad30fb01a084b7e03111cf153e892cf39f574",
+      "serial": "JCCD2006"
+    },
+    {
+      "name": "Riot Zone (USA)",
+      "region": "USA",
+      "rom_name": "Riot Zone (USA) (Track 02).bin",
+      "size": 5557776,
+      "crc": "70d8d9a3",
+      "md5": "e9f20283dc33e339badc99a9eb5ea3e1",
+      "sha1": "64ce2387e09f49c83236885a47f4df452335e78e",
+      "serial": "TGXCD1035"
+    },
+    {
+      "name": "Revival Chase (USA) (En,Fr)",
+      "region": "USA",
+      "rom_name": "Revival Chase (USA) (En,Fr) (Unl) (Track 01).bin",
+      "size": 5115600,
+      "crc": "6ffad6a2",
+      "md5": "820322423b1fa93019514903edcfcf73",
+      "sha1": "405d4fad91304a0de94ef36bc10bec082bf3404d",
+      "serial": "VOC3628"
+    },
+    {
+      "name": "Renny Blaster (Japan)",
+      "region": "Japan",
+      "rom_name": "Renny Blaster (Japan) (Track 02).bin",
+      "size": 36886416,
+      "crc": "myL$",
+      "md5": "ee3d8f8500f4acce9c3b8cf7c85f8ee1",
+      "sha1": "dd9960c359f469498ca736d0457e1bb9562b5428",
+      "serial": "NAPR-1044"
+    },
+    {
+      "name": "Red Alert (Japan)",
+      "region": "Japan",
+      "rom_name": "Red Alert (Japan) (Track 02).bin",
+      "size": 8671824,
+      "crc": "e454316b",
+      "md5": "f7ce8b991c079321a156e8c0f372786a",
+      "sha1": "98dc36ae93473898585a27fdb5b955df183e88a0",
+      "serial": "TJCD9004"
+    },
+    {
+      "name": "Record of Lodoss War II (Japan)",
+      "region": "Japan",
+      "rom_name": "Record of Lodoss War II (Japan) (Track 02).bin",
+      "size": 54100704,
+      "crc": "ea3a6ef7",
+      "md5": "91740c7d43fe1139f7a7d3229f1c2521",
+      "sha1": "51111c61d9af69a6d455396b10fe616fb487e41f",
+      "serial": "HCD4066"
+    },
+    {
+      "name": "Record of Lodoss War (Japan)",
+      "region": "Japan",
+      "rom_name": "Record of Lodoss War (Japan) (Track 2).bin",
+      "size": 45464160,
+      "crc": "27bee77f",
+      "md5": "d8c2b232380fa85c4d0414aae5e0736b",
+      "sha1": "2a2ecfcf2ef66f4ab306fb1520570a6beeda4422",
+      "serial": "HCD4072"
+    },
+    {
+      "name": "Rayxanber III (Japan)",
+      "region": "Japan",
+      "rom_name": "Rayxanber III (Japan) (Track 02).bin",
+      "size": 3784368,
+      "crc": "8612e106",
+      "md5": "484db33507b5b9076f26e0d60a951015",
+      "sha1": "e4316a4b0d5da2051da7b36a2e5d49d85bddb422",
+      "serial": "DWCD2002"
+    },
+    {
+      "name": "Rayxanber II (Japan)",
+      "region": "Japan",
+      "rom_name": "Rayxanber II (Japan) (Track 02).bin",
+      "size": 6757296,
+      "crc": "19c00475",
+      "md5": "a1e2331f1e859e7dac4770886b5f660b",
+      "sha1": "c020ca6e0dbc63d657e311e33608f616f403a7ac",
+      "serial": "DWCD1001"
+    },
+    {
+      "name": "Ranma 1-2 - Toraware no Hanayome (Japan)",
+      "region": "Japan",
+      "rom_name": "Ranma 1-2 - Toraware no Hanayome (Japan) (Track 02).bin",
+      "size": 92680560,
+      "crc": "a87fe379",
+      "md5": "96b79436ec791d9dcf0d446ce999a3b4",
+      "sha1": "7422901588e9360b74f661131be0247242ce2a23",
+      "serial": "NSCD-1006"
+    },
+    {
+      "name": "Ranma 1-2 - Datou, Ganso Musabetsu Kakutou-ryuu! (Japan)",
+      "region": "Japan",
+      "rom_name": "Ranma 1-2 - Datou, Ganso Musabetsu Kakutou-ryuu! (Japan) (Track 02).bin",
+      "size": 26323584,
+      "crc": "b274d78f",
+      "md5": "e610c1749728cee12c78ca3fb0276d67",
+      "sha1": "698cc8a43a6fb4720e5caeb3e46b93c2cb286e00",
+      "serial": "NSCD-2009"
+    },
+    {
+      "name": "Ranma 1-2 (Japan)",
+      "region": "Japan",
+      "rom_name": "Ranma 1-2 (Japan) (Track 02).bin",
+      "size": 27302016,
+      "crc": "7ae3e904",
+      "md5": "bd5aa53e2dc22a9cb74cdb0d77bc8d42",
+      "sha1": "11cb8c6f25a71ef31868b489ac5d92f7b4376d9d",
+      "serial": "NSCD-0004"
+    },
+    {
+      "name": "Rally Championship (Japan) (FABT)",
+      "region": "Japan",
+      "rom_name": "Rally Championship (Japan) (FABT) (Track 02).bin",
+      "size": 6383328,
+      "crc": "1d33f227",
+      "md5": "1dacbc25ec8f9ee8277ef270c77a8617",
+      "sha1": "dabc1ad529c5ed471a96d6abfec55a49d2fbcaab",
+      "serial": "IGCD3006"
+    },
+    {
+      "name": "Rainbow Islands - The Story of Bubble Bobble 2 (Japan)",
+      "region": "Japan",
+      "rom_name": "Rainbow Islands - The Story of Bubble Bobble 2 (Japan) (Track 02).bin",
+      "size": 16313472,
+      "crc": "a5c8beaf",
+      "md5": "dc99237323eed39d6d4a5aab5d732343",
+      "sha1": "e02637b1a46694c8f88b37f09612f9f8af9668e0",
+      "serial": "NAPR-1012"
+    },
+    {
+      "name": "ROM^2 Karaoke Volume 5 (Japan)",
+      "region": "Japan",
+      "rom_name": "ROM^2 Karaoke Volume 5 (Japan) (Track 02).bin",
+      "size": 4685184,
+      "crc": "28d2f1a7",
+      "md5": "655521963f2c064fd950f33537851961",
+      "sha1": "d2143ec25bf423626071fb4f59bcfb5e12c262f9",
+      "serial": "HRCD-9105"
+    },
+    {
+      "name": "ROM^2 Karaoke Volume 4 (Japan)",
+      "region": "Japan",
+      "rom_name": "ROM^2 Karaoke Volume 4 (Japan) (Track 02).bin",
+      "size": 2883552,
+      "crc": "3181f693",
+      "md5": "84ae6894f23bb97508cb8899ecf35000",
+      "sha1": "5e8d9e7a898ab85231ebbb6343d69629b84ddf7e",
+      "serial": "HRCD-9104"
+    },
+    {
+      "name": "ROM^2 Karaoke Volume 3 (Japan)",
+      "region": "Japan",
+      "rom_name": "ROM^2 Karaoke Volume 3 (Japan) (Track 02).bin",
+      "size": 2876496,
+      "crc": "b41aedd2",
+      "md5": "75081bccca01d8cf4dc78aac5385da07",
+      "sha1": "3103e335f74b79ba41a5230744b0f6ce5cd495ea",
+      "serial": "HRCD-9103"
+    },
+    {
+      "name": "ROM^2 Karaoke Volume 2 (Japan)",
+      "region": "Japan",
+      "rom_name": "ROM^2 Karaoke Volume 2 (Japan) (Track 02).bin",
+      "size": 2876496,
+      "crc": "8360a579",
+      "md5": "a7892946be6a778f85a0d8dbc42abab4",
+      "sha1": "b199cd7d45b22f1d9246bde1e989a76078ef53b0",
+      "serial": "HRCD-9102"
+    },
+    {
+      "name": "ROM^2 Karaoke Volume 1 (Japan)",
+      "region": "Japan",
+      "rom_name": "ROM^2 Karaoke Volume 1 (Japan) (Track 02).bin",
+      "size": 2857680,
+      "crc": "c7565524",
+      "md5": "8794a57bc14090196d776b86162d584f",
+      "sha1": "1fbd72744c7086b61dca06da3ea1e1c90ff33b66",
+      "serial": "HRCD-9101"
+    },
+    {
+      "name": "ROM^2 Karaoke Vol. 5 - Karaoke Maku no Uchi (Japan)",
+      "region": "Japan",
+      "rom_name": "ROM^2 Karaoke Vol. 5 - Karaoke Maku no Uchi (Japan) (Track 02).bin",
+      "size": 7667520,
+      "crc": "b6c962cd",
+      "md5": "d79e0622609a23c706f1d8f33aace608",
+      "sha1": "a13039f2154a7b40da40edbfc079d2e32de37a52",
+      "serial": "JCCD9505"
+    },
+    {
+      "name": "ROM^2 Karaoke Vol. 4 - Choito Otona! (Japan)",
+      "region": "Japan",
+      "rom_name": "ROM^2 Karaoke Vol. 4 - Choito Otona! (Japan) (Track 02).bin",
+      "size": 7667520,
+      "crc": "ece144d0",
+      "md5": "c94059396cfad8c406d57e481e10c37e",
+      "sha1": "cb1153ed3f501308e3d76d31108119c13c322109",
+      "serial": "JCCD9504"
+    },
+    {
+      "name": "ROM^2 Karaoke Vol. 3 - Yappashi Band (Japan)",
+      "region": "Japan",
+      "rom_name": "ROM^2 Karaoke Vol. 3 - Yappashi Band (Japan) (Track 02).bin",
+      "size": 7667520,
+      "crc": "\u0016\rW7",
+      "md5": "8f6e151a985fad736bfcaf521d171eb0",
+      "sha1": "ff941ac610345ec98effbda7468c3424acffd347",
+      "serial": "JCCD9503"
+    },
+    {
+      "name": "ROM^2 Karaoke Vol. 2 - Nattoku Idol (Japan)",
+      "region": "Japan",
+      "rom_name": "ROM^2 Karaoke Vol. 2 - Nattoku Idol (Japan) (Track 02).bin",
+      "size": 7667520,
+      "crc": "63dafeeb",
+      "md5": "24437e1f8cd0a117c89c00bb1e7dda7f",
+      "sha1": "d1ce262e3091157d45c3f25df5db08121a9ac147",
+      "serial": "JCCD9502"
+    },
+    {
+      "name": "ROM^2 Karaoke Vol. 1 - Suteki ni Standard (Japan)",
+      "region": "Japan",
+      "rom_name": "ROM^2 Karaoke Vol. 1 - Suteki ni Standard (Japan) (Track 02).bin",
+      "size": 6550320,
+      "crc": "dbaab702",
+      "md5": "16cff1447bba6daf1aa1018c1d36e7db",
+      "sha1": "952b18d9072b2ec58f03ae619e184bccccebdff0",
+      "serial": "JCCD9501"
+    },
+    {
+      "name": "ROM ROM Stadium (Japan)",
+      "region": "Japan",
+      "rom_name": "ROM ROM Stadium (Japan) (Track 02).bin",
+      "size": 11336640,
+      "crc": "526ab866",
+      "md5": "0aaf4466cb76304a4a725552736f03ad",
+      "sha1": "a5f505c254f7ea63ad8e03c9a9f33857057393f7",
+      "serial": "NSCD-9001"
+    },
+    {
+      "name": "R-Type Complete CD (Japan)",
+      "region": "Japan",
+      "rom_name": "R-Type Complete CD (Japan) (Track 02).bin",
+      "size": 6778464,
+      "crc": "54ac2f6b",
+      "md5": "7438d42d7e0fcd196810e0fee9ba6cbd",
+      "sha1": "bd9116f32bbc531f9721cbc72b7385655bce6ed6",
+      "serial": "ICCD-1001"
+    },
+    {
+      "name": "Quiz no Hoshi - Star of Quiz (Japan)",
+      "region": "Japan",
+      "rom_name": "Quiz no Hoshi - Star of Quiz (Japan) (Track 02).bin",
+      "size": 27151488,
+      "crc": "bcfb7073",
+      "md5": "684a4447f75609d1ef8be8a6e2f7c898",
+      "sha1": "172f68876c4777a271bd5c511857f866da19ff3c",
+      "serial": "SSCD2002"
+    },
+    {
+      "name": "Quiz de Gakuensai (Japan)",
+      "region": "Japan",
+      "rom_name": "Quiz de Gakuensai (Japan) (Track 02).bin",
+      "size": 17818752,
+      "crc": "d009c6ea",
+      "md5": "8417d7e3d55822fb350f2c9f37bafd20",
+      "sha1": "5a79c64ebca08c4ab8aa8128ad9c8ac871cb5345",
+      "serial": "NXCD3026"
+    },
+    {
+      "name": "Quiz Tonosama no Yabou (Japan)",
+      "region": "Japan",
+      "rom_name": "Quiz Tonosama no Yabou (Japan) (Track 02).bin",
+      "size": 2544864,
+      "crc": "cdf2d871",
+      "md5": "196bced36b5a5db794b9ac030bf3649b",
+      "sha1": "41be9dd64f3c8fb6c2a797b03b8a3c2edbbd08da",
+      "serial": "HCD2038"
+    },
+    {
+      "name": "Quiz Marugoto the World 2 - Time Machine ni Onegai! (Japan)",
+      "region": "Japan",
+      "rom_name": "Quiz Marugoto the World 2 - Time Machine ni Onegai! (Japan) (Track 02).bin",
+      "size": 165463200,
+      "crc": "3b7bd6ec",
+      "md5": "93b5bc10cb454e83f194ce17eec85bfb",
+      "sha1": "19e8896ac5cc5581732d7283719d38bddbf753c1",
+      "serial": "ATCD-2003"
+    },
+    {
+      "name": "Quiz Marugoto the World (Japan) (Rev 8)",
+      "region": "Japan",
+      "rom_name": "Quiz Marugoto the World (Japan) (Rev 8) (Track 02).bin",
+      "size": 113860320,
+      "crc": "31ecc181",
+      "md5": "3cabf202eded3ae3b17d0c72e7aa0bff",
+      "sha1": "d8fea04a965423be80d1b0a6f2d945fe680b746d",
+      "serial": "ATCD1001"
+    },
+    {
+      "name": "Quiz Marugoto the World (Japan) (Rev 7)",
+      "region": "Japan",
+      "rom_name": "Quiz Marugoto the World (Japan) (Rev 7) (Track 02).bin",
+      "size": 113860320,
+      "crc": "e64077e5",
+      "md5": "580a45c9ea98b2e8518fbcc76eb27c46",
+      "sha1": "79529ecd9022c4bc62087f19b0974534235a7e72",
+      "serial": "ATCD1001"
+    },
+    {
+      "name": "Quiz Caravan Cult Q (Japan)",
+      "region": "Japan",
+      "rom_name": "Quiz Caravan Cult Q (Japan) (Track 02).bin",
+      "size": 10536960,
+      "crc": "325f64ef",
+      "md5": "6cd7c473c093027dee1f0b8abd42ab22",
+      "sha1": "558041d77c00dde4516edbb34434f582a6626cdb",
+      "serial": "HCD3047"
+    },
+    {
+      "name": "Quiz Avenue III (Japan)",
+      "region": "Japan",
+      "rom_name": "Quiz Avenue III (Japan) (Track 2).bin",
+      "size": 121708944,
+      "crc": "bb96eca1",
+      "md5": "dca2bc87e6a38ffe5415327b6ced3efa",
+      "sha1": "d61706953583f5cac7b47bfdaa449453e3f51891",
+      "serial": "NAPR-1040"
+    },
+    {
+      "name": "Quiz Avenue II (Japan)",
+      "region": "Japan",
+      "rom_name": "Quiz Avenue II (Japan) (Track 2).bin",
+      "size": 80788848,
+      "crc": "1a9a72da",
+      "md5": "8aec1b75e8a8dd150aa4d18c9bbf8d54",
+      "sha1": "bd0b3dc03378aaf45005331047d63a1032e2d1c1",
+      "serial": "NAPR-1024"
+    },
+    {
+      "name": "Quiz Avenue (Japan)",
+      "region": "Japan",
+      "rom_name": "Quiz Avenue (Japan) (Track 2).bin",
+      "size": 39722928,
+      "crc": "c0947d45",
+      "md5": "0b6d822fef0cef530d6cae06bd1e421e",
+      "sha1": "dfea116198f0e403379e4e72056c6be64d603ae1",
+      "serial": "NAPR-1013"
+    },
+    {
+      "name": "Quest of Jongmaster - Janshin Densetsu (Japan)",
+      "region": "Japan",
+      "rom_name": "Quest of Jongmaster - Janshin Densetsu (Japan) (Track 02).bin",
+      "size": 48263040,
+      "crc": "189a04da",
+      "md5": "db86f8e080b74d543f1410c85bfde1aa",
+      "sha1": "c08ede88b175ac1ce3fb1b1fb98e3786b3f5c531",
+      "serial": "HECD5016"
+    },
+    {
+      "name": "Pyramid Plunder (USA)",
+      "region": "USA",
+      "rom_name": "Pyramid Plunder (USA) (Unl).bin",
+      "size": 2349648,
+      "crc": "]\n\u0006\r",
+      "md5": "a6e8f87dd38ab596fc35236131898a56",
+      "sha1": "bba6e8c5bdf41cbfb4bcf395a8900dc8153bbda4",
+      "serial": "AB002"
+    },
+    {
+      "name": "Puyo Puyo CD Tsuu (Japan)",
+      "region": "Japan",
+      "rom_name": "Puyo Puyo CD Tsuu (Japan) (Track 02).bin",
+      "size": 49344960,
+      "crc": "62dd86b4",
+      "md5": "b80aca432e9d62a42dc40d522ddcbc26",
+      "sha1": "fffa1de14e7369dbb10b9ab0d9bb8c84a9ad3423",
+      "serial": "NIPR-1001"
+    },
+    {
+      "name": "Puyo Puyo CD (Japan)",
+      "region": "Japan",
+      "rom_name": "Puyo Puyo CD (Japan) (Track 02).bin",
+      "size": 16052400,
+      "crc": "79e17a26",
+      "md5": "2796c6ba662e99332695533c6bbbbb8c",
+      "sha1": "28aeac16f55df6a5cccfc2c8d6780b0dc38f9d44",
+      "serial": "NAPR-1038"
+    },
+    {
+      "name": "Psychic Storm (Japan)",
+      "region": "Japan",
+      "rom_name": "Psychic Storm (Japan) (Track 02).bin",
+      "size": 12943056,
+      "crc": "9ac14fba",
+      "md5": "4c32ca7f22ea585ce010ed51c319aa60",
+      "sha1": "472131be45b5c902a1c25534849fbb7b9386f22a",
+      "serial": "TJCD2025"
+    },
+    {
+      "name": "Psychic Detective Series Vol. 4 - Orgel (Japan)",
+      "region": "Japan",
+      "rom_name": "Psychic Detective Series Vol. 4 - Orgel (Japan) (Track 2).bin",
+      "size": 76049568,
+      "crc": "4cca4a25",
+      "md5": "47d5010376e93109449fd3c1b467e1cf",
+      "sha1": "5bbad180d217a47340ea2eba8f66ea741e15586a",
+      "serial": "DWCD3004"
+    },
+    {
+      "name": "Psychic Detective Series Vol. 3 - Aya (Japan)",
+      "region": "Japan",
+      "rom_name": "Psychic Detective Series Vol. 3 - Aya (Japan) (Track 2).bin",
+      "size": 18366768,
+      "crc": "2804c1a2",
+      "md5": "315327a2953cd98cfa86f949004826d7",
+      "sha1": "40db2da177bf384cf391e18e6ee5fd2707d2e928",
+      "serial": "DWCD2003"
+    },
+    {
+      "name": "Pro Yakyuu, The (Japan)",
+      "region": "Japan",
+      "rom_name": "Pro Yakyuu, The (Japan) (Track 02).bin",
+      "size": 22487472,
+      "crc": "26047688",
+      "md5": "e290066a4293d8cd0778d8ff21438f9e",
+      "sha1": "a452565a9505367f67c28b54fafbec949cf7e4bc",
+      "serial": "IGCD0001"
+    },
+    {
+      "name": "Pro Yakyuu Super, The (Japan) (FABT)",
+      "region": "Japan",
+      "rom_name": "Pro Yakyuu Super, The (Japan) (FABT) (Track 02).bin",
+      "size": 22066464,
+      "crc": "30af7678",
+      "md5": "a15c6e4112bd03b113203657a4b8a372",
+      "sha1": "08c8d7791ac0b7da309c59fba48deb744955e302",
+      "serial": "IGCD2004"
+    },
+    {
+      "name": "Pro Yakyuu Super '94, The (Japan)",
+      "region": "Japan",
+      "rom_name": "Pro Yakyuu Super '94, The (Japan) (Track 02).bin",
+      "size": 20286000,
+      "crc": "ac1388fb",
+      "md5": "c07ca3d918deec1e5d2a617415b2f238",
+      "sha1": "fa235d48cfc4fdafdb5bc7ead5291dadf4850f11",
+      "serial": "IGCD4008"
+    },
+    {
+      "name": "Private Eye dol (Japan)",
+      "region": "Japan",
+      "rom_name": "Private Eye dol (Japan) (Track 02).bin",
+      "size": 240376752,
+      "crc": "09ad684b",
+      "md5": "e449ce7ea5c211244cf29e6fa525c747",
+      "sha1": "36d99d019eae63ed9c7e3afc6904e680aab66e73",
+      "serial": "HECD5019"
+    },
+    {
+      "name": "Princess Minerva (Japan)",
+      "region": "Japan",
+      "rom_name": "Princess Minerva (Japan) (Track 02).bin",
+      "size": 183020880,
+      "crc": "b8acacde",
+      "md5": "f36bb265601d87ffe4a7a4e5ad98ac3a",
+      "sha1": "95f13a2299fe726823664fc2013698eacca116cf",
+      "serial": "RHCD-4008"
+    },
+    {
+      "name": "Princess Maker 2 (Japan)",
+      "region": "Japan",
+      "rom_name": "Princess Maker 2 (Japan) (Track 02).bin",
+      "size": 304598112,
+      "crc": "d53cddd4",
+      "md5": "b62e680d7816fcd80ed7cbc207088d3e",
+      "sha1": "bcbde93f518d09a3e977bbf48fe535fbe508aa30",
+      "serial": "HECD5020"
+    },
+    {
+      "name": "Princess Maker 1 (Japan)",
+      "region": "Japan",
+      "rom_name": "Princess Maker 1 (Japan) (Track 02).bin",
+      "size": 26779872,
+      "crc": "799e4184",
+      "md5": "8f6a1a5e717a8f4cc368e35508a2f974",
+      "sha1": "3e91b29aafa0c925aa3ec560dbd94e480f5461c1",
+      "serial": "HECD4015"
+    },
+    {
+      "name": "Prince of Persia (USA)",
+      "region": "USA",
+      "rom_name": "Prince of Persia (USA) (Track 02).bin",
+      "size": 6919584,
+      "crc": "69f569df",
+      "md5": "95d25c0fd9850ed0673e6e207b987ba3",
+      "sha1": "8c8e590c6d04ae87bb309de268e113537299069a",
+      "serial": "TGXCD1027"
+    },
+    {
+      "name": "Prince of Persia (Japan)",
+      "region": "Japan",
+      "rom_name": "Prince of Persia (Japan) (Track 02).bin",
+      "size": 6919584,
+      "crc": "855af33d",
+      "md5": "aa9bbae02a768784a601382c7e685a77",
+      "sha1": "fcce8578b6e22b62187b59ef44dbf7c073795093",
+      "serial": "RHCD-1002"
+    },
+    {
+      "name": "Populous - The Promised Lands (Japan)",
+      "region": "Japan",
+      "rom_name": "Populous - The Promised Lands (Japan) (Track 02).bin",
+      "size": 5715360,
+      "crc": "f82c21df",
+      "md5": "6734eef900dfb7dc0967114859e9e002",
+      "sha1": "5c838ff6b6057b57d23da191622f48ef40162248",
+      "serial": "HCD1021"
+    },
+    {
+      "name": "PopfulMail (Japan)",
+      "region": "Japan",
+      "rom_name": "PopfulMail (Japan) (Track 02).bin",
+      "size": 95060784,
+      "crc": "69369b77",
+      "md5": "b5e67391d5e256ef638382bc453c9909",
+      "sha1": "93a0ea78232fa78edc67788398219dc2906c5613",
+      "serial": "HECD4011"
+    },
+    {
+      "name": "Pop'n Magic (Japan)",
+      "region": "Japan",
+      "rom_name": "Pop'n Magic (Japan) (Track 02).bin",
+      "size": 3034080,
+      "crc": "\u0004wK\u001b",
+      "md5": "7c1b9f7d492388cb5323cf97af7a1af7",
+      "sha1": "a5836820ac26b0134780dac8a23ac6d53875373c",
+      "serial": "TJCD2027"
+    },
+    {
+      "name": "Pomping World (Japan)",
+      "region": "Japan",
+      "rom_name": "Pomping World (Japan) (Track 02).bin",
+      "size": 5896464,
+      "crc": "2cc0f6a3",
+      "md5": "e9c1d297d5c0fcb9ef0ed5de3def4d22",
+      "sha1": "e5a0b1d9ee7211fa2c0e88be633270514b1df1d1",
+      "serial": "HCD1019"
+    },
+    {
+      "name": "Police Connection (Japan)",
+      "region": "Japan",
+      "rom_name": "Police Connection (Japan) (Track 02).bin",
+      "size": 11129664,
+      "crc": "2cd53875",
+      "md5": "cb76802f4483eed798fa87f8c1756520",
+      "sha1": "a2b78c9d8dcc41fb1182b2426adfef789e781258",
+      "serial": "TJCD3036"
+    },
+    {
+      "name": "Patlabor - Chapter of Griffon (Japan)",
+      "region": "Japan",
+      "rom_name": "Patlabor - Chapter of Griffon (Japan) (Track 02).bin",
+      "size": 85255296,
+      "crc": "5891b7b7",
+      "md5": "a28b5f148a9b6e50781980caf93a784c",
+      "sha1": "07435de89bb0d89b0269f37c2f1ec4b25ad528c3",
+      "serial": "RHCD-3006"
+    },
+    {
+      "name": "Pastel Lime (Japan)",
+      "region": "Japan",
+      "rom_name": "Pastel Lime (Japan) (Track 02).bin",
+      "size": 25989600,
+      "crc": "0a941efc",
+      "md5": "b153e2984e8b1fac1398e9a5b28ca7c3",
+      "sha1": "69a7ce1791d6fd1c2729f4f54e30b295a7d2bb8d",
+      "serial": "NXCD2018"
+    },
+    {
+      "name": "Palladion - Auto Crusher Palladium (Japan)",
+      "region": "Japan",
+      "rom_name": "Palladion - Auto Crusher Palladium (Japan) (Track 02).bin",
+      "size": 12268032,
+      "crc": "6d8addd1",
+      "md5": "2816c4bbb3f4799a4510d4fe12cea8f7",
+      "sha1": "0c2136997d6693907eff65da94bc0f564e373ca6",
+      "serial": "PVCD3002"
+    },
+    {
+      "name": "Pachio-kun 3 - Pachi-Slot & Pachinko (Japan)",
+      "region": "Japan",
+      "rom_name": "Pachio-kun 3 - Pachi-Slot & Pachinko (Japan) (Track 02).bin",
+      "size": 33650064,
+      "crc": "8ab6ae22",
+      "md5": "c7ee3305ec97a0372aa71d35ac9aca42",
+      "sha1": "f0b9650b29d73c450274f1350779166f5028e7a9",
+      "serial": "CJCD-4004"
+    },
+    {
+      "name": "Pachio-kun - Warau Uchuu (Japan)",
+      "region": "Japan",
+      "rom_name": "Pachio-kun - Warau Uchuu (Japan) (Track 02).bin",
+      "size": 47098800,
+      "crc": "a8a8de44",
+      "md5": "29550ad38893a88b0e03c47cea3bda99",
+      "sha1": "a93231d5bae60841166600797e4618dae4df0ef4",
+      "serial": "CJCD2003"
+    },
+    {
+      "name": "Pachio-kun - Maboroshi no Densetsu (Japan) (Rev 8)",
+      "region": "Japan",
+      "rom_name": "Pachio-kun - Maboroshi no Densetsu (Japan) (Rev 8) (Track 02).bin",
+      "size": 43803648,
+      "crc": "b3665ef1",
+      "md5": "2b92436be49fff5715362d3b3dfcb6dc",
+      "sha1": "b4ecf61f2b711846fc244e1210458559e31bd86e",
+      "serial": "CJCD1001"
+    },
+    {
+      "name": "Pachio-kun - Maboroshi no Densetsu (Japan) (Rev 7)",
+      "region": "Japan",
+      "rom_name": "Pachio-kun - Maboroshi no Densetsu (Japan) (Rev 7) (Track 02).bin",
+      "size": 43803648,
+      "crc": "e18d2433",
+      "md5": "c068ce765c102d0296dec46fe5486cfa",
+      "sha1": "8a0b526608f64ce739711c1014d0c5eca60f702a",
+      "serial": "CJCD1001"
+    },
+    {
+      "name": "PC Engine Hyper Catalog CD-ROM 6 - 1994 Summer (Japan) (Disc B)",
+      "region": "Japan",
+      "rom_name": "PC Engine Hyper Catalog CD-ROM 6 - 1994 Summer (Japan) (Disc B) (Track 20).bin",
+      "size": 8805888,
+      "crc": "dc533f92",
+      "md5": "a1d73d0da3b7d9497569f706d63d1806",
+      "sha1": "e735ab1d7b79abc87e45c3bbd76bc0e87755bb12",
+      "serial": "SHCD-4007"
+    },
+    {
+      "name": "PC Engine Hyper Catalog CD-ROM 5 - 1994 Spring (Japan)",
+      "region": "Japan",
+      "rom_name": "PC Engine Hyper Catalog CD-ROM 5 - 1994 Spring (Japan) (Track 29).bin",
+      "size": 14481264,
+      "crc": "ea0de338",
+      "md5": "363c85e0e9aae9c33489c02ca0bde9b1",
+      "sha1": "0c8c4a32d4034278bd49f60202e4ddf1e2ec3462",
+      "serial": "SHCD-4005"
+    },
+    {
+      "name": "PC Engine Hyper Catalog CD-ROM 4 - 1993 Winter (Japan)",
+      "region": "Japan",
+      "rom_name": "PC Engine Hyper Catalog CD-ROM 4 - 1993 Winter (Japan) (Track 58).bin",
+      "size": 77957040,
+      "crc": "f8f659db",
+      "md5": "1b80c64b57701ee9815fa9ab9aec2c0d",
+      "sha1": "5d50489d1ab85778b6b653376fd877ab91da6900",
+      "serial": "HCD3056"
+    },
+    {
+      "name": "PC Engine Hyper Catalog CD-ROM 3 - 1993 Summer (Japan)",
+      "region": "Japan",
+      "rom_name": "PC Engine Hyper Catalog CD-ROM 3 - 1993 Summer (Japan) (Track 23).bin",
+      "size": 17811696,
+      "crc": "28efdf73",
+      "md5": "9e3976d5754fc548964033512e5114b3",
+      "sha1": "65ac36d03427a4f07c233eeca884ce0c51b2228a",
+      "serial": "HCD3055"
+    },
+    {
+      "name": "PC Engine Hyper Catalog CD-ROM 2 - 1993 Spring (Japan)",
+      "region": "Japan",
+      "rom_name": "PC Engine Hyper Catalog CD-ROM 2 - 1993 Spring (Japan) (Track 07).bin",
+      "size": 106896048,
+      "crc": "71c2adbe",
+      "md5": "185fc8080055a3b7038c91317347b935",
+      "sha1": "17bb7188f405bd459daeb882a59349543f64903d",
+      "serial": "HCD3052"
+    },
+    {
+      "name": "PC Engine Hyper Catalog CD-ROM - 1994 Summer (Japan) (Disc B)",
+      "region": "Japan",
+      "rom_name": "PC Engine Hyper Catalog CD-ROM - 1994 Summer (Japan) (Disc B) (Track 20).bin",
+      "size": 8805888,
+      "crc": "0dcc526a",
+      "md5": "02fb0adb7919ce63e7720e955800c704",
+      "sha1": "886db5752cbfdf410b3a4eecfaa3eee885c0af89",
+      "serial": "SHCD-4009"
+    },
+    {
+      "name": "PC Engine Hyper Catalog CD-ROM - 1994 Summer (Japan) (Disc A)",
+      "region": "Japan",
+      "rom_name": "PC Engine Hyper Catalog CD-ROM - 1994 Summer (Japan) (Disc A) (Track 17).bin",
+      "size": 21457296,
+      "crc": "90ea9342",
+      "md5": "242657f39d8810263c8dfeaf6e6b5166",
+      "sha1": "1ddd49039ca723ec9ae310eee78a49063fc37ae8",
+      "serial": "SHCD-4008"
+    },
+    {
+      "name": "PC Engine Hyper Catalog CD-ROM (Japan)",
+      "region": "Japan",
+      "rom_name": "PC Engine Hyper Catalog CD-ROM (Japan) (Track 02).bin",
+      "size": 3306912,
+      "crc": "92fc8ba0",
+      "md5": "6f0640fcf9a31a784043ab8fc7e94618",
+      "sha1": "da16eaec1884a4f22891ad0465d77295fa9e5ae4",
+      "serial": "HCD2042"
+    },
+    {
+      "name": "PC Engine Fan - Special CD-ROM^2 Vol. 1 (Japan)",
+      "region": "Japan",
+      "rom_name": "PC Engine Fan - Special CD-ROM^2 Vol. 1 (Japan) (Track 2).bin",
+      "size": 92464176,
+      "crc": "0dbc282f",
+      "md5": "f61a3f500461e3cd923816e99c9a8d9e",
+      "sha1": "f78e275f36fcce348cbb789ea81795356d097c0c",
+      "serial": "TICD-6006"
+    },
+    {
+      "name": "Ookami-teki Monshou - Crest of Wolf (Japan)",
+      "region": "Japan",
+      "rom_name": "Ookami-teki Monshou - Crest of Wolf (Japan) (Track 02).bin",
+      "size": 5557776,
+      "crc": "9da54464",
+      "md5": "92193f69a78c6d48800a7d8740f5cee6",
+      "sha1": "f66276db5cbe2e002fc76e9ae2fd0c72071d2918",
+      "serial": "HCD3044"
+    },
+    {
+      "name": "Nobunaga no Yabou - Zenkokuban (Japan)",
+      "region": "Japan",
+      "rom_name": "Nobunaga no Yabou - Zenkokuban (Japan) (Track 2).bin",
+      "size": 9422112,
+      "crc": "835f4786",
+      "md5": "28f31d094a49d05243ba0455daa0ac10",
+      "sha1": "4c75606489e33313b78c03e8825cba2e808eaf05",
+      "serial": "KOCD3005"
+    },
+    {
+      "name": "Nobunaga no Yabou - Bushou Fuuunroku (Japan)",
+      "region": "Japan",
+      "rom_name": "Nobunaga no Yabou - Bushou Fuuunroku (Japan) (Track 02).bin",
+      "size": 3582096,
+      "crc": "66164cde",
+      "md5": "9efad2bac1fb9269f736a3c0548700be",
+      "sha1": "eafcb89302cce98ced8a234c415e0a84d6a7b654",
+      "serial": "KOCD2001"
+    },
+    {
+      "name": "No-Ri-Ko (Japan)",
+      "region": "Japan",
+      "rom_name": "No-Ri-Ko (Japan) (Track 02).bin",
+      "size": 20471808,
+      "crc": "4b45c1d3",
+      "md5": "e593bfcfdc26dd7ba9686821a691ccb3",
+      "sha1": "7e74a1c4ca741cbe0ec946966a97e02fde5690a3",
+      "serial": "HCD8001"
+    },
+    {
+      "name": "Nishimura Kyoutarou Mystery - Hokutosei no Onna (Japan)",
+      "region": "Japan",
+      "rom_name": "Nishimura Kyoutarou Mystery - Hokutosei no Onna (Japan) (Track 02).bin",
+      "size": 6564432,
+      "crc": "dd609ab0",
+      "md5": "3ecae6a6756b30c8c162bc7a972e19c4",
+      "sha1": "0c0d4621890d9f10b66757bf80044e7f5a1c9550",
+      "serial": "NXCD9001"
+    },
+    {
+      "name": "Neo Nectaris (Japan)",
+      "region": "Japan",
+      "rom_name": "Neo Nectaris (Japan) (Track 02).bin",
+      "size": 5252016,
+      "crc": "<\u001a\u0004D",
+      "md5": "61412185f6399ba906d84147ed3880ef",
+      "sha1": "a6caf3e25b8ed5603072feb7c3df21d9ad4b223e",
+      "serial": "HCD4062"
+    },
+    {
+      "name": "Nemurenu Yoru no Chiisana Ohanashi (Japan)",
+      "region": "Japan",
+      "rom_name": "Nemurenu Yoru no Chiisana Ohanashi (Japan) (Track 02).bin",
+      "size": 46722480,
+      "crc": "fd97ecbf",
+      "md5": "3685b487c861c57eaa4ceffd461fa5a0",
+      "sha1": "20e46e1abfa9da0caa06ee9980809b122ea2be6c",
+      "serial": "HECD3004"
+    },
+    {
+      "name": "Nekketsu Legend - Baseballer (Japan)",
+      "region": "Japan",
+      "rom_name": "Nekketsu Legend - Baseballer (Japan) (Track 02).bin",
+      "size": 89498304,
+      "crc": "2\u001f[v",
+      "md5": "45a85d6b68b3ddc07eeed3588ec10fd4",
+      "sha1": "f3902abd2a1dcb92d75abd7759f10d5eecc7e99c",
+      "serial": "PVCD-5013"
+    },
+    {
+      "name": "Nekketsu Koukou Dodgeball-bu CD - Soccer-hen (Japan)",
+      "region": "Japan",
+      "rom_name": "Nekketsu Koukou Dodgeball-bu CD - Soccer-hen (Japan) (Track 02).bin",
+      "size": 9109296,
+      "crc": "bbf2311e",
+      "md5": "37208d5bb0944c51406bf61619a49892",
+      "sha1": "fe3e23cb6a03e471e89bd802fb00f52661e03400",
+      "serial": "NXCD1005"
+    },
+    {
+      "name": "NEXZR (Japan)",
+      "region": "Japan",
+      "rom_name": "NEXZR (Japan) (Track 02).bin",
+      "size": 6378624,
+      "crc": "682ab19e",
+      "md5": "d3881e9e33d533b128e64fc02b948f25",
+      "sha1": "5e72b43e3b378645593e31f76c85f25f03459820",
+      "serial": "NXCD2014"
+    },
+    {
+      "name": "Mystic Formula (Japan)",
+      "region": "Japan",
+      "rom_name": "Mystic Formula (Japan) (Track 02).bin",
+      "size": 12806640,
+      "crc": "978b1283",
+      "md5": "6df96cb1b140cc4e898d8f89a78c7d6c",
+      "sha1": "ae9aa0fd7b41947cf66cbd09e3f2357c72129b32",
+      "serial": "MCCD-3004"
+    },
+    {
+      "name": "Mysterious Song (USA) (En,Fr,Es) (Rerelease)",
+      "region": "USA",
+      "rom_name": "Mysterious Song (USA) (En,Fr,Es) (Unl) (Rerelease) (Track 02).bin",
+      "size": 7954464,
+      "crc": "bb5bfef1",
+      "md5": "8eb04de7bfdd30fc2b59fca5febec239",
+      "sha1": "73493cb719204c822e1d82aa17bb84c53db77f6b",
+      "serial": "FCD0001"
+    },
+    {
+      "name": "Mysterious Song (USA) (En,Fr,Es)",
+      "region": "USA",
+      "rom_name": "Mysterious Song (USA) (En,Fr,Es) (Unl) (Track 02).bin",
+      "size": 8104992,
+      "crc": "29cb97c5",
+      "md5": "02cdd19420f3f24768cd906243658c0a",
+      "sha1": "1f10986f682bd1891d4252e4f747ef0bd3ac8204",
+      "serial": "FCD0001"
+    },
+    {
+      "name": "Mugen Senshi Valis - The Legend of a Fantasm Soldier (Japan)",
+      "region": "Japan",
+      "rom_name": "Mugen Senshi Valis - The Legend of a Fantasm Soldier (Japan) (Track 02).bin",
+      "size": 30997008,
+      "crc": "8e2fde43",
+      "md5": "826832739a80b23608beb20269f56d10",
+      "sha1": "f9d6cfbe999d53d09d7868102ec8ba3a213153c9",
+      "serial": "TJCD2023"
+    },
+    {
+      "name": "Motteke Tamago (Japan)",
+      "region": "Japan",
+      "rom_name": "Motteke Tamago (Japan) (Track 2).bin",
+      "size": 1606416,
+      "crc": "81c2d831",
+      "md5": "57003ffd655fde5f5b274a9a4d194eec",
+      "sha1": "b8c6cc9596e137f0536a35ef92bcf728db88d351",
+      "serial": "NXCD3022"
+    },
+    {
+      "name": "Motoroader MC (Japan)",
+      "region": "Japan",
+      "rom_name": "Motoroader MC (Japan) (Track 02).bin",
+      "size": 35750400,
+      "crc": "636bbcb9",
+      "md5": "971a0cee9e4a3fecca3af99d64103b99",
+      "sha1": "e73521d3e104d58059e2c09c8802586c8cc78d21",
+      "serial": "NSCD2015"
+    },
+    {
+      "name": "Moonlight Lady (Japan)",
+      "region": "Japan",
+      "rom_name": "Moonlight Lady (Japan) (Track 02).bin",
+      "size": 31864896,
+      "crc": "42d91dbb",
+      "md5": "82250efd8b8080ce273962b0f959025d",
+      "sha1": "73b8032eb2fbd64d0dd6ca2b1eca57600c3f3095",
+      "serial": "HECD3003"
+    },
+    {
+      "name": "Monster Maker - Yami no Ryuukishi (Japan) (Alt)",
+      "region": "Japan",
+      "rom_name": "Monster Maker - Yami no Ryuukishi (Japan) (Alt) (Track 02).bin",
+      "size": 114568272,
+      "crc": "abd5c089",
+      "md5": "22db15a2b5dd15fdb9f447c570809487",
+      "sha1": "71c98d280c3cffdb6bdaea77ad4bd5a0425c480c",
+      "serial": "NAPR-1026"
+    },
+    {
+      "name": "Monster Maker - Yami no Ryuukishi (Japan)",
+      "region": "Japan",
+      "rom_name": "Monster Maker - Yami no Ryuukishi (Japan) (Track 02).bin",
+      "size": 114568272,
+      "crc": "e985d2e1",
+      "md5": "f9010b1e180232817788aa71f052286c",
+      "sha1": "d0857d8ca6646c970c3e6f7f4592c12b1a9604b9",
+      "serial": "NAPR-1026"
+    },
+    {
+      "name": "Monster Lair (USA)",
+      "region": "USA",
+      "rom_name": "Monster Lair (USA) (Track 02).bin",
+      "size": 20163696,
+      "crc": "5e46ab78",
+      "md5": "3f3dfb767630c469fe7747ceef1e9797",
+      "sha1": "456b64de05699e3431d14e76a71cdb9ea7cbad4c",
+      "serial": "TGXCD1003"
+    },
+    {
+      "name": "Mitsubachi Gakuen (Japan)",
+      "region": "Japan",
+      "rom_name": "Mitsubachi Gakuen (Japan) (Track 02).bin",
+      "size": 160140624,
+      "crc": "c8969acb",
+      "md5": "b7c7615fc3ee6c6466a2ca179a8d334f",
+      "sha1": "99b002b2df8d0195ed2d0f58089f22cee182c484",
+      "serial": "HCD0007"
+    },
+    {
+      "name": "Mirai Shounen Conan (Japan)",
+      "region": "Japan",
+      "rom_name": "Mirai Shounen Conan (Japan) (Track 02).bin",
+      "size": 11188464,
+      "crc": "c9c9141f",
+      "md5": "1c1b6d6fa703abac20a2e415e5dd5273",
+      "sha1": "ec8b4376c980404299eba0c3f60c8284008ec141",
+      "serial": "TJCD2022"
+    },
+    {
+      "name": "Minesweeper (Japan)",
+      "region": "Japan",
+      "rom_name": "Minesweeper (Japan) (Track 02).bin",
+      "size": 5541312,
+      "crc": "c366e383",
+      "md5": "73b982bf05548e25134b013750f9e5bd",
+      "sha1": "020537dfa3a1104bb0f914ffa82de3e6297dc8b8",
+      "serial": "PVCD-2005"
+    },
+    {
+      "name": "Might and Magic III - Isles of Terra (USA)",
+      "region": "USA",
+      "rom_name": "Might and Magic III - Isles of Terra (USA) (Track 02).bin",
+      "size": 29284752,
+      "crc": "6fcac619",
+      "md5": "c7e2810276bd7a5f4d97369fa6bba3c7",
+      "sha1": "b55124c3772df9e4bf2ce8bbd41d147102196551",
+      "serial": "TGXCD1047"
+    },
+    {
+      "name": "Might and Magic III - Isles of Terra (Japan)",
+      "region": "Japan",
+      "rom_name": "Might and Magic III - Isles of Terra (Japan) (Track 02).bin",
+      "size": 29284752,
+      "crc": "1067a171",
+      "md5": "79c64faf177fd27ef4c6ee4278ad075d",
+      "sha1": "e3e48e224c69a515e5c014ff372cb53eae87b74b",
+      "serial": "HCD3050"
+    },
+    {
+      "name": "Might and Magic (Japan)",
+      "region": "Japan",
+      "rom_name": "Might and Magic (Japan) (Track 02).bin",
+      "size": 39497136,
+      "crc": "8946b773",
+      "md5": "bc9102287240880014c690770af7f36b",
+      "sha1": "da49481c65a7ab29aa6181606f4056a3cee01f6f",
+      "serial": "NAPR-1022"
+    },
+    {
+      "name": "Meteor Blaster DX (USA) (Rerelease)",
+      "region": "USA",
+      "rom_name": "Meteor Blaster DX (USA) (Unl) (Rerelease) (Track 01).bin",
+      "size": 9800784,
+      "crc": "efc2ee90",
+      "md5": "2c0072c6b16e24daca38121fb892e9e4",
+      "sha1": "a1b09680b012a47996eada11fe85b7bfd3b1a437",
+      "serial": "BTCD0402"
+    },
+    {
+      "name": "Meteor Blaster DX (USA) (Alt)",
+      "region": "USA",
+      "rom_name": "Meteor Blaster DX (USA) (Unl) (Alt) (Track 01).bin",
+      "size": 5049744,
+      "crc": "c3dd7827",
+      "md5": "8aed92b054e6cb8dcc59c4ec86f7bf76",
+      "sha1": "4aece55ce93d3f52aba7297d0b3b3eec2506fb4e",
+      "serial": "BTCD0402"
+    },
+    {
+      "name": "Meteor Blaster DX (USA)",
+      "region": "USA",
+      "rom_name": "Meteor Blaster DX (USA) (Unl) (Track 01).bin",
+      "size": 5049744,
+      "crc": "84c37434",
+      "md5": "b3f35f310ab4fb4811f59e771170eb75",
+      "sha1": "b85752342c9f2f3df82c21806555e9dc0086c236",
+      "serial": "BTCD0402"
+    },
+    {
+      "name": "Metamor Jupiter (Japan)",
+      "region": "Japan",
+      "rom_name": "Metamor Jupiter (Japan) (Track 21).bin",
+      "size": 2688336,
+      "crc": "b37d5153",
+      "md5": "8d0527954b3e3ad28ab5c943e49b5fe6",
+      "sha1": "26634f2e7ec4ba334be73c7cf81b191b11f377f5",
+      "serial": "HE-CD2001"
+    },
+    {
+      "name": "Metal Angel 2 (Japan)",
+      "region": "Japan",
+      "rom_name": "Metal Angel 2 (Japan) (Track 02).bin",
+      "size": 84831936,
+      "crc": "c100d384",
+      "md5": "ccd79ca819a72dca4ba82e2e37a42252",
+      "sha1": "97b07be638c6da2ec418b67ea2a356f772fef9e9",
+      "serial": "PVCD-4012"
+    },
+    {
+      "name": "Metal Angel (Japan)",
+      "region": "Japan",
+      "rom_name": "Metal Angel (Japan) (Track 02).bin",
+      "size": 66883824,
+      "crc": "4dcb0677",
+      "md5": "b92533bbec11881913a07f19efc1a83f",
+      "sha1": "3b43fd57bf18c3b1116adcaeed4dc7c051c22aa0",
+      "serial": "PVCD-3008"
+    },
+    {
+      "name": "Megami Paradise (Japan)",
+      "region": "Japan",
+      "rom_name": "Megami Paradise (Japan) (Track 02).bin",
+      "size": 97749120,
+      "crc": "1f49fcbc",
+      "md5": "b844106876533a098dc8909af83194bc",
+      "sha1": "8a2896ea85d3d5340ca28bff66b407d581b089d6",
+      "serial": "HECD4008"
+    },
+    {
+      "name": "Mateki Densetsu Astralius (Japan)",
+      "region": "Japan",
+      "rom_name": "Mateki Densetsu Astralius (Japan) (Track 02).bin",
+      "size": 30917040,
+      "crc": "\u0418}D",
+      "md5": "775f4b99e21ce6dfc2f31726968a6116",
+      "sha1": "36fb044a986f8ca8b590f8ed7669e0ca19ddac9a",
+      "serial": "AICD-0001"
+    },
+    {
+      "name": "Master of Monsters (Japan)",
+      "region": "Japan",
+      "rom_name": "Master of Monsters (Japan) (Track 2).bin",
+      "size": 23063712,
+      "crc": "744fd65b",
+      "md5": "c6a1927651f39879ab3b8d629d8b2fcd",
+      "sha1": "f2edd7ae9c22817d592f18b56a1d388dba044a13",
+      "serial": "MCCD0002"
+    },
+    {
+      "name": "Mashou Denki - La Valeur (Japan)",
+      "region": "Japan",
+      "rom_name": "Mashou Denki - La Valeur (Japan) (Track 02).bin",
+      "size": 10085376,
+      "crc": "38659ee0",
+      "md5": "501818c9abdfa04dbf502f88e588fb5f",
+      "sha1": "7c3fc30f5a63b6137cd987c45e3bc1443c4c1208",
+      "serial": "KSCD1001"
+    },
+    {
+      "name": "Martial Champion (Japan)",
+      "region": "Japan",
+      "rom_name": "Martial Champion (Japan) (Track 02).bin",
+      "size": 48820464,
+      "crc": "eaa614df",
+      "md5": "9c8fd951883e1f04403eb3286c9bc03a",
+      "sha1": "7d8cbd560a169ee215b35b86ec46e527b2e91707",
+      "serial": "KMCD3006"
+    },
+    {
+      "name": "Manhole, The (Japan)",
+      "region": "Japan",
+      "rom_name": "Manhole, The (Japan) (Track 02).bin",
+      "size": 11129664,
+      "crc": "87e408b8",
+      "md5": "09064278040cbd8dc58cf0cada1e51bf",
+      "sha1": "93abe2c78d5ee991dea69f36a982f3bf178eec27",
+      "serial": "SSCD0001"
+    },
+    {
+      "name": "Mamono Hunter Youko - Tooki Yobigoe (Japan)",
+      "region": "Japan",
+      "rom_name": "Mamono Hunter Youko - Tooki Yobigoe (Japan) (Track 02).bin",
+      "size": 180899376,
+      "crc": "f84af3ad",
+      "md5": "541e952ec0e16272ba466743db48617c",
+      "sha1": "7d3c5a4a09a973b446aa8b004dc1da83dfa76c0d",
+      "serial": "NSCD-2016"
+    },
+    {
+      "name": "Mamono Hunter Youko - Makai kara no Tenkousei (Japan)",
+      "region": "Japan",
+      "rom_name": "Mamono Hunter Youko - Makai kara no Tenkousei (Japan) (Track 02).bin",
+      "size": 25756752,
+      "crc": "\u001c&6_",
+      "md5": "e73569c24eae6abb80f571f173cf61c7",
+      "sha1": "8d89f2993708b6d7316261b26a61a458cfcfc795",
+      "serial": "NSCD-2011"
+    },
+    {
+      "name": "Makai Eiyuuden - Shape Shifter (Japan)",
+      "region": "Japan",
+      "rom_name": "Makai Eiyuuden - Shape Shifter (Japan) (Track 01).bin",
+      "size": 6806688,
+      "crc": "2bae28df",
+      "md5": "859e5c9432f7ebbbd557799f74f00967",
+      "sha1": "e579d36285309640984e3796715282ada464f54d",
+      "serial": "JCCD2011"
+    },
+    {
+      "name": "Mahjong on the Beach (Japan)",
+      "region": "Japan",
+      "rom_name": "Mahjong on the Beach (Japan) (Track 02).bin",
+      "size": 23686992,
+      "crc": "8366c70b",
+      "md5": "16e0f3891afc8e452edbebf7b95a5211",
+      "sha1": "45e52ed1a441cae97bbfb5f63c6aa1e461fc2fb7",
+      "serial": "NAPR-1037"
+    },
+    {
+      "name": "Mahjong Vanilla Syndrome (Japan)",
+      "region": "Japan",
+      "rom_name": "Mahjong Vanilla Syndrome (Japan) (Track 02).bin",
+      "size": 13333488,
+      "crc": "78468549",
+      "md5": "8154856c4d7aef414f6d2c72058dda0c",
+      "sha1": "254d19f2e543a4a6a0a9a02f4b0f6306c9b7c3da",
+      "serial": "NBCD1001"
+    },
+    {
+      "name": "Mahjong Sword - Princess Quest Gaiden (Japan)",
+      "region": "Japan",
+      "rom_name": "Mahjong Sword - Princess Quest Gaiden (Japan) (Track 02).bin",
+      "size": 50897280,
+      "crc": "1593e7e2",
+      "md5": "26bafe649618b7b9e97c714337770044",
+      "sha1": "78c0abff741ee03d327138448bc07c944a8d4df3",
+      "serial": "NXCD4031"
+    },
+    {
+      "name": "Mahjong Lemon Angel (Japan)",
+      "region": "Japan",
+      "rom_name": "Mahjong Lemon Angel (Japan) (Track 02).bin",
+      "size": 22765008,
+      "crc": "c632460c",
+      "md5": "f418938e79f0bfcbec2935b1b5969759",
+      "sha1": "5abd01d82e6af2f37dbbfacf68dee8fa41a287ef",
+      "serial": "NXCD3028"
+    },
+    {
+      "name": "Mahjong Clinic Special (Japan)",
+      "region": "Japan",
+      "rom_name": "Mahjong Clinic Special (Japan) (Track 02).bin",
+      "size": 56462112,
+      "crc": "\u001ajAY",
+      "md5": "6300d30ae79f6695cb2054508156ab1e",
+      "sha1": "a725f1528a5a5a2de3f4775c766ad4b0bbdae63a",
+      "serial": "NXCD3023"
+    },
+    {
+      "name": "Magicoal (Japan)",
+      "region": "Japan",
+      "rom_name": "Magicoal (Japan) (Track 02).bin",
+      "size": 46710720,
+      "crc": "9adb4de0",
+      "md5": "d6a30260b99a6e0be74272cfbf420c67",
+      "sha1": "954eee0315ef955bcd7fe94febc75edf6193cad9",
+      "serial": "HECD-3002"
+    },
+    {
+      "name": "Magical Saurus Tour (Japan)",
+      "region": "Japan",
+      "rom_name": "Magical Saurus Tour (Japan) (Track 2).bin",
+      "size": 149610720,
+      "crc": "5b4bf392",
+      "md5": "60343daf42526c69c01609c88154694e",
+      "sha1": "ed41dfbd8784507c91fa3191edfb99575930e503",
+      "serial": "JCCD0002"
+    },
+    {
+      "name": "Magical Dinosaur Tour (USA)",
+      "region": "USA",
+      "rom_name": "Magical Dinosaur Tour (USA) (Track 2).bin",
+      "size": 149606016,
+      "crc": "b1e7d174",
+      "md5": "db2387d9c0a8dcfcfb45f739afe8971e",
+      "sha1": "43392555c0fcddadeb810601aec17d9cd72911ea",
+      "serial": "TGXCD1005"
+    },
+    {
+      "name": "Madou Monogatari I - Honoo no Sotsuenji (Japan)",
+      "region": "Japan",
+      "rom_name": "Madou Monogatari I - Honoo no Sotsuenji (Japan) (Track 02).bin",
+      "size": 41150592,
+      "crc": "\u0014n\u001e+",
+      "md5": "a0819940f217c31439b56393d2c15df5",
+      "sha1": "754696b6527c12259280e82f9233d555f1157340",
+      "serial": "NAPR-1047"
+    },
+    {
+      "name": "Mad Stalker - Full Metal Force (Japan)",
+      "region": "Japan",
+      "rom_name": "Mad Stalker - Full Metal Force (Japan) (Track 02).bin",
+      "size": 6423312,
+      "crc": "6eb63910",
+      "md5": "bb7ce28426f54c30d058d8002c261faa",
+      "sha1": "25bf78e241b15c5c537b5fd81347019c01fee1da",
+      "serial": "HECD4009"
+    },
+    {
+      "name": "Lords of the Rising Sun (USA)",
+      "region": "USA",
+      "rom_name": "Lords of the Rising Sun (USA) (Track 02).bin",
+      "size": 20408304,
+      "crc": "5d914fd9",
+      "md5": "d987210ad61977bb5974d7f8950a5e52",
+      "sha1": "503a6352b7695243c9133f5869493fe669a0fba3",
+      "serial": "TGXCD1014"
+    },
+    {
+      "name": "Lords of Thunder (USA)",
+      "region": "USA",
+      "rom_name": "Lords of Thunder (USA) (Track 02).bin",
+      "size": 9320976,
+      "crc": "73cd08ea",
+      "md5": "b539880fe8e0bc5d3100e842395b415e",
+      "sha1": "3bca72e6bca5a2c36268d2d66c54143860d208e5",
+      "serial": "TGXCD-1033"
+    },
+    {
+      "name": "Lord of Wars (Japan)",
+      "region": "Japan",
+      "rom_name": "Lord of Wars (Japan) (Track 02).bin",
+      "size": 3495072,
+      "crc": "70c00729",
+      "md5": "2da729f89d5f891a8bf050a3b3d88089",
+      "sha1": "76ac059b49ca8a926bed6f2d2210b971474157ab",
+      "serial": "SACD1001"
+    },
+    {
+      "name": "Loom (USA)",
+      "region": "USA",
+      "rom_name": "Loom (USA) (Track 02).bin",
+      "size": 8027376,
+      "crc": "99b694c8",
+      "md5": "f5174c5aa8dceccbdc16322e0d2ac6cc",
+      "sha1": "7bc61768be222219d7d65d768e536896ccb1b446",
+      "serial": "TGXCD1017"
+    },
+    {
+      "name": "Loom (Japan)",
+      "region": "Japan",
+      "rom_name": "Loom (Japan) (Track 02).bin",
+      "size": 8025024,
+      "crc": "8c1a2dce",
+      "md5": "99ff89a71712ad1bbe19c8e21c31536e",
+      "sha1": "d5250d246589d0aae0f1eb3436af71d79412e000",
+      "serial": "JCCD2009"
+    },
+    {
+      "name": "Local Girls of Hawaii, The (USA)",
+      "region": "USA",
+      "rom_name": "Local Girls of Hawaii, The (USA) (Unl).bin",
+      "size": 3186960,
+      "crc": "1a342ad8",
+      "md5": "76b72666c4160756fc528f88d8e18ce7",
+      "sha1": "3074f37d214819d1dc0a59b12a2fe2b402e622c4"
+    },
+    {
+      "name": "Linda^3 (Japan) (Rev 1)",
+      "region": "Japan",
+      "rom_name": "Linda^3 (Japan) (Rev 1) (Track 02).bin",
+      "size": 212830128,
+      "crc": "ebeb5e89",
+      "md5": "e0dbd6ad713d3937d91ecb67d2054996",
+      "sha1": "3296a4db58a92a60dfbd35fc99a8c1943db995e1",
+      "serial": "HECD5023"
+    },
+    {
+      "name": "Lemmings (Japan)",
+      "region": "Japan",
+      "rom_name": "Lemmings (Japan) (Track 02).bin",
+      "size": 13547520,
+      "crc": "f4e4a4f1",
+      "md5": "1725251ac38dafa9ca073d819b82814e",
+      "sha1": "67836e556f1961a03c8e6b2d0cd6b42aef4e687e",
+      "serial": "SSCD2003"
+    },
+    {
+      "name": "Legion (Japan) (Rev 4) (Alt)",
+      "region": "Japan",
+      "rom_name": "Legion (Japan) (Rev 4) (Alt) (Track 02).bin",
+      "size": 2742432,
+      "crc": "809da47c",
+      "md5": "44dee4b8340c949847289c78bcf1a88f",
+      "sha1": "ef7cb00c55dd7d57b8cc9c4a6cee27d6acfa0015",
+      "serial": "TJCD0010"
+    },
+    {
+      "name": "Legend of Xanadu - Kaze no Densetsu Xanadu II (Japan)",
+      "region": "Japan",
+      "rom_name": "Legend of Xanadu - Kaze no Densetsu Xanadu II (Japan) (Track 02).bin",
+      "size": 18613728,
+      "crc": "e0862ad7",
+      "md5": "59e86ac24c7f4456b0b7b39790325396",
+      "sha1": "0cbc678c7b2cc4c876c2d9b7d6ed9fa00b09103e",
+      "serial": "NFCD5001"
+    },
+    {
+      "name": "Legend of Xanadu - Kaze no Densetsu Xanadu (Japan)",
+      "region": "Japan",
+      "rom_name": "Legend of Xanadu - Kaze no Densetsu Xanadu (Japan) (Track 02).bin",
+      "size": 33741792,
+      "crc": "8b6214f5",
+      "md5": "15f33760e9e5fed539ffe0dd2564aa32",
+      "sha1": "a72e39da5a8ab8c97e429f711a31213a66331375",
+      "serial": "HECD4006"
+    },
+    {
+      "name": "Last Armageddon (Japan) (Rev 6)",
+      "region": "Japan",
+      "rom_name": "Last Armageddon (Japan) (Rev 6) (Track 02).bin",
+      "size": 91187040,
+      "crc": "8eeac38b",
+      "md5": "5d7dfb835578930b230942821dc26c41",
+      "sha1": "cec0f618ee639df6aa5f1a2099d80bc15783a1a7",
+      "serial": "BRCD0001"
+    },
+    {
+      "name": "Last Armageddon (Japan) (Rev 5)",
+      "region": "Japan",
+      "rom_name": "Last Armageddon (Japan) (Rev 5) (Track 02).bin",
+      "size": 91673904,
+      "crc": "4f86cc9b",
+      "md5": "51dcc46f89dd68b525791574b8abeea4",
+      "sha1": "498941658ac1b146e4aae656a2663e8494eabcdb",
+      "serial": "BRCD0001"
+    },
+    {
+      "name": "Last Alert (USA)",
+      "region": "USA",
+      "rom_name": "Last Alert (USA) (Track 02).bin",
+      "size": 8674176,
+      "crc": "250e5fdc",
+      "md5": "538f87981e67d49af23526620dd77098",
+      "sha1": "b233ab70f6bf7763ef4d77403d05e97d52fe72db",
+      "serial": "TGXCD1007"
+    },
+    {
+      "name": "Laser Soft Visual Collection Vol. 2 - Valis Visual-shuu (Japan)",
+      "region": "Japan",
+      "rom_name": "Laser Soft Visual Collection Vol. 2 - Valis Visual-shuu (Japan) (Track 02).bin",
+      "size": 16710960,
+      "crc": "0751ea61",
+      "md5": "f3bdc73c294f6392232925ae44a8da56",
+      "sha1": "5cf8d2bf955c0e6c516420c1e16b709abd686940",
+      "serial": "TJCD3035"
+    },
+    {
+      "name": "Laser Soft Visual Collection Vol. 1 - Cosmic Fantasy Visual-shuu (Japan)",
+      "region": "Japan",
+      "rom_name": "Laser Soft Visual Collection Vol. 1 - Cosmic Fantasy Visual-shuu (Japan) (Track 02).bin",
+      "size": 28779072,
+      "crc": "f5610f96",
+      "md5": "d4c16e5b281c517f4dd51bdd22f4c922",
+      "sha1": "f497ce2eb9688941609ecd9eb184ca4bdb8270ff",
+      "serial": "TJCD3034"
+    },
+    {
+      "name": "Laplace no Ma (Japan)",
+      "region": "Japan",
+      "rom_name": "Laplace no Ma (Japan) (Track 02).bin",
+      "size": 64564752,
+      "crc": "f909ecc2",
+      "md5": "cd1b55cec479e834d11947fbff843ed6",
+      "sha1": "f91e497825d0ac8583bbf232e5050c7af699bb8c",
+      "serial": "HMCD-2005"
+    },
+    {
+      "name": "Langrisser - Hikari no Matsuei (Japan)",
+      "region": "Japan",
+      "rom_name": "Langrisser - Hikari no Matsuei (Japan) (Track 02).bin",
+      "size": 13004208,
+      "crc": "99bb4484",
+      "md5": "64a3ec3f34e1535a5c23a7b782b983ee",
+      "sha1": "a76a2d7703a6cbb8df848c6ce1a7bee6e271c531",
+      "serial": "NSCD2017"
+    },
+    {
+      "name": "Lady Phantom (Japan) (FABT)",
+      "region": "Japan",
+      "rom_name": "Lady Phantom (Japan) (FABT) (Track 02).bin",
+      "size": 3685584,
+      "crc": "92f94d73",
+      "md5": "a990b79a3e226436cfa8e086214bc84e",
+      "sha1": "c0cc29873563ba5938e3ae8fdbbb6bda214bdfa5",
+      "serial": "TJCD1019"
+    },
+    {
+      "name": "L-Dis (Japan)",
+      "region": "Japan",
+      "rom_name": "L-Dis (Japan) (Track 02).bin",
+      "size": 1408848,
+      "crc": ";L'C",
+      "md5": "e9be58c926a23810d3b64e030c0c55ff",
+      "sha1": "0764cc54155eb992b3852174e3596497d0eb787e",
+      "serial": "NSCD-0005"
+    },
+    {
+      "name": "Kuusou Kagaku Sekai Gulliver Boy (Japan)",
+      "region": "Japan",
+      "rom_name": "Kuusou Kagaku Sekai Gulliver Boy (Japan) (Track 02).bin",
+      "size": 501841536,
+      "crc": "67289f7b",
+      "md5": "cf9384ed06616bcca54acfb0cc0eb3f8",
+      "sha1": "4d4ff6f8fa1202b8dd2a799b21a0553b6ef2ab6d",
+      "serial": "HCD5076"
+    },
+    {
+      "name": "Kisou Louga II - The Ends of Shangrila (Japan)",
+      "region": "Japan",
+      "rom_name": "Kisou Louga II - The Ends of Shangrila (Japan) (Track 02).bin",
+      "size": 20450640,
+      "crc": "5c61a913",
+      "md5": "598518d2041e5aa7aae582d737535be3",
+      "sha1": "ea69897e1eb5bafae92fa1ff5c354757f25b3e27",
+      "serial": "HECD5021"
+    },
+    {
+      "name": "Kisou Louga (Japan) (FABT)",
+      "region": "Japan",
+      "rom_name": "Kisou Louga (Japan) (FABT) (Track 02).bin",
+      "size": 14504784,
+      "crc": "fd644c5a",
+      "md5": "f6d9ebcafba67a8f427c0456270d0c57",
+      "sha1": "57cc432cfce274fb2ea7d615faa623b1a1b73bd7",
+      "serial": "KSCD3004"
+    },
+    {
+      "name": "Kid's Station Vol. 2 - Atchi Kotchi Dotchi (Japan)",
+      "region": "Japan",
+      "rom_name": "Kid's Station Vol. 2 - Atchi Kotchi Dotchi (Japan) (Track 02).bin",
+      "size": 3934896,
+      "crc": "c21dfca4",
+      "md5": "8f4660a04be83c1bd8eef8144af996d7",
+      "sha1": "032b64358775ff8fa5be07f7d677edf36dfb169b",
+      "serial": "KDCD30002"
+    },
+    {
+      "name": "Kick Boxing, The (Japan)",
+      "region": "Japan",
+      "rom_name": "Kick Boxing, The (Japan) (Track 02).bin",
+      "size": 3518592,
+      "crc": "9151b6af",
+      "md5": "65f1953949273037a8f161a5031c8ec5",
+      "sha1": "718ff82a8b749ae1bcedf80c92dd3a05a4616883",
+      "serial": "MWCD2001"
+    },
+    {
+      "name": "Kiaidan 00 (Japan)",
+      "region": "Japan",
+      "rom_name": "Kiaidan 00 (Japan) (Track 02).bin",
+      "size": 29616384,
+      "crc": "68d8cd49",
+      "md5": "06e6fc6ced4382dee8672e88839f56f1",
+      "sha1": "bb65324db5f5d2977b5062a7b1722a56e1ca4ebe",
+      "serial": "TJCD2031"
+    },
+    {
+      "name": "Kaze Kiri - Ninja Action (Japan)",
+      "region": "Japan",
+      "rom_name": "Kaze Kiri - Ninja Action (Japan) (Track 02).bin",
+      "size": 10520496,
+      "crc": "d68d80f3",
+      "md5": "0b0fe717c7b1fd715f68b2f1299d9b21",
+      "sha1": "c104b80aa5fdf37d615fe35c68564b7d75dabbc4",
+      "serial": "NXCD3025"
+    },
+    {
+      "name": "Kawa no Nushitsuri - Shizen-ha (Japan)",
+      "region": "Japan",
+      "rom_name": "Kawa no Nushitsuri - Shizen-ha (Japan) (Track 02).bin",
+      "size": 7832160,
+      "crc": "269cfeaf",
+      "md5": "d2f3623c3f25684865209d373f055a14",
+      "sha1": "660c5950bf93a35a095b53116379b760875d07f3",
+      "serial": "PVCD-2006"
+    },
+    {
+      "name": "Kakutou Haou Densetsu - Algunos (Japan)",
+      "region": "Japan",
+      "rom_name": "Kakutou Haou Densetsu - Algunos (Japan) (Track 02).bin",
+      "size": 10445232,
+      "crc": "3930ef9d",
+      "md5": "e1f641e586f3f62e148c8c2b2d204c91",
+      "sha1": "72d8711cf009b2ccfdf268c91a53d8221f8608a3",
+      "serial": "IGCD-3007"
+    },
+    {
+      "name": "Kaizou Choujin Shubibinman 3 - Ikai no Princess (Japan)",
+      "region": "Japan",
+      "rom_name": "Kaizou Choujin Shubibinman 3 - Ikai no Princess (Japan) (Track 02).bin",
+      "size": 11891712,
+      "crc": "4ad2170e",
+      "md5": "5bd355214fb3eaaf61ef7986e52d66e8",
+      "sha1": "4fad3710616c9c0ad7c7de1eca2840a7567e7a8b",
+      "serial": "NSCD-2010"
+    },
+    {
+      "name": "Kagami no Kuni no Legend (Japan)",
+      "region": "Japan",
+      "rom_name": "Kagami no Kuni no Legend (Japan) (Track 2).bin",
+      "size": 160218240,
+      "crc": "899f4b99",
+      "md5": "e9ba086ac9b9ed71277c99ca77ecbc04",
+      "sha1": "81a683cd960647b11fe61e2800ce3093d5e1f051",
+      "serial": "JCCD9001"
+    },
+    {
+      "name": "Kabuki Ittouryoudan (Japan) (FABT)",
+      "region": "Japan",
+      "rom_name": "Kabuki Ittouryoudan (Japan) (FABT) (Track 02).bin",
+      "size": 126349440,
+      "crc": "b30d8141",
+      "md5": "84af7dcbbb5d53e6650b6acd199d2036",
+      "sha1": "757b8a658e14ecbc207a89253709392893a5f571",
+      "serial": "HCD5070"
+    },
+    {
+      "name": "KO Seiki Beast Sanjuushi - Gaia Fukkatsu - Kanketsu-hen (Japan)",
+      "region": "Japan",
+      "rom_name": "KO Seiki Beast Sanjuushi - Gaia Fukkatsu - Kanketsu-hen (Japan) (Track 02).bin",
+      "size": 38730384,
+      "crc": "ac0a59d4",
+      "md5": "a75904003529307203669396b5bc7168",
+      "sha1": "a869ac9615fd2f44a12392fc54e69ac3cd1342cf",
+      "serial": "PVCD4011"
+    },
+    {
+      "name": "Juuouki (Japan) (Rev 5)",
+      "region": "Japan",
+      "rom_name": "Juuouki (Japan) (Rev 5) (Track 02).bin",
+      "size": 4936848,
+      "crc": "8ca6923b",
+      "md5": "22c49e09d4b4e1f64f0a7bee35b2e6a9",
+      "sha1": "fe78ad7fc7b441eaab2e7938b7a76b523e5bc233",
+      "serial": "HACD9001"
+    },
+    {
+      "name": "Juuouki (Japan) (Rev 4)",
+      "region": "Japan",
+      "rom_name": "Juuouki (Japan) (Rev 4) (Track 2).bin",
+      "size": 4936848,
+      "crc": "972b372e",
+      "md5": "2274798b88776037313686c006efb4e2",
+      "sha1": "3968e958cc06860d54b86058f5148f1058d61b92",
+      "serial": "HACD9001"
+    },
+    {
+      "name": "John Madden Duo CD Football (USA)",
+      "region": "USA",
+      "rom_name": "John Madden Duo CD Football (USA) (RE) (Track 02).bin",
+      "size": 58896432,
+      "crc": "29aee6d5",
+      "md5": "d9157853b67d2622db1cb0da676d208a",
+      "sha1": "7cd3c9cc369bf916c0a71f5c6b0de7cbecfc8a4f",
+      "serial": "TGXCD1045"
+    },
+    {
+      "name": "Jim Power in Mutant Planet (USA)",
+      "region": "USA",
+      "rom_name": "Jim Power in Mutant Planet (USA) (Unl) (Track 02).bin",
+      "size": 4976832,
+      "crc": "197006d6",
+      "md5": "5c943d8ffc3937098689bee524c8cd0a",
+      "sha1": "9db2f74f76395319b99b721201c822909b6ba8bb"
+    },
+    {
+      "name": "Jim Power in Mutant Planet (Japan)",
+      "region": "Japan",
+      "rom_name": "Jim Power in Mutant Planet (Japan) (Track 02).bin",
+      "size": 4976832,
+      "crc": "6b597ee5",
+      "md5": "61696f99c8110b31c1e0089a6ea1fa43",
+      "sha1": "03a1ffc6a48aa26650157701c9b36cef9bacd245",
+      "serial": "MWCD2006"
+    },
+    {
+      "name": "Jessie Jaeger in Cleopatra's Curse (World)",
+      "rom_name": "Jessie Jaeger in Cleopatra's Curse (World) (Unl) (Track 02).bin",
+      "size": 3370416,
+      "crc": "f917f093",
+      "md5": "30e85e7f9a7bc31935b34d7ddc20b6cd",
+      "sha1": "1d999569b014bc5d44bbc54937bf778e1bce66a6"
+    },
+    {
+      "name": "Jantei Monogatari 3 - Saver Angels (Japan)",
+      "region": "Japan",
+      "rom_name": "Jantei Monogatari 3 - Saver Angels (Japan) (Track 02).bin",
+      "size": 162553776,
+      "crc": "cb6e9315",
+      "md5": "4ff5bb7c2e280c1f613d547742378f3c",
+      "sha1": "e27fa4a5b2549a21264bb93a978f97fb883e830c",
+      "serial": "ATCD-3005"
+    },
+    {
+      "name": "Jantei Monogatari 2 - Uchuu Tantei Diban - Shutsudou-hen (Japan)",
+      "region": "Japan",
+      "rom_name": "Jantei Monogatari 2 - Uchuu Tantei Diban - Shutsudou-hen (Japan) (Track 2).bin",
+      "size": 93611952,
+      "crc": "2894d5cd",
+      "md5": "a496f42a250029ff55838443811c60c9",
+      "sha1": "4ce977c8a3a417047f24c5e25ad95c505fb0c13a",
+      "serial": "ATCD-1002"
+    },
+    {
+      "name": "Jantei Monogatari 2 - Uchuu Tantei Diban - Kanketsu-hen (Japan)",
+      "region": "Japan",
+      "rom_name": "Jantei Monogatari 2 - Uchuu Tantei Diban - Kanketsu-hen (Japan) (Track 2).bin",
+      "size": 79036608,
+      "crc": "8ced58af",
+      "md5": "80ad02d66cb6fbdec08358ccd553479d",
+      "sha1": "5e441f8d2a2c7169a15c944776bd1a28b5a73274",
+      "serial": "ATCD-2004"
+    },
+    {
+      "name": "Jantei Monogatari (Japan)",
+      "region": "Japan",
+      "rom_name": "Jantei Monogatari (Japan) (Track 2).bin",
+      "size": 62527920,
+      "crc": "d41f25d2",
+      "md5": "7d6a34b4a19c92144992d196b294dd76",
+      "sha1": "a922e40609a978331e27dc1dd8fcf07bf2669f2d",
+      "serial": "TJCD0012"
+    },
+    {
+      "name": "Jack Nicklaus' World Tour Golf - 162 Holes (Japan)",
+      "region": "Japan",
+      "rom_name": "Jack Nicklaus' World Tour Golf - 162 Holes (Japan) (Track 02).bin",
+      "size": 22943760,
+      "crc": "707461ca",
+      "md5": "2ae84f32f0c4d72ad5aa5f5118a5d85f",
+      "sha1": "7670ba80e5df0b48944617558e36b272e72a02ef",
+      "serial": "JCCD0003"
+    },
+    {
+      "name": "Jack Nicklaus Turbo Golf (USA)",
+      "region": "USA",
+      "rom_name": "Jack Nicklaus Turbo Golf (USA) (Track 02).bin",
+      "size": 22946112,
+      "crc": "c9cdcb10",
+      "md5": "b30c100096e78328c3ef80c06d794b53",
+      "sha1": "5f59a0080a26f35c25ac8de25ebf22c83dc75406",
+      "serial": "ATGXCDJTTC"
+    },
+    {
+      "name": "J.League Tremendous Soccer '94 (Japan)",
+      "region": "Japan",
+      "rom_name": "J.League Tremendous Soccer '94 (Japan) (Track 02).bin",
+      "size": 7321776,
+      "crc": "5e82eb0d",
+      "md5": "2c79c4835dc0cbe5d70b705119825eac",
+      "sha1": "b1f9395fb3d14cb645fa265747396d6c6dfc8816",
+      "serial": "HECD4017"
+    },
+    {
+      "name": "J. B. Harold Series 1 - Murder Club (Japan)",
+      "region": "Japan",
+      "rom_name": "J. B. Harold Series 1 - Murder Club (Japan) (Track 02).bin",
+      "size": 160509888,
+      "crc": "cf416a01",
+      "md5": "1c789459f48dbfde0b852268f7f29677",
+      "sha1": "344e3087216495cce2013ae791a5faa2f453ad9b",
+      "serial": "HCD0013"
+    },
+    {
+      "name": "J. B. Harold Murder Club (USA) (En,Ja)",
+      "region": "USA",
+      "rom_name": "J. B. Harold Murder Club (USA) (En,Ja) (Track 02).bin",
+      "size": 160509888,
+      "crc": "6de97bf9",
+      "md5": "5f3f22c3416e529ff7b3b7c5d5e001b9",
+      "sha1": "b0de3c0f10ca00ab4288641dbb9b4aca960b526b",
+      "serial": "TGXCD1012"
+    },
+    {
+      "name": "J-Thunder - Tsumetai Hada wa Shoujo o Nurasu (Japan)",
+      "region": "Japan",
+      "rom_name": "J-Thunder - Tsumetai Hada wa Shoujo o Nurasu (Japan) (Unl) (Track 02).bin",
+      "size": 1923936,
+      "crc": "0cbc13f7",
+      "md5": "5bba6bdee4b3fcc266afc6b9e63ee411",
+      "sha1": "981da46bf6863a430da59b91f1e3cfa4c703dd7b"
+    },
+    {
+      "name": "It Came from the Desert (USA)",
+      "region": "USA",
+      "rom_name": "It Came from the Desert (USA) (Track 01).bin",
+      "size": 406423248,
+      "crc": "\u0000\u0449K",
+      "md5": "b50cac60b6b1b8bfbc607c83e29b2b44",
+      "sha1": "da4e406ea89d521286e455aed386319a2c5202ae",
+      "serial": "TGXCD1010"
+    },
+    {
+      "name": "Insanity (USA)",
+      "region": "USA",
+      "rom_name": "Insanity (USA) (Unl) (Track 02).bin",
+      "size": 2935296,
+      "crc": "6859fb0d",
+      "md5": "13c2be972ffe82a2ec567e0c33f58393",
+      "sha1": "80ef3d4572761d37429e6ca2c2364c51f29b2afa"
+    },
+    {
+      "name": "Inoue Mami - Kono Hoshi ni Tatta Hitori no Kimi (Japan)",
+      "region": "Japan",
+      "rom_name": "Inoue Mami - Kono Hoshi ni Tatta Hitori no Kimi (Japan) (Track 2).bin",
+      "size": 236973408,
+      "crc": "8b31da0a",
+      "md5": "1398409bfbd5537addbf144bb273aa9d",
+      "sha1": "12f89f47642cbac296ff1c7a1b96a276eb87b5b8",
+      "serial": "HCD2035"
+    },
+    {
+      "name": "In Magical Adventure - Fray CD - Xak Gaiden (Japan)",
+      "region": "Japan",
+      "rom_name": "In Magical Adventure - Fray CD - Xak Gaiden (Japan) (Track 02).bin",
+      "size": 7632240,
+      "crc": "f4306872",
+      "md5": "c5421b0308124f096d15dc2dbf458d4c",
+      "sha1": "b040ab335de13696adcebe7219a6b441f7068b9f",
+      "serial": "MCCD4005"
+    },
+    {
+      "name": "Implode (USA)",
+      "region": "USA",
+      "rom_name": "Implode (USA) (Unl) (Track 01).bin",
+      "size": 2217936,
+      "crc": "ca38443a",
+      "md5": "4311398dd2c07e6ba7bd0137f30be273",
+      "sha1": "e6ac208247b025508ccce5d755ecab68c937ee49",
+      "serial": "BTCD0201"
+    },
+    {
+      "name": "ImageFight II - Operation Deepstriker (Japan)",
+      "region": "Japan",
+      "rom_name": "ImageFight II - Operation Deepstriker (Japan) (Track 02).bin",
+      "size": 7427616,
+      "crc": "b81af8fa",
+      "md5": "0de0d28592b4737e44c99b823892cf16",
+      "sha1": "f5b609512bad3634d55e3dbf4c9f2afcec91d43a",
+      "serial": "ICCD-2002"
+    },
+    {
+      "name": "Iga Ninden Gaiou (Japan)",
+      "region": "Japan",
+      "rom_name": "Iga Ninden Gaiou (Japan) (Track 02).bin",
+      "size": 9346848,
+      "crc": "5c0d9579",
+      "md5": "2789f4de98c63b08d1439da93a55cdc7",
+      "sha1": "a2d27df661b97e2a7cfd515571d7791ac10872b3",
+      "serial": "NBCD3003"
+    },
+    {
+      "name": "IQ Panic (Japan)",
+      "region": "Japan",
+      "rom_name": "IQ Panic (Japan) (Track 02).bin",
+      "size": 56332752,
+      "crc": "4a3644b8",
+      "md5": "dfc55a83e95ea4279f1b9f0f5c81033f",
+      "sha1": "c6351beff9626afd644f5476c7ee82a3894b91a6",
+      "serial": "AICD-1002"
+    },
+    {
+      "name": "Hypernova Blast (USA)",
+      "region": "USA",
+      "rom_name": "Hypernova Blast (USA) (Unl) (Track 02).bin",
+      "size": 2347296,
+      "crc": "c70d41ff",
+      "md5": "edbc13a7f986143af4a3210eaf619127",
+      "sha1": "8ff57b3975bbed99ccf8c3467e59073c2520ab5a",
+      "serial": "BTCD1403"
+    },
+    {
+      "name": "Hyper Wars (Japan) (SABS)",
+      "region": "Japan",
+      "rom_name": "Hyper Wars (Japan) (SABS) (Track 02).bin",
+      "size": 223548192,
+      "crc": "32d83b89",
+      "md5": "b199ce0d9ae976e89fa3eb7d8d91497d",
+      "sha1": "a40e83a9b7e128a43d99951d1943b0ad946063eb",
+      "serial": "HCD4068"
+    },
+    {
+      "name": "Hyper Dyne - SideArms Special (Japan) (Alt)",
+      "region": "Japan",
+      "rom_name": "Hyper Dyne - SideArms Special (Japan) (Alt) (Track 02).bin",
+      "size": 11799984,
+      "crc": "a50eea23",
+      "md5": "eafa91d61b20f0541e2553b13b34d62a",
+      "sha1": "77c7c08fa87e4e478d86bcca76737fdee48dd96e",
+      "serial": "HACD9002"
+    },
+    {
+      "name": "Hyaku Monogatari - Honto ni Atta Kowai Hanashi (Japan)",
+      "region": "Japan",
+      "rom_name": "Hyaku Monogatari - Honto ni Atta Kowai Hanashi (Japan) (Track 21).bin",
+      "size": 89154912,
+      "crc": "873d7b81",
+      "md5": "543a43aa0327a1a817f6b87483b040d0",
+      "sha1": "445861b25d9a609fde838757732f25289793f74f",
+      "serial": "HCD5077"
+    },
+    {
+      "name": "Human Sports Festival (Japan)",
+      "region": "Japan",
+      "rom_name": "Human Sports Festival (Japan) (Track 02).bin",
+      "size": 4459392,
+      "crc": "6d8d813d",
+      "md5": "2ab4f4175d97033bb17845b77cbb5b44",
+      "sha1": "b6e805a4974f357bcc4a4ce998d8c088243d24a6",
+      "serial": "HMCD-2002"
+    },
+    {
+      "name": "Hu PGA Tour - PowerGolf 2 - Golfer (Japan)",
+      "region": "Japan",
+      "rom_name": "Hu PGA Tour - PowerGolf 2 - Golfer (Japan) (Track 02).bin",
+      "size": 68031600,
+      "crc": "dc6b4b09",
+      "md5": "b685c260eb1addef6f5db4d4e32f191b",
+      "sha1": "a3b0195ca8d9850d9f738b771a50195469440348",
+      "serial": "HCD4056"
+    },
+    {
+      "name": "Horror Story (Japan)",
+      "region": "Japan",
+      "rom_name": "Horror Story (Japan) (Track 02).bin",
+      "size": 3048192,
+      "crc": "807561bd",
+      "md5": "64119810f40ed369f27fa674e2e0d952",
+      "sha1": "a81b1cbe7e8232f10b8351cf1f3312c375a43396",
+      "serial": "NAPR-1027"
+    },
+    {
+      "name": "Himitsu no Hanazono (Japan)",
+      "region": "Japan",
+      "rom_name": "Himitsu no Hanazono (Japan) (Track 2).bin",
+      "size": 94294032,
+      "crc": "25fcfe1c",
+      "md5": "6f619bd44099d218faff44ee58d29428",
+      "sha1": "75d17f136c7dc8d0a614e8705257b4eb2a03427a",
+      "serial": "TICD-3001"
+    },
+    {
+      "name": "Hihou Densetsu - Chris no Bouken (Japan)",
+      "region": "Japan",
+      "rom_name": "Hihou Densetsu - Chris no Bouken (Japan) (Track 02).bin",
+      "size": 8453088,
+      "crc": "24b46ca4",
+      "md5": "b5b32a3138f7aacb3d091aa4db43e0c1",
+      "sha1": "9028958063dddf526ddfe3ff6cdcedae22450086",
+      "serial": "PVCD-1004"
+    },
+    {
+      "name": "High Grenadier (Japan)",
+      "region": "Japan",
+      "rom_name": "High Grenadier (Japan) (Track 02).bin",
+      "size": 4616976,
+      "crc": "17d5fd56",
+      "md5": "127db118f448c925eb91b9f9d98564cc",
+      "sha1": "29f3ce0c4c5f2b7e48b8ebad851ab3aa501e9bea",
+      "serial": "TJCD1016"
+    },
+    {
+      "name": "Hi-Leg Fantasy (Japan)",
+      "region": "Japan",
+      "rom_name": "Hi-Leg Fantasy (Japan) (Unl) (Track 01).bin",
+      "size": 9678480,
+      "crc": "f7bb332c",
+      "md5": "ff311fc71f0fb0379436d82fd618a9d0",
+      "sha1": "c9c862eab7fcb1e0edeaae566b3ec79f65897028",
+      "serial": "GED-1011"
+    },
+    {
+      "name": "Hellfire S - The Another Story (Japan)",
+      "region": "Japan",
+      "rom_name": "Hellfire S - The Another Story (Japan) (Track 02).bin",
+      "size": 5157936,
+      "crc": "8e06cbd4",
+      "md5": "565b0f37c6e1d4046ca4ba362d56c125",
+      "sha1": "3ef76cca5ceb98e36377863212c731274f7e450e",
+      "serial": "NAPR-1017"
+    },
+    {
+      "name": "Hawk F-123 (Japan)",
+      "region": "Japan",
+      "rom_name": "Hawk F-123 (Japan) (Track 02).bin",
+      "size": 8194368,
+      "crc": "0e619f77",
+      "md5": "aa0262cc247a3d62237ee63d340db0e9",
+      "sha1": "fb9127a6bb2942336eef73cd4055f90f829d14a9",
+      "serial": "PVCD-2007"
+    },
+    {
+      "name": "Hawiian Island Girls (USA)",
+      "region": "USA",
+      "rom_name": "Hawiian Island Girls (USA) (Unl).bin",
+      "size": 2763600,
+      "crc": "abd11e53",
+      "md5": "01cb2fb1edb33f07c7af4eadbb05010b",
+      "sha1": "4aac11efbe83a4ac2b04dc47ffc639065d9cea94"
+    },
+    {
+      "name": "Hatsukoi Monogatari (Japan) (Rev 2)",
+      "region": "Japan",
+      "rom_name": "Hatsukoi Monogatari (Japan) (Rev 2) (Track 2).bin",
+      "size": 301157136,
+      "crc": "1f7cb2cf",
+      "md5": "2a5b3979fd8f80daea410c8d33aa45a8",
+      "sha1": "7b86ea4730edcdbd00b047ad679280b6e9e03609",
+      "serial": "TICD-4002"
+    },
+    {
+      "name": "Hatsukoi Monogatari (Japan) (Rev 1)",
+      "region": "Japan",
+      "rom_name": "Hatsukoi Monogatari (Japan) (Rev 1) (Track 2).bin",
+      "size": 301157136,
+      "crc": "0fedf856",
+      "md5": "0ffacd67eeb50d00789709c18449d2a4",
+      "sha1": "75bcec88e76e4a6fc6ec2b60de03fb37afda7ace",
+      "serial": "TICD-4002"
+    },
+    {
+      "name": "Hataraku Shoujo - Tekipaki Working Love (Japan)",
+      "region": "Japan",
+      "rom_name": "Hataraku Shoujo - Tekipaki Working Love (Japan) (Track 02).bin",
+      "size": 172709712,
+      "crc": "469199b8",
+      "md5": "fb2aff772d4d7e3e958163725a08b55a",
+      "sha1": "656bb5ac7d63717e0e6a0768a60d2bc4c1fbccfe",
+      "serial": "HECD6026"
+    },
+    {
+      "name": "Gyuwambler Jiko Chuushinha - Mahjong Puzzle Collection (Japan)",
+      "region": "Japan",
+      "rom_name": "Gyuwambler Jiko Chuushinha - Mahjong Puzzle Collection (Japan) (Track 02).bin",
+      "size": 8718864,
+      "crc": "2786ddb6",
+      "md5": "27cbf021506aefa1cdf049124d5e338a",
+      "sha1": "bb2cf0adb62d3d1cd40d7ab00b40500f9e2b951b",
+      "serial": "TPCD1003"
+    },
+    {
+      "name": "Gyuwambler Jiko Chuushinha - Gekitou 36 Janshi (Japan) (Alt)",
+      "region": "Japan",
+      "rom_name": "Gyuwambler Jiko Chuushinha - Gekitou 36 Janshi (Japan) (Alt) (Track 02).bin",
+      "size": 20657616,
+      "crc": "20fede50",
+      "md5": "e86506b8161f70990d48bfc3e997eaef",
+      "sha1": "b2f5e6857ae04191a881f551791207681449cc9f",
+      "serial": "HCD9008"
+    },
+    {
+      "name": "Gulclight TDF 2 (Japan)",
+      "region": "Japan",
+      "rom_name": "Gulclight TDF 2 (Japan) (Track 02).bin",
+      "size": 2394336,
+      "crc": "8ab3496f",
+      "md5": "44c4ef498eda947231628057a332612b",
+      "sha1": "2c3c51cd7713396ae9b1213b7ec1c550f21f2dfb",
+      "serial": "PVCD-0002"
+    },
+    {
+      "name": "Gradius II - Gofer no Yabou (Japan)",
+      "region": "Japan",
+      "rom_name": "Gradius II - Gofer no Yabou (Japan) (Track 02).bin",
+      "size": 8523648,
+      "crc": "7d7dbfb4",
+      "md5": "751e3e4cd68daa06901d3087bc3d68f8",
+      "sha1": "673bfdcab4e0aadb31ea7cc680223fb1d26aa30a",
+      "serial": "KMCD2003"
+    },
+    {
+      "name": "Golden Axe (Japan) (Alt)",
+      "region": "Japan",
+      "rom_name": "Golden Axe (Japan) (Alt) (Track 02).bin",
+      "size": 15245664,
+      "crc": "J\u0018%#",
+      "md5": "492e288fb2d4d489ccdfec5369ac9279",
+      "sha1": "48e1cd1b9225989718b6f16d09682adf4c65a64c",
+      "serial": "TJCD0005"
+    },
+    {
+      "name": "Goetzendiener (Japan)",
+      "region": "Japan",
+      "rom_name": "Goetzendiener (Japan) (Track 02).bin",
+      "size": 19253472,
+      "crc": "fbcd3b21",
+      "md5": "c7b3d7df218b2606f8d0b491cca0554c",
+      "sha1": "e39b201a39b97908c33d8adc18ef837cafb15c0f",
+      "serial": "HECD4014"
+    },
+    {
+      "name": "Godzilla Bakutou Retsuden (Japan)",
+      "region": "Japan",
+      "rom_name": "Godzilla Bakutou Retsuden (Japan) (Track 02).bin",
+      "size": 20151936,
+      "crc": "e28ff3ac",
+      "md5": "5a4d1010abfd2b32cd83119eb17a302b",
+      "sha1": "1c6a486f5145e6acf18bb45c66106bff43de6bc6",
+      "serial": "TCCD4001"
+    },
+    {
+      "name": "Godzilla (USA)",
+      "region": "USA",
+      "rom_name": "Godzilla (USA) (Track 02).bin",
+      "size": 20154288,
+      "crc": "705035fb",
+      "md5": "4064c180dace25101a559443f5b9baf8",
+      "sha1": "50c95ae0b67f29157c0816621a479616326d0e23",
+      "serial": "TGXCD1051"
+    },
+    {
+      "name": "God Panic - Shijou Saikyou no Gundan (Japan)",
+      "region": "Japan",
+      "rom_name": "God Panic - Shijou Saikyou no Gundan (Japan) (Track 02).bin",
+      "size": 2798880,
+      "crc": "918f53e4",
+      "md5": "14ef3e8b1ea9e8c6861ae40844031fc3",
+      "sha1": "7ce7096ad8ce6cb4bf83457585765ac5b0688c01",
+      "serial": "TMCD2001"
+    },
+    {
+      "name": "Go! Go! Birdie Chance (Japan)",
+      "region": "Japan",
+      "rom_name": "Go! Go! Birdie Chance (Japan) (Track 2).bin",
+      "size": 520121280,
+      "crc": "ea84bbf7",
+      "md5": "ad6d3cd13e78c5869e708b53aa31f39a",
+      "sha1": "227db9fe35a1b8862b4c9b31ce52c64a836909d3",
+      "serial": "HECD5022"
+    },
+    {
+      "name": "Ginga Ojousama Densetsu Yuna HuVIDEO CD (Japan)",
+      "region": "Japan",
+      "rom_name": "Ginga Ojousama Densetsu Yuna HuVIDEO CD (Japan) (Track 2).bin",
+      "size": 465253824,
+      "crc": "cd28726c",
+      "md5": "c67f5604a4ec793bdbf9ba0fe1257920",
+      "sha1": "7e9e9f0306f67a138aa2c2e58cd2fe024ad00b70",
+      "serial": "HCD5078"
+    },
+    {
+      "name": "Ginga Ojousama Densetsu Yuna 2 - Eien no Princess (Japan) (FAAT)",
+      "region": "Japan",
+      "rom_name": "Ginga Ojousama Densetsu Yuna 2 - Eien no Princess (Japan) (FAAT) (Track 02).bin",
+      "size": 233243136,
+      "crc": "1`d.",
+      "md5": "cc83b13a5c01a1b26eb399c379072bac",
+      "sha1": "25a98e554b2bea06c932561d16976d866bdc5664",
+      "serial": "HCD-5075"
+    },
+    {
+      "name": "Ginga Ojousama Densetsu Yuna (Japan) (FAFT)",
+      "region": "Japan",
+      "rom_name": "Ginga Ojousama Densetsu Yuna (Japan) (FAFT) (Track 02).bin",
+      "size": 177446640,
+      "crc": "1dbc483e",
+      "md5": "ad2ee4a627eb0be512103c102097230e",
+      "sha1": "ae730b014047a72db9c79e0bad0d035284c335f4",
+      "serial": "HCD5078"
+    },
+    {
+      "name": "Ginga Ojousama Densetsu Yuna (Japan) (FAAT, FABT, FACT)",
+      "region": "Japan",
+      "rom_name": "Ginga Ojousama Densetsu Yuna (Japan) (FAAT, FABT, FACT) (Track 02).bin",
+      "size": 177270240,
+      "crc": "dfbee883",
+      "md5": "6ab1250cc1858e007bd5802b0d4eab12",
+      "sha1": "bef0e65f163865f84d3527f1487c8e48a42041e2",
+      "serial": "HCD2031"
+    },
+    {
+      "name": "Ginga Fukei Densetsu Sapphire (Japan) (Reprint)",
+      "region": "Japan",
+      "rom_name": "Ginga Fukei Densetsu Sapphire (Japan) (Reprint) (Track 17).bin",
+      "size": 18404400,
+      "crc": "56be0191",
+      "md5": "31a2d2ea98311ec853950d1109bc0a76",
+      "sha1": "735b57a98c3e4803cf8c3b7866a451e3056c1cdc",
+      "serial": "HCD5080"
+    },
+    {
+      "name": "Ginga Fukei Densetsu Sapphire (Japan)",
+      "region": "Japan",
+      "rom_name": "Ginga Fukei Densetsu Sapphire (Japan) (Track 02).bin",
+      "size": 18402048,
+      "crc": "6ed2b189",
+      "md5": "0c9c93e0bd8fedadb3e5b3cc08cc07d4",
+      "sha1": "43c85bf6a9a71cd2ffd8cb71ec3296fbc73172d1",
+      "serial": "HCD5080"
+    },
+    {
+      "name": "Gensou Tairiku Auleria (Japan)",
+      "region": "Japan",
+      "rom_name": "Gensou Tairiku Auleria (Japan) (Track 02).bin",
+      "size": 43935360,
+      "crc": "0afaca29",
+      "md5": "6247945b35f2910cc08a2d1fbfa0f0ba",
+      "sha1": "5449a76bded444c1f28b39b319082f68bf971803",
+      "serial": "TPCD-1002"
+    },
+    {
+      "name": "Genocide (Japan)",
+      "region": "Japan",
+      "rom_name": "Genocide (Japan) (Track 02).bin",
+      "size": 3751440,
+      "crc": "609ecc07",
+      "md5": "23c78e715629e1f003824d1db82fc53c",
+      "sha1": "8b657c074d6a362b71616224f17cbe595acb97a7",
+      "serial": "BRCD2003"
+    },
+    {
+      "name": "Gate of Thunder + Bonk's Adventure + Bonk's Revenge (USA)",
+      "region": "USA",
+      "rom_name": "Gate of Thunder + Bonk's Adventure + Bonk's Revenge (USA) (Track 22).bin",
+      "size": 10527552,
+      "crc": "b81377a7",
+      "md5": "2554cd8a8fdbfd258ec36250a7cf93c0",
+      "sha1": "6289ffce85eea8add87481bf774c9c1f2ec78939",
+      "serial": "HCD2008T"
+    },
+    {
+      "name": "Gate of Thunder (Japan) (FACT, FADT)",
+      "region": "Japan",
+      "rom_name": "Gate of Thunder (Japan) (FACT, FADT) (Track 02).bin",
+      "size": 4779264,
+      "crc": "2adc5dd4",
+      "md5": "b081f9b01c518050b2171c638fc88fae",
+      "sha1": "aef97cf3bd2a3d8b8d5700024f5217d119c909ca",
+      "serial": "HCD2025"
+    },
+    {
+      "name": "Garou Densetsu Special (Japan) (FABT)",
+      "region": "Japan",
+      "rom_name": "Garou Densetsu Special (Japan) (FABT) (Track 02).bin",
+      "size": 26812800,
+      "crc": "T#.|",
+      "md5": "2f7db2d9dd443619372677f32c8d2922",
+      "sha1": "ab124447ea7baf95e3264a8d83419002ad917eaa",
+      "serial": "HCD4067"
+    },
+    {
+      "name": "Garou Densetsu 2 - Aratanaru Tatakai (Japan) (FABT, FACT, FAET, FAFT)",
+      "region": "Japan",
+      "rom_name": "Garou Densetsu 2 - Aratanaru Tatakai (Japan) (FABT, FACT, FAET, FAFT) (Track 02).bin",
+      "size": 30013872,
+      "crc": "537da3c1",
+      "md5": "93dc5a9e8f8b6ff54098ad4a72b1f6b1",
+      "sha1": "3e39cdce31f8c64b85c20e112610361334cc3a0b",
+      "serial": "HCD4060"
+    },
+    {
+      "name": "Galaxy Deka Gayvan (Japan)",
+      "region": "Japan",
+      "rom_name": "Galaxy Deka Gayvan (Japan) (Track 02).bin",
+      "size": 14330736,
+      "crc": "3cd633dd",
+      "md5": "74a7b1ac4008333d83f08ef849509781",
+      "sha1": "a0022dfc8292d8b3cf1de544e1fb8036a673d876",
+      "serial": "IGCD-3005"
+    },
+    {
+      "name": "Gain Ground SX (Japan)",
+      "region": "Japan",
+      "rom_name": "Gain Ground SX (Japan) (Track 02).bin",
+      "size": 42587664,
+      "crc": "af295c84",
+      "md5": "4a9abcbe1da8637756447fdf975dd057",
+      "sha1": "8da71eef02bd50bc25a4345bdd16e576a5266dcd",
+      "serial": "NAPR-1032"
+    },
+    {
+      "name": "GS (Ghost Sweeper) Mikami (Japan)",
+      "region": "Japan",
+      "rom_name": "GS (Ghost Sweeper) Mikami (Japan) (Track 02).bin",
+      "size": 44304624,
+      "crc": "d8ed75cf",
+      "md5": "94581d123168a43c4e39a3a06753fca6",
+      "sha1": "4a78d56ee058b785aa420f2a6f4819599236081f",
+      "serial": "BACD4003"
+    },
+    {
+      "name": "Fushigi no Umi no Nadia - The Secret of Blue Water (Japan)",
+      "region": "Japan",
+      "rom_name": "Fushigi no Umi no Nadia - The Secret of Blue Water (Japan) (Track 2).bin",
+      "size": 233421888,
+      "crc": "44c16808",
+      "md5": "f182ef9c34a4fb2df651189e20e087bf",
+      "sha1": "8f36c46ac3efc0b46dc6f284a8032341f73784cc",
+      "serial": "HCD3036"
+    },
+    {
+      "name": "Formation Soccer 95 della Serie A (Japan)",
+      "region": "Japan",
+      "rom_name": "Formation Soccer 95 della Serie A (Japan) (Track 02).bin",
+      "size": 7472304,
+      "crc": "18ad6839",
+      "md5": "0af700c1958d837444b9991281014849",
+      "sha1": "5df2a107e7571e7e5ead93bdd0a46a076775889d",
+      "serial": "HMCD5009"
+    },
+    {
+      "name": "Forgotten Worlds (USA) (En,Ja)",
+      "region": "USA",
+      "rom_name": "Forgotten Worlds (USA) (En,Ja) (Track 02).bin",
+      "size": 8822352,
+      "crc": "745c3995",
+      "md5": "ca9f3798f5436d8304f35c566d01e306",
+      "sha1": "5f74892cdbc5ccf423eaaa31eb10824454b296a1",
+      "serial": "TGXCD1030"
+    },
+    {
+      "name": "Forgotten Worlds (Japan)",
+      "region": "Japan",
+      "rom_name": "Forgotten Worlds (Japan) (Track 02).bin",
+      "size": 9939552,
+      "crc": "11a7fca5",
+      "md5": "ba991b16370e3a2ffa7a0e982ba07a61",
+      "sha1": "5981f739760e3ab90aef2163e1d65011fc2a096b",
+      "serial": "NAPR-1025"
+    },
+    {
+      "name": "Flash Hiders (Japan)",
+      "region": "Japan",
+      "rom_name": "Flash Hiders (Japan) (Track 02).bin",
+      "size": 39301920,
+      "crc": "2c0e0ecb",
+      "md5": "f34db88997d6d53b60746fac6b3d3231",
+      "sha1": "f651d0284ac50edaa938671658eb3de709ec4622",
+      "serial": "RSCD-3004"
+    },
+    {
+      "name": "Final Zone II (USA)",
+      "region": "USA",
+      "rom_name": "Final Zone II (USA) (Track 02).bin",
+      "size": 12293904,
+      "crc": "Z\b\t*",
+      "md5": "07ddcfb1f1684151b1bace66ac09c9e7",
+      "sha1": "aaf9c4d77337032c3f307f682d98f0da34907f31",
+      "serial": "TGXCD1008"
+    },
+    {
+      "name": "Final Zone II (Japan)",
+      "region": "Japan",
+      "rom_name": "Final Zone II (Japan) (Track 02).bin",
+      "size": 12296256,
+      "crc": "57ae43b3",
+      "md5": "286755bdd8d1ecda1da488b3654d47ac",
+      "sha1": "991851c74f362a78c0b8700da4f791768bffa610",
+      "serial": "TJCD0006"
+    },
+    {
+      "name": "Fighting Street (USA)",
+      "region": "USA",
+      "rom_name": "Fighting Street (USA) (Track 02).bin",
+      "size": 18733680,
+      "crc": "cb63c4f7",
+      "md5": "598e9a4eb7dd47e007047ddbca599d67",
+      "sha1": "bb44132252e2e606ae273b2856386066156d5415",
+      "serial": "TGXCD1001"
+    },
+    {
+      "name": "Fighting Street (Japan) (Rev 5)",
+      "region": "Japan",
+      "rom_name": "Fighting Street (Japan) (Rev 5) (Track 02).bin",
+      "size": 18733680,
+      "crc": "8dfb6ae4",
+      "md5": "2226e6ba296a04ae70683f0c9bff912b",
+      "sha1": "e16e5563bae6fe5263843707b8c2922433398228",
+      "serial": "HCD8002"
+    },
+    {
+      "name": "Fighting Street (Japan) (Rev 4)",
+      "region": "Japan",
+      "rom_name": "Fighting Street (Japan) (Rev 4) (Track 02).bin",
+      "size": 18733680,
+      "crc": "M\u0017'>",
+      "md5": "82d81c36884feba395503212be580b08",
+      "sha1": "6a6963bbd6effd7c7e0710fe7170f7c08be7a077",
+      "serial": "HCD8002"
+    },
+    {
+      "name": "Fiend Hunter (Japan)",
+      "region": "Japan",
+      "rom_name": "Fiend Hunter (Japan) (Track 02).bin",
+      "size": 46466112,
+      "crc": "ff276161",
+      "md5": "d1afd1839f6116eea65de479393a27cf",
+      "sha1": "7b43e0d48bafbcab1aa0bf5dab8f731fdd972dd7",
+      "serial": "RSCD-3002"
+    },
+    {
+      "name": "Faussete Amour (Japan)",
+      "region": "Japan",
+      "rom_name": "Faussete Amour (Japan) (Track 02).bin",
+      "size": 10492272,
+      "crc": "\u0677\u0013\u0010",
+      "md5": "abdb184da3ec769c56228f1a6c18cfbc",
+      "sha1": "e2868d6f0bd171b697f5c7ed5f2b215fd53c635f",
+      "serial": "NXCD2017"
+    },
+    {
+      "name": "Farjius no Jakoutei - Neo Metal Fantasy (Japan) (Rev 1)",
+      "region": "Japan",
+      "rom_name": "Farjius no Jakoutei - Neo Metal Fantasy (Japan) (Rev 1) (Track 02).bin",
+      "size": 41846784,
+      "crc": "2506a7e9",
+      "md5": "790ce33fe72e1685263539ba9afdd549",
+      "sha1": "efa1deb0a43acde235a05c2531f48c0997afa45b",
+      "serial": "HMCD-2003"
+    },
+    {
+      "name": "Farjius no Jakoutei - Neo Metal Fantasy (Japan)",
+      "region": "Japan",
+      "rom_name": "Farjius no Jakoutei - Neo Metal Fantasy (Japan) (Track 02).bin",
+      "size": 41846784,
+      "crc": "8d06e531",
+      "md5": "e5d125c15330c61a119664ed486fa261",
+      "sha1": "84d02c678f91e4338db2d069cff9b122dd5f05cc",
+      "serial": "HMCD-2003"
+    },
+    {
+      "name": "Far East of Eden - Tengai Makyou II - Manji Maru (Japan)",
+      "region": "Japan",
+      "rom_name": "Far East of Eden - Tengai Makyou II - Manji Maru (Japan) (Track 02).bin",
+      "size": 232109472,
+      "crc": "e015c893",
+      "md5": "51538793326639aa942a31e7921ba76b",
+      "sha1": "6098821244834d3cb630339a7028e7188b023f75",
+      "serial": "HCD1022"
+    },
+    {
+      "name": "Far East of Eden - Tengai Makyou - Ziria (Japan) (Rev 7)",
+      "region": "Japan",
+      "rom_name": "Far East of Eden - Tengai Makyou - Ziria (Japan) (Rev 7) (Track 2).bin",
+      "size": 148653456,
+      "crc": "84472b6a",
+      "md5": "37a81f21cd4c085fbe0817b40a42b6eb",
+      "sha1": "e60e2ff70c7cdfb3b2afb3fe35f1fc54d558cb49",
+      "serial": "HCD9005"
+    },
+    {
+      "name": "Far East of Eden - Tengai Makyou - Ziria (Japan) (Rev 6)",
+      "region": "Japan",
+      "rom_name": "Far East of Eden - Tengai Makyou - Ziria (Japan) (Rev 6) (Track 2).bin",
+      "size": 148653456,
+      "crc": "0d344dbe",
+      "md5": "222754479007d48ce81eebbbf7b2bc60",
+      "sha1": "49e9366553c86f5b9c22e6de129afb3a0a594d68",
+      "serial": "HCD9005"
+    },
+    {
+      "name": "Far East of Eden - Tengai Makyou - Ziria (Japan) (Hibaihin)",
+      "region": "Japan",
+      "rom_name": "Far East of Eden - Tengai Makyou - Ziria (Japan) (Hibaihin) (Track 2).bin",
+      "size": 148651104,
+      "crc": "d476b753",
+      "md5": "7d971b01e79186a16ea26e3e84781378",
+      "sha1": "41609d796d7ee3675e3e9a91d70ebf42fe5fb710",
+      "serial": "HCD2037"
+    },
+    {
+      "name": "Far East of Eden - Tengai Makyou - Fuun Kabuki-den (Japan)",
+      "region": "Japan",
+      "rom_name": "Far East of Eden - Tengai Makyou - Fuun Kabuki-den (Japan) (Track 02).bin",
+      "size": 148004304,
+      "crc": "21b2006d",
+      "md5": "ec992a55a340f7d11726d09e3cb7051d",
+      "sha1": "d42e67f0679af98f0928671f3a937cf102bc78b5",
+      "serial": "HCD-3046"
+    },
+    {
+      "name": "Fantastic Night Dreams - Cotton (USA)",
+      "region": "USA",
+      "rom_name": "Fantastic Night Dreams - Cotton (USA) (Track 02).bin",
+      "size": 5642448,
+      "crc": "4572910c",
+      "md5": "ad1a8daa0aff0cd9130f719d99767b47",
+      "sha1": "8e7de2506de6dd7fc6ed322e0c47d4c4c5663d15",
+      "serial": "TGXCD1038"
+    },
+    {
+      "name": "Fantastic Night Dreams - Cotton (Japan) (En,Ja,Zh)",
+      "region": "Japan",
+      "rom_name": "Fantastic Night Dreams - Cotton (Japan) (En,Ja,Zh) (Track 02).bin",
+      "size": 5642448,
+      "crc": "f3a1afd1",
+      "md5": "78413fb8e799b7e4f82e5816f2e520da",
+      "sha1": "fb0deebaf4d1542e700a546120de7273bb963108",
+      "serial": "HCD3043"
+    },
+    {
+      "name": "Faerie Dust Story - Meikyuu no Elfeene (Japan)",
+      "region": "Japan",
+      "rom_name": "Faerie Dust Story - Meikyuu no Elfeene (Japan) (Track 02).bin",
+      "size": 3391584,
+      "crc": "b260bed2",
+      "md5": "d931ab7896c5448bfc2e4ee9ecf9f57a",
+      "sha1": "950c06554e81cb32785e13e68d6e13467e259211",
+      "serial": "TJCD0008"
+    },
+    {
+      "name": "Faceball (Japan)",
+      "region": "Japan",
+      "rom_name": "Faceball (Japan) (Track 02).bin",
+      "size": 10513440,
+      "crc": "b7b69490",
+      "md5": "7d5f6aaf0e7d36b4143bc7d81e64a08f",
+      "sha1": "ca43b5a4732010062626a1468d0e6dc78876530d",
+      "serial": "RHCD-3007"
+    },
+    {
+      "name": "FX Unit Yuki - The Henshin Engine (USA)",
+      "region": "USA",
+      "rom_name": "FX Unit Yuki - The Henshin Engine (USA) (Unl) (Track 02).bin",
+      "size": 10118304,
+      "crc": "a32370bd",
+      "md5": "3a28626b694505d6e1c8a32694ce7389",
+      "sha1": "763870e0c0d0a38d4271019770596c92f8838758"
+    },
+    {
+      "name": "F1 Team Simulation - Project F (Japan)",
+      "region": "Japan",
+      "rom_name": "F1 Team Simulation - Project F (Japan) (Track 02).bin",
+      "size": 4661664,
+      "crc": "a92127ee",
+      "md5": "750666a55d41662e1657cf2122d4a955",
+      "sha1": "54c81e6e565002f9ff1cbdc8e4e561cf62e02e22",
+      "serial": "TJCD2026"
+    },
+    {
+      "name": "F1 Circus Special - Pole to Win (Japan) (FABT)",
+      "region": "Japan",
+      "rom_name": "F1 Circus Special - Pole to Win (Japan) (FABT) (Track 02).bin",
+      "size": 9812544,
+      "crc": "beff36da",
+      "md5": "c0ec0c2b3abace428f18441c8194df93",
+      "sha1": "8375f4aed0fc3faf03dad5a29ee2cbda1d3696fa",
+      "serial": "NBCD2002"
+    },
+    {
+      "name": "Exile II - Janen no Jishou (Japan)",
+      "region": "Japan",
+      "rom_name": "Exile II - Janen no Jishou (Japan) (Track 02).bin",
+      "size": 24975888,
+      "crc": ":y}&",
+      "md5": "563a653ac01f01e142b1b5453cbe691a",
+      "sha1": "626eddf7b7c093cb6f2e27ad242a8833ced579a8",
+      "serial": "TJCD2028"
+    },
+    {
+      "name": "Exile - Wicked Phenomenon (USA)",
+      "region": "USA",
+      "rom_name": "Exile - Wicked Phenomenon (USA) (Track 02).bin",
+      "size": 24975888,
+      "crc": "\u0003&5\u001a",
+      "md5": "e216cc7f04062c9236a70e8b167ab4b5",
+      "sha1": "8f8e8077085b75a52ee6484305cd3cb3d75f1994",
+      "serial": "WTG990102"
+    },
+    {
+      "name": "Exile - Toki no Hasama e (Japan)",
+      "region": "Japan",
+      "rom_name": "Exile - Toki no Hasama e (Japan) (Track 02).bin",
+      "size": 13959120,
+      "crc": "15be61dc",
+      "md5": "6458a904f66d06872a00acd97eeb9a61",
+      "sha1": "38dbddb2dd1a1572e7e712794730ad74bf697e56",
+      "serial": "TJCD1014"
+    },
+    {
+      "name": "Exile (USA)",
+      "region": "USA",
+      "rom_name": "Exile (USA) (Track 02).bin",
+      "size": 13959120,
+      "crc": "c2a350d8",
+      "md5": "7515938fe5ae028f93c2e0f33913c960",
+      "sha1": "d2b16dc62c76e5ffe3a30b220c6cc3d56d69d850",
+      "serial": "WTG990101"
+    },
+    {
+      "name": "Emerald Dragon (Japan) (Rev 1)",
+      "region": "Japan",
+      "rom_name": "Emerald Dragon (Japan) (Rev 1) (Track 02).bin",
+      "size": 116506320,
+      "crc": "d99a67c9",
+      "md5": "0ba5d167f87152fc5341246fd18670a1",
+      "sha1": "adaace32cd5ff0997d4ff820a0c0688c9cddd111",
+      "serial": "HECD3005"
+    },
+    {
+      "name": "Emerald Dragon (Japan)",
+      "region": "Japan",
+      "rom_name": "Emerald Dragon (Japan) (Track 02).bin",
+      "size": 116506320,
+      "crc": "bb5e7d43",
+      "md5": "cb8bfd0dde4cf8e6fe8b85f6534206f7",
+      "sha1": "d622cea0136ac472ed158cc07b89b4f2be1be4b9",
+      "serial": "HECD3005"
+    },
+    {
+      "name": "Eiyuu Sangokushi (Japan)",
+      "region": "Japan",
+      "rom_name": "Eiyuu Sangokushi (Japan) (Track 02).bin",
+      "size": 3706752,
+      "crc": "b5a3fa7c",
+      "md5": "d45850f0b06846e96d15c0ffb26e611c",
+      "sha1": "b836b561aef6ede15da3814622a9ef1b35036efa",
+      "serial": "ICCD-3003"
+    },
+    {
+      "name": "Eikan wa Kimi ni - Koukou Yakyuu Zenkoku Taikai (Japan)",
+      "region": "Japan",
+      "rom_name": "Eikan wa Kimi ni - Koukou Yakyuu Zenkoku Taikai (Japan) (Track 02).bin",
+      "size": 2895312,
+      "crc": "e367edbc",
+      "md5": "be3cb20cc15a4dff4b55ebfa9d08896f",
+      "sha1": "b41040afd82b4d070166f8658d035c2681ac0491",
+      "serial": "ADCD4003"
+    },
+    {
+      "name": "Efera & Jiliora - The Emblem from Darkness (Japan)",
+      "region": "Japan",
+      "rom_name": "Efera & Jiliora - The Emblem from Darkness (Japan) (Track 02).bin",
+      "size": 62913648,
+      "crc": "135ffebd",
+      "md5": "5d446012acf99fc2bbfb2966917e7cf4",
+      "sha1": "8234910ecd6e1835c380a45eaffa72b5bc802b74",
+      "serial": "BRCD1002"
+    },
+    {
+      "name": "Dynastic Hero, The (USA)",
+      "region": "USA",
+      "rom_name": "Dynastic Hero, The (USA) (Track 02).bin",
+      "size": 10536960,
+      "crc": "f80b5080",
+      "md5": "ce6b03fbcd0b1630f78cdb6057735669",
+      "sha1": "3159d603ec5b86d8f6aed1b053a908faa1a4778d",
+      "serial": "TGXCD1053"
+    },
+    {
+      "name": "Duo Comic - Bakuretsu Hunter (Japan)",
+      "region": "Japan",
+      "rom_name": "Duo Comic - Bakuretsu Hunter (Japan) (Track 2).bin",
+      "size": 43702512,
+      "crc": "7f29ec06",
+      "md5": "09d93d4c84f23de5bf1868a1fbe65980",
+      "sha1": "983f1bdbbd14d250cfdc85ce9fbc57e760d4124c",
+      "serial": "HMD-0002"
+    },
+    {
+      "name": "Dungeon Master - Theron's Quest (USA)",
+      "region": "USA",
+      "rom_name": "Dungeon Master - Theron's Quest (USA) (RE) (Track 02).bin",
+      "size": 8104992,
+      "crc": "f0d5f37e",
+      "md5": "f23601102138f87c33025877767ebf76",
+      "sha1": "66afcd22fa26995e65e3bce2f9b1bc1eb405f6ee",
+      "serial": "TGXCD1041"
+    },
+    {
+      "name": "Dungeon Master - Theron's Quest (Japan)",
+      "region": "Japan",
+      "rom_name": "Dungeon Master - Theron's Quest (Japan) (Track 02).bin",
+      "size": 8102640,
+      "crc": "25d7ea19",
+      "md5": "b7afb338ad31be1025b53f9aff12d73a",
+      "sha1": "93dd7aeeb5bbe2f89d738dfabd4617c1c1f2d119",
+      "serial": "JCCD2010"
+    },
+    {
+      "name": "Dungeon Explorer II (USA)",
+      "region": "USA",
+      "rom_name": "Dungeon Explorer II (USA) (Track 02).bin",
+      "size": 40708416,
+      "crc": "fc6e5787",
+      "md5": "69d0d7bc44946dcb8c591999c6208aac",
+      "sha1": "6cf167e319ee7337311ee5135b1edb3a15d4e97d",
+      "serial": "TGXCD1034"
+    },
+    {
+      "name": "Dungeon Explorer II (Japan)",
+      "region": "Japan",
+      "rom_name": "Dungeon Explorer II (Japan) (Track 02).bin",
+      "size": 39732336,
+      "crc": "93b5efc9",
+      "md5": "09f150c18a044e73b97095020e3e7cfb",
+      "sha1": "daf82faca720c1db0ba4c7854aa1925eee62400d",
+      "serial": "HCD3034"
+    },
+    {
+      "name": "Dragon Slayer - The Legend of Heroes II (Japan)",
+      "region": "Japan",
+      "rom_name": "Dragon Slayer - The Legend of Heroes II (Japan) (Track 02).bin",
+      "size": 116506320,
+      "crc": "47525085",
+      "md5": "e5dd0a53694df8730eb9ceb2a9fca8d5",
+      "sha1": "da4777d43b7270d9c199a14f9ff38e3fe90f0b16",
+      "serial": "HCD2033"
+    },
+    {
+      "name": "Dragon Slayer - The Legend of Heroes (USA)",
+      "region": "USA",
+      "rom_name": "Dragon Slayer - The Legend of Heroes (USA) (Track 02).bin",
+      "size": 24218544,
+      "crc": "b0020b64",
+      "md5": "cb5af40867c7071fd9ee7638191c6299",
+      "sha1": "56657baa6f14f36a950065dd367be62c3ce97a71",
+      "serial": "TGXCD1029"
+    },
+    {
+      "name": "Dragon Slayer - The Legend of Heroes (Japan)",
+      "region": "Japan",
+      "rom_name": "Dragon Slayer - The Legend of Heroes (Japan) (Track 02).bin",
+      "size": 24218544,
+      "crc": "6b2816a5",
+      "md5": "c6578c62a24b6ccfae1639ed0c067f26",
+      "sha1": "c68adea152295b06e4568592854097d2bd85b098",
+      "serial": "HCD1020"
+    },
+    {
+      "name": "Dragon Knight III (Japan)",
+      "region": "Japan",
+      "rom_name": "Dragon Knight III (Japan) (Track 02).bin",
+      "size": 116494560,
+      "crc": "ebd12eac",
+      "md5": "bf5ed3552ca07add87479dcbfbce2842",
+      "sha1": "374564f21a5b8b961b4e9092c238bcbc052b3158",
+      "serial": "NAPR-1035"
+    },
+    {
+      "name": "Dragon Knight II (Japan)",
+      "region": "Japan",
+      "rom_name": "Dragon Knight II (Japan) (Track 02).bin",
+      "size": 88310544,
+      "crc": "1064923e",
+      "md5": "50a80737994e56adb5150ed9181f81eb",
+      "sha1": "78c726b172d9ed3823c95a92cb91ac04382edf4e",
+      "serial": "NAPR-1029"
+    },
+    {
+      "name": "Dragon Knight & Graffiti (Japan)",
+      "region": "Japan",
+      "rom_name": "Dragon Knight & Graffiti (Japan) (Track 02).bin",
+      "size": 126137760,
+      "crc": "df164c6e",
+      "md5": "266d3fbfc66138a7c4ab5486b60b2dc0",
+      "sha1": "05b949be2ac65bff97929c0805800ba03c110b63",
+      "serial": "NAPR-1046"
+    },
+    {
+      "name": "Dragon Half (Japan)",
+      "region": "Japan",
+      "rom_name": "Dragon Half (Japan) (Track 02).bin",
+      "size": 13192368,
+      "crc": "b21255a7",
+      "md5": "a962e8969468d4c0579a83d58895dbc2",
+      "sha1": "608a55fcfb2c7db91e9b1761abd11b37b8dba5e3",
+      "serial": "MCCD4006"
+    },
+    {
+      "name": "Dragon Ball Z - Idainaru Son Gokuu Densetsu (Japan) (FABT)",
+      "region": "Japan",
+      "rom_name": "Dragon Ball Z - Idainaru Son Gokuu Densetsu (Japan) (FABT) (Track 02).bin",
+      "size": 104405280,
+      "crc": "493418a5",
+      "md5": "f49769f2e3d931e48d4202ca16a4b584",
+      "sha1": "96e1c2199a9fd13ed65f3caf677f44e2b4f80a92",
+      "serial": "BNCD4001"
+    },
+    {
+      "name": "Downtown Nekketsu Monogatari (Japan)",
+      "region": "Japan",
+      "rom_name": "Downtown Nekketsu Monogatari (Japan) (Track 02).bin",
+      "size": 5748288,
+      "crc": "9960efd9",
+      "md5": "b449972ca1b9c34af1e9672b860f2527",
+      "sha1": "e765643133ef17ee6fb26f0bd19b79cdf8de9200",
+      "serial": "NXCD3019"
+    },
+    {
+      "name": "Downtown Nekketsu Koushinkyoku - Soreyuke Daiundoukai (Japan)",
+      "region": "Japan",
+      "rom_name": "Downtown Nekketsu Koushinkyoku - Soreyuke Daiundoukai (Japan) (Track 02).bin",
+      "size": 3789072,
+      "crc": "30e90fe8",
+      "md5": "1720256b3c4d5bf6128bfb003db14c63",
+      "sha1": "6fbf70a6fd7e68967181c05ea77a4928633dad8d",
+      "serial": "NXCD2015"
+    },
+    {
+      "name": "Down Load 2 (Japan)",
+      "region": "Japan",
+      "rom_name": "Down Load 2 (Japan) (Track 02).bin",
+      "size": 20154288,
+      "crc": "aa238d8d",
+      "md5": "7fc1f6465357247a3901b22dea492640",
+      "sha1": "32c53b29ce8b65f510d299b4964a87502a8d0e07",
+      "serial": "NAPR-1018"
+    },
+    {
+      "name": "Doukyuusei (Japan) (Rev 4)",
+      "region": "Japan",
+      "rom_name": "Doukyuusei (Japan) (Rev 4) (Track 2).bin",
+      "size": 347776128,
+      "crc": "a4859c64",
+      "md5": "2f891318a1ec66065a5807e58e831442",
+      "sha1": "42263cabbf3ea225913a741a3b710359517da3f7",
+      "serial": "NAPR-1051"
+    },
+    {
+      "name": "Doukyuusei (Japan) (Rev 3) (Alt 2)",
+      "region": "Japan",
+      "rom_name": "Doukyuusei (Japan) (Rev 3) (Alt 2) (Track 2).bin",
+      "size": 347776128,
+      "crc": "aee8adaa",
+      "md5": "b8ce4e58783c263a9d66b6697af43c8e",
+      "sha1": "b56578889ba43c19955ace3c7d512527b919cb0d",
+      "serial": "NAPR-1051"
+    },
+    {
+      "name": "Double Dragon II - The Revenge (Japan)",
+      "region": "Japan",
+      "rom_name": "Double Dragon II - The Revenge (Japan) (Track 02).bin",
+      "size": 18122160,
+      "crc": "c5169657",
+      "md5": "bad1a198431d391264e183678dff0096",
+      "sha1": "4522259bf2e01e1d5d9aa0f4dbd6583b39b66769",
+      "serial": "NXCD2010"
+    },
+    {
+      "name": "Doraemon - Nobita no Dorabian Night (Japan)",
+      "region": "Japan",
+      "rom_name": "Doraemon - Nobita no Dorabian Night (Japan) (Track 02).bin",
+      "size": 5226144,
+      "crc": "a6dcad2f",
+      "md5": "81aab99faa87d3da5e1498e389acfe3a",
+      "sha1": "cfa827912e936eca9519b14bc7227e24aa81b399",
+      "serial": "HCD2030"
+    },
+    {
+      "name": "Develo Magazine Vol. 1 (Japan)",
+      "region": "Japan",
+      "rom_name": "Develo Magazine Vol. 1 (Japan) (Track 35).bin",
+      "size": 8805888,
+      "crc": "26a82568",
+      "md5": "3de8c4cf8260c6e6d77168c72038bb8c",
+      "sha1": "3e59d5aeb0f04b9c65e783a7e37d990ec3b94984",
+      "serial": "TICD-6008"
+    },
+    {
+      "name": "Develo - Starter Kit - BASIC-hen (Japan)",
+      "region": "Japan",
+      "rom_name": "Develo - Starter Kit - BASIC-hen (Japan) (Track 2).bin",
+      "size": 16706256,
+      "crc": "2c81eea5",
+      "md5": "496c3bfcdb18b2eb987b0d351765a854",
+      "sha1": "5ac5300c9a8537d2d24ae63b15d8ec5e0b2d142f",
+      "serial": "TICD-6007"
+    },
+    {
+      "name": "Develo - Starter Kit - Assembler-hen (Japan)",
+      "region": "Japan",
+      "rom_name": "Develo - Starter Kit - Assembler-hen (Japan) (Track 2).bin",
+      "size": 16706256,
+      "crc": "0562ce6d",
+      "md5": "11cd641679502939446a03d5050b70eb",
+      "sha1": "655a72e0a7576dd61c3ccd895fe04f5c490d3695",
+      "serial": "TICD-6004"
+    },
+    {
+      "name": "Dennou Tenshi - Digital Ange (Japan)",
+      "region": "Japan",
+      "rom_name": "Dennou Tenshi - Digital Ange (Japan) (Track 2).bin",
+      "size": 124218528,
+      "crc": "ba866214",
+      "md5": "6067b7ef91383a678fbcfa62af9fc6c7",
+      "sha1": "d384a61b0e8adac375783d002bd13acd6df20608",
+      "serial": "TICD-4003"
+    },
+    {
+      "name": "Dekoboko Densetsu - Hashiru Wagamanmaa (Japan)",
+      "region": "Japan",
+      "rom_name": "Dekoboko Densetsu - Hashiru Wagamanmaa (Japan) (Track 02).bin",
+      "size": 6479760,
+      "crc": "6297c432",
+      "md5": "b530f2b206edc79738ce2ab114d5aaa8",
+      "sha1": "095dbabf47638504712866595332654ef6c3a747",
+      "serial": "TJCD0013"
+    },
+    {
+      "name": "Death Bringer - The Knight of Darkness (Japan)",
+      "region": "Japan",
+      "rom_name": "Death Bringer - The Knight of Darkness (Japan) (Track 02).bin",
+      "size": 12865440,
+      "crc": "\u0302(\u0000",
+      "md5": "d63e0d85bf0780ca649e13088950dc41",
+      "sha1": "a21ac71bf4dbe05038683ebcd8c4cde0572cbecd",
+      "serial": "TJCD0007"
+    },
+    {
+      "name": "Dead of the Brain 1&2 (Japan)",
+      "region": "Japan",
+      "rom_name": "Dead of the Brain 1&2 (Japan) (Track 02).bin",
+      "size": 24100944,
+      "crc": "92f26db6",
+      "md5": "936948015fa327ed56bb2dc19b6fb16d",
+      "sha1": "9ac8ac828bdd7915b9b65d074482026b4f85b218",
+      "serial": "HECD5024"
+    },
+    {
+      "name": "De-Ja (Japan)",
+      "region": "Japan",
+      "rom_name": "De-Ja (Japan) (Track 2).bin",
+      "size": 764454096,
+      "crc": "a24806d0",
+      "md5": "af467d17c52bfe26b061bc36f1d5b624",
+      "sha1": "d60a22dd45bbbc6eb442b5d5ca81cf9c5ce98615",
+      "serial": "NIPR-1002"
+    },
+    {
+      "name": "Davis Cup Tennis, The (Japan)",
+      "region": "Japan",
+      "rom_name": "Davis Cup Tennis, The (Japan) (Track 02).bin",
+      "size": 1401792,
+      "crc": "daf7e994",
+      "md5": "0d6cbd537b0d4c6b563306706207b27d",
+      "sha1": "5126f7c94edf2049dca4a6d4376ac0d94f2e21ba",
+      "serial": "MWCD2002"
+    },
+    {
+      "name": "Daisenryaku II - Campaign Version (Japan)",
+      "region": "Japan",
+      "rom_name": "Daisenryaku II - Campaign Version (Japan) (Track 02).bin",
+      "size": 10529904,
+      "crc": "3ba90e6a",
+      "md5": "bd0aedbbed5084e240547dce7d73be4c",
+      "sha1": "47642cb3b4238c93406ce25efb22940b65a1026b",
+      "serial": "MCCD1003"
+    },
+    {
+      "name": "Daisenpuu Custom (Japan)",
+      "region": "Japan",
+      "rom_name": "Daisenpuu Custom (Japan) (Track 2).bin",
+      "size": 2022720,
+      "crc": "ae4ce5cf",
+      "md5": "7504141881960216da04a7c161262cf8",
+      "sha1": "6c213a6e276709d085e109d5a07b55e793d6f5df",
+      "serial": "NAPR-1019"
+    },
+    {
+      "name": "Cyber City Oedo 808 - Kemono no Alignment (Japan)",
+      "region": "Japan",
+      "rom_name": "Cyber City Oedo 808 - Kemono no Alignment (Japan) (Track 02).bin",
+      "size": 97429248,
+      "crc": "9b00acec",
+      "md5": "27ae00beb65e2355002123122878e008",
+      "sha1": "3bf49c3753ad7c2ef98adbe78132e13a3dc2b221",
+      "serial": "NSCD-0003"
+    },
+    {
+      "name": "Cosmic Fantasy 4 - Ginga Shounen Densetsu - Totsunyuu-hen (Japan)",
+      "region": "Japan",
+      "rom_name": "Cosmic Fantasy 4 - Ginga Shounen Densetsu - Totsunyuu-hen (Japan) (Track 02).bin",
+      "size": 74008032,
+      "crc": "c2766c07",
+      "md5": "2e9f7925305f34e286d7d985653cffe4",
+      "sha1": "d2531938fc18270944b0db3beb6b118a38b4c0dd",
+      "serial": "TJCD4038"
+    },
+    {
+      "name": "Cosmic Fantasy 4 - Ginga Shounen Densetsu - Gekitou-hen (Japan)",
+      "region": "Japan",
+      "rom_name": "Cosmic Fantasy 4 - Ginga Shounen Densetsu - Gekitou-hen (Japan) (Track 02).bin",
+      "size": 75694416,
+      "crc": "7947f0d5",
+      "md5": "10d526831990f4f275346867987ab458",
+      "sha1": "fe95e6e84dab61f5409d88dbaffaa9a760be6b9b",
+      "serial": "TJCD4040"
+    },
+    {
+      "name": "Cosmic Fantasy 3 - Bouken Shounen Rei (Japan)",
+      "region": "Japan",
+      "rom_name": "Cosmic Fantasy 3 - Bouken Shounen Rei (Japan) (Track 02).bin",
+      "size": 29223600,
+      "crc": "1cd96e2d",
+      "md5": "ca519aabfba0a30f1e5d5ee125ce266c",
+      "sha1": "04b02fdc3bad4432850ce32e56cd53114b1c5ab5",
+      "serial": "TJCD2029"
+    },
+    {
+      "name": "Cosmic Fantasy 2 - Bouken Shounen Ban (Japan)",
+      "region": "Japan",
+      "rom_name": "Cosmic Fantasy 2 - Bouken Shounen Ban (Japan) (Track 02).bin",
+      "size": 8199072,
+      "crc": "1ed96c0a",
+      "md5": "32e0af94d8279b60e60c2e5ee05c734f",
+      "sha1": "488e6abd37e46e3480de35c55bdfda8a908e4b9d",
+      "serial": "TJCD1015"
+    },
+    {
+      "name": "Cosmic Fantasy 2 (USA)",
+      "region": "USA",
+      "rom_name": "Cosmic Fantasy 2 (USA) (Track 02).bin",
+      "size": 8199072,
+      "crc": "8547a932",
+      "md5": "80b96f99508df4b6f271a36180e3abce",
+      "sha1": "c7b266e513a186160b5bb74db1aac602e6fd4791",
+      "serial": "WTG990301"
+    },
+    {
+      "name": "Cosmic Fantasy - Bouken Shounen Yuu (Japan) (Alt 1)",
+      "region": "Japan",
+      "rom_name": "Cosmic Fantasy - Bouken Shounen Yuu (Japan) (Alt 1) (Track 02).bin",
+      "size": 20210736,
+      "crc": "46885bfa",
+      "md5": "4aafcc88b57ff3ef68e78d3cc6a34935",
+      "sha1": "5c1e06e5207627e91038bf1795ac1915464c5e34",
+      "serial": "TJCD9003"
+    },
+    {
+      "name": "Color Wars (Japan)",
+      "region": "Japan",
+      "rom_name": "Color Wars (Japan) (Track 02).bin",
+      "size": 3278688,
+      "crc": "9553886f",
+      "md5": "69ea867d8c232663c630f4b24988590a",
+      "sha1": "38ad1860d5e5a63979d79df1584778ef6564988a",
+      "serial": "CJCD2002"
+    },
+    {
+      "name": "Chou Jikuu Yousai Macross 2036 (Japan)",
+      "region": "Japan",
+      "rom_name": "Chou Jikuu Yousai Macross 2036 (Japan) (Track 02).bin",
+      "size": 12173952,
+      "crc": "88c16b9e",
+      "md5": "226c8c6745c99d3dc8b2d1efcbc59c44",
+      "sha1": "1f98e2c507dcf1a1cc86c3a1496d1a03d739ee3d",
+      "serial": "NSCD2007"
+    },
+    {
+      "name": "Chou Jikuu Yousai Macross - Eien no Love Song (Japan)",
+      "region": "Japan",
+      "rom_name": "Chou Jikuu Yousai Macross - Eien no Love Song (Japan) (Track 02).bin",
+      "size": 6046992,
+      "crc": "45e47313",
+      "md5": "88d131e08dfe98bc3c06e5a534b1056e",
+      "sha1": "12f5937b6608c850de3e68f426bd1fa51f83e49a",
+      "serial": "NSCD2014"
+    },
+    {
+      "name": "Chou Eiyuu Densetsu - Dynastic Hero (Japan)",
+      "region": "Japan",
+      "rom_name": "Chou Eiyuu Densetsu - Dynastic Hero (Japan) (Track 02).bin",
+      "size": 10539312,
+      "crc": "9aa3b149",
+      "md5": "62e10639b2160c19d1b633b5a4857000",
+      "sha1": "8b7132ef950b569b971cdc955cdd7d0a2ea374a3",
+      "serial": "HCD4032"
+    },
+    {
+      "name": "Chou Aniki (Japan) (FAAT, FACT)",
+      "region": "Japan",
+      "rom_name": "Chou Aniki (Japan) (FAAT, FACT) (Track 02).bin",
+      "size": 7785120,
+      "crc": "8eb7cfd6",
+      "md5": "77e15021e9e7d0c6b007aa2a62a43b3e",
+      "sha1": "78faa63bf5acbb5c6d921f31dbcba217b42ba7f3",
+      "serial": "NSCD2013"
+    },
+    {
+      "name": "Chiki Chiki Boys (Japan)",
+      "region": "Japan",
+      "rom_name": "Chiki Chiki Boys (Japan) (Track 26).bin",
+      "size": 10551072,
+      "crc": "\u0012\u01e6r",
+      "md5": "c836c4734d4f7e7698915ca70f9574bb",
+      "sha1": "fd88bc6e3c3a70926bcede8e70fff4484decd118",
+      "serial": "NAPR-1033"
+    },
+    {
+      "name": "Cardangels (Japan)",
+      "region": "Japan",
+      "rom_name": "Cardangels (Japan) (Track 02).bin",
+      "size": 32043648,
+      "crc": "5fdd49d8",
+      "md5": "1ee6df033b0faeef9686a6ba285fbd2e",
+      "sha1": "3dfd2fcfb470f0767edd034307c1be27067d8bc7",
+      "serial": "FCCD4002"
+    },
+    {
+      "name": "Camp California (USA)",
+      "region": "USA",
+      "rom_name": "Camp California (USA) (Track 02).bin",
+      "size": 12037536,
+      "crc": "c058f5a3",
+      "md5": "422fc48744eb169976e94b6341328348",
+      "sha1": "ba26f4bc72874864de96259d9f20488bc1a251a5",
+      "serial": "TGXCD1013"
+    },
+    {
+      "name": "CD Pachi-Slot - Bishoujo Gambler (Japan)",
+      "region": "Japan",
+      "rom_name": "CD Pachi-Slot - Bishoujo Gambler (Japan) (Unl) (Track 01).bin",
+      "size": 4433520,
+      "crc": "\u0013/\u0016)",
+      "md5": "75875138e682d860e50a35a17b99a357",
+      "sha1": "c2bbc3be7f7fd6090854e0fe02db7e8df41fa299",
+      "serial": "GED-1012"
+    },
+    {
+      "name": "CD Mahjong - Bishoujo Chuushinha (Japan)",
+      "region": "Japan",
+      "rom_name": "CD Mahjong - Bishoujo Chuushinha (Japan) (Unl) (Track 01).bin",
+      "size": 8408400,
+      "crc": "699cb873",
+      "md5": "6e1e3ad813d3c9e4685ccb98fa0f8e9e",
+      "sha1": "fa2308636b1dc479aaf49b7702cc957f0425a2ca",
+      "serial": "GED-1010"
+    },
+    {
+      "name": "CD Hanafuda - Bishoujo Fan Club (Japan)",
+      "region": "Japan",
+      "rom_name": "CD Hanafuda - Bishoujo Fan Club (Japan) (Unl) (Track 01).bin",
+      "size": 7467600,
+      "crc": "aec655f5",
+      "md5": "3551e3593d74c09a96c6d11750bcac0f",
+      "sha1": "5b7bf48a5f39c693dcb326a45e330c50c6cd9d83",
+      "serial": "GED-1013"
+    },
+    {
+      "name": "CD Denjin - Rockabilly Tengoku (Japan)",
+      "region": "Japan",
+      "rom_name": "CD Denjin - Rockabilly Tengoku (Japan) (Track 02).bin",
+      "size": 6456240,
+      "crc": "0792df30",
+      "md5": "5182ced54403348da2f6c1a595ad8301",
+      "sha1": "afe7b04cace42eafda165c3df3d3784d29efd4c7",
+      "serial": "HCD-3049"
+    },
+    {
+      "name": "CD Bishoujo Pachinko - Kyuuma Yon Shimai (Japan)",
+      "region": "Japan",
+      "rom_name": "CD Bishoujo Pachinko - Kyuuma Yon Shimai (Japan) (Unl) (Track 01).bin",
+      "size": 5884704,
+      "crc": ";)QJ",
+      "md5": "17897a7ea2e08057d9dca1d442a6eea1",
+      "sha1": "e40cc4acd2397f67771eecbc9ef3ea258de1b13c",
+      "serial": "GED-1014"
+    },
+    {
+      "name": "CD Battle - Hikari no Yuushatachi (Japan)",
+      "region": "Japan",
+      "rom_name": "CD Battle - Hikari no Yuushatachi (Japan) (Track 2).bin",
+      "size": 2020368,
+      "crc": "242e84bf",
+      "md5": "393d56a3fa14fc7b85bfaa9d7065533c",
+      "sha1": "91a6747cdc623f78bcf7fe34133ce8da54dc023f",
+      "serial": "KICD-3001"
+    },
+    {
+      "name": "CAL III - Kanketsu-hen (Japan)",
+      "region": "Japan",
+      "rom_name": "CAL III - Kanketsu-hen (Japan) (Track 2).bin",
+      "size": 134659056,
+      "crc": "5b3482be",
+      "md5": "0e8ef8956ad03d0f2cd61889135f919d",
+      "sha1": "a948f3b94557452926ff588b4c161f22fd586f9b",
+      "serial": "NAPR-1039"
+    },
+    {
+      "name": "CAL II (Japan) (Alt)",
+      "region": "Japan",
+      "rom_name": "CAL II (Japan) (Alt) (Track 2).bin",
+      "size": 133739424,
+      "crc": "fe5154f6",
+      "md5": "05db04ccdb13514630e6599d1fbfc46e",
+      "sha1": "dcfc17dd1648863346a85d4cd9c08acc2bd80af2",
+      "serial": "NAPR-1034"
+    },
+    {
+      "name": "Buster Bros. (USA)",
+      "region": "USA",
+      "rom_name": "Buster Bros. (USA) (Track 02).bin",
+      "size": 6143424,
+      "crc": "\u0003]\u0673",
+      "md5": "a078c0c9e5cc0536670ce503ca033d25",
+      "sha1": "49a095b1b013254866be16eef76b83cd47b0878b",
+      "serial": "TGXCD1031"
+    },
+    {
+      "name": "Burai II - Yami Koutei no Gyakushuu (Japan)",
+      "region": "Japan",
+      "rom_name": "Burai II - Yami Koutei no Gyakushuu (Japan) (Track 02).bin",
+      "size": 101578176,
+      "crc": "e7210d91",
+      "md5": "9fc24f792b5e979d2d05539b4a2a7726",
+      "sha1": "6a6e55221f6dce3601db7498f22f320615e24fcb",
+      "serial": "RHCD2004"
+    },
+    {
+      "name": "Burai - Yatsudama no Yuushi Densetsu (Japan)",
+      "region": "Japan",
+      "rom_name": "Burai - Yatsudama no Yuushi Densetsu (Japan) (Track 02).bin",
+      "size": 9713760,
+      "crc": "e5d4cf5b",
+      "md5": "02492e846ad985207a57b8315af02d2f",
+      "sha1": "dca0fb909276abc057c59cfcc802eae4f1bb9d63",
+      "serial": "RHCD1001"
+    },
+    {
+      "name": "BuilderLand - The Story of Melba (Japan)",
+      "region": "Japan",
+      "rom_name": "BuilderLand - The Story of Melba (Japan) (Track 2).bin",
+      "size": 1921584,
+      "crc": "f23af196",
+      "md5": "49d8f6e61a3f9437b0d23149f47e0b70",
+      "sha1": "596cfacdeb2d4f2d7c64aa87137d240f03e06477",
+      "serial": "MWCD2003"
+    },
+    {
+      "name": "Browning (Japan)",
+      "region": "Japan",
+      "rom_name": "Browning (Japan) (Track 02).bin",
+      "size": 22946112,
+      "crc": "38e2ee46",
+      "md5": "df53b6085e135c1e8f6580f1d134269e",
+      "sha1": "c490f2e38173033ab92a0787e7a989ec5924ebb5",
+      "serial": "TJCD1020"
+    },
+    {
+      "name": "Brandish (Japan)",
+      "region": "Japan",
+      "rom_name": "Brandish (Japan) (Track 02).bin",
+      "size": 16078272,
+      "crc": "7Z\u07f5",
+      "md5": "595d323fa3bfa073a8a006acb06757f1",
+      "sha1": "2bbf830f88a728b1062b483f85e46f2dc7dea322",
+      "serial": "HECD4007"
+    },
+    {
+      "name": "Bonk III - Bonk's Big Adventure (USA)",
+      "region": "USA",
+      "rom_name": "Bonk III - Bonk's Big Adventure (USA) (Track 02).bin",
+      "size": 16162944,
+      "crc": "1279b4b5",
+      "md5": "326e2f138613370ac3c69e6da26f5c32",
+      "sha1": "f729b36152d9ed294cc984611865c471f6d028b8",
+      "serial": "TGXCD1052"
+    },
+    {
+      "name": "Bonanza Bros. (Japan)",
+      "region": "Japan",
+      "rom_name": "Bonanza Bros. (Japan) (Track 02).bin",
+      "size": 8140272,
+      "crc": "a198a9d4",
+      "md5": "54e6dc7dd2e6ab548ea3bfd8743c90cb",
+      "sha1": "4037e6bdfffba7dceecd44488d9ca630f11f95a1",
+      "serial": "NAPR-2028"
+    },
+    {
+      "name": "Bomberman - Panic Bomber (Japan) (FABT)",
+      "region": "Japan",
+      "rom_name": "Bomberman - Panic Bomber (Japan) (FABT) (Track 02).bin",
+      "size": 29637552,
+      "crc": "e214dd99",
+      "md5": "a7b03a799a421882d58929a8848a4533",
+      "sha1": "0e1edfe595cdffa4b74cb8ff015eda22ac096ff3",
+      "serial": "HCD4069"
+    },
+    {
+      "name": "Blood Gear (Japan)",
+      "region": "Japan",
+      "rom_name": "Blood Gear (Japan) (Track 02).bin",
+      "size": 20079024,
+      "crc": "25ab7513",
+      "md5": "5403c9592bf22f30d56b1b398d807949",
+      "sha1": "e318aedf1bbee57cf3c756b8347abbd4328664ec",
+      "serial": "HCD4048"
+    },
+    {
+      "name": "Black Hole Assault (Japan)",
+      "region": "Japan",
+      "rom_name": "Black Hole Assault (Japan) (Track 02).bin",
+      "size": 5828256,
+      "crc": "d2ee10e6",
+      "md5": "1474dfeb39355aae0a8eb23c3fdb9054",
+      "sha1": "8370170de30b123d2e8910d8f57ae0bc7430591d",
+      "serial": "MNCD3001"
+    },
+    {
+      "name": "Bishoujo Senshi Sailor Moon Collection (Japan)",
+      "region": "Japan",
+      "rom_name": "Bishoujo Senshi Sailor Moon Collection (Japan) (Track 14).bin",
+      "size": 186325440,
+      "crc": "ec0fd09b",
+      "md5": "32fec4556f9e40ee70aeed45fef5d4bb",
+      "sha1": "42397d8e936cddae209a4cf71a94de881b710b2b",
+      "serial": "BACD4004"
+    },
+    {
+      "name": "Bishoujo Senshi Sailor Moon (Japan)",
+      "region": "Japan",
+      "rom_name": "Bishoujo Senshi Sailor Moon (Japan) (Track 24).bin",
+      "size": 255582432,
+      "crc": "893daf0c",
+      "md5": "71c480955982577b476a948cceb13b9b",
+      "sha1": "20734ce09420b25a2ce8c9b3cebc3e3ccacbcea0",
+      "serial": "BACD4002"
+    },
+    {
+      "name": "Bishoujo Janshi Idol Pai (Japan)",
+      "region": "Japan",
+      "rom_name": "Bishoujo Janshi Idol Pai (Japan) (Unl) (Track 01).bin",
+      "size": 3572688,
+      "crc": "9d033ea7",
+      "md5": "5d00f14ad61c9ef012a8cdf44ceb9ecf",
+      "sha1": "cf0d48d2e3fcc5b500833c5ec9e74c61fdce700a",
+      "serial": "GED-1016"
+    },
+    {
+      "name": "Bikkuriman Daijikai (Japan)",
+      "region": "Japan",
+      "rom_name": "Bikkuriman Daijikai (Japan) (Track 02).bin",
+      "size": 48827520,
+      "crc": "e930363d",
+      "md5": "b0743b2a5dfaea3eb15a1fcb47da1b63",
+      "sha1": "4eff877c5da52ebb4fee9eaccf36a0f0b35863cb",
+      "serial": "HCD8003"
+    },
+    {
+      "name": "Bikini Girls (USA)",
+      "region": "USA",
+      "rom_name": "Bikini Girls (USA) (Unl).bin",
+      "size": 10572240,
+      "crc": "de8b73d5",
+      "md5": "6bdfc2db8c201aefb6a43fb56b11c9d6",
+      "sha1": "2262691e91f16049261340f96a914e54784b944a"
+    },
+    {
+      "name": "Beyond Shadowgate (USA)",
+      "region": "USA",
+      "rom_name": "Beyond Shadowgate (USA) (Track 02).bin",
+      "size": 80857056,
+      "crc": "e50fd945",
+      "md5": "339e62f107dcea811356fb5b567d4cca",
+      "sha1": "adba598b83038e38de4e598bb3fd78619e1e4e6b",
+      "serial": "TGXCD1048"
+    },
+    {
+      "name": "Bazar de Gozarre no Game de Gozarre (Japan)",
+      "region": "Japan",
+      "rom_name": "Bazar de Gozarre no Game de Gozarre (Japan) (Track 02).bin",
+      "size": 4238304,
+      "crc": "b94ed469",
+      "md5": "0d1cf7f122311978fcda66ce2fbda964",
+      "sha1": "6f3405324cc47b46c562603cb77ac0eb5d4a5b52",
+      "serial": "HECD5025"
+    },
+    {
+      "name": "Battle Shanghai - Dragon's Eye (Japan)",
+      "region": "Japan",
+      "rom_name": "Battle Shanghai - Dragon's Eye (Japan) (Track 02).bin",
+      "size": 4379424,
+      "crc": "74475bf0",
+      "md5": "ebc7f7753ed51839b76a93a7d6d76e91",
+      "sha1": "aec0bd8ce5e44149180731da3df7a551ee28550e",
+      "serial": "AKCD2002"
+    },
+    {
+      "name": "Basted (Japan)",
+      "region": "Japan",
+      "rom_name": "Basted (Japan) (Track 02).bin",
+      "size": 22188768,
+      "crc": "2cea38e2",
+      "md5": "29fb70a76885fe291cca8aab17178b41",
+      "sha1": "7db1b537a6d53a34ee7a2dc11ff8963723236e36",
+      "serial": "NAPR-1042"
+    },
+    {
+      "name": "Bakushou Yoshimoto Shinkigeki (Japan) (FABT)",
+      "region": "Japan",
+      "rom_name": "Bakushou Yoshimoto Shinkigeki (Japan) (FABT) (Track 02).bin",
+      "size": 8596560,
+      "crc": "f574a0ce",
+      "md5": "35a79daf10dded516c80d2645b0815ac",
+      "sha1": "97fbbfb2962b781519a3ba9d656e87844fef4912",
+      "serial": "HCD4045"
+    },
+    {
+      "name": "Bakuden - Unbalance Zone (Japan)",
+      "region": "Japan",
+      "rom_name": "Bakuden - Unbalance Zone (Japan) (Track 02).bin",
+      "size": 117715248,
+      "crc": "eec173a7",
+      "md5": "7ec4e0be6f0fd5685082449dd88b5ba3",
+      "sha1": "600a2c40d369abf2c56d8eef88e114b28878db85",
+      "serial": "SRCD4001"
+    },
+    {
+      "name": "Baby Jo - The Super Hero (Japan)",
+      "region": "Japan",
+      "rom_name": "Baby Jo - The Super Hero (Japan) (Track 2).bin",
+      "size": 2074464,
+      "crc": "6239df4a",
+      "md5": "034e8cf3ecf47f5887a92f02381d8622",
+      "sha1": "3fa76696c23012e88683d4d6598a48057900dc4c",
+      "serial": "MWCD2004"
+    },
+    {
+      "name": "Babel (Japan)",
+      "region": "Japan",
+      "rom_name": "Babel (Japan) (Track 02).bin",
+      "size": 20488272,
+      "crc": "c8cf5196",
+      "md5": "b68a250f27688b5e9f99d23604b4c7ca",
+      "sha1": "d1d140e0db77af4975b6853dc8a1c6f8fdfcf794",
+      "serial": "TJCD2024"
+    },
+    {
+      "name": "Avenger (Japan)",
+      "region": "Japan",
+      "rom_name": "Avenger (Japan) (Track 02).bin",
+      "size": 3099936,
+      "crc": "2d4f47bb",
+      "md5": "f350ba5926468dafc8e9b537022db878",
+      "sha1": "31457080ca04dac945cc0c1fa183222e678d9522",
+      "serial": "TJCD0011"
+    },
+    {
+      "name": "Aurora Quest - Otaku no Seiza in Another World (Japan)",
+      "region": "Japan",
+      "rom_name": "Aurora Quest - Otaku no Seiza in Another World (Japan) (Track 02).bin",
+      "size": 55057968,
+      "crc": "d6f0808a",
+      "md5": "ab7ef219fcd59707568974f650ccdc7e",
+      "sha1": "cb454a64b35b17254c45efb5443433027d7e74b0",
+      "serial": "PVCD-3010"
+    },
+    {
+      "name": "Atlas, The - Renaissance Voyager (Japan)",
+      "region": "Japan",
+      "rom_name": "Atlas, The - Renaissance Voyager (Japan) (Track 02).bin",
+      "size": 6094032,
+      "crc": "9419d7cd",
+      "md5": "7cd384c1b4cd744a2869b40c5a3c57c9",
+      "sha1": "f72b724adfae949688833ded12a3b00e0a64ae08",
+      "serial": "ADCD4002"
+    },
+    {
+      "name": "Asuka 120% Maxima - Burning Fest. Maxima (Japan)",
+      "region": "Japan",
+      "rom_name": "Asuka 120% Maxima - Burning Fest. Maxima (Japan) (Track 02).bin",
+      "size": 29809248,
+      "crc": "0899bcff",
+      "md5": "4e0043144c93f73bc3da328a1a6428c0",
+      "sha1": "28911094abaf42200bb695a37471897327e26bed",
+      "serial": "NAPR-1049"
+    },
+    {
+      "name": "Aoki Ookami to Shiroki Mejika - Genchou Hishi (Japan)",
+      "region": "Japan",
+      "rom_name": "Aoki Ookami to Shiroki Mejika - Genchou Hishi (Japan) (Track 02).bin",
+      "size": 17684688,
+      "crc": "c4ebc09c",
+      "md5": "b2876a8abf206c09cc117b2479e3425c",
+      "sha1": "d21469f9c7d8b86c7adc4f26e0d898df56b5ec0b",
+      "serial": "KOCD3004"
+    },
+    {
+      "name": "Ane-san (Japan)",
+      "region": "Japan",
+      "rom_name": "Ane-san (Japan) (Track 02).bin",
+      "size": 39497136,
+      "crc": "49071ded",
+      "md5": "6d3c8b85c433f7758a86a807c3afba59",
+      "sha1": "256331ad0dd3e71308c3229726e719fd880c153f",
+      "serial": "NAPR-1045"
+    },
+    {
+      "name": "Alshark (Japan)",
+      "region": "Japan",
+      "rom_name": "Alshark (Japan) (Track 02).bin",
+      "size": 87936576,
+      "crc": "\u04bc=/",
+      "md5": "016555a8e701d6e2d6fb69a524defac9",
+      "sha1": "713c0b54b3227d360bd26673e8bc7115d17fbe8b",
+      "serial": "JCCD4014"
+    },
+    {
+      "name": "Alnam no Kiba - Juuzoku Juuni Shinto Densetsu (Japan) (FABT)",
+      "region": "Japan",
+      "rom_name": "Alnam no Kiba - Juuzoku Juuni Shinto Densetsu (Japan) (FABT) (Track 02).bin",
+      "size": 106806672,
+      "crc": "e406311a",
+      "md5": "bde85f9d509726a8713f751b3cc117e0",
+      "sha1": "e464cce7676b080647c85693db3660fa0fe7f4c4",
+      "serial": "RSCD4006"
+    },
+    {
+      "name": "Alnam no Kiba - Juuzoku Juuni Shinto Densetsu (Japan) (FAAT)",
+      "region": "Japan",
+      "rom_name": "Alnam no Kiba - Juuzoku Juuni Shinto Densetsu (Japan) (FAAT) (Track 02).bin",
+      "size": 106806672,
+      "crc": "4c95d855",
+      "md5": "7b5f5cdd088464ef4b73dd3d1236acb7",
+      "sha1": "04044544ab7b89ed05892e75d45f423315dc358b",
+      "serial": "RSCD4006"
+    },
+    {
+      "name": "Akumajou Dracula X - Chi no Rondo (Japan)",
+      "region": "Japan",
+      "rom_name": "Akumajou Dracula X - Chi no Rondo (Japan) (Track 02).bin",
+      "size": 24399648,
+      "crc": "c681f9da",
+      "md5": "4cb1cb4858b88122fe4ea413050fd012",
+      "sha1": "c9b092fb15af2a7436f425bf29ed5d948f9c9640",
+      "serial": "KMCD3005"
+    },
+    {
+      "name": "Akiyama Jin no Suugaku Mystery - Hihou India no Honoo o Shishu Seyo! (Japan)",
+      "region": "Japan",
+      "rom_name": "Akiyama Jin no Suugaku Mystery - Hihou India no Honoo o Shishu Seyo! (Japan) (Track 02).bin",
+      "size": 191088240,
+      "crc": "ce56c9da",
+      "md5": "a649823438e0f072925351836e80ebe5",
+      "sha1": "74174ac9d9182fd48ad42966190e54f619a5b3ce",
+      "serial": "NHCD4001"
+    },
+    {
+      "name": "Ai Chou Aniki (Japan) (SADS, SAES)",
+      "region": "Japan",
+      "rom_name": "Ai Chou Aniki (Japan) (SADS, SAES) (Track 02).bin",
+      "size": 5821200,
+      "crc": "35689ce2",
+      "md5": "bc9a7f74ebaafecca8828724c7ac4370",
+      "sha1": "40891269d184f4527fcb6cf7e18313189f5fdd5d",
+      "serial": "NSCD5018"
+    },
+    {
+      "name": "Adventure Quiz - Capcom World + Hatena no Daibouken (Japan)",
+      "region": "Japan",
+      "rom_name": "Adventure Quiz - Capcom World + Hatena no Daibouken (Japan) (Track 2).bin",
+      "size": 10536960,
+      "crc": "59cc5f3f",
+      "md5": "6ece7bd818dead4b8c11acc508407cb6",
+      "sha1": "6e8cd118b7ce8f4688d99010ca026b1f89ea6282",
+      "serial": "HCD2028"
+    },
+    {
+      "name": "Advanced V.G. (Japan)",
+      "region": "Japan",
+      "rom_name": "Advanced V.G. (Japan) (Track 02).bin",
+      "size": 59446800,
+      "crc": "a3b2b524",
+      "md5": "c7a2efa1eebecd0c2645d3ecb6f3ca20",
+      "sha1": "4896c4d0d3892553b090c6ebdc2ac79326c50624",
+      "serial": "GLCD4001"
+    },
+    {
+      "name": "Addams Family, The (USA)",
+      "region": "USA",
+      "rom_name": "Addams Family, The (USA).bin",
+      "size": 13507536,
+      "crc": "9da6c5b1",
+      "md5": "679ade557fae0eea511114eb69492f58",
+      "sha1": "298a969adb2fabfde0d85fb4abb651182c102cb7",
+      "serial": "TGXCD1019"
+    },
+    {
+      "name": "AV Tanjou (Japan) (Alt 2)",
+      "region": "Japan",
+      "rom_name": "AV Tanjou (Japan) (Unl) (Alt 2) (Track 01).bin",
+      "size": 4647552,
+      "crc": "ba4c966b",
+      "md5": "127b2f426bef62b9704c1f1fc2f030da",
+      "sha1": "a1b7d46a31f173135242c6eb8ee1a378bd9c6c81",
+      "serial": "GED-1015"
+    },
+    {
+      "name": "A.III. - A Ressha de Ikou III (Japan)",
+      "region": "Japan",
+      "rom_name": "A.III. - A Ressha de Ikou III (Japan) (Track 2).bin",
+      "size": 4713408,
+      "crc": "40f9326e",
+      "md5": "b111ce82456dcf2fadaccfca069f5cbe",
+      "sha1": "c2213d737dfd0fc83758647ce82d39fc60c2ab81",
+      "serial": "ADCD3001"
+    },
+    {
+      "name": "3x3 Eyes - Sanjiyan Henjou (Japan) (Rev 1)",
+      "region": "Japan",
+      "rom_name": "3x3 Eyes - Sanjiyan Henjou (Japan) (Rev 1) (Track 2).bin",
+      "size": 186106704,
+      "crc": "983a1e09",
+      "md5": "5c90aec3976a1d9cad576a108e397ee3",
+      "sha1": "4fca0f134d0b0d66a3a5c427e99cd1d8b2a1f479",
+      "serial": "HECD4010"
+    },
+    {
+      "name": "3x3 Eyes - Sanjiyan Henjou (Japan)",
+      "region": "Japan",
+      "rom_name": "3x3 Eyes - Sanjiyan Henjou (Japan) (Track 2).bin",
+      "size": 186106704,
+      "crc": "4095c07e",
+      "md5": "5fb6b523c45d68622feacf969e5d5e1d",
+      "sha1": "096d1a292a83c86d3f3579e8f679d9ad34410eaa",
+      "serial": "HECD4010"
+    },
+    {
+      "name": "1552 Tenka Tairan (Japan)",
+      "region": "Japan",
+      "rom_name": "1552 Tenka Tairan (Japan) (Track 02).bin",
+      "size": 33694752,
+      "crc": "160d1887",
+      "md5": "36fbc21bbbfda636ba57790081f6a459",
+      "sha1": "7873f67517748b1a71a18f12db2e6f204e7f5c61",
+      "serial": "AKCD3001"
+    }
+  ]
+}

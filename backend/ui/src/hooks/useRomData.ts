@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
+import { apiFetch } from '../api'
 import type { RomEntry, RomSetMeta } from '../types'
 
-export const useRomData = () => {
+export const useRomData = (authVersion = '') => {
   const [romSets, setRomSets] = useState<RomSetMeta[]>([])
   const [romMetaLoading, setRomMetaLoading] = useState(false)
   const [romError, setRomError] = useState<string | null>(null)
@@ -9,10 +10,14 @@ export const useRomData = () => {
   const [romEntriesLoading, setRomEntriesLoading] = useState(false)
 
   const fetchRomMetadata = useCallback(async () => {
+    if (!authVersion) {
+      setRomSets([])
+      return
+    }
     setRomMetaLoading(true)
     setRomError(null)
     try {
-      const response = await fetch('/roms')
+      const response = await apiFetch('/roms')
       if (!response.ok) {
         throw new Error('Failed to load ROM metadata')
       }
@@ -27,7 +32,7 @@ export const useRomData = () => {
     } finally {
       setRomMetaLoading(false)
     }
-  }, [])
+  }, [authVersion])
 
   const fetchRomEntries = useCallback(
     async (meta: RomSetMeta) => {
@@ -41,7 +46,7 @@ export const useRomData = () => {
       }
       setRomEntriesLoading(true)
       try {
-        const response = await fetch(`/roms/${encodeURIComponent(identifier)}`)
+        const response = await apiFetch(`/roms/${encodeURIComponent(identifier)}`)
         if (!response.ok) {
           throw new Error(`Failed to load ROM data for ${meta.console || meta.module}`)
         }
@@ -61,8 +66,12 @@ export const useRomData = () => {
   )
 
   useEffect(() => {
+    setRomEntriesCache({})
+  }, [authVersion])
+
+  useEffect(() => {
     fetchRomMetadata()
-  }, [fetchRomMetadata])
+  }, [authVersion, fetchRomMetadata])
 
   return {
     romSets,

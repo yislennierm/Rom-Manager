@@ -1,4 +1,6 @@
 import hashlib
+import os
+import zipfile
 from pathlib import Path
 
 from textual.app import ComposeResult
@@ -7,6 +9,9 @@ from textual.containers import Vertical
 from textual.screen import ModalScreen
 
 import json
+from core.bios_manager import install_bios_from_file, install_bios_from_source, list_bios_requirements
+from core.console_readiness import readiness_for_module
+from .path_browser_screen import PathBrowserScreen
 from utils.library_sync import rdb_json_path
 
 
@@ -18,8 +23,9 @@ def compute_md5(path: Path) -> str:
     return hash_md5.hexdigest()
 
 
-CONFIG_PATH = Path("data/storage/storage_config.json")
-CORE_PATH = Path("data/emulators/cores.json")
+DATA_DIR = Path(os.environ.get("ROMS_MANAGER_DATA_ROOT", Path(__file__).resolve().parents[1] / "data")).expanduser()
+CONFIG_PATH = DATA_DIR / "storage" / "storage_config.json"
+CORE_PATH = DATA_DIR / "emulators" / "cores.json"
 
 
 def _load_json(path: Path) -> dict:
@@ -39,6 +45,7 @@ class ConsoleDetailModal(ModalScreen):
     BINDINGS = [
         ("escape", "dismiss", "Close"),
         ("i", "install_bios", "Install BIOS"),
+        ("d", "download_bios", "Download BIOS"),
     ]
 
     def __init__(self, module: dict, guid: str, provider_entry: dict | None):
@@ -52,11 +59,13 @@ class ConsoleDetailModal(ModalScreen):
         self._roms_path = Path(self._active_frontend.get("roms_path", Path.home())).expanduser()
         self._bios_path = Path(self._active_frontend.get("bios_path", Path.home())).expanduser()
         self._missing_bios = []
+        self._bios_rows = []
         name = module.get("name", "")
         parts = [segment.strip() for segment in name.split("-", 1)]
         self.manufacturer = parts[0] if parts else "Unknown"
         self.console = parts[1] if len(parts) == 2 else name
         self.rdb_info = self._load_rdb_info()
+        self.readiness = readiness_for_module(module, include_coverage=True)
 
     def compose(self) -> ComposeResult:
         title = f"{self.manufacturer} / {self.console}"
@@ -70,6 +79,7 @@ class ConsoleDetailModal(ModalScreen):
             f"[b]RDB export:[/b] {self._describe_rdb()}",
             id="console_detail_paths",
         )
+        yield Static(self._readiness_summary(), id="console_detail_readiness")
         self.provider_table = DataTable(id="console_provider_table")
         self.provider_table.add_columns("Name", "Base URL", "Active")
         self.bios_table = DataTable(id="console_bios_table")
@@ -81,7 +91,10 @@ class ConsoleDetailModal(ModalScreen):
             self.bios_table,
             id="console_detail_body",
         )
-        yield Static("Select a BIOS row and press [i] to install missing files.", id="console_detail_actions")
+        yield Static(
+            "Select a BIOS row and press [i] to install from a local file or [d] from a configured source.",
+            id="console_detail_actions",
+        )
         yield Footer()
 
     def on_mount(self):
@@ -107,66 +120,52 @@ class ConsoleDetailModal(ModalScreen):
 
     def _load_bios_status(self):
         self.bios_table.clear()
-        bios_path = self._bios_path
-        missing = []
-        configs = self.cores_config or {}
-        bios_registry = configs.get("bios_files", {})
-        core_catalog = configs.get("cores", {})
-
-        if not core_catalog:
-            self.bios_table.add_row("—", "No cores defined", "—", "—")
-            return
-
-        matching_cores: list[tuple[str, dict]] = []
-        for core_id, meta in core_catalog.items():
-            guids = meta.get("console_guids") or []
-            if self.guid and self.guid in guids:
-                matching_cores.append((core_id, meta))
-
-        if not matching_cores:
+        self._missing_bios = []
+        self._bios_rows = []
+        requirements = list_bios_requirements(self.guid)
+        if not requirements:
             self.bios_table.add_row("—", "No cores reference this console.", "—", "—")
             return
 
-        for core_id, core_meta in matching_cores:
-            core_name = core_meta.get("name", core_id)
-            bios_ids = core_meta.get("bios_ids") or []
-            if not bios_ids:
-                self.bios_table.add_row(core_name, "No BIOS listed", "—", "—")
+        for requirement in requirements:
+            core_name = requirement.get("core_name") or requirement.get("core_id") or "—"
+            bios_entry = requirement.get("bios")
+            status = requirement.get("status") or {}
+            if not bios_entry:
+                self.bios_table.add_row(str(core_name), "—", "—", str(status.get("label", "No metadata")))
+                self._bios_rows.append(None)
                 continue
-            for bios_id in bios_ids:
-                bios_entry = bios_registry.get(bios_id)
-                if not bios_entry:
-                    self.bios_table.add_row(core_name, f"⚠ Missing definition ({bios_id})", "—", "No metadata")
-                    continue
-                filename = bios_entry.get("filename")
-                expected_md5 = bios_entry.get("md5")
-                md5_display = expected_md5 or "—"
-                status = "⚠ Missing"
-                bios_file = bios_path / filename if filename else None
-                if bios_file and bios_file.exists():
-                    try:
-                        md5_actual = compute_md5(bios_file)
-                        if expected_md5:
-                            status = "✅ OK" if md5_actual.lower() == expected_md5.lower() else "⚠ Hash mismatch"
-                        else:
-                            status = "✅ Present"
-                    except Exception as exc:
-                        status = f"⚠ Error: {exc}"
-                else:
-                    missing_entry = bios_entry.copy()
-                    missing_entry.update({
-                        "bios_id": bios_id,
-                        "core_id": core_id,
-                        "core_name": core_name,
-                    })
-                    missing.append(missing_entry)
-                self.bios_table.add_row(
-                    core_name,
-                    filename or "—",
-                    md5_display,
-                    status,
-                )
-        self._missing_bios = missing
+            filename = bios_entry.get("filename")
+            md5_display = bios_entry.get("md5") or "—"
+            state = status.get("state")
+            label = status.get("label") or "Unknown"
+            display = "✅ OK" if state == "ok" else f"⚠ {label}"
+            row_payload = {**requirement, "bios": bios_entry}
+            self._bios_rows.append(row_payload)
+            if state != "ok":
+                self._missing_bios.append(row_payload)
+            self.bios_table.add_row(str(core_name), filename or "—", md5_display, display)
+
+    @staticmethod
+    def _check_zip_contents(path: Path, bios_entry: dict) -> str | None:
+        contents = bios_entry.get("zip_contents") or []
+        if not contents:
+            return None
+        if not zipfile.is_zipfile(path):
+            return "⚠ Not a zip"
+        with zipfile.ZipFile(path) as archive:
+            names = {name.lower(): name for name in archive.namelist()}
+            for expected in contents:
+                filename = (expected.get("filename") or "").lower()
+                md5_expected = (expected.get("md5") or "").lower()
+                archive_name = names.get(filename)
+                if not archive_name:
+                    return f"⚠ Missing {expected.get('filename')}"
+                if md5_expected:
+                    md5_actual = hashlib.md5(archive.read(archive_name)).hexdigest()
+                    if md5_actual.lower() != md5_expected:
+                        return f"⚠ Hash mismatch: {expected.get('filename')}"
+        return "✅ OK"
 
     def _resolve_active_frontend(self) -> dict:
         frontends = self.storage_config.get("frontends", {})
@@ -213,46 +212,76 @@ class ConsoleDetailModal(ModalScreen):
         extra = f" ({', '.join(details)})" if details else ""
         return f"{path}{extra}"
 
+    def _readiness_summary(self) -> str:
+        checks = self.readiness.get("checks") or {}
+        parts = [
+            f"[b]Readiness:[/b] {self.readiness.get('summary', 'Unknown')}",
+            f"Strategy: {self.readiness.get('strategy_label', 'standard_libretro')}",
+        ]
+        for key in ("coverage", "core", "bios", "install", "playlist"):
+            check = checks.get(key) or {}
+            parts.append(f"{key.title()}: {check.get('label', '—')}")
+        return " | ".join(parts)
+
     def action_install_bios(self):
         self._install_bios()
 
+    def action_download_bios(self):
+        row_payload = self._selected_bios_payload()
+        if not row_payload:
+            return
+        bios_entry = row_payload.get("bios")
+        if not (bios_entry.get("sources") or []):
+            self._notify("No configured source for this BIOS.", severity="warning")
+            return
+        try:
+            result = install_bios_from_source(bios_entry)
+            source = result.get("source") or {}
+            self._notify(f"Installed BIOS from {source.get('name', 'configured source')}", severity="success")
+            self._load_bios_status()
+        except Exception as exc:
+            self._notify(f"Failed to download BIOS: {exc}", severity="error")
+
     def _install_bios(self):
+        row_payload = self._selected_bios_payload()
+        if not row_payload:
+            return
+        bios_entry = row_payload.get("bios")
+        self._pending_bios_entry = bios_entry
+        start = Path.home() / "Downloads"
+        self.app.push_screen(PathBrowserScreen(self._install_selected_bios_file, start=start, select_files=True))
+
+    def _selected_bios_payload(self):
         row = getattr(self.bios_table, "cursor_row", None)
         if row is None or row < 0 or row >= len(self.bios_table.rows):
             self.app.bell()
-            return
+            return None
         core_name, filename, md5_expected, status = self.bios_table.get_row_at(row)
-        if not status.startswith("⚠") or not filename.strip():
+        row_payload = self._bios_rows[row] if row < len(self._bios_rows) else None
+        if not row_payload or not status.startswith("⚠") or not filename.strip():
             self._notify("This BIOS is already satisfied.", severity="info")
-            return
-        bios_entry = next((entry for entry in self._missing_bios if entry.get("filename") == filename), None)
+            return None
+        bios_entry = row_payload.get("bios")
         if not bios_entry:
             self._notify("No metadata available for this BIOS.", severity="warning")
-            return
-        source_url = bios_entry.get("url")
-        if not source_url:
-            self._notify("No download URL configured for this BIOS.", severity="warning")
-            return
-        target_path = self._bios_path / filename
-        try:
-            import urllib.request
+            return None
+        return row_payload
 
-            target_path.parent.mkdir(parents=True, exist_ok=True)
-            self._notify(f"Downloading {filename}…", severity="info")
-            urllib.request.urlretrieve(source_url, target_path)
-            md5 = compute_md5(target_path)
-            if md5.lower() == md5_expected.lower():
-                self._notify(f"Installed {filename} successfully.", severity="success")
-            else:
-                self._notify(f"Hash mismatch after install (expected {md5_expected}, got {md5}).", severity="warning")
+    def _install_selected_bios_file(self, selected_path: str):
+        bios_entry = getattr(self, "_pending_bios_entry", None)
+        if not bios_entry:
+            self._notify("No BIOS row selected.", severity="warning")
+            return
+        try:
+            result = install_bios_from_file(Path(selected_path), bios_entry)
+            self._notify(f"Installed BIOS to {result.get('target')}", severity="success")
             self._load_bios_status()
         except Exception as exc:
             self._notify(f"Failed to install BIOS: {exc}", severity="error")
-        self._load_bios_status()
 
     def _notify(self, message: str, severity: str = "info"):
         app = getattr(self, "app", None)
         if app and hasattr(app, "notify"):
             app.notify(message, severity=severity)
         else:
-            print(f"[{severity.upper()}] {message}")
+            self.log(f"[{severity.upper()}] {message}")

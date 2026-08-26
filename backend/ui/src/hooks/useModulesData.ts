@@ -1,14 +1,19 @@
 import { useCallback, useEffect, useState } from 'react'
+import { apiFetch } from '../api'
 import type { ModuleEntry } from '../types'
 
-export const useModulesData = () => {
+export const useModulesData = (authVersion = '') => {
   const [modulesData, setModulesData] = useState<ModuleEntry[]>([])
   const [modulesLoading, setModulesLoading] = useState(false)
 
   const fetchModulesPayload = useCallback(async () => {
+    if (!authVersion) {
+      setModulesData([])
+      return
+    }
     setModulesLoading(true)
     try {
-      const response = await fetch('/update?target=modules')
+      const response = await apiFetch('/update?target=modules')
       if (!response.ok) {
         throw new Error('Failed to load modules payload')
       }
@@ -21,11 +26,11 @@ export const useModulesData = () => {
     } finally {
       setModulesLoading(false)
     }
-  }, [])
+  }, [authVersion])
 
   useEffect(() => {
     fetchModulesPayload()
-  }, [fetchModulesPayload])
+  }, [authVersion, fetchModulesPayload])
 
   return { modulesData, setModulesData, modulesLoading, fetchModulesPayload }
 }

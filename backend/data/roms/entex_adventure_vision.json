@@ -1,0 +1,66 @@
+{
+  "module": "Entex - Adventure Vision",
+  "guid": "2de2782e-37a2-5e1c-9f4e-ffbf96872531",
+  "dataset_role": "master_rom_list",
+  "source_kind": "libretro_rdb",
+  "source_label": "Libretro database RDB",
+  "source_url": "https://raw.githubusercontent.com/libretro/libretro-database/master/rdb/Entex%20-%20Adventure%20Vision.rdb",
+  "entry_count": 4,
+  "fetched_at": "2026-08-05T09:10:02.720245",
+  "entries": [
+    {
+      "name": "Super Cobra (USA, Europe)",
+      "genre": "Shoot'em Up",
+      "region": "USA",
+      "rom_name": "Super Cobra (USA, Europe).bin",
+      "size": 4096,
+      "users": 1,
+      "developer": "Konami",
+      "publisher": "Entex Industries, Inc",
+      "crc": "b6045c9e",
+      "md5": "42acae1f1005044cc912853bf729331c",
+      "sha1": "fd059081d8d82f51dd1415cc3710f1fa5ebb1336"
+    },
+    {
+      "name": "Space Force (USA, Europe)",
+      "genre": "Shoot'em Up",
+      "region": "USA",
+      "rom_name": "Space Force (USA, Europe).bin",
+      "size": 4096,
+      "users": 1,
+      "esrb_rating": "E",
+      "developer": "Entex Industries, Inc",
+      "publisher": "Entex Industries, Inc",
+      "crc": "c70d4028",
+      "md5": "a991ce001b95c2c3455a8b2b30a47f61",
+      "sha1": "86c1a6eb8a5070f4be32bf4e83c0d5951e831d27"
+    },
+    {
+      "name": "Turtles (USA, Europe)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Turtles (USA, Europe).bin",
+      "size": 4096,
+      "users": 1,
+      "developer": "Entex Industries, Inc",
+      "publisher": "Entex Industries, Inc",
+      "crc": "33a23eba",
+      "md5": "3e7a1ce7b7d69fecd67792a375864759",
+      "sha1": "88748cf4080646e0a2f115a7f6e6001916314816"
+    },
+    {
+      "name": "Defender (USA, Europe)",
+      "genre": "Shoot'em Up",
+      "region": "USA",
+      "rom_name": "Defender (USA, Europe).bin",
+      "size": 4096,
+      "users": 1,
+      "esrb_rating": "E",
+      "developer": "Entex Industries, Inc",
+      "publisher": "Entex Industries, Inc",
+      "crc": "3e280096",
+      "md5": "24fa782ff3e76241c4862481802e5347",
+      "sha1": "33e6bc08b3e8a951942e078102e90fbc8ba729a8"
+    }
+  ]
+}

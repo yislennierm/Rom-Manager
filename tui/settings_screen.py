@@ -64,7 +64,7 @@ class SettingsScreen(Screen):
         self.table.clear()
         if not self.providers:
             self.table.add_row("—", "No providers found in providers.json", "", "", "", "", "")
-            self.table.cursor_row = 0
+            self.table.move_cursor(row=0, column=0)
             self._notify("No providers defined in providers.json", severity="warning")
             return
 
@@ -201,4 +201,4 @@ class SettingsScreen(Screen):
         if app and hasattr(app, "notify"):
             app.notify(message, severity=severity)
         else:
-            print(f"[{severity.upper()}] {message}")
+            self.log(f"[{severity.upper()}] {message}")

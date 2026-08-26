@@ -13,9 +13,11 @@ import requests
 REPO_OWNER = "libretro-thumbnails"
 REPO_NAME = "libretro-thumbnails"
 RAW_BASE = f"https://raw.githubusercontent.com/{REPO_OWNER}/{REPO_NAME}/master"
-MODULES_FILE = Path("data") / "index" / "libretro_modules.json"
-INDEX_DIR = Path("data") / "index" / "libretro"
-RDB_DIR = Path("data") / "index" / "rdb"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = Path(os.environ.get("ROMS_MANAGER_DATA_ROOT", PROJECT_ROOT / "data")).expanduser()
+MODULES_FILE = DATA_DIR / "index" / "libretro_modules.json"
+INDEX_DIR = DATA_DIR / "index" / "libretro"
+RDB_DIR = DATA_DIR / "index" / "rdb"
 RDB_BASE = "https://raw.githubusercontent.com/libretro/libretro-database/master/rdb"
 ALLOWED_CATEGORIES = ["Named_Boxarts"]
 GUID_NAMESPACE = UUID("b9ae55f5-9f8f-4a5c-9a1d-8c7f2006100b")

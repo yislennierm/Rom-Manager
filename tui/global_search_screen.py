@@ -6,7 +6,7 @@ from textual.widgets import Header, Footer, Static, Input, DataTable
 from textual.containers import Container
 from textual.screen import Screen
 
-from utils.catalog import build_rom_catalog
+from utils.catalog import build_rom_catalog, select_preferred_provider
 from utils.paths import manufacturer_slug, console_slug, list_cached_consoles, provider_slug as slugify_provider
 from utils.library_sync import load_modules
 from .download_manager_screen import DownloadManagerScreen
@@ -15,7 +15,7 @@ from .rom_detail_screen import ROMDetailScreen
 
 
 class GlobalSearchScreen(Screen):
-    """Search across all activated consoles."""
+    """Search across all synced library consoles."""
 
     CSS_PATH = "styles/update_screen.css"
 
@@ -68,7 +68,7 @@ class GlobalSearchScreen(Screen):
         self.module_lookup = self._build_module_lookup()
         consoles = list_cached_consoles()
         if not consoles:
-            self._notify("No activated consoles with RDB exports. Use Database screen first.", severity="warning")
+            self._notify("No synced library consoles with RDB exports. Use Updates > Sync Account.", severity="warning")
             return
         for entry in consoles:
             manufacturer = entry["manufacturer"]
@@ -182,7 +182,7 @@ class GlobalSearchScreen(Screen):
             if rom["_key"] not in self.selected:
                 continue
             providers = rom.get("_providers") or []
-            provider_entry = providers[0] if providers else {}
+            provider_entry = select_preferred_provider(providers) if providers else {}
             provider_rom = provider_entry.get("rom")
             metadata = provider_entry.get("metadata") or {}
             torrent = provider_rom.get("torrent_url") or provider_rom.get("torrent") if provider_rom else rom.get("torrent_url")
@@ -210,6 +210,8 @@ class GlobalSearchScreen(Screen):
                 target_segments.append(archive_id)
             destination = os.path.join(*target_segments)
             rom_filename = (provider_rom.get("name") if provider_rom else None) or rom["name"]
+            if provider_rom and provider_rom.get("_archive_member") and provider_rom.get("_source_bundle"):
+                rom_filename = provider_rom.get("_source_bundle")
             job = None
             if torrent:
                 job = manager.add_job(
@@ -303,7 +305,7 @@ class GlobalSearchScreen(Screen):
         if app and hasattr(app, "notify"):
             app.notify(message, severity=severity)
         else:
-            print(f"[{severity.upper()}] {message}")
+            self.log(f"[{severity.upper()}] {message}")
 
     def _restore_cursor(self, requested_row: int | None) -> None:
         if not self.table.row_count:

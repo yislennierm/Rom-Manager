@@ -104,4 +104,4 @@ class ROMDetailScreen(Screen):
         if app and hasattr(app, "notify"):
             app.notify(message, severity=severity)
         else:
-            print(f"[{severity.upper()}] {message}")
+            self.log(f"[{severity.upper()}] {message}")

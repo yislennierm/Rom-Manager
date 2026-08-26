@@ -1,0 +1,129 @@
+{
+  "module": "Casio - PV-1000",
+  "guid": "71b2e78e-d776-59a6-8bfa-5f84f90e7eca",
+  "dataset_role": "master_rom_list",
+  "source_kind": "libretro_rdb",
+  "source_label": "Libretro database RDB",
+  "source_url": "https://raw.githubusercontent.com/libretro/libretro-database/master/rdb/Casio%20-%20PV-1000.rdb",
+  "entry_count": 13,
+  "fetched_at": "2026-08-06T12:13:48.155666",
+  "entries": [
+    {
+      "name": "Warp & Warp (Japan)",
+      "region": "Japan",
+      "rom_name": "Warp & Warp (Japan).bin",
+      "size": 8192,
+      "crc": "2a0d4ad9",
+      "md5": "4ab8e4be4c3d48a2c92ecd36beb4d767",
+      "sha1": "f9ffca3a1d85b116dd92f118f9ea940bf2449db5"
+    },
+    {
+      "name": "Tutankham (Japan)",
+      "region": "Japan",
+      "rom_name": "Tutankham (Japan).bin",
+      "size": 8192,
+      "crc": "a0b606d8",
+      "md5": "f08be1209a255922d219ec4aad109703",
+      "sha1": "56efa2ab7c4a6db7b44714e46c5bf2ba71983ee8"
+    },
+    {
+      "name": "Turpin (Japan)",
+      "region": "Japan",
+      "rom_name": "Turpin (Japan).bin",
+      "size": 8192,
+      "crc": "a3aef98d",
+      "md5": "8fc81baf228ca5e0f353f0b3ad71d65b",
+      "sha1": "1f49371b0ebf4fe6c5fb606fd9744f3bb15a619b"
+    },
+    {
+      "name": "Super Cobra (Japan)",
+      "region": "Japan",
+      "rom_name": "Super Cobra (Japan).bin",
+      "size": 8192,
+      "crc": "cdffc2cd",
+      "md5": "01e70f498b2e104b4714434014943e1a",
+      "sha1": "9e748050ccb0fa948b06346d241dfcd11868e8e2"
+    },
+    {
+      "name": "Space Panic (Japan)",
+      "region": "Japan",
+      "rom_name": "Space Panic (Japan).bin",
+      "size": 8192,
+      "crc": "#Tq\u0011",
+      "md5": "156faed893080aed343d760ad7b8a7ce",
+      "sha1": "b16dbea89ba9f934a08c274d8bb6cce06da13193"
+    },
+    {
+      "name": "Pooyan (Japan)",
+      "region": "Japan",
+      "rom_name": "Pooyan (Japan).bin",
+      "size": 8192,
+      "crc": "bd6edc48",
+      "md5": "e43b200c31cec2dd1ebe3331c4bd2bf3",
+      "sha1": "606b7d603da23e70012b361d7ffb53ea026f88f5"
+    },
+    {
+      "name": "Pachinko-UFO (Japan)",
+      "region": "Japan",
+      "rom_name": "Pachinko-UFO (Japan).bin",
+      "size": 16384,
+      "crc": "9ee981ab",
+      "md5": "aefafc42cabc5c6ee40defe9ec09b488",
+      "sha1": "d6ca45430a34ce0090ba882ade5a2268a862d4f4"
+    },
+    {
+      "name": "Naughty Boy (Japan)",
+      "region": "Japan",
+      "rom_name": "Naughty Boy (Japan).bin",
+      "size": 8192,
+      "crc": "43a13e99",
+      "md5": "ef6bfd54a18e51370e1aa9a330b66e13",
+      "sha1": "a72e8606b8b6c8d10050d6d7b1ff87455b623004"
+    },
+    {
+      "name": "Fighting Bug (Japan)",
+      "region": "Japan",
+      "rom_name": "Fighting Bug (Japan).bin",
+      "size": 8192,
+      "crc": "84986255",
+      "md5": "99e9e3d677065325cb2b2030d82a4c8b",
+      "sha1": "7202641a387da90323d149e2f327a5c828856556"
+    },
+    {
+      "name": "Excite Mahjong (Japan)",
+      "region": "Japan",
+      "rom_name": "Excite Mahjong (Japan).bin",
+      "size": 16384,
+      "crc": "0d2f829c",
+      "md5": "b0ef3b9523fb276772fa4433136bc5db",
+      "sha1": "6cc9e5d234bc1b483108ae4dc79d644802a64ef0"
+    },
+    {
+      "name": "Dirty Chameleon (Japan)",
+      "region": "Japan",
+      "rom_name": "Dirty Chameleon (Japan).bin",
+      "size": 8192,
+      "crc": "8e7fb358",
+      "md5": "c1250dc9300411c2aa5b6017f07e3176",
+      "sha1": "63e94cc01410aefd59b465105e701330dc13c398"
+    },
+    {
+      "name": "Dig Dug (Japan)",
+      "region": "Japan",
+      "rom_name": "Dig Dug (Japan).bin",
+      "size": 16384,
+      "crc": "a94f02fa",
+      "md5": "4e2b1c14dca34084a7612d794642a12a",
+      "sha1": "502a163c1ae88eccc7e9782261d86d4090cb41e1"
+    },
+    {
+      "name": "Amidar (Japan)",
+      "region": "Japan",
+      "rom_name": "Amidar (Japan).bin",
+      "size": 8192,
+      "crc": "c82628cc",
+      "md5": "ee4e2d5b4617c3bf9f11016e1fe1c94e",
+      "sha1": "00322d4025fef19728194442f9e06a4cccd01933"
+    }
+  ]
+}

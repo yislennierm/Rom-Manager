@@ -16,6 +16,10 @@ else:
 CACHE_DIR = os.path.join(DATA_DIR, "cache")
 PROVIDER_FILE = os.path.join(DATA_DIR, "providers", "providers.json")
 SCHEMA_FILE = os.path.join(DATA_DIR, "schema", "provider_schema.json")
+if not os.path.exists(SCHEMA_FILE):
+    fallback_schema = os.path.join(PROJECT_ROOT, "data", "schema", "provider_schema.json")
+    if os.path.exists(fallback_schema):
+        SCHEMA_FILE = fallback_schema
 LEGACY_EXPORTS_DIR = os.path.join(DATA_DIR, "xml")
 
 _slug_re = re.compile(r"[^a-z0-9]+")
@@ -126,8 +130,36 @@ def torrent_file_path(
     return os.path.join(dirs["torrents"], f"{path_prefix(manufacturer, console, provider)}_archive.torrent")
 
 
+def _client_sync_state() -> Dict:
+    state_path = os.path.join(DATA_DIR, "client", "sync_state.json")
+    if not os.path.exists(state_path):
+        return {}
+    try:
+        with open(state_path, encoding="utf-8") as handle:
+            payload = json.loads(handle.read())
+    except Exception:
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
+def _assigned_console_state() -> Dict[str, Dict]:
+    assigned = _client_sync_state().get("assigned")
+    return assigned if isinstance(assigned, dict) else {}
+
+
+def _revoked_console_guids() -> set[str]:
+    revoked = _client_sync_state().get("revoked")
+    if not isinstance(revoked, dict):
+        return set()
+    return {guid for guid in revoked.keys() if guid}
+
+
 def list_cached_consoles() -> List[Dict]:
-    """Return activated consoles whose libretro RDB exports exist locally."""
+    """Return locally synced library consoles whose libretro RDB exports exist.
+
+    Backend-assigned consoles are the primary TUI library. Active frontend
+    consoles remain included for local/standalone use and are marked separately.
+    """
 
     config = load_storage_config() or {}
     frontends = config.get("frontends", {})
@@ -136,7 +168,12 @@ def list_cached_consoles() -> List[Dict]:
         if entry.get("active"):
             active_guids.extend([guid for guid in entry.get("supported_guids") or [] if guid])
 
-    if not active_guids:
+    assigned = _assigned_console_state()
+    revoked_guids = _revoked_console_guids()
+    assigned_guids = [guid for guid in assigned.keys() if guid]
+    active_available_guids = [guid for guid in active_guids if guid not in revoked_guids]
+    candidate_guids = list(dict.fromkeys([*assigned_guids, *active_available_guids]))
+    if not candidate_guids:
         return []
 
     modules = load_modules()
@@ -145,18 +182,19 @@ def list_cached_consoles() -> List[Dict]:
     results: List[Dict] = []
     seen: set[str] = set()
 
-    for guid in active_guids:
+    for guid in candidate_guids:
         if guid in seen:
             continue
-        module = module_lookup.get(guid)
-        if not module:
-            continue
-        name = module.get("name") or ""
-        parts = [segment.strip() for segment in name.split("-", 1)]
-        if len(parts) == 2:
-            manufacturer, console = parts
-        else:
-            if parts:
+        assigned_entry = assigned.get(guid) or {}
+        module = module_lookup.get(guid) or {}
+        name = assigned_entry.get("module") or module.get("name") or ""
+        manufacturer = assigned_entry.get("manufacturer")
+        console = assigned_entry.get("console")
+        if not manufacturer or not console:
+            parts = [segment.strip() for segment in name.split(" - ", 1)]
+            if len(parts) == 2:
+                manufacturer, console = parts
+            elif parts:
                 manufacturer = parts[0]
                 console = parts[-1]
             else:
@@ -182,6 +220,8 @@ def list_cached_consoles() -> List[Dict]:
             "rom_count": rom_count,
             "guid": guid,
             "module_name": name,
+            "assigned": guid in assigned,
+            "frontend_active": guid in active_guids,
         })
         seen.add(guid)
 

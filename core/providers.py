@@ -1,10 +1,15 @@
 import json
 import os
 import shutil
+import subprocess
+import tempfile
 import xml.etree.ElementTree as ET
 from datetime import datetime
+import hashlib
+import zipfile
 from typing import Dict, List, Optional, Tuple
 from urllib.parse import urljoin, urlparse, quote
+import urllib.request
 
 from jsonschema import Draft202012Validator
 
@@ -186,31 +191,55 @@ def export_roms_to_json(
         extensions = [".zip", ".bin", ".sms", ".gg", ".chd", ".gdi"]
     extensions = [ext.lower() for ext in extensions]
     archive_extensions = [".zip", ".7z", ".rar"]
+    path_prefixes = [
+        prefix.lower()
+        for prefix in (provider_entry.get("path_prefixes") or [])
+        if isinstance(prefix, str) and prefix
+    ]
 
     roms: List[Dict] = []
     torrent_url = files.get("torrent")
     base_url = provider_entry.get("base_url")
+    archive_cache_dir = os.path.join(console_cache_dir(manufacturer, console, slug_value), "archives")
 
     for f in root.findall("file"):
         name = f.get("name")
         if not name:
             continue
         name_lower = name.lower()
+        if path_prefixes and not any(name_lower.startswith(prefix) for prefix in path_prefixes):
+            continue
         if not any(name_lower.endswith(ext) for ext in extensions):
             if not any(name_lower.endswith(ext) for ext in archive_extensions):
                 continue
 
-        roms.append({
+        bundle_url = urljoin(base_url.rstrip("/") + "/", quote(name)) if base_url else None
+        rom = {
             "name": name,
-            "size": f.get("size"),
+            "size": f.get("size") or f.findtext("size"),
             "md5": f.findtext("md5"),
             "crc32": f.findtext("crc32"),
             "sha1": f.findtext("sha1"),
             "console": console,
             "manufacturer": manufacturer,
             "torrent_url": torrent_url,
-            "http_url": urljoin(base_url.rstrip("/") + "/", quote(name)) if base_url else None,
-        })
+            "http_url": bundle_url,
+        }
+        roms.append(rom)
+        if provider_entry.get("expand_archives") and bundle_url and _is_archive_name(name):
+            roms.extend(
+                _expand_archive_members(
+                    archive_name=name,
+                    archive_url=bundle_url,
+                    archive_cache_dir=archive_cache_dir,
+                    manufacturer=manufacturer,
+                    console=console,
+                    torrent_url=torrent_url,
+                    allowed_extensions=extensions,
+                    expected_archive_size=_coerce_int(f.get("size") or f.findtext("size")),
+                    max_bytes=int(provider_entry.get("expand_archives_max_bytes") or 128 * 1024 * 1024),
+                )
+            )
 
     json_path = roms_json_path(manufacturer, console, slug_value) if slug_value else roms_json_path(manufacturer, console)
 
@@ -222,6 +251,12 @@ def export_roms_to_json(
             "libretro_guid": provider_entry.get("libretro_guid") or provider_entry.get("guid"),
             "provider_label": provider_entry.get("provider") or provider_entry.get("name"),
             "archive_id": provider_entry.get("archive_id"),
+            "arcade_family": provider_entry.get("arcade_family"),
+            "romset_version": provider_entry.get("romset_version"),
+            "preferred_cores": provider_entry.get("preferred_cores"),
+            "compatible_cores": provider_entry.get("compatible_cores"),
+            "zip_preserve": provider_entry.get("zip_preserve"),
+            "compatibility_notes": provider_entry.get("compatibility_notes"),
             "exported_at": datetime.utcnow().isoformat(),
             "roms": roms,
         }
@@ -229,6 +264,197 @@ def export_roms_to_json(
             json.dump(payload, out, indent=2)
 
     return roms, json_path
+
+
+def _is_archive_name(name: str) -> bool:
+    return os.path.splitext(name.lower())[1] in {".zip", ".7z", ".rar"}
+
+
+def _expand_archive_members(
+    *,
+    archive_name: str,
+    archive_url: str,
+    archive_cache_dir: str,
+    manufacturer: str,
+    console: str,
+    torrent_url: Optional[str],
+    allowed_extensions: List[str],
+    expected_archive_size: Optional[int],
+    max_bytes: int,
+) -> List[Dict]:
+    archive_path = _download_archive_for_indexing(
+        archive_name=archive_name,
+        archive_url=archive_url,
+        archive_cache_dir=archive_cache_dir,
+        expected_size=expected_archive_size,
+        max_bytes=max_bytes,
+    )
+    if not archive_path:
+        return []
+
+    members: List[Dict] = []
+    with tempfile.TemporaryDirectory(prefix="roms-manager-provider-archive-") as temp_dir:
+        extract_root = os.path.join(temp_dir, "extract")
+        os.makedirs(extract_root, exist_ok=True)
+        if not _extract_archive(archive_path, extract_root):
+            return []
+        _expand_nested_archives(extract_root)
+        for root, _, files in os.walk(extract_root):
+            for filename in sorted(files):
+                path = os.path.join(root, filename)
+                rel = os.path.relpath(path, extract_root)
+                if not _is_exportable_rom(rel, allowed_extensions):
+                    continue
+                members.append(
+                    _archive_member_record(
+                        path=path,
+                        relative_name=rel,
+                        archive_name=archive_name,
+                        archive_path=archive_path,
+                        archive_url=archive_url,
+                        manufacturer=manufacturer,
+                        console=console,
+                        torrent_url=torrent_url,
+                    )
+                )
+    return members
+
+
+def _download_archive_for_indexing(
+    *,
+    archive_name: str,
+    archive_url: str,
+    archive_cache_dir: str,
+    expected_size: Optional[int],
+    max_bytes: int,
+) -> Optional[str]:
+    os.makedirs(archive_cache_dir, exist_ok=True)
+    target = os.path.join(archive_cache_dir, os.path.basename(archive_name))
+    if os.path.exists(target) and os.path.getsize(target) > 0:
+        if not expected_size or os.path.getsize(target) == expected_size:
+            return target
+
+    try:
+        request = urllib.request.Request(archive_url, headers={"User-Agent": "ROMs-Manager/1.0"})
+        with urllib.request.urlopen(request, timeout=120) as response:
+            total = int(response.headers.get("Content-Length") or 0)
+            expected_total = expected_size or total
+            if total and total > max_bytes:
+                return None
+            temp_target = f"{target}.tmp"
+            downloaded = 0
+            with open(temp_target, "wb") as out:
+                while True:
+                    chunk = response.read(1024 * 256)
+                    if not chunk:
+                        break
+                    downloaded += len(chunk)
+                    if downloaded > max_bytes:
+                        return None
+                    out.write(chunk)
+            if expected_total and os.path.getsize(temp_target) != expected_total:
+                return None
+            os.replace(temp_target, target)
+        return target
+    except Exception:
+        return None
+
+
+def _coerce_int(value) -> Optional[int]:
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _extract_archive(source: str, target: str) -> bool:
+    suffix = os.path.splitext(source.lower())[1]
+    if suffix == ".zip" and zipfile.is_zipfile(source):
+        try:
+            with zipfile.ZipFile(source) as archive:
+                archive.extractall(target)
+            return True
+        except Exception:
+            pass
+    if suffix in {".zip", ".7z", ".rar"}:
+        result = subprocess.run(
+            ["7z", "x", f"-o{target}", source, "-y"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            check=False,
+        )
+        return result.returncode == 0
+    return False
+
+
+def _expand_nested_archives(root: str) -> None:
+    for _ in range(4):
+        nested = []
+        for walk_root, _, files in os.walk(root):
+            for filename in files:
+                path = os.path.join(walk_root, filename)
+                if _is_archive_name(path):
+                    nested.append(path)
+        if not nested:
+            return
+        for path in nested:
+            target = os.path.join(os.path.dirname(path), os.path.splitext(os.path.basename(path))[0])
+            os.makedirs(target, exist_ok=True)
+            if _extract_archive(path, target):
+                try:
+                    os.remove(path)
+                except OSError:
+                    pass
+
+
+def _is_exportable_rom(name: str, allowed_extensions: List[str]) -> bool:
+    suffix = os.path.splitext(name.lower())[1]
+    if suffix in {".txt", ".png", ".jpg", ".jpeg", ".xml", ".sqlite"}:
+        return False
+    if allowed_extensions and suffix in allowed_extensions:
+        return True
+    return suffix in {".sgx", ".pce", ".bin", ".rom", ".zip"}
+
+
+def _archive_member_record(
+    *,
+    path: str,
+    relative_name: str,
+    archive_name: str,
+    archive_path: str,
+    archive_url: str,
+    manufacturer: str,
+    console: str,
+    torrent_url: Optional[str],
+) -> Dict:
+    payload = _read_bytes(path)
+    return {
+        "name": relative_name,
+        "size": len(payload),
+        "md5": hashlib.md5(payload).hexdigest(),
+        "crc32": f"{_crc32(payload):08x}",
+        "sha1": hashlib.sha1(payload).hexdigest(),
+        "console": console,
+        "manufacturer": manufacturer,
+        "torrent_url": torrent_url,
+        "http_url": archive_url,
+        "_archive_member": True,
+        "_archive_member_path": relative_name,
+        "_source_bundle": archive_name,
+        "_source_bundle_size": os.path.getsize(archive_path) if os.path.exists(archive_path) else None,
+    }
+
+
+def _read_bytes(path: str) -> bytes:
+    with open(path, "rb") as handle:
+        return handle.read()
+
+
+def _crc32(payload: bytes) -> int:
+    import zlib
+
+    return zlib.crc32(payload) & 0xFFFFFFFF
 
 
 def add_provider(

@@ -1,0 +1,92 @@
+{
+  "module": "NEC - PC Engine SuperGrafx",
+  "guid": "e63c6451-836b-5dbe-8532-63492762b3d9",
+  "source_url": "https://raw.githubusercontent.com/libretro/libretro-database/master/rdb/NEC%20-%20PC%20Engine%20SuperGrafx.rdb",
+  "entry_count": 6,
+  "fetched_at": "2026-08-06T11:17:22.735740",
+  "entries": [
+    {
+      "name": "Aldynes - The Misson Code for Rage Crisis (Japan) (En)",
+      "genre": "Shoot'em Up",
+      "region": "Japan",
+      "rom_name": "Aldynes - The Misson Code for Rage Crisis (Japan) (En).sgx",
+      "size": 1048576,
+      "users": 2,
+      "releasemonth": 2,
+      "releaseyear": 1991,
+      "developer": "Produce Co., Ltd.",
+      "publisher": "Hudson",
+      "crc": "4c2126b0",
+      "md5": "8ce21667658ef9c025ad007f65147c6d",
+      "sha1": "d876248ee1b80ad11633fd4be8aa21a187b52193"
+    },
+    {
+      "name": "1941 - Counter Attack (Japan)",
+      "genre": "Shoot'em Up",
+      "region": "Japan",
+      "rom_name": "1941 - Counter Attack (Japan).sgx",
+      "size": 1048576,
+      "users": 2,
+      "releasemonth": 8,
+      "releaseyear": 1991,
+      "franchise": "19XX",
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "crc": "8c4588e2",
+      "md5": "30686dba4795521174658de2492e0046",
+      "sha1": "66873b0e0cc699aa75daf06a3f74c0508037e605"
+    },
+    {
+      "name": "Battle Ace (Japan) (En)",
+      "genre": "Shoot'em Up",
+      "region": "Japan",
+      "rom_name": "Battle Ace (Japan) (En).sgx",
+      "size": 524288,
+      "users": 1,
+      "releasemonth": 11,
+      "releaseyear": 1989,
+      "developer": "Hudson",
+      "publisher": "Hudson",
+      "crc": "3b13af61",
+      "md5": "fc0053c0c050353b87886b1b89349168",
+      "sha1": "edc8f7d2233c92ebd309ac804527c461851a4b63"
+    },
+    {
+      "name": "Madou King Granzort (Japan) (En)",
+      "genre": "Action",
+      "region": "Japan",
+      "rom_name": "Madou King Granzort (Japan) (En).sgx",
+      "size": 524288,
+      "users": 1,
+      "releasemonth": 4,
+      "releaseyear": 1990,
+      "developer": "Sunrise Software",
+      "publisher": "Hudson",
+      "crc": "\u001f\u0004\u0011f",
+      "md5": "7e1e489c50fc6213196e6dbb704f6671",
+      "sha1": "5ed16565753c902e14da9a0c5361ef01fa74463b"
+    },
+    {
+      "name": "Daimakaimura (Japan) (En)",
+      "genre": "Platform",
+      "region": "Japan",
+      "rom_name": "Daimakaimura (Japan) (En).sgx",
+      "size": 1048576,
+      "users": 1,
+      "releasemonth": 7,
+      "releaseyear": 1990,
+      "franchise": "Ghost'n Goblins",
+      "developer": "Capcom",
+      "publisher": "NEC",
+      "crc": "b486a8ed",
+      "md5": "6d9ff6f70608166c88fd2553d44ca17a",
+      "sha1": "cab9e4a1a8b6da07cc2c5cc35949928199a417ee"
+    },
+    {
+      "count": 5
+    }
+  ],
+  "dataset_role": "master_rom_list",
+  "source_kind": "libretro_rdb",
+  "source_label": "Libretro Database RDB"
+}

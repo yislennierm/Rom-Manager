@@ -69,12 +69,13 @@ class FrontendEditorScreen(ModalScreen):
     # ------------------------------------------------------------------
 
     def _save(self):
-        payload = {
+        payload = dict(self.data)
+        payload.update({
             "name": self.query_one("#editor_name", Input).value or self.key,
             "roms_path": self.query_one("#editor_roms", Input).value,
             "bios_path": self.query_one("#editor_bios", Input).value,
             "active": self.query_one("#editor_active", Checkbox).value,
-        }
+        })
         self.on_save(self.key, payload)
         self.dismiss()
 

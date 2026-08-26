@@ -42,6 +42,9 @@ export type RomSetMeta = {
   brand?: string
   console?: string
   guid?: string
+  dataset_role?: string
+  source_kind?: string
+  source_label?: string
   entry_count?: number
   fetched_at?: string
   source_url?: string
@@ -58,6 +61,63 @@ export type ProviderEntry = {
   updated?: string
   libretro_guid?: string
   [key: string]: unknown
+}
+
+export type ProviderCoverage = {
+  brand: string
+  console: string
+  guid?: string
+  module?: ModuleEntry
+  ready: boolean
+  missing?: string
+  message?: string
+  rdb_path?: string
+  summary: {
+    rdb_entries: number
+    provider_count: number
+    matched_entries: number
+    unmatched_entries: number
+    multi_provider_entries: number
+    coverage_percent: number
+  }
+  providers: Array<{
+    id: string
+    label?: string
+    archive_id?: string
+    provider?: string
+    source_roms: number
+    matched_entries: number
+    matched_unique_files: number
+    status?: Record<string, boolean>
+  }>
+  unmatched_samples: Array<{
+    name?: string
+    region?: string
+    md5?: string
+    crc32?: string
+  }>
+}
+
+export type ModuleReadiness = {
+  module: ModuleEntry
+  guid?: string
+  name?: string
+  brand?: string
+  console?: string
+  score: 'ready' | 'partial' | 'needs_work' | string
+  summary: {
+    ready: boolean
+    label: string
+  }
+  checks: Record<string, {
+    state: 'ok' | 'partial' | 'missing' | string
+    label: string
+    coverage_percent?: number
+  }>
+  providers: ProviderEntry[]
+  core_metadata: Array<Record<string, unknown>>
+  bios_metadata: Array<Record<string, unknown>>
+  coverage?: ProviderCoverage | null
 }
 
 export type ProvidersResponse = {
@@ -117,6 +177,19 @@ export type HomeSelection = {
   kind: 'home'
 }
 
+export type AccessSelection = {
+  kind: 'access-root'
+}
+
+export type AccessUser = {
+  id: string
+  name?: string
+  enabled: boolean
+  admin: boolean
+  allowed_console_guids: string[]
+  has_api_key: boolean
+}
+
 export type ProvidersHomeSelection = {
   kind: 'providers-root'
 }
@@ -130,5 +203,6 @@ export type Selection =
   | RomConsoleSelection
   | DatasetSelection
   | ProvidersHomeSelection
+  | AccessSelection
   | HomeSelection
   | null

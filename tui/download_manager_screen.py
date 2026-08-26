@@ -4,6 +4,21 @@ from textual.containers import Container
 from textual.screen import Screen
 from textual import events
 from textual.timer import Timer
+import os
+import threading
+
+from core.frontend_installer import install_completed_jobs
+from data.storage.storage_config_loader import load_storage_config
+from .message_screen import MessageScreen
+
+
+AUTO_INSTALL_BATCH_SIZE = max(1, int(os.environ.get("ROMS_MANAGER_AUTO_INSTALL_BATCH", "25") or "25"))
+AUTO_INSTALL_ARCHIVE_BATCH_SIZE = max(
+    AUTO_INSTALL_BATCH_SIZE,
+    int(os.environ.get("ROMS_MANAGER_AUTO_INSTALL_ARCHIVE_BATCH", "250") or "250"),
+)
+DISPLAY_JOB_LIMIT = 250
+
 
 class DownloadManagerScreen(Screen):
     """Screen for viewing and managing download jobs."""
@@ -11,13 +26,15 @@ class DownloadManagerScreen(Screen):
     BINDINGS = [
         ("escape", "go_back", "Back"),
         ("d", "delete_job", "Remove Job"),
+        ("i", "install_selected", "Install"),
+        ("I", "install_all_completed", "Install All"),
         ("r", "refresh", "Refresh"),
     ]
 
     def compose(self) -> ComposeResult:
         yield Header()
         yield Container(
-            Static("[b]Download Manager[/b]\n(Press [r] to refresh, [Del] to remove, [Esc] to return)", id="label"),
+            Static("[b]Download Manager[/b]\n(Press [i] to install selected job, [I] to install all completed, [r] to refresh, [Del] to remove, [Esc] to return)", id="label"),
             DataTable(id="job_table"),
         )
         yield Footer()
@@ -32,6 +49,7 @@ class DownloadManagerScreen(Screen):
         self.table.add_column("Console", width=12)
         self.table.add_column("Protocol", width=8)
         self.table.add_column("Status", width=12)
+        self.table.add_column("Install", width=12)
         self.table.add_column("Progress", width=12)
         self.table.add_column("Speed", width=8)
         self.table.add_column("Peers", width=5)
@@ -42,24 +60,52 @@ class DownloadManagerScreen(Screen):
         self.table.zebra_stripes = True
 
         # auto-refresh every 3 seconds
+        self._auto_install_running = False
+        self._last_jobs_signature = None
         self.refresh_timer: Timer = self.set_interval(3.0, self.refresh_table)
-        self.refresh_table()
+        self.refresh_table(force=True)
 
     def on_unmount(self):
         if hasattr(self, "refresh_timer"):
             self.refresh_timer.stop()
 
-    def refresh_table(self):
-        self.table.clear()
+    def refresh_table(self, force: bool = False):
         #self.manager.load_jobs()  # reload updated JSON before listing
         jobs = self.manager.list_jobs()
+        signature = self._jobs_signature(jobs)
+        if not force and signature == self._last_jobs_signature:
+            self._maybe_auto_install(jobs)
+            return
+        self._last_jobs_signature = signature
+
+        cursor_row = getattr(self.table, "cursor_row", 0)
+        self.table.clear()
 
         if not jobs:
-            self.table.add_row("— No active jobs —", "", "", "", "", "", "", "", "")
+            self.table.add_row("— No active jobs —", "", "", "", "", "", "", "", "", "", "")
             return
 
-        for job in jobs:
+        display_jobs = jobs[-DISPLAY_JOB_LIMIT:]
+        self._displayed_jobs = display_jobs
+        if len(jobs) > len(display_jobs):
+            hidden = len(jobs) - len(display_jobs)
+            self.table.add_row(
+                f"— Showing newest {len(display_jobs)} of {len(jobs)} jobs; {hidden} older hidden —",
+                "",
+                "",
+                "[dim]summary[/]",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+            )
+
+        for job in display_jobs:
             status = job["status"]
+            install_status = self._install_status(job)
             color = (
                 "[green]" if status == "completed"
                 else "[yellow]" if status.startswith("downloading")
@@ -79,6 +125,7 @@ class DownloadManagerScreen(Screen):
                 console,
                 protocol,
                 f"{color}{status}[/]",
+                install_status,
                 progress,
                 speed,
                 peers,
@@ -86,9 +133,11 @@ class DownloadManagerScreen(Screen):
                 md5,
                 job["destination"],
             )
+        self._restore_cursor(cursor_row)
+        self._maybe_auto_install(jobs)
 
     def action_refresh(self):
-        self.refresh_table()
+        self.refresh_table(force=True)
 
     def action_go_back(self):
         self.app.pop_screen()
@@ -97,14 +146,209 @@ class DownloadManagerScreen(Screen):
         if not hasattr(self, "table") or not self.table.row_count:
             return
         row = self.table.cursor_row
-        jobs = self.manager.list_jobs()
-        if row < len(jobs):
+        jobs = getattr(self, "_displayed_jobs", self.manager.list_jobs())
+        has_summary_row = len(self.manager.list_jobs()) > len(jobs)
+        if has_summary_row:
+            row -= 1
+        if 0 <= row < len(jobs):
             job = jobs[row]
             self.manager.remove_job(job["id"])
-            self.refresh_table()
+            self.refresh_table(force=True)
             self.app.bell()
 
+    def action_install_selected(self):
+        jobs = getattr(self, "_displayed_jobs", self.manager.list_jobs())
+        if not jobs or not hasattr(self, "table") or not self.table.row_count:
+            self.app.bell()
+            return
+        row = getattr(self.table, "cursor_row", 0)
+        has_summary_row = len(self.manager.list_jobs()) > len(jobs)
+        if has_summary_row:
+            row -= 1
+        if row < 0 or row >= len(jobs):
+            self.app.bell()
+            return
+        job = jobs[row]
+        if job.get("status") != "completed":
+            self.app.push_screen(MessageScreen("Install Skipped", "Selected job is not completed yet."))
+            return
+        self._install_jobs([job])
+
+    def action_install_all_completed(self):
+        self._install_jobs(self.manager.list_jobs())
+
+    def _install_jobs(self, jobs):
+        try:
+            report = install_completed_jobs(jobs)
+        except Exception as exc:
+            self.app.push_screen(MessageScreen("Install Failed", str(exc)))
+            return
+        self.refresh_table(force=True)
+        message = self._format_install_report(report)
+        self.app.push_screen(MessageScreen("Install Complete", message))
+
+    def _maybe_auto_install(self, jobs):
+        if getattr(self, "_auto_install_running", False):
+            return
+        active_frontend_key = self._active_frontend_key()
+        ready = [
+            job
+            for job in jobs
+            if job.get("auto_install")
+            and job.get("status") == "completed"
+            and job.get("install_status") != "installing"
+            and not self._installed_for_frontend(job, active_frontend_key)
+            and not self._failed_for_frontend(job, active_frontend_key)
+        ]
+        ready = self._auto_install_batch(ready)
+        if not ready:
+            return
+        self._auto_install_running = True
+        for job in ready:
+            self.manager.update_job_fields(job["id"], install_status="installing")
+        threading.Thread(target=self._auto_install_worker, args=(ready,), daemon=True).start()
+
+    def _auto_install_worker(self, jobs):
+        try:
+            report = install_completed_jobs(jobs)
+        except Exception as exc:
+            for job in jobs:
+                self.manager.update_job_fields(
+                    job["id"],
+                    install_status="error",
+                    install_error=str(exc),
+                    install_frontend_key=self._active_frontend_key(),
+                )
+            self.app.call_from_thread(
+                self.app.push_screen,
+                MessageScreen("Auto Install Failed", str(exc)),
+            )
+        else:
+            errors = report.get("errors") or []
+            status = "error" if errors else "installed"
+            for job in jobs:
+                fields = {"install_status": status}
+                if errors:
+                    fields["install_error"] = "; ".join(str(error) for error in errors[:3])
+                    fields["install_frontend_key"] = report.get("frontend_key")
+                    fields["install_frontend"] = report.get("frontend")
+                else:
+                    fields["install_frontend_key"] = report.get("frontend_key")
+                    fields["install_frontend"] = report.get("frontend")
+                    fields["install_error"] = None
+                self.manager.update_job_fields(job["id"], **fields)
+            self.app.call_from_thread(
+                self.app.notify,
+                f"Installed {report.get('roms_installed', 0)} ROM(s) into RetroArch.",
+                severity="success" if not errors else "warning",
+            )
+        finally:
+            self._auto_install_running = False
+            self.app.call_from_thread(self.refresh_table, True)
+
+    @staticmethod
+    def _auto_install_batch(jobs):
+        if not jobs:
+            return []
+        first = jobs[0]
+        local_path = first.get("local_path")
+        if first.get("archive_member_path") and local_path:
+            same_archive = [
+                job
+                for job in jobs
+                if job.get("archive_member_path") and job.get("local_path") == local_path
+            ]
+            return same_archive[:AUTO_INSTALL_ARCHIVE_BATCH_SIZE]
+        return jobs[:AUTO_INSTALL_BATCH_SIZE]
+
+    @staticmethod
+    def _jobs_signature(jobs):
+        return tuple(
+            (
+                job.get("id"),
+                job.get("status"),
+                job.get("install_status"),
+                job.get("install_frontend_key"),
+                job.get("progress"),
+                job.get("speed_kb"),
+                job.get("peers"),
+                job.get("error"),
+            )
+            for job in jobs
+        )
+
+    def _restore_cursor(self, requested_row: int | None) -> None:
+        if not self.table.row_count:
+            return
+        requested_row = max(0, min(requested_row or 0, self.table.row_count - 1))
+        current_column = getattr(self.table, "cursor_column", 0)
+        try:
+            self.table.cursor_coordinate = (requested_row, current_column)
+        except AttributeError:
+            pass
+
+    @staticmethod
+    def _install_status(job):
+        if job.get("install_status"):
+            return str(job.get("install_status"))
+        if job.get("auto_install"):
+            return "queued"
+        return "manual"
+
+    @staticmethod
+    def _active_frontend_key() -> str | None:
+        frontends = (load_storage_config() or {}).get("frontends") or {}
+        for key, entry in frontends.items():
+            if entry.get("active"):
+                return key
+        if frontends:
+            return next(iter(frontends))
+        return None
+
+    @staticmethod
+    def _installed_for_frontend(job, frontend_key: str | None) -> bool:
+        if job.get("install_status") != "installed":
+            return False
+        return bool(frontend_key and job.get("install_frontend_key") == frontend_key)
+
+    @staticmethod
+    def _failed_for_frontend(job, frontend_key: str | None) -> bool:
+        if job.get("install_status") != "error":
+            return False
+        return bool(frontend_key and job.get("install_frontend_key") == frontend_key)
+
+    @staticmethod
+    def _format_install_report(report) -> str:
+        lines = [
+            f"Frontend: {report.get('frontend')}",
+            f"ROMs path: {report.get('roms_root')}",
+            f"BIOS path: {report.get('bios_root')}",
+            "",
+            f"Completed jobs seen: {report.get('jobs_seen', 0)}",
+            f"Space required: {DownloadManagerScreen._format_bytes(report.get('bytes_required'))}",
+            f"Space available: {DownloadManagerScreen._format_bytes(report.get('bytes_available'))}",
+            f"ROMs installed: {report.get('roms_installed', 0)}",
+            f"ROMs skipped: {report.get('roms_skipped', 0)}",
+            f"BIOS installed: {report.get('bios_installed', 0)}",
+            f"BIOS skipped: {report.get('bios_skipped', 0)}",
+        ]
+        playlists = report.get("playlists_written") or []
+        if playlists:
+            lines.append("")
+            lines.append("Playlists:")
+            lines.extend(str(path) for path in playlists)
+        errors = report.get("errors") or []
+        if errors:
+            lines.append("")
+            lines.append("Errors:")
+            lines.extend(str(error) for error in errors)
+        return "\n".join(lines)
+
     def _format_size(self, size_bytes):
+        return self._format_bytes(size_bytes)
+
+    @staticmethod
+    def _format_bytes(size_bytes):
         if size_bytes is None:
             return "?"
         try:

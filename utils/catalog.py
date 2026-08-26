@@ -3,9 +3,70 @@ import os
 import re
 from pathlib import Path
 from typing import Dict, List, Optional, Set, Tuple
+import zipfile
 
 from utils.library_sync import load_modules, rdb_json_path
 from utils.paths import console_dirs, console_cache_dir, path_prefix, PROVIDER_FILE, slugify
+
+
+DOWNLOAD_ARCHIVE_EXTENSIONS = {".zip", ".7z", ".rar"}
+
+DIRECT_ROM_EXTENSIONS = {
+    ".a26",
+    ".a52",
+    ".a78",
+    ".abs",
+    ".bin",
+    ".ccd",
+    ".cdi",
+    ".chd",
+    ".col",
+    ".cue",
+    ".cv",
+    ".dc",
+    ".fpk",
+    ".gb",
+    ".gba",
+    ".gbc",
+    ".gen",
+    ".gg",
+    ".img",
+    ".iso",
+    ".j64",
+    ".jag",
+    ".lnx",
+    ".m3u",
+    ".md",
+    ".mv",
+    ".n64",
+    ".ndd",
+    ".neo",
+    ".ngc",
+    ".ngp",
+    ".nes",
+    ".pce",
+    ".rom",
+    ".sc",
+    ".sfc",
+    ".sg",
+    ".smc",
+    ".sms",
+    ".smd",
+    ".st2",
+    ".toc",
+    ".u1",
+    ".v64",
+    ".ws",
+    ".wsc",
+    ".z64",
+}
+
+
+KNOWN_ROM_NAME_EXTENSIONS = DIRECT_ROM_EXTENSIONS | DOWNLOAD_ARCHIVE_EXTENSIONS | {
+    ".gz",
+    ".xz",
+    ".zst",
+}
 
 
 def resolve_module(manufacturer: str, console: str, guid: Optional[str] = None) -> Optional[Dict]:
@@ -26,6 +87,7 @@ def build_rom_catalog(
     console: str,
     module_guid: Optional[str] = None,
     rdb_path: str | Path | None = None,
+    expand_local_archives: bool = False,
 ) -> Dict:
     module = resolve_module(manufacturer, console, module_guid)
     module_name = module.get("name") if module else None
@@ -41,16 +103,63 @@ def build_rom_catalog(
 
     entries, entry_count = _load_rdb_entries(rdb_file)
     catalogs = _load_provider_catalogs(manufacturer, console, module_guid)
-    lookup = _build_provider_lookup(catalogs)
+    lookup = _build_provider_lookup(catalogs, expand_local_archives=expand_local_archives)
     roms = _merge_entries(entries, manufacturer, console, lookup)
 
     return {
         "roms": roms,
         "entry_count": entry_count,
         "provider_total": len(catalogs),
+        "provider_catalogs": catalogs,
         "rdb_path": str(rdb_file),
         "module": module,
     }
+
+
+def select_preferred_provider(providers: List[Dict]) -> Optional[Dict]:
+    candidates = [provider for provider in providers if _provider_has_download_source(provider)]
+    if not candidates:
+        return None
+    return min(candidates, key=_provider_download_score)
+
+
+def _provider_has_download_source(provider: Dict) -> bool:
+    rom = provider.get("rom") or {}
+    return bool(rom.get("http_url") or rom.get("torrent_url") or rom.get("torrent"))
+
+
+def _provider_download_score(provider: Dict) -> Tuple[int, int, int, str]:
+    rom = provider.get("rom") or {}
+    name = rom.get("name") or ""
+    name_lower = name.lower()
+    suffix = Path(name).suffix.lower()
+    has_http = bool(rom.get("http_url"))
+    source_type = 50
+    if rom.get("_archive_member"):
+        source_type = 30
+    elif suffix in DIRECT_ROM_EXTENSIONS:
+        source_type = 0
+    elif suffix in DOWNLOAD_ARCHIVE_EXTENSIONS:
+        source_type = 10
+    elif suffix:
+        source_type = 20
+
+    release_type = 10
+    if "smart-media-card" in name_lower:
+        release_type = 0
+    elif "cracked-raw" in name_lower or "encrypted-raw" in name_lower:
+        release_type = 20
+
+    protocol = 0 if has_http else 1
+    size = _coerce_int(rom.get("_source_bundle_size") or rom.get("size")) or 0
+    bundle = (rom.get("_source_bundle") or "").lower()
+    provider_id = str(provider.get("provider_id") or "").lower()
+    bundle_rank = 0
+    if "no_intro" in provider_id or "no-intro" in bundle or "no intro" in bundle:
+        bundle_rank = -20
+    elif "tosec-v2021" in bundle or "rvzstd" in bundle:
+        bundle_rank = 20
+    return (source_type + bundle_rank, release_type, protocol, size, name_lower)
 
 
 def _load_rdb_entries(path: Path) -> Tuple[List[Dict], int]:
@@ -59,8 +168,15 @@ def _load_rdb_entries(path: Path) -> Tuple[List[Dict], int]:
     entries = payload.get("entries")
     if not isinstance(entries, list):
         raise ValueError("RDB payload missing entries array.")
-    entry_count = payload.get("entry_count") or len(entries)
-    return entries, entry_count
+    rom_entries = [entry for entry in entries if _is_rdb_rom_entry(entry)]
+    entry_count = len(rom_entries)
+    return rom_entries, entry_count
+
+
+def _is_rdb_rom_entry(entry: Dict) -> bool:
+    if not isinstance(entry, dict):
+        return False
+    return any(entry.get(field) for field in ("name", "description", "rom_name"))
 
 
 def _load_providers_data() -> Dict:
@@ -92,11 +208,13 @@ def _resolve_provider_console(
     if module_guid:
         target = module_guid.lower()
         for name, entry in consoles.items():
-            if not isinstance(entry, dict):
-                continue
-            guid = (entry.get("libretro_guid") or entry.get("guid") or "").lower()
-            if guid and guid == target:
-                return name, entry
+            entries = entry if isinstance(entry, list) else [entry]
+            for candidate in entries:
+                if not isinstance(candidate, dict):
+                    continue
+                guid = (candidate.get("libretro_guid") or candidate.get("guid") or "").lower()
+                if guid and guid == target:
+                    return name, entry
 
     return console, None
 
@@ -112,12 +230,14 @@ def _load_provider_catalogs(
     module_guid: Optional[str] = None,
 ) -> List[Dict]:
     providers = _load_providers_data()
-    provider_console, _ = _resolve_provider_console(
+    provider_console, provider_entry = _resolve_provider_console(
         manufacturer,
         console,
         module_guid,
         providers=providers,
     )
+    if provider_entry is None:
+        return []
     base_dir = Path(console_cache_dir(manufacturer, provider_console))
     if not base_dir.is_dir():
         return []
@@ -136,6 +256,8 @@ def _load_provider_catalogs(
     catalogs: List[Dict] = []
 
     for slug_value, provider_base in provider_dirs:
+        if slug_value is not None and slug_value not in labels:
+            continue
         exports_dir = provider_base / "exports"
         if not exports_dir.is_dir():
             continue
@@ -176,12 +298,17 @@ def _load_provider_labels(
     entry = manufacturer_entry.get(console)
     if not entry and module_guid and isinstance(manufacturer_entry, dict):
         target = module_guid.lower()
-        for candidate in manufacturer_entry.values():
-            if isinstance(candidate, dict):
+        for value in manufacturer_entry.values():
+            candidates = value if isinstance(value, list) else [value]
+            for candidate in candidates:
+                if not isinstance(candidate, dict):
+                    continue
                 guid = candidate.get("libretro_guid") or candidate.get("guid")
                 if guid and guid.lower() == target:
-                    entry = candidate
+                    entry = value
                     break
+            if entry:
+                break
     labels: Dict[str, str] = {}
     if isinstance(entry, list):
         for item in entry:
@@ -217,15 +344,21 @@ def _humanize(value: Optional[str]) -> str:
     return value.replace("_", " ").title()
 
 
-def _build_provider_lookup(catalogs: List[Dict]) -> Dict[str, Dict[str, List[Dict]]]:
+def _build_provider_lookup(
+    catalogs: List[Dict],
+    *,
+    expand_local_archives: bool = False,
+) -> Dict[str, Dict[str, List[Dict]]]:
     by_md5: Dict[str, List[Dict]] = {}
+    by_sha1: Dict[str, List[Dict]] = {}
+    by_crc32: Dict[str, List[Dict]] = {}
     by_name: Dict[str, List[Dict]] = {}
 
     for catalog in catalogs:
         provider_id = catalog["id"]
         label = catalog["label"]
         metadata = catalog.get("metadata") or {}
-        for rom in catalog["roms"]:
+        for rom in _expanded_provider_roms(catalog, expand_local_archives=expand_local_archives):
             record = {
                 "provider_id": provider_id,
                 "provider_label": label,
@@ -235,56 +368,404 @@ def _build_provider_lookup(catalogs: List[Dict]) -> Dict[str, Dict[str, List[Dic
             md5 = (rom.get("md5") or "").lower()
             if md5:
                 by_md5.setdefault(md5, []).append(record)
+            sha1 = (rom.get("sha1") or "").lower()
+            if sha1:
+                by_sha1.setdefault(sha1, []).append(record)
+            crc32 = (rom.get("crc32") or rom.get("crc") or "").lower()
+            if crc32:
+                by_crc32.setdefault(crc32, []).append(record)
             for key in _name_keys(rom.get("name")):
                 by_name.setdefault(key, []).append(record)
-    return {"md5": by_md5, "name": by_name}
+    return {"md5": by_md5, "sha1": by_sha1, "crc32": by_crc32, "name": by_name}
 
 
 def _name_keys(value: Optional[str]) -> Set[str]:
     if not value:
         return set()
-    base = value
-    known_exts = {
-        ".zip",
-        ".7z",
-        ".rar",
-        ".gz",
-        ".xz",
-        ".zst",
-        ".nes",
-        ".sfc",
-        ".smc",
-        ".gba",
-        ".gbc",
-        ".gb",
-        ".bin",
-        ".iso",
-        ".img",
-        ".cdi",
-        ".cue",
-        ".chd",
-        ".rom",
-        ".a26",
-        ".sms",
-        ".gg",
-        ".md",
-        ".gen",
-        ".dc",
-        ".n64",
-        ".z64",
-    }
+    base = os.path.basename(value)
     while True:
         root, ext = os.path.splitext(base)
         if not ext:
             base = root or base
             break
-        if ext.lower() in known_exts:
+        if ext.lower() in KNOWN_ROM_NAME_EXTENSIONS:
             base = root
         else:
             base = root + ext
             break
-    key = re.sub(r"[^a-z0-9]+", "", base.lower())
-    return {key} if key else set()
+    return _normalized_name_keys(base)
+
+
+def _normalized_name_keys(value: str) -> Set[str]:
+    keys: Set[str] = set()
+    value = value.lower().strip()
+    if not value:
+        return keys
+
+    def add(text: str) -> None:
+        key = re.sub(r"[^a-z0-9]+", "", text.lower())
+        if key:
+            keys.add(key)
+
+    add(value)
+    title, parens = _split_parenthetical_name(value)
+    if title != value:
+        add(title)
+        _add_title_alias_keys(title, add)
+        region = _first_region(parens)
+        version = _first_version(parens)
+        if region:
+            add(f"{title} {region}")
+        if region and version:
+            add(f"{title} {region} {version}")
+
+    normalized_title = _normalize_trailing_article(title)
+    if normalized_title != title:
+        add(normalized_title)
+        _add_title_alias_keys(normalized_title, add)
+        region = _first_region(parens)
+        version = _first_version(parens)
+        if region:
+            add(f"{normalized_title} {region}")
+        if region and version:
+            add(f"{normalized_title} {region} {version}")
+
+    keys.update(_scene_release_keys(value))
+    return keys
+
+
+def _add_title_alias_keys(title: str, add) -> None:
+    aliases = [part.strip() for part in re.split(r"\s+~\s+", title) if part.strip()]
+    if len(aliases) > 1:
+        for alias in aliases:
+            add(alias)
+    for candidate in aliases or [title]:
+        parts = [part.strip() for part in re.split(r"\s+-\s+", candidate) if part.strip()]
+        if len(parts) > 1 and len(re.findall(r"[a-z0-9]+", parts[0].lower())) >= 3:
+            add(parts[0])
+        for idx in range(1, len(parts)):
+            suffix = " - ".join(parts[idx:])
+            if len(re.findall(r"[a-z0-9]+", suffix.lower())) >= 3:
+                add(suffix)
+        for idx in range(0, max(0, len(parts) - 2)):
+            suffix = " - ".join(parts[idx + 2:])
+            if len(re.findall(r"[a-z0-9]+", suffix.lower())) >= 3:
+                add(suffix)
+
+
+def _split_parenthetical_name(value: str) -> Tuple[str, List[str]]:
+    title = re.split(r"\s*\(", value, maxsplit=1)[0].strip()
+    parens = [match.strip() for match in re.findall(r"\(([^)]*)\)", value)]
+    return title, parens
+
+
+def _normalize_trailing_article(value: str) -> str:
+    match = re.match(r"^(.*),\s*(the|a|an)$", value.strip())
+    if not match:
+        return value
+    return f"{match.group(2)} {match.group(1)}".strip()
+
+
+def _first_region(values: List[str]) -> Optional[str]:
+    region_map = {
+        "e": "europe",
+        "eu": "europe",
+        "europe": "europe",
+        "k": "korea",
+        "kr": "korea",
+        "korea": "korea",
+        "world": "world",
+        "w": "world",
+        "u": "usa",
+        "us": "usa",
+        "usa": "usa",
+        "j": "japan",
+        "jp": "japan",
+        "japan": "japan",
+    }
+    for value in values:
+        first = re.split(r"[,/ ]+", value.lower().strip())[0]
+        region = region_map.get(first)
+        if region:
+            return region
+    return None
+
+
+def _first_version(values: List[str]) -> Optional[str]:
+    for value in values:
+        match = re.search(r"\bv(?:ersion)?\s*([0-9][0-9.]*)", value.lower())
+        if match:
+            return f"v{match.group(1)}"
+    return None
+
+
+def _provider_name_compatible(entry: Dict, provider_name: Optional[str]) -> bool:
+    if not provider_name:
+        return True
+    rdb_name = entry.get("name") or entry.get("description") or entry.get("rom_name") or ""
+    rdb_region = _region_from_name(rdb_name)
+    provider_region = _region_from_name(provider_name)
+    if rdb_region and provider_region and rdb_region != provider_region:
+        if "world" in {rdb_region, provider_region}:
+            return True
+        return False
+
+    rdb_version = _version_from_name(rdb_name)
+    provider_version = _version_from_name(provider_name)
+    if rdb_version and provider_version and rdb_version != provider_version:
+        return False
+    return True
+
+
+def _region_from_name(value: str) -> Optional[str]:
+    _, parens = _split_parenthetical_name(value.lower())
+    region = _first_region(parens)
+    if region:
+        return region
+    tokens = re.findall(r"[a-z0-9]+", re.sub(r"[-_]+", " ", value.lower()))
+    region_map = {"e": "europe", "k": "korea", "u": "usa", "j": "japan"}
+    for token in tokens:
+        if token in region_map:
+            return region_map[token]
+    return None
+
+
+def _version_from_name(value: str) -> Optional[str]:
+    _, parens = _split_parenthetical_name(value.lower())
+    version = _first_version(parens)
+    if version:
+        return re.sub(r"[^a-z0-9]+", "", version)
+    match = re.search(r"(?:^|[-_ ])v([0-9][0-9.]*)", value.lower())
+    if match:
+        return re.sub(r"[^a-z0-9]+", "", f"v{match.group(1)}")
+    return None
+
+
+def _scene_release_keys(value: str) -> Set[str]:
+    normalized = re.sub(r"[-_]+", " ", value.lower())
+    tokens = re.findall(r"[a-z0-9]+", normalized)
+    if not tokens:
+        return set()
+
+    region_map = {"e": "europe", "k": "korea", "u": "usa", "j": "japan"}
+    suffix_words = {"cracked", "encrypted", "raw", "by", "wrg", "guppy", "smart", "media", "card"}
+    keys: Set[str] = set()
+
+    def compact(parts: List[str]) -> Optional[str]:
+        key = re.sub(r"[^a-z0-9]+", "", " ".join(parts))
+        return key or None
+
+    for idx, token in enumerate(tokens):
+        if token not in region_map:
+            continue
+        title = tokens[:idx]
+        if not title:
+            continue
+        version: List[str] = []
+        for later in tokens[idx + 1:]:
+            if later in suffix_words or re.fullmatch(r"m[0-9]+", later):
+                break
+            if later.startswith("v") or version:
+                version.append(later)
+        for parts in (title, title + [region_map[token]], title + [region_map[token]] + version):
+            key = compact(parts)
+            if key:
+                keys.add(key)
+    return keys
+
+
+def _expanded_provider_roms(catalog: Dict, *, expand_local_archives: bool = False) -> List[Dict]:
+    roms = catalog.get("roms") or []
+    expanded: List[Dict] = []
+    for rom in roms:
+        if not isinstance(rom, dict):
+            continue
+        expanded.append(rom)
+        if not expand_local_archives:
+            continue
+        for inner in _local_archive_members_for_provider_rom(rom):
+            enriched = dict(inner)
+            enriched.setdefault("_source_bundle", rom.get("name"))
+            enriched.setdefault("http_url", rom.get("http_url"))
+            enriched.setdefault("torrent_url", rom.get("torrent_url") or rom.get("torrent"))
+            expanded.append(enriched)
+    return expanded
+
+
+def _local_archive_members_for_provider_rom(rom: Dict) -> List[Dict]:
+    name = rom.get("name")
+    if not name:
+        return []
+    source = _local_provider_archive(name)
+    if not source:
+        return []
+    if source.suffix.lower() == ".zip":
+        return _zip_members(source)
+    if source.suffix.lower() == ".7z":
+        return _seven_zip_members(source)
+    if source.suffix.lower() == ".rar":
+        return _rar_members(source)
+    return []
+
+
+def _local_provider_archive(name: str) -> Optional[Path]:
+    candidates = [
+        Path("downloads"),
+        Path("backend") / "downloads",
+    ]
+    for root in candidates:
+        if not root.exists():
+            continue
+        for path in root.rglob(Path(name).name):
+            if path.is_file():
+                return path
+    return None
+
+
+def _zip_members(path: Path) -> List[Dict]:
+    members: List[Dict] = []
+    try:
+        with zipfile.ZipFile(path) as archive:
+            for info in archive.infolist():
+                if info.is_dir():
+                    continue
+                payload = archive.read(info)
+                members.append(_member_record(info.filename, payload, info.CRC, source_archive=str(path)))
+                members.extend(_nested_zip_members(info.filename, payload, source_archive=str(path)))
+    except Exception:
+        return []
+    return members
+
+
+def _nested_zip_members(name: str, payload: bytes, source_archive: str) -> List[Dict]:
+    if not name.lower().endswith(".zip"):
+        return []
+    nested: List[Dict] = []
+    try:
+        import io
+
+        with zipfile.ZipFile(io.BytesIO(payload)) as archive:
+            for info in archive.infolist():
+                if info.is_dir():
+                    continue
+                nested.append(_member_record(info.filename, archive.read(info), info.CRC, source_archive=source_archive, outer_name=name))
+    except Exception:
+        return []
+    return nested
+
+
+def _rar_members(path: Path) -> List[Dict]:
+    import shutil
+    import subprocess
+    import tempfile
+
+    unar = _tool_path("unar")
+    if not unar:
+        return []
+    with tempfile.TemporaryDirectory(prefix="roms-manager-catalog-rar-") as temp_dir:
+        target = Path(temp_dir)
+        result = subprocess.run(
+            [unar, "-force-overwrite", "-output-directory", str(target), str(path)],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            env=_tool_env(unar),
+            check=False,
+        )
+        if result.returncode != 0:
+            return []
+        members: List[Dict] = []
+        for extracted in sorted(target.rglob("*")):
+            if not extracted.is_file():
+                continue
+            if extracted.suffix.lower() == ".zip":
+                members.extend(_zip_members(extracted))
+                continue
+            payload = extracted.read_bytes()
+            members.append(_member_record(extracted.name, payload, None, source_archive=str(path)))
+        shutil.rmtree(target, ignore_errors=True)
+        return members
+
+
+def _seven_zip_members(path: Path) -> List[Dict]:
+    import subprocess
+    import tempfile
+
+    seven_zip = _tool_path("7z")
+    if not seven_zip:
+        return []
+    with tempfile.TemporaryDirectory(prefix="roms-manager-catalog-7z-") as temp_dir:
+        target = Path(temp_dir)
+        result = subprocess.run(
+            [seven_zip, "x", f"-o{target}", str(path), "-y"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            check=False,
+        )
+        if result.returncode != 0:
+            return []
+        members: List[Dict] = []
+        for extracted in sorted(target.rglob("*")):
+            if not extracted.is_file():
+                continue
+            if extracted.suffix.lower() == ".zip":
+                members.extend(_zip_members(extracted))
+                continue
+            if extracted.suffix.lower() == ".7z":
+                members.extend(_seven_zip_members(extracted))
+                continue
+            payload = extracted.read_bytes()
+            members.append(_member_record(extracted.name, payload, None, source_archive=str(path)))
+        return members
+
+
+def _member_record(name: str, payload: bytes, crc32_value: Optional[int], source_archive: str, outer_name: Optional[str] = None) -> Dict:
+    import hashlib
+    import zlib
+
+    crc = crc32_value if crc32_value is not None else zlib.crc32(payload)
+    record = {
+        "name": name,
+        "size": len(payload),
+        "md5": hashlib.md5(payload).hexdigest(),
+        "sha1": hashlib.sha1(payload).hexdigest(),
+        "crc32": f"{crc & 0xffffffff:08x}",
+        "_archive_member": True,
+        "_source_archive": source_archive,
+    }
+    if outer_name:
+        record["_outer_name"] = outer_name
+    return record
+
+
+def _tool_path(name: str) -> Optional[str]:
+    import shutil
+
+    repo_local = Path(__file__).resolve().parents[1] / ".local-tools" / name / "usr" / "bin" / name
+    if repo_local.exists():
+        return str(repo_local)
+    return shutil.which(name)
+
+
+def _tool_env(tool_path: str) -> Optional[Dict[str, str]]:
+    tool = Path(tool_path)
+    try:
+        local_root = tool.parents[1]
+    except IndexError:
+        return None
+    if local_root.name != "usr":
+        return None
+    env = dict(os.environ)
+    lib_paths = [
+        str(local_root / "lib"),
+        str(local_root / "lib" / "x86_64-linux-gnu"),
+    ]
+    existing = env.get("LD_LIBRARY_PATH")
+    if existing:
+        lib_paths.append(existing)
+    env["LD_LIBRARY_PATH"] = ":".join(lib_paths)
+    return env
 
 
 def _merge_entries(
@@ -350,16 +831,43 @@ def _match_providers(entry: Dict, lookup: Dict[str, Dict[str, List[Dict]]]) -> L
         for record in lookup["md5"][md5]:
             key = (record["provider_id"], record["rom"].get("name", ""))
             if key not in seen:
-                matches.append(record)
+                matches.append(_public_provider_record(record))
+                seen.add(key)
+
+    sha1 = (entry.get("sha1") or "").lower()
+    if sha1 and sha1 in lookup["sha1"]:
+        for record in lookup["sha1"][sha1]:
+            key = (record["provider_id"], record["rom"].get("name", ""))
+            if key not in seen:
+                matches.append(_public_provider_record(record))
+                seen.add(key)
+
+    crc32 = (entry.get("crc") or entry.get("crc32") or "").lower()
+    if crc32 and crc32 in lookup["crc32"]:
+        for record in lookup["crc32"][crc32]:
+            key = (record["provider_id"], record["rom"].get("name", ""))
+            if key not in seen:
+                matches.append(_public_provider_record(record))
                 seen.add(key)
 
     for key in _candidate_name_keys(entry):
         for record in lookup["name"].get(key, []):
+            if not _provider_name_compatible(entry, record["rom"].get("name")):
+                continue
             fingerprint = (record["provider_id"], record["rom"].get("name", ""))
             if fingerprint not in seen:
-                matches.append(record)
+                matches.append(_public_provider_record(record))
                 seen.add(fingerprint)
     return matches
+
+
+def _public_provider_record(record: Dict) -> Dict:
+    public = dict(record)
+    rom = dict(public.get("rom") or {})
+    for key in ("_source_archive",):
+        rom.pop(key, None)
+    public["rom"] = rom
+    return public
 
 
 def _candidate_name_keys(entry: Dict) -> Set[str]:

@@ -177,7 +177,7 @@ class ProviderFormScreen(Screen):
         if app and hasattr(app, "notify"):
             app.notify(message, severity=severity)
         else:
-            print(f"[{severity.upper()}] {message}")
+            self.log(f"[{severity.upper()}] {message}")
 
     def _module_select_options(self) -> List[Tuple[str, str | None]]:
         modules = load_modules()

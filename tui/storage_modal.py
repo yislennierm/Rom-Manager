@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 
 from textual.app import ComposeResult
@@ -7,9 +8,11 @@ from textual.containers import Vertical
 from textual.screen import ModalScreen
 
 from .frontend_editor_screen import FrontendEditorScreen
+from data.storage.frontend_detector import merge_detected_frontends
 
-CONFIG_PATH = Path("data/storage/storage_config.json")
-DEFAULTS_PATH = Path("data/storage/frontends.json")
+DATA_DIR = Path(os.environ.get("ROMS_MANAGER_DATA_ROOT", Path(__file__).resolve().parents[1] / "data")).expanduser()
+CONFIG_PATH = DATA_DIR / "storage" / "storage_config.json"
+DEFAULTS_PATH = DATA_DIR / "storage" / "frontends.json"
 
 
 def load_config() -> dict:
@@ -39,13 +42,14 @@ class StorageModal(ModalScreen):
         ("escape", "dismiss", "Close"),
         ("enter", "edit_frontend", "Edit"),
         ("e", "edit_frontend", "Edit"),
+        ("r", "refresh_detected", "Detect"),
     ]
 
     def compose(self) -> ComposeResult:
         yield Header(show_clock=False)
         self.frontend_table = DataTable(id="frontend_table")
-        self.frontend_table.add_columns("Frontend", "ROMs Path", "BIOS Path", "Active")
-        self.status = Static("Select a frontend and press Enter to edit.", id="storage_prompt")
+        self.frontend_table.add_columns("Frontend", "Type", "ROMs Path", "BIOS Path", "Active")
+        self.status = Static("Select a frontend and press Enter to edit. Press r to detect RetroArch installs.", id="storage_prompt")
         yield Vertical(self.frontend_table, self.status, id="storage_container")
         yield Footer()
 
@@ -63,6 +67,7 @@ class StorageModal(ModalScreen):
         for key, entry in frontends.items():
             self.frontend_table.add_row(
                 entry.get("name", key),
+                entry.get("install_type", entry.get("kind", "manual")),
                 entry.get("roms_path", "—"),
                 entry.get("bios_path", "—"),
                 "✅" if entry.get("active") else "—",
@@ -75,7 +80,7 @@ class StorageModal(ModalScreen):
                 self.selected_key = self._row_keys[0]
             row_index = self._row_keys.index(self.selected_key)
             try:
-                self.frontend_table.move_cursor(row_index, 0)
+                self.frontend_table.move_cursor(row=row_index, column=0)
             except Exception:
                 pass
             entry = frontends[self.selected_key]
@@ -108,6 +113,12 @@ class StorageModal(ModalScreen):
         entry = self.config["frontends"].get(key, {})
         modal = FrontendEditorScreen(key, entry, self._persist_frontend)
         self.app.push_screen(modal)
+
+    def action_refresh_detected(self):
+        self.config, added = merge_detected_frontends(self.config)
+        save_config(self.config)
+        self.status.update(f"Detected frontends refreshed. Added {added}.")
+        self._refresh_table()
 
     def _persist_frontend(self, key: str, payload: dict):
         self.config["frontends"][key] = payload

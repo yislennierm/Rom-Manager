@@ -1,16 +1,21 @@
 import { useCallback, useEffect, useState } from 'react'
+import { apiFetch } from '../api'
 import type { ProvidersResponse } from '../types'
 
-export const useProvidersData = () => {
+export const useProvidersData = (authVersion = '') => {
   const [providerData, setProviderData] = useState<ProvidersResponse | null>(null)
   const [providerLoading, setProviderLoading] = useState(false)
   const [providerError, setProviderError] = useState<string | null>(null)
 
   const fetchProviders = useCallback(async () => {
+    if (!authVersion) {
+      setProviderData(null)
+      return undefined
+    }
     setProviderLoading(true)
     setProviderError(null)
     try {
-      const response = await fetch('/update?target=providers')
+      const response = await apiFetch('/update?target=providers')
       if (!response.ok) {
         throw new Error('Failed to load providers payload')
       }
@@ -23,11 +28,11 @@ export const useProvidersData = () => {
     } finally {
       setProviderLoading(false)
     }
-  }, [])
+  }, [authVersion])
 
   useEffect(() => {
     fetchProviders()
-  }, [fetchProviders])
+  }, [authVersion, fetchProviders])
 
   return { providerData, providerLoading, providerError, fetchProviders }
 }

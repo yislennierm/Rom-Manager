@@ -1,0 +1,240 @@
+{
+  "module": "Casio - Loopy",
+  "guid": "632b56c7-fdb2-5eff-81fc-0d9a5be9e208",
+  "source_url": "https://raw.githubusercontent.com/libretro/libretro-database/master/rdb/Casio%20-%20Loopy.rdb",
+  "entry_count": 22,
+  "fetched_at": "2026-08-06T12:30:52.748463",
+  "entries": [
+    {
+      "name": "Wanwan Aijou Monogatari (Japan)",
+      "region": "Japan",
+      "rom_name": "Wanwan Aijou Monogatari (Japan).bin",
+      "size": 2097152,
+      "crc": "10c5f568",
+      "md5": "fb86fc827b7fcd1fc457294523465377",
+      "sha1": "4a306e64f5e4743d943efb41c6deb2af4dd85974"
+    },
+    {
+      "name": "Pasocom Collection (Japan)",
+      "region": "Japan",
+      "rom_name": "Pasocom Collection (Japan).bin",
+      "size": 2097152,
+      "crc": "fe3be881",
+      "md5": "115360632fca4047348ddd3008fcb18b",
+      "sha1": "d54ad999418a31955aa4facd64360a208674531c"
+    },
+    {
+      "name": "Nigaoe Artist (Japan)",
+      "region": "Japan",
+      "rom_name": "Nigaoe Artist (Japan).bin",
+      "size": 2097152,
+      "crc": "ef1b33f3",
+      "md5": "759f03468e16bad8144ccc755edb68eb",
+      "sha1": "43103d14c39964b0d008ccd16284ffa43299c278"
+    },
+    {
+      "name": "Lupiton no Wonder Palette (Japan)",
+      "region": "Japan",
+      "rom_name": "Lupiton no Wonder Palette (Japan).bin",
+      "size": 2097152,
+      "crc": "f4662e66",
+      "md5": "8b6ea836b9d46c800821a7a1fb69056d",
+      "sha1": "b461920ac5d28f56444f0aee36dee42350b7ea9e"
+    },
+    {
+      "name": "Loopy Town no Oheya ga Hoshii! (Japan)",
+      "region": "Japan",
+      "rom_name": "Loopy Town no Oheya ga Hoshii! (Japan).bin",
+      "size": 3145728,
+      "crc": "03b4df2c",
+      "md5": "208e4d583389d8bdd6168cdc12f35a2f",
+      "sha1": "83e56a10d0e8e8352096cd9f5fe65086754aad2b"
+    },
+    {
+      "name": "Loopy Town no Oheya ga Hoshii! (Japan)",
+      "region": "Japan",
+      "rom_name": "Loopy Town no Oheya ga Hoshii! (Japan).bin",
+      "size": 3145728,
+      "crc": "352b4ae6",
+      "md5": "a9cc97fbb3df6fe41643aac805012c4d",
+      "sha1": "cda377884f3e4544c338c5625b99b68836de0543"
+    },
+    {
+      "name": "Little Romance (Japan)",
+      "region": "Japan",
+      "rom_name": "Little Romance (Japan).bin",
+      "size": 3145728,
+      "crc": "ec55c3b4",
+      "md5": "f8024a70e2a07a6bf5b49c75776d6d50",
+      "sha1": "883bd2ff0f75758ae404f6f2841b74885797d6a9"
+    },
+    {
+      "name": "Little Romance (Japan)",
+      "region": "Japan",
+      "rom_name": "Little Romance (Japan).bin",
+      "size": 3145728,
+      "crc": "550616f0",
+      "md5": "d0aef4a5f80ffe48eff3552a43f6d65e",
+      "sha1": "1792c46af96dbea9f0bb9965d53e4af8066e0fd2"
+    },
+    {
+      "name": "HARIHARI Seal Paradise (Japan)",
+      "region": "Japan",
+      "rom_name": "HARIHARI Seal Paradise (Japan).bin",
+      "size": 2097152,
+      "crc": "b82ac7f3",
+      "md5": "089d4a712481c961403c7610dc8f1659",
+      "sha1": "2dafcd6b2a50a4c38adb01641cd0c59e5214bccb"
+    },
+    {
+      "name": "Dream Change - Kogane-chan no Fashion Party (Japan)",
+      "region": "Japan",
+      "rom_name": "Dream Change - Kogane-chan no Fashion Party (Japan).bin",
+      "size": 2097152,
+      "crc": "0fb0a794",
+      "md5": "c96e79c1b0bf0f373d1eadf891492d17",
+      "sha1": "8c6176b9aeaf9094f29175b05a01958cd606c988"
+    },
+    {
+      "name": "Chakrakun no Omajinai Paradise (Japan)",
+      "region": "Japan",
+      "rom_name": "Chakrakun no Omajinai Paradise (Japan).bin",
+      "size": 2097152,
+      "crc": "955c56ea",
+      "md5": "385335631a4598759e632943e605c223",
+      "sha1": "d29f5d80a74e3a167b34e8ec4d9e33ade139a639"
+    },
+    {
+      "name": "Anime Land (Japan)",
+      "region": "Japan",
+      "rom_name": "Anime Land (Japan).bin",
+      "size": 2097152,
+      "crc": "3fd9713b",
+      "md5": "c6779a2f73e376cfb145da1a11d950b9",
+      "sha1": "4df91e02dd8456ca32e8413f537cfeb88f65d799"
+    },
+    {
+      "name": "Pasocom Collection (Japan)",
+      "genre": "Compilation",
+      "region": "Japan",
+      "rom_name": "Pasocom Collection (Japan).bin",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1996,
+      "developer": "Casio",
+      "publisher": "Casio",
+      "crc": "9cd4d282",
+      "md5": "6f400aa4e6327c7e197a9a08077962cc",
+      "sha1": "15ac5a8e71fc8371505da8368d04c9634655d1d5",
+      "serial": "XK-502"
+    },
+    {
+      "name": "Wanwan Aijou Monogatari (Japan)",
+      "genre": "Adventure",
+      "region": "Japan",
+      "rom_name": "Wanwan Aijou Monogatari (Japan).bin",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1996,
+      "developer": "Alfa System",
+      "publisher": "Casio",
+      "crc": "291ab2bc",
+      "md5": "f9da02344505a08697878dafc10ff804",
+      "sha1": "77a63cf194c5b06633e25b43916629b6f3428870",
+      "serial": "XK-501"
+    },
+    {
+      "name": "Lupiton no Wonder Palette (Japan)",
+      "genre": "Educational",
+      "region": "Japan",
+      "rom_name": "Lupiton no Wonder Palette (Japan).bin",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1996,
+      "developer": "Axes Art Amuse",
+      "publisher": "Casio",
+      "crc": "338a5af7",
+      "md5": "9956a6fc2e2050f06c5775260c3e7e70",
+      "sha1": "ddb3e2b363ef0325a1370511f3692ca47031cb46"
+    },
+    {
+      "name": "Nigaoe Artist (Japan)",
+      "genre": "Educational",
+      "region": "Japan",
+      "rom_name": "Nigaoe Artist (Japan).bin",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1996,
+      "developer": "Casio",
+      "publisher": "Casio",
+      "crc": "63d59881",
+      "md5": "39a8e58bfc42161b168f7d24e35f1249",
+      "sha1": "d2b830acf8440e4726e851514d609700375b27db",
+      "serial": "XK-404"
+    },
+    {
+      "genre": "Simulation",
+      "users": 1,
+      "releaseyear": 1996,
+      "developer": "Casio",
+      "publisher": "Casio",
+      "crc": "bae71d45"
+    },
+    {
+      "genre": "Educational",
+      "users": 1,
+      "releaseyear": 1996,
+      "developer": "Casio",
+      "publisher": "Casio",
+      "crc": "947a96c3"
+    },
+    {
+      "name": "Anime Land (Japan)",
+      "genre": "Educational",
+      "region": "Japan",
+      "rom_name": "Anime Land (Japan).bin",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1995,
+      "developer": "Casio",
+      "publisher": "Casio",
+      "crc": "f\\\u0422",
+      "md5": "637ab78234d5fb252a51c9acbd08bfd3",
+      "sha1": "8d50867aba721185560fc92bed75c92263a1da39",
+      "serial": "XK-401"
+    },
+    {
+      "name": "Dream Change - Kogane-chan no Fashion Party (Japan)",
+      "genre": "Educational",
+      "region": "Japan",
+      "rom_name": "Dream Change - Kogane-chan no Fashion Party (Japan).bin",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1995,
+      "developer": "Alfa System",
+      "publisher": "Casio",
+      "crc": "0b850185",
+      "md5": "b1b54c8a32e5fdc94652db4a4f66e094",
+      "sha1": "b5d73661ea83167d2b07516c7c66a8a85b28415b",
+      "serial": "XK-403 "
+    },
+    {
+      "name": "HARIHARI Seal Paradise (Japan)",
+      "genre": "Various",
+      "region": "Japan",
+      "rom_name": "HARIHARI Seal Paradise (Japan).bin",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1995,
+      "developer": "Casio",
+      "publisher": "Casio",
+      "crc": "39a417d6",
+      "md5": "d1908befc05c1883746a90f9f76dad37",
+      "sha1": "1adbd97181b61a1a65e21976b0146e9dd80fbdbf",
+      "serial": "XK-402"
+    },
+    {
+      "count": 21
+    }
+  ]
+}

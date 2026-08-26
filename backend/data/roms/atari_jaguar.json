@@ -1,0 +1,5864 @@
+{
+  "module": "Atari - Jaguar",
+  "guid": "5565f7db-0d0c-55fe-aa7e-fe719791d1b9",
+  "dataset_role": "master_rom_list",
+  "source_kind": "libretro_rdb",
+  "source_label": "Libretro database RDB",
+  "source_url": "https://raw.githubusercontent.com/libretro/libretro-database/master/rdb/Atari%20-%20Jaguar.rdb",
+  "entry_count": 606,
+  "fetched_at": "2026-08-03T20:22:09.741520",
+  "entries": [
+    {
+      "name": "UWOL - Quest for Money (World) (Silly Venture 2017)",
+      "rom_name": "UWOL - Quest for Money (World) (Silly Venture 2017) (Aftermarket) (Unl).cof",
+      "size": 3958413,
+      "crc": "d1c59dbf",
+      "md5": "b3b3943df58ef45e13d81e0d421081a4",
+      "sha1": "bd59c35644cd4ad72fea14526936dd2b0be3d898"
+    },
+    {
+      "name": "UWOL - Quest for Money (World)",
+      "rom_name": "UWOL - Quest for Money (World) (Aftermarket) (Unl).cof",
+      "size": 4056341,
+      "crc": "8e301d07",
+      "md5": "f1877a01a4e230e07f0d88a9c2f1973c",
+      "sha1": "0852bc2696743d5753e8bd3ab2390d5f5889a504"
+    },
+    {
+      "name": "Tube2020 (World) (RC2)",
+      "rom_name": "Tube2020 (World) (RC2) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "9fa2eb32",
+      "md5": "e78571169fdf62a5327b6699632fcb6a",
+      "sha1": "753512cece95b65b878e1171eba7ba9a15495122"
+    },
+    {
+      "name": "Tube2020 (World) (RC2)",
+      "rom_name": "Tube2020 (World) (RC2) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "f4852dd6",
+      "md5": "0045489053031da5d70222caa5d5537a",
+      "sha1": "d978aaa515ca3eeba5b2797bf95f0bcc47301913"
+    },
+    {
+      "name": "Tube2020 (World) (RC2)",
+      "rom_name": "Tube2020 (World) (RC2) (Aftermarket) (Unl).cof",
+      "size": 355020,
+      "crc": "5367b1f7",
+      "md5": "b2bfd719c694ed6767a64a2a86126602",
+      "sha1": "05f1b6f5ff107e4aa286dcd3c0c834e5a71152a7"
+    },
+    {
+      "name": "Tube2020 (World) (RC1)",
+      "rom_name": "Tube2020 (World) (RC1) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "~vvx",
+      "md5": "7ad06183dcfee430710764048b4acc51",
+      "sha1": "f112504126527a346e5f7824e6f9be31094cf83a"
+    },
+    {
+      "name": "Tube2020 (World) (RC1)",
+      "rom_name": "Tube2020 (World) (RC1) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "1551b09c",
+      "md5": "dda98e31467138aa6b66ab5508fa014a",
+      "sha1": "26bc505a3052f1ed1df02ea8d3d9979c2896bb31"
+    },
+    {
+      "name": "Tube2020 (World) (RC1)",
+      "rom_name": "Tube2020 (World) (RC1) (Aftermarket) (Unl).cof",
+      "size": 354708,
+      "crc": "66906b28",
+      "md5": "34f7c7c197083fe69eed29aa60441e09",
+      "sha1": "2af3a6ccd3483541409621d1f8f17b562c32daa0"
+    },
+    {
+      "name": "Tube - Second Edition (World)",
+      "rom_name": "Tube - Second Edition (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "17424387",
+      "md5": "8b51346544b23be4a62fe0ba92c406d5",
+      "sha1": "5b0f129714269d5ce427b45668bb1d24667099cb"
+    },
+    {
+      "name": "Tube - Second Edition (World)",
+      "rom_name": "Tube - Second Edition (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "7c658563",
+      "md5": "db945f405eec374faea25a6802e91cb0",
+      "sha1": "5155c3b48914b9ddc80fe5884cfff340d33e22f1"
+    },
+    {
+      "name": "Tube - Second Edition (World)",
+      "rom_name": "Tube - Second Edition (World) (Aftermarket) (Unl).cof",
+      "size": 1038861,
+      "crc": "8a3e7fe5",
+      "md5": "653c4a6317bf0deaea77c62facfcc39b",
+      "sha1": "f234cea031dd4f724a86da703c9e95926d0d798b"
+    },
+    {
+      "name": "Tube (World)",
+      "rom_name": "Tube (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "ebfd345e",
+      "md5": "67b422982d2cacb849e07cca79752a46",
+      "sha1": "1a531b8b1ee218acc303163a58127c8db4efcf9e"
+    },
+    {
+      "name": "Tube (World)",
+      "rom_name": "Tube (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "80daf2ba",
+      "md5": "a822557a1c0d8e818285302252c7e168",
+      "sha1": "c9237d345b5cf98591294a378f859c1dda454a37"
+    },
+    {
+      "name": "Tube (World)",
+      "rom_name": "Tube (World) (Aftermarket) (Unl).cof",
+      "size": 604708,
+      "crc": "c312ede5",
+      "md5": "f34ac8937cdf8e0b9a1a1c1923273d0d",
+      "sha1": "4411afa64d6f6282a37a2931066ad01a93985bc1"
+    },
+    {
+      "name": "Teenage Mutant Hero Turtles (World)",
+      "rom_name": "Teenage Mutant Hero Turtles (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "21056d83",
+      "md5": "13d63907613cb40ab64a679abe5334b0",
+      "sha1": "0632a7e3ec3d9e874edc65c3f2e91656d25d232d"
+    },
+    {
+      "name": "Teenage Mutant Hero Turtles (World)",
+      "rom_name": "Teenage Mutant Hero Turtles (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "59709b62",
+      "md5": "82109da956bc4e956159d20e01cab0b9",
+      "sha1": "b516ebff0e6a0223377f69c00a761a85ce303f29"
+    },
+    {
+      "name": "SuperFly DX (World) (v1.1)",
+      "rom_name": "SuperFly DX (World) (v1.1) (Aftermarket) (Unl).rom",
+      "size": 1564672,
+      "crc": "20e8a94e",
+      "md5": "266c97e7cd3c09af24a6a63b22b340db",
+      "sha1": "41076283cb9e0fc92e197cb763cb9efcfe303fcd"
+    },
+    {
+      "name": "SuperFly DX (World) (v1.1)",
+      "rom_name": "SuperFly DX (World) (v1.1) (Aftermarket) (Unl).j64",
+      "size": 1572864,
+      "crc": "PL\u001ds",
+      "md5": "f6e38956d245a4f4e8c3b08349422fc8",
+      "sha1": "0e8ad01a48986cf239045db5c7498bd598e56917"
+    },
+    {
+      "name": "SuperFly DX (World)",
+      "rom_name": "SuperFly DX (World) (Aftermarket) (Unl).rom",
+      "size": 1564672,
+      "crc": "f0b7f77a",
+      "md5": "3e7e762522da04d349c5297574ede955",
+      "sha1": "aa88d4d5452d99a64063b726acd024eb76c335ea"
+    },
+    {
+      "name": "SuperFly DX (World)",
+      "rom_name": "SuperFly DX (World) (Aftermarket) (Unl).j64",
+      "size": 1572864,
+      "crc": "80134347",
+      "md5": "d48b5c0dd67c29d1d669d80e4153e23b",
+      "sha1": "839bfca9559c8e40f40d8e1f202043cf5aff6bcf"
+    },
+    {
+      "name": "Stunt Car Racer (World)",
+      "rom_name": "Stunt Car Racer (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "f460f425",
+      "md5": "a230820e015e3ca9e1d8441615c7ec49",
+      "sha1": "d793a22b657be3ca14c1e0632eb591f08ec7f2b2"
+    },
+    {
+      "name": "Stunt Car Racer (World)",
+      "rom_name": "Stunt Car Racer (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "9f4732c1",
+      "md5": "e3a31551a7b36849f2e2deb11795e741",
+      "sha1": "42bb0e497d942f5e15646f6fe690b1912ff9ddb1"
+    },
+    {
+      "name": "Strider (World)",
+      "rom_name": "Strider (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "36a2a512",
+      "md5": "cb002f59eaa50f72cd26439b906c1642",
+      "sha1": "b0dfa7666bd2f8982058dc9085880cba79202c9f"
+    },
+    {
+      "name": "Strider (World)",
+      "rom_name": "Strider (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "4ed753f3",
+      "md5": "2c534335acc0150249ce958b6ed71573",
+      "sha1": "44646fb27ac9ae27f741e15c6c40fda38b0045ff"
+    },
+    {
+      "name": "Star Wars - The Empire Strikes Back (World)",
+      "rom_name": "Star Wars - The Empire Strikes Back (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "5b66ce11",
+      "md5": "84801775df087198c12b2b2b0dde8f53",
+      "sha1": "f46910253e429e00a8dd7414f7cece24e03e213d"
+    },
+    {
+      "name": "Star Wars - The Empire Strikes Back (World)",
+      "rom_name": "Star Wars - The Empire Strikes Back (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "231338f0",
+      "md5": "d658d83ee457fbe34ea20550bedbd693",
+      "sha1": "acd95ec03a036b80f0acb64252ac6ca79bfac724"
+    },
+    {
+      "name": "Star Wars - Return of the Jedi (World)",
+      "rom_name": "Star Wars - Return of the Jedi (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "XT\t\r",
+      "md5": "28dabeee786f58adf982a5bf184ddcd9",
+      "sha1": "70fa8dc964ba2c8b15ad89c99dd64106533ed32b"
+    },
+    {
+      "name": "Star Wars - Return of the Jedi (World)",
+      "rom_name": "Star Wars - Return of the Jedi (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "2021ffec",
+      "md5": "37146a9c45bf9d821dae1d1ff11e0fdc",
+      "sha1": "b8c687b0fcb49251cd5e99329ec25972e88032ee"
+    },
+    {
+      "name": "Star Wars (World)",
+      "rom_name": "Star Wars (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "d0499b8f",
+      "md5": "c8ff10d60297b9f8848838e535a6de5a",
+      "sha1": "7d8297a25694a093fef00c7ae5f6af71d2240805"
+    },
+    {
+      "name": "Star Wars (World)",
+      "rom_name": "Star Wars (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "a83c6d6e",
+      "md5": "600746edafc86d9f5636d0b1de21005b",
+      "sha1": "b3ec4f52214ca08400b2633749b012e6e42e4715"
+    },
+    {
+      "name": "Solomon's Key (World)",
+      "rom_name": "Solomon's Key (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "f99124e9",
+      "md5": "eddb4b5f763a648b8f6d3d7b534b4429",
+      "sha1": "2ccc94f5df2ac4edabd34c260b0cde5f5793d980"
+    },
+    {
+      "name": "Solomon's Key (World)",
+      "rom_name": "Solomon's Key (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "0123b455",
+      "md5": "1741996558f0a7016ee88187c2e1e626",
+      "sha1": "9662968b16c2c3e8b6a5061321acc21ba848dc3e"
+    },
+    {
+      "name": "Snowman, The (World)",
+      "rom_name": "Snowman, The (World) (Aftermarket) (Unl).rom",
+      "size": 16769024,
+      "crc": "c7c8b197",
+      "md5": "2c1b415484c0d4b544e697b7f5c01e9a",
+      "sha1": "e75e00f880baf0a64863afe931acf4b4c72a1b58"
+    },
+    {
+      "name": "Snowman, The (World)",
+      "rom_name": "Snowman, The (World) (Aftermarket) (Unl).j64",
+      "size": 16777216,
+      "crc": "e71b4296",
+      "md5": "8a02016a4e8875833ce38a5ba1c2eddb",
+      "sha1": "6e52a8a8a376d3746921eb550e188810118cac00"
+    },
+    {
+      "name": "SlipStream (World) (Proto)",
+      "rom_name": "SlipStream (World) (Proto) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "fed913c3",
+      "md5": "654dcf23bf3d1a0af71138b2055b3239",
+      "sha1": "e78836b7081f189107fff1e5ea8674e12408b550"
+    },
+    {
+      "name": "SlipStream (World) (Proto)",
+      "rom_name": "SlipStream (World) (Proto) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "066b837f",
+      "md5": "e7dbbcd803e9ef9bc3862d7ed2fd8113",
+      "sha1": "10621acfe8d6157866c81a5cbb4b64e54d728900"
+    },
+    {
+      "name": "Slam Racer (World) (Proto 1)",
+      "rom_name": "Slam Racer (World) (Proto 1) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "69716fdd",
+      "md5": "6ba714790bd7e3955e8ac2f4cc8a6589",
+      "sha1": "3146b4c5de345280095ff7e224158312bc21be8b"
+    },
+    {
+      "name": "Slam Racer (World) (Proto 1)",
+      "rom_name": "Slam Racer (World) (Proto 1) (Aftermarket) (Unl).cof",
+      "size": 2097152,
+      "crc": "91c3ff61",
+      "md5": "90412784d2686c4f5758b65ca0c0563c",
+      "sha1": "792d54b0591a964a73bdb52511e0bded291f4092"
+    },
+    {
+      "name": "Shoot'em up (World)",
+      "rom_name": "Shoot'em up (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "2f7ab678",
+      "md5": "2a432ae949339538c2af8303bc42d32d",
+      "sha1": "2d747e5aaf13a71333da2b4b45f6e25998b4de5a"
+    },
+    {
+      "name": "Shoot'em up (World)",
+      "rom_name": "Shoot'em up (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "445d709c",
+      "md5": "a6d66afbd891df3abe435d5f008f694a",
+      "sha1": "2cd449f708011e3781ccf7c77d390542c6ebc2e4"
+    },
+    {
+      "name": "Shoot'em up (World)",
+      "rom_name": "Shoot'em up (World) (Aftermarket) (Unl).cof",
+      "size": 257348,
+      "crc": "1a81e2ff",
+      "md5": "4a06bfdb3026ce517ac189109b1468d9",
+      "sha1": "d7c15bbd27e8b6548a2a23dca72b9c970537db6c"
+    },
+    {
+      "name": "S.p.a.c.e. (World) (Demo 2)",
+      "rom_name": "S.p.a.c.e. (World) (Demo 2) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "cf52766e",
+      "md5": "ae3b8884ac9eb0a079983b8c7b2e3350",
+      "sha1": "f7aa173b897caa5979e52c00717c5cdae12d9632"
+    },
+    {
+      "name": "S.p.a.c.e. (World) (Demo 2)",
+      "rom_name": "S.p.a.c.e. (World) (Demo 2) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "37e0e6d2",
+      "md5": "e0a670fd6bb45ee5f5c6dcd98b82727f",
+      "sha1": "df9e5ab5f035766eb5c60e6eeb8b0062ad3228d4"
+    },
+    {
+      "name": "S.p.a.c.e. (World) (Demo 1)",
+      "rom_name": "S.p.a.c.e. (World) (Demo 1) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "686aa140",
+      "md5": "47d99f7f0815eeaf2a60e25cbacafeab",
+      "sha1": "60be48576cb63f408d291bb063b5512fbf5a65c1"
+    },
+    {
+      "name": "S.p.a.c.e. (World) (Demo 1)",
+      "rom_name": "S.p.a.c.e. (World) (Demo 1) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "90d831fc",
+      "md5": "868a1ed7f39bc63b6e339dbaf81be881",
+      "sha1": "1bc36cf80fb60df78eb100fda0bad9bb9b7d7ef9"
+    },
+    {
+      "name": "Rocks Off! (World)",
+      "rom_name": "Rocks Off! (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "5bebc1bf",
+      "md5": "f1e35e7231151720feb3cc2bd84099dc",
+      "sha1": "9677b9e3c9080f9d49dc45eee8d3c552327e4429"
+    },
+    {
+      "name": "Rocks Off! (World)",
+      "rom_name": "Rocks Off! (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "1f86f163",
+      "md5": "830f354d8cadad9de76287d3908de52d",
+      "sha1": "2b0dec06ade5b056478ccafe8d86e17d7389fc88"
+    },
+    {
+      "name": "Rings (World) (RC3)",
+      "rom_name": "Rings (World) (RC3) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "88c05650",
+      "md5": "b081832d2ee7dcff371bc98d6377b220",
+      "sha1": "5d57931c5c2df3cb63f7a88e3efeed408466e62d"
+    },
+    {
+      "name": "Rings (World) (RC3)",
+      "rom_name": "Rings (World) (RC3) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "e3e790b4",
+      "md5": "fb94173b9e9d0c8f64dbdbf0dda61a7c",
+      "sha1": "a593bbc16b2051ff083a762e94a22f4319745e43"
+    },
+    {
+      "name": "Rings (World) (RC3)",
+      "rom_name": "Rings (World) (RC3) (Aftermarket) (Unl).cof",
+      "size": 1017923,
+      "crc": "e45b36e2",
+      "md5": "25e7299ac24363ebf76a33604a466ba2",
+      "sha1": "7739a822b77f1e96907a0a95be41dfb056b122bb"
+    },
+    {
+      "name": "Rick Dangerous 2 (World)",
+      "rom_name": "Rick Dangerous 2 (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "bbbc0536",
+      "md5": "ffda30ae3e204df6504e297314e9f759",
+      "sha1": "7b024723093f7e51e1633aadeb9ebcdcca45bc82"
+    },
+    {
+      "name": "Rick Dangerous 2 (World)",
+      "rom_name": "Rick Dangerous 2 (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "c3c9f3d7",
+      "md5": "d8e6465aef4b6ff31ee11ba68dc6e7eb",
+      "sha1": "54702de457a36dd7d643abf3792f6f6da90908fd"
+    },
+    {
+      "name": "Rick Dangerous (World)",
+      "rom_name": "Rick Dangerous (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "de75add9",
+      "md5": "33259ee964d7603876b8c638d1849de0",
+      "sha1": "be78811ce078c19e07feca8d46db6e0296477c08"
+    },
+    {
+      "name": "Rick Dangerous (World)",
+      "rom_name": "Rick Dangerous (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "a6005b38",
+      "md5": "f532ddafb38566312f07dafac761e735",
+      "sha1": "e03987dd7389d4a57efe43346548cd08129884ea"
+    },
+    {
+      "name": "Rebooteroids (World) (RC1.1)",
+      "rom_name": "Rebooteroids (World) (RC1.1) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "901fe669",
+      "md5": "0c6c9097f314500ac75160e235e57d0c",
+      "sha1": "262ee807c0781f539ae7c039714f7c4d2695e6d5"
+    },
+    {
+      "name": "Rebooteroids (World) (RC1.1)",
+      "rom_name": "Rebooteroids (World) (RC1.1) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "e86a1088",
+      "md5": "89eec3bb4924426081a6d760b26459ec",
+      "sha1": "d4aae1e0fd82dcb0219f4840d8ede32af2092e0d"
+    },
+    {
+      "name": "Rebooteroids (World) (Proto)",
+      "rom_name": "Rebooteroids (World) (Proto) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "0f887a05",
+      "md5": "9b4d80554eb62757443b35ee07c3238d",
+      "sha1": "34bb00c32c46ceb2275bb1b4ea705f3d7c9dcee3"
+    },
+    {
+      "name": "Rebooteroids (World) (Proto)",
+      "rom_name": "Rebooteroids (World) (Proto) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "77fd8ce4",
+      "md5": "07df0b5ec87a21edee25781be83bd259",
+      "sha1": "045dc50f622495d123b501b637a47a9788fd7f1a"
+    },
+    {
+      "name": "Rampage (World)",
+      "rom_name": "Rampage (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "696a3dfd",
+      "md5": "600d1b077bffe741da17090287e53a7e",
+      "sha1": "39926c49806e3e540cf51f9305e4154aeec7ea33"
+    },
+    {
+      "name": "Rampage (World)",
+      "rom_name": "Rampage (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "111fcb1c",
+      "md5": "ff045c66ae22d16d7f95dc4ce024ed9a",
+      "sha1": "836b81565ef56cd6ed936672ab5cc6322245a4d5"
+    },
+    {
+      "name": "R-Type II (World)",
+      "rom_name": "R-Type II (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "8b136d39",
+      "md5": "15886a04ccfab966df7d004fa977b23c",
+      "sha1": "81f5fe2e9ae80db43a6f964f63c379e08637f091"
+    },
+    {
+      "name": "R-Type II (World)",
+      "rom_name": "R-Type II (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "f3669bd8",
+      "md5": "56da0ada3fd6e021ff0561ad118b3a71",
+      "sha1": "3982d3883c4a936dd7cf2c6d38c5ae80fde3649c"
+    },
+    {
+      "name": "R-Type (World)",
+      "rom_name": "R-Type (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "22c68bc4",
+      "md5": "c8726c4041f80754eb60ac70545b3d3c",
+      "sha1": "f2d187bb4269dea281260e9470523b04335793b8"
+    },
+    {
+      "name": "R-Type (World)",
+      "rom_name": "R-Type (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "5ab37d25",
+      "md5": "a07ae31ce911c32d10854dec8952fc4c",
+      "sha1": "e9bd19ce5a00e3f3ca1dca0042ac818df6959aa3"
+    },
+    {
+      "name": "Quest, The (World)",
+      "rom_name": "Quest, The (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "597dd7dc",
+      "md5": "e39c9912fbddbb9c8f31ec5acda60c68",
+      "sha1": "2cb4b9ffa0b8754b00e32a0c72fd289b171d9570"
+    },
+    {
+      "name": "Quest, The (World)",
+      "rom_name": "Quest, The (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "2Z\u00118",
+      "md5": "2d56724891e3905633531e30c1997410",
+      "sha1": "c66daa9ec93ab72056224308b471bfd2e7b43d5e"
+    },
+    {
+      "name": "Quest, The (World)",
+      "rom_name": "Quest, The (World) (Aftermarket) (Unl).abs",
+      "size": 1029486,
+      "crc": "53bf7391",
+      "md5": "a7f5d64fafddfda0ed6cb647b71a418a",
+      "sha1": "14b9d764b267120d00e46aa12c58042ae1cacd08"
+    },
+    {
+      "name": "Passing Shot (World)",
+      "rom_name": "Passing Shot (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "896d3839",
+      "md5": "8cdab6414ec917ab166a79b5f71db113",
+      "sha1": "2fabb1591ef84bc8a6b56d666c642abcb53f5294"
+    },
+    {
+      "name": "Passing Shot (World)",
+      "rom_name": "Passing Shot (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "71dfa885",
+      "md5": "3f01d98abbf9db47e67bbe23dc3fb10f",
+      "sha1": "af5b48d14d1f607e9bda8641ea57724cdf76bf37"
+    },
+    {
+      "name": "Painter (World)",
+      "rom_name": "Painter (World) (1995-12-29) (Unl).rom",
+      "size": 1040384,
+      "releasemonth": 12,
+      "releaseyear": 1995,
+      "crc": "34b93790",
+      "md5": "8cee8cc8fc2a9c539531fa276859eb40",
+      "sha1": "f852b9a0b4e547b060c99618e6a51adb99de6a9b"
+    },
+    {
+      "name": "Painter (World)",
+      "rom_name": "Painter (World) (1995-12-29) (Unl).j64",
+      "size": 1048576,
+      "releasemonth": 12,
+      "releaseyear": 1995,
+      "crc": "5f9ef174",
+      "md5": "4442bc38c0c40ca91ef05bea8d3d3801",
+      "sha1": "d7dcb3b07dcf586cdae87443322fa1e672185c89"
+    },
+    {
+      "name": "Outrun (World) (v1.1)",
+      "rom_name": "Outrun (World) (v1.1) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "a7b78ae7",
+      "md5": "8c67eb24f22dccd5d4ef802c8a6a3317",
+      "sha1": "fdbdcbdbc00b1f59a6610f10d9ee7adb8d7cc181"
+    },
+    {
+      "name": "Outrun (World) (v1.1)",
+      "rom_name": "Outrun (World) (v1.1) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "dfc27c06",
+      "md5": "ac8c1bcd0a0b2bbd046255504c4a4ef6",
+      "sha1": "b74bd28b98faa7c5630aa5d643a3f24c9ddc9c54"
+    },
+    {
+      "name": "Outrun (World)",
+      "rom_name": "Outrun (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "5008e17b",
+      "md5": "c50d61a8e18cd25734e08646bfe3f239",
+      "sha1": "a1530a373f0d6e2b4e23770ff5c4aef1e1330bc5"
+    },
+    {
+      "name": "Outrun (World)",
+      "rom_name": "Outrun (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "287d179a",
+      "md5": "ab5359f85ba9a1a6bd72fa3cdcf1be92",
+      "sha1": "6fd4117c248355486989a7962c53cd0940da05af"
+    },
+    {
+      "name": "Orion_'s Jaguar Collection (World)",
+      "rom_name": "Orion_'s Jaguar Collection (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "1a37b0c1",
+      "md5": "d39b299a630f6721f588fef194e9dbdd",
+      "sha1": "df236e11c9244679562e6537d89f6e3a6a01579e"
+    },
+    {
+      "name": "Orion_'s Jaguar Collection (World)",
+      "rom_name": "Orion_'s Jaguar Collection (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "bBF ",
+      "md5": "59e267f9a8946b6c61c133a9bda9d88a",
+      "sha1": "e31d06084757422af129e0df87dd1167f86bbcef"
+    },
+    {
+      "name": "Operation Thunderbolt (World) (v1.1)",
+      "rom_name": "Operation Thunderbolt (World) (v1.1) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "995c1cfa",
+      "md5": "9e8174ea9362b237879b2fbbe5bd318d",
+      "sha1": "298a55247e4e05d454b906925a860b2660e0b721"
+    },
+    {
+      "name": "Operation Thunderbolt (World) (v1.1)",
+      "rom_name": "Operation Thunderbolt (World) (v1.1) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "e129ea1b",
+      "md5": "a82cc821df9e91bc022b51a5006e5971",
+      "sha1": "b97f550f41aa738371e7c2aeec9e2b9eacedf841"
+    },
+    {
+      "name": "Operation Thunderbolt (World)",
+      "rom_name": "Operation Thunderbolt (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "7eff17d4",
+      "md5": "fa81f3b01486ebf0e685d8d1ae34375d",
+      "sha1": "367375945e983ad5fe00d4dc868afdb4b0e3ebc5"
+    },
+    {
+      "name": "Operation Thunderbolt (World)",
+      "rom_name": "Operation Thunderbolt (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "068ae135",
+      "md5": "f8511181062500db4e1eff7f282a224c",
+      "sha1": "dab3edc17d549b3704117c1cc9b516c5c78cd6a0"
+    },
+    {
+      "name": "Ninja Mission (World)",
+      "rom_name": "Ninja Mission (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "011de7fd",
+      "md5": "afa0d2f847c3f20b87d7dac695298170",
+      "sha1": "31c4ee91efe9fdcd9984a2444f716916b0e27ef4"
+    },
+    {
+      "name": "Ninja Mission (World)",
+      "rom_name": "Ninja Mission (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "f9af7741",
+      "md5": "1b416cca789b94705bc033319ab96c38",
+      "sha1": "e02841f1c3ffa6a7ad1ac4c72ad142be5df95ae9"
+    },
+    {
+      "name": "Ninja Mission (World)",
+      "rom_name": "Ninja Mission (World) (Aftermarket) (Unl).abs",
+      "size": 1308224,
+      "crc": "67620398",
+      "md5": "c7792553ededcdde1742194d0b3e8c0f",
+      "sha1": "671823c68f88222bfb5bcfcec4763a65baab473a"
+    },
+    {
+      "name": "Native (World) (Proto)",
+      "rom_name": "Native (World) (Proto) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "5fa97ba0",
+      "md5": "ae4bbf477374e1b9226256e6b8646d8b",
+      "sha1": "d121f10675524e514730e213bd71ac8c7a086b78"
+    },
+    {
+      "name": "Native (World) (Proto)",
+      "rom_name": "Native (World) (Proto) (Aftermarket) (Unl).jag",
+      "size": 1097300,
+      "crc": "b5bdffa5",
+      "md5": "85f09fbd5c0ddbf78f9a49412163fd5a",
+      "sha1": "6eee51569909cdb4aad2eb996ae9a72a7c75b22c"
+    },
+    {
+      "name": "Native (World) (Proto)",
+      "rom_name": "Native (World) (Proto) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "a71beb1c",
+      "md5": "ce24c528ae749b757d920b05ded4afff",
+      "sha1": "e63592115e3e313cdaa3ab7b7d7190f9de435cf3"
+    },
+    {
+      "name": "Mr. Heli (World)",
+      "rom_name": "Mr. Heli (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "8568e02b",
+      "md5": "2347c88e2807b0685dc1fe264e26c686",
+      "sha1": "5985908e8abf957094a1a7eed12fe4b1de1fc455"
+    },
+    {
+      "name": "Mr. Heli (World)",
+      "rom_name": "Mr. Heli (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "7dda7097",
+      "md5": "c6ed273689c690d5ff8d5ad4e922a076",
+      "sha1": "fdae6ac3b40a644dccdac02de8591e703323cb75"
+    },
+    {
+      "name": "Moon Patrol (World)",
+      "rom_name": "Moon Patrol (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "7e880ec9",
+      "md5": "e23e668ac415fa71a4df9e80fb1ce2ca",
+      "sha1": "bf3041ba0ab8a33d6296ab3da0bdf0b8502efb36"
+    },
+    {
+      "name": "Moon Patrol (World)",
+      "rom_name": "Moon Patrol (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "15afc82d",
+      "md5": "8aebfedd2ae87ed4a931b8c116c7484b",
+      "sha1": "ca1dfd71fb8636f60958e06e5c2392838f5d7594"
+    },
+    {
+      "name": "Moon Patrol (World)",
+      "rom_name": "Moon Patrol (World) (Aftermarket) (Unl).abs",
+      "size": 914376,
+      "crc": "f0278697",
+      "md5": "35e4d81a9492fc94d47d091864876bcb",
+      "sha1": "b57d90c710646f0d9a5bf5652507e49c2438ba14"
+    },
+    {
+      "name": "Midnight Resistance (World)",
+      "rom_name": "Midnight Resistance (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "6e126691",
+      "md5": "c9d4b85a77f56e528faf1aa4f5844791",
+      "sha1": "4b63ece1041ee465f4d70706391832845a7663d4"
+    },
+    {
+      "name": "Midnight Resistance (World)",
+      "rom_name": "Midnight Resistance (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "16679070",
+      "md5": "ec2d3ccf54033aa95a1aa91c7e64c909",
+      "sha1": "3030afd884893af71bc6cfa11b927801ee7ef6e4"
+    },
+    {
+      "name": "Martian Attack (World) (JagCode 2007)",
+      "rom_name": "Martian Attack (World) (JagCode 2007) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "ef1694c9",
+      "md5": "b748a6affb7f9fbf60f03d48be80ac01",
+      "sha1": "6744bf547e9d39fcca0b3ff184f3f4bb8cf3d6e8"
+    },
+    {
+      "name": "Martian Attack (World) (JagCode 2007)",
+      "rom_name": "Martian Attack (World) (JagCode 2007) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "8431522d",
+      "md5": "5d3e832c278d56d900b0c6f49e54e50d",
+      "sha1": "a4475bb8822ad63301a64313482f72218b8b47e1"
+    },
+    {
+      "name": "Martian Attack (World) (JagCode 2007)",
+      "rom_name": "Martian Attack (World) (JagCode 2007) (Aftermarket) (Unl).cof",
+      "size": 1012826,
+      "crc": "dc582985",
+      "md5": "b4b039348c5ad83761824865e4419ff8",
+      "sha1": "806a9d7574a1c763b92e1b6dde3ec695f8cb5fe9"
+    },
+    {
+      "name": "Martian Attack (World)",
+      "rom_name": "Martian Attack (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "014163e3",
+      "md5": "36e3f9cb1c3c724c0d28165ffc1d5409",
+      "sha1": "0b2bc2c1668394538fa7502fb0e0d183ace252eb"
+    },
+    {
+      "name": "Martian Attack (World)",
+      "rom_name": "Martian Attack (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "6a66a507",
+      "md5": "6952ea787d7002efc46353a6f5afca1c",
+      "sha1": "093451c6485b17834fce9feb03687f8c77b1751c"
+    },
+    {
+      "name": "Martian Attack (World)",
+      "rom_name": "Martian Attack (World) (Aftermarket) (Unl).cof",
+      "size": 1012905,
+      "crc": "f2e31ea7",
+      "md5": "589bcfe2e36409ed5722815d82b71305",
+      "sha1": "9979cf85d3a83f57df521f156c3ea8446985a77b"
+    },
+    {
+      "name": "Mad Bodies (World) (Proto)",
+      "rom_name": "Mad Bodies (World) (Proto) (2009-01-17) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "releasemonth": 1,
+      "releaseyear": 2009,
+      "crc": "e73e67a2",
+      "md5": "fb7cbbda44e9acaac38ee278e7ab4eb3",
+      "sha1": "40787278cbcdeda00c20ad09ce9edb83c22304b7"
+    },
+    {
+      "name": "Mad Bodies (World) (Proto)",
+      "rom_name": "Mad Bodies (World) (Proto) (2009-01-17) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "releasemonth": 1,
+      "releaseyear": 2009,
+      "crc": "a7e01fef",
+      "md5": "0a2ffc9d5e196b62cbc32c983ca3a7d9",
+      "sha1": "104476a48d8705f78b95eb73cce967aca8239599"
+    },
+    {
+      "name": "Laby sur Therouanne (World)",
+      "rom_name": "Laby sur Therouanne (World) (Aftermarket) (Unl).abs",
+      "size": 323172,
+      "crc": "bf6033af",
+      "md5": "a5f9b52d0d4203a511eee7fad6156aec",
+      "sha1": "699957a89914a3158c99047c1da27e34cb3506e3"
+    },
+    {
+      "name": "Kobayashi Maru Final (World) (Digital)",
+      "rom_name": "Kobayashi Maru Final (World) (Digital) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "57aa9d0c",
+      "md5": "b770bf863f6d0ab738c35aac451b3345",
+      "sha1": "370a681a644fbde9426d3480d6ec8c6e9a3d3da5"
+    },
+    {
+      "name": "Kobayashi Maru Final (World) (Digital)",
+      "rom_name": "Kobayashi Maru Final (World) (Digital) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "af180db0",
+      "md5": "c11b238043ff8478c52e46a5bfba9e3d",
+      "sha1": "eab82974662da3c4e52089bc175d3a2b9ebf8eb6"
+    },
+    {
+      "name": "Kobayashi Maru (World)",
+      "rom_name": "Kobayashi Maru (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "33d5cc0f",
+      "md5": "598febe78c5bb8b955a5aa48c2cbaf2a",
+      "sha1": "35617902abfcc88d541b6c84252cfc6455e77b03"
+    },
+    {
+      "name": "Kobayashi Maru (World)",
+      "rom_name": "Kobayashi Maru (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "cb675cb3",
+      "md5": "7108e4a98584c5c1ce9c959cab7525bf",
+      "sha1": "054e42c872449b18ccf597e34a01c31ee17d605c"
+    },
+    {
+      "name": "Klax (World)",
+      "rom_name": "Klax (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "bc93403d",
+      "md5": "061545d23ef902d10fe264355cca668d",
+      "sha1": "8dfcc3ca6074447da4906c29bf2c3792d24354b0"
+    },
+    {
+      "name": "Klax (World)",
+      "rom_name": "Klax (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "d7b486d9",
+      "md5": "cf486fedb14ba81f5f753e42525b2ccb",
+      "sha1": "f7ea27ef51090dd67e0a451ed16cd8419ae1940c"
+    },
+    {
+      "name": "Klax (World)",
+      "rom_name": "Klax (World) (Aftermarket) (Unl).abs",
+      "size": 986778,
+      "crc": "2ca75c82",
+      "md5": "861bf273fed44ac07e9cae16c4c004d4",
+      "sha1": "0b5874e5e1f394cb6833e1386ff6569951cc8f8e"
+    },
+    {
+      "name": "Jungle Jag (World)",
+      "rom_name": "Jungle Jag (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "beaa7727",
+      "md5": "7100a5667c73f9fbb320912c7231f1e5",
+      "sha1": "9ee14cdf6f1b1be18cadc4ef8640f5eb96fb5c82"
+    },
+    {
+      "name": "Jungle Jag (World)",
+      "rom_name": "Jungle Jag (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "d58db1c3",
+      "md5": "5b4307348733bd182c04e06d3e4ef41e",
+      "sha1": "33c35f4d2a343b62232897d2647322055e179b92"
+    },
+    {
+      "name": "Joust (World)",
+      "rom_name": "Joust (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "27755484",
+      "md5": "a0a5a3d5c4a3265363215449437ec6ac",
+      "sha1": "d3a8ac38b230fe26d043753253c820d96f657165"
+    },
+    {
+      "name": "Joust (World)",
+      "rom_name": "Joust (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "5f00a265",
+      "md5": "73c376f12fd337e365a11768744d271d",
+      "sha1": "4beeeca2008a1fcab175712d59ebaa4587b54aee"
+    },
+    {
+      "name": "Jetpac (World)",
+      "rom_name": "Jetpac (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "ea0cbf2e",
+      "md5": "3690f583633cc314e37b0f076bd426c8",
+      "sha1": "f2ea1befa8ce5e0f2eff1fd8ed74a10f1cb24e96"
+    },
+    {
+      "name": "Jetpac (World)",
+      "rom_name": "Jetpac (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "812b79ca",
+      "md5": "fe73238ea2888c1f94592104c445ed62",
+      "sha1": "e83a9e1aea185ed74f97d863b77cac7775763599"
+    },
+    {
+      "name": "Jetpac (World)",
+      "rom_name": "Jetpac (World) (Aftermarket) (Unl).cof",
+      "size": 363387,
+      "crc": "92de823b",
+      "md5": "d4c92ef695dc32c71aa73837a6d90a06",
+      "sha1": "06a51dae096883de03a052fc294d2f41221bd664"
+    },
+    {
+      "name": "Jet Set Willy (World)",
+      "rom_name": "Jet Set Willy (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "f8aa812e",
+      "md5": "4492664a8585f1de954652db1a4a5d41",
+      "sha1": "5b4a2c1c5d17f96c660019edb610fbb236c3b028"
+    },
+    {
+      "name": "Jet Set Willy (World)",
+      "rom_name": "Jet Set Willy (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "80df77cf",
+      "md5": "bdcf3b3590f007f8f77ab00bbd4a2a8c",
+      "sha1": "3d9b256184db9538294a4d0b887d931e919a428f"
+    },
+    {
+      "name": "Jalaga (World) (GemTos 2023)",
+      "rom_name": "Jalaga (World) (GemTos 2023) (Aftermarket) (Unl).rom",
+      "size": 893984,
+      "crc": "fc9560f1",
+      "md5": "f310f6f90cbdda7d5c1ec4efa7cbac2f",
+      "sha1": "f3f521091c477430eafa2c27ffb3c728bf7e4b62"
+    },
+    {
+      "name": "Jalaga (World) (GemTos 2023)",
+      "rom_name": "Jalaga (World) (GemTos 2023) (Aftermarket) (Unl).j64",
+      "size": 902176,
+      "crc": "c8c942a3",
+      "md5": "09aa6522159b9ca1bbccd510c95c72c3",
+      "sha1": "d97c1d33d6a834d3ac3b82bb4782fb2f2b114c8e"
+    },
+    {
+      "name": "Jaguar Tetris (World)",
+      "rom_name": "Jaguar Tetris (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "c4e3bc2f",
+      "md5": "e4b29c5c6f940b136e5a22f9e5311c6f",
+      "sha1": "cbb8c8fc10b219ef48cbbdc5c0521402e98f56e1"
+    },
+    {
+      "name": "Jaguar Tetris (World)",
+      "rom_name": "Jaguar Tetris (World) (Aftermarket) (Unl).jag",
+      "size": 131042,
+      "crc": "c539ef03",
+      "md5": "6da88d193008e7b09c7d59eb060c0eed",
+      "sha1": "4b4ad37d6b057ae8d59e45c23aad3164bdcbaaf1"
+    },
+    {
+      "name": "Jaguar Tetris (World)",
+      "rom_name": "Jaguar Tetris (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "afc47acb",
+      "md5": "f70ec00201b0a659bcf387d518b1a48c",
+      "sha1": "e1c0bc8e17b1ec07dbdef368d2ab193623d1867c"
+    },
+    {
+      "name": "Jaguar Hockey Legends 2013 (World)",
+      "rom_name": "Jaguar Hockey Legends 2013 (World) (Unl).rom",
+      "size": 4186112,
+      "crc": "06e5f28f",
+      "md5": "5e85e262a4696de2c233bdc0ec925a39",
+      "sha1": "cb0b989d8c747bf2906549fd5d3ea8eca5c47410"
+    },
+    {
+      "name": "Jaguar Hockey Legends 2013 (World)",
+      "rom_name": "Jaguar Hockey Legends 2013 (World) (Unl).j64",
+      "size": 4194304,
+      "crc": "7e90046e",
+      "md5": "a0a636e7092bbed8c51d25e30e88bdd4",
+      "sha1": "1d81e7c6ca15380d6b38c407fcbe3141f65dac8d"
+    },
+    {
+      "name": "Jagmatch (World)",
+      "rom_name": "Jagmatch (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "b876f32e",
+      "md5": "e630bc8f159e20b4dfd70af00b502a36",
+      "sha1": "8685d09e1d4b526a4ff3328ed0624849cf0f757c"
+    },
+    {
+      "name": "Jagmatch (World)",
+      "rom_name": "Jagmatch (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "d35135ca",
+      "md5": "6b02e830e002a15c162b64cc4d1a52b9",
+      "sha1": "27d279caa542e7270b5d845bdf9f476b3959e339"
+    },
+    {
+      "name": "JagWorm (World) (Proto)",
+      "rom_name": "JagWorm (World) (Proto) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "b6b71d8b",
+      "md5": "42d811db0b5186decd113b669ecf7755",
+      "sha1": "a0efa3653b4611f1f802767e523c4ec0298e86ef"
+    },
+    {
+      "name": "JagWorm (World) (Proto)",
+      "rom_name": "JagWorm (World) (Proto) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "dd90db6f",
+      "md5": "dcf029ba9a535a86c723ad57076fac27",
+      "sha1": "b0220610d0f583032d3508c3ae54b1be76ed0307"
+    },
+    {
+      "name": "JagMania (World)",
+      "rom_name": "JagMania (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "5f8d126f",
+      "md5": "05751921f38387efcbad6d1aea5f9661",
+      "sha1": "8c3d7e49634b68db637ad4f4338f45ab8cd6c13a"
+    },
+    {
+      "name": "JagMania (World)",
+      "rom_name": "JagMania (World) (Aftermarket) (Unl).jag",
+      "size": 241906,
+      "crc": "1ed4c963",
+      "md5": "c93fd2060e8949aaa87e7ebd6f192864",
+      "sha1": "336e0df48d9c93eaf4e94feb1b405ee4eafbbd5d"
+    },
+    {
+      "name": "JagMania (World)",
+      "rom_name": "JagMania (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "34aad48b",
+      "md5": "471b8e0350db0a1797c64d42b87db3fc",
+      "sha1": "9a9deb015af5c97efd2f4d4842a6ca56487eec35"
+    },
+    {
+      "name": "Impulse X (World)",
+      "rom_name": "Impulse X (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "fbd47648",
+      "md5": "f5e26d36c65d04166468f911432015d9",
+      "sha1": "ac447fc6b6499c02a06a5a573ba755b8ac4dc630"
+    },
+    {
+      "name": "Impulse X (World)",
+      "rom_name": "Impulse X (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "0366e6f4",
+      "md5": "b9bb4987ceeb481a648f7666090fa33e",
+      "sha1": "73f4435ec331ecdc91d2a76e9c0a5a2d84855765"
+    },
+    {
+      "name": "Hook (World)",
+      "rom_name": "Hook (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "5b86ec9f",
+      "md5": "a6819c5cb81eee709660ab72049a6d90",
+      "sha1": "b44c086934ecda1a60cc5c35b29ba8b9698dcfcb"
+    },
+    {
+      "name": "Hook (World)",
+      "rom_name": "Hook (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "a3347c23",
+      "md5": "71b74d787e9287582dfbb3603b609356",
+      "sha1": "2befd6ccf45646830c1ca529f89b2a62b95ad925"
+    },
+    {
+      "name": "Half Circle - 8biteer (World)",
+      "rom_name": "Half Circle - 8biteer (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "f0a5c54a",
+      "md5": "47783bb0e1aed5b86577ab77303891ad",
+      "sha1": "744111a608d2e0e9561c6905ffffbd7c9a6899bd"
+    },
+    {
+      "name": "Half Circle - 8biteer (World)",
+      "rom_name": "Half Circle - 8biteer (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "081755f6",
+      "md5": "0a2a07d78350453aa06ef21dffffd76e",
+      "sha1": "d28149aee3ce89277423b28d017927451345cbd5"
+    },
+    {
+      "name": "Half Circle - 8biteer (World)",
+      "rom_name": "Half Circle - 8biteer (World) (Aftermarket) (Unl).abs",
+      "size": 1442796,
+      "crc": "2522ee4b",
+      "md5": "e69a5a9bfa5b71e375f57cd1bb65b9fa",
+      "sha1": "b5460c28eb636a53e8be215670d42b6d719601e5"
+    },
+    {
+      "name": "HMS RaptoR (World) (v1.1) (U-235)",
+      "rom_name": "HMS RaptoR (World) (v1.1) (U-235) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "\n\u0011U6",
+      "md5": "be6fd45df046633924e75724e0dd68c6",
+      "sha1": "bbced2bbc28fd58d2255a38b629358a59f8c2097"
+    },
+    {
+      "name": "HMS RaptoR (World) (v1.1) (U-235)",
+      "rom_name": "HMS RaptoR (World) (v1.1) (U-235) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "f2a3c58a",
+      "md5": "c73bea7814a410e1262d031cdef26ec5",
+      "sha1": "519d67592b2871f4567503e448950466c7c5c4ce"
+    },
+    {
+      "name": "HMS RaptoR (World) (v1.1) (U-235)",
+      "rom_name": "HMS RaptoR (World) (v1.1) (U-235) (Aftermarket) (Unl).abs",
+      "size": 1637486,
+      "crc": "9cc4d8ae",
+      "md5": "4adc417055cbfd1830afba4d0bba19be",
+      "sha1": "9b6c3d07f16756d9a2aa999151b9b3914e8e257e"
+    },
+    {
+      "name": "HMS RaptoR (World)",
+      "rom_name": "HMS RaptoR (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "\u001fZk\u0007",
+      "md5": "990904f2482a9b941d48e8fbb4d6cc45",
+      "sha1": "8b250ce687df51254d801e5fe53521f568b11b2d"
+    },
+    {
+      "name": "HMS RaptoR (World)",
+      "rom_name": "HMS RaptoR (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "e7e8fbbb",
+      "md5": "a0aaa97d42260b2297374d7447d3aa58",
+      "sha1": "5655c0bd0e14c17346aed42e36a410ce920f69db"
+    },
+    {
+      "name": "Gryzzles (World)",
+      "rom_name": "Gryzzles (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "f099d4c5",
+      "md5": "ac23c170826e85c3d6d852cf2fbd6599",
+      "sha1": "5d0ee8e844d32fd1033d743123910460b0e573b4"
+    },
+    {
+      "name": "Gryzzles (World)",
+      "rom_name": "Gryzzles (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "\b+Dy",
+      "md5": "c65c79daefd838e5323ac8099e2c5513",
+      "sha1": "c2b115924fd7a60a8db33df8436eb5a3fc0ba792"
+    },
+    {
+      "name": "Golden Axe (World) (Atari ST)",
+      "rom_name": "Golden Axe (World) (Atari ST) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "63d96620",
+      "md5": "32f3a8740176fcf5e912f5aeb13492bb",
+      "sha1": "296d3e38ae0c577ee75b791cc4b8b9f144525e20"
+    },
+    {
+      "name": "Golden Axe (World) (Atari ST)",
+      "rom_name": "Golden Axe (World) (Atari ST) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "1bac90c1",
+      "md5": "9bad50b7857fafe7deed51a1c49ed890",
+      "sha1": "6d8fd161b486895b1ee6ca74bbdd83b66a955db7"
+    },
+    {
+      "name": "Golden Axe (World) (AMIGA)",
+      "rom_name": "Golden Axe (World) (AMIGA) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "4a3bfc17",
+      "md5": "3a4d429658218d2f3a0cb5a0ea384e8c",
+      "sha1": "f5c7768ef545bc388bea0561a60a08df97d68f13"
+    },
+    {
+      "name": "Golden Axe (World) (AMIGA)",
+      "rom_name": "Golden Axe (World) (AMIGA) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "324e0af6",
+      "md5": "d9f927dc7d17aaf47bf62af9e6befa07",
+      "sha1": "c47de6416bf57c7af8b2d3465206da0e05e454e4"
+    },
+    {
+      "name": "Ghouls'n Ghosts (World)",
+      "rom_name": "Ghouls'n Ghosts (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "UpI\u0007",
+      "md5": "e996c521808974cc4f7b4acbefc7cc84",
+      "sha1": "2832678e84fbea08afbba38e25e8590532948c24"
+    },
+    {
+      "name": "Ghouls'n Ghosts (World)",
+      "rom_name": "Ghouls'n Ghosts (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "2d05bfe6",
+      "md5": "69c6373fc1a0a019891193703ec19d43",
+      "sha1": "46817c3d3f420b62b4a59aca399b4fd4cd599821"
+    },
+    {
+      "name": "Gem Race (World) (Alt)",
+      "rom_name": "Gem Race (World) (Aftermarket) (Unl) (Alt).rom",
+      "size": 2088960,
+      "crc": "159959f7",
+      "md5": "20595e58a48ccc3dc2a84f7263e16ee3",
+      "sha1": "f5b2ec92fcc99c4d27adac7a52fe7d1dba83ba05"
+    },
+    {
+      "name": "Gem Race (World) (Alt)",
+      "rom_name": "Gem Race (World) (Aftermarket) (Unl) (Alt).j64",
+      "size": 2097152,
+      "crc": "ed2bc94b",
+      "md5": "b736126c9edf9bd8212ebb4a158f5f43",
+      "sha1": "a0ae7e16ab3379010f33215b35a90e9cc0853f43"
+    },
+    {
+      "name": "Gem Race (World) (Alt)",
+      "rom_name": "Gem Race (World) (Aftermarket) (Unl) (Alt).cof",
+      "size": 1519846,
+      "crc": "fb8e39c6",
+      "md5": "b828c552749f18583adad438f65ce519",
+      "sha1": "df2a24dccdc7109211f19dc8101bb850f593bff9"
+    },
+    {
+      "name": "Gem Race (World)",
+      "rom_name": "Gem Race (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "0875ee0c",
+      "md5": "8ca14622a3a2a30d6ee97b7c5180d511",
+      "sha1": "61c6388c4780da210c1793e51375f6b4cd68c6f4"
+    },
+    {
+      "name": "Gem Race (World)",
+      "rom_name": "Gem Race (World) (Aftermarket) (Unl).cof",
+      "size": 2097152,
+      "crc": "f0c77eb0",
+      "md5": "b704d1c1fda32e35dd17905254c26b8c",
+      "sha1": "06cf04ff4b595c990fc1be86c8a7b991dcf810b3"
+    },
+    {
+      "name": "Gauntlet II (World)",
+      "rom_name": "Gauntlet II (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "1a78d317",
+      "md5": "f3c80caa0063ed40373594711e36de25",
+      "sha1": "2a24cbbf3652ea36ef93801b9a708437228ae928"
+    },
+    {
+      "name": "Gauntlet II (World)",
+      "rom_name": "Gauntlet II (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "e2ca43ab",
+      "md5": "4fb2c1bf25fa1cc9b7f5923770ccc01a",
+      "sha1": "10f35c2499bc0d97ce3cad76bdcd34d1c2070a36"
+    },
+    {
+      "name": "Flying Shark (World)",
+      "rom_name": "Flying Shark (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "\u0016\u001f`W",
+      "md5": "74986fde07af313de7812a5f91dde288",
+      "sha1": "9beefe98939c359ee8fc6ae946ea7c60cd84f90d"
+    },
+    {
+      "name": "Flying Shark (World)",
+      "rom_name": "Flying Shark (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "6e6a96b6",
+      "md5": "0dc8e1de09a3a49abd4114fdca8f38d0",
+      "sha1": "75b5462175044b025d9d5c999bf0423b38ea4796"
+    },
+    {
+      "name": "Fernandez Must Die (World)",
+      "rom_name": "Fernandez Must Die (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "ca686f71",
+      "md5": "c1a10de9efebc245813ea9723840e6e6",
+      "sha1": "6414b8a544c1e32caba22db989db28857fcd4d42"
+    },
+    {
+      "name": "Fernandez Must Die (World)",
+      "rom_name": "Fernandez Must Die (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "a14fa995",
+      "md5": "604bf32b3a4ddbe4a29d36c98cf28bca",
+      "sha1": "28801806df5193aa85be7f810a8abba20e8922e1"
+    },
+    {
+      "name": "Fernandez Must Die (World)",
+      "rom_name": "Fernandez Must Die (World) (Aftermarket) (Unl).abs",
+      "size": 570080,
+      "crc": "869500ba",
+      "md5": "2c2f5d2aae83c1d02035286b55f3b047",
+      "sha1": "4a9bef1dfa58ef2f65ba35498a210868630df445"
+    },
+    {
+      "name": "Fast Food 64 (World) (v1.4b)",
+      "rom_name": "Fast Food 64 (World) (v1.4b) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "9a0e55db",
+      "md5": "1e15817dd902b6a36d4c5b7974dcb0d3",
+      "sha1": "65bcafe725ef3f32d79260527b3f71096deaf0ed"
+    },
+    {
+      "name": "Fast Food 64 (World) (v1.4b)",
+      "rom_name": "Fast Food 64 (World) (v1.4b) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "62bcc567",
+      "md5": "712de5ff112e978637c439ee410a34cf",
+      "sha1": "5c793b050eff734b0ed4499921f82373605e047e"
+    },
+    {
+      "name": "Fantasy World Dizzy (World) (Alt)",
+      "rom_name": "Fantasy World Dizzy (World) (Aftermarket) (Unl) (Alt).rom",
+      "size": 4186112,
+      "crc": "b82e67bd",
+      "md5": "fb7a1914e0e2331ff773839bfd54603b",
+      "sha1": "b683e7a15afd61e808b3124af14b6575440759fb"
+    },
+    {
+      "name": "Fantasy World Dizzy (World) (Alt)",
+      "rom_name": "Fantasy World Dizzy (World) (Aftermarket) (Unl) (Alt).j64",
+      "size": 4194304,
+      "crc": "c05b915c",
+      "md5": "b41fce79ab94b6c1706eea210fd2a5ce",
+      "sha1": "f34b75ad11643ea52d9ee0440cef820083ba77bd"
+    },
+    {
+      "name": "Fantasy World Dizzy (World)",
+      "rom_name": "Fantasy World Dizzy (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "b5ff352c",
+      "md5": "c0c281bcca018d3019c027f9ef3e414a",
+      "sha1": "1e3eb23532eb2d5435fc265a5c1c974518cf21fb"
+    },
+    {
+      "name": "Fantasy World Dizzy (World)",
+      "rom_name": "Fantasy World Dizzy (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "cd8ac3cd",
+      "md5": "f72834223cc75a0c67904c68e003c899",
+      "sha1": "e8bc1e3f3f6c787bfef65e3a4a796e9078d1dde5"
+    },
+    {
+      "name": "Fallen Angels (World) (Alt)",
+      "rom_name": "Fallen Angels (World) (Aftermarket) (Unl) (Alt).rom",
+      "size": 1040384,
+      "crc": "c406957a",
+      "md5": "a9dafb092de77a8da7b2fc0d782abb35",
+      "sha1": "7b8a0e67eba4c8f779411497b26f94248e47b594"
+    },
+    {
+      "name": "Fallen Angels (World) (Alt)",
+      "rom_name": "Fallen Angels (World) (Aftermarket) (Unl) (Alt).j64",
+      "size": 1048576,
+      "crc": "af21539e",
+      "md5": "d09bd40d585a2d0b3ed322c5c1f1bc05",
+      "sha1": "558afa98d9e42b4ea7d694c5ee9dc8d53c24218a"
+    },
+    {
+      "name": "Fallen Angels (World) (Alt)",
+      "rom_name": "Fallen Angels (World) (Aftermarket) (Unl) (Alt).cof",
+      "size": 1016131,
+      "crc": "\u001a3\u0714",
+      "md5": "58f1e51d9487c38afacaf10894b2023e",
+      "sha1": "ff1b4ff87939fdd64bb3faddf7ef1aac92625855"
+    },
+    {
+      "name": "Fallen Angels (World)",
+      "rom_name": "Fallen Angels (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "23a30c43",
+      "md5": "663a21e291b878288f74652b324743e2",
+      "sha1": "12c7f25cc45c1c2a8325cd389618a9a6a3c1add8"
+    },
+    {
+      "name": "Fallen Angels (World)",
+      "rom_name": "Fallen Angels (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "4884caa7",
+      "md5": "230b2b8972a60229bce78bfeb442b2bc",
+      "sha1": "ff90736b49547db8d9b74fec23d52f15d2496f8c"
+    },
+    {
+      "name": "Fallen Angels (World)",
+      "rom_name": "Fallen Angels (World) (Aftermarket) (Unl).cof",
+      "size": 1016077,
+      "crc": "1ec695a6",
+      "md5": "39cc0a256136f6034d83cab01075e864",
+      "sha1": "1f2d72590bacbcdedb16044f51f996506cfb94ff"
+    },
+    {
+      "name": "Expressway (World)",
+      "rom_name": "Expressway (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "f62b94b3",
+      "md5": "1cf1ee326852e968749b26c1ec73c18d",
+      "sha1": "36a74c75b40e6e7c336a7901bc489d736cba11b3"
+    },
+    {
+      "name": "Expressway (World)",
+      "rom_name": "Expressway (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "58ddf24a",
+      "md5": "fede98951c3414541f39dd08a7fabc52",
+      "sha1": "974290948d61340ce04bce92c1489e4b6c623483"
+    },
+    {
+      "name": "Escape from the Planet of the Robot Monsters (World)",
+      "rom_name": "Escape from the Planet of the Robot Monsters (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "625ffce6",
+      "md5": "470d10f6221d91a2c4738af89d002555",
+      "sha1": "d90846f58edae77e2f52a0ded7cb36ef3dfc1ccb"
+    },
+    {
+      "name": "Escape from the Planet of the Robot Monsters (World)",
+      "rom_name": "Escape from the Planet of the Robot Monsters (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "\u001a*\n\u0007",
+      "md5": "4f519c60a8e190471fa1b84d3cb3e74b",
+      "sha1": "a19b91bc0c99cc04590488bacb9d3a87f9b6fbac"
+    },
+    {
+      "name": "Escape 2042 - The Truth Defenders (World) (En,Ja,Fr,Es)",
+      "rom_name": "Escape 2042 - The Truth Defenders (World) (En,Ja,Fr,Es) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "fd78ff06",
+      "md5": "1ed259f091359ea0f4529387eb8391fb",
+      "sha1": "cf883583ea6c376c2170686a7e7450a7a81b232b"
+    },
+    {
+      "name": "Escape 2042 - The Truth Defenders (World) (En,Ja,Fr,Es)",
+      "rom_name": "Escape 2042 - The Truth Defenders (World) (En,Ja,Fr,Es) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "850d09e7",
+      "md5": "deeb1b6e8a0d95224cfdd2ba3652b275",
+      "sha1": "2b6301e8b8d982eb7396d4032bfdacccc462f8cf"
+    },
+    {
+      "name": "Duckie Egg (World)",
+      "rom_name": "Duckie Egg (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "54c0d14f",
+      "md5": "2e5789642304ca3f8142f6695db4b9ff",
+      "sha1": "d6f8d9232fe6cb4d548a21d9a8e5e772482d4256"
+    },
+    {
+      "name": "Duckie Egg (World)",
+      "rom_name": "Duckie Egg (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "ac7241f3",
+      "md5": "13f709b35903f1eeaa8e9dacadd5c6a9",
+      "sha1": "463ae14633647932635e4c5597597f16d3fd3aec"
+    },
+    {
+      "name": "DragonKeep (World) (v1.01)",
+      "rom_name": "DragonKeep (World) (v1.01) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "3b5bb4ae",
+      "md5": "d949afd077d24858f9fcc6c8eafde02b",
+      "sha1": "7f55aa6b7546eb1bfe1d54224b39b9ebd7688b9c"
+    },
+    {
+      "name": "DragonKeep (World) (v1.01)",
+      "rom_name": "DragonKeep (World) (v1.01) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "P|rJ",
+      "md5": "a5dc23987bd84297ee53dd328a07f3ad",
+      "sha1": "18c875b7722133a62d3859946579501cc6918e76"
+    },
+    {
+      "name": "Dragon Breed (World)",
+      "rom_name": "Dragon Breed (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "fb4a6354",
+      "md5": "86cc382d75701275b1ea16cc363786f9",
+      "sha1": "8976ec4c8e075722be3e92d1a6509650290e8d60"
+    },
+    {
+      "name": "Dragon Breed (World)",
+      "rom_name": "Dragon Breed (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "833f95b5",
+      "md5": "3c00969449b6f4ca93546f3b095d49ef",
+      "sha1": "b0ad61325766576f152fbcf8f52cfc859bce385f"
+    },
+    {
+      "name": "Downfall (World)",
+      "rom_name": "Downfall (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "TNz\u0001",
+      "md5": "26588fe1623a67467adbbed3f52f0248",
+      "sha1": "f990a6143ebe4cac4645c94398bc1c488489bcbd"
+    },
+    {
+      "name": "Downfall (World)",
+      "rom_name": "Downfall (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "acfceabd",
+      "md5": "4206ec6abeee07b9525fdda9925f3e55",
+      "sha1": "8939ba84cf27e7c4bc659f6d61c07c5b03ccdc9d"
+    },
+    {
+      "name": "Doom 2 (World) (AC 98) (E-JagFest 2010)",
+      "rom_name": "Doom 2 (World) (AC 98) (E-JagFest 2010) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "0cdca7fa",
+      "md5": "fe9dac2888ab311850cb6c84f028d14a",
+      "sha1": "103b561188a8c3afb7d4e27ee9224d2a535eb1c8"
+    },
+    {
+      "name": "Doom 2 (World) (AC 98) (E-JagFest 2010)",
+      "rom_name": "Doom 2 (World) (AC 98) (E-JagFest 2010) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "74a9511b",
+      "md5": "fa4a73b0ea1cd4c80610d10863d4929d",
+      "sha1": "757b2b633cdcc6bd32fb41c51648d55711c9d5fa"
+    },
+    {
+      "name": "Doom 2 (World) (AC 2011)",
+      "rom_name": "Doom 2 (World) (AC 2011) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "859198a5",
+      "md5": "7f4670801e6f7fe7e1f91bac6819acd2",
+      "sha1": "18e8f9c26715edc2d86d72cdd2b978f0a325466e"
+    },
+    {
+      "name": "Doom 2 (World) (AC 2011)",
+      "rom_name": "Doom 2 (World) (AC 2011) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "fde46e44",
+      "md5": "beaa424cc7053f32c3274a93de28f144",
+      "sha1": "33dcacc6eb279ac9b1cbf00d3a68b6ee64c2a177"
+    },
+    {
+      "name": "Doger (World)",
+      "rom_name": "Doger (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "]cy\u0007",
+      "md5": "8b66690b5871fc8af7938d1a92b283fd",
+      "sha1": "00b6f320c02bb09e8d69a1faf4e8fd456dcd561f"
+    },
+    {
+      "name": "Doger (World)",
+      "rom_name": "Doger (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "3644bfe3",
+      "md5": "ef940fb3412dff8d1a93bad1787cc135",
+      "sha1": "08bdbcde5a6f4fcc87e7db5a1ec6e017d6be62dd"
+    },
+    {
+      "name": "Doger (World)",
+      "rom_name": "Doger (World) (Aftermarket) (Unl).abs",
+      "size": 755738,
+      "crc": "74541afe",
+      "md5": "b1fc152a494d4a086187d3cf67da7710",
+      "sha1": "e6b4bba7ce2e999b39a87d91b2d84007646f502d"
+    },
+    {
+      "name": "Do the Same (World) (Alt)",
+      "rom_name": "Do the Same (World) (Aftermarket) (Unl) (Alt).rom",
+      "size": 1040384,
+      "crc": "c33fbd0a",
+      "md5": "4d072762d525baf09cb1fd695dd13902",
+      "sha1": "c4ad1bf939370d3de1f3daea701a93df72d46e1f"
+    },
+    {
+      "name": "Do the Same (World) (Alt)",
+      "rom_name": "Do the Same (World) (Aftermarket) (Unl) (Alt).j64",
+      "size": 1048576,
+      "crc": "a8187bee",
+      "md5": "6b230ccc5898bb11651c2535ecfd380c",
+      "sha1": "16a32dbf231d259bf66a9aa490635b3ea086d795"
+    },
+    {
+      "name": "Do the Same (World)",
+      "rom_name": "Do the Same (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "8c3df394",
+      "md5": "11dbfe113795120cad6a36c46f354b93",
+      "sha1": "b1af6d52510de6841c1093b7c97ede98ec0ceb2b"
+    },
+    {
+      "name": "Do the Same (World)",
+      "rom_name": "Do the Same (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "e71a3570",
+      "md5": "ac1c7243f68ba30472cc899474501c3f",
+      "sha1": "75a4c38a1fdb0df871130f41c5f5598302747d43"
+    },
+    {
+      "name": "Dino Rage (World) (Proto 2)",
+      "rom_name": "Dino Rage (World) (Proto 2) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "49f07082",
+      "md5": "68f9cb34f374e59e43b60481e9bf1a5c",
+      "sha1": "2640193e3c19e1c631b168f782c1b2886ec82b72"
+    },
+    {
+      "name": "Dino Rage (World) (Proto 2)",
+      "rom_name": "Dino Rage (World) (Proto 2) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "\"\u05f6f",
+      "md5": "5bf2105704bb084f84a1c8c3fcb4796e",
+      "sha1": "f02505d31e5327d97ae80d5468c074884eb55947"
+    },
+    {
+      "name": "Dino Rage (World) (Proto 1) (Jungle)",
+      "rom_name": "Dino Rage (World) (Proto 1) (Jungle) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "69342ab1",
+      "md5": "e36f9647fc141446e75e46b630037165",
+      "sha1": "9ff12d65751759e53d9cc67bd0b95847415e994f"
+    },
+    {
+      "name": "Dino Rage (World) (Proto 1) (Jungle)",
+      "rom_name": "Dino Rage (World) (Proto 1) (Jungle) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "9186ba0d",
+      "md5": "ae89dafb3499bc262fd41b1250fda1c5",
+      "sha1": "294344a4a71d432698e804d0e211ee0fac850a74"
+    },
+    {
+      "name": "Dino Rage (World) (Proto 1) (Jungle)",
+      "rom_name": "Dino Rage (World) (Proto 1) (Jungle) (Aftermarket) (Unl).abs",
+      "size": 1466869,
+      "crc": "f83d4619",
+      "md5": "20f2d5322641669b699ef803b67198ff",
+      "sha1": "fc341bbe152669caf97b8b6f1c16271a821a3597"
+    },
+    {
+      "name": "Dino Rage (World) (Proto 1) (Grid)",
+      "rom_name": "Dino Rage (World) (Proto 1) (Grid) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "eab8efaa",
+      "md5": "4323970b4d1cf3a82db121df5c3a5745",
+      "sha1": "ee7dec15e646580f19626dd450c6c1a16a5f2d5a"
+    },
+    {
+      "name": "Dino Rage (World) (Proto 1) (Grid)",
+      "rom_name": "Dino Rage (World) (Proto 1) (Grid) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "\u0012\n\u007f\u0016",
+      "md5": "84f4b88d410e9163129f4243a6e2209a",
+      "sha1": "575e3821da1f6fad0f84fa4c1045af1c02392ee6"
+    },
+    {
+      "name": "Dino Rage (World) (Proto 1) (Grid)",
+      "rom_name": "Dino Rage (World) (Proto 1) (Grid) (Aftermarket) (Unl).abs",
+      "size": 1466869,
+      "crc": "58f97156",
+      "md5": "e54db48f718df644c987fda17cba37fe",
+      "sha1": "19fa2619a6e6ee42cf8db82a9d57452211c6b7f9"
+    },
+    {
+      "name": "Diam Jag (World)",
+      "rom_name": "Diam Jag (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "2c0d79de",
+      "md5": "90867fe01a1e4b32c7ea04c36e931a02",
+      "sha1": "45a5e8e35e8e1c69aea68c0cd703defa15b83120"
+    },
+    {
+      "name": "Diam Jag (World)",
+      "rom_name": "Diam Jag (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "472abf3a",
+      "md5": "f1d7b6b1390443b2123c51f3c9bee588",
+      "sha1": "3ed0ef728e67428eb5cb3478d2f30ecccb9f487b"
+    },
+    {
+      "name": "Degz (World)",
+      "rom_name": "Degz (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "00f3c128",
+      "md5": "cd8c5098bf338bc460abce22e361b89d",
+      "sha1": "a341ae48899806dfc063f45b48c783479ea14c76"
+    },
+    {
+      "name": "Degz (World)",
+      "rom_name": "Degz (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "f8415194",
+      "md5": "5b74ab4bc6edbc7e6c0d32513398c216",
+      "sha1": "321749f6b93ea6528aa06af0a985e6b1d7f89091"
+    },
+    {
+      "name": "Dark Guardian Episode 1 - Unknown Enemy (World) (Proto)",
+      "rom_name": "Dark Guardian Episode 1 - Unknown Enemy (World) (Proto) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "f6fee298",
+      "md5": "fbc296368557e20c4dd6ff0a664e9c77",
+      "sha1": "bd6a4a1c1127a18fc8194ea479f1e155378de13c"
+    },
+    {
+      "name": "Dark Guardian Episode 1 - Unknown Enemy (World) (Proto)",
+      "rom_name": "Dark Guardian Episode 1 - Unknown Enemy (World) (Proto) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "9dd9247c",
+      "md5": "abcd39fc1fd916889a8aeb0d8f802eb1",
+      "sha1": "d4dcf920d9a8db7801ebd2e4366598e62f992757"
+    },
+    {
+      "name": "Darius+ (World)",
+      "rom_name": "Darius+ (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "19e7e4ab",
+      "md5": "bdd94d2baa251e8e75c6bdc14cac1a04",
+      "sha1": "d643fbbbc1d4a9948ffedb44eb7916ea6f350d05"
+    },
+    {
+      "name": "Darius+ (World)",
+      "rom_name": "Darius+ (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "6192124a",
+      "md5": "4e0570971cedf40f69263357bc83d165",
+      "sha1": "127d80c7a7693d5bfea67d52018c6a342e11b7bb"
+    },
+    {
+      "name": "Dance Dance Xirius - Space Party (World)",
+      "rom_name": "Dance Dance Xirius - Space Party (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "2bfc7ab7",
+      "md5": "055391d93f2e6073960d2d6a372da331",
+      "sha1": "6678d81cf48cf0d149ca954cf8b2f02c933e9b13"
+    },
+    {
+      "name": "Dance Dance Xirius - Space Party (World)",
+      "rom_name": "Dance Dance Xirius - Space Party (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "@\u06fcS",
+      "md5": "c204f33523f6acf600ae9d2d055519fa",
+      "sha1": "68476c68407c0a16a473cba5b7ea4c5accaf7d3f"
+    },
+    {
+      "name": "Cybernoid II - The Revenge (World)",
+      "rom_name": "Cybernoid II - The Revenge (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "736b0298",
+      "md5": "0e34335b49c5e08ccf1cf20cbdf0a1e2",
+      "sha1": "889d04524044f18f85bac72c14f2de40486122ed"
+    },
+    {
+      "name": "Cybernoid II - The Revenge (World)",
+      "rom_name": "Cybernoid II - The Revenge (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "0b1ef479",
+      "md5": "2add61f61e2b5f195d533e48c56fa7d8",
+      "sha1": "f6107261b7357bb89ddc4b4225f9564e4dcf5c82"
+    },
+    {
+      "name": "Cybernoid - The Fighting Machine (World)",
+      "rom_name": "Cybernoid - The Fighting Machine (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "f2425c35",
+      "md5": "a1b5152b4cd2429fe65928fc040eb87e",
+      "sha1": "d8211c8fbb776d2d4eb687235785ec43b7a6363d"
+    },
+    {
+      "name": "Cybernoid - The Fighting Machine (World)",
+      "rom_name": "Cybernoid - The Fighting Machine (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "99659ad1",
+      "md5": "8dea6a78cd750dea92073ffe71287d48",
+      "sha1": "97dc0569eebe8a7be4354f48d24471ce2d27b8fa"
+    },
+    {
+      "name": "Cybernoid - The Fighting Machine (World)",
+      "rom_name": "Cybernoid - The Fighting Machine (World) (Aftermarket) (Unl).abs",
+      "size": 456570,
+      "crc": "5ac1b213",
+      "md5": "4baeb4d1be326a36271e9a31a7621fa5",
+      "sha1": "4d3d71256917bc2ba18aeb08eb2cb730bbd1203e"
+    },
+    {
+      "name": "Clicks! (World)",
+      "rom_name": "Clicks! (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "971e17b9",
+      "md5": "5e6a9b5e0967c7388892676710fda05b",
+      "sha1": "d60f510452826994bb059fe33f301611ec90c076"
+    },
+    {
+      "name": "Clicks! (World)",
+      "rom_name": "Clicks! (World) (Aftermarket) (Unl).jag",
+      "size": 106258,
+      "crc": "5f7198c9",
+      "md5": "33b59c6e40c71c7df3c9f6c5f5b48206",
+      "sha1": "5fadd1eb608034ef236fcae6bef6f1f267c2a61b"
+    },
+    {
+      "name": "Clicks! (World)",
+      "rom_name": "Clicks! (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "fc39d15d",
+      "md5": "a4809467516c9e8d63bf8815dfdbc8f8",
+      "sha1": "8ed2cfbd0d27244e061cf2c698803a08c1ac8430"
+    },
+    {
+      "name": "Classic Kong Complete (World)",
+      "rom_name": "Classic Kong Complete (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "4ea33886",
+      "md5": "f50bee86f51845f632085f64fff7e97b",
+      "sha1": "dec5f480b74deb928661700b4d57e5cf473bb904"
+    },
+    {
+      "name": "Classic Kong Complete (World)",
+      "rom_name": "Classic Kong Complete (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "2584fe62",
+      "md5": "322263e6d763029dcb62894960a3546e",
+      "sha1": "348655646a889fb4afa1de5e019fad1ecbe69ecd"
+    },
+    {
+      "name": "Caribean Tavern (World) (Proto) (GemTos 2023)",
+      "rom_name": "Caribean Tavern (World) (Proto) (GemTos 2023) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "a8ee75da",
+      "md5": "8e03a7c24ff68cb5a8d3d2e543bc43cc",
+      "sha1": "ba536cb76d3be43009731d615ee1f1c7a0fe69a4"
+    },
+    {
+      "name": "Caribean Tavern (World) (Proto) (GemTos 2023)",
+      "rom_name": "Caribean Tavern (World) (Proto) (GemTos 2023) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "505ce566",
+      "md5": "5859f2e4141a0dbd982e9f0a4175371b",
+      "sha1": "8686d1ac81e54a581a72a3ec39cf4f3dd2a5e5be"
+    },
+    {
+      "name": "Caribean Tavern (World) (Proto) (GemTos 2023)",
+      "rom_name": "Caribean Tavern (World) (Proto) (GemTos 2023) (Aftermarket) (Unl).abs",
+      "size": 1549256,
+      "crc": "33ba0691",
+      "md5": "94e5a9b745b2bcbb495ac6ed3f306aac",
+      "sha1": "be0987ec587e1ef623ec86f903921e0c312ebfb8"
+    },
+    {
+      "name": "Burn Out (World) (Demo 1)",
+      "rom_name": "Burn Out (World) (Demo 1).rom",
+      "size": 1040384,
+      "crc": "1b39bd5a",
+      "md5": "623dd4eddb3016da8702da0fdf5e1161",
+      "sha1": "e5a88bc21a61106e47e9259ff6aa2334ccfce5a0"
+    },
+    {
+      "name": "Burn Out (World) (Demo 1)",
+      "rom_name": "Burn Out (World) (Demo 1).j64",
+      "size": 1048576,
+      "crc": "701e7bbe",
+      "md5": "9abab8833d8f5602070f088e3321635f",
+      "sha1": "03d7de3e0b220cab3f13871d1403816972627569"
+    },
+    {
+      "name": "Bubble Bobble (World)",
+      "rom_name": "Bubble Bobble (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "9b29deac",
+      "md5": "44ebb09ad3781e4e3f01d267ae8b7423",
+      "sha1": "ac0f96dd34bf7c7c8ca9bdd96627d0a849b6bb5d"
+    },
+    {
+      "name": "Bubble Bobble (World)",
+      "rom_name": "Bubble Bobble (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "639b4e10",
+      "md5": "ca739bd51dbcca525700978e928ae6d6",
+      "sha1": "4fdcecbf8165a5fa03701e1533c4f29f5af4ad5d"
+    },
+    {
+      "name": "Boingy (World) (Demo 3)",
+      "rom_name": "Boingy (World) (Demo 3) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "2f28cc3a",
+      "md5": "3847abb864d5b1d9d2cb371c06a2db89",
+      "sha1": "f24869c4a75dd7cc60051bf70f79921c49d40bbe"
+    },
+    {
+      "name": "Boingy (World) (Demo 3)",
+      "rom_name": "Boingy (World) (Demo 3) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "d79a5c86",
+      "md5": "82ce799ff8719c9d9718c85cc387fc93",
+      "sha1": "ffe449deb1cdc8d82b93724b8d9054c29e4de3e7"
+    },
+    {
+      "name": "Boingy (World) (Demo 3)",
+      "rom_name": "Boingy (World) (Demo 3) (Aftermarket) (Unl).abs",
+      "size": 1254124,
+      "crc": "5ff3c940",
+      "md5": "531594565fa978bc161d64bde2931867",
+      "sha1": "953df1fcf44fc62fe012460d9b7ee767cd6043ce"
+    },
+    {
+      "name": "Boingy (World) (Demo 2)",
+      "rom_name": "Boingy (World) (Demo 2) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "@\u0108\u007f",
+      "md5": "ccf24f7e5fde02b32c7a54cfc58520e3",
+      "sha1": "a71571c0b4775aa478d949b94b8b502e766354a2"
+    },
+    {
+      "name": "Boingy (World) (Demo 2)",
+      "rom_name": "Boingy (World) (Demo 2) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "b87618c3",
+      "md5": "c2d047a49935d24a6f1521f013b5a601",
+      "sha1": "a0a56db1e75eb9ae0edfcc25033dc2629135d24e"
+    },
+    {
+      "name": "Boingy (World) (Demo 2)",
+      "rom_name": "Boingy (World) (Demo 2) (Aftermarket) (Unl).abs",
+      "size": 1677456,
+      "crc": "5cee675b",
+      "md5": "27aea6d45fa6d629410cd4c9eb2c4646",
+      "sha1": "e0d671796c415302ddcf8a7a81e49ad73568090a"
+    },
+    {
+      "name": "Boingy (World) (Demo 1)",
+      "rom_name": "Boingy (World) (Demo 1) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "3ffd4f45",
+      "md5": "cad6ac739685246596f7d9493f32c941",
+      "sha1": "a8e1630e780edcf66f8aee042254733c54bf3c66"
+    },
+    {
+      "name": "Boingy (World) (Demo 1)",
+      "rom_name": "Boingy (World) (Demo 1) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "c74fdff9",
+      "md5": "29afc0fa7ac730a2258b434b2e9640ee",
+      "sha1": "a7eca4e5793eb8ff039e51a2758afff33bf152c0"
+    },
+    {
+      "name": "Boingy (World) (Demo 1)",
+      "rom_name": "Boingy (World) (Demo 1) (Aftermarket) (Unl).abs",
+      "size": 1677010,
+      "crc": "d095927c",
+      "md5": "96e406424fffac11633107587e039735",
+      "sha1": "d43b73df8f26bf44b0e7c269ab69e36c82fd43fa"
+    },
+    {
+      "name": "Block'em Sock'em (World) (Digital)",
+      "rom_name": "Block'em Sock'em (World) (Digital) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "a42178ed",
+      "md5": "5c56e1a04af7c01162c300496a31239f",
+      "sha1": "7e8a0b22445f7a4b4fc2bc799df04be2f48dca0e"
+    },
+    {
+      "name": "Block'em Sock'em (World) (Digital)",
+      "rom_name": "Block'em Sock'em (World) (Digital) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "5c93e851",
+      "md5": "3c589d0c1a2d214209d01b010675607d",
+      "sha1": "9ef38596ede8222a3b4489ff99b1dd5661c5a444"
+    },
+    {
+      "name": "Blackhole (World) (Proto)",
+      "rom_name": "Blackhole (World) (Proto) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "e024d71d",
+      "md5": "25dbc00a02b5c9b5684154cc2b6aa98b",
+      "sha1": "63ab05a3b66df4fc18866c0226af1a9ded791dd7"
+    },
+    {
+      "name": "Blackhole (World) (Proto)",
+      "rom_name": "Blackhole (World) (Proto) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "189647a1",
+      "md5": "aef7a5cbf4137211a4b2cdc13bb0fd29",
+      "sha1": "9de79fe5d46c28909108eadebb1c477e20502a36"
+    },
+    {
+      "name": "Blackhole (World) (Proto)",
+      "rom_name": "Blackhole (World) (Proto) (Aftermarket) (Unl).abs",
+      "size": 1559144,
+      "crc": "3502e5c3",
+      "md5": "eacb4bcba9da156c19d1753c50c6d636",
+      "sha1": "52c5c394d99b28c7cf2c169982d854416580fefa"
+    },
+    {
+      "name": "Black Lamp (World)",
+      "rom_name": "Black Lamp (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "770c44f5",
+      "md5": "bbe36dafd1a9e21aa9d69cca62ecc0e2",
+      "sha1": "d21aa9adf5f636ccd2342606cac224c22bc23483"
+    },
+    {
+      "name": "Black Lamp (World)",
+      "rom_name": "Black Lamp (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "8fbed449",
+      "md5": "612334c91e8591bd3ca84a0f07d28ff5",
+      "sha1": "4f9c4aad5b0ae381b682fa520a3815a160913a18"
+    },
+    {
+      "name": "Black Lamp (World)",
+      "rom_name": "Black Lamp (World) (Aftermarket) (Unl).abs",
+      "size": 1304472,
+      "crc": "f01101f4",
+      "md5": "a1b81fb7568a84efd3d1d65606175574",
+      "sha1": "575db0fdb0f7883b390758fceebb46b69aefaa3b"
+    },
+    {
+      "name": "Biopede (World) (v1.3)",
+      "rom_name": "Biopede (World) (v1.3) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "969dd80e",
+      "md5": "5de29b5e6689614febe5209122e8bbf3",
+      "sha1": "74d1ed5eac61cc8ba86b14c40196885598e20abf"
+    },
+    {
+      "name": "Biopede (World) (v1.3)",
+      "rom_name": "Biopede (World) (v1.3) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "fdba1eea",
+      "md5": "bdee76f33693807291f88df5ae925b1a",
+      "sha1": "d576e0121a7ccfda73fbf603ceaa629ed41ada33"
+    },
+    {
+      "name": "Bionic Commando (World)",
+      "rom_name": "Bionic Commando (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "93758c35",
+      "md5": "de7f43b49c6f0ff4480dcf92cbf2b7e8",
+      "sha1": "f6f05ea22ce6daddb3edc11147506bd97d679bad"
+    },
+    {
+      "name": "Bionic Commando (World)",
+      "rom_name": "Bionic Commando (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "eb007ad4",
+      "md5": "7a3b945ff585b75f2de2da5f1e0ccd08",
+      "sha1": "bdb3bbb252f944470ac9371122caad809a1e2fa1"
+    },
+    {
+      "name": "Beebris (World)",
+      "rom_name": "Beebris (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "c36e935e",
+      "md5": "6d5c27068b28b2f75fbd0e41b83475e0",
+      "sha1": "31f12bf6f1b21fcfa737b7aefdb2f0340d751c44"
+    },
+    {
+      "name": "Beebris (World)",
+      "rom_name": "Beebris (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "a84955ba",
+      "md5": "c90b48d51cf9381ef00c24696bccc1de",
+      "sha1": "2419909334bcbd2e4f48ccd241d6c96f8462c0e6"
+    },
+    {
+      "name": "Beast Busters (World)",
+      "rom_name": "Beast Busters (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "8614a3df",
+      "md5": "0792cd950db60b492fbc3d551ff0267d",
+      "sha1": "a795df35f3b8fb4f366a68e1740704277e43d4c6"
+    },
+    {
+      "name": "Beast Busters (World)",
+      "rom_name": "Beast Busters (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "fe61553e",
+      "md5": "8e0a855c11a23333b7572d9e5eb3bda7",
+      "sha1": "ed323ad1993adacbe1e379cfb549f6e3f50d6ae7"
+    },
+    {
+      "name": "Beach Volley (World)",
+      "rom_name": "Beach Volley (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "9cf9f45f",
+      "md5": "476c28f1f048f5dade15682c20499a0c",
+      "sha1": "fec058583d40ed4a2f29321b3431bfde954cfe55"
+    },
+    {
+      "name": "Beach Volley (World)",
+      "rom_name": "Beach Volley (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "644b64e3",
+      "md5": "4f3e5e2f579c34e56aeb411df93f45e0",
+      "sha1": "e4032fdcc287490e030a0fe13b61b10ba2830ac0"
+    },
+    {
+      "name": "Barkley Shut Up and Jam (USA) (Beta)",
+      "region": "USA",
+      "rom_name": "Barkley Shut Up and Jam (USA) (Beta).rom",
+      "size": 2088960,
+      "crc": "c2898f6e",
+      "md5": "5f884a5052a4dde4c896449b392ad4bf",
+      "sha1": "57b0340dd805b240abcc761e4186aac1d04c5f6c"
+    },
+    {
+      "name": "Barbarian (World) (Atari ST)",
+      "rom_name": "Barbarian (World) (Atari ST) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "d5363303",
+      "md5": "11b4b631b7d65882e18c0de3613e1055",
+      "sha1": "3c013cafabb8f18754b217c4d519bfc658551b45"
+    },
+    {
+      "name": "Barbarian (World) (Atari ST)",
+      "rom_name": "Barbarian (World) (Atari ST) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "2d84a3bf",
+      "md5": "0a1d93e21f8f866e6d04b9caa6c977de",
+      "sha1": "0fc2e0a1ea8e839116da14a7172c5ca07014c8e9"
+    },
+    {
+      "name": "Barbarian (World) (AMIGA)",
+      "rom_name": "Barbarian (World) (AMIGA) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "b5d37e37",
+      "md5": "82135fcee99354973243f9142136d8ec",
+      "sha1": "8ac53807da9c7560154e741d93fca237c07b062f"
+    },
+    {
+      "name": "Barbarian (World) (AMIGA)",
+      "rom_name": "Barbarian (World) (AMIGA) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "def4b8d3",
+      "md5": "b77b6518646d2afd76586f8474739215",
+      "sha1": "f5ce096a9e748e6f1a1ba13fac256a0f3ccb0bce"
+    },
+    {
+      "name": "Badlands (World)",
+      "rom_name": "Badlands (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "8d76420f",
+      "md5": "03a867d0de5d5f8fa689fd0aa16186f1",
+      "sha1": "e23c943e73da18c54c0c90266bbe8e0ad6e94a71"
+    },
+    {
+      "name": "Badlands (World)",
+      "rom_name": "Badlands (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "f503b4ee",
+      "md5": "4100a7bd877fd4ea3d3070aa17011ae0",
+      "sha1": "7e3133dc97e740c50241679b52436f33e868578e"
+    },
+    {
+      "name": "Bad Apple (World) (Monochrome Version)",
+      "rom_name": "Bad Apple (World) (Monochrome Version) (Aftermarket) (Unl).rom",
+      "size": 6283264,
+      "crc": "22063c96",
+      "md5": "65579d914f04b1a45ceae8644cb80d07",
+      "sha1": "757fa88f1894a36cf734e9f8846b1015b6468132"
+    },
+    {
+      "name": "Bad Apple (World) (Monochrome Version)",
+      "rom_name": "Bad Apple (World) (Monochrome Version) (Aftermarket) (Unl).j64",
+      "size": 6291456,
+      "crc": "4c668398",
+      "md5": "ba14da48f1857181ecd8060a30ee0c1f",
+      "sha1": "a622fef20c11dc8634623fb77f819a24e245c58e"
+    },
+    {
+      "name": "Bad Apple (World) (Color Version)",
+      "rom_name": "Bad Apple (World) (Color Version) (Aftermarket) (Unl).rom",
+      "size": 6283264,
+      "crc": "a997a21d",
+      "md5": "6f687120ad0dba46efe6ba768bd17212",
+      "sha1": "2493fffcded46757acefc9d53099155d7f4469c8"
+    },
+    {
+      "name": "Bad Apple (World) (Color Version)",
+      "rom_name": "Bad Apple (World) (Color Version) (Aftermarket) (Unl).j64",
+      "size": 6291456,
+      "crc": "c7f71d13",
+      "md5": "612c0d8e5127462a489990d6b0a4a150",
+      "sha1": "417338e636dbadd22751bd2c895461fcfd41fc12"
+    },
+    {
+      "name": "Atomic Reloaded (World)",
+      "rom_name": "Atomic Reloaded (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "078a5422",
+      "md5": "c4eeb2dc08b195f52ffddb5d6006338a",
+      "sha1": "e820131d81eb54a537baf9d160fc25fa93b60382"
+    },
+    {
+      "name": "Atomic Reloaded (World)",
+      "rom_name": "Atomic Reloaded (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "ff38c49e",
+      "md5": "4e46bb2a331cf6b574fb0ffa7bf700b3",
+      "sha1": "992aabf198b924a7746e3ba6ba8dd368452299a7"
+    },
+    {
+      "name": "Atomic (World)",
+      "rom_name": "Atomic (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "9bfd982e",
+      "md5": "42f0819bff470fa09d6faec2e154632b",
+      "sha1": "8f56432dc1869a43839a3b9d4251dc9e7b7b3279"
+    },
+    {
+      "name": "Atomic (World)",
+      "rom_name": "Atomic (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "f0da5eca",
+      "md5": "c8a0d79d77cf00666a9f2af4af6c4db5",
+      "sha1": "6ecb62fc97a5188958f9cd9bd75e7357519d19d9"
+    },
+    {
+      "name": "AstroStorm (World) (v1.43) (Digital)",
+      "rom_name": "AstroStorm (World) (v1.43) (Digital) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "10fe16da",
+      "md5": "045e1655bb3349bc8cd3404ecea5eb7b",
+      "sha1": "02c3b87d32976119e8fb8047b72d71377d4e4d72"
+    },
+    {
+      "name": "AstroStorm (World) (v1.43) (Digital)",
+      "rom_name": "AstroStorm (World) (v1.43) (Digital) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "e84c8666",
+      "md5": "1bc4610b8605b38e1bf02d0391148918",
+      "sha1": "30718d3a45b787620572cd2fe4daf754bf2ed409"
+    },
+    {
+      "name": "AstroStorm (World) (v1.43) (Digital)",
+      "rom_name": "AstroStorm (World) (v1.43) (Digital) (Aftermarket) (Unl).abs",
+      "size": 1832003,
+      "crc": "d49cad3b",
+      "md5": "3935823c3173d807f5d0a722baf092a6",
+      "sha1": "a0e5a35fb485b39dbd6b7ab39c0e94bee60d2876"
+    },
+    {
+      "name": "Asteroids (World)",
+      "rom_name": "Asteroids (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "0369d045",
+      "md5": "b6f644876b1ec7453f752918cb6d02de",
+      "sha1": "98fa69271c86f6b0ca63d80862d761cb8c10deb4"
+    },
+    {
+      "name": "Asteroids (World)",
+      "rom_name": "Asteroids (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "684e16a1",
+      "md5": "8be4d0129d50b53243f2b904d6aacc40",
+      "sha1": "635f254818d9b382f5ffcd81b4d46d73ddfb5363"
+    },
+    {
+      "name": "Assassin, The (World) (Demo 2)",
+      "rom_name": "Assassin, The (World) (Demo 2) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "ef18db60",
+      "md5": "6e671b4c0506ccff78e7052e503ac715",
+      "sha1": "88652f77908a6f81b560f060d092a75e36c58690"
+    },
+    {
+      "name": "Assassin, The (World) (Demo 2)",
+      "rom_name": "Assassin, The (World) (Demo 2) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "843f1d84",
+      "md5": "94bce0a9674324ed468454792a9ff0ad",
+      "sha1": "6398a8e15992f2511da995de3b76be925c6b6a59"
+    },
+    {
+      "name": "Assassin, The (World) (Demo 1)",
+      "rom_name": "Assassin, The (World) (Demo 1) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "588609b6",
+      "md5": "9f196abed53352905901ef3313968c1a",
+      "sha1": "936afb5603152ca5d2fe1eb12e51b039438729f6"
+    },
+    {
+      "name": "Assassin, The (World) (Demo 1)",
+      "rom_name": "Assassin, The (World) (Demo 1) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "33a1cf52",
+      "md5": "52a8e41f023cca3651b7ad5977b91510",
+      "sha1": "8f344bc764849fa2cbf31fd0d0752709f7029698"
+    },
+    {
+      "name": "Arkanoid - Revenge of DoH (World)",
+      "rom_name": "Arkanoid - Revenge of DoH (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "c8f8c2dc",
+      "md5": "ad54eef921cd544ff8fa9d304839367e",
+      "sha1": "2c072bc6d530ceb4dde999188677557877c61a33"
+    },
+    {
+      "name": "Arkanoid - Revenge of DoH (World)",
+      "rom_name": "Arkanoid - Revenge of DoH (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "b08d343d",
+      "md5": "5260961f3be1f7e338353555a38674dd",
+      "sha1": "ce8e9d663f4961b9630eec91cde3d68f33f38a60"
+    },
+    {
+      "name": "Alien Syndrome (World)",
+      "rom_name": "Alien Syndrome (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "ba065741",
+      "md5": "76dd9e477f1c014804e4caabdee85426",
+      "sha1": "c52d800a5cccc54b264c8073e2b67f5a091c0566"
+    },
+    {
+      "name": "Alien Syndrome (World)",
+      "rom_name": "Alien Syndrome (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "42b4c7fd",
+      "md5": "3a7e064d7d9ffec766d41b3fbc583e99",
+      "sha1": "0aced9880b4a6d574a5886692201c8022ad0560f"
+    },
+    {
+      "name": "Alice's Mom's Rescue (World) (En,Fr,De,Es,It)",
+      "rom_name": "Alice's Mom's Rescue (World) (En,Fr,De,Es,It) (Aftermarket) (Unl).rom",
+      "size": 6283264,
+      "crc": "2ffd99fe",
+      "md5": "f11f06533b17d66f66b59a1d5c01ce51",
+      "sha1": "b901037dd5afb7be656393909b9c6ecbda64bf2c"
+    },
+    {
+      "name": "Alice's Mom's Rescue (World) (En,Fr,De,Es,It)",
+      "rom_name": "Alice's Mom's Rescue (World) (En,Fr,De,Es,It) (Aftermarket) (Unl).j64",
+      "size": 6291456,
+      "crc": "419d26f0",
+      "md5": "4ba072b0d3a31f7c0d58e8fcf22f6a34",
+      "sha1": "fd6bc087448a258039aaa0ba556eafa9931b7983"
+    },
+    {
+      "name": "Action Fighter (World)",
+      "rom_name": "Action Fighter (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "crc": "6ab13181",
+      "md5": "307f78ed01fad9ffa62464c87624cdbc",
+      "sha1": "0e3da39ae96eee62c78da52d2a825cb9d9c9d0c7"
+    },
+    {
+      "name": "Action Fighter (World)",
+      "rom_name": "Action Fighter (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "crc": "9203a13d",
+      "md5": "a98f01a1611f066c798c857448ba0ed3",
+      "sha1": "054fe3556fc2ca4ef1ca0cbad61c4dbf0176c94e"
+    },
+    {
+      "name": "Abyss (World) (v0.74) (Proto)",
+      "rom_name": "Abyss (World) (v0.74) (Proto) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "227de661",
+      "md5": "4217fc77b12bae8061f4d617a2acfbc6",
+      "sha1": "8829cf673d8c676f0cbceb4e09b1ce822fe886f1"
+    },
+    {
+      "name": "Abyss (World) (v0.74) (Proto)",
+      "rom_name": "Abyss (World) (v0.74) (Proto) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "495a2085",
+      "md5": "78651b554407c9dce8815b320b202237",
+      "sha1": "1a889c901642e18fdaeb40d0692c9ee055da01eb"
+    },
+    {
+      "name": "Abyss (World) (v0.74) (Proto)",
+      "rom_name": "Abyss (World) (v0.74) (Proto) (Aftermarket) (Unl).cof",
+      "size": 1006649,
+      "crc": "032edd1d",
+      "md5": "77e9daa8a4ed1e20abeab09f0f5776bc",
+      "sha1": "d03da34b176583e4dd6beab197cd62d539ae9669"
+    },
+    {
+      "name": "2048 (World)",
+      "rom_name": "2048 (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "crc": "86411eda",
+      "md5": "08d14cfb678dadfdbea9e2dc02849f98",
+      "sha1": "ea555f264471986fcb3b3d5e8ac8c847e6589ca3"
+    },
+    {
+      "name": "2048 (World)",
+      "rom_name": "2048 (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "crc": "ed66d83e",
+      "md5": "0277a480b3c3cfa204d3fe1debc450db",
+      "sha1": "548ad888d2d8b8d50177d67e036436899f667d15"
+    },
+    {
+      "name": "1943 (World)",
+      "rom_name": "1943 (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "crc": "95fd1e88",
+      "md5": "cb10327e9057903b19c83e2ae62f4ec2",
+      "sha1": "f2631769e99bca937edc34546307d706ec746528"
+    },
+    {
+      "name": "1943 (World)",
+      "rom_name": "1943 (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "crc": "ed88e869",
+      "md5": "658efb8c5ec313bef96cdaed874bfe1f",
+      "sha1": "710d813a581eb07d89e7cb8e1c30ce797747b520"
+    },
+    {
+      "name": "Zzyorxx II (Proto)",
+      "rom_name": "Zzyorxx II (199x)(Virtual Xperience)(proto).rom",
+      "size": 1040384,
+      "crc": "4c84d996",
+      "md5": "c6148e0ec86f4c496e7cc19f9249a2c9",
+      "sha1": "d38f360c3276167bcbad18046e865c4233b57d45"
+    },
+    {
+      "name": "Zzyorxx II (Proto)",
+      "rom_name": "Zzyorxx II (199x)(Virtual Xperience)(proto).j64",
+      "size": 1048576,
+      "crc": "27a31f72",
+      "md5": "e419fed663afce4d8a228e6454dd51a8",
+      "sha1": "7e4356fecbeadd741c2bf9868a37b2956bd27d5e"
+    },
+    {
+      "name": "Zoop (USA, Europe)",
+      "region": "USA",
+      "rom_name": "Zoop (USA, Europe).rom",
+      "size": 1040384,
+      "releaseyear": 1996,
+      "crc": "75679275",
+      "md5": "b3821b3eba08ae049b6d994b8f0791ad",
+      "sha1": "52005733b5e06215a9b64407767133d009349b60"
+    },
+    {
+      "name": "Zool 2 (World)",
+      "rom_name": "Zool 2 (World).rom",
+      "size": 2088960,
+      "releaseyear": 1994,
+      "crc": "f5b867ac",
+      "md5": "fbe1cd9391289847c5081193308ff5ac",
+      "sha1": "f2927c6f69552e01882ab47049e568491af8cd56"
+    },
+    {
+      "name": "Zero 5 (World)",
+      "rom_name": "Zero 5 (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "releaseyear": 1997,
+      "crc": "0795ed13",
+      "md5": "0dfcfdebc54dee4164f5b747d9dcbe7a",
+      "sha1": "e704e16284f4238146cb4d86764113289e2d3364"
+    },
+    {
+      "name": "Zero 5 (USA) (Beta)",
+      "region": "USA",
+      "rom_name": "Zero 5 (USA) (Beta).rom",
+      "size": 2088960,
+      "releaseyear": 1997,
+      "crc": "91a9c406",
+      "md5": "61c0d821c09c472c63dcb70dcacd361c",
+      "sha1": "10c4a7a6618ad187275e111c6ca02311f5542139"
+    },
+    {
+      "name": "Zero 5 (USA) (Beta)",
+      "region": "USA",
+      "rom_name": "Zero 5 (USA) (Beta).j64",
+      "size": 2097152,
+      "releaseyear": 1997,
+      "crc": "691b54ba",
+      "md5": "e88a3caaf636ce00171c41d46b31d19d",
+      "sha1": "092aaef3226f026b00a4140d998e820a67e986c1"
+    },
+    {
+      "name": "Zero 5 (Proto)",
+      "rom_name": "Zero 5 (1996)(Caspian Software)(proto).rom",
+      "size": 4186112,
+      "releaseyear": 1996,
+      "crc": "9046bd72",
+      "md5": "ff6b832951e21254374fbc63ad81136e",
+      "sha1": "c11e3ca1c0beeb27ed0b05612e567f29e2c3f2db"
+    },
+    {
+      "name": "Worms (World)",
+      "rom_name": "Worms (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "releaseyear": 1998,
+      "crc": "a2ebed11",
+      "md5": "2170a7d9e7fd2bf237f58b5afcaf4723",
+      "sha1": "f2530bf82a7d2ce48ccdda7eda7091bf976667b3"
+    },
+    {
+      "name": "Wolfenstein 3D (World)",
+      "rom_name": "Wolfenstein 3D (World).rom",
+      "size": 2088960,
+      "releaseyear": 1994,
+      "crc": "7b52ecd8",
+      "md5": "e95a5d4d625640c15c1ec376eba2abee",
+      "sha1": "8f868977af95270f5c9af373034febb544f5bd96"
+    },
+    {
+      "name": "White Men Can't Jump (USA, Europe)",
+      "region": "USA",
+      "rom_name": "White Men Can't Jump (USA, Europe).rom",
+      "size": 4186112,
+      "releaseyear": 1995,
+      "crc": "72c77077",
+      "md5": "40ace17cbaa79d02646c7b575217946c",
+      "sha1": "ddb0b3022c35283c3640546ebd574f2e15ea99e1"
+    },
+    {
+      "name": "Virtual VCS (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "Virtual VCS (USA) (Proto).rom",
+      "size": 1040384,
+      "releaseyear": 1995,
+      "crc": "328f40db",
+      "md5": "6035c923581671588d37e1fd30ba187c",
+      "sha1": "51ce2807e92dc8aa35be8ecab40d0df6d57fb608"
+    },
+    {
+      "name": "Val d'Isere Skiing and Snowboarding (World)",
+      "rom_name": "Val d'Isere Skiing and Snowboarding (World).rom",
+      "size": 2088960,
+      "releaseyear": 1994,
+      "crc": "194ae39e",
+      "md5": "d431e38bfbe341d45a67ac5c28a6edc3",
+      "sha1": "1e0aca82fe8a41e2444d28cfa2af5cd1d05b1ae4"
+    },
+    {
+      "name": "Ultra Vortex (World) (Beta)",
+      "rom_name": "Ultra Vortex (World) (Beta) (1995-03-20).rom",
+      "size": 4186112,
+      "releasemonth": 3,
+      "releaseyear": 1995,
+      "crc": "c00c85d1",
+      "md5": "5930069d4ad566d63a028aa6ebb71435",
+      "sha1": "9adc8bb00f819fae761d7a38392cedd96a637501"
+    },
+    {
+      "name": "Ultra Vortek (World)",
+      "rom_name": "Ultra Vortek (World).rom",
+      "size": 4186112,
+      "releaseyear": 1995,
+      "crc": "e7b4f5b9",
+      "md5": "f9a4fbd00e98543a265d96e338f880ee",
+      "sha1": "4f9da371ee331aba815d700c4f93687c8571fd46"
+    },
+    {
+      "name": "Ultimate Brain Games [unreleased]",
+      "rom_name": "Ultimate Brain Games (1995)(Telegames)[unreleased].j64",
+      "size": 2097152,
+      "releaseyear": 1995,
+      "crc": "9aaf8efd",
+      "md5": "449c50414de5875b938780d0ef0b9869",
+      "sha1": "b0026e73787c7a901f0b7e71418acdaf54981d17"
+    },
+    {
+      "name": "Ultimate Brain Games (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "Ultimate Brain Games (USA) (Proto).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "w\u0007\u061b",
+      "md5": "831fb15912df665502c1bd260818f547",
+      "sha1": "98c74f8998c6148109f17cec037ad815ee1388c3"
+    },
+    {
+      "name": "Ultimate Brain Games (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "Ultimate Brain Games (USA) (Proto).j64",
+      "size": 2097152,
+      "releaseyear": 1995,
+      "crc": "8fb54827",
+      "md5": "d2e607ca59070c89b500d5f2a29c4f69",
+      "sha1": "81294be39297d0bad85553510974df6465557fb8"
+    },
+    {
+      "name": "Troy Aikman NFL Football (World)",
+      "rom_name": "Troy Aikman NFL Football (World).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "33328474",
+      "md5": "9db7dd4a07d76dd094d461f1b07dd9d7",
+      "sha1": "c7e5fdf6bdd8abd0eb344409913a1c543b45c004"
+    },
+    {
+      "name": "Trevor McFur in the Crescent Galaxy (World) (Rev A)",
+      "rom_name": "Trevor McFur in the Crescent Galaxy (World) (Rev A).rom",
+      "size": 2088960,
+      "releaseyear": 1993,
+      "crc": "97b9f885",
+      "md5": "c6d92d3bd839c6aa301692b10d9efe76",
+      "sha1": "31160e1d73332af61443b705653863b3a369a6bc"
+    },
+    {
+      "name": "Trevor McFur in the Crescent Galaxy (World)",
+      "rom_name": "Trevor McFur in the Crescent Galaxy (World).rom",
+      "size": 2088960,
+      "releaseyear": 1993,
+      "crc": "62d32c32",
+      "md5": "84bfe188dd5424a709d217b2a13ce082",
+      "sha1": "503e1eca6ba7767e0f1b242812700dd68540dcaa"
+    },
+    {
+      "name": "Trevor McFur in the Crescent Galaxy (World) (Beta)",
+      "rom_name": "Trevor McFur in the Crescent Galaxy (World) (Beta).rom",
+      "size": 4186112,
+      "releaseyear": 1993,
+      "crc": "7270a801",
+      "md5": "63ff8abf6bfcac1ccbfa504b235568c5",
+      "sha1": "447465542816e7cc81d0601c5be23fd020d3bce9"
+    },
+    {
+      "name": "Towers II - Plight of the Stargazer (USA, Europe)",
+      "region": "USA",
+      "rom_name": "Towers II - Plight of the Stargazer (USA, Europe).rom",
+      "size": 2088960,
+      "releaseyear": 1996,
+      "crc": "3241ab6a",
+      "md5": "e630a0077066b1065aabe357d618629c",
+      "sha1": "02a7def122325c960761ccf64c43f73d37cee332"
+    },
+    {
+      "name": "Total Carnage (World)",
+      "rom_name": "Total Carnage (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "releaseyear": 2005,
+      "crc": "e21c7950",
+      "md5": "6a49fe73b5855c374fe6102dc972d22b",
+      "sha1": "7d43b85941d96319482b02537c4b2a45431e68e5"
+    },
+    {
+      "name": "Total Carnage (USA) (Beta)",
+      "region": "USA",
+      "rom_name": "Total Carnage (USA) (Beta).rom",
+      "size": 4186112,
+      "releaseyear": 1995,
+      "crc": "f7f51b2e",
+      "md5": "bcbeb0ca8a295cac5a3afd013b12cf1d",
+      "sha1": "949a93d364c75ae0b94c8266b7fd0785c995db80"
+    },
+    {
+      "name": "Tiny Toon Adventures (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "Tiny Toon Adventures (USA) (Proto).rom",
+      "size": 2088960,
+      "releaseyear": 2010,
+      "crc": "f528dc3d",
+      "md5": "eb5f125cb10968977a58992d48647bcf",
+      "sha1": "19e2af3a1cd6533a37e4b9411a6381ce58d58f4a"
+    },
+    {
+      "name": "Theme Park (World)",
+      "rom_name": "Theme Park (World).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "76c37fc8",
+      "md5": "b132c2b4e230874788421f8606286ebe",
+      "sha1": "32f47cd7b261727f88b1b2d2c37e0cf524a6ddb6"
+    },
+    {
+      "name": "Thea Realm Fighters (USA) (Proto 2)",
+      "region": "USA",
+      "rom_name": "Thea Realm Fighters (USA) (Proto 2).rom",
+      "size": 4186112,
+      "crc": "c3732527",
+      "md5": "beae3851768ab46d154bd97bf0892cb8",
+      "sha1": "483cd397d752f97908b4c2e11316ab59461c2ee9"
+    },
+    {
+      "name": "Thea Realm Fighters (USA) (Proto 1)",
+      "region": "USA",
+      "rom_name": "Thea Realm Fighters (USA) (Proto 1).rom",
+      "size": 4186112,
+      "crc": "l9\u0011F",
+      "md5": "bf529c618bed9ff83eded641cd12044f",
+      "sha1": "aeeefe7187799995c5b46a634313bafa015ed0f6"
+    },
+    {
+      "name": "Tempest 2000 (World)",
+      "rom_name": "Tempest 2000 (World).rom",
+      "size": 2088960,
+      "releaseyear": 1994,
+      "crc": "f5221fca",
+      "md5": "59acf9110ba6a047abb872970a33ce68",
+      "sha1": "563b42d2de68ed02a7e420b957709e56921b5baa"
+    },
+    {
+      "name": "Syndicate (World)",
+      "rom_name": "Syndicate (World).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "e55c67ab",
+      "md5": "69664d59a1f0ef3aaf924ff6a17e35ab",
+      "sha1": "ee7f095d79403c569e83234a7b5401610b82f6dc"
+    },
+    {
+      "name": "SuperCross 3D (Alt 1)",
+      "rom_name": "SuperCross 3D (1995)(Atari)[a].j64",
+      "size": 2097152,
+      "releaseyear": 1995,
+      "crc": "4a08a2bd",
+      "md5": "c8e923310c2347e06774eff26ceea6f4",
+      "sha1": "c888594306f15797b9ce3caa88c06c72104f8b74"
+    },
+    {
+      "name": "Supercross 3D (USA, Europe)",
+      "region": "USA",
+      "rom_name": "Supercross 3D (USA, Europe).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "e97f8282",
+      "md5": "bc28c6f5b48607febcfa1737451d2670",
+      "sha1": "622d8482302e2f758fd316091228d1476b32d1f1"
+    },
+    {
+      "name": "Super Burnout (World)",
+      "rom_name": "Super Burnout (World).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "537457d3",
+      "md5": "7445b031fbe1c6764451c842b9d02cc7",
+      "sha1": "774de7c46e05c99ce1673d89feb3ca692603cc22"
+    },
+    {
+      "name": "Speedster II (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "Speedster II (USA) (Proto).rom",
+      "size": 2088960,
+      "crc": "68bf2395",
+      "md5": "0146cbf5ad32b2a4f83bccba22d1aa5c",
+      "sha1": "854418b8b805df54a9a2cfb37d59b0cd08af6d6c"
+    },
+    {
+      "name": "Speedster II (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "Speedster II (USA) (Proto).j64",
+      "size": 2097152,
+      "crc": "f7cfe6e6",
+      "md5": "1b01e8ebfcf63a296daeae0c67d12cdd",
+      "sha1": "508692e1b9bb57cdec35bb95829b23e49d6ec17e"
+    },
+    {
+      "name": "Space War 2000 (World)",
+      "rom_name": "Space War 2000 (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "releaseyear": 2001,
+      "crc": "20936557",
+      "md5": "c9cde67aad343469df9fb1bfc0405408",
+      "sha1": "edfda6a64b29659ca94bb8a80749bdf00faa9868"
+    },
+    {
+      "name": "Space War 2000 (Proto)",
+      "rom_name": "Space War 2000 (19xx)(Atari)(proto).j64",
+      "size": 2097152,
+      "crc": "45aa46ba",
+      "md5": "d13a90b8ff1d9e223afad00156c976dd",
+      "sha1": "0e7aacd65ecd6210d914e1c00a98dce5d00569af"
+    },
+    {
+      "name": "Soccer Kid (World)",
+      "rom_name": "Soccer Kid (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "releaseyear": 2000,
+      "crc": "6694cad2",
+      "md5": "d9a95d736d7aaa161bcbb5f693ebf247",
+      "sha1": "5883bf678a4cc23e258d4d5fe1e400660c16bf01"
+    },
+    {
+      "name": "Soccer Kid [h universal header][CF3002]",
+      "rom_name": "Soccer Kid (2000)(Songbird Productions)[h universal header][CF3002].j64",
+      "size": 2097152,
+      "releaseyear": 2000,
+      "crc": "9e265a6e",
+      "md5": "59a409e081375c44ab702d2c7a96c3df",
+      "sha1": "9524fa2870865b8433bdba7684861b1ef9092c00"
+    },
+    {
+      "name": "Soccer Kid [BIOS blaster][re-release][CF3002]",
+      "rom_name": "Soccer Kid (2000)(Songbird Productions)[BIOS blaster][re-release][CF3002].j64",
+      "size": 131072,
+      "releaseyear": 2000,
+      "crc": "41a551b0",
+      "md5": "e217cd396b28069781af9f66a9457a1a",
+      "sha1": "59887e23f23b720a0676ef63a0ec0cf53df7e5dc"
+    },
+    {
+      "name": "Soccer Kid (World) (Beta)",
+      "rom_name": "Soccer Kid (World) (Beta) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "releaseyear": 1996,
+      "crc": "ba13ae79",
+      "md5": "de65e7dff80f0e8197223d63947bfca5",
+      "sha1": "4b69e6354791af82988d2df9da10ea418b58f490"
+    },
+    {
+      "name": "Slam Racer (Proto)[earlier]",
+      "rom_name": "Slam Racer (1996)(Sinister Developments)(proto)[earlier].j64",
+      "size": 2097152,
+      "releaseyear": 1996,
+      "crc": "e3fdc8ff",
+      "md5": "8e245a0f377706e7db9686f9e8efd1e8",
+      "sha1": "fa414a7336c970cb19788e0f34764ad07de520f0"
+    },
+    {
+      "name": "Slam Racer (Proto) (Alt 1)[earlier]",
+      "rom_name": "Slam Racer (1996)(Sinister Developments)(proto)[a][earlier].rom",
+      "size": 2088960,
+      "releaseyear": 1996,
+      "crc": "\u001bOXC",
+      "md5": "0e50e2d70e33f1ee66d76558fb2875c0",
+      "sha1": "2b04b471f1f021ef45ced6bdc6a0a6ebdbe8bb28"
+    },
+    {
+      "name": "Slam Racer (World) (Proto 2)",
+      "rom_name": "Slam Racer (World) (Proto 2) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "releaseyear": 1996,
+      "crc": "c6089446",
+      "md5": "efb6e2a1ece3d4940aa610f6dac3f387",
+      "sha1": "7840e56fb2e965aaf0131d0e7626d7b1ae63278e"
+    },
+    {
+      "name": "Slam Racer (Proto)",
+      "rom_name": "Slam Racer (1996)(Sinister Developments)(proto).rom",
+      "size": 4186112,
+      "releaseyear": 1996,
+      "crc": "f0e2e569",
+      "md5": "2e43619bb54e43c3acdd63f4a86c79cd",
+      "sha1": "87f5181775e4ed0dbaf596ee88c5c1d3c98e8c29"
+    },
+    {
+      "name": "Slam Racer (Proto)",
+      "rom_name": "Slam Racer (1996)(Sinister Developments)(proto).jag",
+      "size": 1809163,
+      "releaseyear": 1996,
+      "crc": "fbdeda89",
+      "md5": "74304c8124571ab4077b33211720b248",
+      "sha1": "b867b754d36adc8ca23904eb34f0192b3a5c8b0a"
+    },
+    {
+      "name": "Slam Racer (World) (Proto 2)",
+      "rom_name": "Slam Racer (World) (Proto 2) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "releaseyear": 1996,
+      "crc": "ef21492d",
+      "md5": "cb09a40f887904f422ca0407cc8ec842",
+      "sha1": "fc367736caa9540bbafe577422c98d5458c2d95c"
+    },
+    {
+      "name": "Skyhammer (World)",
+      "rom_name": "Skyhammer (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "releaseyear": 2000,
+      "crc": "4471bfa0",
+      "md5": "c8a4a2905c304378918780bd7b5e34d9",
+      "sha1": "fe66614441dbe0cea42dc498dca609fe5c3f8128"
+    },
+    {
+      "name": "SkyCopter II (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "SkyCopter II (USA) (Proto).rom",
+      "size": 2088960,
+      "crc": "0ca722c4",
+      "md5": "3fe0b56638b2555f78860f30f6267553",
+      "sha1": "eff1b139a6b1551b8df287c16398cac2f1e8b076"
+    },
+    {
+      "name": "SkyCopter II (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "SkyCopter II (USA) (Proto).j64",
+      "size": 2097152,
+      "crc": "4f464fa5",
+      "md5": "d128a5dd0bac4dbaab0fb402efb2b0ee",
+      "sha1": "ba634a9869df76fbdb16c4e1f90f1344b7987491"
+    },
+    {
+      "name": "Ruiner Pinball (USA, Europe)",
+      "region": "USA",
+      "rom_name": "Ruiner Pinball (USA, Europe).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "5c637bec",
+      "md5": "60b7ae4d465e8577a3134f3c35929cef",
+      "sha1": "01e19899824f730b4f7f810cfa285d29d02de11a"
+    },
+    {
+      "name": "Rayman (World) (Beta 2)",
+      "rom_name": "Rayman (World) (Beta 2).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "ddff49f5",
+      "md5": "843d1c5e6885674ba1b4b189e12d6f9f",
+      "sha1": "33980b8b3511f5b32c73f59d51dde07b610af88d"
+    },
+    {
+      "name": "Rayman (World)",
+      "rom_name": "Rayman (World).rom",
+      "size": 4186112,
+      "releaseyear": 1995,
+      "crc": "bd551765",
+      "md5": "8dc681817983a3d7bd889e22c40e0278",
+      "sha1": "f08d137651648cd96dd9b5272eb085d0a796437a"
+    },
+    {
+      "name": "Rayman (World) (Beta 1)",
+      "rom_name": "Rayman (World) (Beta 1).rom",
+      "size": 2088960,
+      "releaseyear": 1994,
+      "crc": "6ac6acf5",
+      "md5": "0a5372fd4da20a0b9286213185f1f5a8",
+      "sha1": "e9e181ca7d8e6aaa8183944fc8294edbcd36c614"
+    },
+    {
+      "name": "Raiden (World) (Rev A)",
+      "rom_name": "Raiden (World) (Rev A).rom",
+      "size": 2088960,
+      "releaseyear": 1994,
+      "crc": "2667f38d",
+      "md5": "e75708807140b0ed5022ee14d4de03a2",
+      "sha1": "0cfbdf73a145e7f38526569a1b27fcde3c42a829"
+    },
+    {
+      "name": "Raiden (World)",
+      "rom_name": "Raiden (World).rom",
+      "size": 2088960,
+      "releaseyear": 1994,
+      "crc": "62049d39",
+      "md5": "010f3eadbb8215490a7cf1505ec41276",
+      "sha1": "ca3919eac9377c0692f1a718920cf767ce424dff"
+    },
+    {
+      "name": "Protector - Special Edition (World)",
+      "rom_name": "Protector - Special Edition (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "releaseyear": 2002,
+      "crc": "]\u07d7$",
+      "md5": "d318f0d9bb8ac24d581c8f840f8ffc86",
+      "sha1": "ce9c6ba0fd251b91feca8952afb8e5861927838b"
+    },
+    {
+      "name": "Protector (World)",
+      "rom_name": "Protector (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "releaseyear": 1999,
+      "crc": "0fd06cd1",
+      "md5": "56ee76358738e1b2804d095d2999670a",
+      "sha1": "0efe60c7c1230d93f0a2672bb7a1beead20d75e9"
+    },
+    {
+      "name": "Power Drive Rally (World)",
+      "rom_name": "Power Drive Rally (World).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "c544eb43",
+      "md5": "697dbf1fc7d4b1a693d64885a422efc8",
+      "sha1": "407205b1ba670b4ec58f5b80162ffbb4cc823c87"
+    },
+    {
+      "name": "Plucky Duck in Hollywood Hijinks (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "Plucky Duck in Hollywood Hijinks (USA) (Proto) (1994-10-28).rom",
+      "size": 2088960,
+      "releasemonth": 10,
+      "releaseyear": 1994,
+      "crc": "b6c53880",
+      "md5": "979642e91143d8beb361f61f329411cc",
+      "sha1": "e612304aa26916b53f255c54bfd5b57ded9553ee"
+    },
+    {
+      "name": "Pitfall - The Mayan Adventure (USA, Europe)",
+      "region": "USA",
+      "rom_name": "Pitfall - The Mayan Adventure (USA, Europe).rom",
+      "size": 4186112,
+      "releaseyear": 1995,
+      "crc": "4d23f07c",
+      "md5": "b40195d569457a8453364e7b5e248237",
+      "sha1": "4ee44f39fc3ba6dfe6e61c95efa5bc020583fd87"
+    },
+    {
+      "name": "Pinball Fantasies (World)",
+      "rom_name": "Pinball Fantasies (World).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "4a9fb36b",
+      "md5": "c9febc453fddcb5e277d2a7daba9fbe8",
+      "sha1": "c73995d4189e212180480621afcb1a073aa0cb1b"
+    },
+    {
+      "name": "Phase Zero (World)",
+      "rom_name": "Phase Zero (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "releaseyear": 2002,
+      "crc": "89da21ff",
+      "md5": "accb91258c5a03a3afe98cb73aa27811",
+      "sha1": "e30f50ff7d14dcbfe9e0ab633737ff1324a36d32"
+    },
+    {
+      "name": "Phase Zero (PD) (Alt 1)",
+      "rom_name": "Phase Zero (2000)(-)(PD)[a].j64",
+      "size": 2097152,
+      "releaseyear": 2000,
+      "crc": "4203e23d",
+      "md5": "2ed52c9166495d57fcc431c07ac0a471",
+      "sha1": "87821a625222331827ce0ac10b464a25f844912d"
+    },
+    {
+      "name": "Phase Zero (PD)",
+      "rom_name": "Phase Zero (2000)(-)(PD).bin",
+      "size": 2097152,
+      "releaseyear": 2000,
+      "crc": "ea9b3fa7",
+      "md5": "4b367a6a538a7451de11de7053c46dff",
+      "sha1": "57882eef55ea903c5eb8a2fcccdd3313474d7a59"
+    },
+    {
+      "name": "Painter (PD) (Alt 1)",
+      "rom_name": "Painter (1995-12-29)(Sinister Developments)(PD)[a].jag",
+      "size": 163072,
+      "releasemonth": 12,
+      "releaseyear": 1995,
+      "crc": "71269584",
+      "md5": "c17071b3c543e26170af27b77589ba4f",
+      "sha1": "ea4f524c1399921b828a9d5722662a354c94160b"
+    },
+    {
+      "name": "Painter (World)",
+      "rom_name": "Painter (World) (1995-12-29) (Unl).jag",
+      "size": 163146,
+      "releasemonth": 12,
+      "releaseyear": 1995,
+      "crc": "27c7c6a3",
+      "md5": "4406a84d18aed221c086215248ed66a4",
+      "sha1": "6f58b9907b178eabc1f385eb19b2a7a38d9df586"
+    },
+    {
+      "name": "Painter",
+      "rom_name": "Painter (1995-12-29)(Sinister Developments).rom",
+      "size": 253952,
+      "releasemonth": 12,
+      "releaseyear": 1995,
+      "crc": "e281d30b",
+      "md5": "f5d198c568d1ba750bdb8f9dd3dc4a51",
+      "sha1": "78c726f4065721e481fdb830549578940968bc0a"
+    },
+    {
+      "name": "Painter",
+      "rom_name": "Painter (1995-12-29)(Sinister Developments).j64",
+      "size": 262144,
+      "releasemonth": 12,
+      "releaseyear": 1995,
+      "crc": "f2b515c6",
+      "md5": "3887c0abc4a45144760e66fb2e7b21dd",
+      "sha1": "85e9901655605fde39c55c5d4618bc785a5ef5fd"
+    },
+    {
+      "name": "Native - Level 1 Demo",
+      "rom_name": "Native - Level 1 Demo (1997)(Duranik).rom",
+      "size": 2088960,
+      "releaseyear": 1997,
+      "crc": "20649d69",
+      "md5": "0ea7bf8d43fb95407a6b16766d6ce5d3",
+      "sha1": "2375020435534061e6fa8d0c6b0fa6131526c85d"
+    },
+    {
+      "name": "NBA Jam - Tournament Edition (USA, Europe)",
+      "region": "USA",
+      "rom_name": "NBA Jam - Tournament Edition (USA, Europe).rom",
+      "size": 4186112,
+      "releaseyear": 1996,
+      "crc": "154827b0",
+      "md5": "b56b6cab16dc4e70f356dd0e0cb192c7",
+      "sha1": "115ff2be7dc5b8c853d7dab842e45585f5e09105"
+    },
+    {
+      "name": "Missile Command VR (World) (Beta)",
+      "rom_name": "Missile Command VR (World) (Beta) (1995-07-05).rom",
+      "size": 2088960,
+      "releasemonth": 7,
+      "releaseyear": 1995,
+      "crc": "a0a25a67",
+      "md5": "bc2d97b8c05bff411c008dd5b578fe0f",
+      "sha1": "3222548db6f084086a8bbf2016fd82de90d9844f"
+    },
+    {
+      "name": "Missile Command 3D (World)",
+      "rom_name": "Missile Command 3D (World).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "Q\u0015+q",
+      "md5": "e50d123659dc2b56b23ac4d0be9e5e01",
+      "sha1": "43df682f83c675d68ae247c414a9a202082f9ad2"
+    },
+    {
+      "name": "Memory Track [JagCD cart][J8911 700140]",
+      "rom_name": "Memory Track (1995)(Atari)[JagCD cart][J8911 700140].j64",
+      "size": 131072,
+      "releaseyear": 1995,
+      "crc": "fdf37f47",
+      "md5": "9d6e7c120a07cc83127fed86a37a388b",
+      "sha1": "815d6e8beccc6720ffb8d349587a382409f30042"
+    },
+    {
+      "name": "Kasumi Ninja (World) (v0.29) (Beta)",
+      "rom_name": "Kasumi Ninja (World) (v0.29) (Beta) (1994-05-24).rom",
+      "size": 4186112,
+      "releasemonth": 5,
+      "releaseyear": 1994,
+      "crc": "a7eeec3d",
+      "md5": "e578b70eef1d829773a3a1c1913f3083",
+      "sha1": "48ff0dc380695ff1aed54223b11d60d7242715bb"
+    },
+    {
+      "name": "Kasumi Ninja (World) (v0.29) (Beta)",
+      "rom_name": "Kasumi Ninja (World) (v0.29) (Beta) (1994-05-24).j64",
+      "size": 4194304,
+      "releasemonth": 5,
+      "releaseyear": 1994,
+      "crc": "=l]D",
+      "md5": "4a8bab539789669787769bfe5527ec8a",
+      "sha1": "7c9c6ebc8c925ad5ca8769ce4963367c4a8c9607"
+    },
+    {
+      "name": "Kasumi Ninja (World) (v0.01) (Beta)",
+      "rom_name": "Kasumi Ninja (World) (v0.01) (Beta).rom",
+      "size": 516096,
+      "crc": "098cb9af",
+      "md5": "95447925e8211a74bc44bec3baabda59",
+      "sha1": "7e297b8cd357003270bb38aba1d7dc4761c347f2"
+    },
+    {
+      "name": "Kasumi Ninja (Alt 1)",
+      "rom_name": "Kasumi Ninja (1994)(Atari)[a].j64",
+      "size": 4194304,
+      "releaseyear": 1994,
+      "crc": "ce5f0c11",
+      "md5": "063f70bf90dba119a921613ff261b713",
+      "sha1": "3f8ccc95918c79c2df590710f72734247b111774"
+    },
+    {
+      "name": "Kasumi Ninja (World)",
+      "rom_name": "Kasumi Ninja (World).rom",
+      "size": 4186112,
+      "releaseyear": 1994,
+      "crc": "38cc27d8",
+      "md5": "079b8059f4fc99a0e7a4c929c13f0f00",
+      "sha1": "989d6170cd4e7f7d2cbf097e0f531063c6d511a6"
+    },
+    {
+      "name": "Jagmatch (World)",
+      "rom_name": "Jagmatch (World) (Aftermarket) (Unl).cof",
+      "size": 327582,
+      "releaseyear": 2015,
+      "crc": "]iZj",
+      "md5": "c89505ff700360e0ca9e4dccc8922ffd",
+      "sha1": "4265945ec2beb5e8822e32059d8441cc880ec168"
+    },
+    {
+      "name": "Jack Nicklaus Cyber Golf (Proto)[v004]",
+      "rom_name": "Jack Nicklaus Cyber Golf (1995-01-16)(Atari)(proto)[v004].rom",
+      "size": 1040384,
+      "releasemonth": 1,
+      "releaseyear": 1995,
+      "crc": "d5795815",
+      "md5": "fdc7a5a7f6ccc72c99014a3a7175ba81",
+      "sha1": "d0123ccf06f2a5a3e6188b7339c0eafa7faf14db"
+    },
+    {
+      "name": "Jack Nicklaus Cyber Golf (Proto)[v003]",
+      "rom_name": "Jack Nicklaus Cyber Golf (1995-01-13)(Atari)(proto)[v003].rom",
+      "size": 1040384,
+      "releasemonth": 1,
+      "releaseyear": 1995,
+      "crc": "8928c80b",
+      "md5": "2b543d378f677737c5f674b9cb160110",
+      "sha1": "9b47ab30f167093818b406bca140f034829ffee1"
+    },
+    {
+      "name": "Jack Nicklaus Cyber Golf (USA) (v0.02) (Proto)",
+      "region": "USA",
+      "rom_name": "Jack Nicklaus Cyber Golf (USA) (v0.02) (Proto) (1994-07-04).rom",
+      "size": 2088960,
+      "releasemonth": 7,
+      "releaseyear": 1994,
+      "crc": "8f8167bd",
+      "md5": "775f6e2066d6a94ed51b6cc67ed7cef0",
+      "sha1": "26230767abe53452a39f2403dea80c356316c140"
+    },
+    {
+      "name": "Iron Soldier 2 (World)",
+      "rom_name": "Iron Soldier 2 (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "releaseyear": 1997,
+      "crc": "1e874721",
+      "md5": "1b3678e369f9ecf8d75c9bfe7df75fbf",
+      "sha1": "67755438598cd3ca91e357f2ba961e5d4fcfc436"
+    },
+    {
+      "name": "Iron Soldier (World)",
+      "rom_name": "Iron Soldier (World).rom",
+      "size": 2088960,
+      "releaseyear": 1994,
+      "crc": "35e538a0",
+      "md5": "c9a25d6aaa39972388b41d5509e630fb",
+      "sha1": "6506eb05a92079282e2d4056ce960fcb61f98717"
+    },
+    {
+      "name": "Iron Soldier",
+      "rom_name": "Iron Soldier (1994)(Atari).j64",
+      "size": 2097152,
+      "releaseyear": 1994,
+      "crc": "f7f3462b",
+      "md5": "141d74fbe5bda513b9c07d287f882959",
+      "sha1": "bf2a5a3742330f6d463beb239bedb77c805caa3d"
+    },
+    {
+      "name": "International Sensible Soccer (World)",
+      "rom_name": "International Sensible Soccer (World).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "886ddcbf",
+      "md5": "01c61fa627f1bd63710e5cb9c9a31c77",
+      "sha1": "872416e82a2d2a8eae76643bdce48dcb7be3f53a"
+    },
+    {
+      "name": "I-War (USA, Europe) (Beta)",
+      "region": "USA",
+      "rom_name": "I-War (USA, Europe) (Beta) (1995-10-20).rom",
+      "size": 2088960,
+      "releasemonth": 10,
+      "releaseyear": 1995,
+      "crc": "bc4b448f",
+      "md5": "2c066890cddda36bc7a64cb85a81e062",
+      "sha1": "92c154a2d481d627f0509825d34fa5dc5bb16e43"
+    },
+    {
+      "name": "I-War (USA, Europe) (Beta)",
+      "region": "USA",
+      "rom_name": "I-War (USA, Europe) (Beta) (1995-10-20).j64",
+      "size": 2097152,
+      "releasemonth": 10,
+      "releaseyear": 1995,
+      "crc": "5bffa5ac",
+      "md5": "c4d58615cd0b0d949a8eb1a15529879d",
+      "sha1": "665395b4eee589e890726b2fc8c51480ce69c6e1"
+    },
+    {
+      "name": "I-War (USA, Europe)",
+      "region": "USA",
+      "rom_name": "I-War (USA, Europe).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "705fa772",
+      "md5": "a5d13bdbce3097f07121f444c430559b",
+      "sha1": "6fa40243a9f7de26f10971a51d229a532cda5756"
+    },
+    {
+      "name": "Hyper Force (World)",
+      "rom_name": "Hyper Force (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "releaseyear": 2000,
+      "crc": "08849d0f",
+      "md5": "76cca318a6e714816c0334dad18cb64f",
+      "sha1": "2fd81b23da884c016d66b2d776eca95164481024"
+    },
+    {
+      "name": "Hover Strike (World)",
+      "rom_name": "Hover Strike (World).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "097f874a",
+      "md5": "545b4f36992de772d48a9f13491fb894",
+      "sha1": "76a94fea444d68cb52833bcde2eaff60fe9c4056"
+    },
+    {
+      "name": "Frog Feast (World)",
+      "rom_name": "Frog Feast (World) (Aftermarket) (Unl).rom",
+      "size": 1040384,
+      "releaseyear": 2007,
+      "crc": "0b1f2fbb",
+      "md5": "42ec7592035204e846d74521c3aebdd1",
+      "sha1": "d4de0a45c3c981ca6582564c930fc2c14533a649"
+    },
+    {
+      "name": "Flip Out! (World)",
+      "rom_name": "Flip Out! (World).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "76bb7d03",
+      "md5": "aca3200eb333cd9137d0a88673799f83",
+      "sha1": "157be203c301d2bbebe60ea3399835be81537420"
+    },
+    {
+      "name": "Flashback - The Quest for Identity (World) (En,Fr)",
+      "rom_name": "Flashback - The Quest for Identity (World) (En,Fr).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "62c2f43b",
+      "md5": "a6e4c531394dbb96d033660a6c9e1ef2",
+      "sha1": "60068adadee3871072795104721fdacf8c129f6f"
+    },
+    {
+      "name": "Fight for Life (Alt 2)",
+      "rom_name": "Fight for Life (1996)(Atari)[a2].j64",
+      "size": 2097152,
+      "releaseyear": 1996,
+      "crc": "2abadb3d",
+      "md5": "2fd8ab282160a8f0fb0158669149bb00",
+      "sha1": "61214ae7df3e7e806ed86c359f3db37575a273cd"
+    },
+    {
+      "name": "Fight for Life (USA, Europe)",
+      "region": "USA",
+      "rom_name": "Fight for Life (USA, Europe).rom",
+      "size": 4186112,
+      "releaseyear": 1996,
+      "crc": "521c17ef",
+      "md5": "a02a1faebc007010764ccda55019d0a4",
+      "sha1": "9ed55e62dc4d5e1f7763136ea22a10b3e7762ae7"
+    },
+    {
+      "name": "Fight for Life (USA, Europe) (Beta)",
+      "region": "USA",
+      "rom_name": "Fight for Life (USA, Europe) (Beta) (1995-09-07).rom",
+      "size": 4186112,
+      "releasemonth": 9,
+      "releaseyear": 1995,
+      "crc": "7b1fd307",
+      "md5": "2c9bd7e404b1e30f01a8ee9a9fb11e29",
+      "sha1": "c5dfce9e0ea8d6faa0b9ac21f4d82896bde9d9b3"
+    },
+    {
+      "name": "Fight for Life (USA, Europe) (Beta)",
+      "region": "USA",
+      "rom_name": "Fight for Life (USA, Europe) (Beta) (1995-03-22).rom",
+      "size": 4186112,
+      "releasemonth": 3,
+      "releaseyear": 1995,
+      "crc": "!0wx",
+      "md5": "d8bc12c215f317f7cd2bfb4ddd9e9744",
+      "sha1": "c4bd76e54a15544c709faf2edd4743afff93988b"
+    },
+    {
+      "name": "Fever Pitch Soccer (World) (En,Fr,De,Es,It)",
+      "rom_name": "Fever Pitch Soccer (World) (En,Fr,De,Es,It).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "-\ud453",
+      "md5": "02829e8bef858dbe61faf4854945e8d3",
+      "sha1": "1ebf9930892a6da2196a2acebf6a34fe7af2e61a"
+    },
+    {
+      "name": "Evolution - Dino Dudes (World)",
+      "rom_name": "Evolution - Dino Dudes (World).rom",
+      "size": 2088960,
+      "releaseyear": 1994,
+      "crc": "a86c3324",
+      "md5": "42cb86ba9b15da4d4bb7cb782feb9299",
+      "sha1": "dcaca75fc27d31bfd774bec24474a66d1debc436"
+    },
+    {
+      "name": "Dragon - The Bruce Lee Story (World) (Beta)",
+      "rom_name": "Dragon - The Bruce Lee Story (World) (Beta) (1994-10-06).rom",
+      "size": 2088960,
+      "releasemonth": 10,
+      "releaseyear": 1994,
+      "crc": "{t<|",
+      "md5": "2e7b0f2b31ac7d17a191c7fe700cf350",
+      "sha1": "fb7ed8d7766fb097860951b3975d7e30e7ff4b0f"
+    },
+    {
+      "name": "Dragon - The Bruce Lee Story (World) (Beta)",
+      "rom_name": "Dragon - The Bruce Lee Story (World) (Beta) (1994-09-26).rom",
+      "size": 2088960,
+      "releasemonth": 9,
+      "releaseyear": 1994,
+      "crc": "59fd0417",
+      "md5": "24678221c704f39bae5f3bb5e643c5de",
+      "sha1": "e1a65034d71cfa2f48d909e751b1f5536cf19b31"
+    },
+    {
+      "name": "Dragon - The Bruce Lee Story (World)",
+      "rom_name": "Dragon - The Bruce Lee Story (World).rom",
+      "size": 2088960,
+      "releaseyear": 1994,
+      "crc": "86ddd8e2",
+      "md5": "f722d9fadd650c7f9bb79f7fa1e4ea8d",
+      "sha1": "760b26f7ee7f9695806688af0a3fe2486ac65e15"
+    },
+    {
+      "name": "Double Dragon V - The Shadow Falls (World)",
+      "rom_name": "Double Dragon V - The Shadow Falls (World).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "a3ab2f69",
+      "md5": "3bfff844b20ba2aea910bbd824c1eb9e",
+      "sha1": "fd1c8b692ddd24113ad42ef520ae3cd33a5b0680"
+    },
+    {
+      "name": "Doom (World)",
+      "rom_name": "Doom (World).rom",
+      "size": 4186112,
+      "releaseyear": 1994,
+      "crc": "4ca68830",
+      "md5": "1e3b7dfe15e4911bb7331f352eed3c33",
+      "sha1": "42e3db28e5477e0d18b1d390338e8ddb1d667498"
+    },
+    {
+      "name": "Defender 2000 (World) (Beta)",
+      "rom_name": "Defender 2000 (World) (Beta).rom",
+      "size": 4186112,
+      "releaseyear": 1996,
+      "crc": "ed58f111",
+      "md5": "e6e1a56794302b4bcd6f1ae77a996531",
+      "sha1": "2693943111b317a0c56d14752f8b8e801edab167"
+    },
+    {
+      "name": "Defender 2000 (World)",
+      "rom_name": "Defender 2000 (World).rom",
+      "size": 4186112,
+      "releaseyear": 1996,
+      "crc": "9cd0650d",
+      "md5": "673a6f954126b22fd0d9759dd56c6650",
+      "sha1": "982c2965cecf3a358d03cfe1ca6ae5a90f1c6f7b"
+    },
+    {
+      "name": "Dark Guardian Episode 1 - Unknown Enemy (USA)",
+      "region": "USA",
+      "rom_name": "Dark Guardian Episode 1 - Unknown Enemy (2001)(OMC Games)(US).rom",
+      "size": 1040384,
+      "releaseyear": 2001,
+      "crc": "0044aea7",
+      "md5": "8238af07993b8f2074c46e8b89ffa4b2",
+      "sha1": "5d3276488e3bd49585e74ae405a827fb6ea5b66e"
+    },
+    {
+      "name": "Dark Guardian Episode 1 - Unknown Enemy (USA)",
+      "region": "USA",
+      "rom_name": "Dark Guardian Episode 1 - Unknown Enemy (2001)(OMC Games)(US).j64",
+      "size": 1048576,
+      "releaseyear": 2001,
+      "crc": "kchC",
+      "md5": "f1b1252f237fadf736396469d36cdaa7",
+      "sha1": "7c9d2d5353fd9404e5eabf6f8afd9b2e01964d7a"
+    },
+    {
+      "name": "Cybermorph (World) (Rev B)",
+      "rom_name": "Cybermorph (World) (Rev B).rom",
+      "size": 1040384,
+      "releaseyear": 1994,
+      "crc": "c7c21726",
+      "md5": "a2762624a57ea85875b7700aac07a61b",
+      "sha1": "d4a0ce12f5d5c1c668cd919aaac1187cc00cadd1"
+    },
+    {
+      "name": "Cybermorph (World) (Rev A)",
+      "rom_name": "Cybermorph (World) (Rev A).rom",
+      "size": 2088960,
+      "releaseyear": 1993,
+      "crc": "2e31aca5",
+      "md5": "63e7e435f13a5a20ca8a2bf6e40ac27b",
+      "sha1": "e3426cbd33fe31b77395270b71676ddda43d68e6"
+    },
+    {
+      "name": "Cybermorph (World) (Beta)",
+      "rom_name": "Cybermorph (World) (Beta) (1993-08-23).rom",
+      "size": 1040384,
+      "releasemonth": 8,
+      "releaseyear": 1993,
+      "crc": "f5944f1d",
+      "md5": "f7ccc865e2a84b2eb941209a86676bd6",
+      "sha1": "93e991ed275b1d8bbc92765422e072d60ea0db6c"
+    },
+    {
+      "name": "Club Drive (World) (Beta)",
+      "rom_name": "Club Drive (World) (Beta).rom",
+      "size": 516096,
+      "releaseyear": 1994,
+      "crc": "6cb78512",
+      "md5": "c52705cdd18be2c96cbb07abd65845dd",
+      "sha1": "ee1fee0be68340a5ac15afa8ed873e0690b99ad9"
+    },
+    {
+      "name": "Club Drive (World)",
+      "rom_name": "Club Drive (World).rom",
+      "size": 2088960,
+      "releaseyear": 1994,
+      "crc": "8fbdf685",
+      "md5": "820866734a06f96e632151f2d9654dc6",
+      "sha1": "d1b365f8534e042e0586b505ae03874a662f12df"
+    },
+    {
+      "name": "Checkered Flag (World)",
+      "rom_name": "Checkered Flag (World).rom",
+      "size": 2088960,
+      "releaseyear": 1994,
+      "crc": "6bf22dd1",
+      "md5": "b45c964faa34ab254ab5a5121f9432e3",
+      "sha1": "ed24557fbaa536273c6e3894ab1399a729fd5f22"
+    },
+    {
+      "name": "Checkered Flag (World) (Beta) (CES 1993)",
+      "rom_name": "Checkered Flag (World) (Beta) (CES 1993).rom",
+      "size": 1040384,
+      "releasemonth": 8,
+      "releaseyear": 1993,
+      "crc": "a5b30631",
+      "md5": "d0a0a6f9c9c2f3023e28645bad8dc74d",
+      "sha1": "172e4f17d071ded4bb74afd5489ba6145e29e7b4"
+    },
+    {
+      "name": "Cannon Fodder (World)",
+      "rom_name": "Cannon Fodder (World).rom",
+      "size": 2088960,
+      "releaseyear": 1995,
+      "crc": "31ebf18b",
+      "md5": "460a0b1e5aa3d2d4d48d072e01343cdd",
+      "sha1": "add3ccd479aadb3a9b0596462801339c71088e6d"
+    },
+    {
+      "name": "Burn Out (World) (Demo 2) (WCES 1995)",
+      "rom_name": "Burn Out (World) (Demo 2) (WCES 1995).rom",
+      "size": 2088960,
+      "releasemonth": 1,
+      "releaseyear": 1995,
+      "crc": "359a602e",
+      "md5": "56b13e2ec84d1933ba07421f1566562c",
+      "sha1": "937845cc00fb6a14b6ae42748ad02c82e04a86ed"
+    },
+    {
+      "name": "Bubsy in Fractured Furry Tales (World)",
+      "rom_name": "Bubsy in Fractured Furry Tales (World).rom",
+      "size": 2088960,
+      "releaseyear": 1994,
+      "crc": "278c40be",
+      "md5": "fe2751ca61154ecfa4f0ad4299a5dc54",
+      "sha1": "0624c22e8df7a70392d7b29993cf101a86484d17"
+    },
+    {
+      "name": "Brutal Sports Football [o][JA100]",
+      "rom_name": "Brutal Sports Football (1994)(Telegames)[o][JA100].j64",
+      "size": 2097664,
+      "releaseyear": 1994,
+      "crc": "0fdceb66",
+      "md5": "b8889b272123d86805f18c5503de1477",
+      "sha1": "11570d1795158c83d2e9326c232167c5eef7e2f3"
+    },
+    {
+      "name": "Brutal Sports Football (World)",
+      "rom_name": "Brutal Sports Football (World).rom",
+      "size": 2088960,
+      "releaseyear": 1994,
+      "crc": "9c655c37",
+      "md5": "dc5808fe55f9105fd6fb6fd220a35515",
+      "sha1": "5129491a19588b8c7cb513e7f567585de42f1549"
+    },
+    {
+      "name": "Brett Hull Hockey (World)",
+      "rom_name": "Brett Hull Hockey (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "releaseyear": 2004,
+      "crc": "dccdef05",
+      "md5": "e294d0251879e7e81291e3ac018261d1",
+      "sha1": "181dc9c9cfc3e4afc59d04ea13e5464a4a82f24f"
+    },
+    {
+      "name": "Breakout 2000 (USA, Europe)",
+      "region": "USA",
+      "rom_name": "Breakout 2000 (USA, Europe).rom",
+      "size": 2088960,
+      "releaseyear": 1996,
+      "crc": "4dd5c5de",
+      "md5": "a4b4003c11b55d0b28aa34bb113bbde4",
+      "sha1": "512ee251e8fa7764105f4b0d4b636a6e6e2c3c1f"
+    },
+    {
+      "name": "Breakout 2000 (USA, Europe) (Beta)",
+      "region": "USA",
+      "rom_name": "Breakout 2000 (USA, Europe) (Beta).rom",
+      "size": 2088960,
+      "releaseyear": 1996,
+      "crc": "d8696f23",
+      "md5": "d1b1bfb5845a09467b7601ad103734ce",
+      "sha1": "dd0505579035fd4b402be64d975b41496fcfb4ee"
+    },
+    {
+      "name": "BattleSphere Gold (World)",
+      "rom_name": "BattleSphere Gold (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "releaseyear": 2002,
+      "crc": "d5727f02",
+      "md5": "5c0b84a1a64ddbb4d3d2083958754ca5",
+      "sha1": "1724b3163a68eb88d8a80564d58d12bc04ab6cc2"
+    },
+    {
+      "name": "BattleSphere (World)",
+      "rom_name": "BattleSphere (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "releaseyear": 2000,
+      "crc": "ad6fe9b5",
+      "md5": "6562144944b6fb86744757a5b99ae506",
+      "sha1": "51a8269226015a4428f863ec9067d7e69762bff3"
+    },
+    {
+      "name": "Barkley Shut Up and Jam (World)",
+      "rom_name": "Barkley Shut Up and Jam (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "releaseyear": 2002,
+      "crc": "93ecef15",
+      "md5": "b5c70890e32375ea7f91cf1db388d298",
+      "sha1": "a1667e30fc28e93d63d50050b989db51d7528e3f"
+    },
+    {
+      "name": "Attack of the Mutant Penguins (World)",
+      "rom_name": "Attack of the Mutant Penguins (World).rom",
+      "size": 2088960,
+      "releaseyear": 1996,
+      "crc": "66a1567c",
+      "md5": "dbba0926aa87529bd6007fe8b4a7282a",
+      "sha1": "53f21a5d8b382a9934cb0907a65b28a519de2c55"
+    },
+    {
+      "name": "Atari Karts (World) (Beta)",
+      "rom_name": "Atari Karts (World) (Beta).rom",
+      "size": 4186112,
+      "releaseyear": 1995,
+      "crc": "2abc6001",
+      "md5": "deae794870cb3387fe1511799b3a1fcb",
+      "sha1": "5b61f7cfaf6736ddbd8f6e873d850d96951d34e4"
+    },
+    {
+      "name": "Atari Karts (World)",
+      "rom_name": "Atari Karts (World).rom",
+      "size": 4186112,
+      "releaseyear": 1995,
+      "crc": "f816c3e6",
+      "md5": "33bb6d4d2aa39989e9aa650e4cbeee88",
+      "sha1": "5168453c88617a58bc33cf7c18631108d6376a81"
+    },
+    {
+      "name": "Asteroids",
+      "rom_name": "Asteroids (2000)(Sinister Developments).rom",
+      "size": 516096,
+      "releaseyear": 2000,
+      "crc": "3528947b",
+      "md5": "ec80b90e8085f8d14c555cd79f38605b",
+      "sha1": "a65932eb59beec5329671879ee969754c020f633"
+    },
+    {
+      "name": "Asteroids",
+      "rom_name": "Asteroids (2000)(Sinister Developments).j64",
+      "size": 524288,
+      "releaseyear": 2000,
+      "crc": "d231043a",
+      "md5": "b2e126347c883e2eb3980001374b3de0",
+      "sha1": "9f9c3357fcd1e2cab37290a0879546115fe1b2f1"
+    },
+    {
+      "name": "Arena Football '95 (World)",
+      "rom_name": "Arena Football '95 (World) (Aftermarket) (Unl).rom",
+      "size": 4186112,
+      "releaseyear": 2006,
+      "crc": "61ee6b62",
+      "md5": "7b9c10dcb2364ad8a11c18fc8be5c92f",
+      "sha1": "49fce6385856239e133a66962ea7c8f60ecdd7d6"
+    },
+    {
+      "name": "Alien vs Predator (World) (v0.93) (Beta)",
+      "rom_name": "Alien vs Predator (World) (v0.93) (Beta) (1994-04-08).rom",
+      "size": 2088960,
+      "releasemonth": 4,
+      "releaseyear": 1994,
+      "crc": "1eef352c",
+      "md5": "2b299e92e82031a31235da74850670cf",
+      "sha1": "c029a536d6e47e11d107a7213f175382e2acebd8"
+    },
+    {
+      "name": "Alien vs Predator (alpha)",
+      "rom_name": "Alien vs Predator (1994)(Atari)(alpha).bin",
+      "size": 1635476,
+      "releaseyear": 1994,
+      "crc": "BB\u07e7",
+      "md5": "77a29a619a97deb2f2bb82476d2fbfb9",
+      "sha1": "343e04689d75abfe9e6d24b126b65fea80ef15a7"
+    },
+    {
+      "name": "Alien vs Predator (World)",
+      "rom_name": "Alien vs Predator (World).rom",
+      "size": 4186112,
+      "releaseyear": 1994,
+      "crc": "3eaecb25",
+      "md5": "15d9864ce22a8786151928f5bf613b7b",
+      "sha1": "86fd0c17c4f115cf19b96f9986446b9fc0e7da60"
+    },
+    {
+      "name": "Alien vs Predator (World) (Beta)",
+      "rom_name": "Alien vs Predator (World) (Beta) (1993-10-13).rom",
+      "size": 1040384,
+      "releasemonth": 10,
+      "releaseyear": 1993,
+      "crc": "dfc07abd",
+      "md5": "8bdfc02f6542d95e3582db6757e33474",
+      "sha1": "a7356d2dc9d235b2a87508b41aedbd5eacc7399d"
+    },
+    {
+      "name": "Alien vs Predator (World) (Beta)",
+      "rom_name": "Alien vs Predator (World) (Beta) (1993-08-18).rom",
+      "size": 2088960,
+      "releasemonth": 8,
+      "releaseyear": 1993,
+      "crc": "c9e144cc",
+      "md5": "bbb8efdd570d268f86a14e0893ba3e5f",
+      "sha1": "5f7eea52f9204749fba508ee70349c3f42cd0928"
+    },
+    {
+      "name": "Aircars (World)",
+      "rom_name": "Aircars (World) (Aftermarket) (Unl).rom",
+      "size": 2088960,
+      "releaseyear": 1997,
+      "crc": "9938a06c",
+      "md5": "0d6a65c6c0d108afcfdb22bb1d2b55cb",
+      "sha1": "d38590bb9c57032a1cef08bb9e0d86282d7d0c35"
+    },
+    {
+      "name": "Aircars (USA) (Beta)",
+      "region": "USA",
+      "rom_name": "Aircars (USA) (Beta) (1994-11-14).rom",
+      "size": 2088960,
+      "releasemonth": 11,
+      "releaseyear": 1994,
+      "crc": "cfdb57c6",
+      "md5": "1d6942892f80f7c369236e96979ca12a",
+      "sha1": "f5992688c85833fee82e04be274143cf0366f428"
+    },
+    {
+      "name": "Air Cars (USA)",
+      "region": "USA",
+      "rom_name": "Air Cars (1994)(Midnite Entertainment Group)(US).u2",
+      "size": 1048576,
+      "releaseyear": 1994,
+      "crc": "d9958c79",
+      "md5": "28803ff21cd725b6835fd2898aaad4ef",
+      "sha1": "d7aa26e084b68023076ac025eff819f0e568e2a0"
+    },
+    {
+      "crc": "caf33bd6",
+      "serial": "JA256"
+    },
+    {
+      "crc": "fae31dd0",
+      "serial": "J9040E"
+    },
+    {
+      "name": "Fight for Life (Alt 1)",
+      "rom_name": "Fight for Life (1996)(Atari)[a].j64",
+      "size": 4194304,
+      "releaseyear": 1996,
+      "crc": "c6c7ba62",
+      "md5": "bde3014aaebe4e7a0783a6c5fc921c14",
+      "sha1": "686176f5a7bdaef690d853523a338beb8a93d244",
+      "serial": "J9037E"
+    },
+    {
+      "name": "Zoop (USA, Europe)",
+      "genre": "Puzzle",
+      "region": "USA",
+      "rom_name": "Zoop (USA, Europe).j64",
+      "size": 1048576,
+      "users": 1,
+      "releasemonth": 1,
+      "releaseyear": 1996,
+      "esrb_rating": "KA",
+      "developer": "Electric Spectacle Productions",
+      "publisher": "Atari",
+      "crc": "c5562581",
+      "md5": "014e52819fc3d8ecbd0a1e71b80feb42",
+      "sha1": "52ec786f7536ab043dc24725af94068cad2b0ec3",
+      "serial": "J9109E"
+    },
+    {
+      "name": "Zool 2 (World)",
+      "genre": "Platform",
+      "rom_name": "Zool 2 (World).j64",
+      "size": 2097152,
+      "users": 2,
+      "releasemonth": 12,
+      "releaseyear": 1994,
+      "esrb_rating": "KA",
+      "franchise": "Zool",
+      "developer": "Gremlin Interactive",
+      "publisher": "Atari",
+      "crc": "8975f48b",
+      "md5": "780c0dd04407145b1c436adea406b5ac",
+      "sha1": "32ff3811f8f6df8a2bb56165c62227a3a480e55c",
+      "serial": "J9042E"
+    },
+    {
+      "name": "Worms (World)",
+      "genre": "Strategy",
+      "rom_name": "Worms (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "users": 2,
+      "releasemonth": 5,
+      "releaseyear": 1998,
+      "franchise": "Worms",
+      "developer": "Team 17",
+      "publisher": "Telegames",
+      "crc": "6eb774eb",
+      "md5": "1a87f2f7a32d3e3a8e8d922a0c5aa6af",
+      "sha1": "641b07f93e8df03ab8b9bf1e8dc56e2889f247f8",
+      "serial": "JA103"
+    },
+    {
+      "name": "Zero 5 (World)",
+      "genre": "Shoot'em Up",
+      "rom_name": "Zero 5 (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "users": 2,
+      "releasemonth": 9,
+      "releaseyear": 1997,
+      "developer": "Caspian Software Ltd.",
+      "publisher": "Telegames",
+      "crc": "61c7eec0",
+      "md5": "08b31fae8cbd44ac65d44baf1a0545a2",
+      "sha1": "b68de2cd49cb70e92f2415837edfa7ab46770a78",
+      "serial": "J4011"
+    },
+    {
+      "name": "White Men Can't Jump (USA, Europe)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "White Men Can't Jump (USA, Europe).j64",
+      "size": 4194304,
+      "users": 4,
+      "releasemonth": 8,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "High Voltage",
+      "publisher": "Atari",
+      "crc": "14915f20",
+      "md5": "22dd3645e3ea99f303694eb5f157ce06",
+      "sha1": "4d16596ac2d991435599e1fe03292adfb25c346d",
+      "serial": "J9070E"
+    },
+    {
+      "name": "Wolfenstein 3D (World)",
+      "genre": "Shooter",
+      "rom_name": "Wolfenstein 3D (World).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 5,
+      "releaseyear": 1994,
+      "esrb_rating": "M",
+      "franchise": "Wolfenstein",
+      "developer": "id Software",
+      "publisher": "Atari",
+      "crc": "e91bd644",
+      "md5": "3584cb83461c8666a3f28ea0c431a3db",
+      "sha1": "ee553176f0a32683b517b84b12c6fae13c15c3d0",
+      "serial": "J9028"
+    },
+    {
+      "name": "Val d'Isere Skiing and Snowboarding (World)",
+      "genre": "Sports",
+      "rom_name": "Val d'Isere Skiing and Snowboarding (World).j64",
+      "size": 2097152,
+      "users": 2,
+      "releaseyear": 1994,
+      "esrb_rating": "KA",
+      "developer": "Virtual Studio",
+      "publisher": "Atari",
+      "crc": "c9608717",
+      "md5": "1f1145e1042b8cc062c417798392d251",
+      "sha1": "02253d93eef375c8334f1f77a2d8b72fff7a94c6",
+      "serial": "J9060E"
+    },
+    {
+      "name": "Trevor McFur in the Crescent Galaxy (World)",
+      "genre": "Shoot'em Up",
+      "rom_name": "Trevor McFur in the Crescent Galaxy (World).j64",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1993,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "95143668",
+      "md5": "bb04ea04aefa100d7e7f87f46db71f57",
+      "sha1": "489b0fe9f070ad27f63a17aa8f0d2afaa4dabdb3"
+    },
+    {
+      "name": "Ultra Vortex (World) (Beta)",
+      "genre": "Fighting",
+      "rom_name": "Ultra Vortex (World) (Beta) (1995-03-20).j64",
+      "size": 4194304,
+      "users": 2,
+      "releasemonth": 3,
+      "releaseyear": 1995,
+      "esrb_rating": "M",
+      "developer": "Beyond Games",
+      "publisher": "Atari",
+      "crc": "a27823d8",
+      "md5": "31517113add13d1ff766a4c2a58f4675",
+      "sha1": "e3bd433bc4a573f3b05652239a6614c3878a04d1"
+    },
+    {
+      "name": "Ultra Vortek (World)",
+      "genre": "Fighting",
+      "rom_name": "Ultra Vortek (World).j64",
+      "size": 4194304,
+      "users": 2,
+      "releasemonth": 9,
+      "releaseyear": 1995,
+      "edge_rating": 3,
+      "edge_issue": 23,
+      "esrb_rating": "M",
+      "developer": "Beyond Games",
+      "publisher": "Atari",
+      "crc": "\u000fj\u001c,",
+      "md5": "5f2115d0bdcae4f3aa8e832f23f4ebdd",
+      "sha1": "311e41ebba1b78f514bf16789ddb7e7e8dfb47ff",
+      "serial": "J9082E"
+    },
+    {
+      "name": "Troy Aikman NFL Football (World)",
+      "genre": "Sports",
+      "rom_name": "Troy Aikman NFL Football (World).j64",
+      "size": 2097152,
+      "users": 2,
+      "releaseyear": 1995,
+      "developer": "Telegames",
+      "publisher": "Williams",
+      "crc": "38a130ed",
+      "md5": "f5fcfb1b9a1e00bc5dcd6cc9fbe56577",
+      "sha1": "4c6a6432ea0bc198f900f4ebdb8a3a7a34475d84",
+      "serial": "21942"
+    },
+    {
+      "name": "Trevor McFur in the Crescent Galaxy (World) (Rev A)",
+      "genre": "Shoot'em Up",
+      "rom_name": "Trevor McFur in the Crescent Galaxy (World) (Rev A).j64",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1993,
+      "edge_rating": 4,
+      "edge_issue": 5,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "\u001eE\u0014F",
+      "md5": "bafebcbf5a0973fcf5c130c56ffeabb2",
+      "sha1": "88e86085932af10dfb8c94032f73a5992a30b55c",
+      "serial": "J9001"
+    },
+    {
+      "name": "Total Carnage (World)",
+      "genre": "Shooter",
+      "rom_name": "Total Carnage (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "users": 1,
+      "releasemonth": 9,
+      "releaseyear": 2005,
+      "developer": "Midway",
+      "publisher": "Songbird Productions",
+      "crc": "c654681b",
+      "md5": "5f14d7c3da4e0f26f736158ffb95ce05",
+      "sha1": "4566b33799a7c65b3e9643383d0282172ff619a5",
+      "serial": "CF3006"
+    },
+    {
+      "name": "Tempest 2000 (World)",
+      "genre": "Shoot'em Up",
+      "rom_name": "Tempest 2000 (World).j64",
+      "size": 2097152,
+      "users": 2,
+      "releaseyear": 1994,
+      "edge_rating": 9,
+      "edge_issue": 8,
+      "developer": "Llamasoft",
+      "publisher": "Atari",
+      "origin": "UK",
+      "crc": "6b2b95ad",
+      "md5": "602bc9953d3737b1ba52b2a0d9932f7c",
+      "sha1": "3828d2f953224d06b5fe7ab3644d6a75fdfe79e3",
+      "serial": "J9010E"
+    },
+    {
+      "name": "Theme Park (World)",
+      "genre": "Simulation",
+      "rom_name": "Theme Park (World).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 3,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "franchise": "Theme Park",
+      "developer": "Bullfrog",
+      "publisher": "Ocean",
+      "crc": "47ebc158",
+      "md5": "0d5f81f48dffa2b511460a9852aa3b4a",
+      "sha1": "24da4fe776ae9daa86cf643c703ec0f399c77521",
+      "serial": "8001-TPKJAG"
+    },
+    {
+      "name": "Syndicate (World)",
+      "genre": "Strategy",
+      "rom_name": "Syndicate (World).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 1,
+      "releaseyear": 1995,
+      "developer": "Bullfrog",
+      "publisher": "Ocean",
+      "crc": "X'%@",
+      "md5": "b81af314f10a547680e17d3797db0c81",
+      "sha1": "a226086571c857f3796fd664bbc2c8fe99c78224",
+      "serial": "8002-SYNJAG"
+    },
+    {
+      "name": "Supercross 3D (USA, Europe)",
+      "genre": "Racing",
+      "region": "USA",
+      "rom_name": "Supercross 3D (USA, Europe).j64",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "Tiertex",
+      "publisher": "Atari",
+      "crc": "ec22f572",
+      "md5": "5f4752e493bfc18ac8df1647bbc1fdbf",
+      "sha1": "c71e0bc9eeed8670c6e7ccc7a0fe3b815d7bac83",
+      "serial": "J9044E"
+    },
+    {
+      "name": "Space War 2000 (World)",
+      "genre": "Shooter",
+      "rom_name": "Space War 2000 (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "users": 2,
+      "releaseyear": 2001,
+      "esrb_rating": "E",
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "d821f5eb",
+      "md5": "8045ac181d02e3fc92eae066607073f3",
+      "sha1": "6b010477155f30f1ecec7eab2c9a7544242bbd19"
+    },
+    {
+      "name": "Super Burnout (World)",
+      "genre": "Racing",
+      "rom_name": "Super Burnout (World).j64",
+      "size": 2097152,
+      "users": 2,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "Shen Technologies SARL",
+      "publisher": "Atari",
+      "crc": "6f8b2547",
+      "md5": "5f3a11bc3452fddf82c6548742467a35",
+      "sha1": "9a58bc0c8843fd00a2871c01b91fec206408bf80",
+      "serial": "J9052E"
+    },
+    {
+      "name": "Soccer Kid (World)",
+      "genre": "Platform",
+      "rom_name": "Soccer Kid (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 2000,
+      "developer": "Krisalis Software",
+      "publisher": "Songbird Productions",
+      "crc": "732ffab6",
+      "md5": "2d03f3e2b399d0ce0103830820e69524",
+      "sha1": "b615fe0f229eee89abe4a6fce8e4ce63d2f92c6f"
+    },
+    {
+      "name": "Soccer Kid (World) (Beta)",
+      "genre": "Platform",
+      "rom_name": "Soccer Kid (World) (Beta) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 1,
+      "releaseyear": 1996,
+      "developer": "Krisalis Software",
+      "publisher": "Songbird Productions",
+      "crc": "42a13ec5",
+      "md5": "c803a3d9bb7c64c599143c0f6b1cab96",
+      "sha1": "a738a2df47f09c3bfdeddfc01b35f3e8b5c5d99c",
+      "serial": "CF3002"
+    },
+    {
+      "name": "Skyhammer (World)",
+      "genre": "Lightgun Shooter",
+      "rom_name": "Skyhammer (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "users": 1,
+      "releasemonth": 5,
+      "releaseyear": 2000,
+      "developer": "Rebellion",
+      "publisher": "Songbird Productions",
+      "crc": "<\u0004IA",
+      "md5": "04c85be97daf4308135d245e68d4774d",
+      "sha1": "34a9941459e3b66c836f25b3ef55303734b9583e",
+      "serial": "CF3001"
+    },
+    {
+      "name": "Ruiner Pinball (USA, Europe)",
+      "genre": "Pinball",
+      "region": "USA",
+      "rom_name": "Ruiner Pinball (USA, Europe).j64",
+      "size": 2097152,
+      "users": 4,
+      "releasemonth": 11,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "High Voltage",
+      "publisher": "Atari",
+      "crc": "5b6bb205",
+      "md5": "c162738bf2c602144d78987498c68a49",
+      "sha1": "e0db2fdea7f95743c1ef452b7d289f5fe8158e33",
+      "serial": "J9061E"
+    },
+    {
+      "name": "Rayman (World)",
+      "genre": "Platform",
+      "rom_name": "Rayman (World).j64",
+      "size": 4194304,
+      "users": 1,
+      "releaseyear": 1995,
+      "franchise": "Rayman",
+      "developer": "Ubisoft",
+      "publisher": "Ubisoft",
+      "crc": "a9f8a00e",
+      "md5": "c0ebfa0c65145bc59ca3bad632d85a39",
+      "sha1": "d22912992fd966365a1221886e0fc5303ef04a59",
+      "serial": "C3669T"
+    },
+    {
+      "name": "Raiden (World)",
+      "genre": "Shoot'em Up",
+      "rom_name": "Raiden (World).j64",
+      "size": 2097152,
+      "users": 2,
+      "releaseyear": 1994,
+      "edge_rating": 5,
+      "edge_issue": 6,
+      "franchise": "Raiden",
+      "developer": "Imagitec Design",
+      "publisher": "Atari",
+      "crc": "0509c85e",
+      "md5": "7f7afc98ec2d88eb20c56582dc8b4351",
+      "sha1": "9d2f894da3f25944c2f33e3a109ae8d0d951d329",
+      "serial": "J9005"
+    },
+    {
+      "name": "Protector - Special Edition (World)",
+      "genre": "Shoot'em Up",
+      "rom_name": "Protector - Special Edition (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "users": 2,
+      "releasemonth": 10,
+      "releaseyear": 2002,
+      "developer": "Bethesda Softworks",
+      "publisher": "Songbird Productions",
+      "crc": "a56d0798",
+      "md5": "3774ee26339adfc0bad07091d29c361b",
+      "sha1": "ddea86820dcaa1a67bd82cf8023f9b3c494357b0",
+      "serial": "CF3004"
+    },
+    {
+      "name": "Power Drive Rally (World)",
+      "genre": "Racing",
+      "rom_name": "Power Drive Rally (World).j64",
+      "size": 2097152,
+      "users": 2,
+      "releasemonth": 6,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "Rage Software",
+      "publisher": "Time Warner Interactive",
+      "crc": "1660f070",
+      "md5": "98119ea7434fc21ea7b2462c5c602b50",
+      "sha1": "75ee0ab0daba31284a1dff27f3c247885f5a427a",
+      "serial": "31763-11153"
+    },
+    {
+      "name": "Pitfall - The Mayan Adventure (USA, Europe)",
+      "genre": "Platform",
+      "region": "USA",
+      "rom_name": "Pitfall - The Mayan Adventure (USA, Europe).j64",
+      "size": 4194304,
+      "users": 1,
+      "releasemonth": 10,
+      "releaseyear": 1995,
+      "esrb_rating": "T",
+      "developer": "Imagitec Design",
+      "publisher": "Activision",
+      "crc": "817a2273",
+      "md5": "c8ad07df9fd386abadb2c0cac7381657",
+      "sha1": "25611b1cff1384db72cc5422dbe70555e5bbd32c",
+      "serial": "J9101E"
+    },
+    {
+      "name": "Pinball Fantasies (World)",
+      "genre": "Pinball",
+      "rom_name": "Pinball Fantasies (World).j64",
+      "size": 2097152,
+      "users": 8,
+      "releasemonth": 6,
+      "releaseyear": 1995,
+      "esrb_rating": "E",
+      "developer": "Spidersoft",
+      "publisher": "20th Century Fox",
+      "crc": "5cff14ab",
+      "md5": "94583ce1270f05f13b32a9ff0e8909db",
+      "sha1": "4733cf2ede2713467f2a80b052ab94edf6dfe534",
+      "serial": "J0144E"
+    },
+    {
+      "name": "NBA Jam - Tournament Edition (USA, Europe)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "NBA Jam - Tournament Edition (USA, Europe).j64",
+      "size": 4194304,
+      "users": 1,
+      "releasemonth": 1,
+      "releaseyear": 1996,
+      "esrb_rating": "KA",
+      "franchise": "NBA Jam",
+      "developer": "High Voltage",
+      "publisher": "Acclaim",
+      "crc": "0ac83d77",
+      "md5": "a302ef18eedcb6c07dd7ea139c849eb7",
+      "sha1": "b9c8ff2d26fe1e91ecd6d59b9f3f76c5b5650f26",
+      "serial": "J9089E"
+    },
+    {
+      "name": "Missile Command 3D (World)",
+      "genre": "Shooter",
+      "rom_name": "Missile Command 3D (World).j64",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "franchise": "Missile Command",
+      "developer": "Virtuality Entertainment",
+      "publisher": "Atari",
+      "crc": "\u069cAb",
+      "md5": "3dd8ee48afb83629c87ec0b6de790c25",
+      "sha1": "3ea9053a63a3b0165ccec91e85f0e699a998dc0a",
+      "serial": "J9097E"
+    },
+    {
+      "name": "Kasumi Ninja (World)",
+      "genre": "Beat'em Up",
+      "rom_name": "Kasumi Ninja (World).j64",
+      "size": 4194304,
+      "users": 2,
+      "releasemonth": 12,
+      "releaseyear": 1994,
+      "esrb_rating": "M",
+      "developer": "Hand Made Software",
+      "publisher": "Atari",
+      "crc": "0957a072",
+      "md5": "7ad345dbfa5a7cd66b579b2dffa6ddd0",
+      "sha1": "2327112b9c6f9b0e49c55def0adb8119ee39ce29",
+      "serial": "J9012E"
+    },
+    {
+      "name": "Jack Nicklaus Cyber Golf (Proto)[v004]",
+      "genre": "Sports",
+      "rom_name": "Jack Nicklaus Cyber Golf (1995-01-16)(Atari)(proto)[v004].j64",
+      "size": 1048576,
+      "users": 1,
+      "releasemonth": 1,
+      "releaseyear": 1995,
+      "franchise": "Jack Nicklaus",
+      "developer": "Handmade Software",
+      "publisher": "B&C Computervisions",
+      "crc": "be5e9ef1",
+      "md5": "1ede6eb5f3578bd31ee70375eb85dbd5",
+      "sha1": "cecec725301d7540f9392618f4fc948def88d398"
+    },
+    {
+      "name": "Jack Nicklaus Cyber Golf (Proto)[v003]",
+      "genre": "Sports",
+      "rom_name": "Jack Nicklaus Cyber Golf (1995-01-13)(Atari)(proto)[v003].j64",
+      "size": 1048576,
+      "users": 1,
+      "releasemonth": 1,
+      "releaseyear": 1995,
+      "franchise": "Jack Nicklaus",
+      "developer": "Handmade Software",
+      "publisher": "B&C Computervisions",
+      "crc": "e20f0eef",
+      "md5": "905b5df8de465c922543a1d0548e8101",
+      "sha1": "89306ada943c87da740e6166f1f53837566513e2"
+    },
+    {
+      "name": "Iron Soldier 2 (World)",
+      "genre": "Simulation",
+      "rom_name": "Iron Soldier 2 (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 12,
+      "releaseyear": 1997,
+      "esrb_rating": "T",
+      "franchise": "Iron Soldier",
+      "developer": "Eclipse Software",
+      "publisher": "Atari",
+      "crc": "d6c19e34",
+      "md5": "35ef8cedbfab697e380170e438858d4c",
+      "sha1": "47b9580eb9eea121cf080cdbdc4afe7fb7a19ab5",
+      "serial": "JA910"
+    },
+    {
+      "name": "Iron Soldier (World)",
+      "genre": "Shooter",
+      "rom_name": "Iron Soldier (World).j64",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1994,
+      "edge_rating": 8,
+      "edge_issue": 18,
+      "esrb_rating": "KA",
+      "franchise": "Iron Soldier",
+      "developer": "Eclipse Software",
+      "publisher": "Atari",
+      "crc": "08f15576",
+      "md5": "e9aac34f010aae4d0c781a34975d2aaf",
+      "sha1": "8bdefc60dd1734315e1c145e29abf41800f908cb",
+      "serial": "J9026E"
+    },
+    {
+      "name": "I-War (USA, Europe)",
+      "genre": "Shooter",
+      "region": "USA",
+      "rom_name": "I-War (USA, Europe).j64",
+      "size": 2097152,
+      "users": 2,
+      "releasemonth": 12,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "Imagitec Design",
+      "publisher": "Atari",
+      "crc": "97eb4651",
+      "md5": "5a66b96ede209f251b00e0e06723826c",
+      "sha1": "3db485aaa28a817f468739a85e3f25741c3855ad",
+      "serial": "J9043E"
+    },
+    {
+      "name": "Hyper Force (World)",
+      "genre": "Platform",
+      "rom_name": "Hyper Force (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 4,
+      "releaseyear": 2000,
+      "developer": "Visual Impact",
+      "publisher": "Songbird Productions",
+      "crc": "f0360db3",
+      "md5": "21a2abca6e1b8c3fd6b9ab2cc155db42",
+      "sha1": "037396347d65d1a8b56e7db361d737ab2070118f",
+      "serial": "CF3003"
+    },
+    {
+      "name": "Hover Strike (World)",
+      "genre": "Shoot'em Up",
+      "rom_name": "Hover Strike (World).j64",
+      "size": 2097152,
+      "users": 2,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "franchise": "Hover Strike",
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "4899628f",
+      "md5": "51d65ce8171daf0a255a30b44dac07cf",
+      "sha1": "94e615e7a57f7c08645322870121bb32310298f5",
+      "serial": "J9009E"
+    },
+    {
+      "name": "Frog Feast (World)",
+      "genre": "Action",
+      "rom_name": "Frog Feast (World) (Aftermarket) (Unl).j64",
+      "size": 1048576,
+      "users": 2,
+      "releaseyear": 2007,
+      "esrb_rating": "E",
+      "developer": "Rastersoft",
+      "publisher": "Rastersoft",
+      "crc": "6038e95f",
+      "md5": "54af14494cb3b9d584adcbd2d1a5216e",
+      "sha1": "5b2295907f6fdadf5f44b1e392dcd6f5471fd095"
+    },
+    {
+      "name": "Flashback - The Quest for Identity (World) (En,Fr)",
+      "genre": "Platform",
+      "rom_name": "Flashback - The Quest for Identity (World) (En,Fr).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 8,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "franchise": "Flashback",
+      "developer": "Tiertex Design Studios",
+      "publisher": "U.S. Gold",
+      "crc": "de55dcc7",
+      "md5": "d46b75d5a28fda75bf2d6d79f12c9f27",
+      "sha1": "824613451be0b99020fc02e5dba15c45e76fc8c2",
+      "serial": "43175-79126"
+    },
+    {
+      "name": "Flip Out! (World)",
+      "genre": "Puzzle",
+      "rom_name": "Flip Out! (World).j64",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "Gorilla",
+      "publisher": "Atari",
+      "crc": "892bc67c",
+      "md5": "df6d6844c7617b989f5d377208ce6648",
+      "sha1": "886cbbaa434d6e1e7fc4401bb6d176c2788c4d19"
+    },
+    {
+      "name": "Evolution - Dino Dudes (World)",
+      "genre": "Puzzle",
+      "rom_name": "Evolution - Dino Dudes (World).j64",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1994,
+      "franchise": "The Humans",
+      "developer": "Imagitec Design",
+      "publisher": "Atari",
+      "crc": "0ec5369d",
+      "md5": "d934acb23e0d9ee46d2a050146b876b0",
+      "sha1": "179b511464abcda5a5de9f971bd5cb5775d8c313",
+      "serial": "J9006"
+    },
+    {
+      "name": "Fight for Life (USA, Europe)",
+      "genre": "Fighting",
+      "region": "USA",
+      "rom_name": "Fight for Life (USA, Europe).j64",
+      "size": 4194304,
+      "users": 2,
+      "releaseyear": 1996,
+      "esrb_rating": "T",
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "b14c4753",
+      "md5": "2947e4e2009425a6ac8b26f14a8eea92",
+      "sha1": "9f5b8844d58bb1c174da4824eabbfd8616ba28d2",
+      "serial": "J9037E"
+    },
+    {
+      "name": "Fever Pitch Soccer (World) (En,Fr,De,Es,It)",
+      "genre": "Sports",
+      "rom_name": "Fever Pitch Soccer (World) (En,Fr,De,Es,It).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 12,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "Distinctive Developments",
+      "publisher": "Atari",
+      "crc": "3615af6a",
+      "md5": "86c5cb8ac559b4f3a1e9aa883b06f98c",
+      "sha1": "5be3da69a64b779d064d139968fadbe1c475c715",
+      "serial": "J9106E"
+    },
+    {
+      "name": "Double Dragon V - The Shadow Falls (World)",
+      "genre": "Fighting",
+      "rom_name": "Double Dragon V - The Shadow Falls (World).j64",
+      "size": 2097152,
+      "users": 2,
+      "releasemonth": 4,
+      "releaseyear": 1995,
+      "franchise": "Double Dragon",
+      "developer": "Telegames",
+      "publisher": "Williams",
+      "crc": "348e6449",
+      "md5": "b50249bf2924af134b45f59218e9b5dd",
+      "sha1": "d66b4e5f9ac27d53f0d781c741e420698630b9fc",
+      "serial": "21941"
+    },
+    {
+      "name": "Dragon - The Bruce Lee Story (World)",
+      "genre": "Fighting",
+      "rom_name": "Dragon - The Bruce Lee Story (World).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 11,
+      "releaseyear": 1994,
+      "esrb_rating": "T",
+      "franchise": "Bruce Lee",
+      "developer": "Virgin Interactive",
+      "publisher": "Atari",
+      "crc": "8fea5ab0",
+      "md5": "ddb3eb3359adb163b771c62e62b6df9d",
+      "sha1": "da7f5dac4317ab0258f54da436abb8d89e530f27",
+      "serial": "J9036E"
+    },
+    {
+      "name": "Doom (World)",
+      "genre": "Shooter",
+      "rom_name": "Doom (World).j64",
+      "size": 4194304,
+      "users": 2,
+      "releasemonth": 12,
+      "releaseyear": 1994,
+      "esrb_rating": "M",
+      "franchise": "Doom",
+      "developer": "id Software",
+      "publisher": "Atari",
+      "crc": "5e2cdbc0",
+      "md5": "3a5878ea3f391174becc37b037318804",
+      "sha1": "20ddf412e42a50d526cbbb6411bf0ec4516db283",
+      "serial": "J9029E"
+    },
+    {
+      "name": "Defender 2000 (World)",
+      "genre": "Shoot'em Up",
+      "rom_name": "Defender 2000 (World).j64",
+      "size": 4194304,
+      "users": 2,
+      "releasemonth": 12,
+      "releaseyear": 1996,
+      "esrb_rating": "KA",
+      "franchise": "Defender",
+      "developer": "Llamasoft",
+      "publisher": "Atari",
+      "crc": "'YLj",
+      "md5": "939f2446e70d8b26f17b21e065aa7a30",
+      "sha1": "13a4084bd5be1cca21d83d4c26b5b8e5cf1a3e30",
+      "serial": "J9041E"
+    },
+    {
+      "name": "Cybermorph (World) (Rev B)",
+      "genre": "Shooter",
+      "rom_name": "Cybermorph (World) (Rev B).j64",
+      "size": 1048576,
+      "users": 1,
+      "releaseyear": 1994,
+      "edge_rating": 8,
+      "edge_issue": 4,
+      "developer": "Attention To Detail",
+      "publisher": "Atari",
+      "origin": "UK",
+      "crc": "ecf854e7",
+      "md5": "81dc55f1abaa89f4b3d510cb4c2e5fe8",
+      "sha1": "c9aa59769df207d85d9212d619c266c793c9063b",
+      "serial": "J9000"
+    },
+    {
+      "name": "Cybermorph (World) (Rev A)",
+      "genre": "Shooter",
+      "rom_name": "Cybermorph (World) (Rev A).j64",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1993,
+      "edge_rating": 8,
+      "edge_issue": 4,
+      "developer": "Attention To Detail",
+      "publisher": "Atari",
+      "origin": "UK",
+      "crc": "bde67498",
+      "md5": "1c2e3d172151dcae3b3fc9a23084dcf2",
+      "sha1": "e00ab55f555fd1fe63b4fce66a9b8ffe3485963e",
+      "serial": "J9000"
+    },
+    {
+      "name": "Bubsy in Fractured Furry Tales (World)",
+      "genre": "Platform",
+      "rom_name": "Bubsy in Fractured Furry Tales (World).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 12,
+      "releaseyear": 1994,
+      "esrb_rating": "KA",
+      "franchise": "Bubsy",
+      "developer": "Imagitec Design",
+      "publisher": "Atari",
+      "crc": "2e17d5da",
+      "md5": "c3ad2c75c5339125661845720da3895d",
+      "sha1": "752d6e1ed185f9db49230f42319a573a44e32397",
+      "serial": "J9020E"
+    },
+    {
+      "name": "Checkered Flag (World)",
+      "genre": "Racing",
+      "rom_name": "Checkered Flag (World).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 11,
+      "releaseyear": 1994,
+      "esrb_rating": "KA",
+      "developer": "Rebellion",
+      "publisher": "Atari",
+      "origin": "UK",
+      "crc": "fa7775ae",
+      "md5": "c77ba1af9705265d4c0070541a5c4787",
+      "sha1": "4d0cc8d248a8bd0fc4b8169c5d5772e59c073c59",
+      "serial": "J9007E"
+    },
+    {
+      "name": "Club Drive (World)",
+      "genre": "Racing",
+      "rom_name": "Club Drive (World).j64",
+      "size": 2097152,
+      "users": 2,
+      "releasemonth": 11,
+      "releaseyear": 1994,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "eee8d61d",
+      "md5": "403e9c8bf868213d1daae54f1be62cb2",
+      "sha1": "6588f7d677463d0ef10cf905d44a2581fd9dd055",
+      "serial": "J9003E"
+    },
+    {
+      "name": "Cannon Fodder (World)",
+      "genre": "Strategy",
+      "rom_name": "Cannon Fodder (World).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 2,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "franchise": "Cannon Fodder",
+      "developer": "The Dome Software Developments",
+      "publisher": "Virgin Interactive",
+      "crc": "bda405c6",
+      "md5": "4aa320637ffc598d7d9db44085a88df2",
+      "sha1": "0c195676be099f4594ce1d5a38303f6cce899dc5",
+      "serial": "02763-00162"
+    },
+    {
+      "name": "Brutal Sports Football (World)",
+      "genre": "Sports",
+      "rom_name": "Brutal Sports Football (World).j64",
+      "size": 2097152,
+      "users": 2,
+      "releasemonth": 8,
+      "releaseyear": 1994,
+      "developer": "Teque",
+      "publisher": "Telegames",
+      "crc": "bcb1a4bf",
+      "md5": "ce6005897ff5e9aa4e992c76628b21c6",
+      "sha1": "cdfefdf28dd9127f7a9425088a1ee3ea88dfb618",
+      "serial": "JA100"
+    },
+    {
+      "name": "Attack of the Mutant Penguins (World)",
+      "genre": "Puzzle",
+      "rom_name": "Attack of the Mutant Penguins (World).j64",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1996,
+      "esrb_rating": "KA",
+      "developer": "Sunrise Software",
+      "publisher": "Atari",
+      "crc": "cd5bf827",
+      "md5": "3ab524a6a18f79b5e7fd0bb189fe8170",
+      "sha1": "01dc37e7a9d03246a93bcb8c6a3116cb6391ed31",
+      "serial": "J9072E"
+    },
+    {
+      "name": "BattleSphere Gold (World)",
+      "genre": "Shoot'em Up",
+      "rom_name": "BattleSphere Gold (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "users": 1,
+      "releasemonth": 3,
+      "releaseyear": 2002,
+      "developer": "4Play/ScatoLogic",
+      "publisher": "4Play/ScatoLogic",
+      "crc": "67f9ab3a",
+      "md5": "06f3a61fb712c581aee3599f3a61fa61",
+      "sha1": "49716a6a3a4c6abeea36040f26c4e8cf2a545df7",
+      "serial": "J9807E"
+    },
+    {
+      "name": "Atari Karts (World)",
+      "genre": "Racing",
+      "rom_name": "Atari Karts (World).j64",
+      "size": 4194304,
+      "users": 2,
+      "releasemonth": 12,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "Miracle Designs",
+      "publisher": "Atari",
+      "crc": "e28756de",
+      "md5": "cb492f093cd9e22a913d158741e8f00a",
+      "sha1": "9c96e6c2195ce56aa930e677a041b35bd9b8bc7e",
+      "serial": "J9091E"
+    },
+    {
+      "name": "Alien vs Predator (World)",
+      "genre": "Shooter",
+      "rom_name": "Alien vs Predator (World).j64",
+      "size": 4194304,
+      "users": 1,
+      "releaseyear": 1994,
+      "edge_rating": 4,
+      "edge_issue": 14,
+      "franchise": "Alien",
+      "developer": "Rebellion",
+      "publisher": "Atari",
+      "origin": "UK",
+      "crc": "dc187f82",
+      "md5": "96bc77cfd1b2df85b5e6ae05594e74b0",
+      "sha1": "fd8c89250ebc1e403838b2e589d1f69e3fe2fe02",
+      "serial": "J9008E"
+    },
+    {
+      "name": "Alien vs Predator (World) (v0.93) (Beta)",
+      "genre": "Shooter",
+      "rom_name": "Alien vs Predator (World) (v0.93) (Beta) (1994-04-08).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 4,
+      "releaseyear": 1994,
+      "franchise": "Alien",
+      "developer": "Rebellion",
+      "publisher": "Atari",
+      "crc": "e65da590",
+      "md5": "51ae6d493492ebf9ca3b3bd919e46fc4",
+      "sha1": "1189aa22a427d81ea0bd68bf58258c8b1089614b"
+    },
+    {
+      "name": "Aircars (World)",
+      "genre": "Racing",
+      "rom_name": "Aircars (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "users": 8,
+      "releasemonth": 5,
+      "releaseyear": 1997,
+      "esrb_rating": "KA",
+      "developer": "Midnite Entertainment Group",
+      "publisher": "ICD",
+      "crc": "40e1a1d0",
+      "md5": "45e12558e1b9eda1b66b86f68f995f2a",
+      "sha1": "533c497761cc802624708108bc9ef6e7c4f40296"
+    },
+    {
+      "genre": "Puzzle",
+      "users": 1,
+      "releasemonth": 1,
+      "releaseyear": 1996,
+      "esrb_rating": "KA",
+      "developer": "Electric Spectacle Productions",
+      "publisher": "Atari",
+      "crc": "aa5d2395"
+    },
+    {
+      "name": "Zero 5 (Proto)",
+      "genre": "Shoot'em Up",
+      "rom_name": "Zero 5 (1996)(Caspian Software)(proto).j64",
+      "size": 4194304,
+      "users": 2,
+      "releaseyear": 1996,
+      "developer": "Caspian Software Ltd.",
+      "publisher": "Telegames",
+      "crc": "e8334b93",
+      "md5": "6977fc843238a167aabfd2e6c251b480",
+      "sha1": "fb03cdb0b9c8171831c0e385c27bec2d71c39400"
+    },
+    {
+      "genre": "Platform",
+      "users": 2,
+      "releasemonth": 12,
+      "releaseyear": 1994,
+      "esrb_rating": "KA",
+      "franchise": "Zool",
+      "developer": "Gremlin Interactive",
+      "publisher": "Atari",
+      "crc": "b8c8ed62"
+    },
+    {
+      "genre": "Shoot'em Up",
+      "users": 2,
+      "releasemonth": 9,
+      "releaseyear": 1997,
+      "developer": "Caspian Software Ltd.",
+      "publisher": "Telegames",
+      "crc": "e9d0e092"
+    },
+    {
+      "genre": "Shooter",
+      "users": 1,
+      "releasemonth": 5,
+      "releaseyear": 1994,
+      "esrb_rating": "M",
+      "franchise": "Wolfenstein",
+      "developer": "id Software",
+      "publisher": "Atari",
+      "crc": "ec68e317"
+    },
+    {
+      "genre": "Strategy",
+      "users": 2,
+      "releasemonth": 5,
+      "releaseyear": 1998,
+      "franchise": "Worms",
+      "developer": "Team 17",
+      "publisher": "Telegames",
+      "crc": "a27a4a7e"
+    },
+    {
+      "genre": "Sports",
+      "users": 4,
+      "releasemonth": 8,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "High Voltage",
+      "publisher": "Atari",
+      "crc": "02f320a1"
+    },
+    {
+      "name": "Virtual VCS (USA) (Proto)",
+      "genre": "Compilation",
+      "region": "USA",
+      "rom_name": "Virtual VCS (USA) (Proto).j64",
+      "size": 1048576,
+      "users": 2,
+      "releaseyear": 1995,
+      "developer": "Temporary Sanity Designs",
+      "crc": "59a8863f",
+      "md5": "56049459c330c7557254747065377b10",
+      "sha1": "2ab78090e8afd985ca4fe54da8daef7e125550fa"
+    },
+    {
+      "genre": "Sports",
+      "users": 2,
+      "esrb_rating": "KA",
+      "developer": "Virtual Studio",
+      "publisher": "Atari",
+      "crc": "41acaa25"
+    },
+    {
+      "genre": "Fighting",
+      "users": 2,
+      "releasemonth": 9,
+      "releaseyear": 1995,
+      "esrb_rating": "M",
+      "developer": "Beyond Games",
+      "publisher": "Atari",
+      "crc": "55b816fc"
+    },
+    {
+      "genre": "Sports",
+      "users": 2,
+      "developer": "Telegames",
+      "publisher": "Williams",
+      "crc": "90c33a03"
+    },
+    {
+      "name": "Trevor McFur in the Crescent Galaxy (World) (Beta)",
+      "genre": "Shoot'em Up",
+      "rom_name": "Trevor McFur in the Crescent Galaxy (World) (Beta).j64",
+      "size": 4194304,
+      "users": 1,
+      "releaseyear": 1993,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "0a055ee0",
+      "md5": "4adc06af180e90d6f24d3f98096bbc3a",
+      "sha1": "2f0e950517d26c83408e5cf210098c0897725537"
+    },
+    {
+      "genre": "Shoot'em Up",
+      "users": 1,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "a73c1a61"
+    },
+    {
+      "name": "Towers II - Plight of the Stargazer (USA, Europe)",
+      "genre": "Role-playing (RPG)",
+      "region": "USA",
+      "rom_name": "Towers II - Plight of the Stargazer (USA, Europe).j64",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1996,
+      "developer": "JV Games",
+      "publisher": "Telegames",
+      "crc": "83a3fb5d",
+      "md5": "83d0248de7d14684cb7c7457fcd1c608",
+      "sha1": "bbe7ffb97fc07cebe53099c8acce01366d7f7e15"
+    },
+    {
+      "name": "Total Carnage (USA) (Beta)",
+      "genre": "Shooter",
+      "region": "USA",
+      "rom_name": "Total Carnage (USA) (Beta).j64",
+      "size": 4194304,
+      "users": 1,
+      "releaseyear": 1995,
+      "developer": "Midway",
+      "publisher": "Songbird Productions",
+      "crc": "8f80edcf",
+      "md5": "7fbd1b0409050ddeabf7ef440baf0180",
+      "sha1": "1ef1b86abf725f32267bfa140dc049ce9ba92aea"
+    },
+    {
+      "genre": "Shooter",
+      "users": 1,
+      "releasemonth": 9,
+      "releaseyear": 2005,
+      "developer": "Midway",
+      "publisher": "Songbird Productions",
+      "crc": "27de550a"
+    },
+    {
+      "genre": "Simulation",
+      "users": 1,
+      "releasemonth": 3,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "franchise": "Theme Park",
+      "developer": "Bullfrog",
+      "publisher": "Ocean",
+      "crc": "53d56e1c"
+    },
+    {
+      "name": "Tiny Toon Adventures (USA) (Proto)",
+      "genre": "Platform",
+      "region": "USA",
+      "rom_name": "Tiny Toon Adventures (USA) (Proto).j64",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 2010,
+      "developer": "Digital Delirium",
+      "crc": "f4acbb04",
+      "md5": "322e89a674a188f8fddd313d6fe7bf80",
+      "sha1": "841ce8ae1b71955d9b8df3b80da11fd40308ef5f"
+    },
+    {
+      "name": "Thea Realm Fighters (USA) (Proto 2)",
+      "genre": "Fighting",
+      "region": "USA",
+      "rom_name": "Thea Realm Fighters (USA) (Proto 2).j64",
+      "size": 4194304,
+      "users": 2,
+      "developer": "High Voltage Software",
+      "crc": "bb06d3c6",
+      "md5": "c41842aa3592d8aa07973476d7d706f3",
+      "sha1": "9ad03858597aa1e1fff26250996b07d1a70d1296"
+    },
+    {
+      "name": "Thea Realm Fighters (USA) (Proto 1)",
+      "genre": "Fighting",
+      "region": "USA",
+      "rom_name": "Thea Realm Fighters (USA) (Proto 1).j64",
+      "size": 4194304,
+      "users": 2,
+      "developer": "High Voltage Software",
+      "crc": "85be7e07",
+      "md5": "ad0a68fc6c54564ac1f00c36f507b38d",
+      "sha1": "07c76d3f4ae05b75ea7ad62147172fd146f4f876"
+    },
+    {
+      "genre": "Shoot'em Up",
+      "users": 2,
+      "developer": "Llamasoft",
+      "publisher": "Atari",
+      "crc": "97d47059"
+    },
+    {
+      "genre": "Strategy",
+      "users": 1,
+      "releasemonth": 1,
+      "releaseyear": 1995,
+      "developer": "Bullfrog",
+      "publisher": "Ocean",
+      "crc": "76d8ecd9"
+    },
+    {
+      "genre": "Racing",
+      "users": 1,
+      "esrb_rating": "KA",
+      "developer": "Tiertex",
+      "publisher": "Atari",
+      "crc": "3e1260a8"
+    },
+    {
+      "genre": "Racing",
+      "users": 2,
+      "esrb_rating": "KA",
+      "developer": "Shen Technologies SARL",
+      "publisher": "Atari",
+      "crc": "c0891a53"
+    },
+    {
+      "name": "Burn Out (World) (Demo 2) (WCES 1995)",
+      "genre": "Racing",
+      "rom_name": "Burn Out (World) (Demo 2) (WCES 1995).j64",
+      "size": 2097152,
+      "users": 2,
+      "releasemonth": 1,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "Shen Technologies SARL",
+      "publisher": "Atari",
+      "crc": "0f698fb3",
+      "md5": "4f7e1b03cce05c75f91d12f7e751e1b2",
+      "sha1": "ee5fea3b99177d9e88aeedcad8f01173f1062b87"
+    },
+    {
+      "genre": "Shooter",
+      "users": 2,
+      "releasemonth": 9,
+      "releaseyear": 2001,
+      "esrb_rating": "E",
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "|(_6"
+    },
+    {
+      "genre": "Platform",
+      "users": 1,
+      "releasemonth": 1,
+      "releaseyear": 2000,
+      "developer": "Krisalis Software",
+      "publisher": "Songbird Productions",
+      "crc": "65886560"
+    },
+    {
+      "name": "Slam Racer (Proto)[o]",
+      "genre": "Racing",
+      "rom_name": "Slam Racer (1996)(Sinister Developments)(proto)[o].j64",
+      "size": 4194304,
+      "users": 1,
+      "releaseyear": 1996,
+      "developer": "Sinister Developments",
+      "crc": "e25fec7c",
+      "md5": "0e71976a7cda7de311621df209deb4d5",
+      "sha1": "fe66ffdc9323cfcfc64da06e16f2d5a4a4e1a236"
+    },
+    {
+      "name": "Rayman (World) (Beta 1)",
+      "genre": "Platform",
+      "rom_name": "Rayman (World) (Beta 1).j64",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1994,
+      "franchise": "Rayman",
+      "developer": "Ubisoft",
+      "publisher": "Ubisoft",
+      "crc": "92743c49",
+      "md5": "07abf02e9619811f867ecd1266388aa2",
+      "sha1": "dd6f15cda5a84e0f93bb04d24f61727a8276ae58"
+    },
+    {
+      "genre": "Lightgun Shooter",
+      "users": 1,
+      "releasemonth": 5,
+      "releaseyear": 2000,
+      "developer": "Rebellion",
+      "publisher": "Songbird Productions",
+      "crc": "d7fcb051"
+    },
+    {
+      "genre": "Pinball",
+      "users": 4,
+      "releasemonth": 11,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "High Voltage",
+      "publisher": "Atari",
+      "crc": "1fdbff60"
+    },
+    {
+      "name": "Rayman (World) (Beta 2)",
+      "genre": "Platform",
+      "rom_name": "Rayman (World) (Beta 2).j64",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1995,
+      "franchise": "Rayman",
+      "developer": "Ubisoft",
+      "publisher": "Ubisoft",
+      "crc": "254dd949",
+      "md5": "283e0eb1beb4c6217d3be9719eabacb8",
+      "sha1": "ba34de71a8d278ba76bad19964d2d886ddb94a2e"
+    },
+    {
+      "genre": "Platform",
+      "users": 1,
+      "franchise": "Rayman",
+      "developer": "Ubisoft",
+      "publisher": "Ubisoft",
+      "crc": "c436ba2d"
+    },
+    {
+      "name": "Raiden (World) (Rev A)",
+      "genre": "Shoot'em Up",
+      "rom_name": "Raiden (World) (Rev A).j64",
+      "size": 2097152,
+      "users": 2,
+      "releaseyear": 1994,
+      "franchise": "Raiden",
+      "developer": "Imagitec Design",
+      "publisher": "Atari",
+      "crc": "31812799",
+      "md5": "126e966e6eab39f72a24a16cc75e5c7f",
+      "sha1": "50ccf7043a702531a0e9ef86d629d5ede5255c13"
+    },
+    {
+      "genre": "Shoot'em Up",
+      "users": 2,
+      "releasemonth": 10,
+      "releaseyear": 2002,
+      "developer": "Bethesda Softworks",
+      "publisher": "Songbird Productions",
+      "crc": "b749ecbd"
+    },
+    {
+      "genre": "Shoot'em Up",
+      "users": 2,
+      "franchise": "Raiden",
+      "developer": "Imagitec Design",
+      "publisher": "Atari",
+      "crc": "5bbd6e1c"
+    },
+    {
+      "name": "Protector (World)",
+      "genre": "Shoot'em Up",
+      "rom_name": "Protector (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "users": 2,
+      "releasemonth": 10,
+      "releaseyear": 1999,
+      "developer": "Bethesda Softworks",
+      "publisher": "Songbird Productions",
+      "crc": "1a20c5c4",
+      "md5": "6564da92b5d4a9dc1d34ab2c941a3b55",
+      "sha1": "8043e3b521ea00e806d3ab79c6c548a140944db1"
+    },
+    {
+      "genre": "Racing",
+      "users": 2,
+      "releasemonth": 6,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "Rage Software",
+      "publisher": "Time Warner Interactive",
+      "crc": "832ded1b"
+    },
+    {
+      "name": "Plucky Duck in Hollywood Hijinks (USA) (Proto)",
+      "region": "USA",
+      "rom_name": "Plucky Duck in Hollywood Hijinks (USA) (Proto) (1994-10-28).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 10,
+      "releaseyear": 1994,
+      "developer": "Digital Delirium",
+      "crc": "4e77a83c",
+      "md5": "138d08ea481f34e27bd0128cb996d9fe",
+      "sha1": "032aa31cef116bfba8632c14bc2fce5bc44ff137"
+    },
+    {
+      "name": "Phase Zero (World)",
+      "genre": "Shooter",
+      "rom_name": "Phase Zero (World) (Aftermarket) (Unl).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 6,
+      "releaseyear": 2002,
+      "developer": "Hyper Image",
+      "crc": "7168b143",
+      "md5": "5647d189d38b7115cba94d48f1f8d22e",
+      "sha1": "3ec9524921d07647f527e0a82a831f794a7d6d9b"
+    },
+    {
+      "genre": "Pinball",
+      "users": 8,
+      "releasemonth": 6,
+      "releaseyear": 1995,
+      "esrb_rating": "E",
+      "developer": "Spidersoft",
+      "publisher": "20th Century Fox",
+      "crc": "0c99631e"
+    },
+    {
+      "genre": "Platform",
+      "users": 1,
+      "releasemonth": 10,
+      "releaseyear": 1995,
+      "esrb_rating": "T",
+      "developer": "Imagitec Design",
+      "publisher": "Activision",
+      "crc": "11284fa5"
+    },
+    {
+      "genre": "Sports",
+      "users": 1,
+      "releasemonth": 1,
+      "releaseyear": 1996,
+      "esrb_rating": "KA",
+      "franchise": "NBA Jam",
+      "developer": "High Voltage",
+      "publisher": "Acclaim",
+      "crc": "\u0012HO!"
+    },
+    {
+      "name": "Native - Level 1 Demo",
+      "genre": "Demo",
+      "rom_name": "Native - Level 1 Demo (1997)(Duranik).j64",
+      "size": 2097152,
+      "users": 1,
+      "releaseyear": 1997,
+      "developer": "Duranik",
+      "crc": "d8d60dd5",
+      "md5": "39beed5413322f1487bafd4feb24aa49",
+      "sha1": "3d3e6c7e552cba5f99b6ebc15b951ce4bd956766"
+    },
+    {
+      "genre": "Shooter",
+      "users": 1,
+      "esrb_rating": "KA",
+      "franchise": "Missile Command",
+      "developer": "Virtuality Entertainment",
+      "publisher": "Atari",
+      "crc": "f53b35fc"
+    },
+    {
+      "name": "Missile Command VR (World) (Beta)",
+      "genre": "Shooter",
+      "rom_name": "Missile Command VR (World) (Beta) (1995-07-05).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 7,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "franchise": "Missile Command",
+      "developer": "Virtuality Entertainment",
+      "publisher": "Atari",
+      "crc": "5810cadb",
+      "md5": "72b89e485f51f2038f91d5cb499f5d80",
+      "sha1": "0e95613020d1b3a0ac76d994423c6f15ddfe9703"
+    },
+    {
+      "name": "Kasumi Ninja (World) (v0.01) (Beta)",
+      "genre": "Beat'em Up",
+      "rom_name": "Kasumi Ninja (World) (v0.01) (Beta).j64",
+      "size": 524288,
+      "users": 2,
+      "esrb_rating": "M",
+      "developer": "Hand Made Software",
+      "publisher": "Atari",
+      "crc": "ee9529ee",
+      "md5": "18089706398fc248003b3a60efce49cb",
+      "sha1": "3650143bd057dd39b96e0ad0207778353f17abe7"
+    },
+    {
+      "genre": "Beat'em Up",
+      "users": 2,
+      "releasemonth": 12,
+      "releaseyear": 1994,
+      "esrb_rating": "M",
+      "developer": "Hand Made Software",
+      "publisher": "Atari",
+      "crc": "fd531f30"
+    },
+    {
+      "name": "Jack Nicklaus Cyber Golf (USA) (v0.02) (Proto)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "Jack Nicklaus Cyber Golf (USA) (v0.02) (Proto) (1994-07-04).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 7,
+      "releaseyear": 1994,
+      "franchise": "Jack Nicklaus",
+      "developer": "Handmade Software",
+      "publisher": "B&C Computervisions",
+      "crc": "7733f701",
+      "md5": "add439553ebc7a3e1d6c44ea855c1b31",
+      "sha1": "271e9411eb9e6c74240d254bdd7bab9a039bc6d9"
+    },
+    {
+      "genre": "Shooter",
+      "users": 1,
+      "esrb_rating": "KA",
+      "franchise": "Iron Soldier",
+      "developer": "Eclipse Software",
+      "publisher": "Atari",
+      "crc": "2cfe30d4"
+    },
+    {
+      "genre": "Simulation",
+      "users": 1,
+      "releasemonth": 12,
+      "releaseyear": 1997,
+      "esrb_rating": "T",
+      "franchise": "Iron Soldier",
+      "developer": "Eclipse Software",
+      "publisher": "Atari",
+      "crc": "5c0f10fa"
+    },
+    {
+      "name": "International Sensible Soccer (World)",
+      "genre": "Sports",
+      "rom_name": "International Sensible Soccer (World).j64",
+      "size": 2097152,
+      "users": 2,
+      "releasemonth": 4,
+      "releaseyear": 1995,
+      "franchise": "Sensible Soccer",
+      "developer": "Renegade Software",
+      "publisher": "Telegames",
+      "crc": "Z\u0010\u0012\u0012",
+      "md5": "6344be281acb1c86819a310c6a147aa6",
+      "sha1": "f0914be41331e3045bbc04225044dc3c73fd9de1"
+    },
+    {
+      "genre": "Shoot'em Up",
+      "users": 2,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "franchise": "Hover Strike",
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "dd6cf81a"
+    },
+    {
+      "genre": "Shooter",
+      "users": 2,
+      "releasemonth": 12,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "Imagitec Design",
+      "publisher": "Atari",
+      "crc": "874ecc1d"
+    },
+    {
+      "genre": "Platform",
+      "users": 1,
+      "releasemonth": 4,
+      "releaseyear": 2000,
+      "developer": "Visual Impact",
+      "publisher": "Songbird Productions",
+      "crc": "3975e651"
+    },
+    {
+      "genre": "Action",
+      "users": 2,
+      "esrb_rating": "E",
+      "developer": "Rastersoft",
+      "publisher": "Rastersoft",
+      "crc": "\ue13c,"
+    },
+    {
+      "genre": "Platform",
+      "users": 1,
+      "releasemonth": 8,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "franchise": "Flashback",
+      "developer": "Tiertex Design Studios",
+      "publisher": "U.S. Gold",
+      "crc": "d68ea1ed"
+    },
+    {
+      "genre": "Puzzle",
+      "users": 1,
+      "esrb_rating": "KA",
+      "developer": "Gorilla",
+      "publisher": "Atari",
+      "crc": "\n\u00004\u0012"
+    },
+    {
+      "genre": "Fighting",
+      "users": 2,
+      "esrb_rating": "T",
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "eaf3197d"
+    },
+    {
+      "name": "Fight for Life (USA, Europe) (Beta)",
+      "genre": "Fighting",
+      "region": "USA",
+      "rom_name": "Fight for Life (USA, Europe) (Beta) (1995-03-22).j64",
+      "size": 4194304,
+      "users": 2,
+      "releasemonth": 3,
+      "releaseyear": 1995,
+      "esrb_rating": "T",
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "59458199",
+      "md5": "c5d3d9510a9ab9ea9b44c6643bd48ce1",
+      "sha1": "37fe344383d7991d19bf2c862d29a20eaf1da8ef"
+    },
+    {
+      "name": "Fight for Life (USA, Europe) (Beta)",
+      "genre": "Fighting",
+      "region": "USA",
+      "rom_name": "Fight for Life (USA, Europe) (Beta) (1995-09-07).j64",
+      "size": 4194304,
+      "users": 2,
+      "releasemonth": 9,
+      "releaseyear": 1995,
+      "esrb_rating": "T",
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "036a25e6",
+      "md5": "8ef4cea701ed5c774380a5f21bfb9062",
+      "sha1": "c92f1ff8ec83ebbe0f77f5a665169408df53b528"
+    },
+    {
+      "genre": "Sports",
+      "users": 1,
+      "releasemonth": 12,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "Distinctive Developments",
+      "publisher": "Atari",
+      "crc": "24fa43dc"
+    },
+    {
+      "genre": "Puzzle",
+      "users": 1,
+      "franchise": "The Humans",
+      "developer": "Imagitec Design",
+      "publisher": "Atari",
+      "crc": "933479c6"
+    },
+    {
+      "name": "Dragon - The Bruce Lee Story (World) (Beta)",
+      "genre": "Fighting",
+      "rom_name": "Dragon - The Bruce Lee Story (World) (Beta) (1994-10-06).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 10,
+      "releaseyear": 1994,
+      "esrb_rating": "T",
+      "franchise": "Bruce Lee",
+      "developer": "Virgin Interactive",
+      "publisher": "Atari",
+      "crc": "83c6acc0",
+      "md5": "decc2fcbdbe6f5b1682afd6c68708331",
+      "sha1": "8f556976f42c393858127d99112264e6a5a9ae19"
+    },
+    {
+      "name": "Dragon - The Bruce Lee Story (World) (Beta)",
+      "genre": "Fighting",
+      "rom_name": "Dragon - The Bruce Lee Story (World) (Beta) (1994-09-26).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 9,
+      "releaseyear": 1994,
+      "esrb_rating": "T",
+      "franchise": "Bruce Lee",
+      "developer": "Virgin Interactive",
+      "publisher": "Atari",
+      "crc": "a14f94ab",
+      "md5": "afc5f1a4bcc0c7133c62854572da559c",
+      "sha1": "298148131af2a86ba5d5430b1b8982710ce68874"
+    },
+    {
+      "genre": "Shooter",
+      "users": 2,
+      "releasemonth": 12,
+      "releaseyear": 1994,
+      "esrb_rating": "M",
+      "franchise": "Doom",
+      "developer": "id Software",
+      "publisher": "Atari",
+      "crc": "30ab3d81"
+    },
+    {
+      "genre": "Fighting",
+      "users": 2,
+      "releasemonth": 4,
+      "releaseyear": 1995,
+      "franchise": "Double Dragon",
+      "developer": "Telegames",
+      "publisher": "Williams",
+      "crc": "da42c66e"
+    },
+    {
+      "genre": "Fighting",
+      "users": 1,
+      "releasemonth": 11,
+      "releaseyear": 1994,
+      "esrb_rating": "T",
+      "franchise": "Bruce Lee",
+      "developer": "Virgin Interactive",
+      "publisher": "Atari",
+      "crc": "A\\\f\u0011"
+    },
+    {
+      "name": "Defender 2000 (World) (Beta)",
+      "genre": "Shoot'em Up",
+      "rom_name": "Defender 2000 (World) (Beta).j64",
+      "size": 4194304,
+      "users": 2,
+      "releasemonth": 12,
+      "releaseyear": 1996,
+      "esrb_rating": "KA",
+      "franchise": "Defender",
+      "developer": "Llamasoft",
+      "publisher": "Atari",
+      "crc": "952d07f0",
+      "md5": "37f38d240c9eb074872e62e3694ba453",
+      "sha1": "ae497f4839bde6c12c87c651a80633a23d6d0713"
+    },
+    {
+      "name": "Cybermorph (World) (Beta)",
+      "genre": "Shooter",
+      "rom_name": "Cybermorph (World) (Beta) (1993-08-23).j64",
+      "size": 1048576,
+      "users": 1,
+      "releasemonth": 8,
+      "releaseyear": 1993,
+      "developer": "Attention To Detail",
+      "publisher": "Atari",
+      "crc": "9eb389f9",
+      "md5": "0ad7cf284117042132e56b0a0a5af3e7",
+      "sha1": "589efbc772360fa51eddc096a162c8d9fe7838d3"
+    },
+    {
+      "genre": "Shoot'em Up",
+      "users": 2,
+      "releasemonth": 12,
+      "releaseyear": 1996,
+      "esrb_rating": "KA",
+      "franchise": "Defender",
+      "developer": "Llamasoft",
+      "publisher": "Atari",
+      "crc": "8a9d9763"
+    },
+    {
+      "name": "Club Drive (World) (Beta)",
+      "genre": "Racing",
+      "rom_name": "Club Drive (World) (Beta).j64",
+      "size": 524288,
+      "users": 2,
+      "releasemonth": 11,
+      "releaseyear": 1994,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "0e320385",
+      "md5": "b5ef0f2aa7aa14985cc7beaec483ed39",
+      "sha1": "93a29d894f5472eb755d13e721414a6bd9686c02"
+    },
+    {
+      "genre": "Shooter",
+      "users": 1,
+      "developer": "Attention To Detail",
+      "publisher": "Atari",
+      "crc": "f7fc8b37"
+    },
+    {
+      "genre": "Racing",
+      "users": 2,
+      "releasemonth": 11,
+      "releaseyear": 1994,
+      "developer": "Atari",
+      "publisher": "Atari",
+      "crc": "756d4ba6"
+    },
+    {
+      "name": "Checkered Flag (World) (Beta) (CES 1993)",
+      "genre": "Racing",
+      "rom_name": "Checkered Flag (World) (Beta) (CES 1993).j64",
+      "size": 1048576,
+      "users": 1,
+      "releasemonth": 8,
+      "releaseyear": 1993,
+      "esrb_rating": "KA",
+      "developer": "Rebellion",
+      "publisher": "Atari",
+      "crc": "ce94c0d5",
+      "md5": "b6162e77821433b474fc25be89795211",
+      "sha1": "bf00ec1fca2a97beaf28d52140df2006b1120c67"
+    },
+    {
+      "genre": "Strategy",
+      "users": 1,
+      "releasemonth": 2,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "franchise": "Cannon Fodder",
+      "developer": "The Dome Software Developments",
+      "publisher": "Virgin Interactive",
+      "crc": "3296bd76"
+    },
+    {
+      "genre": "Platform",
+      "users": 1,
+      "releasemonth": 12,
+      "releaseyear": 1994,
+      "esrb_rating": "KA",
+      "franchise": "Bubsy",
+      "developer": "Imagitec Design",
+      "publisher": "Atari",
+      "crc": "f8acab4c"
+    },
+    {
+      "genre": "Racing",
+      "users": 1,
+      "releasemonth": 11,
+      "releaseyear": 1994,
+      "esrb_rating": "KA",
+      "developer": "Rebellion",
+      "publisher": "Atari",
+      "crc": "887a0b76"
+    },
+    {
+      "genre": "Sports",
+      "users": 2,
+      "releasemonth": 8,
+      "releaseyear": 1994,
+      "developer": "Teque",
+      "publisher": "Telegames",
+      "crc": "28b1385d"
+    },
+    {
+      "name": "Breakout 2000 (USA, Europe) (Beta)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Breakout 2000 (USA, Europe) (Beta).j64",
+      "size": 2097152,
+      "users": 2,
+      "releaseyear": 1996,
+      "esrb_rating": "E",
+      "developer": "MP Games",
+      "publisher": "Atari",
+      "crc": "20dbff9f",
+      "md5": "242d383c944c8649f57efe30f8a84215",
+      "sha1": "c8f29d04dacce1a83a1c93ab351737795d0f55db"
+    },
+    {
+      "name": "Brett Hull Hockey (World)",
+      "genre": "Sports",
+      "rom_name": "Brett Hull Hockey (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "users": 2,
+      "releaseyear": 2004,
+      "developer": "Ringler Studios",
+      "publisher": "B&C Computervisions",
+      "crc": "91095dd3",
+      "md5": "4c32a7a55af8f6b24d570b6d2a83963b",
+      "sha1": "7f21c6de18c46629c0d54e68143d619093b4b8d6"
+    },
+    {
+      "name": "Breakout 2000 (USA, Europe)",
+      "genre": "Action",
+      "region": "USA",
+      "rom_name": "Breakout 2000 (USA, Europe).j64",
+      "size": 2097152,
+      "users": 2,
+      "releaseyear": 1996,
+      "esrb_rating": "E",
+      "developer": "MP Games",
+      "publisher": "Atari",
+      "crc": "b5604d40",
+      "md5": "73a03ac854e2e87ee7ca1c42ef64a301",
+      "sha1": "fe4c35c24be8df92f867b4fb42eb75a3fcc875e8"
+    },
+    {
+      "genre": "Puzzle",
+      "users": 1,
+      "esrb_rating": "KA",
+      "developer": "Sunrise Software",
+      "publisher": "Atari",
+      "crc": "08ed56b2"
+    },
+    {
+      "name": "BattleSphere (World)",
+      "genre": "Shoot'em Up",
+      "rom_name": "BattleSphere (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "users": 1,
+      "releaseyear": 2000,
+      "developer": "4Play/ScatoLogic",
+      "publisher": "4Play/ScatoLogic",
+      "crc": "_,'t",
+      "md5": "984ed59d91435ec0d8193e168df31c10",
+      "sha1": "8f4c964d2411a52c64eec1d1a3061f77117bb7a6"
+    },
+    {
+      "genre": "Shoot'em Up",
+      "users": 1,
+      "releasemonth": 3,
+      "releaseyear": 2002,
+      "developer": "4Play/ScatoLogic",
+      "publisher": "4Play/ScatoLogic",
+      "crc": "1c12c50c"
+    },
+    {
+      "name": "Atari Karts (World) (Beta)",
+      "genre": "Racing",
+      "rom_name": "Atari Karts (World) (Beta).j64",
+      "size": 4194304,
+      "users": 2,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "Miracle Designs",
+      "publisher": "Atari",
+      "crc": "52c996e0",
+      "md5": "f6ac0fea7764cf4719005c49f2281024",
+      "sha1": "1bdaaa42b38f4c93a4aba34930e3ca406ac976c9"
+    },
+    {
+      "name": "Barkley Shut Up and Jam (USA) (Beta)",
+      "genre": "Sports",
+      "region": "USA",
+      "rom_name": "Barkley Shut Up and Jam (USA) (Beta).j64",
+      "size": 2097152,
+      "users": 4,
+      "developer": "Ringler Studios",
+      "publisher": "B&C Computervision",
+      "crc": "3a3b1fd2",
+      "md5": "a69b7a8a9a7a42b189ab48ce8e8587c1",
+      "sha1": "988897fd517ebd86742971205f3b29f9d70b5686"
+    },
+    {
+      "name": "Barkley Shut Up and Jam (World)",
+      "genre": "Sports",
+      "rom_name": "Barkley Shut Up and Jam (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "users": 4,
+      "releaseyear": 2002,
+      "developer": "Ringler Studios",
+      "publisher": "B&C Computervision",
+      "crc": "aea9d831",
+      "md5": "7e06fe6e441707ebcdbd0de5ec068c6e",
+      "sha1": "18535f5985c840aefce0fa639131cb83a8a647f9"
+    },
+    {
+      "genre": "Racing",
+      "users": 2,
+      "releasemonth": 12,
+      "releaseyear": 1995,
+      "esrb_rating": "KA",
+      "developer": "Miracle Designs",
+      "publisher": "Atari",
+      "crc": "99c32931"
+    },
+    {
+      "name": "Alien vs Predator (World) (Beta)",
+      "genre": "Shooter",
+      "rom_name": "Alien vs Predator (World) (Beta) (1993-10-13).j64",
+      "size": 1048576,
+      "users": 1,
+      "releasemonth": 10,
+      "releaseyear": 1993,
+      "franchise": "Alien",
+      "developer": "Rebellion",
+      "publisher": "Atari",
+      "crc": "b4e7bc59",
+      "md5": "750106d9ec9aa7fea0326eb3397755dd",
+      "sha1": "261667e4aab6239ecf3a416f5c2443bf092735cc"
+    },
+    {
+      "name": "Arena Football '95 (World)",
+      "genre": "Sports",
+      "rom_name": "Arena Football '95 (World) (Aftermarket) (Unl).j64",
+      "size": 4194304,
+      "users": 8,
+      "releasemonth": 7,
+      "releaseyear": 2006,
+      "developer": "V-Real Interactive",
+      "publisher": "Atari",
+      "crc": "199b9d83",
+      "md5": "a73c0e4f3a0d3de6c40688ff66eb4b6e",
+      "sha1": "542063a5b27659781a85821f61e85cd89ea59ab3"
+    },
+    {
+      "name": "Aircars (USA) (Beta)",
+      "genre": "Racing",
+      "region": "USA",
+      "rom_name": "Aircars (USA) (Beta) (1994-11-14).j64",
+      "size": 2097152,
+      "users": 8,
+      "releasemonth": 11,
+      "releaseyear": 1994,
+      "esrb_rating": "KA",
+      "developer": "Midnite Entertainment Group",
+      "publisher": "ICD",
+      "crc": "53e35744",
+      "md5": "f68516a63647742e94096c128804df26",
+      "sha1": "4e55a5991725a4b557f4daf75a0fa38ec667217a"
+    },
+    {
+      "name": "Alien vs Predator (World) (Beta)",
+      "genre": "Shooter",
+      "rom_name": "Alien vs Predator (World) (Beta) (1993-08-18).j64",
+      "size": 2097152,
+      "users": 1,
+      "releasemonth": 8,
+      "releaseyear": 1993,
+      "franchise": "Alien",
+      "developer": "Rebellion",
+      "publisher": "Atari",
+      "crc": "3153d470",
+      "md5": "d126e7fa72c99ef92a132e4e1ce18b6c",
+      "sha1": "80ed1ee5b8acaddfb64a5c0bbda2bfc14bdb5da5"
+    },
+    {
+      "genre": "Racing",
+      "users": 8,
+      "releasemonth": 5,
+      "releaseyear": 1997,
+      "esrb_rating": "KA",
+      "developer": "Midnite Entertainment Group",
+      "publisher": "ICD",
+      "crc": "91bd2b8f"
+    },
+    {
+      "genre": "Shooter",
+      "users": 1,
+      "franchise": "Alien",
+      "developer": "Rebellion",
+      "publisher": "Atari",
+      "crc": "*=#\u0000"
+    }
+  ]
+}

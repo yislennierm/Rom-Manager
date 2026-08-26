@@ -19,6 +19,7 @@ import {
   Statistic,
   Table,
   Tag,
+  Transfer,
   Typography,
   message,
   theme,
@@ -27,29 +28,37 @@ import type { MenuProps } from 'antd'
 import type { DataNode } from 'antd/es/tree'
 import {
   CloudDownloadOutlined,
+  EyeOutlined,
   FolderOpenOutlined,
   HomeOutlined,
   PlusOutlined,
   ReloadOutlined,
   SafetyCertificateOutlined,
+  SettingOutlined,
 } from '@ant-design/icons'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import { apiFetch, getAuthToken, isPreviewMode, setAuthToken } from './api'
 import ModulesList from './components/ModulesList'
 import SummaryCards from './components/SummaryCards'
 import NavigationSider from './components/NavigationSider'
 import TopHeader from './components/TopHeader'
 import DetailPanel from './components/DetailPanel'
+import ModuleReadinessCard from './components/ModuleReadinessCard'
+import ConsoleInfoCard from './components/ConsoleInfoCard'
 import useModulesData from './hooks/useModulesData'
 import useProvidersData from './hooks/useProvidersData'
 import useRomData from './hooks/useRomData'
 import type {
+  AccessUser,
   BrandSelection,
   ConsoleSelection,
   DatasetCard,
   DatasetKey,
   DatasetMeta,
   ModuleEntry,
+  ModuleReadiness,
+  ProviderCoverage,
   ProviderEntry,
   ProviderSelection,
   ProvidersResponse,
@@ -113,18 +122,32 @@ const formatBytes = (size?: number) => {
 }
 
 function App() {
+  const [apiKey, setApiKey] = useState(() => getAuthToken())
+  const previewMode = isPreviewMode()
+  const [currentUser, setCurrentUser] = useState<AccessUser | null>(null)
+  const [authLoading, setAuthLoading] = useState(false)
+  const [authError, setAuthError] = useState<string | null>(null)
+  const [accessUsers, setAccessUsers] = useState<AccessUser[]>([])
+  const [accessLoading, setAccessLoading] = useState(false)
+  const [accessError, setAccessError] = useState<string | null>(null)
+  const [generatedApiKey, setGeneratedApiKey] = useState<string | null>(null)
   const [meta, setMeta] = useState<Record<DatasetKey, DatasetMeta | null>>({
     modules: null,
     providers: null,
   })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const { providerData, providerLoading, providerError, fetchProviders } = useProvidersData()
-  const { modulesData, setModulesData, modulesLoading, fetchModulesPayload } = useModulesData()
+  const { providerData, providerLoading, providerError, fetchProviders } = useProvidersData(apiKey)
+  const { modulesData, setModulesData, modulesLoading, fetchModulesPayload } = useModulesData(apiKey)
   const [providerFetchRunning, setProviderFetchRunning] = useState(false)
   const [providerExportRunning, setProviderExportRunning] = useState(false)
   const [validationRunning, setValidationRunning] = useState(false)
   const [providerStatus, setProviderStatus] = useState<Record<string, any> | null>(null)
+  const [providerCoverage, setProviderCoverage] = useState<ProviderCoverage | null>(null)
+  const [providerCoverageLoading, setProviderCoverageLoading] = useState(false)
+  const [moduleReadiness, setModuleReadiness] = useState<ModuleReadiness | null>(null)
+  const [moduleReadinessLoading, setModuleReadinessLoading] = useState(false)
+  const [rdbExportRunning, setRdbExportRunning] = useState(false)
   const {
     romSets,
     romMetaLoading,
@@ -133,7 +156,7 @@ function App() {
     romEntriesLoading,
     fetchRomMetadata,
     fetchRomEntries,
-  } = useRomData()
+  } = useRomData(apiKey)
   const [romViewMode, setRomViewMode] = useState<'list' | 'cards'>('list')
   const [selectedKeys, setSelectedKeys] = useState<string[]>(['home'])
   const [selection, setSelection] = useState<Selection>({ kind: 'home' })
@@ -144,17 +167,25 @@ function App() {
   const [providerModalTarget, setProviderModalTarget] = useState<{ brand?: string; console?: string }>({})
   const [isEditModalVisible, setEditModalVisible] = useState(false)
   const [isModuleModalVisible, setModuleModalVisible] = useState(false)
+  const [isAccessModalVisible, setAccessModalVisible] = useState(false)
+  const [accessModalTarget, setAccessModalTarget] = useState<AccessUser | null>(null)
   const [form] = Form.useForm()
   const [moduleForm] = Form.useForm()
+  const [accessForm] = Form.useForm()
+  const [loginForm] = Form.useForm()
   const [messageApi, contextHolder] = message.useMessage()
 
   const fetchMeta = useCallback(async () => {
+    if (!apiKey) {
+      setMeta({ modules: null, providers: null })
+      return
+    }
     setLoading(true)
     setError(null)
     try {
       const [modules, providers] = await Promise.all(
         DATASETS.map(async (dataset) => {
-          const response = await fetch(`/update/meta?target=${dataset.key}`)
+          const response = await apiFetch(`/update/meta?target=${dataset.key}`)
           if (!response.ok) {
             throw new Error(`Failed to load ${dataset.title}`)
           }
@@ -174,7 +205,66 @@ function App() {
 
   useEffect(() => {
     fetchMeta()
-  }, [fetchMeta])
+  }, [apiKey, fetchMeta])
+
+  const fetchCurrentUser = useCallback(async () => {
+    if (!apiKey) {
+      setCurrentUser(null)
+      setAuthError(null)
+      return null
+    }
+    setAuthLoading(true)
+    setAuthError(null)
+    try {
+      const response = await apiFetch('/me')
+      if (!response.ok) {
+        throw new Error(await response.text())
+      }
+      const payload = await response.json()
+      const user = payload.user as AccessUser
+      if (!user.admin && !previewMode) {
+        setAuthToken('')
+        setApiKey('')
+        throw new Error('Admin account required')
+      }
+      setCurrentUser(user)
+      return user
+    } catch (err) {
+      setCurrentUser(null)
+      setAuthError(err instanceof Error ? err.message : 'Login failed')
+      return null
+    } finally {
+      setAuthLoading(false)
+    }
+  }, [apiKey, previewMode])
+
+  const fetchAccessUsers = useCallback(async () => {
+    setAccessLoading(true)
+    setAccessError(null)
+    try {
+      const response = await apiFetch('/access/users')
+      if (!response.ok) {
+        throw new Error(await response.text())
+      }
+      const payload = await response.json()
+      setAccessUsers(Array.isArray(payload.users) ? payload.users : [])
+    } catch (err) {
+      setAccessUsers([])
+      setAccessError(err instanceof Error ? err.message : 'Failed to load users')
+    } finally {
+      setAccessLoading(false)
+    }
+  }, [])
+
+  useEffect(() => {
+    fetchCurrentUser().then((user) => {
+      if (user?.admin) {
+        fetchAccessUsers()
+      } else {
+        setAccessUsers([])
+      }
+    })
+  }, [apiKey, fetchAccessUsers, fetchCurrentUser])
 
   useEffect(() => {
     if (selection?.kind === 'rom-console') {
@@ -203,6 +293,7 @@ function App() {
   const isRomContext = Boolean(selectedRomBrand || selectedRomConsole)
   const showHomeSummary = !isRomContext && (!selection || selection.kind === 'home')
   const showProvidersOverview = selection?.kind === 'providers-root'
+  const showAccessOverview = selection?.kind === 'access-root'
   const isModulesDataset = selection?.kind === 'dataset' && selection.dataset === 'modules'
   const moduleByGuid = useMemo(() => {
     const lookup: Record<string, ModuleEntry> = {}
@@ -406,13 +497,28 @@ function App() {
       children: romTree.treeNodes,
       icon: <FolderOpenOutlined />,
     }
+    const settingsNode: DataNode = {
+      key: 'settings-root',
+      title: 'Settings',
+      selectable: false,
+      icon: <SettingOutlined />,
+      children: [
+        {
+          key: 'access-root',
+          title: 'Users & access',
+          selectable: true,
+          icon: <SafetyCertificateOutlined />,
+        },
+      ],
+    }
     return [
       homeNode,
       modulesNode,
       providersNode,
       romsNode,
+      ...(currentUser?.admin ? [settingsNode] : []),
     ]
-  }, [providerTree.treeNodes, moduleTreeNodes, romTree.treeNodes])
+  }, [providerTree.treeNodes, moduleTreeNodes, romTree.treeNodes, currentUser?.admin])
 
   type LevelKeysProps = {
     key?: string
@@ -441,6 +547,31 @@ function App() {
       }))
     return toMenuItems(navigationTree)
   }, [navigationTree])
+
+  const navigationWidth = useMemo(() => {
+    const labels: string[] = []
+
+    Object.values(providerData?.providers?.console_root ?? {}).forEach((consoles) => {
+      Object.keys(consoles ?? {}).forEach((consoleName) => labels.push(consoleName))
+    })
+    modulesData.forEach((module) => {
+      if (module.name) labels.push(module.name)
+    })
+    romSets.forEach((meta) => {
+      const label = meta.console || meta.module || meta.slug
+      if (label) labels.push(label)
+    })
+
+    if (!labels.length) {
+      return 340
+    }
+
+    const averageLength = labels.reduce((sum, label) => sum + label.length, 0) / labels.length
+    const longestLength = Math.max(...labels.map((label) => label.length))
+    const targetChars = Math.max(24, Math.min(48, Math.round(averageLength + longestLength * 0.18)))
+
+    return Math.max(340, Math.min(560, 128 + targetChars * 8))
+  }, [modulesData, providerData, romSets])
 
   const levelKeys = useMemo(() => buildLevelKeys((navigationMenuItems as LevelKeysProps[]) || []), [navigationMenuItems])
 
@@ -485,6 +616,10 @@ function App() {
       setSelection({ kind: 'providers-root' })
       return
     }
+    if (targetKey === 'access-root') {
+      setSelection({ kind: 'access-root' })
+      return
+    }
     if (targetKey.startsWith('provider:')) {
       const [, brand, consoleName, suffix] = targetKey.split(':')
       if (brand && consoleName && suffix) {
@@ -527,7 +662,7 @@ function App() {
       return
     }
     try {
-      const response = await fetch('/providers/status', {
+      const response = await apiFetch('/providers/status', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -547,12 +682,229 @@ function App() {
     }
   }, [])
 
+  const fetchProviderCoverage = useCallback(async (target: { brand: string; console: string; guid?: string } | null) => {
+    if (!target) {
+      setProviderCoverage(null)
+      return
+    }
+    setProviderCoverageLoading(true)
+    try {
+      const response = await apiFetch('/providers/coverage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(target),
+      })
+      if (!response.ok) {
+        throw new Error(await response.text())
+      }
+      setProviderCoverage((await response.json()) as ProviderCoverage)
+    } catch (err) {
+      setProviderCoverage(null)
+      console.error('Failed to fetch provider coverage', err)
+    } finally {
+      setProviderCoverageLoading(false)
+    }
+  }, [])
+
+  const fetchModuleReadiness = useCallback(async (target: { guid?: string; name?: string } | null) => {
+    if (!target) {
+      setModuleReadiness(null)
+      return
+    }
+    setModuleReadinessLoading(true)
+    try {
+      const response = await apiFetch('/modules/readiness', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(target),
+      })
+      if (!response.ok) {
+        throw new Error(await response.text())
+      }
+      setModuleReadiness((await response.json()) as ModuleReadiness)
+    } catch (err) {
+      setModuleReadiness(null)
+      console.error('Failed to fetch module readiness', err)
+    } finally {
+      setModuleReadinessLoading(false)
+    }
+  }, [])
+
   const handleRefreshAll = useCallback(() => {
     fetchMeta()
     fetchProviders()
     fetchModulesPayload()
     fetchRomMetadata()
   }, [fetchMeta, fetchProviders, fetchModulesPayload, fetchRomMetadata])
+
+  const handleApiKeyChange = useCallback((value: string) => {
+    setAuthToken(value)
+    setApiKey(value.trim())
+  }, [])
+
+  const handleLoginSubmit = async () => {
+    try {
+      const values = await loginForm.validateFields()
+      setAuthLoading(true)
+      setAuthError(null)
+      const response = await fetch('/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: values.username,
+          password: values.password,
+        }),
+      })
+      if (!response.ok) {
+        throw new Error(await response.text())
+      }
+      const payload = await response.json()
+      handleApiKeyChange(payload.access_token || '')
+      setCurrentUser(payload.user ?? null)
+    } catch (err) {
+      if (err && typeof err === 'object' && 'errorFields' in err) {
+        return
+      }
+      setAuthError(err instanceof Error ? err.message : 'Login failed')
+    } finally {
+      setAuthLoading(false)
+    }
+  }
+
+  const handleLogout = useCallback(() => {
+    setAuthToken('')
+    setApiKey('')
+    setCurrentUser(null)
+    setAccessUsers([])
+    setSelectedKeys(['home'])
+    setSelection({ kind: 'home' })
+    loginForm.resetFields()
+  }, [loginForm])
+
+  const handleDownloadDataset = useCallback(
+    async (dataset: DatasetCard) => {
+      try {
+        const response = await apiFetch(dataset.endpoint)
+        if (!response.ok) {
+          throw new Error(await response.text())
+        }
+        const blob = await response.blob()
+        const url = URL.createObjectURL(blob)
+        const link = document.createElement('a')
+        link.href = url
+        link.download = `${dataset.key}.json`
+        document.body.appendChild(link)
+        link.click()
+        link.remove()
+        URL.revokeObjectURL(url)
+      } catch (err) {
+        messageApi.error(err instanceof Error ? err.message : `Failed to download ${dataset.title}`)
+      }
+    },
+    [messageApi],
+  )
+
+  const openCreateAccessModal = () => {
+    setAccessModalTarget(null)
+    setGeneratedApiKey(null)
+    accessForm.setFieldsValue({
+      id: '',
+      name: '',
+      enabled: true,
+      admin: false,
+      allowed_console_guids: [],
+    })
+    setAccessModalVisible(true)
+  }
+
+  const openEditAccessModal = (user: AccessUser) => {
+    setAccessModalTarget(user)
+    setGeneratedApiKey(null)
+    accessForm.setFieldsValue({
+      id: user.id,
+      name: user.name ?? '',
+      enabled: user.enabled,
+      admin: user.admin,
+      allowed_console_guids: user.admin ? [] : user.allowed_console_guids ?? [],
+    })
+    setAccessModalVisible(true)
+  }
+
+  const closeAccessModal = () => {
+    setAccessModalVisible(false)
+    setAccessModalTarget(null)
+    accessForm.resetFields()
+  }
+
+  const handleAccessSubmit = async () => {
+    try {
+      const values = await accessForm.validateFields()
+      const isEdit = Boolean(accessModalTarget)
+      const admin = Boolean(values.admin)
+      const body = {
+        name: values.name || values.id,
+        enabled: values.enabled ?? true,
+        admin,
+        allowed_console_guids: admin ? [] : values.allowed_console_guids ?? [],
+      }
+      const response = await apiFetch(isEdit ? `/access/users/${accessModalTarget?.id}` : '/access/users', {
+        method: isEdit ? 'PATCH' : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(isEdit ? body : { id: values.id, ...body, generate_api_key: true }),
+      })
+      if (!response.ok) {
+        throw new Error(await response.text())
+      }
+      const payload = await response.json()
+      setGeneratedApiKey(payload.api_key ?? null)
+      await fetchAccessUsers()
+      if (!payload.api_key) {
+        closeAccessModal()
+      }
+      messageApi.success(isEdit ? 'User updated' : 'User created')
+    } catch (err) {
+      if (err && typeof err === 'object' && 'errorFields' in err) {
+        return
+      }
+      messageApi.error(err instanceof Error ? err.message : 'Failed to save user')
+    }
+  }
+
+  const handleResetAccessKey = async (user: AccessUser) => {
+    try {
+      const response = await apiFetch(`/access/users/${user.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ reset_api_key: true }),
+      })
+      if (!response.ok) {
+        throw new Error(await response.text())
+      }
+      const payload = await response.json()
+      setGeneratedApiKey(payload.api_key ?? null)
+      setAccessModalTarget(user)
+      setAccessModalVisible(true)
+      await fetchAccessUsers()
+    } catch (err) {
+      messageApi.error(err instanceof Error ? err.message : 'Failed to reset API key')
+    }
+  }
+
+  const handlePreviewUser = async (user: AccessUser) => {
+    try {
+      const response = await apiFetch(`/access/users/${user.id}/preview-link`, {
+        method: 'POST',
+      })
+      if (!response.ok) {
+        throw new Error(await response.text())
+      }
+      const payload = await response.json()
+      const previewUrl = payload.url || `/admin/?api_key=${encodeURIComponent(payload.api_key)}`
+      window.open(previewUrl, '_blank', 'noopener,noreferrer')
+    } catch (err) {
+      messageApi.error(err instanceof Error ? err.message : 'Failed to open user preview')
+    }
+  }
 
   const handleToggleModuleIgnore = (guid: string | undefined, next: boolean, index: number) => {
     setModulesData((prev) => {
@@ -571,6 +923,51 @@ function App() {
     const selectionTyped = selection?.kind === 'collection' ? selection : null
     fetchProviderStatus(selectionTyped)
   }, [selection, fetchProviderStatus])
+
+  useEffect(() => {
+    if (selection?.kind === 'collection') {
+      fetchProviderCoverage({
+        brand: selection.brand,
+        console: selection.console,
+        guid: selection.data.libretro_guid,
+      })
+      return
+    }
+    if (selection?.kind === 'console') {
+      const entries = getConsoleEntriesFromDataset(providerData, selection.brand, selection.console)
+      const guid = entries.find((entry) => entry.libretro_guid)?.libretro_guid
+      fetchProviderCoverage({
+        brand: selection.brand,
+        console: selection.console,
+        guid,
+      })
+      return
+    }
+    setProviderCoverage(null)
+  }, [selection, providerData, fetchProviderCoverage])
+
+  useEffect(() => {
+    if (selection?.kind === 'module') {
+      fetchModuleReadiness({
+        guid: selection.data.guid,
+        name: selection.data.name,
+      })
+      return
+    }
+    if (selection?.kind === 'collection') {
+      fetchModuleReadiness({
+        guid: selection.data.libretro_guid,
+      })
+      return
+    }
+    if (selection?.kind === 'console') {
+      const entries = getConsoleEntriesFromDataset(providerData, selection.brand, selection.console)
+      const guid = entries.find((entry) => entry.libretro_guid)?.libretro_guid
+      fetchModuleReadiness(guid ? { guid } : null)
+      return
+    }
+    setModuleReadiness(null)
+  }, [selection, providerData, fetchModuleReadiness])
 
   const getConsoleEntries = (brand: string, consoleName: string): ProviderEntry[] =>
     getConsoleEntriesFromDataset(providerData, brand, consoleName)
@@ -716,7 +1113,7 @@ function App() {
         rom_extensions: romExtensions,
         files: Object.keys(filesMap).length ? filesMap : undefined,
       }
-      const response = await fetch('/providers', {
+      const response = await apiFetch('/providers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -779,7 +1176,7 @@ function App() {
         archive_id: suffix,
         updated: dayjs().format('YYYY-MM-DD'),
       }
-      const response = await fetch('/providers', {
+      const response = await apiFetch('/providers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ brand, console: consoleName, entry: duplicateEntry }),
@@ -815,7 +1212,7 @@ function App() {
       okButtonProps: { danger: true },
       onOk: async () => {
         try {
-          const response = await fetch('/providers', {
+          const response = await apiFetch('/providers', {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -864,7 +1261,7 @@ function App() {
     const target = selectedProvider
     setProviderFetchRunning(true)
     try {
-      const response = await fetch('/providers/tasks/fetch', {
+      const response = await apiFetch('/providers/tasks/fetch', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -898,7 +1295,7 @@ function App() {
     const target = selectedProvider
     setProviderExportRunning(true)
     try {
-      const response = await fetch('/providers/tasks/export', {
+      const response = await apiFetch('/providers/tasks/export', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -931,7 +1328,7 @@ function App() {
   const handleValidateProviders = async () => {
     setValidationRunning(true)
     try {
-      const response = await fetch('/providers/tasks/validate', {
+      const response = await apiFetch('/providers/tasks/validate', {
         method: 'POST',
       })
       if (!response.ok) {
@@ -985,6 +1382,38 @@ function App() {
       messageApi.error(messageText)
     } finally {
       setValidationRunning(false)
+    }
+  }
+
+  const handleExportCoverageRdb = async () => {
+    if (!providerCoverage?.guid && !providerCoverage?.module?.name) {
+      messageApi.error('No module GUID available for RDB export')
+      return
+    }
+    setRdbExportRunning(true)
+    try {
+      const response = await apiFetch('/modules/tasks/export-rdb', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          guid: providerCoverage.guid,
+          name: providerCoverage.module?.name,
+        }),
+      })
+      if (!response.ok) {
+        throw new Error(await response.text())
+      }
+      messageApi.success('RDB exported')
+      await fetchRomMetadata()
+      await fetchProviderCoverage({
+        brand: providerCoverage.brand,
+        console: providerCoverage.console,
+        guid: providerCoverage.guid,
+      })
+    } catch (err) {
+      messageApi.error(err instanceof Error ? err.message : 'RDB export failed')
+    } finally {
+      setRdbExportRunning(false)
     }
   }
 
@@ -1097,6 +1526,96 @@ function App() {
 
   const busy = loading || providerLoading
 
+  const renderProviderCoverage = () => {
+    if (providerCoverageLoading) {
+      return <Spin />
+    }
+    if (!providerCoverage) {
+      return null
+    }
+    const summary = providerCoverage.summary
+    const providerColumns = [
+      { title: 'Provider', dataIndex: 'label', key: 'label' },
+      { title: 'Archive ID', dataIndex: 'archive_id', key: 'archive_id' },
+      { title: 'Source ROMs', dataIndex: 'source_roms', key: 'source_roms', width: 120 },
+      { title: 'Matched RDB', dataIndex: 'matched_entries', key: 'matched_entries', width: 120 },
+      { title: 'Unique files', dataIndex: 'matched_unique_files', key: 'matched_unique_files', width: 120 },
+      {
+        title: 'Cache',
+        key: 'cache',
+        width: 260,
+        render: (_: unknown, row: ProviderCoverage['providers'][number]) => (
+          <Space size="small" wrap>
+            {[
+              ['metadata', 'DB'],
+              ['listings', 'XML'],
+              ['torrent', 'Torrent'],
+              ['rom_json', 'Export'],
+            ].map(([key, label]) => (
+              <Tag key={key} color={row.status?.[key] ? 'green' : 'orange'}>
+                {label}
+              </Tag>
+            ))}
+          </Space>
+        ),
+      },
+    ]
+    const sampleColumns = [
+      { title: 'ROM', dataIndex: 'name', key: 'name' },
+      { title: 'Region', dataIndex: 'region', key: 'region', width: 120 },
+      { title: 'MD5', dataIndex: 'md5', key: 'md5', width: 260 },
+      { title: 'CRC32', dataIndex: 'crc32', key: 'crc32', width: 140 },
+    ]
+
+    return (
+      <Card size="small" title="Provider Coverage">
+        {!providerCoverage.ready && (
+          <Alert
+            type="warning"
+            showIcon
+            message={providerCoverage.missing === 'rdb' ? 'RDB export missing' : 'Coverage unavailable'}
+            description={providerCoverage.message}
+            action={
+              providerCoverage.missing === 'rdb' ? (
+                <Button size="small" onClick={handleExportCoverageRdb} loading={rdbExportRunning}>
+                  Export RDB
+                </Button>
+              ) : undefined
+            }
+            className="app-alert"
+          />
+        )}
+        <Flex gap="large" className="summary-stats" wrap>
+          <Statistic title="RDB entries" value={summary.rdb_entries} />
+          <Statistic title="Providers" value={summary.provider_count} />
+          <Statistic title="Matched" value={summary.matched_entries} />
+          <Statistic title="Unmatched" value={summary.unmatched_entries} />
+          <Statistic title="Coverage" value={summary.coverage_percent} suffix="%" precision={2} />
+          <Statistic title="Multi-provider" value={summary.multi_provider_entries} />
+        </Flex>
+        <Table
+          size="small"
+          pagination={false}
+          rowKey="id"
+          columns={providerColumns}
+          dataSource={providerCoverage.providers}
+        />
+        {providerCoverage.unmatched_samples.length > 0 && (
+          <div style={{ marginTop: 16 }}>
+            <Typography.Title level={5}>Unmatched samples</Typography.Title>
+            <Table
+              size="small"
+              pagination={false}
+              rowKey={(row) => row.md5 || row.crc32 || row.name || 'rom'}
+              columns={sampleColumns}
+              dataSource={providerCoverage.unmatched_samples}
+            />
+          </div>
+        )}
+      </Card>
+    )
+  }
+
   const renderBrandDetail = (brandSelection: BrandSelection) => {
     const brandConsoles = consolesRoot[brandSelection.brand]
     if (!brandConsoles || Object.keys(brandConsoles).length === 0) {
@@ -1147,12 +1666,17 @@ function App() {
 
   const renderConsoleDetail = (consoleSelection: ConsoleSelection) => {
     const entries = getConsoleEntries(consoleSelection.brand, consoleSelection.console)
+    const consoleGuid = entries.find((entry) => entry.libretro_guid)?.libretro_guid
+    const consoleModule = consoleGuid ? moduleByGuid[consoleGuid]?.name : undefined
     if (!entries.length) {
-      return <Empty description="No providers configured for this console" />
-    }
-    return (
-      <List
-        header={
+      return (
+        <Flex vertical gap="large">
+          <ConsoleInfoCard
+            brand={consoleSelection.brand}
+            console={consoleSelection.console}
+            guid={consoleGuid}
+            module={consoleModule}
+          />
           <Flex justify="space-between" align="center">
             <Typography.Title level={4} style={{ marginBottom: 0 }}>
               {consoleSelection.brand} · {consoleSelection.console}
@@ -1165,44 +1689,75 @@ function App() {
               New provider
             </Button>
           </Flex>
-        }
-        dataSource={entries}
-        renderItem={(entry, index) => {
-          const moduleName =
-            entry.libretro_guid && moduleByGuid[entry.libretro_guid]
-              ? moduleByGuid[entry.libretro_guid].name
-              : undefined
-          return (
-            <List.Item
-              actions={[
-                <Button
-                  size="small"
-                  onClick={() => handleProviderNavigate(consoleSelection.brand, consoleSelection.console, entry, index)}
-                >
-                  Inspect
-                </Button>,
-              ]}
-            >
-              <List.Item.Meta
-                title={entry.archive_id || entry.provider || `Collection ${index + 1}`}
-                description={
-                  moduleName
-                    ? `${moduleName} • ${entry.archive_id || entry.base_url || 'No archive id configured'}`
-                    : entry.archive_id || entry.base_url || 'No archive id configured'
-                }
-              />
-              <Space size="small" wrap>
-                <Tag>{entry.provider || 'Unknown provider'}</Tag>
-                {entry.rom_extensions?.slice(0, 3).map((ext) => (
-                  <Tag key={`${entry.archive_id ?? index}-${ext}`} color="blue">
-                    {ext}
-                  </Tag>
-                ))}
-              </Space>
-            </List.Item>
-          )
-        }}
-      />
+          <ModuleReadinessCard readiness={moduleReadiness} loading={moduleReadinessLoading} />
+          {renderProviderCoverage()}
+          <Empty description="No providers configured for this console" />
+        </Flex>
+      )
+    }
+    return (
+      <Flex vertical gap="large">
+        <ConsoleInfoCard
+          brand={consoleSelection.brand}
+          console={consoleSelection.console}
+          guid={consoleGuid}
+          module={consoleModule}
+        />
+        <ModuleReadinessCard readiness={moduleReadiness} loading={moduleReadinessLoading} />
+        {renderProviderCoverage()}
+        <List
+          header={
+            <Flex justify="space-between" align="center">
+              <Typography.Title level={4} style={{ marginBottom: 0 }}>
+                {consoleSelection.brand} · {consoleSelection.console}
+              </Typography.Title>
+              <Button
+                type="primary"
+                icon={<PlusOutlined />}
+                onClick={() => openCreateProviderModal(consoleSelection.brand, consoleSelection.console)}
+              >
+                New provider
+              </Button>
+            </Flex>
+          }
+          dataSource={entries}
+          renderItem={(entry, index) => {
+            const moduleName =
+              entry.libretro_guid && moduleByGuid[entry.libretro_guid]
+                ? moduleByGuid[entry.libretro_guid].name
+                : undefined
+            return (
+              <List.Item
+                actions={[
+                  <Button
+                    size="small"
+                    onClick={() => handleProviderNavigate(consoleSelection.brand, consoleSelection.console, entry, index)}
+                  >
+                    Inspect
+                  </Button>,
+                ]}
+              >
+                <List.Item.Meta
+                  title={entry.archive_id || entry.provider || `Collection ${index + 1}`}
+                  description={
+                    moduleName
+                      ? `${moduleName} • ${entry.archive_id || entry.base_url || 'No archive id configured'}`
+                      : entry.archive_id || entry.base_url || 'No archive id configured'
+                  }
+                />
+                <Space size="small" wrap>
+                  <Tag>{entry.provider || 'Unknown provider'}</Tag>
+                  {entry.rom_extensions?.slice(0, 3).map((ext) => (
+                    <Tag key={`${entry.archive_id ?? index}-${ext}`} color="blue">
+                      {ext}
+                    </Tag>
+                  ))}
+                </Space>
+              </List.Item>
+            )
+          }}
+        />
+      </Flex>
     )
   }
 
@@ -1229,7 +1784,7 @@ function App() {
           >
             <List.Item.Meta
               title={meta.console || meta.module || meta.slug}
-              description={`${meta.entry_count ?? 0} ROMs`}
+              description={`${meta.entry_count ?? 0} master ROMs`}
             />
             <Typography.Text type="secondary">{meta.guid || meta.slug}</Typography.Text>
           </List.Item>
@@ -1264,6 +1819,7 @@ function App() {
 
     return (
       <Flex vertical gap="large">
+        <ConsoleInfoCard brand={meta.brand} console={meta.console} guid={meta.guid} module={meta.module} />
         <div>
           <Typography.Title level={4} style={{ marginBottom: 0 }}>
             {meta.console || meta.module || meta.slug}
@@ -1274,6 +1830,12 @@ function App() {
         </div>
 
         <Descriptions bordered size="small" column={2} labelStyle={{ width: 180 }}>
+          <Descriptions.Item label="Dataset role">
+            {meta.dataset_role === 'master_rom_list' ? 'Master ROM list' : meta.dataset_role || '—'}
+          </Descriptions.Item>
+          <Descriptions.Item label="Source">
+            {meta.source_label || meta.source_kind || '—'}
+          </Descriptions.Item>
           <Descriptions.Item label="Entries">{meta.entry_count ?? entries?.length ?? '—'}</Descriptions.Item>
           <Descriptions.Item label="Fetched">{formatTimestamp(meta.fetched_at)}</Descriptions.Item>
           <Descriptions.Item label="Source URL" span={2}>
@@ -1288,7 +1850,7 @@ function App() {
         </Descriptions>
 
         <Flex justify="space-between" align="center" wrap className="rom-toolbar">
-          <Typography.Text strong>ROM Explorer</Typography.Text>
+          <Typography.Text strong>Master ROM List</Typography.Text>
           <Segmented
             value={romViewMode}
             onChange={(value) => setRomViewMode(value as 'list' | 'cards')}
@@ -1374,6 +1936,148 @@ function App() {
     </Card>
   )
 
+  const renderAccessOverview = () => {
+    const accessColumns = [
+      {
+        title: 'User',
+        dataIndex: 'id',
+        key: 'id',
+        render: (_: string, user: AccessUser) => (
+          <Space direction="vertical" size={0}>
+            <Typography.Text strong>{user.name || user.id}</Typography.Text>
+            <Typography.Text type="secondary">{user.id}</Typography.Text>
+          </Space>
+        ),
+      },
+      {
+        title: 'Role',
+        dataIndex: 'admin',
+        key: 'admin',
+        render: (admin: boolean) => <Tag color={admin ? 'gold' : 'blue'}>{admin ? 'Admin' : 'Client'}</Tag>,
+      },
+      {
+        title: 'Status',
+        dataIndex: 'enabled',
+        key: 'enabled',
+        render: (enabled: boolean) => <Tag color={enabled ? 'green' : 'red'}>{enabled ? 'Enabled' : 'Disabled'}</Tag>,
+      },
+      {
+        title: 'Consoles',
+        dataIndex: 'allowed_console_guids',
+        key: 'allowed_console_guids',
+        render: (_: string[], user: AccessUser) =>
+          user.admin ? 'All consoles' : `${user.allowed_console_guids?.length ?? 0} assigned`,
+      },
+      {
+        title: 'Actions',
+        key: 'actions',
+        render: (_: unknown, user: AccessUser) => (
+          <Space wrap>
+            <Button size="small" icon={<EyeOutlined />} onClick={() => handlePreviewUser(user)}>
+              View as
+            </Button>
+            <Button size="small" onClick={() => openEditAccessModal(user)}>
+              Edit
+            </Button>
+            <Button size="small" onClick={() => handleResetAccessKey(user)}>
+              Reset key
+            </Button>
+          </Space>
+        ),
+      },
+    ]
+
+    return (
+      <Card className="summary-card">
+        <Flex justify="space-between" align="center" wrap>
+          <Typography.Title level={5} style={{ marginBottom: 0 }}>
+            Access management
+          </Typography.Title>
+          <Space wrap>
+            <Button icon={<ReloadOutlined />} onClick={fetchAccessUsers} loading={accessLoading}>
+              Refresh
+            </Button>
+            <Button type="primary" icon={<PlusOutlined />} onClick={openCreateAccessModal}>
+              New user
+            </Button>
+          </Space>
+        </Flex>
+        {accessError && (
+          <Alert type="error" showIcon message="Unable to load users" description={accessError} className="app-alert" />
+        )}
+        <Table
+          rowKey="id"
+          columns={accessColumns}
+          dataSource={accessUsers}
+          loading={accessLoading}
+          pagination={false}
+          size="middle"
+        />
+      </Card>
+    )
+  }
+
+  if (!apiKey || (!currentUser && !authLoading)) {
+    return (
+      <ConfigProvider
+        theme={{
+          algorithm: theme.darkAlgorithm,
+          token: {
+            colorPrimary: '#f4b860',
+            colorBgBase: '#020817',
+            fontFamily: '"Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
+          },
+        }}
+      >
+        {contextHolder}
+        <Layout className="app-shell login-shell">
+          <Card className="summary-card login-card">
+            <Space direction="vertical" size="large" style={{ width: '100%' }}>
+              <div>
+                <Typography.Title level={3} style={{ marginBottom: 0 }}>
+                  Admin login
+                </Typography.Title>
+                <Typography.Text type="secondary">Sign in with an administrator account.</Typography.Text>
+              </div>
+              {authError && (
+                <Alert type="error" showIcon message="Login failed" description={authError} />
+              )}
+              <Form layout="vertical" form={loginForm} onFinish={handleLoginSubmit} initialValues={{ username: 'admin' }}>
+                <Form.Item
+                  label="Username"
+                  name="username"
+                  rules={[{ required: true, message: 'Username is required' }]}
+                >
+                  <Input placeholder="admin" autoFocus />
+                </Form.Item>
+                <Form.Item
+                  label="Password"
+                  name="password"
+                  rules={[{ required: true, message: 'Password is required' }]}
+                >
+                  <Input.Password placeholder="Password" />
+                </Form.Item>
+                <Button type="primary" htmlType="submit" loading={authLoading} block>
+                  Login
+                </Button>
+              </Form>
+            </Space>
+          </Card>
+        </Layout>
+      </ConfigProvider>
+    )
+  }
+
+  if (!currentUser) {
+    return (
+      <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
+        <Layout className="app-shell login-shell">
+          <Spin />
+        </Layout>
+      </ConfigProvider>
+    )
+  }
+
   return (
     <ConfigProvider
       theme={{
@@ -1389,6 +2093,7 @@ function App() {
       <Layout className="app-shell">
         <NavigationSider
           collapsed={navCollapsed}
+          width={navigationWidth}
           logoUrl={logoUrl}
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
@@ -1403,7 +2108,12 @@ function App() {
         />
 
         <Layout className="main-panel">
-          <TopHeader collapsed={navCollapsed} onToggle={() => setNavCollapsed((prev) => !prev)} />
+          <TopHeader
+            collapsed={navCollapsed}
+            user={currentUser}
+            onLogout={handleLogout}
+            onToggle={() => setNavCollapsed((prev) => !prev)}
+          />
 
           <Layout.Content className="app-content">
             {isModulesDataset ? (
@@ -1429,11 +2139,18 @@ function App() {
                       Pick an item on the left tree to inspect its metadata. Start with <strong>Providers</strong> to
                       view archive URLs, torrent links, and configured ROM extensions.
                     </Typography.Paragraph>
-                    <SummaryCards datasets={DATASETS} meta={meta} loading={loading} error={error} />
+                    <SummaryCards
+                      datasets={DATASETS}
+                      meta={meta}
+                      loading={loading}
+                      error={error}
+                      onDownload={handleDownloadDataset}
+                    />
                   </>
                 )}
 
                 {showProvidersOverview && renderProvidersOverview()}
+                {showAccessOverview && renderAccessOverview()}
 
                 <DetailPanel
                   selection={selection}
@@ -1446,6 +2163,8 @@ function App() {
                   isRomContext={isRomContext}
                   moduleByGuid={moduleByGuid}
                   providerStatus={providerStatus}
+                  moduleReadiness={moduleReadiness}
+                  moduleReadinessLoading={moduleReadinessLoading}
                   providerFetchRunning={providerFetchRunning}
                   providerExportRunning={providerExportRunning}
                   onFetchAssets={handleProviderFetchAssets}
@@ -1460,6 +2179,7 @@ function App() {
                   renderRomBrandDetail={renderRomBrandDetail}
                   renderConsoleDetail={renderConsoleDetail}
                   renderBrandDetail={renderBrandDetail}
+                  renderProviderCoverage={renderProviderCoverage}
                 />
               </>
             )}
@@ -1569,6 +2289,95 @@ function App() {
             <Input placeholder="true / false" />
           </Form.Item>
         </Form>
+      </Modal>
+      <Modal
+        title={accessModalTarget ? `Edit ${accessModalTarget.id}` : 'New user'}
+        open={isAccessModalVisible}
+        okText={generatedApiKey ? 'Done' : 'Save'}
+        onOk={generatedApiKey ? closeAccessModal : handleAccessSubmit}
+        onCancel={closeAccessModal}
+        destroyOnClose
+        width={960}
+      >
+        {generatedApiKey ? (
+          <Alert
+            type="success"
+            showIcon
+            message="API key generated"
+            description={
+              <Space direction="vertical">
+                <Typography.Text>This key is shown once. Store it before closing.</Typography.Text>
+                <Typography.Text copyable code>
+                  {generatedApiKey}
+                </Typography.Text>
+              </Space>
+            }
+          />
+        ) : (
+          <Form layout="vertical" form={accessForm}>
+            <Form.Item
+              label="User ID"
+              name="id"
+              rules={[{ required: true, message: 'User ID is required' }]}
+            >
+              <Input placeholder="player-1" disabled={Boolean(accessModalTarget)} />
+            </Form.Item>
+            <Form.Item label="Name" name="name">
+              <Input placeholder="Display name" />
+            </Form.Item>
+            <Form.Item label="Status" name="enabled">
+              <Select
+                options={[
+                  { label: 'Enabled', value: true },
+                  { label: 'Disabled', value: false },
+                ]}
+              />
+            </Form.Item>
+            <Form.Item label="Role" name="admin">
+              <Select
+                options={[
+                  { label: 'Client', value: false },
+                  { label: 'Admin', value: true },
+                ]}
+              />
+            </Form.Item>
+            <Form.Item
+              noStyle
+              shouldUpdate={(prev, next) =>
+                prev.admin !== next.admin || prev.allowed_console_guids !== next.allowed_console_guids
+              }
+            >
+              {({ getFieldValue }) =>
+                getFieldValue('admin') ? (
+                  <Alert
+                    type="warning"
+                    showIcon
+                    message="Admin users can see and modify the full backend."
+                    className="app-alert"
+                  />
+                ) : (
+                  <Form.Item label="Assigned consoles" name="allowed_console_guids">
+                    <Transfer
+                      className="console-transfer"
+                      dataSource={moduleOptions.map((option) => ({
+                        key: option.value,
+                        title: option.label,
+                      }))}
+                      targetKeys={getFieldValue('allowed_console_guids') ?? []}
+                      onChange={(nextKeys) => accessForm.setFieldValue('allowed_console_guids', nextKeys)}
+                      render={(item) => item.title}
+                      showSearch
+                      oneWay
+                      listStyle={{ width: 390, height: 420 }}
+                      titles={['Available consoles', 'Assigned consoles']}
+                      disabled={modulesLoading}
+                    />
+                  </Form.Item>
+                )
+              }
+            </Form.Item>
+          </Form>
+        )}
       </Modal>
     </ConfigProvider>
   )

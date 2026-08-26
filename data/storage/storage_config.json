@@ -4,17 +4,21 @@
   "frontends": {
     "retroarch_steam": {
       "name": "RetroArch (Steam)",
-      "roms_path": "~/Library/Application Support/Steam/steamapps/common/RetroArch/downloads",
-      "bios_path": "~/Library/Application Support/Steam/steamapps/common/RetroArch/system",
-      "platform": "macos",
+      "kind": "retroarch",
+      "install_type": "steam",
+      "roms_path": "~/.steam/steam/steamapps/common/RetroArch/downloads",
+      "bios_path": "~/.steam/steam/steamapps/common/RetroArch/system",
+      "playlists_path": "~/.steam/steam/steamapps/common/RetroArch/playlists",
+      "cores_path": "~/.steam/steam/steamapps/common/RetroArch/cores",
+      "platform": "linux",
       "active": false,
       "supported_guids": []
     },
     "retroarch_standalone": {
-      "name": "RetroArch MacOS(Standalone)",
-      "roms_path": "~/Documents/RetroArch/system/roms",
-      "bios_path": "~/Documents/RetroArch/system",
-      "active": true,
+      "name": "RetroArch (Standalone)",
+      "roms_path": "~/ROMs",
+      "bios_path": "~/BIOS",
+      "active": false,
       "supported_guids": [
         "b4e1a5aa-5431-535e-9650-8c7b6bbc5036",
         "2530a9bf-3926-52a9-b3fd-401ed1655bcc",
@@ -23,6 +27,19 @@
         "d4874312-2442-5d55-b0a1-8fbd6b5bb68e",
         "bc8c836c-4218-5ff1-bfb2-d895381289b4"
       ]
+    },
+    "retroarch_flatpak": {
+      "name": "RetroArch (Standalone Flatpak)",
+      "kind": "retroarch",
+      "install_type": "flatpak",
+      "launcher": "flatpak run org.libretro.RetroArch",
+      "roms_path": "~/.var/app/org.libretro.RetroArch/config/retroarch/downloads",
+      "bios_path": "~/.var/app/org.libretro.RetroArch/config/retroarch/system",
+      "playlists_path": "~/.var/app/org.libretro.RetroArch/config/retroarch/playlists",
+      "cores_path": "~/.var/app/org.libretro.RetroArch/config/retroarch/cores",
+      "platform": "linux",
+      "active": false,
+      "supported_guids": []
     }
   }
 }

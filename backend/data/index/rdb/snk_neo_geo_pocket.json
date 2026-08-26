@@ -1,0 +1,162 @@
+{
+  "module": "SNK - Neo Geo Pocket",
+  "guid": "d1c9402f-aa02-5f19-a846-449517ecd7c0",
+  "source_url": "https://raw.githubusercontent.com/libretro/libretro-database/master/rdb/SNK%20-%20Neo%20Geo%20Pocket.rdb",
+  "entry_count": 14,
+  "fetched_at": "2026-08-06T14:39:56.790152",
+  "entries": [
+    {
+      "name": "Neo Cherry Master - Real Casino Series (Japan) (En,Ja)",
+      "region": "Japan",
+      "rom_name": "Neo Cherry Master - Real Casino Series (Japan) (En,Ja).ngp",
+      "size": 1048576,
+      "crc": "\u0574il",
+      "md5": "69bc4ed3a12050795ec76f7e4fddbd99",
+      "sha1": "30e8a0264922a050d3d674df4043c7d67ebde62b",
+      "serial": "0014"
+    },
+    {
+      "name": "Melon-chan no Seichou Nikki (Japan)",
+      "region": "Japan",
+      "rom_name": "Melon-chan no Seichou Nikki (Japan).ngp",
+      "size": 1048576,
+      "crc": "c4e58fd2",
+      "md5": "aaea1921109cd82c1faf5008fb72e5fc",
+      "sha1": "f0353334c42730fb30c41229fb881183e11ad304",
+      "serial": "0004"
+    },
+    {
+      "name": "Baseball Stars - Pocket Sports Series (Japan, Europe) (En,Ja)",
+      "region": "Japan",
+      "rom_name": "Baseball Stars - Pocket Sports Series (Japan, Europe) (En,Ja).ngp",
+      "size": 1048576,
+      "crc": "caa3a827",
+      "md5": "68ee2d5be4c81348bc499fc29819fd2d",
+      "sha1": "d5a53c1b18626909b58fc73740d8c566357a7812",
+      "serial": "0007"
+    },
+    {
+      "crc": "cb42cfa4",
+      "serial": "NEOP00040"
+    },
+    {
+      "name": "Samurai Shodown! - Pocket Fighting Series (Japan, Europe) (En,Ja)",
+      "genre": "Fighting",
+      "region": "Japan",
+      "rom_name": "Samurai Shodown! - Pocket Fighting Series (Japan, Europe) (En,Ja).ngp",
+      "size": 2097152,
+      "users": 1,
+      "franchise": "Samurai Shodown",
+      "developer": "Saurus",
+      "publisher": "SNK",
+      "crc": "32e4696a",
+      "md5": "d13f954b2f1c703bdf857837c24e332e",
+      "sha1": "2c6adfa69e7aeada7d4198b373436eee35b70d01",
+      "serial": "0008"
+    },
+    {
+      "name": "Shougi no Tatsujin (Japan)",
+      "genre": "Board",
+      "region": "Japan",
+      "rom_name": "Shougi no Tatsujin (Japan).ngp",
+      "size": 524288,
+      "users": 2,
+      "releasemonth": 11,
+      "releaseyear": 1998,
+      "developer": "ADK",
+      "publisher": "SNK",
+      "crc": "f34d0c9b",
+      "md5": "9250b3328d64d3a1e7f9d50a04ceb64f",
+      "sha1": "ab0c33236f72d2b317d91d034756b56cfca1b0b4",
+      "serial": "0005"
+    },
+    {
+      "name": "Renketsu Puzzle Tsunagete Pon! (Japan)",
+      "genre": "Puzzle",
+      "region": "Japan",
+      "rom_name": "Renketsu Puzzle Tsunagete Pon! (Japan).ngp",
+      "size": 524288,
+      "users": 2,
+      "releasemonth": 10,
+      "releaseyear": 1998,
+      "developer": "Yumekobo",
+      "publisher": "SNK",
+      "crc": "ce09f534",
+      "md5": "9330c9a7bbd6a7dc5b5963a5b7623443",
+      "sha1": "cbe53b08d03ef684c08fc6ee28fca168a3d091a7",
+      "serial": "0012"
+    },
+    {
+      "name": "NeoGeo Cup '98 (Japan, Europe) (En,Ja)",
+      "genre": "Sports",
+      "region": "Japan",
+      "rom_name": "NeoGeo Cup '98 (Japan, Europe) (En,Ja).ngp",
+      "size": 1048576,
+      "users": 2,
+      "developer": "SNK",
+      "publisher": "SNK",
+      "crc": "33add5bd",
+      "md5": "30efe4f72d4678ffb97b885b1b7c3da1",
+      "sha1": "445743119c65a6765a0bdc849a12e9038192840c",
+      "serial": "0002"
+    },
+    {
+      "name": "Pocket Tennis - Pocket Sports Series (Japan, Europe) (En,Ja)",
+      "genre": "Sports",
+      "region": "Japan",
+      "rom_name": "Pocket Tennis - Pocket Sports Series (Japan, Europe) (En,Ja).ngp",
+      "size": 524288,
+      "users": 2,
+      "developer": "Yumekobo",
+      "publisher": "SNK",
+      "crc": "4b1eed05",
+      "md5": "58308b9bdf0b90b632ac4d3655a81f6d",
+      "sha1": "67826f4c8e488938f7e1b26e331f79ebf0aa2565",
+      "serial": "0009"
+    },
+    {
+      "genre": "Simulation",
+      "users": 1,
+      "releasemonth": 10,
+      "releaseyear": 1998,
+      "developer": "ADK",
+      "publisher": "SNK",
+      "crc": "02a024c1"
+    },
+    {
+      "genre": "Fighting",
+      "users": 2,
+      "releasemonth": 10,
+      "releaseyear": 1998,
+      "franchise": "The King of Fighters",
+      "developer": "SNK",
+      "publisher": "SNK",
+      "crc": "2660bfc4"
+    },
+    {
+      "name": "King of Fighters R-1 - Pocket Fighting Series (Japan, Europe) (En,Ja)",
+      "genre": "Fighting",
+      "region": "Japan",
+      "rom_name": "King of Fighters R-1 - Pocket Fighting Series (Japan, Europe) (En,Ja).ngp",
+      "size": 2097152,
+      "users": 2,
+      "franchise": "The King of Fighters",
+      "developer": "SNK",
+      "publisher": "SNK",
+      "crc": "dceb7e11",
+      "md5": "347d0ef33c889cc826d214caf8475ae0",
+      "sha1": "4a7adbcccb05b6047a38bb861523cbae7d956bfa",
+      "serial": "0001"
+    },
+    {
+      "genre": "Gambling",
+      "users": 1,
+      "developer": "Dyna Corporation",
+      "publisher": "SNK",
+      "crc": "f8ba913e"
+    },
+    {
+      "count": 13
+    }
+  ]
+}

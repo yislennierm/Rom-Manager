@@ -2,10 +2,13 @@ import React from 'react'
 import { Button, Card, Descriptions, Empty, Flex, Space, Typography } from 'antd'
 import { CopyOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons'
 import ProviderDetail from './ProviderDetail'
+import ModuleReadinessCard from './ModuleReadinessCard'
+import ConsoleInfoCard from './ConsoleInfoCard'
 import type {
   BrandSelection,
   ConsoleSelection,
   ModuleEntry,
+  ModuleReadiness,
   ModuleSelection,
   ProviderSelection,
   RomBrandSelection,
@@ -24,6 +27,8 @@ type Props = {
   isRomContext: boolean
   moduleByGuid: Record<string, ModuleEntry>
   providerStatus: Record<string, any> | null
+  moduleReadiness: ModuleReadiness | null
+  moduleReadinessLoading: boolean
   providerFetchRunning: boolean
   providerExportRunning: boolean
   onFetchAssets: () => void
@@ -38,6 +43,18 @@ type Props = {
   renderRomBrandDetail: (selection: RomBrandSelection) => React.ReactNode
   renderConsoleDetail: (selection: ConsoleSelection) => React.ReactNode
   renderBrandDetail: (selection: BrandSelection) => React.ReactNode
+  renderProviderCoverage: () => React.ReactNode
+}
+
+const splitModuleName = (name?: string) => {
+  if (!name || !name.includes(' - ')) {
+    return { brand: undefined, console: undefined }
+  }
+  const separator = name.indexOf(' - ')
+  return {
+    brand: name.slice(0, separator),
+    console: name.slice(separator + 3),
+  }
 }
 
 const DetailPanel: React.FC<Props> = ({
@@ -51,6 +68,8 @@ const DetailPanel: React.FC<Props> = ({
   isRomContext,
   moduleByGuid,
   providerStatus,
+  moduleReadiness,
+  moduleReadinessLoading,
   providerFetchRunning,
   providerExportRunning,
   onFetchAssets,
@@ -65,23 +84,40 @@ const DetailPanel: React.FC<Props> = ({
   renderRomBrandDetail,
   renderConsoleDetail,
   renderBrandDetail,
+  renderProviderCoverage,
 }) => (
   <Card className="detail-card" title={isRomContext ? undefined : 'Details'}>
     {selectedProvider ? (
-      <ProviderDetail
-        provider={selectedProvider}
-        providerStatus={providerStatus}
-        moduleByGuid={moduleByGuid}
-        onFetchAssets={onFetchAssets}
-        onExportRoms={onExportRoms}
-        onEdit={onEditProvider}
-        onDuplicate={onDuplicateProvider}
-        onDelete={onDeleteProvider}
-        fetchRunning={providerFetchRunning}
-        exportRunning={providerExportRunning}
-      />
+      <Flex vertical gap="large">
+        <ConsoleInfoCard
+          brand={selectedProvider.brand}
+          console={selectedProvider.console}
+          guid={selectedProvider.data.libretro_guid}
+          module={moduleByGuid[selectedProvider.data.libretro_guid || '']?.name}
+        />
+        <ModuleReadinessCard readiness={moduleReadiness} loading={moduleReadinessLoading} />
+        <ProviderDetail
+          provider={selectedProvider}
+          providerStatus={providerStatus}
+          moduleByGuid={moduleByGuid}
+          onFetchAssets={onFetchAssets}
+          onExportRoms={onExportRoms}
+          onEdit={onEditProvider}
+          onDuplicate={onDuplicateProvider}
+          onDelete={onDeleteProvider}
+          fetchRunning={providerFetchRunning}
+          exportRunning={providerExportRunning}
+        />
+        {renderProviderCoverage()}
+      </Flex>
     ) : selectedModule ? (
       <Flex vertical gap="large">
+        <ConsoleInfoCard
+          brand={splitModuleName(selectedModule.data.name).brand}
+          console={splitModuleName(selectedModule.data.name).console}
+          guid={selectedModule.data.guid}
+          module={selectedModule.data.name}
+        />
         <Flex justify="space-between" align="center" wrap>
           <div>
             <Typography.Title level={4} style={{ marginBottom: 0 }}>
@@ -128,6 +164,7 @@ const DetailPanel: React.FC<Props> = ({
             { key: 'shallow', label: 'Shallow clone', children: selectedModule.data.shallow || '—' },
           ]}
         />
+        <ModuleReadinessCard readiness={moduleReadiness} loading={moduleReadinessLoading} />
       </Flex>
     ) : selectedRomConsole ? (
       renderRomConsoleDetail(selectedRomConsole)

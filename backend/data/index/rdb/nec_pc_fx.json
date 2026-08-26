@@ -1,0 +1,799 @@
+{
+  "module": "NEC - PC-FX",
+  "guid": "98e5f218-c591-5a14-bd69-fa25b516c3ed",
+  "source_url": "https://raw.githubusercontent.com/libretro/libretro-database/master/rdb/NEC%20-%20PC-FX.rdb",
+  "entry_count": 80,
+  "fetched_at": "2026-08-06T11:50:12.499431",
+  "entries": [
+    {
+      "name": "Zoku Hatsukoi Monogatari - Shuugaku Ryokou (Japan) (Disc 2)",
+      "region": "Japan",
+      "rom_name": "Zoku Hatsukoi Monogatari - Shuugaku Ryokou (Japan) (Disc 2) (Track 2).bin",
+      "size": 773466960,
+      "crc": "fadeb8b9",
+      "md5": "6b9a76d423f9320e219f95fe2ba14d62",
+      "sha1": "26330185a84c8671c1a5cba8c5680e4aaa7e21f7",
+      "serial": "FXNHE629-1"
+    },
+    {
+      "name": "Zoku Hatsukoi Monogatari - Shuugaku Ryokou (Japan) (Disc 1)",
+      "region": "Japan",
+      "rom_name": "Zoku Hatsukoi Monogatari - Shuugaku Ryokou (Japan) (Disc 1) (Track 2).bin",
+      "size": 771305472,
+      "crc": "f7545cfb",
+      "md5": "1c50a182740843282f774c79a298a3cb",
+      "sha1": "e8ae3fa3fd4425de4ec0a124dbf7c7ec52f2e240",
+      "serial": "FXNHE629-0"
+    },
+    {
+      "name": "Zen Nihon Joshi Pro Wres - Queen of Queens (Japan) (Disc B) (Zenjo vs KWP)",
+      "region": "Japan",
+      "rom_name": "Zen Nihon Joshi Pro Wres - Queen of Queens (Japan) (Disc B) (Zenjo vs KWP) (Track 2).bin",
+      "size": 762835920,
+      "crc": "339cb8c0",
+      "md5": "3bcfad77987bcff08fe0e22d575ed7dc",
+      "sha1": "242655184a5bc894b71663c12707539f8acbd807",
+      "serial": "FXNHE503"
+    },
+    {
+      "name": "Zen Nihon Joshi Pro Wres - Queen of Queens (Japan) (Disc A) (Zenjo vs Zenjo)",
+      "region": "Japan",
+      "rom_name": "Zen Nihon Joshi Pro Wres - Queen of Queens (Japan) (Disc A) (Zenjo vs Zenjo) (Track 2).bin",
+      "size": 592755744,
+      "crc": "0dd820cd",
+      "md5": "c796e9d456a0ce0153670e88c35f5874",
+      "sha1": "f9a18a81f0ae8c13a05dca144d1ec9f7a31d6f27",
+      "serial": "FXNHE503"
+    },
+    {
+      "name": "Wakusei Koukitai - Little Cats (Japan)",
+      "region": "Japan",
+      "rom_name": "Wakusei Koukitai - Little Cats (Japan) (Track 04).bin",
+      "size": 266653296,
+      "crc": "a1d66ef3",
+      "md5": "b1d6be373d5c5fc11a5a4167196eabf6",
+      "sha1": "594f1e1042b971d044e5c3d875964d92d64ccb86",
+      "serial": "FXNHE637"
+    },
+    {
+      "name": "Voice Paradise (Japan) (Disc B)",
+      "region": "Japan",
+      "rom_name": "Voice Paradise (Japan) (Disc B) (Track 04).bin",
+      "size": 314093136,
+      "crc": "86e73402",
+      "md5": "f8fa299a6129323145bab7fbf54cf6ca",
+      "sha1": "bb6fff365bc1342b93f314960b0a74943a90d13a",
+      "serial": "FXNHE515"
+    },
+    {
+      "name": "Voice Paradise (Japan) (Disc A)",
+      "region": "Japan",
+      "rom_name": "Voice Paradise (Japan) (Disc A) (Track 04).bin",
+      "size": 304979136,
+      "crc": "b7d185b2",
+      "md5": "abe6f68d4859d6b634b905f86660e4f1",
+      "sha1": "637fe7c658ab399b6baff83b0e3d94cf5ffcd7fe",
+      "serial": "FXNHE515"
+    },
+    {
+      "name": "Tonari no Princess Rolfee! (Japan)",
+      "region": "Japan",
+      "rom_name": "Tonari no Princess Rolfee! (Japan) (Track 2).bin",
+      "size": 773622192,
+      "crc": "f1a58269",
+      "md5": "fce2c8d8d7a15d522464881f3ece335e",
+      "sha1": "dbb24a0130106e0e83810819bfac941ec0b33f7c",
+      "serial": "FXNHE741"
+    },
+    {
+      "name": "Tokimeki Card Paradise - Koi no Royal Straight Flush (Japan)",
+      "region": "Japan",
+      "rom_name": "Tokimeki Card Paradise - Koi no Royal Straight Flush (Japan) (Track 17).bin",
+      "size": 13465200,
+      "crc": "87988ec5",
+      "md5": "5bc7a4771e6a30a809dc27c9208fd3ce",
+      "sha1": "e001cd7320cc22b59d9d5200011249bebd1ad0f4",
+      "serial": "FXSNT501"
+    },
+    {
+      "name": "Tengai Makyou - Dennou Karakuri Kakutouden (Japan)",
+      "region": "Japan",
+      "rom_name": "Tengai Makyou - Dennou Karakuri Kakutouden (Japan) (Track 09).bin",
+      "size": 84667296,
+      "crc": "1c8ade6f",
+      "md5": "962346ccaf61a74ea4996527f2ac0200",
+      "sha1": "63e82c218ee5c23c8ab1e2c48b9cf37493eecb77",
+      "serial": "FXHUD503"
+    },
+    {
+      "name": "Tenchi Muyou! Ryououki FX (Japan) (Disc B) (Kiyone Houguu)",
+      "region": "Japan",
+      "rom_name": "Tenchi Muyou! Ryououki FX (Japan) (Disc B) (Kiyone Houguu) (Track 2).bin",
+      "size": 163661568,
+      "crc": "d8310c5a",
+      "md5": "30b82008f77b406542b49ba86995ee0b",
+      "sha1": "5eeb403714175f8346f69ad6272373bd574d009a",
+      "serial": "FXNIC601"
+    },
+    {
+      "name": "Tenchi Muyou! Ryououki FX (Japan) (Disc A) (Hakua Kaikou)",
+      "region": "Japan",
+      "rom_name": "Tenchi Muyou! Ryououki FX (Japan) (Disc A) (Hakua Kaikou) (Track 2).bin",
+      "size": 700733712,
+      "crc": "aa364536",
+      "md5": "24bf0f5e7745083762aa6b3a84eee50f",
+      "sha1": "a6c7daf346ee797582a2db148df272bb2b4c1dbb",
+      "serial": "FXNIC601"
+    },
+    {
+      "name": "Team Innocent - The Point of No Return - G.C.P.O.SS (Japan)",
+      "region": "Japan",
+      "rom_name": "Team Innocent - The Point of No Return - G.C.P.O.SS (Japan) (Track 02).bin",
+      "size": 502495392,
+      "crc": "a494e37a",
+      "md5": "51583a81b572e2e8ed0db4503f90ba22",
+      "sha1": "1b3c2ad233065222de83694899da5c6435c2bc31",
+      "serial": "FXHUD402"
+    },
+    {
+      "name": "Super Real Mahjong P.V FX (Japan)",
+      "region": "Japan",
+      "rom_name": "Super Real Mahjong P.V FX (Japan) (Track 04).bin",
+      "size": 203530320,
+      "crc": "b01d0985",
+      "md5": "ca55ed130edb272bff45b5de1a7d78a2",
+      "sha1": "1ffebdbd521bcfc8d45e65e918c070fafc4a04d0",
+      "serial": "FXNAX601"
+    },
+    {
+      "name": "Super Power League FX (Japan)",
+      "region": "Japan",
+      "rom_name": "Super Power League FX (Japan) (Track 5).bin",
+      "size": 150927840,
+      "crc": "1edd2026",
+      "md5": "e02f01384c3c0c6c63eaa17b5ce38ec8",
+      "sha1": "316de5d7ed2c420616a51990d69183ef085c5f49",
+      "serial": "FXHUD504"
+    },
+    {
+      "name": "Super PC Engine Fan Deluxe - Special CD-ROM Vol. 2 (Japan)",
+      "region": "Japan",
+      "rom_name": "Super PC Engine Fan Deluxe - Special CD-ROM Vol. 2 (Japan) (Track 14).bin",
+      "size": 74337312,
+      "crc": "a24dc27b",
+      "md5": "3d8dfa5c60013f0c5b44be4e2a8cd19e",
+      "sha1": "859bc041b32eafe603e13753cbedfe8ea03d9bb7",
+      "serial": "FXTIM004"
+    },
+    {
+      "name": "Super PC Engine Fan Deluxe - Special CD-ROM Vol. 1 (Japan)",
+      "region": "Japan",
+      "rom_name": "Super PC Engine Fan Deluxe - Special CD-ROM Vol. 1 (Japan) (Track 05).bin",
+      "size": 222176976,
+      "crc": "25369012",
+      "md5": "151d5d27a4f971ab5881569d54ba6408",
+      "sha1": "2edbeea71b8c1e702a64dde2a93ed754b2ac2808",
+      "serial": "FXTIM003"
+    },
+    {
+      "name": "Sparkling Feather (Japan)",
+      "region": "Japan",
+      "rom_name": "Sparkling Feather (Japan) (Track 02).bin",
+      "size": 426191808,
+      "crc": "5ba2a4cf",
+      "md5": "cc46cf5c4b97f78b65fe400f159207cf",
+      "sha1": "31ef01e4df6e4c2f2817374939171ad6749d8026",
+      "serial": "FXNHE739"
+    },
+    {
+      "name": "Sotsugyou R - Graduation Real (Japan)",
+      "region": "Japan",
+      "rom_name": "Sotsugyou R - Graduation Real (Japan) (Track 3).bin",
+      "size": 490961184,
+      "crc": "972b5f1d",
+      "md5": "c3df3252603826721d8a90cefd3c497b",
+      "sha1": "a95c6ff395546c5d4970c5d0724c59a93c2f84b5",
+      "serial": "FXNAV602"
+    },
+    {
+      "name": "Sotsugyou II FX - Neo Generation (Japan) (SABS, SACS)",
+      "region": "Japan",
+      "rom_name": "Sotsugyou II FX - Neo Generation (Japan) (SABS, SACS) (Track 2).bin",
+      "size": 460681536,
+      "crc": "77283e8a",
+      "md5": "d2cc56e46306cc92954457b5eabd5319",
+      "sha1": "8a19169a53bb8c0ae856cdfc3bfa75517b95136f",
+      "serial": "FXNHE401"
+    },
+    {
+      "name": "Shanghai - Banri no Choujou (Japan)",
+      "region": "Japan",
+      "rom_name": "Shanghai - Banri no Choujou (Japan) (Track 02).bin",
+      "size": 12444432,
+      "crc": "0712eea8",
+      "md5": "79846f10a3973045d31170def976b83a",
+      "sha1": "febf8bd75a4bcb6d1d45debe8a7d51a67ad9d3b0",
+      "serial": "FXNHE507"
+    },
+    {
+      "name": "Same Game FX (Japan) (NEC PC-FXGA)",
+      "region": "Japan",
+      "rom_name": "Same Game FX (Japan) (NEC PC-FXGA) (Track 2).bin",
+      "size": 1914528,
+      "crc": "d6ef38d2",
+      "md5": "a6dc3fa711d8e4cae62e889dd690c7b7",
+      "sha1": "40fd38e1a1175a78b4d3c9bb5cae03855cddb953"
+    },
+    {
+      "name": "Ruruli Ra Rura (Japan)",
+      "region": "Japan",
+      "rom_name": "Ruruli Ra Rura (Japan) (Track 02).bin",
+      "size": 365721888,
+      "crc": "f0de2db4",
+      "md5": "c8ff1a1bb29bd055cff890167c92c6f3",
+      "sha1": "63585e028ecd41d59dbc4b46e83279a8eb4d21dd",
+      "serial": "FXNHE627"
+    },
+    {
+      "name": "Return to Zork (Japan)",
+      "region": "Japan",
+      "rom_name": "Return to Zork (Japan) (Track 2).bin",
+      "size": 381247440,
+      "crc": "55ca4185",
+      "md5": "6e032081530c001965e2eaf341aed979",
+      "sha1": "55eb1b85d7c6923210171780e44b1d333d89c7fe",
+      "serial": "FXNHE505"
+    },
+    {
+      "name": "Power DoLLS FX (Japan)",
+      "region": "Japan",
+      "rom_name": "Power DoLLS FX (Japan) (Track 13).bin",
+      "size": 48077232,
+      "crc": "1eec80ca",
+      "md5": "9913a9cde892a38fe0bafa995613dde1",
+      "sha1": "220b86255f925cca884b1ebcfa9d861e38db6d92",
+      "serial": "FXNHE619"
+    },
+    {
+      "name": "Pia Carrot e Youkoso!! We've Been Waiting for You (Japan)",
+      "region": "Japan",
+      "rom_name": "Pia Carrot e Youkoso!! We've Been Waiting for You (Japan) (Track 2).bin",
+      "size": 675452064,
+      "crc": "37d0b393",
+      "md5": "b2b566d753dccc365cac70921462e257",
+      "sha1": "2447ef1f755410c56fe2c1da3977679d6cd7bb67",
+      "serial": "FXNKT702"
+    },
+    {
+      "name": "Pachio-kun FX - Maboroshi no Shima Daisakusen (Japan)",
+      "region": "Japan",
+      "rom_name": "Pachio-kun FX - Maboroshi no Shima Daisakusen (Japan) (Track 04).bin",
+      "size": 351504048,
+      "crc": ")\u06dc1",
+      "md5": "7d57be3c156ab5bc5b708af7d7515ed1",
+      "sha1": "771384466c72be715d6914cb519acf23a2d7550f",
+      "serial": "FXNHE508"
+    },
+    {
+      "name": "PC Engine Fan - Special CD-ROM Vol. 3 (Japan)",
+      "region": "Japan",
+      "rom_name": "PC Engine Fan - Special CD-ROM Vol. 3 (Japan) (Track 2).bin",
+      "size": 8542464,
+      "crc": "1d4b23e6",
+      "md5": "eb2156e54068867eff3675191c71318c",
+      "sha1": "ba54128e1094f8d3befa2c46b585671d2d6f1722",
+      "serial": "FXTIM002"
+    },
+    {
+      "name": "PC Engine Fan - Special CD-ROM Vol. 2 (Japan)",
+      "region": "Japan",
+      "rom_name": "PC Engine Fan - Special CD-ROM Vol. 2 (Japan) (Track 04).bin",
+      "size": 147460992,
+      "crc": "7879b6c9",
+      "md5": "c31cd27cdc225329defaf68281c38131",
+      "sha1": "f4966fd05a1da6bb6fe94c63c87dc9f8176bb4ea",
+      "serial": "FXTIM001"
+    },
+    {
+      "name": "Ojousama Sousamou (Japan)",
+      "region": "Japan",
+      "rom_name": "Ojousama Sousamou (Japan) (Track 06).bin",
+      "size": 192438288,
+      "crc": "866dd289",
+      "md5": "bc78355d96dcfd2b3d1e41a0cc0974b4",
+      "sha1": "19f0705e4f895434b18b80a8f87b9d2ce0875f22",
+      "serial": "FXNHE616"
+    },
+    {
+      "name": "N-nyuu - PC-FXGA Game ga Asoberu Tsukureru Hon (Japan) (Disc 1) (N-nyuu)",
+      "region": "Japan",
+      "rom_name": "N-nyuu - PC-FXGA Game ga Asoberu Tsukureru Hon (Japan) (Disc 1) (N-nyuu) (Track 02).bin",
+      "size": 21631344,
+      "crc": "e43a93d2",
+      "md5": "4e96164ea16dbef8d20141f74f7d9962",
+      "sha1": "f5916d72289508171b98d31724c253666874bc07",
+      "serial": "GANHE001A-0"
+    },
+    {
+      "name": "Miraculum - The Last Revelation (Japan)",
+      "region": "Japan",
+      "rom_name": "Miraculum - The Last Revelation (Japan) (Track 2).bin",
+      "size": 732779712,
+      "crc": "a2e5e9e2",
+      "md5": "ae83afbcb7f68196008b719c38ea74ed",
+      "sha1": "a95450e4ba2703989141a9d527193cabe248c24f",
+      "serial": "FXNHE617"
+    },
+    {
+      "name": "Minimum Nanonic (Japan)",
+      "region": "Japan",
+      "rom_name": "Minimum Nanonic (Japan) (Track 2).bin",
+      "size": 480967536,
+      "crc": "221342d2",
+      "md5": "decf6129e88e509f2dcb1dd0b3dd6f89",
+      "sha1": "35767fcfe2e3fdfbb656527f58037cd0c800da9f",
+      "serial": "FXNHE631"
+    },
+    {
+      "name": "Megami Paradise II (Japan)",
+      "region": "Japan",
+      "rom_name": "Megami Paradise II (Japan) (Track 2).bin",
+      "size": 688973712,
+      "crc": "62f89beb",
+      "md5": "f6e8e08d276d6de4bf56566beeb887fa",
+      "sha1": "4087aee9ae807274a4c73e691dd455cdd2b934bd",
+      "serial": "FXNHE623"
+    },
+    {
+      "name": "Makeruna! Makendou Z (Japan)",
+      "region": "Japan",
+      "rom_name": "Makeruna! Makendou Z (Japan) (Track 09).bin",
+      "size": 287661360,
+      "crc": "8cbf7494",
+      "md5": "809e533b01b4c60d2f204e983d4bf23d",
+      "sha1": "9084d5d847520d8cb18f7ef92fcf693eaab1f2ac",
+      "serial": "FXNHE744"
+    },
+    {
+      "name": "Mahjong Gokuu Tenjiku (Japan) (SABS)",
+      "region": "Japan",
+      "rom_name": "Mahjong Gokuu Tenjiku (Japan) (SABS) (Track 02).bin",
+      "size": 9539712,
+      "crc": "4b3ec719",
+      "md5": "b9b83f48ad1e6c43111eaae680e34b43",
+      "sha1": "fd07b432e121a96ca6c187975811a87d1286e9db",
+      "serial": "FXNHE402"
+    },
+    {
+      "name": "Lunatic Dawn FX (Japan)",
+      "region": "Japan",
+      "rom_name": "Lunatic Dawn FX (Japan) (Track 02).bin",
+      "size": 152296704,
+      "crc": "0230d473",
+      "md5": "689baaeb1aa1a2ea48d9ad5638cea9f9",
+      "sha1": "cdc013aaf666853e0f1bfbd68decf6fae0ea0b32",
+      "serial": "FXNHE509"
+    },
+    {
+      "name": "Last Imperial Prince (Japan) (Disc B)",
+      "region": "Japan",
+      "rom_name": "Last Imperial Prince (Japan) (Disc B) (Track 22).bin",
+      "size": 133104384,
+      "crc": "1660bb64",
+      "md5": "f780bf1a399faf1159b617b0e791dbf3",
+      "sha1": "a6ff4b6839cfba78c5f56c2b4341e8625301271c",
+      "serial": "FXNHE635"
+    },
+    {
+      "name": "Last Imperial Prince (Japan) (Disc A)",
+      "region": "Japan",
+      "rom_name": "Last Imperial Prince (Japan) (Disc A) (Track 23).bin",
+      "size": 72742656,
+      "crc": "8f7fdb60",
+      "md5": "13df59b7b3582a3e57e16458efd23ee7",
+      "sha1": "c6c8fe7182ff4115014bccca984f6f00362c52cc",
+      "serial": "FXNHE635"
+    },
+    {
+      "name": "Langrisser FX, Der (Japan)",
+      "region": "Japan",
+      "rom_name": "Langrisser FX, Der (Japan) (Track 2).bin",
+      "size": 755535312,
+      "crc": "4f891843",
+      "md5": "934b46dd3a65a08043b8c48c2a5df517",
+      "sha1": "efcd0b95b5cacf31ddb52e8c6cf069cd567321d6",
+      "serial": "FXNHE618"
+    },
+    {
+      "name": "Konpeki no Kantai (Japan)",
+      "region": "Japan",
+      "rom_name": "Konpeki no Kantai (Japan) (Track 02).bin",
+      "size": 426869184,
+      "crc": "b126a619",
+      "md5": "59bad499073fa8317d6781da510d88d3",
+      "sha1": "dcee13f4fd9aaad488d99db2e104472899c2c4da",
+      "serial": "FXNHE504"
+    },
+    {
+      "name": "Kokuu Hyouryuu - Nirgends (Japan)",
+      "region": "Japan",
+      "rom_name": "Kokuu Hyouryuu - Nirgends (Japan) (Track 2).bin",
+      "size": 766505040,
+      "crc": "668c6c4b",
+      "md5": "06ba237d634761fabe098fbc12a03130",
+      "sha1": "5bc32449df7c474eae481d6edac28e50b7dfd7f9",
+      "serial": "FXNHE625"
+    },
+    {
+      "name": "Kishin Douji Zenki FX - Vajra Fight (Japan)",
+      "region": "Japan",
+      "rom_name": "Kishin Douji Zenki FX - Vajra Fight (Japan) (Track 02).bin",
+      "size": 236848752,
+      "crc": "fa7a2061",
+      "md5": "ccf5ec98e4199b45acaabda3709f161a",
+      "sha1": "afd1a297d98b31afd0db98a95959f71003948185",
+      "serial": "FXHUD505"
+    },
+    {
+      "name": "J. B. Harold - Blue Chicago Blues (Japan) (Disc 2)",
+      "region": "Japan",
+      "rom_name": "J. B. Harold - Blue Chicago Blues (Japan) (Disc 2) (Track 2).bin",
+      "size": 716348640,
+      "crc": "ac4a2b96",
+      "md5": "0542aa6aeda25616b6d3b5be5b506480",
+      "sha1": "b53fc9fb576006ba4a5fe9a4eb4415ce59097914",
+      "serial": "FXNHE512-1"
+    },
+    {
+      "name": "J. B. Harold - Blue Chicago Blues (Japan) (Disc 1)",
+      "region": "Japan",
+      "rom_name": "J. B. Harold - Blue Chicago Blues (Japan) (Disc 1) (Track 2).bin",
+      "size": 558806976,
+      "crc": "d8ec2099",
+      "md5": "9cf81090f4177dc24a9a8daba82d084f",
+      "sha1": "4d6f94393253c7fcecf26308816fcf5777055902",
+      "serial": "FXNHE512-0"
+    },
+    {
+      "name": "Hataraku Shoujo - Tekipaki Working Love FX (Japan)",
+      "region": "Japan",
+      "rom_name": "Hataraku Shoujo - Tekipaki Working Love FX (Japan) (Track 3).bin",
+      "size": 418566624,
+      "crc": "ab9b81f7",
+      "md5": "3faa2ac27be0cf173bc53c2b0004996f",
+      "sha1": "13b558f7c182d431638c0acae41a632eae02545e",
+      "serial": "FXNHE847"
+    },
+    {
+      "name": "Ginga Ojousama Densetsu Yuna FX - Kanashimi no Selene (Japan) (Sample)",
+      "region": "Japan",
+      "rom_name": "Ginga Ojousama Densetsu Yuna FX - Kanashimi no Selene (Japan) (Sample) (Track 2).bin",
+      "size": 112435008,
+      "crc": "8f764f39",
+      "md5": "3582558af9bd501a2802ff60e0207eb1",
+      "sha1": "09e12c593bcd55a67fc3cab5c3ac238e6025b982",
+      "serial": "FXHUD506A"
+    },
+    {
+      "name": "Ginga Ojousama Densetsu Yuna FX - Kanashimi no Selene (Japan)",
+      "region": "Japan",
+      "rom_name": "Ginga Ojousama Densetsu Yuna FX - Kanashimi no Selene (Japan) (Track 2).bin",
+      "size": 704790912,
+      "crc": "8c238e83",
+      "md5": "b108f577ca985063e0c70603c7e3daab",
+      "sha1": "ed38ff6032da55e2b3a4eabe5a1d608bc0449e0f",
+      "serial": "FXHUD506"
+    },
+    {
+      "name": "Fushigi no Kuni no Angelique (Japan)",
+      "region": "Japan",
+      "rom_name": "Fushigi no Kuni no Angelique (Japan) (Track 6).bin",
+      "size": 208662384,
+      "crc": "503f3981",
+      "md5": "0c0a09295b60d7e366b57701b9ac8689",
+      "sha1": "cc001cbd8925e93feb2a306133e335498b5d4153",
+      "serial": "FXNHE632"
+    },
+    {
+      "name": "First Kiss Story (Japan)",
+      "region": "Japan",
+      "rom_name": "First Kiss Story (Japan) (Track 2).bin",
+      "size": 744948960,
+      "crc": "7567d2ff",
+      "md5": "3f8b4eb3f7dfc665b07df774994758ad",
+      "sha1": "b8041dd1b0f05fb8c4f854b5766bf332a42e9853",
+      "serial": "FXHNX801"
+    },
+    {
+      "name": "Fire Woman Matoigumi (Japan)",
+      "region": "Japan",
+      "rom_name": "Fire Woman Matoigumi (Japan) (Track 2).bin",
+      "size": 594573840,
+      "crc": "ad52b608",
+      "md5": "3a4b4d09b30cf61392c373a7018f22d0",
+      "sha1": "153c8a5c3bfedf1432ca4d8911984acf86004917",
+      "serial": "FXNHE634"
+    },
+    {
+      "name": "Farland Story FX (Japan)",
+      "region": "Japan",
+      "rom_name": "Farland Story FX (Japan) (Track 2).bin",
+      "size": 536768736,
+      "crc": "\u0012n;W",
+      "md5": "1bb6ea320d1df6086eabf4c41ed56f9e",
+      "sha1": "fdd99db168d5b8f936f5ce6999e53b7c95dd137e",
+      "serial": "FXNHE628"
+    },
+    {
+      "name": "Dragon Knight 4 (Japan)",
+      "region": "Japan",
+      "rom_name": "Dragon Knight 4 (Japan) (Track 2).bin",
+      "size": 406465584,
+      "crc": "0b11f76d",
+      "md5": "d494ab9394b0c38cb1ff176d4f318903",
+      "sha1": "6d1802159a82cddecb8ba61bd71bdebc9367ddb9",
+      "serial": "FXNAV603"
+    },
+    {
+      "name": "Doukyuusei 2 (Japan)",
+      "region": "Japan",
+      "rom_name": "Doukyuusei 2 (Japan) (Track 5).bin",
+      "size": 420034272,
+      "crc": "80ca4f2a",
+      "md5": "0d13caf707d4400b508a5ddc71053faa",
+      "sha1": "87f7737eb12b2a5ff22160d8eca6c81b594c7821",
+      "serial": "FXNAV601"
+    },
+    {
+      "name": "Cutey Honey FX (Japan)",
+      "region": "Japan",
+      "rom_name": "Cutey Honey FX (Japan) (Track 2).bin",
+      "size": 656549040,
+      "crc": "737d68bd",
+      "md5": "295f1f431c7101a02db29f6e3f32a042",
+      "sha1": "1dd574364e40cb90dd0ff25940fe8df9e6793edf",
+      "serial": "FXNHE511"
+    },
+    {
+      "name": "Comic Road (Japan)",
+      "region": "Japan",
+      "rom_name": "Comic Road (Japan) (Track 3).bin",
+      "size": 765985248,
+      "crc": "mwh?",
+      "md5": "0a6e05746450d165d955cc5610f99bde",
+      "sha1": "c28ab02fba4fbf9b6377758f90ba99054982092e",
+      "serial": "FXNHE743"
+    },
+    {
+      "name": "Choujin Heiki Zeroigar (Japan)",
+      "region": "Japan",
+      "rom_name": "Choujin Heiki Zeroigar (Japan) (Track 2).bin",
+      "size": 420801024,
+      "crc": "e898cc2d",
+      "md5": "cedc323cb2d8484aec807d567ac23f68",
+      "sha1": "4f97e4037218e12fbb7e6088870c1243e5d93cc5",
+      "serial": "FXNHE624"
+    },
+    {
+      "name": "Chip-chan Kick! (Japan)",
+      "region": "Japan",
+      "rom_name": "Chip-chan Kick! (Japan) (Track 02).bin",
+      "size": 145490016,
+      "crc": "bba9d56f",
+      "md5": "ac28e2ff613069e8655cb49e927e5803",
+      "sha1": "4312c62529cb44ae6658832199119238ced61b4e",
+      "serial": "FXNHE626"
+    },
+    {
+      "name": "Can Can Bunny Extra DX (Japan)",
+      "region": "Japan",
+      "rom_name": "Can Can Bunny Extra DX (Japan) (Track 3).bin",
+      "size": 649154352,
+      "crc": "a52da28d",
+      "md5": "4e80c8f96bce297df8ea8c4c155df9d0",
+      "sha1": "77094ffa21b732d8a2f74a0eb5c283189d7f3633",
+      "serial": "FXNKT702"
+    },
+    {
+      "name": "Boundary Gate - Daughter of Kingdom (Japan)",
+      "region": "Japan",
+      "rom_name": "Boundary Gate - Daughter of Kingdom (Japan) (Track 02).bin",
+      "size": 64625904,
+      "crc": "863f8084",
+      "md5": "6e484c6cde2b83eaded8838b95bbae77",
+      "sha1": "7fca4196b5aed31ae2a3e2500b4ef1f537ea4576",
+      "serial": "FXNHE620"
+    },
+    {
+      "name": "Blue Breaker - Ken yori mo Hohoemi o (Japan)",
+      "region": "Japan",
+      "rom_name": "Blue Breaker - Ken yori mo Hohoemi o (Japan) (Track 2).bin",
+      "size": 727650000,
+      "crc": "af3882f4",
+      "md5": "b110038646490f5cddbf7212495b9db4",
+      "sha1": "0a1dc5691bf64c6c35339db999f03fae5810b3c1",
+      "serial": "FXNHE622"
+    },
+    {
+      "name": "Battle Heat (Japan)",
+      "region": "Japan",
+      "rom_name": "Battle Heat (Japan) (Track 07).bin",
+      "size": 142968672,
+      "crc": "102113da",
+      "md5": "0a613f11e99661885051ec5c9c956909",
+      "sha1": "402a6f116621ea644136649c0893622d1671f6a4",
+      "serial": "FXHUD401"
+    },
+    {
+      "name": "AnimeFreak FX Vol. 6 (Japan) (Disc 2)",
+      "region": "Japan",
+      "rom_name": "AnimeFreak FX Vol. 6 (Japan) (Disc 2) (Track 2).bin",
+      "size": 680776992,
+      "crc": "2|v\b",
+      "md5": "57bf81ca2d63a992d111ad164f1ca454",
+      "sha1": "4126acdb2d707835283018f9a6512e9389dce1a1",
+      "serial": "FXNHE845-1"
+    },
+    {
+      "name": "AnimeFreak FX Vol. 6 (Japan) (Disc 1)",
+      "region": "Japan",
+      "rom_name": "AnimeFreak FX Vol. 6 (Japan) (Disc 1) (Track 2).bin",
+      "size": 672563808,
+      "crc": "ddb2f400",
+      "md5": "8fbd5cf3b520ffbc533cc4f08b8fabb9",
+      "sha1": "9589ab017d813644d1ef26e9aded48329bb7a8aa",
+      "serial": "FXNHE845-0"
+    },
+    {
+      "name": "AnimeFreak FX Vol. 5 (Japan) (Disc 2)",
+      "region": "Japan",
+      "rom_name": "AnimeFreak FX Vol. 5 (Japan) (Disc 2) (Track 2).bin",
+      "size": 618103248,
+      "crc": "d8e65bf5",
+      "md5": "ba6f9a21f35596e1b24c619627b26b5a",
+      "sha1": "11f9c3fa271b22cc3081a7a474d488ba9a23cdb9",
+      "serial": "FXNHE738-1"
+    },
+    {
+      "name": "AnimeFreak FX Vol. 5 (Japan) (Disc 1)",
+      "region": "Japan",
+      "rom_name": "AnimeFreak FX Vol. 5 (Japan) (Disc 1) (Track 2).bin",
+      "size": 537095664,
+      "crc": "d46372c4",
+      "md5": "cc78eea710580bfc5087c49242d2c9c6",
+      "sha1": "c30b11952528bd6ef17942ed7790d36fe1feb451",
+      "serial": "FXNHE738-0"
+    },
+    {
+      "name": "AnimeFreak FX Vol. 4 (Japan)",
+      "region": "Japan",
+      "rom_name": "AnimeFreak FX Vol. 4 (Japan) (Track 2).bin",
+      "size": 728301504,
+      "crc": "556dced3",
+      "md5": "f9d93d61c0dfa9d7511ab2d2e6f95575",
+      "sha1": "12c609f7e43b24f7b8249c476bd9060f69a66651",
+      "serial": "FXNHE636"
+    },
+    {
+      "name": "AnimeFreak FX Vol. 3 (Japan)",
+      "region": "Japan",
+      "rom_name": "AnimeFreak FX Vol. 3 (Japan) (Track 2).bin",
+      "size": 754079424,
+      "crc": "d0201d66",
+      "md5": "4a8d318d3bfd536ea3374040d86ba246",
+      "sha1": "19905d3fa16696dadfab23d4a2f80b30a3a1dff6",
+      "serial": "FXNHE621"
+    },
+    {
+      "name": "AnimeFreak FX Vol. 2 (Japan)",
+      "region": "Japan",
+      "rom_name": "AnimeFreak FX Vol. 2 (Japan) (Track 2).bin",
+      "size": 717795120,
+      "crc": "C\u07e9&",
+      "md5": "1f984caee05cf72040d4959fef24d441",
+      "sha1": "b5983901433b2b8243dc654b1d18ad73f53db411",
+      "serial": "FXNHE513"
+    },
+    {
+      "name": "AnimeFreak FX Vol. 1 (Japan)",
+      "region": "Japan",
+      "rom_name": "AnimeFreak FX Vol. 1 (Japan) (Track 2).bin",
+      "size": 748999104,
+      "crc": "54e7743e",
+      "md5": "12493c455b29401a977a66e759873d58",
+      "sha1": "73697c96b667b5617e84c011fafea75162ff896d",
+      "serial": "FXNHE510"
+    },
+    {
+      "name": "Angelique Special 2 (Japan)",
+      "region": "Japan",
+      "rom_name": "Angelique Special 2 (Japan) (Track 3).bin",
+      "size": 727247808,
+      "crc": "78b623f0",
+      "md5": "9cef929eb8dc1bf8705010f80605fff9",
+      "sha1": "1dc5751f2f115b8938744bd5a83be6e0b0c35600",
+      "serial": "FXNHE633"
+    },
+    {
+      "name": "Angelique Special (Japan)",
+      "region": "Japan",
+      "rom_name": "Angelique Special (Japan) (Track 5).bin",
+      "size": 300439776,
+      "crc": "3594a154",
+      "md5": "8c5546fb278a867179589816a8a305d3",
+      "sha1": "6747e91abbd8d8da020e5c79ec91d8093b490fe1",
+      "serial": "FXNHE514"
+    },
+    {
+      "name": "Angelique - Tenkuu no Requiem (Japan)",
+      "region": "Japan",
+      "rom_name": "Angelique - Tenkuu no Requiem (Japan) (Track 4).bin",
+      "size": 358289568,
+      "crc": "bae584dc",
+      "md5": "f95ff7598c3b20ee58d65e9e8bf4241c",
+      "sha1": "1cf5af4ffc273336dfc7e92e9727d0b679e37c1c",
+      "serial": "FXNHE846"
+    },
+    {
+      "name": "Amateur Teikyou CD-ROM (Japan) (NEC PC-FXGA)",
+      "region": "Japan",
+      "rom_name": "Amateur Teikyou CD-ROM (Japan) (NEC PC-FXGA).bin",
+      "size": 563764992,
+      "crc": "bf8e82f3",
+      "md5": "da53e5a17fc963bf40beec2e5112d208",
+      "sha1": "4857e4ec665f4af2fe56da9e2441223b1804208f"
+    },
+    {
+      "name": "Amateur Teikyou CD-ROM (Japan) (DOS-V-you) (NEC PC-FXGA)",
+      "region": "Japan",
+      "rom_name": "Amateur Teikyou CD-ROM (Japan) (DOS-V-you) (NEC PC-FXGA).bin",
+      "size": 559235040,
+      "crc": "3f7305d5",
+      "md5": "786894226fb52c2bb533c0d5e93bd1d2",
+      "sha1": "75cf769eed97277ea266a5448a6f658f69cf199a"
+    },
+    {
+      "name": "Albaria no Otome (Japan)",
+      "region": "Japan",
+      "rom_name": "Albaria no Otome (Japan) (Track 19).bin",
+      "size": 166855584,
+      "crc": "b67dff5f",
+      "md5": "18d67f2a715591b25a3e1bf9996e0f8f",
+      "sha1": "1d2404d32f0d8eb2d05cef27c2a8448c75c845ef",
+      "serial": "FXNHE740"
+    },
+    {
+      "name": "Akazukin ChaCha - Osawagase! Panic Race! (Japan)",
+      "region": "Japan",
+      "rom_name": "Akazukin ChaCha - Osawagase! Panic Race! (Japan) (Track 2).bin",
+      "size": 466034688,
+      "crc": "4585beb4",
+      "md5": "97b21f0f8110239ee340fd76220f5d11",
+      "sha1": "f510d5dc14fd46d3a6433b80d963f8cb0f325145",
+      "serial": "FXNHE630"
+    },
+    {
+      "name": "Aa Megami-sama (Japan) (Disc 2)",
+      "region": "Japan",
+      "rom_name": "Aa Megami-sama (Japan) (Disc 2) (Track 3).bin",
+      "size": 472664976,
+      "crc": "9dd3e825",
+      "md5": "bcb32047afa02df42d17f4348e669558",
+      "sha1": "16692c6d15d1baca395c5e8ceefac05735f168c8",
+      "serial": "FXNHE742-1"
+    },
+    {
+      "name": "Aa Megami-sama (Japan) (Disc 1)",
+      "region": "Japan",
+      "rom_name": "Aa Megami-sama (Japan) (Disc 1) (Track 3).bin",
+      "size": 541075248,
+      "crc": "1d65b6fc",
+      "md5": "41cbbfdad1649c77de475acb22b2e133",
+      "sha1": "2fdfd3f83d1d52a34d5442d32f899353beec58c7",
+      "serial": "FXNHE742-0"
+    },
+    {
+      "count": 79
+    }
+  ]
+}

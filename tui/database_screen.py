@@ -9,6 +9,7 @@ from textual.screen import Screen
 from textual import events
 
 from core.providers import load_providers
+from core.console_readiness import readiness_for_module
 from utils.library_sync import (
     load_modules,
     build_module_index,
@@ -17,19 +18,23 @@ from utils.library_sync import (
     rdb_json_path,
 )
 from utils.paths import manufacturer_slug, console_slug
+from .rom_explorer_screen import ROMExplorerScreen
+from .bios_manager_screen import BiosManagerScreen
 
-STORAGE_CONFIG_PATH = Path("data/storage/storage_config.json")
+DATA_DIR = Path(os.environ.get("ROMS_MANAGER_DATA_ROOT", Path(__file__).resolve().parents[1] / "data")).expanduser()
+STORAGE_CONFIG_PATH = DATA_DIR / "storage" / "storage_config.json"
 
 class DatabaseScreen(Screen):
-    """Manage synced consoles from libretro."""
+    """Advanced local libretro/frontend database tooling."""
 
     BINDINGS = [
         ("escape", "go_back", "Back"),
         ("r", "refresh", "Refresh"),
         ("space", "toggle_activation", "Toggle Activation"),
         ("a", "build_artwork", "Build Artwork"),
+        ("b", "bios_manager", "BIOS"),
         ("i", "export_rdb", "Export RDB"),
-        ("enter", "detail", "Details"),
+        ("enter", "open_explorer", "Open Explorer"),
         ("d", "detail", "Details"),
         ("/", "focus_search", "Search"),
     ]
@@ -40,10 +45,9 @@ class DatabaseScreen(Screen):
         self.table = DataTable(id="db_table")
         yield Container(
             Static(
-                "Module list is loaded from data/index/libretro_modules.json."
-                "\nUse `python3 roms_manager.py database fetch` to update it."
-                "\nPress '/' to search, [space] to toggle, [a] for artwork, [i] for RDB."
-                "\nDestination shows where ROMs will be stored once active.",
+                "Advanced local frontend tools. Backend account sync normally manages assigned consoles."
+                "\nPress '/' to search, [Enter] to open Explorer, [space] to toggle local frontend activation, [i] for RDB, [d] for details."
+                "\nPress [b] for BIOS readiness. Destination shows where ROMs will be stored when the console is active in the selected frontend.",
                 id="db_info",
             ),
             self.search_input,
@@ -53,7 +57,7 @@ class DatabaseScreen(Screen):
 
     def on_mount(self) -> None:
         self.search_value = ""
-        self.table.add_columns("Active", "Device", "Providers", "Path")
+        self.table.add_columns("Active", "Ready", "Device", "Providers", "RDB", "Core", "BIOS", "Playlist", "Path")
         self.table.cursor_type = "row"
         self.table.zebra_stripes = True
         self.table.focus()
@@ -85,6 +89,62 @@ class DatabaseScreen(Screen):
             self.app.bell()
             return
         self._export_rdb(module)
+
+    def action_bios_manager(self):
+        self.app.push_screen(BiosManagerScreen())
+
+    def action_open_explorer(self):
+        module = self._current_module()
+        if not module:
+            self.app.bell()
+            return
+        guid = module.get("guid")
+        if not guid:
+            self._notify("Module GUID missing; run database fetch again.", severity="warning")
+            return
+        manufacturer, console = self._split_module_name(module.get("name") or "")
+        if not manufacturer or not console:
+            self._notify("Module name cannot be mapped to a console.", severity="warning")
+            return
+
+        key, frontend = self._active_frontend_entry()
+        if frontend and guid not in (frontend.get("supported_guids") or []):
+            supported = list(frontend.get("supported_guids") or [])
+            supported.append(guid)
+            frontend["supported_guids"] = supported
+            self.storage_config.setdefault("frontends", {})[key] = frontend
+            self._save_storage_config(self.storage_config)
+            self.storage_config = self._load_storage_config()
+            self._notify(f"Activated {module.get('name', 'module')} for {frontend.get('name', 'frontend')}.", severity="success")
+
+        rdb_path = rdb_json_path(module.get("name") or "")
+        if not rdb_path.exists():
+            self._notify(f"Exporting RDB for {module.get('name')} before opening Explorer…", severity="information")
+            try:
+                exported_path = export_module_rdb(module)
+            except Exception as exc:
+                self._notify(f"RDB export failed: {exc}", severity="warning")
+                return
+            rdb_path = Path(exported_path)
+            self._notify(f"Exported RDB to {exported_path}", severity="success")
+
+        app = getattr(self, "app", None)
+        if app is not None:
+            app.current_manufacturer = manufacturer
+            app.current_console = console
+            app.current_roms_path = str(rdb_path)
+            app.current_manufacturer_slug = manufacturer_slug(manufacturer)
+            app.current_console_slug = console_slug(console)
+            app.current_module_guid = guid
+
+        self.app.push_screen(
+            ROMExplorerScreen(
+                manufacturer=manufacturer,
+                console=console,
+                roms_path=str(rdb_path),
+                module_guid=guid,
+            )
+        )
 
     def action_toggle_activation(self):
         module = self._current_module()
@@ -166,7 +226,7 @@ class DatabaseScreen(Screen):
         if app and hasattr(app, "notify"):
             app.notify(message, severity=severity)
         else:
-            print(f"[{severity.upper()}] {message}")
+            self.log(f"[{severity.upper()}] {message}")
 
     def _current_module(self):
         if not getattr(self, "filtered_modules", None):
@@ -208,9 +268,10 @@ class DatabaseScreen(Screen):
 
     def _apply_filter(self):
         self.filtered_modules = []
+        self.readiness_by_guid = {}
         self.table.clear()
         if not getattr(self, "modules", None):
-            self.table.add_row("—", "No modules synced", "—", "—")
+            self.table.add_row("—", "No modules synced", "—", "—", "—", "—", "—", "—", "—")
             return
         query = getattr(self, "search_value", "").lower().strip()
         for module in self.modules:
@@ -218,12 +279,26 @@ class DatabaseScreen(Screen):
             if query and query not in name.lower():
                 continue
             checkbox = "☑" if self._is_guid_active(module.get("guid")) else "☐"
-            provider_cell = self._provider_count_cell(module.get("guid"))
+            readiness = readiness_for_module(module)
+            if module.get("guid"):
+                self.readiness_by_guid[module.get("guid")] = readiness
+            checks = readiness.get("checks") or {}
+            provider_cell = str((readiness.get("providers") or {}).get("count") or 0)
             destination = self._rdb_destination_for(name)
-            self.table.add_row(checkbox, name or "—", provider_cell, destination)
+            self.table.add_row(
+                checkbox,
+                _readiness_marker(str(readiness.get("score") or "")),
+                name or "—",
+                provider_cell,
+                _check_marker(checks.get("rdb")),
+                _check_marker(checks.get("core")),
+                _check_marker(checks.get("bios")),
+                _check_marker(checks.get("playlist")),
+                destination,
+            )
             self.filtered_modules.append(module)
         if not self.filtered_modules:
-            self.table.add_row("—", "No matches", "—", "—")
+            self.table.add_row("—", "No matches", "—", "—", "—", "—", "—", "—", "—")
 
     def _rdb_destination_for(self, module_name: str | None) -> str:
         if not module_name:
@@ -290,3 +365,28 @@ class DatabaseScreen(Screen):
         if not value:
             return ""
         return "".join(ch for ch in value.lower() if ch.isalnum())
+
+
+def _readiness_marker(score: str) -> str:
+    return {
+        "ready": "✅ Ready",
+        "catalog_ready": "◐ Catalog",
+        "needs_work": "⚠ Work",
+        "broken": "✖ Broken",
+    }.get(score, "—")
+
+
+def _check_marker(check: dict | None) -> str:
+    if not check:
+        return "—"
+    state = check.get("state")
+    label = str(check.get("label") or state or "—")
+    if state == "ok":
+        return "✅"
+    if state == "partial":
+        return f"◐ {label}"
+    if state == "unknown":
+        return "?"
+    if state in {"invalid", "error", "stale"}:
+        return f"✖ {label}"
+    return f"⚠ {label}"
