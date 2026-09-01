@@ -1,9 +1,11 @@
 import json
+import shutil
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 from core.bios_manager import active_frontend, list_bios_requirements
 from core.providers import load_providers
+from data.storage.storage_config_loader import load_storage_config
 from utils.catalog import build_rom_catalog
 from utils.cores_registry import load_registry
 from utils.library_sync import rdb_json_path
@@ -13,21 +15,30 @@ def readiness_for_module(module: Dict, include_coverage: bool = False) -> Dict[s
     name = module.get("name") or ""
     guid = module.get("guid")
     manufacturer, console = split_module_name(name)
-    frontend_key, frontend = active_frontend()
 
     provider_entries = _providers_for_guid_or_name(guid, manufacturer, console)
     rdb_path = rdb_json_path(name) if name else None
     rdb_exists = bool(rdb_path and rdb_path.exists())
     core_options = _core_options_for_guid(guid)
+    external_runtime = _has_external_runtime(core_options)
+    frontend_key, frontend = _frontend_for_core_options(core_options)
     core_status = _core_status(core_options, frontend)
-    bios_status = _bios_status_for_guid(guid)
+    bios_status = _external_firmware_status(core_options) or _bios_status_for_guid(guid)
     provider_coverage = (
         _provider_coverage(manufacturer, console, guid, rdb_exists, rdb_path)
         if include_coverage
         else _coverage_not_checked(provider_entries, rdb_exists)
     )
-    install_status = _install_status(manufacturer, console, frontend)
-    playlist_status = _playlist_status(name, frontend, core_status)
+    install_status = (
+        _external_install_status()
+        if external_runtime
+        else _install_status(manufacturer, console, frontend)
+    )
+    playlist_status = (
+        _external_playlist_status()
+        if external_runtime
+        else _playlist_status(name, frontend, core_status)
+    )
     install_strategy = _install_strategy_for_guid(guid)
 
     checks = {
@@ -153,20 +164,29 @@ def _provider_coverage(
     except Exception as exc:
         return {"state": "missing", "label": str(exc)}
     roms = catalog.get("roms") or []
-    total = len(roms)
-    matched = sum(1 for rom in roms if int(rom.get("_provider_count") or 0) > 0)
+    rdb_roms = [rom for rom in roms if not rom.get("provider_only")]
+    provider_only = [rom for rom in roms if rom.get("provider_only")]
+    total = len(rdb_roms)
+    matched = sum(1 for rom in rdb_roms if int(rom.get("_provider_count") or 0) > 0)
+    provider_only_downloadable = sum(1 for rom in provider_only if rom.get("http_url") or rom.get("torrent_url"))
     provider_total = int(catalog.get("provider_total") or 0)
     percent = round((matched / total) * 100, 1) if total else 0
     state = "ok" if matched else "missing"
     if matched and total and matched < total:
         state = "partial"
+    label = f"{matched}/{total} ({percent}%)"
+    if provider_only:
+        label += f" + {len(provider_only)} provider-only"
     return {
         "state": state,
-        "label": f"{matched}/{total} ({percent}%)",
+        "label": label,
         "matched": matched,
         "total": total,
         "percent": percent,
         "provider_total": provider_total,
+        "provider_only": len(provider_only),
+        "provider_only_downloadable": provider_only_downloadable,
+        "catalog_total": len(roms),
     }
 
 
@@ -193,6 +213,9 @@ def _core_options_for_guid(guid: Optional[str]) -> List[Tuple[str, Dict]]:
 def _core_status(core_options: List[Tuple[str, Dict]], frontend: Dict) -> Dict[str, object]:
     if not core_options:
         return {"state": "missing", "label": "No core mapped"}
+    external = _external_runtime_status(core_options)
+    if external:
+        return external
     cores_root = Path(frontend.get("cores_path") or "").expanduser()
     installed = []
     mapped = []
@@ -209,6 +232,109 @@ def _core_status(core_options: List[Tuple[str, Dict]], frontend: Dict) -> Dict[s
     if installed:
         return {"state": "ok", "label": installed[0]["name"], "installed": installed, "mapped": mapped}
     return {"state": "missing", "label": f"Missing core ({', '.join(mapped)})", "installed": [], "mapped": mapped}
+
+
+def _has_external_runtime(core_options: List[Tuple[str, Dict]]) -> bool:
+    return any(meta.get("kind") == "external_emulator" for _core_id, meta in core_options)
+
+
+def _external_runtime_status(core_options: List[Tuple[str, Dict]]) -> Optional[Dict[str, object]]:
+    installed = []
+    mapped = []
+    for core_id, meta in core_options:
+        if meta.get("kind") != "external_emulator":
+            continue
+        mapped.append(core_id)
+        launcher = meta.get("launcher") or meta.get("command") or core_id
+        executable = str(launcher).split()[0]
+        resolved = shutil.which(executable)
+        if not resolved and executable.startswith("~/"):
+            candidate = Path(executable).expanduser()
+            if candidate.exists():
+                resolved = str(candidate)
+        if resolved:
+            installed.append({
+                "id": core_id,
+                "name": meta.get("name") or core_id,
+                "launcher": executable,
+            })
+    if not mapped:
+        return None
+    if installed:
+        return {"state": "ok", "label": installed[0]["name"], "installed": installed, "mapped": mapped}
+    return {"state": "missing", "label": f"Missing external runtime ({', '.join(mapped)})", "installed": [], "mapped": mapped}
+
+
+def _frontend_for_core_options(core_options: List[Tuple[str, Dict]]) -> Tuple[Optional[str], Dict]:
+    external_install_types = {
+        str(meta.get("install_type") or core_id).lower()
+        for core_id, meta in core_options
+        if meta.get("kind") == "external_emulator"
+    }
+    if not external_install_types:
+        return active_frontend()
+    frontends = (load_storage_config() or {}).get("frontends") or {}
+    for key, frontend in frontends.items():
+        if not isinstance(frontend, dict):
+            continue
+        if frontend.get("kind") != "external_emulator":
+            continue
+        install_type = str(frontend.get("install_type") or key).lower()
+        if install_type in external_install_types:
+            return key, frontend
+    return active_frontend()
+
+
+def _external_install_status() -> Dict[str, object]:
+    return {
+        "state": "missing",
+        "label": "External package staging only",
+    }
+
+
+def _external_playlist_status() -> Dict[str, object]:
+    return {
+        "state": "ok",
+        "label": "No RetroArch playlist required",
+    }
+
+
+def _external_firmware_status(core_options: List[Tuple[str, Dict]]) -> Optional[Dict[str, object]]:
+    for core_id, meta in core_options:
+        if meta.get("kind") != "external_emulator":
+            continue
+        firmware = meta.get("firmware")
+        if not isinstance(firmware, dict):
+            continue
+        install_type = str(meta.get("install_type") or core_id).lower()
+        if install_type == "vita3k":
+            return _vita3k_firmware_status(firmware)
+    return None
+
+
+def _vita3k_firmware_status(firmware: Dict[str, object]) -> Dict[str, object]:
+    markers = firmware.get("installed_markers")
+    if not isinstance(markers, list):
+        markers = []
+    present = []
+    for marker in markers:
+        if not isinstance(marker, str) or not marker:
+            continue
+        path = Path(marker).expanduser()
+        if path.exists():
+            present.append(path.name)
+    minimum = int(firmware.get("minimum_markers") or 1)
+    if len(present) >= minimum:
+        return {
+            "state": "ok",
+            "label": firmware.get("ready_label") or "Vita3K firmware installed",
+            "requirements": [],
+        }
+    return {
+        "state": "missing",
+        "label": firmware.get("missing_label") or "Install Vita3K firmware",
+        "requirements": [],
+    }
 
 
 def _bios_status_for_guid(guid: Optional[str]) -> Dict[str, object]:
@@ -282,7 +408,10 @@ def _install_strategy_for_guid(guid: Optional[str]) -> str:
     registry = load_registry()
     for meta in (registry.get("cores") or {}).values():
         if guid in (meta.get("console_guids") or []):
-            return meta.get("install_strategy") or "standard_libretro"
+            strategy = meta.get("install_strategy")
+            if isinstance(strategy, dict) and strategy.get("console_guid") and strategy.get("console_guid") != guid:
+                continue
+            return strategy or "standard_libretro"
     return "standard_libretro"
 
 

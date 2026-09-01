@@ -89,8 +89,12 @@ MODULES_FILE = _resolve_data_file("index", "libretro_modules.json")
 PROVIDERS_FILE = BACKEND_DATA_DIR / "providers" / "providers.json"
 PROVIDERS_FILE.parent.mkdir(parents=True, exist_ok=True)
 ROMS_DIR = _resolve_data_dir("roms")
+LIBRETRO_THUMBNAILS_DIR = _resolve_data_dir("index", "libretro")
 USERS_FILE = BACKEND_DATA_DIR / "users" / "users.json"
 CONSOLE_INFO_FILE = BACKEND_DATA_DIR / "cache" / "console_info.json"
+CONSOLE_LOGOS_FILE = BACKEND_DATA_DIR / "console_logos.json"
+ROM_ARTWORK_ALIASES_FILE = BACKEND_DATA_DIR / "rom_artwork_aliases.json"
+CONSOLE_PROGRESS_FILE = BACKEND_DATA_DIR / "console_progress.json"
 
 
 def _cache_dir() -> Path:
@@ -159,6 +163,10 @@ class ConsoleInfoRequest(BaseModel):
     console: str
     guid: str | None = None
     module: str | None = None
+
+
+class ConsoleImageSelectionRequest(ConsoleInfoRequest):
+    image_index: int
 
 
 class LoginRequest(BaseModel):
@@ -602,14 +610,288 @@ def _save_console_info_cache(payload: dict) -> None:
     temp_path.replace(CONSOLE_INFO_FILE)
 
 
+WIKIPEDIA_IMAGE_SKIP_PATTERNS = (
+    "ambox",
+    "commons-logo",
+    "crystal_clear",
+    "edit-clear",
+    "flag_of_",
+    "map_",
+    "nuvola",
+    "oojs_ui",
+    "question_book",
+    "sound-icon",
+    "speaker_icon",
+    "symbol_",
+    "wikidata-logo",
+    "wikimedia-logo",
+)
+
+WIKIPEDIA_IMAGE_HARDWARE_TERMS = (
+    "attached",
+    "console",
+    "controller",
+    "device",
+    "front",
+    "handheld",
+    "hardware",
+    "open",
+    "portable",
+    "set",
+    "system",
+    "unit",
+)
+
+CONSOLE_IMAGE_OPTIONS_VERSION = 2
+
+
+def _wikipedia_api_get(params: dict[str, str]) -> dict:
+    url = "https://en.wikipedia.org/w/api.php?" + urllib.parse.urlencode(params)
+    request = urllib.request.Request(url, headers={"User-Agent": "ROMs-Manager/0.1 console-info"})
+    with urllib.request.urlopen(request, timeout=12) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
+def _wikipedia_image_candidate(title: str | None, mime: str | None) -> bool:
+    if not title:
+        return False
+    if mime and not mime.startswith("image/"):
+        return False
+    normalized = title.lower().replace(" ", "_")
+    return not any(pattern in normalized for pattern in WIKIPEDIA_IMAGE_SKIP_PATTERNS)
+
+
+def _canonical_image_url(url: str | None) -> str | None:
+    if not isinstance(url, str) or not url:
+        return None
+    return urllib.parse.urlsplit(url)._replace(query="", fragment="").geturl()
+
+
+def _wikipedia_image_rank(option: dict, primary_url: str | None, order: int) -> tuple[int, int]:
+    title = str(option.get("title") or "").lower()
+    url = _canonical_image_url(option.get("url") or option.get("thumbnail_url"))
+    primary = _canonical_image_url(primary_url)
+    score = 50
+    if url and primary and url == primary:
+        score -= 20
+    if any(term in title for term in WIKIPEDIA_IMAGE_HARDWARE_TERMS):
+        score -= 35
+    if "logo" in title:
+        score += 35
+    if any(term in title for term in ("box", "cover", "packaging")):
+        score += 10
+    return score, order
+
+
+def _wikipedia_image_url(option: dict | None) -> str | None:
+    if not isinstance(option, dict):
+        return None
+    url = option.get("url") or option.get("thumbnail_url")
+    return url if isinstance(url, str) and url else None
+
+
+def _fetch_wikipedia_image_options(page_title: str | None, primary_url: str | None = None) -> list[dict]:
+    if not page_title:
+        return []
+    try:
+        data = _wikipedia_api_get(
+            {
+                "action": "query",
+                "titles": page_title,
+                "prop": "images",
+                "imlimit": "50",
+                "redirects": "1",
+                "format": "json",
+                "formatversion": "2",
+            }
+        )
+    except Exception:
+        return []
+
+    pages = (data.get("query") or {}).get("pages") or []
+    page = pages[0] if pages else {}
+    image_titles = [
+        image.get("title")
+        for image in page.get("images") or []
+        if isinstance(image, dict) and isinstance(image.get("title"), str)
+    ]
+    options_by_title: dict[str, dict] = {}
+    order_by_title = {title: index for index, title in enumerate(image_titles)}
+    for start in range(0, len(image_titles), 50):
+        titles = image_titles[start : start + 50]
+        if not titles:
+            continue
+        try:
+            image_data = _wikipedia_api_get(
+                {
+                    "action": "query",
+                    "titles": "|".join(titles),
+                    "prop": "imageinfo",
+                    "iiprop": "url|mime|size",
+                    "iiurlwidth": "720",
+                    "format": "json",
+                    "formatversion": "2",
+                }
+            )
+        except Exception:
+            continue
+        for image_page in (image_data.get("query") or {}).get("pages") or []:
+            if not isinstance(image_page, dict):
+                continue
+            title = image_page.get("title")
+            image_info = (image_page.get("imageinfo") or [{}])[0]
+            if not isinstance(image_info, dict):
+                continue
+            mime = image_info.get("mime")
+            if not _wikipedia_image_candidate(title, mime):
+                continue
+            url = image_info.get("url")
+            thumbnail_url = image_info.get("thumburl") or url
+            if not isinstance(url, str) and not isinstance(thumbnail_url, str):
+                continue
+            options_by_title[str(title)] = {
+                "title": title,
+                "url": url,
+                "thumbnail_url": thumbnail_url,
+                "mime": mime,
+                "width": image_info.get("width"),
+                "height": image_info.get("height"),
+                "source_url": image_info.get("descriptionurl"),
+            }
+
+    options = list(options_by_title.values())
+    options.sort(
+        key=lambda option: _wikipedia_image_rank(
+            option,
+            primary_url,
+            order_by_title.get(str(option.get("title") or ""), len(order_by_title)),
+        )
+    )
+    return options
+
+
+def _fetch_wikipedia_page_primary_image(page_title: str | None) -> str | None:
+    if not page_title:
+        return None
+    try:
+        data = _wikipedia_api_get(
+            {
+                "action": "query",
+                "titles": page_title,
+                "prop": "pageimages",
+                "piprop": "thumbnail|original",
+                "pithumbsize": "720",
+                "redirects": "1",
+                "format": "json",
+                "formatversion": "2",
+            }
+        )
+    except Exception:
+        return None
+    pages = (data.get("query") or {}).get("pages") or []
+    page = pages[0] if pages else {}
+    thumbnail = page.get("thumbnail") or {}
+    original = page.get("original") or {}
+    return original.get("source") or thumbnail.get("source")
+
+
+def _console_image_index(info: dict, options: list[dict]) -> int:
+    selected_index = info.get("selected_image_index")
+    if isinstance(selected_index, int) and 0 <= selected_index < len(options):
+        return selected_index
+    selected_title = info.get("selected_image_title")
+    if isinstance(selected_title, str):
+        for index, option in enumerate(options):
+            if option.get("title") == selected_title:
+                return index
+    return 0
+
+
+def _apply_console_image_selection(info: dict) -> dict:
+    options = info.get("image_options")
+    if not isinstance(options, list) or not options:
+        return info
+    index = _console_image_index(info, [option for option in options if isinstance(option, dict)])
+    option = options[index]
+    image_url = _wikipedia_image_url(option)
+    if image_url:
+        info["image_url"] = image_url
+    info["image_index"] = index
+    return info
+
+
+def _ensure_console_info_gallery(info: dict) -> dict:
+    if info.get("status") != "ok" or not info.get("title"):
+        return info
+    options = info.get("image_options")
+    needs_refresh = info.get("image_options_version") != CONSOLE_IMAGE_OPTIONS_VERSION
+    if needs_refresh or not isinstance(options, list) or not options:
+        primary_url = info.get("page_image_url") or _fetch_wikipedia_page_primary_image(info.get("title"))
+        if primary_url:
+            info["page_image_url"] = primary_url
+        image_options = _fetch_wikipedia_image_options(info.get("title"), primary_url)
+        if image_options:
+            info["image_options"] = image_options
+            info["image_options_version"] = CONSOLE_IMAGE_OPTIONS_VERSION
+    return _apply_console_image_selection(info)
+
+
+def _load_console_logos() -> dict:
+    if not CONSOLE_LOGOS_FILE.exists():
+        return {}
+    try:
+        payload = json.loads(CONSOLE_LOGOS_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
+def _console_logo_payload(brand: str, console: str, guid: str | None, module_name: str | None) -> dict | None:
+    payload = _load_console_logos()
+    entries = payload.get("logos")
+    if not isinstance(entries, list):
+        return None
+    keys = {
+        guid or "",
+        module_name or "",
+        f"{brand} - {console}",
+        f"{manufacturer_slug(brand)}:{console_slug(console)}",
+    }
+    for entry in entries:
+        if not isinstance(entry, dict):
+            continue
+        entry_keys = {
+            entry.get("guid") or "",
+            entry.get("module") or "",
+            entry.get("key") or "",
+        }
+        if keys & entry_keys:
+            return {
+                "logo_url": entry.get("url"),
+                "logo_source_url": entry.get("source_url"),
+                "logo_license": entry.get("license"),
+                "logo_credit": entry.get("credit"),
+            }
+    return None
+
+
 def _console_info_payload(brand: str, console: str, guid: str | None, module_name: str | None) -> dict:
     cache_key = guid or f"{manufacturer_slug(brand)}:{console_slug(console)}"
+    query = _wikipedia_query_for_console(brand, console, module_name)
+    logo = _console_logo_payload(brand, console, guid, module_name)
     cache = _load_console_info_cache()
     cached = cache.get(cache_key)
-    if isinstance(cached, dict):
+    if isinstance(cached, dict) and cached.get("query") == query:
+        cached = dict(cached)
+        if logo:
+            cached = {**cached, **logo}
+        before = json.dumps(cached, sort_keys=True)
+        cached = _ensure_console_info_gallery(cached)
+        if cached.get("status") != "error" and json.dumps(cached, sort_keys=True) != before:
+            cache[cache_key] = cached
+            _save_console_info_cache(cache)
         return cached
 
-    query = _wikipedia_query_for_console(brand, console, module_name)
     info = _fetch_wikipedia_console_info(query)
     payload = {
         "brand": brand,
@@ -618,6 +900,9 @@ def _console_info_payload(brand: str, console: str, guid: str | None, module_nam
         "query": query,
         **info,
     }
+    if logo:
+        payload.update(logo)
+    payload = _ensure_console_info_gallery(payload)
     if payload.get("status") != "error":
         cache[cache_key] = payload
         _save_console_info_cache(cache)
@@ -643,6 +928,12 @@ def _wikipedia_query_for_console(brand: str, console: str, module_name: str | No
         "Hartung - Game Master": "Hartung Game Master",
         "NEC - PC Engine - TurboGrafx 16": "TurboGrafx-16",
         "NEC - PC Engine CD - TurboGrafx-CD": "TurboGrafx-CD",
+        "Nintendo - Nintendo 3DS": "Nintendo 3DS",
+        "Nintendo - Nintendo 64": "Nintendo 64",
+        "Nintendo - Nintendo 64DD": "64DD",
+        "Nintendo - Nintendo DS": "Nintendo DS",
+        "Nintendo - Nintendo DSi": "Nintendo DSi",
+        "Nintendo - Nintendo Entertainment System": "Nintendo Entertainment System",
         "Sega - 32X": "Sega 32X",
         "Sega - Game Gear": "Game Gear",
         "Sega - Master System - Mark III": "Master System",
@@ -669,11 +960,8 @@ def _fetch_wikipedia_console_info(query: str) -> dict:
         "format": "json",
         "formatversion": "2",
     }
-    url = "https://en.wikipedia.org/w/api.php?" + urllib.parse.urlencode(params)
-    request = urllib.request.Request(url, headers={"User-Agent": "ROMs-Manager/0.1 console-info"})
     try:
-        with urllib.request.urlopen(request, timeout=12) as response:
-            data = json.loads(response.read().decode("utf-8"))
+        data = _wikipedia_api_get(params)
     except Exception as exc:
         return {
             "source": "wikipedia",
@@ -689,14 +977,21 @@ def _fetch_wikipedia_console_info(query: str) -> dict:
     page = pages[0] if pages else {}
     thumbnail = page.get("thumbnail") or {}
     original = page.get("original") or {}
-    return {
+    primary_url = original.get("source") or thumbnail.get("source")
+    image_options = _fetch_wikipedia_image_options(page.get("title"), primary_url) if page else []
+    payload = {
         "source": "wikipedia",
         "status": "ok" if page else "not_found",
+        "page_id": page.get("pageid"),
         "title": page.get("title"),
         "summary": page.get("extract"),
         "page_url": page.get("fullurl"),
-        "image_url": original.get("source") or thumbnail.get("source"),
+        "page_image_url": primary_url,
+        "image_url": primary_url,
+        "image_options": image_options,
+        "image_options_version": CONSOLE_IMAGE_OPTIONS_VERSION,
     }
+    return _apply_console_image_selection(payload)
 
 
 def _coverage_provider_status(brand: str, console: str, provider_id: str | None) -> dict:
@@ -1024,13 +1319,25 @@ def _collect_rom_metadata(user: dict | None = None) -> list[dict]:
             payload = json.loads(rom_file.read_text(encoding="utf-8"))
         except Exception:
             continue
-        module_name = payload.get("module")
+        module = payload.get("module")
+        module_name = module.get("name") if isinstance(module, dict) else module
         brand, console = _split_module_label(module_name)
         entries = payload.get("entries")
+        roms = payload.get("roms")
         entry_count = payload.get("entry_count")
         if entry_count is None and isinstance(entries, list):
             entry_count = len(entries)
-        guid = payload.get("guid")
+        if entry_count is None and isinstance(roms, list):
+            entry_count = len(roms)
+        rdb_entry_count = payload.get("rdb_entry_count")
+        if rdb_entry_count is None:
+            rdb_entry_count = payload.get("entry_count") if isinstance(entries, list) else None
+        provider_only_count = _safe_int(payload.get("provider_only_count"))
+        coverage = payload.get("coverage") if isinstance(payload.get("coverage"), dict) else {}
+        catalog_total = _safe_int(coverage.get("catalog_total"), _safe_int(entry_count))
+        if not catalog_total:
+            catalog_total = _safe_int(entry_count)
+        guid = payload.get("guid") or (module.get("guid") if isinstance(module, dict) else None)
         if user is not None and not _guid_allowed(guid, user):
             continue
         rom_sets.append(
@@ -1045,10 +1352,794 @@ def _collect_rom_metadata(user: dict | None = None) -> list[dict]:
                 "source_label": payload.get("source_label") or "Libretro database RDB",
                 "source_url": payload.get("source_url"),
                 "entry_count": entry_count,
+                "rdb_entry_count": _safe_int(rdb_entry_count, _safe_int(entry_count)),
+                "provider_only_count": provider_only_count,
+                "catalog_total": catalog_total,
+                "coverage": coverage,
                 "fetched_at": payload.get("fetched_at"),
             }
         )
     return rom_sets
+
+
+def _safe_int(value: Any, default: int = 0) -> int:
+    try:
+        if value in (None, ""):
+            return default
+        return int(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def _load_console_progress_payload() -> dict:
+    if not CONSOLE_PROGRESS_FILE.exists():
+        return {"version": 1, "consoles": {}}
+    try:
+        payload = json.loads(CONSOLE_PROGRESS_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        return {"version": 1, "consoles": {}}
+    return payload if isinstance(payload, dict) else {"version": 1, "consoles": {}}
+
+
+def _dashboard_provider_index(payload: dict) -> dict:
+    root = payload.get("console_root") or {}
+    by_guid: dict[str, list[dict]] = {}
+    by_label: dict[str, list[dict]] = {}
+    brand_count = 0
+    console_count = 0
+    provider_count = 0
+    providers_with_cache = 0
+    providers_missing_cache = 0
+
+    if isinstance(root, dict):
+        brand_count = len(root)
+        for brand, consoles in root.items():
+            if not isinstance(consoles, dict):
+                continue
+            for console, entry in consoles.items():
+                entries = entry if isinstance(entry, list) else [entry]
+                entries = [candidate for candidate in entries if isinstance(candidate, dict)]
+                if not entries:
+                    continue
+                console_count += 1
+                label_key = f"{brand} - {console}".lower()
+                for candidate in entries:
+                    provider_count += 1
+                    enriched = {"brand": brand, "console": console, **candidate}
+                    guid = candidate.get("libretro_guid") or candidate.get("guid")
+                    if guid:
+                        by_guid.setdefault(str(guid).lower(), []).append(enriched)
+                    by_label.setdefault(label_key, []).append(enriched)
+                    provider_slug = (
+                        candidate.get("provider_slug")
+                        or candidate.get("id")
+                        or candidate.get("archive_id")
+                    )
+                    status = _coverage_provider_status(str(brand), str(console), str(provider_slug) if provider_slug else None)
+                    if any(status.get(key) for key in ("metadata", "listings", "torrent", "rom_json")):
+                        providers_with_cache += 1
+                    else:
+                        providers_missing_cache += 1
+
+    return {
+        "brands": brand_count,
+        "consoles": console_count,
+        "total": provider_count,
+        "with_cache": providers_with_cache,
+        "missing_cache": providers_missing_cache,
+        "by_guid": by_guid,
+        "by_label": by_label,
+    }
+
+
+def _dashboard_core_index() -> dict:
+    core_path = _resolve_data_file("emulators", "cores.json")
+    if not core_path.exists():
+        return {
+            "cores": 0,
+            "bios_files": 0,
+            "bios_with_sources": 0,
+            "bios_without_sources": 0,
+            "by_guid": {},
+        }
+    try:
+        payload = json.loads(core_path.read_text(encoding="utf-8"))
+    except Exception:
+        payload = {}
+
+    bios_registry = payload.get("bios_files") or {}
+    by_guid: dict[str, list[dict]] = {}
+    for core_id, meta in (payload.get("cores") or {}).items():
+        if not isinstance(meta, dict):
+            continue
+        entry = {"id": core_id, **meta}
+        for guid in meta.get("console_guids") or []:
+            if guid:
+                by_guid.setdefault(str(guid).lower(), []).append(entry)
+
+    bios_with_sources = 0
+    bios_without_sources = 0
+    for bios in bios_registry.values():
+        if not isinstance(bios, dict):
+            continue
+        if bios.get("url") or bios.get("sources"):
+            bios_with_sources += 1
+        else:
+            bios_without_sources += 1
+
+    return {
+        "cores": len(payload.get("cores") or {}),
+        "bios_files": len(bios_registry),
+        "bios_with_sources": bios_with_sources,
+        "bios_without_sources": bios_without_sources,
+        "by_guid": by_guid,
+    }
+
+
+def _rom_entries_from_payload(payload: dict) -> list:
+    entries = payload.get("entries")
+    if isinstance(entries, list):
+        return entries
+    roms = payload.get("roms")
+    return roms if isinstance(roms, list) else []
+
+
+def _entry_has_provider(entry: dict) -> bool:
+    providers = entry.get("_providers")
+    if isinstance(providers, list) and providers:
+        return True
+    return bool(entry.get("http_url") or entry.get("torrent_url"))
+
+
+def _entry_has_artwork(entry: dict) -> bool:
+    artwork = entry.get("artwork")
+    return bool(entry.get("thumbnail_url") or (isinstance(artwork, dict) and artwork))
+
+
+def _thumbnail_index_summary(module_name: str | None) -> dict:
+    if not module_name:
+        return {"indexed_titles": 0, "image_count": 0, "categories": []}
+    index_path = LIBRETRO_THUMBNAILS_DIR / f"{_slugify_module(module_name)}.json"
+    if not index_path.exists():
+        return {"indexed_titles": 0, "image_count": 0, "categories": []}
+    try:
+        payload = json.loads(index_path.read_text(encoding="utf-8"))
+    except Exception:
+        return {"indexed_titles": 0, "image_count": 0, "categories": []}
+    entries = payload.get("entries")
+    if not isinstance(entries, dict):
+        return {"indexed_titles": 0, "image_count": 0, "categories": []}
+    categories: set[str] = set()
+    image_count = 0
+    for artwork in entries.values():
+        if not isinstance(artwork, dict):
+            continue
+        if "download_url" in artwork:
+            image_count += 1
+            categories.add(str(artwork.get("category") or "Named_Boxarts"))
+            continue
+        for category, item in artwork.items():
+            if isinstance(item, dict) and item.get("download_url"):
+                image_count += 1
+                categories.add(str(category))
+    return {
+        "indexed_titles": len(entries),
+        "image_count": image_count,
+        "categories": sorted(categories),
+    }
+
+
+def _collect_dashboard_rom_stats(user: dict | None = None) -> dict:
+    by_guid: dict[str, dict] = {}
+    by_module: dict[str, dict] = {}
+    datasets = []
+    totals = {
+        "datasets": 0,
+        "entries": 0,
+        "provider_linked_entries": 0,
+        "downloadable_entries": 0,
+        "inline_artwork_entries": 0,
+        "thumbnail_indexed_titles": 0,
+        "thumbnail_images": 0,
+        "thumbnail_indexes": 0,
+        "known_size": 0,
+    }
+
+    for rom_file in _iter_rom_files():
+        try:
+            payload = json.loads(rom_file.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        module = payload.get("module")
+        module_name = module.get("name") if isinstance(module, dict) else module
+        guid = payload.get("guid") or (module.get("guid") if isinstance(module, dict) else None)
+        if user is not None and not _guid_allowed(guid, user):
+            continue
+
+        entries = _rom_entries_from_payload(payload)
+        entry_count = payload.get("entry_count")
+        if entry_count is None:
+            entry_count = len(entries)
+        entry_count = _safe_int(entry_count)
+        rdb_entry_count = _safe_int(payload.get("rdb_entry_count"), entry_count)
+        provider_only_count = _safe_int(payload.get("provider_only_count"))
+
+        provider_linked = 0
+        downloadable = 0
+        inline_artwork = 0
+        known_size = 0
+        for entry in entries:
+            if not isinstance(entry, dict):
+                continue
+            if _entry_has_provider(entry):
+                provider_linked += 1
+            if entry.get("http_url") or entry.get("torrent_url"):
+                downloadable += 1
+            if _entry_has_artwork(entry):
+                inline_artwork += 1
+            known_size += _safe_int(entry.get("_size_bytes") or entry.get("size"))
+
+        thumbnail_stats = _thumbnail_index_summary(module_name)
+        brand, console = _split_module_label(module_name)
+        stats = {
+            "slug": rom_file.stem,
+            "module": module_name,
+            "brand": brand or payload.get("brand"),
+            "console": console or payload.get("console"),
+            "guid": guid,
+            "entry_count": entry_count,
+            "rdb_entry_count": rdb_entry_count,
+            "provider_only_count": provider_only_count,
+            "catalog_total": entry_count,
+            "provider_linked_entries": provider_linked,
+            "downloadable_entries": downloadable,
+            "inline_artwork_entries": inline_artwork,
+            "coverage_percent": round((provider_linked / entry_count) * 100, 2) if entry_count else 0,
+            "known_size": known_size,
+            "thumbnail_indexed_titles": thumbnail_stats["indexed_titles"],
+            "thumbnail_images": thumbnail_stats["image_count"],
+            "thumbnail_categories": thumbnail_stats["categories"],
+            "has_thumbnail_index": thumbnail_stats["indexed_titles"] > 0,
+        }
+
+        datasets.append(stats)
+        totals["datasets"] += 1
+        totals["entries"] += entry_count
+        totals["provider_linked_entries"] += provider_linked
+        totals["downloadable_entries"] += downloadable
+        totals["inline_artwork_entries"] += inline_artwork
+        totals["thumbnail_indexed_titles"] += thumbnail_stats["indexed_titles"]
+        totals["thumbnail_images"] += thumbnail_stats["image_count"]
+        totals["known_size"] += known_size
+        if thumbnail_stats["indexed_titles"] > 0:
+            totals["thumbnail_indexes"] += 1
+
+        if guid:
+            by_guid[str(guid).lower()] = stats
+        if module_name:
+            by_module[str(module_name).lower()] = stats
+
+    totals["coverage_percent"] = (
+        round((totals["provider_linked_entries"] / totals["entries"]) * 100, 2)
+        if totals["entries"]
+        else 0
+    )
+    totals["thumbnail_index_percent"] = (
+        round((totals["thumbnail_indexes"] / totals["datasets"]) * 100, 2)
+        if totals["datasets"]
+        else 0
+    )
+    return {
+        "totals": totals,
+        "datasets": sorted(datasets, key=lambda item: item["entry_count"], reverse=True),
+        "by_guid": by_guid,
+        "by_module": by_module,
+    }
+
+
+def _dashboard_required_bios(core_entries: list[dict]) -> tuple[set[str], int]:
+    required: set[str] = set()
+    with_sources = 0
+    for core in core_entries:
+        for bios_id in core.get("bios_ids") or []:
+            if bios_id:
+                required.add(str(bios_id))
+    if required:
+        bios_entries = _bios_entries_for_cores(core_entries)
+        with_sources = sum(1 for entry in bios_entries if entry.get("url") or entry.get("sources"))
+    return required, with_sources
+
+
+def _dashboard_completion_score(status: str, rom_stats: dict | None, provider_count: int, core_count: int) -> int:
+    total = _safe_int((rom_stats or {}).get("entry_count"))
+    matched = _safe_int((rom_stats or {}).get("provider_linked_entries"))
+    has_catalog_shell = bool(rom_stats or provider_count)
+
+    if status == "runtime_validated":
+        if total and matched >= total:
+            return 100
+        if matched > 0:
+            return 90
+        return 75
+    if status == "backend_ready":
+        return 70 if matched > 0 else 35 if has_catalog_shell else 10
+    if status == "needs_backend_work":
+        return 35 if has_catalog_shell else 10
+    if rom_stats:
+        return 35
+    if provider_count:
+        return 35
+    return 10
+
+
+COMPUTER_MODULE_NAMES = {
+    "Amstrad - CPC",
+    "Atari - 8-bit",
+    "Atari - ST",
+    "Commodore - 64",
+    "Commodore - Amiga",
+    "Commodore - PET",
+    "Commodore - Plus-4",
+    "Commodore - VIC-20",
+    "DOS",
+    "Microsoft - MSX",
+    "Microsoft - MSX2",
+    "NEC - PC-8001 - PC-8801",
+    "NEC - PC-98",
+    "Sharp - X1",
+    "Sharp - X68000",
+    "Sinclair - ZX 81",
+    "Sinclair - ZX Spectrum",
+    "Spectravideo - SVI-318 - SVI-328",
+    "Thomson - MOTO",
+}
+
+ARCADE_MODULE_NAMES = {
+    "Atomiswave",
+    "FBNeo - Arcade Games",
+    "MAME",
+    "Sega - Naomi",
+    "Sega - Naomi 2",
+}
+
+
+def _dashboard_module_category(name: str) -> str:
+    if name in COMPUTER_MODULE_NAMES:
+        return "computer"
+    if name in ARCADE_MODULE_NAMES:
+        return "arcade"
+    if " - " not in name:
+        return "engine"
+    return "console"
+
+
+def _dashboard_gaps(status: str, rom_stats: dict | None, provider_count: int, core_entries: list[dict]) -> list[str]:
+    gaps = []
+    total = _safe_int((rom_stats or {}).get("entry_count"))
+    matched = _safe_int((rom_stats or {}).get("provider_linked_entries"))
+    if not rom_stats:
+        gaps.append("rom_dataset")
+    if provider_count == 0:
+        gaps.append("providers")
+    if rom_stats and total and matched == 0:
+        gaps.append("coverage")
+    elif rom_stats and total and matched < total:
+        gaps.append("partial_coverage")
+    if not core_entries:
+        gaps.append("core_metadata")
+    required_bios, bios_with_sources = _dashboard_required_bios(core_entries)
+    if required_bios and bios_with_sources < len(required_bios):
+        gaps.append("bios_sources")
+    if status != "runtime_validated":
+        gaps.append("runtime_test")
+    return gaps
+
+
+def _dashboard_next_action(gaps: list[str], completion: int) -> str:
+    if "core_metadata" in gaps:
+        return "Confirm RetroArch core availability"
+    if "rom_dataset" in gaps:
+        return "Export or import master ROM list"
+    if "providers" in gaps:
+        return "Add provider candidates"
+    if "coverage" in gaps:
+        return "Rebuild provider coverage"
+    if "bios_sources" in gaps:
+        return "Document BIOS source metadata"
+    if "runtime_test" in gaps:
+        return "Assign, install, and smoke test"
+    if "partial_coverage" in gaps:
+        return "Improve provider coverage"
+    if completion >= 100:
+        return "Ready for assignment"
+    return "Review console metadata"
+
+
+def _dashboard_console_payload(
+    module: dict,
+    progress: dict,
+    provider_index: dict,
+    core_index: dict,
+    rom_index: dict,
+) -> dict:
+    name = module.get("name") or "Unknown module"
+    guid = module.get("guid")
+    brand, console = _split_module_label(name)
+    guid_key = str(guid).lower() if guid else ""
+    provider_entries = provider_index["by_guid"].get(guid_key) or provider_index["by_label"].get(name.lower()) or []
+    core_entries = core_index["by_guid"].get(guid_key, [])
+    rom_stats = rom_index["by_guid"].get(guid_key) or rom_index["by_module"].get(name.lower())
+    progress_entry = progress.get(guid_key) or progress.get(guid) or {}
+    status = str(progress_entry.get("status") or "unknown")
+    category = _dashboard_module_category(name)
+    completion = _dashboard_completion_score(status, rom_stats, len(provider_entries), len(core_entries))
+    gaps = _dashboard_gaps(status, rom_stats, len(provider_entries), core_entries)
+    required_bios, bios_with_sources = _dashboard_required_bios(core_entries)
+    strategy_types = sorted(
+        {
+            str(strategy.get("type"))
+            for core in core_entries
+            for strategy in [core.get("install_strategy")]
+            if isinstance(strategy, dict) and strategy.get("type")
+        }
+    )
+
+    entry_count = _safe_int((rom_stats or {}).get("entry_count"))
+    matched_entries = _safe_int((rom_stats or {}).get("provider_linked_entries"))
+    return {
+        "guid": guid,
+        "module": name,
+        "brand": brand,
+        "console": console,
+        "category": category,
+        "status": status,
+        "completion": completion,
+        "coverage_percent": round((matched_entries / entry_count) * 100, 2) if entry_count else 0,
+        "entry_count": entry_count,
+        "provider_linked_entries": matched_entries,
+        "provider_count": len(provider_entries),
+        "core_count": len(core_entries),
+        "required_bios_count": len(required_bios),
+        "bios_with_sources": bios_with_sources,
+        "strategy_types": strategy_types,
+        "thumbnail_indexed_titles": _safe_int((rom_stats or {}).get("thumbnail_indexed_titles")),
+        "gaps": gaps,
+        "next_action": _dashboard_next_action(gaps, completion),
+        "validated_at": progress_entry.get("validated_at"),
+    }
+
+
+def _dashboard_status_counts(consoles: list[dict]) -> dict:
+    counts = {
+        "runtime_validated": 0,
+        "backend_ready": 0,
+        "needs_backend_work": 0,
+        "unknown": 0,
+    }
+    for console in consoles:
+        status = console.get("status") or "unknown"
+        counts[status] = counts.get(status, 0) + 1
+    return counts
+
+
+def _dashboard_bucket_counts(consoles: list[dict]) -> dict:
+    buckets = {"100": 0, "90": 0, "75": 0, "70": 0, "35": 0, "10": 0}
+    for console in consoles:
+        key = str(console.get("completion") or 10)
+        buckets[key] = buckets.get(key, 0) + 1
+    return buckets
+
+
+def _dashboard_category_counts(consoles: list[dict]) -> dict:
+    counts: dict[str, int] = {}
+    for console in consoles:
+        category = str(console.get("category") or "console")
+        counts[category] = counts.get(category, 0) + 1
+    return counts
+
+
+def _dashboard_users_summary(user: dict, consoles_by_guid: dict[str, dict]) -> dict:
+    if not user.get("admin"):
+        allowed = user.get("allowed_console_guids") or []
+        return {
+            "visible": False,
+            "assigned_console_count": len(consoles_by_guid) if "*" in allowed else len(allowed),
+        }
+
+    payload = _load_users_payload()
+    users = payload.get("users") or []
+    enabled = 0
+    admins = 0
+    clients = 0
+    zero_access = 0
+    assigned_total = 0
+    assigned_ready = 0
+    assigned_at_risk = 0
+    zero_access_users = []
+    risky_users = []
+
+    for entry in users:
+        if not isinstance(entry, dict):
+            continue
+        public = _public_user(entry)
+        if public["enabled"]:
+            enabled += 1
+        if public["admin"]:
+            admins += 1
+            continue
+        clients += 1
+        allowed = public.get("allowed_console_guids") or []
+        if "*" in allowed:
+            assigned = list(consoles_by_guid)
+        else:
+            assigned = [str(guid).lower() for guid in allowed if guid]
+        if public["enabled"] and not assigned:
+            zero_access += 1
+            zero_access_users.append(public["id"])
+        user_risk = 0
+        for guid in assigned:
+            console = consoles_by_guid.get(guid)
+            if not console:
+                continue
+            assigned_total += 1
+            if console.get("status") == "runtime_validated" and _safe_int(console.get("completion")) >= 75:
+                assigned_ready += 1
+            else:
+                assigned_at_risk += 1
+                user_risk += 1
+        if user_risk:
+            risky_users.append({"id": public["id"], "at_risk": user_risk})
+
+    return {
+        "visible": True,
+        "total": len(users),
+        "enabled": enabled,
+        "admins": admins,
+        "clients": clients,
+        "zero_access": zero_access,
+        "zero_access_users": zero_access_users[:8],
+        "assigned_total": assigned_total,
+        "assigned_ready": assigned_ready,
+        "assigned_at_risk": assigned_at_risk,
+        "risky_users": risky_users[:8],
+    }
+
+
+def _dashboard_alerts(
+    consoles: list[dict],
+    users: dict,
+    provider_index: dict,
+    rom_totals: dict,
+    core_index: dict,
+) -> list[dict]:
+    alerts = []
+    unstarted = [console for console in consoles if _safe_int(console.get("completion")) <= 10]
+    missing_core = [console for console in consoles if "core_metadata" in (console.get("gaps") or [])]
+    no_providers = [console for console in consoles if "providers" in (console.get("gaps") or [])]
+    large_low_coverage = [
+        console
+        for console in consoles
+        if _safe_int(console.get("entry_count")) >= 1000
+        and 0 < float(console.get("coverage_percent") or 0) < 20
+    ]
+
+    if unstarted:
+        alerts.append(
+            {
+                "severity": "warning",
+                "title": f"{len(unstarted)} modules are unstarted",
+                "message": "These modules still need a ROM dataset, providers, coverage, and runtime validation.",
+                "action": "Open the next work queue",
+            }
+        )
+    if no_providers:
+        alerts.append(
+            {
+                "severity": "warning",
+                "title": f"{len(no_providers)} modules have no provider coverage",
+                "message": "Users can see the catalog, but the TUI will not find downloadable sources.",
+                "action": "Add provider candidates",
+            }
+        )
+    if missing_core:
+        alerts.append(
+            {
+                "severity": "warning",
+                "title": f"{len(missing_core)} modules lack core metadata",
+                "message": "Fresh installations will not know which RetroArch core to use.",
+                "action": "Update core registry",
+            }
+        )
+    if users.get("visible") and users.get("assigned_at_risk"):
+        alerts.append(
+            {
+                "severity": "critical",
+                "title": f"{users['assigned_at_risk']} assigned consoles need attention",
+                "message": "At least one enabled client can be assigned to consoles that are not fully ready.",
+                "action": "Review user access",
+            }
+        )
+    if users.get("visible") and users.get("zero_access"):
+        alerts.append(
+            {
+                "severity": "info",
+                "title": f"{users['zero_access']} enabled users have no consoles",
+                "message": "These accounts can sync, but will not receive playable content.",
+                "action": "Assign consoles",
+            }
+        )
+    if large_low_coverage:
+        alerts.append(
+            {
+                "severity": "info",
+                "title": f"{len(large_low_coverage)} large catalogs have low provider coverage",
+                "message": "Large systems like Wii, DS, PlayStation, or NES need targeted providers and disk-aware installs.",
+                "action": "Prioritize high-value providers",
+            }
+        )
+    if provider_index.get("total") and provider_index.get("missing_cache") == provider_index.get("total"):
+        alerts.append(
+            {
+                "severity": "info",
+                "title": "Provider cache is empty",
+                "message": "Provider entries exist, but metadata/listing cache has not been fetched yet.",
+                "action": "Fetch provider assets",
+            }
+        )
+    if rom_totals.get("datasets") and not rom_totals.get("thumbnail_indexes"):
+        alerts.append(
+            {
+                "severity": "info",
+                "title": "No thumbnail indexes are available",
+                "message": "ROM cards will fall back to the generic artwork cover.",
+                "action": "Build thumbnail indexes",
+            }
+        )
+    if core_index.get("bios_without_sources"):
+        alerts.append(
+            {
+                "severity": "info",
+                "title": f"{core_index['bios_without_sources']} BIOS records need source metadata",
+                "message": "The TUI can identify required files, but fresh setup guidance is incomplete.",
+                "action": "Document BIOS sources",
+            }
+        )
+    return alerts[:8]
+
+
+def _dashboard_payload(user: dict) -> dict:
+    modules_payload = _filter_modules_payload(_load_modules_payload(), user)
+    providers_payload = _filter_providers_payload(_load_providers_payload(), user)
+    modules = [module for module in (modules_payload.get("modules") or []) if isinstance(module, dict)]
+    progress_payload = _load_console_progress_payload()
+    progress = {
+        str(guid).lower(): value
+        for guid, value in (progress_payload.get("consoles") or {}).items()
+        if isinstance(value, dict)
+    }
+    provider_index = _dashboard_provider_index(providers_payload)
+    core_index = _dashboard_core_index()
+    rom_index = _collect_dashboard_rom_stats(user)
+
+    modules_status = [
+        _dashboard_console_payload(module, progress, provider_index, core_index, rom_index)
+        for module in modules
+    ]
+    modules_status.sort(key=lambda item: (item["completion"], item["module"]))
+    consoles = [module for module in modules_status if module.get("category") == "console"]
+    consoles_by_guid = {
+        str(console.get("guid")).lower(): console
+        for console in consoles
+        if console.get("guid")
+    }
+    users = _dashboard_users_summary(user, consoles_by_guid)
+    rom_totals = rom_index["totals"]
+    cache_meta = _collect_cache_metadata(user)
+    completion_average = round(
+        sum(_safe_int(console.get("completion")) for console in consoles) / len(consoles),
+        1,
+    ) if consoles else 0
+
+    ready_console_candidates = [
+        console
+        for console in sorted(consoles, key=lambda item: (-_safe_int(item.get("completion")), item["module"]))
+        if console.get("status") == "runtime_validated"
+    ]
+    ready_consoles = ready_console_candidates[:8]
+    console_work_queue = [
+        console
+        for console in consoles
+        if console.get("category") == "console" and _safe_int(console.get("completion")) < 100
+    ][:14]
+    other_work_queue = [
+        module
+        for module in modules_status
+        if module.get("category") != "console" and _safe_int(module.get("completion")) < 100
+    ][:10]
+    special_strategy_consoles = [
+        {
+            "module": console["module"],
+            "guid": console.get("guid"),
+            "strategy_types": console.get("strategy_types") or [],
+        }
+        for console in consoles
+        if console.get("strategy_types")
+    ][:10]
+
+    provider_public = {
+        key: value
+        for key, value in provider_index.items()
+        if key not in {"by_guid", "by_label"}
+    }
+    provider_public["without_providers"] = sum(1 for console in consoles if console.get("provider_count") == 0)
+    provider_public["with_providers"] = len(consoles) - provider_public["without_providers"]
+
+    runtime = {
+        "cores": core_index["cores"],
+        "bios_files": core_index["bios_files"],
+        "bios_with_sources": core_index["bios_with_sources"],
+        "bios_without_sources": core_index["bios_without_sources"],
+        "mapped_consoles": len(core_index["by_guid"]),
+        "missing_core_metadata": sum(1 for console in consoles if console.get("core_count") == 0),
+        "special_strategy_consoles": special_strategy_consoles,
+    }
+    users_summary = users
+    alerts = _dashboard_alerts(consoles, users_summary, provider_public, rom_totals, runtime)
+
+    return {
+        "generated_at": datetime.utcnow().isoformat(),
+        "scope": "admin" if user.get("admin") else "client",
+        "datasets": {
+            "modules": {
+                "version": modules_payload.get("fetched_at") or _file_timestamp(MODULES_FILE),
+                "count": len(modules),
+            },
+            "providers": {
+                "version": providers_payload.get("fetched_at") or _file_timestamp(PROVIDERS_FILE),
+                "count": provider_public["total"],
+            },
+            "roms": {
+                "version": max(
+                    (
+                        dataset.get("fetched_at")
+                        for dataset in _collect_rom_metadata(user)
+                        if dataset.get("fetched_at")
+                    ),
+                    default=None,
+                ),
+                "count": rom_totals["datasets"],
+            },
+            "cache": {
+                "version": cache_meta.get("updated"),
+                "count": cache_meta.get("file_count", 0),
+                "size": cache_meta.get("size", 0),
+            },
+        },
+        "readiness": {
+            "total": len(consoles),
+            "average_completion": completion_average,
+            "buckets": _dashboard_bucket_counts(consoles),
+            "categories": _dashboard_category_counts(modules_status),
+            "statuses": _dashboard_status_counts(consoles),
+            "ready_for_assignment": len(ready_console_candidates),
+        },
+        "providers": provider_public,
+        "roms": {
+            **rom_totals,
+            "largest_datasets": rom_index["datasets"][:8],
+            "missing_thumbnail_indexes": [
+                dataset
+                for dataset in rom_index["datasets"]
+                if not dataset.get("has_thumbnail_index")
+            ][:8],
+        },
+        "users": users_summary,
+        "runtime": runtime,
+        "alerts": alerts,
+        "work_queue": console_work_queue,
+        "other_work_queue": other_work_queue,
+        "ready_consoles": ready_consoles,
+    }
 
 
 def _load_rom_dataset(identifier: str) -> dict | None:
@@ -1058,13 +2149,307 @@ def _load_rom_dataset(identifier: str) -> dict | None:
             payload = json.loads(rom_file.read_text(encoding="utf-8"))
         except Exception:
             continue
-        guid = payload.get("guid")
+        module = payload.get("module")
+        guid = payload.get("guid") or (module.get("guid") if isinstance(module, dict) else None)
         if identifier == slug or (guid and identifier.lower() == guid.lower()):
             if "entry_count" not in payload and isinstance(payload.get("entries"), list):
                 payload["entry_count"] = len(payload["entries"])
+            if "entry_count" not in payload and isinstance(payload.get("roms"), list):
+                payload["entry_count"] = len(payload["roms"])
+            if isinstance(module, dict):
+                payload.setdefault("guid", module.get("guid"))
+                payload.setdefault("module_name", module.get("name"))
             payload.setdefault("slug", slug)
             return payload
     return None
+
+
+def _slugify_module(value: str) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "_", value.lower())
+    return slug.strip("_") or "default"
+
+
+def _rom_display_name(entry: dict) -> str:
+    raw_name = entry.get("name") or entry.get("title") or entry.get("rom_name") or ""
+    name = str(raw_name).strip()
+    if "." in name:
+        extension = name.rsplit(".", 1)[1].lower()
+        if extension in {"zip", "7z", "bin", "cue", "iso", "chd", "gba", "gb", "gbc", "nds"}:
+            return name.rsplit(".", 1)[0]
+    return name
+
+
+def _rom_name_tags(name: str) -> list[str]:
+    return [tag.strip() for tag in re.findall(r"\(([^()]*)\)", name) if tag.strip()]
+
+
+def _rom_game_title(entry: dict) -> str:
+    name = _rom_display_name(entry)
+    title = re.sub(r"\s*\([^()]*\)", "", name).strip()
+    return re.sub(r"\s+", " ", title) or name
+
+
+def _rom_artwork_key(value: str) -> str:
+    value = re.sub(r"\s*\((?:19|20)\d{2}(?:[-_]\d{2}){0,2}\)", "", value)
+    value = re.sub(r"\s*\[[^\]]+\]", "", value)
+    value = re.sub(r"\bbrothers\b", "bros", value, flags=re.I)
+    value = re.sub(r"\bbros\.\b", "bros", value, flags=re.I)
+    value = re.sub(r"[^a-z0-9]+", " ", value.lower())
+    value = re.sub(r"\s+", " ", value).strip()
+    return value
+
+
+def _compact_artwork_key(value: str) -> str:
+    return _rom_artwork_key(value).replace(" ", "")
+
+
+def _rom_variant_tags(entry: dict) -> list[str]:
+    name = _rom_display_name(entry)
+    region = _rom_entry_region(entry).lower()
+    tags = []
+    for tag in _rom_name_tags(name):
+        if tag.lower() == region:
+            continue
+        tags.append(tag)
+    serial = str(entry.get("serial") or "").strip()
+    if serial and serial not in tags:
+        tags.append(serial)
+    return tags
+
+
+def _rom_identity_key(entry: dict) -> str:
+    return _rom_game_title(entry).lower()
+
+
+def _rom_unique_key(entry: dict) -> str:
+    for field in ("sha1", "md5", "crc32", "crc", "_key"):
+        value = str(entry.get(field) or "").strip()
+        if value:
+            return value.lower()
+    return _rom_display_name(entry).lower()
+
+
+def _rom_entry_format(entry: dict) -> str | None:
+    source = str(entry.get("rom_name") or entry.get("name") or "").strip()
+    if "." not in source:
+        return None
+    extension = source.rsplit(".", 1)[1].lower()
+    return extension or None
+
+
+def _rom_entry_availability(entry: dict) -> str:
+    if entry.get("http_url"):
+        return "downloadable"
+    if entry.get("torrent_url"):
+        return "torrent"
+    return "catalog"
+
+
+def _rom_entry_region(entry: dict) -> str:
+    region = str(entry.get("region") or "").strip()
+    if region and region != "—":
+        return region
+    name = str(entry.get("name") or entry.get("rom_name") or "")
+    match = re.search(r"\((USA|Europe|Japan|World|Germany|France|Spain|Italy|Brazil|Korea|Asia|Canada|Australia)\)", name, re.I)
+    return match.group(1) if match else "Unknown"
+
+
+def _rom_entry_search_blob(entry: dict) -> str:
+    fields = (
+        "name",
+        "rom_name",
+        "description",
+        "region",
+        "serial",
+        "publisher",
+        "developer",
+        "genre",
+        "crc",
+        "crc32",
+        "md5",
+        "sha1",
+    )
+    return " ".join(str(entry.get(field) or "") for field in fields).lower()
+
+
+def _filter_rom_entries(
+    entries: list,
+    query: str | None,
+    availability: str | None,
+    region: str | None,
+    file_format: str | None,
+) -> list:
+    normalized_query = query.strip().lower() if query else ""
+    normalized_availability = availability.strip().lower() if availability else ""
+    normalized_region = region.strip().lower() if region else ""
+    normalized_format = file_format.strip().lower().lstrip(".") if file_format else ""
+    filtered = []
+    for entry in entries:
+        if not isinstance(entry, dict):
+            continue
+        if normalized_query and normalized_query not in _rom_entry_search_blob(entry):
+            continue
+        if normalized_availability and normalized_availability != "all":
+            if _rom_entry_availability(entry) != normalized_availability:
+                continue
+        if normalized_region and normalized_region != "all":
+            if _rom_entry_region(entry).lower() != normalized_region:
+                continue
+        if normalized_format and normalized_format != "all":
+            if (_rom_entry_format(entry) or "").lower() != normalized_format:
+                continue
+        filtered.append(entry)
+    return filtered
+
+
+def _sort_rom_entries(entries: list, sort: str | None) -> list:
+    normalized_sort = (sort or "name").strip().lower()
+    if normalized_sort == "size":
+        return sorted(entries, key=lambda entry: (entry.get("size") in (None, 0), entry.get("size") or 0))
+    if normalized_sort == "availability":
+        rank = {"downloadable": 0, "torrent": 1, "catalog": 2}
+        return sorted(entries, key=lambda entry: (rank.get(_rom_entry_availability(entry), 3), _rom_display_name(entry).lower()))
+    if normalized_sort == "region":
+        return sorted(entries, key=lambda entry: (_rom_entry_region(entry).lower(), _rom_display_name(entry).lower()))
+    return sorted(entries, key=lambda entry: _rom_display_name(entry).lower())
+
+
+def _load_thumbnail_index(module_name: str | None) -> dict:
+    if not module_name:
+        return {}
+    index_path = LIBRETRO_THUMBNAILS_DIR / f"{_slugify_module(module_name)}.json"
+    if not index_path.exists():
+        return {}
+    try:
+        payload = json.loads(index_path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    entries = payload.get("entries")
+    return entries if isinstance(entries, dict) else {}
+
+
+def _load_rom_artwork_aliases() -> dict:
+    if not ROM_ARTWORK_ALIASES_FILE.exists():
+        return {}
+    try:
+        payload = json.loads(ROM_ARTWORK_ALIASES_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
+def _rom_artwork_alias(module_name: str | None, entry: dict) -> str | None:
+    if not module_name:
+        return None
+    payload = _load_rom_artwork_aliases()
+    aliases = payload.get("aliases")
+    if not isinstance(aliases, list):
+        return None
+    candidates = {
+        _rom_display_name(entry),
+        str(entry.get("name") or "").strip(),
+        str(entry.get("rom_name") or "").strip(),
+    }
+    for alias in aliases:
+        if not isinstance(alias, dict):
+            continue
+        if alias.get("module") != module_name:
+            continue
+        source = str(alias.get("source") or "").strip()
+        target = str(alias.get("target") or "").strip()
+        if source and target and source in candidates:
+            return target
+    return None
+
+
+def _thumbnail_lookup(thumbnail_index: dict) -> dict:
+    lookup = {}
+    for title, thumbnail in thumbnail_index.items():
+        if not isinstance(title, str) or not isinstance(thumbnail, dict):
+            continue
+        if "download_url" in thumbnail:
+            thumbnail = {thumbnail.get("category") or "Named_Boxarts": thumbnail}
+        lookup.setdefault(title, thumbnail)
+        lookup.setdefault(_rom_artwork_key(title), thumbnail)
+        lookup.setdefault(_compact_artwork_key(title), thumbnail)
+        base_title = re.sub(r"\s*\([^()]*\)", "", title).strip()
+        if base_title:
+            lookup.setdefault(_rom_artwork_key(base_title), thumbnail)
+            lookup.setdefault(_compact_artwork_key(base_title), thumbnail)
+    return lookup
+
+
+def _rom_artwork_payload(thumbnail: dict | None) -> dict:
+    if not isinstance(thumbnail, dict):
+        return {}
+    if "download_url" in thumbnail:
+        thumbnail = {thumbnail.get("category") or "Named_Boxarts": thumbnail}
+    artwork = {}
+    for category, label in (
+        ("Named_Boxarts", "boxart"),
+        ("Named_Snaps", "snap"),
+        ("Named_Titles", "title"),
+    ):
+        item = thumbnail.get(category)
+        if isinstance(item, dict) and item.get("download_url"):
+            artwork[label] = {
+                "category": category,
+                "url": item.get("download_url"),
+                "path": item.get("path"),
+                "sha": item.get("sha"),
+            }
+    return artwork
+
+
+def _enrich_rom_entries(
+    entries: list,
+    module_name: str | None,
+    variant_counts: dict[str, int] | None = None,
+    variant_indexes: dict[str, int] | None = None,
+) -> list:
+    thumbnail_index = _load_thumbnail_index(module_name)
+    thumbnail_lookup = _thumbnail_lookup(thumbnail_index) if thumbnail_index else {}
+    enriched = []
+    for entry in entries:
+        if not isinstance(entry, dict):
+            enriched.append(entry)
+            continue
+        entry = dict(entry)
+        display_name = _rom_display_name(entry)
+        game_title = _rom_game_title(entry)
+        variant_tags = _rom_variant_tags(entry)
+        entry["game_title"] = game_title
+        entry["variant_tags"] = variant_tags
+        entry["variant_label"] = " / ".join(variant_tags)
+        entry["variant_count"] = (variant_counts or {}).get(_rom_identity_key(entry), 1)
+        entry["variant_index"] = (variant_indexes or {}).get(_rom_unique_key(entry), 1)
+        alias_name = _rom_artwork_alias(module_name, entry)
+        thumbnail = thumbnail_index.get(alias_name) if alias_name and thumbnail_index else None
+        if not thumbnail:
+            thumbnail = thumbnail_index.get(display_name) if thumbnail_index else None
+        if not thumbnail and entry.get("rom_name"):
+            thumbnail = thumbnail_index.get(_rom_display_name({"name": entry.get("rom_name")})) if thumbnail_index else None
+        if not thumbnail:
+            for key in (
+                _rom_artwork_key(display_name),
+                _compact_artwork_key(display_name),
+                _rom_artwork_key(str(entry.get("rom_name") or "")),
+                _compact_artwork_key(str(entry.get("rom_name") or "")),
+                _rom_artwork_key(game_title),
+                _compact_artwork_key(game_title),
+            ):
+                if key and key in thumbnail_lookup:
+                    thumbnail = thumbnail_lookup[key]
+                    break
+        artwork = _rom_artwork_payload(thumbnail)
+        if artwork:
+            entry["artwork"] = artwork
+            preferred = artwork.get("boxart") or artwork.get("snap") or artwork.get("title")
+            if preferred:
+                entry["thumbnail_url"] = preferred.get("url")
+                entry["thumbnail_category"] = preferred.get("category")
+        enriched.append(entry)
+    return enriched
 
 
 def _rom_dataset_path_for_module(module: dict) -> Path | None:
@@ -1089,23 +2474,52 @@ def _sync_rom_dataset_from_rdb(module: dict) -> dict | None:
     if not isinstance(entries, list):
         entries = []
     entries = [entry for entry in entries if _is_rom_entry(entry)]
-    dataset = {
-        "module": module.get("name") or payload.get("module"),
-        "guid": module.get("guid") or payload.get("guid"),
-        "dataset_role": "master_rom_list",
-        "source_kind": "libretro_rdb",
-        "source_label": "Libretro database RDB",
-        "source_url": payload.get("source_url"),
-        "entry_count": len(entries),
-        "fetched_at": payload.get("fetched_at") or datetime.utcnow().isoformat(),
-        "entries": entries,
-    }
+    module_name = module.get("name") or payload.get("module")
+    guid = module.get("guid") or payload.get("guid")
+    brand, console = _split_module_label(module_name)
+    dataset = None
+    if brand and console:
+        try:
+            dataset = build_rom_catalog(brand, console, module_guid=guid, rdb_path=rdb_path)
+        except Exception:
+            dataset = None
+    if dataset:
+        dataset = {
+            **dataset,
+            "guid": guid,
+            "dataset_role": "master_rom_list",
+            "source_kind": "libretro_rdb_with_provider_coverage",
+            "source_label": "Libretro database RDB + provider coverage",
+            "source_url": payload.get("source_url"),
+            "source_urls": payload.get("source_urls"),
+            "source_notes": payload.get("source_notes"),
+            "fetched_at": payload.get("fetched_at") or datetime.utcnow().isoformat(),
+            "slug": target.stem,
+        }
+    else:
+        dataset = {
+            "module": module_name,
+            "guid": guid,
+            "dataset_role": "master_rom_list",
+            "source_kind": "libretro_rdb",
+            "source_label": "Libretro database RDB",
+            "source_url": payload.get("source_url"),
+            "source_urls": payload.get("source_urls"),
+            "source_notes": payload.get("source_notes"),
+            "entry_count": len(entries),
+            "fetched_at": payload.get("fetched_at") or datetime.utcnow().isoformat(),
+            "entries": entries,
+        }
+    if dataset.get("source_urls") is None:
+        dataset.pop("source_urls", None)
+    if dataset.get("source_notes") is None:
+        dataset.pop("source_notes", None)
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(dataset, indent=2), encoding="utf-8")
     return {
         "slug": target.stem,
-        "module": dataset["module"],
-        "guid": dataset["guid"],
+        "module": module_name,
+        "guid": guid,
         "dataset_role": dataset["dataset_role"],
         "source_kind": dataset["source_kind"],
         "source_label": dataset["source_label"],
@@ -1266,6 +2680,12 @@ async def client_sync_manifest(user: dict = Depends(current_user)) -> dict:
         },
         "modules": modules if isinstance(modules, list) else [],
     }
+
+
+@app.get("/dashboard")
+async def dashboard(user: dict = Depends(current_user)) -> dict:
+    """Return the admin home-page health summary, scoped to the current account."""
+    return _dashboard_payload(user)
 
 
 @app.get("/access/users")
@@ -1429,13 +2849,60 @@ async def list_rom_datasets(user: dict = Depends(current_user)) -> dict:
 
 
 @app.get("/roms/{identifier}")
-async def fetch_rom_dataset(identifier: str, user: dict = Depends(current_user)) -> dict:
+async def fetch_rom_dataset(
+    identifier: str,
+    limit: int = Query(100, ge=1, le=500),
+    offset: int = Query(0, ge=0),
+    q: str | None = Query(None),
+    availability: str | None = Query(None),
+    region: str | None = Query(None),
+    format: str | None = Query(None),
+    sort: str | None = Query("name"),
+    user: dict = Depends(current_user),
+) -> dict:
     """Return the ROM dataset payload for a given slug or GUID."""
     dataset = _load_rom_dataset(identifier)
     if not dataset:
         raise HTTPException(status_code=404, detail=f"ROM dataset '{identifier}' not found")
     if not _guid_allowed(dataset.get("guid"), user):
         raise HTTPException(status_code=403, detail="Console is not assigned to this API key")
+    module = dataset.get("module")
+    module_name = module.get("name") if isinstance(module, dict) else module
+    if not module_name:
+        module_name = dataset.get("module_name")
+    entries = dataset.get("entries")
+    if not isinstance(entries, list):
+        entries = dataset.get("roms")
+    if isinstance(entries, list):
+        catalog_total = len(entries)
+        filtered_entries = _sort_rom_entries(
+            _filter_rom_entries(entries, q, availability, region, format),
+            sort,
+        )
+        variant_counts: dict[str, int] = {}
+        variant_indexes: dict[str, int] = {}
+        for entry in filtered_entries:
+            if isinstance(entry, dict):
+                key = _rom_identity_key(entry)
+                variant_counts[key] = variant_counts.get(key, 0) + 1
+                variant_indexes[_rom_unique_key(entry)] = variant_counts[key]
+        total = len(filtered_entries)
+        paged_entries = filtered_entries[offset : offset + limit]
+        dataset = dict(dataset)
+        dataset["entries"] = _enrich_rom_entries(paged_entries, module_name, variant_counts, variant_indexes)
+        dataset["catalog_total"] = catalog_total
+        dataset["total"] = total
+        dataset["limit"] = limit
+        dataset["offset"] = offset
+        dataset["has_more"] = offset + limit < total
+        dataset["filters"] = {
+            "q": q,
+            "availability": availability,
+            "region": region,
+            "format": format,
+            "sort": sort,
+        }
+        dataset.pop("roms", None)
     return dataset
 
 
@@ -1473,7 +2940,45 @@ async def console_info(request: ConsoleInfoRequest, user: dict = Depends(current
     console = request.console.strip()
     if not brand or not console:
         raise HTTPException(status_code=400, detail="Brand and console are required")
-    return _console_info_payload(brand, console, request.guid, request.module)
+    payload = dict(_console_info_payload(brand, console, request.guid, request.module))
+    payload["can_select_image"] = bool(user.get("admin"))
+    return payload
+
+
+@app.post("/consoles/info/image")
+async def select_console_info_image(
+    request: ConsoleImageSelectionRequest,
+    _: dict = Depends(require_admin),
+) -> dict:
+    brand = request.brand.strip()
+    console = request.console.strip()
+    if not brand or not console:
+        raise HTTPException(status_code=400, detail="Brand and console are required")
+    payload = dict(_console_info_payload(brand, console, request.guid, request.module))
+    options = payload.get("image_options")
+    if not isinstance(options, list) or not options:
+        raise HTTPException(status_code=404, detail="No selectable images are available for this console")
+    if request.image_index < 0 or request.image_index >= len(options):
+        raise HTTPException(status_code=400, detail="Image index is out of range")
+    option = options[request.image_index]
+    if not isinstance(option, dict):
+        raise HTTPException(status_code=400, detail="Image option is invalid")
+    image_url = _wikipedia_image_url(option)
+    if not image_url:
+        raise HTTPException(status_code=400, detail="Image option has no usable URL")
+
+    payload["selected_image_index"] = request.image_index
+    payload["selected_image_title"] = option.get("title")
+    payload["selected_image_url"] = image_url
+    payload["image_url"] = image_url
+    payload["image_index"] = request.image_index
+
+    cache_key = request.guid or f"{manufacturer_slug(brand)}:{console_slug(console)}"
+    cache = _load_console_info_cache()
+    cache[cache_key] = payload
+    _save_console_info_cache(cache)
+    payload["can_select_image"] = True
+    return payload
 
 
 @app.post("/providers")

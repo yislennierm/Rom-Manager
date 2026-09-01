@@ -6,13 +6,29 @@
       "name": "RetroArch (Steam)",
       "kind": "retroarch",
       "install_type": "steam",
+      "launcher": "~/.steam/steam/steamapps/common/RetroArch/retroarch",
       "roms_path": "~/.steam/steam/steamapps/common/RetroArch/downloads",
       "bios_path": "~/.steam/steam/steamapps/common/RetroArch/system",
       "playlists_path": "~/.steam/steam/steamapps/common/RetroArch/playlists",
       "cores_path": "~/.steam/steam/steamapps/common/RetroArch/cores",
       "platform": "linux",
+      "detected": true,
       "active": false,
-      "supported_guids": []
+      "supported_guids": [
+        "e63c6451-836b-5dbe-8532-63492762b3d9",
+        "fad2a671-5d13-54b9-8562-3b058c610348",
+        "ed4e8377-e783-581f-ac90-9d8c98e481ae",
+        "1ab4ffbd-5190-5b57-9dc1-92b24fec2845",
+        "42411369-42f4-5fcc-9500-caa3ed220f32",
+        "390f4a10-ddc9-57bd-bfec-b08cb8250c7b",
+        "2ba124e3-51ac-535f-b0fa-0ed4fd88ea00",
+        "cf88421d-dd86-5d2d-85d0-c640b1730604",
+        "90188f7f-aeff-501b-a10f-f41fb617829f",
+        "c59cbdeb-e157-529b-b360-a193d53dc65b",
+        "57249b7f-c969-55d0-a129-6a9eb48cd100",
+        "6cbd1842-2231-5e82-92fc-73613e2f21a8",
+        "98e5f218-c591-5a14-bd69-fa25b516c3ed"
+      ]
     },
     "retroarch_standalone": {
       "name": "RetroArch (Standalone)",
@@ -22,8 +38,6 @@
       "supported_guids": [
         "b4e1a5aa-5431-535e-9650-8c7b6bbc5036",
         "2530a9bf-3926-52a9-b3fd-401ed1655bcc",
-        "ca066374-6220-5f44-828c-302f50a10146",
-        "e8d2cd7c-e53c-5916-928d-9af9aa48c409",
         "d4874312-2442-5d55-b0a1-8fbd6b5bb68e",
         "bc8c836c-4218-5ff1-bfb2-d895381289b4"
       ]
@@ -38,8 +52,37 @@
       "playlists_path": "~/.var/app/org.libretro.RetroArch/config/retroarch/playlists",
       "cores_path": "~/.var/app/org.libretro.RetroArch/config/retroarch/cores",
       "platform": "linux",
+      "detected": true,
+      "active": true,
+      "supported_guids": [
+        "e63c6451-836b-5dbe-8532-63492762b3d9",
+        "fad2a671-5d13-54b9-8562-3b058c610348",
+        "ed4e8377-e783-581f-ac90-9d8c98e481ae",
+        "1ab4ffbd-5190-5b57-9dc1-92b24fec2845",
+        "42411369-42f4-5fcc-9500-caa3ed220f32",
+        "390f4a10-ddc9-57bd-bfec-b08cb8250c7b",
+        "2ba124e3-51ac-535f-b0fa-0ed4fd88ea00",
+        "cf88421d-dd86-5d2d-85d0-c640b1730604",
+        "90188f7f-aeff-501b-a10f-f41fb617829f",
+        "c59cbdeb-e157-529b-b360-a193d53dc65b",
+        "57249b7f-c969-55d0-a129-6a9eb48cd100",
+        "6cbd1842-2231-5e82-92fc-73613e2f21a8",
+        "98e5f218-c591-5a14-bd69-fa25b516c3ed"
+      ]
+    },
+    "vita3k": {
+      "name": "Vita3K",
+      "kind": "external_emulator",
+      "install_type": "vita3k",
+      "launcher": "~/.local/bin/vita3k",
+      "roms_path": "~/.local/share/Vita3K/Vita3K/ux0/app",
+      "bios_path": "~/.local/share/Vita3K/Vita3K",
+      "platform": "linux",
+      "detected": true,
       "active": false,
-      "supported_guids": []
+      "supported_guids": [
+        "219b39f7-8c82-5053-8efa-b74c7c654aa7"
+      ]
     }
   }
 }

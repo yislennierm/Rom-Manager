@@ -1,0 +1,95 @@
+{
+  "module": "Amstrad - GX4000",
+  "path": "Amstrad - GX4000",
+  "repo_url": "https://github.com/libretro-thumbnails/Amstrad_-_GX4000.git",
+  "branch": "master",
+  "entries": {
+    "Cross Bomber (2020-08-26)(Caruso, Fabrizio)": {
+      "Named_Snaps": {
+        "category": "Named_Snaps",
+        "path": "Named_Snaps/Cross Bomber (2020-08-26)(Caruso, Fabrizio).png",
+        "download_url": "https://raw.githubusercontent.com/libretro-thumbnails/Amstrad_-_GX4000/master/Named_Snaps/Cross%20Bomber%20(2020-08-26)(Caruso,%20Fabrizio).png",
+        "sha": "5b288416e714c6879ce28c760bb512dac1da036a"
+      }
+    },
+    "Cross Bomber (2021-05-13)(Caruso, Fabrizio)": {
+      "Named_Snaps": {
+        "category": "Named_Snaps",
+        "path": "Named_Snaps/Cross Bomber (2021-05-13)(Caruso, Fabrizio).png",
+        "download_url": "https://raw.githubusercontent.com/libretro-thumbnails/Amstrad_-_GX4000/master/Named_Snaps/Cross%20Bomber%20(2021-05-13)(Caruso,%20Fabrizio).png",
+        "sha": "10a2910b67c760a4b9257d569e679a319bf8e35a"
+      }
+    },
+    "Cross Shoot (2021-05-13)(Caruso, Fabrizio)": {
+      "Named_Snaps": {
+        "category": "Named_Snaps",
+        "path": "Named_Snaps/Cross Shoot (2021-05-13)(Caruso, Fabrizio).png",
+        "download_url": "https://raw.githubusercontent.com/libretro-thumbnails/Amstrad_-_GX4000/master/Named_Snaps/Cross%20Shoot%20(2021-05-13)(Caruso,%20Fabrizio).png",
+        "sha": "067a7ef787ffce5f47d795bf21b2c262fa5f885f"
+      },
+      "Named_Titles": {
+        "category": "Named_Titles",
+        "path": "Named_Titles/Cross Shoot (2021-05-13)(Caruso, Fabrizio).png",
+        "download_url": "https://raw.githubusercontent.com/libretro-thumbnails/Amstrad_-_GX4000/master/Named_Titles/Cross%20Shoot%20(2021-05-13)(Caruso,%20Fabrizio).png",
+        "sha": "263e4d7a2f29a69b967e14cb5672e009ef352b79"
+      }
+    },
+    "Cross Snake Preview (2020-12-05)(Caruso, Fabrizio)": {
+      "Named_Snaps": {
+        "category": "Named_Snaps",
+        "path": "Named_Snaps/Cross Snake Preview (2020-12-05)(Caruso, Fabrizio).png",
+        "download_url": "https://raw.githubusercontent.com/libretro-thumbnails/Amstrad_-_GX4000/master/Named_Snaps/Cross%20Snake%20Preview%20(2020-12-05)(Caruso,%20Fabrizio).png",
+        "sha": "a7ffdd1f38f713029cab6d4918e8b5a9bc02b039"
+      }
+    },
+    "Cross Snake v1.0 (2020-12-12)(Caruso, Fabrizio)[mode0]": {
+      "Named_Snaps": {
+        "category": "Named_Snaps",
+        "path": "Named_Snaps/Cross Snake v1.0 (2020-12-12)(Caruso, Fabrizio)[mode0].png",
+        "download_url": "https://raw.githubusercontent.com/libretro-thumbnails/Amstrad_-_GX4000/master/Named_Snaps/Cross%20Snake%20v1.0%20(2020-12-12)(Caruso,%20Fabrizio)[mode0].png",
+        "sha": "f48707ef62c96ba96c8ce55034e49f33479701bd"
+      }
+    },
+    "Cross Snake v1.0 (2020-12-12)(Caruso, Fabrizio)[mode1][cpcrslib]": {
+      "Named_Snaps": {
+        "category": "Named_Snaps",
+        "path": "Named_Snaps/Cross Snake v1.0 (2020-12-12)(Caruso, Fabrizio)[mode1][cpcrslib].png",
+        "download_url": "https://raw.githubusercontent.com/libretro-thumbnails/Amstrad_-_GX4000/master/Named_Snaps/Cross%20Snake%20v1.0%20(2020-12-12)(Caruso,%20Fabrizio)[mode1][cpcrslib].png",
+        "sha": "f48707ef62c96ba96c8ce55034e49f33479701bd"
+      }
+    },
+    "Cross Snake v1.0 (2020-12-12)(Caruso, Fabrizio)[mode2]": {
+      "Named_Snaps": {
+        "category": "Named_Snaps",
+        "path": "Named_Snaps/Cross Snake v1.0 (2020-12-12)(Caruso, Fabrizio)[mode2].png",
+        "download_url": "https://raw.githubusercontent.com/libretro-thumbnails/Amstrad_-_GX4000/master/Named_Snaps/Cross%20Snake%20v1.0%20(2020-12-12)(Caruso,%20Fabrizio)[mode2].png",
+        "sha": "f48707ef62c96ba96c8ce55034e49f33479701bd"
+      }
+    },
+    "Cross Snake v2.0 (2020-12-31)(Caruso, Fabrizio)[mode0]": {
+      "Named_Snaps": {
+        "category": "Named_Snaps",
+        "path": "Named_Snaps/Cross Snake v2.0 (2020-12-31)(Caruso, Fabrizio)[mode0].png",
+        "download_url": "https://raw.githubusercontent.com/libretro-thumbnails/Amstrad_-_GX4000/master/Named_Snaps/Cross%20Snake%20v2.0%20(2020-12-31)(Caruso,%20Fabrizio)[mode0].png",
+        "sha": "f48707ef62c96ba96c8ce55034e49f33479701bd"
+      }
+    },
+    "Cross Snake v2.0 (2020-12-31)(Caruso, Fabrizio)[mode1][cpcrslib]": {
+      "Named_Snaps": {
+        "category": "Named_Snaps",
+        "path": "Named_Snaps/Cross Snake v2.0 (2020-12-31)(Caruso, Fabrizio)[mode1][cpcrslib].png",
+        "download_url": "https://raw.githubusercontent.com/libretro-thumbnails/Amstrad_-_GX4000/master/Named_Snaps/Cross%20Snake%20v2.0%20(2020-12-31)(Caruso,%20Fabrizio)[mode1][cpcrslib].png",
+        "sha": "f48707ef62c96ba96c8ce55034e49f33479701bd"
+      }
+    },
+    "Cross Snake v2.0 (2020-12-31)(Caruso, Fabrizio)[mode2]": {
+      "Named_Snaps": {
+        "category": "Named_Snaps",
+        "path": "Named_Snaps/Cross Snake v2.0 (2020-12-31)(Caruso, Fabrizio)[mode2].png",
+        "download_url": "https://raw.githubusercontent.com/libretro-thumbnails/Amstrad_-_GX4000/master/Named_Snaps/Cross%20Snake%20v2.0%20(2020-12-31)(Caruso,%20Fabrizio)[mode2].png",
+        "sha": "f48707ef62c96ba96c8ce55034e49f33479701bd"
+      }
+    }
+  },
+  "fetched_at": "2026-08-31T13:26:51.194123"
+}

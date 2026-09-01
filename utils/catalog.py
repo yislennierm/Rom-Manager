@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Set, Tuple
 import zipfile
 
+from utils.internet_archive_auth import ia_cookie_header
 from utils.library_sync import load_modules, rdb_json_path
 from utils.paths import console_dirs, console_cache_dir, path_prefix, PROVIDER_FILE, slugify
 
@@ -17,13 +18,17 @@ DIRECT_ROM_EXTENSIONS = {
     ".a78",
     ".abs",
     ".bin",
+    ".bs",
     ".ccd",
     ".cdi",
     ".chd",
     ".col",
+    ".cpr",
+    ".cso",
     ".cue",
     ".cv",
     ".dc",
+    ".fig",
     ".fpk",
     ".gb",
     ".gba",
@@ -37,8 +42,14 @@ DIRECT_ROM_EXTENSIONS = {
     ".lnx",
     ".m3u",
     ".md",
+    ".mds",
+    ".min",
     ".mv",
+    ".nrg",
     ".n64",
+    ".nds",
+    ".dsi",
+    ".ids",
     ".ndd",
     ".neo",
     ".ngc",
@@ -48,13 +59,21 @@ DIRECT_ROM_EXTENSIONS = {
     ".rom",
     ".sc",
     ".sfc",
+    ".sgx",
     ".sg",
     ".smc",
     ".sms",
     ".smd",
+    ".sv",
+    ".swc",
     ".st2",
+    ".st",
     ".toc",
+    ".tgc",
     ".u1",
+    ".u3",
+    ".vb",
+    ".vboy",
     ".v64",
     ".ws",
     ".wsc",
@@ -105,10 +124,13 @@ def build_rom_catalog(
     catalogs = _load_provider_catalogs(manufacturer, console, module_guid)
     lookup = _build_provider_lookup(catalogs, expand_local_archives=expand_local_archives)
     roms = _merge_entries(entries, manufacturer, console, lookup)
+    provider_only_count = sum(1 for rom in roms if rom.get("provider_only"))
 
     return {
         "roms": roms,
         "entry_count": entry_count,
+        "catalog_entry_count": len(roms),
+        "provider_only_count": provider_only_count,
         "provider_total": len(catalogs),
         "provider_catalogs": catalogs,
         "rdb_path": str(rdb_file),
@@ -117,15 +139,56 @@ def build_rom_catalog(
 
 
 def select_preferred_provider(providers: List[Dict]) -> Optional[Dict]:
-    candidates = [provider for provider in providers if _provider_has_download_source(provider)]
+    candidates = [
+        provider
+        for provider in providers
+        if _provider_runtime_playable(provider) and _provider_has_download_source(provider)
+        and provider_downloadable(provider)
+    ]
     if not candidates:
         return None
     return min(candidates, key=_provider_download_score)
 
 
+def provider_download_source(provider_rom: Optional[Dict]) -> Tuple[Optional[str], Optional[str]]:
+    """Return a downloader source tuple, preferring exact file URLs over torrents."""
+    if not provider_rom:
+        return None, None
+    http_url = provider_rom.get("http_url")
+    if http_url:
+        return None, http_url
+    return provider_rom.get("torrent_url") or provider_rom.get("torrent"), None
+
+
+def provider_download_size(provider_rom: Optional[Dict], fallback: object = None) -> object:
+    if not provider_rom:
+        return fallback
+    if provider_rom.get("_archive_member") and provider_rom.get("_source_bundle_size"):
+        return provider_rom.get("_source_bundle_size")
+    return provider_rom.get("size") or fallback
+
+
+def _provider_runtime_playable(provider: Dict) -> bool:
+    metadata = provider.get("metadata") or {}
+    return metadata.get("runtime_playable") is not False
+
+
 def _provider_has_download_source(provider: Dict) -> bool:
     rom = provider.get("rom") or {}
     return bool(rom.get("http_url") or rom.get("torrent_url") or rom.get("torrent"))
+
+
+def provider_downloadable(provider: Dict) -> bool:
+    metadata = provider.get("metadata") or provider
+    if metadata.get("downloadable") is False:
+        if not metadata.get("requires_auth"):
+            return False
+    if metadata.get("requires_auth") is True:
+        return bool(ia_cookie_header())
+    access = str(metadata.get("download_access") or metadata.get("availability_state") or "").lower()
+    if access == "auth_required":
+        return bool(ia_cookie_header())
+    return access not in {"auth_required", "restricted", "unavailable", "offline"}
 
 
 def _provider_download_score(provider: Dict) -> Tuple[int, int, int, str]:
@@ -167,7 +230,9 @@ def _load_rdb_entries(path: Path) -> Tuple[List[Dict], int]:
         payload = json.load(fh)
     entries = payload.get("entries")
     if not isinstance(entries, list):
-        raise ValueError("RDB payload missing entries array.")
+        entries = payload.get("roms")
+    if not isinstance(entries, list):
+        raise ValueError("RDB payload missing entries or roms array.")
     rom_entries = [entry for entry in entries if _is_rdb_rom_entry(entry)]
     entry_count = len(rom_entries)
     return rom_entries, entry_count
@@ -192,31 +257,29 @@ def _resolve_provider_console(
     console: str,
     module_guid: Optional[str],
     providers: Optional[Dict] = None,
-) -> Tuple[str, Optional[Dict]]:
+) -> Tuple[str, str, Optional[Dict]]:
     providers = providers or _load_providers_data()
 
-    consoles = (
-        providers.get("console_root", {})
-        .get(manufacturer, {})
-    )
-    if not isinstance(consoles, dict):
-        return console, None
-
-    if console in consoles:
-        return console, consoles[console]
+    root = providers.get("console_root", {})
+    consoles = root.get(manufacturer, {})
+    if isinstance(consoles, dict) and console in consoles:
+        return manufacturer, console, consoles[console]
 
     if module_guid:
         target = module_guid.lower()
-        for name, entry in consoles.items():
-            entries = entry if isinstance(entry, list) else [entry]
-            for candidate in entries:
-                if not isinstance(candidate, dict):
-                    continue
-                guid = (candidate.get("libretro_guid") or candidate.get("guid") or "").lower()
-                if guid and guid == target:
-                    return name, entry
+        for maker, systems in root.items():
+            if not isinstance(systems, dict):
+                continue
+            for name, entry in systems.items():
+                entries = entry if isinstance(entry, list) else [entry]
+                for candidate in entries:
+                    if not isinstance(candidate, dict):
+                        continue
+                    guid = (candidate.get("libretro_guid") or candidate.get("guid") or "").lower()
+                    if guid and guid == target:
+                        return maker, name, entry
 
-    return console, None
+    return manufacturer, console, None
 
 
 def _provider_slug_from_entry(entry: Dict) -> str:
@@ -230,7 +293,7 @@ def _load_provider_catalogs(
     module_guid: Optional[str] = None,
 ) -> List[Dict]:
     providers = _load_providers_data()
-    provider_console, provider_entry = _resolve_provider_console(
+    provider_manufacturer, provider_console, provider_entry = _resolve_provider_console(
         manufacturer,
         console,
         module_guid,
@@ -238,7 +301,7 @@ def _load_provider_catalogs(
     )
     if provider_entry is None:
         return []
-    base_dir = Path(console_cache_dir(manufacturer, provider_console))
+    base_dir = Path(console_cache_dir(provider_manufacturer, provider_console))
     if not base_dir.is_dir():
         return []
 
@@ -253,6 +316,12 @@ def _load_provider_catalogs(
         provider_dirs.append((None, base_dir))
 
     labels = _load_provider_labels(manufacturer, console, module_guid, providers=providers)
+    registry_metadata = _load_provider_registry_metadata(
+        manufacturer,
+        console,
+        module_guid,
+        providers=providers,
+    )
     catalogs: List[Dict] = []
 
     for slug_value, provider_base in provider_dirs:
@@ -261,7 +330,7 @@ def _load_provider_catalogs(
         exports_dir = provider_base / "exports"
         if not exports_dir.is_dir():
             continue
-        prefix = f"{path_prefix(manufacturer, provider_console, slug_value)}_roms"
+        prefix = f"{path_prefix(provider_manufacturer, provider_console, slug_value)}_roms"
         for json_file in sorted(exports_dir.glob(f"{prefix}*.json")):
             provider_id = slug_value or _provider_id_from_stem(json_file.stem, prefix)
             label = labels.get(provider_id) or labels.get("default") or _humanize(provider_id)
@@ -277,6 +346,7 @@ def _load_provider_catalogs(
                 entries = payload.get("roms")
             if not isinstance(entries, list):
                 continue
+            metadata = {**metadata, **registry_metadata.get(provider_id, {})}
             catalogs.append({
                 "id": provider_id,
                 "label": label,
@@ -284,6 +354,47 @@ def _load_provider_catalogs(
                 "metadata": metadata,
             })
     return catalogs
+
+
+def _load_provider_registry_metadata(
+    manufacturer: str,
+    console: str,
+    module_guid: Optional[str] = None,
+    providers: Optional[Dict] = None,
+) -> Dict[str, Dict]:
+    providers = providers or _load_providers_data()
+    console_root = providers.get("console_root", {})
+    manufacturer_entry = console_root.get(manufacturer, {})
+    entry = manufacturer_entry.get(console) if isinstance(manufacturer_entry, dict) else None
+    if not entry and module_guid:
+        target = module_guid.lower()
+        for systems in console_root.values():
+            if not isinstance(systems, dict):
+                continue
+            for value in systems.values():
+                candidates = value if isinstance(value, list) else [value]
+                for candidate in candidates:
+                    if not isinstance(candidate, dict):
+                        continue
+                    guid = candidate.get("libretro_guid") or candidate.get("guid")
+                    if guid and guid.lower() == target:
+                        entry = value
+                        break
+                if entry:
+                    break
+            if entry:
+                break
+
+    metadata_by_id: Dict[str, Dict] = {}
+    candidates = entry if isinstance(entry, list) else [entry]
+    for item in candidates:
+        if not isinstance(item, dict):
+            continue
+        provider_id = _provider_slug_from_entry(item)
+        metadata = dict(item)
+        metadata.setdefault("provider_label", item.get("provider") or item.get("name") or item.get("archive_id"))
+        metadata_by_id[provider_id] = metadata
+    return metadata_by_id
 
 
 def _load_provider_labels(
@@ -295,17 +406,22 @@ def _load_provider_labels(
     providers = providers or _load_providers_data()
     console_root = providers.get("console_root", {})
     manufacturer_entry = console_root.get(manufacturer, {})
-    entry = manufacturer_entry.get(console)
-    if not entry and module_guid and isinstance(manufacturer_entry, dict):
+    entry = manufacturer_entry.get(console) if isinstance(manufacturer_entry, dict) else None
+    if not entry and module_guid:
         target = module_guid.lower()
-        for value in manufacturer_entry.values():
-            candidates = value if isinstance(value, list) else [value]
-            for candidate in candidates:
-                if not isinstance(candidate, dict):
-                    continue
-                guid = candidate.get("libretro_guid") or candidate.get("guid")
-                if guid and guid.lower() == target:
-                    entry = value
+        for systems in console_root.values():
+            if not isinstance(systems, dict):
+                continue
+            for value in systems.values():
+                candidates = value if isinstance(value, list) else [value]
+                for candidate in candidates:
+                    if not isinstance(candidate, dict):
+                        continue
+                    guid = candidate.get("libretro_guid") or candidate.get("guid")
+                    if guid and guid.lower() == target:
+                        entry = value
+                        break
+                if entry:
                     break
             if entry:
                 break
@@ -353,6 +469,8 @@ def _build_provider_lookup(
     by_sha1: Dict[str, List[Dict]] = {}
     by_crc32: Dict[str, List[Dict]] = {}
     by_name: Dict[str, List[Dict]] = {}
+    by_serial: Dict[str, List[Dict]] = {}
+    records: List[Dict] = []
 
     for catalog in catalogs:
         provider_id = catalog["id"]
@@ -365,6 +483,7 @@ def _build_provider_lookup(
                 "rom": rom,
                 "metadata": metadata,
             }
+            records.append(record)
             md5 = (rom.get("md5") or "").lower()
             if md5:
                 by_md5.setdefault(md5, []).append(record)
@@ -374,9 +493,28 @@ def _build_provider_lookup(
             crc32 = (rom.get("crc32") or rom.get("crc") or "").lower()
             if crc32:
                 by_crc32.setdefault(crc32, []).append(record)
+            for serial in _serial_keys(rom):
+                by_serial.setdefault(serial, []).append(record)
             for key in _name_keys(rom.get("name")):
                 by_name.setdefault(key, []).append(record)
-    return {"md5": by_md5, "sha1": by_sha1, "crc32": by_crc32, "name": by_name}
+    return {
+        "md5": by_md5,
+        "sha1": by_sha1,
+        "crc32": by_crc32,
+        "serial": by_serial,
+        "name": by_name,
+        "records": records,
+    }
+
+
+def _serial_keys(rom: Dict) -> Set[str]:
+    keys: Set[str] = set()
+    for value in (rom.get("serial"), rom.get("product_code"), rom.get("name")):
+        if not isinstance(value, str):
+            continue
+        for match in re.findall(r"\b[A-Z]{4}[- ]?[0-9]{5}\b", value.upper()):
+            keys.add(match.replace("-", "").replace(" ", "").lower())
+    return keys
 
 
 def _name_keys(value: Optional[str]) -> Set[str]:
@@ -471,6 +609,7 @@ def _first_region(values: List[str]) -> Optional[str]:
         "e": "europe",
         "eu": "europe",
         "europe": "europe",
+        "asia": "asia",
         "k": "korea",
         "kr": "korea",
         "korea": "korea",
@@ -503,6 +642,10 @@ def _provider_name_compatible(entry: Dict, provider_name: Optional[str]) -> bool
     if not provider_name:
         return True
     rdb_name = entry.get("name") or entry.get("description") or entry.get("rom_name") or ""
+    if not _shared_prefix_suffix_compatible(rdb_name, provider_name):
+        return False
+    if not _distinctive_title_tokens_compatible(rdb_name, provider_name):
+        return False
     rdb_region = _region_from_name(rdb_name)
     provider_region = _region_from_name(provider_name)
     if rdb_region and provider_region and rdb_region != provider_region:
@@ -517,13 +660,110 @@ def _provider_name_compatible(entry: Dict, provider_name: Optional[str]) -> bool
     return True
 
 
+def _shared_prefix_suffix_compatible(rdb_name: str, provider_name: str) -> bool:
+    rdb_title = _normalize_title_for_match(rdb_name)
+    provider_title = _normalize_title_for_match(provider_name)
+    rdb_parts = [part.strip() for part in re.split(r"\s+-\s+", rdb_title) if part.strip()]
+    provider_parts = [part.strip() for part in re.split(r"\s+-\s+", provider_title) if part.strip()]
+    if len(rdb_parts) < 2 or len(provider_parts) < 2:
+        return True
+
+    shared_prefix = []
+    for left, right in zip(rdb_parts, provider_parts):
+        if _compact_name(left) != _compact_name(right):
+            break
+        shared_prefix.append(left)
+
+    if not shared_prefix:
+        return True
+    shared_token_count = len(re.findall(r"[a-z0-9]+", " ".join(shared_prefix)))
+    if shared_token_count < 2:
+        return True
+
+    rdb_suffix = _title_suffix_tokens(rdb_parts[len(shared_prefix):])
+    provider_suffix = _title_suffix_tokens(provider_parts[len(shared_prefix):])
+    if bool(rdb_suffix) != bool(provider_suffix):
+        return False
+    if not rdb_suffix and not provider_suffix:
+        return True
+    return rdb_suffix == provider_suffix
+
+
+def _normalize_title_for_match(value: str) -> str:
+    base = os.path.basename(value or "")
+    while True:
+        root, ext = os.path.splitext(base)
+        if ext.lower() in KNOWN_ROM_NAME_EXTENSIONS:
+            base = root
+            continue
+        break
+    title, _ = _split_parenthetical_name(base.lower())
+    return _normalize_trailing_article(title)
+
+
+def _compact_name(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", value.lower())
+
+
+def _title_suffix_tokens(parts: List[str]) -> Set[str]:
+    stopwords = {"edition", "the", "a", "an"}
+    return {
+        token
+        for token in re.findall(r"[a-z0-9]+", " ".join(parts).lower())
+        if token not in stopwords
+    }
+
+
+def _distinctive_title_tokens_compatible(rdb_name: str, provider_name: str) -> bool:
+    rdb_tokens = _distinctive_title_tokens(rdb_name)
+    provider_tokens = _distinctive_title_tokens(provider_name)
+    if not rdb_tokens or not provider_tokens:
+        return True
+    return bool(rdb_tokens & provider_tokens)
+
+
+def _distinctive_title_tokens(value: str) -> Set[str]:
+    base = os.path.basename(value or "")
+    while True:
+        root, ext = os.path.splitext(base)
+        if ext.lower() in KNOWN_ROM_NAME_EXTENSIONS:
+            base = root
+            continue
+        break
+    title = re.split(r"\s*[\[(]", base, maxsplit=1)[0]
+    title = _normalize_trailing_article(title.lower())
+    stopwords = {
+        "and",
+        "collection",
+        "edition",
+        "fighting",
+        "game",
+        "games",
+        "geo",
+        "japan",
+        "neo",
+        "pocket",
+        "series",
+        "sports",
+        "the",
+        "usa",
+        "version",
+    }
+    tokens = {
+        token
+        for token in re.findall(r"[a-z0-9]+", title)
+        if len(token) >= 3 and token not in stopwords
+    }
+    return tokens
+
+
 def _region_from_name(value: str) -> Optional[str]:
     _, parens = _split_parenthetical_name(value.lower())
     region = _first_region(parens)
     if region:
         return region
     tokens = re.findall(r"[a-z0-9]+", re.sub(r"[-_]+", " ", value.lower()))
-    region_map = {"e": "europe", "k": "korea", "u": "usa", "j": "japan"}
+    region_map = {"e": "europe", "k": "korea", "u": "usa", "j": "japan", "asia": "asia"}
     for token in tokens:
         if token in region_map:
             return region_map[token]
@@ -775,10 +1015,22 @@ def _merge_entries(
     provider_lookup: Dict[str, Dict[str, List[Dict]]],
 ) -> List[Dict]:
     merged: List[Dict] = []
+    matched_provider_records: Set[Tuple[str, str]] = set()
     for idx, entry in enumerate(entries):
-        merged.append(
-            _build_rom_entry(idx, entry, manufacturer, console, provider_lookup)
+        rom = _build_rom_entry(idx, entry, manufacturer, console, provider_lookup)
+        for provider in rom.get("_providers") or []:
+            provider_rom = provider.get("rom") or {}
+            matched_provider_records.add((str(provider.get("provider_id") or ""), str(provider_rom.get("name") or "")))
+        merged.append(rom)
+    merged.extend(
+        _provider_only_entries(
+            len(merged),
+            manufacturer,
+            console,
+            provider_lookup,
+            matched_provider_records,
         )
+    )
     return merged
 
 
@@ -808,18 +1060,134 @@ def _build_rom_entry(
         "_rdb": entry,
     }
 
-    providers = _match_providers(entry, provider_lookup)
+    synced_providers = entry.get("_providers")
+    providers = synced_providers if isinstance(synced_providers, list) and synced_providers else _match_providers(entry, provider_lookup)
     rom["_providers"] = providers
     rom["_provider_count"] = len({p["provider_id"] for p in providers})
     rom["_provider_labels"] = sorted({p["provider_label"] for p in providers})
-    if providers:
-        primary = providers[0]["rom"]
+    primary_provider = select_preferred_provider(providers)
+    if primary_provider:
+        primary = primary_provider["rom"]
         rom["http_url"] = primary.get("http_url")
         rom["torrent_url"] = primary.get("torrent_url") or primary.get("torrent")
     else:
         rom["http_url"] = None
         rom["torrent_url"] = None
     return rom
+
+
+def _provider_only_entries(
+    start_index: int,
+    manufacturer: str,
+    console: str,
+    provider_lookup: Dict[str, object],
+    matched_provider_records: Set[Tuple[str, str]],
+) -> List[Dict]:
+    entries: List[Dict] = []
+    seen_serials: Set[str] = set()
+    seen_names: Set[Tuple[str, str]] = set()
+    records = provider_lookup.get("records") or []
+    if not isinstance(records, list):
+        return entries
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        metadata = record.get("metadata") or {}
+        if not isinstance(metadata, dict) or metadata.get("allow_provider_only") is not True:
+            continue
+        rom = record.get("rom") or {}
+        if not isinstance(rom, dict):
+            continue
+        provider_id = str(record.get("provider_id") or "")
+        provider_name = str(rom.get("name") or "")
+        fingerprint = (provider_id, provider_name)
+        if fingerprint in matched_provider_records:
+            continue
+        serials = sorted(_serial_keys(rom))
+        serial = _display_serial(serials[0]) if serials else None
+        if serial and serial in seen_serials:
+            continue
+        name_key = (provider_id, _compact_name(provider_name))
+        if not serial and name_key in seen_names:
+            continue
+        if serial:
+            seen_serials.add(serial)
+        seen_names.add(name_key)
+        public_provider = _public_provider_record(record)
+        providers = [public_provider]
+        primary = public_provider.get("rom") or {}
+        display_name = _provider_only_display_name(provider_name)
+        size_bytes = _coerce_int(rom.get("size"))
+        entry = {
+            "_key": f"provider-only::{provider_id}::{serial or provider_name}::{start_index + len(entries)}",
+            "name": display_name,
+            "console": console,
+            "manufacturer": manufacturer,
+            "region": _provider_region_label(provider_name) or "—",
+            "md5": rom.get("md5"),
+            "sha1": rom.get("sha1"),
+            "crc32": rom.get("crc32") or rom.get("crc"),
+            "serial": serial,
+            "size": size_bytes,
+            "_size_bytes": size_bytes,
+            "_search_blob": " ".join(
+                value.lower()
+                for value in (display_name, provider_name, serial, _provider_region_label(provider_name))
+                if isinstance(value, str)
+            ),
+            "_rdb": None,
+            "_catalog_status": "provider_only",
+            "provider_only": True,
+            "content_type": _provider_content_type(provider_name),
+            "source_status": "provider_only",
+            "_providers": providers,
+            "_provider_count": len({p["provider_id"] for p in providers}),
+            "_provider_labels": sorted({p["provider_label"] for p in providers}),
+            "http_url": primary.get("http_url"),
+            "torrent_url": primary.get("torrent_url") or primary.get("torrent"),
+        }
+        entries.append(entry)
+    return entries
+
+
+def _display_serial(serial: str) -> str:
+    value = re.sub(r"[^a-z0-9]", "", serial.lower()).upper()
+    if len(value) == 9:
+        return f"{value[:4]}-{value[4:]}"
+    return value
+
+
+def _provider_only_display_name(provider_name: str) -> str:
+    name = os.path.basename(provider_name or "")
+    while Path(name).suffix.lower() in KNOWN_ROM_NAME_EXTENSIONS:
+        name = Path(name).stem
+    name = re.sub(r"\s*\[[^\]]+\]", "", name).strip()
+    name = re.sub(r"\s+", " ", name)
+    return name or provider_name or "Provider-only entry"
+
+
+def _provider_region_label(provider_name: str) -> Optional[str]:
+    regions = re.findall(r"\[([A-Za-z]+)\]", provider_name or "")
+    known = {"usa": "USA", "europe": "Europe", "japan": "Japan", "world": "World", "asia": "Asia"}
+    for region in regions:
+        label = known.get(region.lower())
+        if label:
+            return label
+    region = _region_from_name(provider_name or "")
+    return region.title() if region else None
+
+
+def _provider_content_type(provider_name: str) -> str:
+    normalized = provider_name.lower()
+    if any(token in normalized for token in (" dlc", "[dlc]", "downloadable content")):
+        return "dlc"
+    if any(token in normalized for token in (" update", "[update]", "patch")):
+        return "update"
+    if any(token in normalized for token in (" demo", "[demo]", "trial")):
+        return "demo"
+    if any(token in normalized for token in ("facebook", "skype", "flickr", "foursquare", "livetweet")):
+        return "app"
+    return "unknown"
 
 
 def _match_providers(entry: Dict, lookup: Dict[str, Dict[str, List[Dict]]]) -> List[Dict]:
@@ -850,6 +1218,13 @@ def _match_providers(entry: Dict, lookup: Dict[str, Dict[str, List[Dict]]]) -> L
                 matches.append(_public_provider_record(record))
                 seen.add(key)
 
+    for serial in _serial_keys(entry):
+        for record in lookup.get("serial", {}).get(serial, []):
+            fingerprint = (record["provider_id"], record["rom"].get("name", ""))
+            if fingerprint not in seen:
+                matches.append(_public_provider_record(record))
+                seen.add(fingerprint)
+
     for key in _candidate_name_keys(entry):
         for record in lookup["name"].get(key, []):
             if not _provider_name_compatible(entry, record["rom"].get("name")):
@@ -867,6 +1242,27 @@ def _public_provider_record(record: Dict) -> Dict:
     for key in ("_source_archive",):
         rom.pop(key, None)
     public["rom"] = rom
+    metadata = public.get("metadata") or {}
+    public["metadata"] = {
+        key: metadata.get(key)
+        for key in (
+            "archive_id",
+            "provider_label",
+            "preferred_cores",
+            "compatible_cores",
+            "runtime_playable",
+            "romset_version",
+            "arcade_family",
+            "zip_preserve",
+            "compatibility_notes",
+            "downloadable",
+            "download_access",
+            "requires_auth",
+            "availability_state",
+            "availability_notes",
+        )
+        if key in metadata
+    }
     return public
 
 

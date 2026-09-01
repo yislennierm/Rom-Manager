@@ -121,17 +121,32 @@
       "notes": "User confirmed runtime worked.",
       "validated_at": "2026-08-07"
     },
+    "b4e1a5aa-5431-535e-9650-8c7b6bbc5036": {
+      "module": "Sega - Saturn",
+      "status": "runtime_validated",
+      "notes": "Flatpak Beetle/Mednafen Saturn smoke test passed with Tempest 2000 (USA) from the SSCHD-Arquivista CHD provider. Requires mednafen_saturn_libretro.so plus sega_101.bin and mpr-17933.bin in RetroArch system; KOF95 and Ultraman cartridge ROMs are optional game-specific requirements, not base Saturn blockers. Provider catalog has 2253 RDB entries with 2253 matched to sources across 6 provider catalogs; CHD providers are preferred for direct installs.",
+      "validated_at": "2026-08-31"
+    },
     "e9d5a0d5-42af-5654-848c-a29ea154ba0f": {
       "module": "SNK - Neo Geo",
       "status": "runtime_validated",
-      "notes": "Validated with caveat: arcade set/core compatibility needs later refinement.",
-      "validated_at": "2026-08-07"
+      "notes": "Flatpak FBNeo smoke test passed with Metal Slug - Super Vehicle-001 from the Cylum FBNeo provider. Requires fbneo_libretro.so and neogeo.zip. MAME-current direct ZIP loading failed for the tested AES set despite matching filenames, so Flatpak runtime should prefer FBNeo-compatible providers. Provider coverage is 222/278 (79.86%) across 5 providers.",
+      "validated_at": "2026-08-31"
     },
     "d1c9402f-aa02-5f19-a846-449517ecd7c0": {
       "module": "SNK - Neo Geo Pocket",
       "status": "runtime_validated",
-      "notes": "User confirmed runtime worked after playlist fix.",
-      "validated_at": "2026-08-07"
+      "coverage": {
+        "matched": 9,
+        "total": 9,
+        "percent": 100.0,
+        "providers": 4
+      },
+      "core": "mednafen_ngp",
+      "bios": [],
+      "test_rom": "Pocket Tennis - Pocket Sports Series (Japan, Europe) (En,Ja)",
+      "notes": "Flatpak Beetle NeoPop/Mednafen NGP smoke test passed with Pocket Tennis from the RetroROM provider archive-member flow. No BIOS required. Provider coverage is 9/9 (100%) across 4 providers; catalog matching was tightened to avoid generic subtitle false positives such as Pocket Sports/Fighting Series.",
+      "validated_at": "2026-08-31"
     },
     "ef04915a-086b-574d-aa82-e99c2892c331": {
       "module": "SNK - Neo Geo Pocket Color",
@@ -142,8 +157,8 @@
     "f86b3c1b-7bf6-5538-b5f3-712173dce0b0": {
       "module": "SNK - Neo Geo CD",
       "status": "runtime_validated",
-      "notes": "User confirmed runtime worked.",
-      "validated_at": "2026-08-07"
+      "notes": "Flatpak NeoCD smoke test passed with 2020 Super Baseball (Japan) (En,Ja).chd from the CHD-ZSTD Redump provider. Requires neocd_libretro.so and NeoCD BIOS under system/neocd. Provider coverage is 111/111 (100%) across 3 providers; CHD provider is preferred over large ZIP/7z cue-bin archives.",
+      "validated_at": "2026-08-31"
     },
     "713057d9-8ae9-5b0a-9d1b-cf121b9357ae": {
       "module": "RCA - Studio II",
@@ -160,20 +175,49 @@
     "d4874312-2442-5d55-b0a1-8fbd6b5bb68e": {
       "module": "Atari - 2600",
       "status": "runtime_validated",
-      "notes": "User considered Atari 2600 already happy; smoke test passed.",
-      "validated_at": "2026-08-07"
+      "coverage": {
+        "matched": 1359,
+        "total": 1542,
+        "percent": 88.13,
+        "providers": 12
+      },
+      "core": "stella",
+      "bios": [],
+      "test_rom": "Colors (Europe) (Proto)",
+      "notes": "Flatpak Stella smoke test passed with Colors (Europe) (Proto) from the No-Intro Atari provider. No BIOS required. Provider coverage is 1359/1542 (88.13%) across 12 providers; some providers expose invalid torrent metadata but HTTP file-list downloads remain usable.",
+      "validated_at": "2026-08-31"
     },
     "f47fa56b-1c6e-5364-a344-9fafc6ba4bf0": {
       "module": "Atari - 5200",
       "status": "runtime_validated",
-      "notes": "A5200 smoke test passed; BIOS present.",
-      "validated_at": "2026-08-07"
+      "coverage": {
+        "matched": 290,
+        "total": 296,
+        "percent": 97.97,
+        "providers": 9
+      },
+      "core": "a5200",
+      "bios": [
+        "atari_5200_bios"
+      ],
+      "test_rom": "5200 Menu (USA) (Proto)",
+      "notes": "Flatpak A5200 smoke test passed with 5200 Menu (USA) (Proto). A5200 read 5200.rom successfully from the RetroArch system folder. Provider coverage is 290/296 (97.97%) across 9 providers; one provider has a missing torrent but exported HTTP listings.",
+      "validated_at": "2026-08-31"
     },
     "123de432-6905-5c13-b785-0c643bf5cb09": {
       "module": "Atari - 7800",
       "status": "runtime_validated",
-      "notes": "ProSystem smoke test passed with Food Fight.",
-      "validated_at": "2026-08-07"
+      "coverage": {
+        "matched": 452,
+        "total": 524,
+        "percent": 86.26,
+        "providers": 13
+      },
+      "core": "prosystem",
+      "bios": [],
+      "test_rom": "GATO (USA) (Proto)",
+      "notes": "Flatpak ProSystem smoke test passed with GATO (USA) (Proto) from the No-Intro Atari provider. No BIOS required for the current ProSystem path. Provider coverage is 452/524 (86.26%) across 13 providers.",
+      "validated_at": "2026-08-31"
     },
     "a7d91fb9-7cd4-51ff-9dfd-44a90ad355de": {
       "module": "Nintendo - Game Boy",
@@ -198,7 +242,303 @@
       "status": "runtime_validated",
       "notes": "Dolphin smoke test passed with Soulcalibur II demo RVZ. Large library providers are registered, but broad installs need substantially more disk space.",
       "validated_at": "2026-08-07"
+    },
+    "e6efac9f-20f1-538e-80f8-152d9adf4678": {
+      "module": "Amstrad - GX4000",
+      "status": "runtime_validated",
+      "notes": "Flatpak Caprice32 smoke test passed with Cross Snake v2.0 [mode2] from the TOSEC full-set provider. Installed cap32 core into Steam and Flatpak RetroArch. RDB export merges the dedicated GX4000 RDB with .cpr entries from the documented Caprice32 Amstrad CPC database. Provider catalog has 112 RDB entries with 63 matched to sources across 3 provider catalogs. Caprice32 requires cap32_model = \"6128+ (experimental)\" and cap32_gfx_colors = \"24bit\" for GX4000 CPR launch; no BIOS is required.",
+      "validated_at": "2026-08-31"
+    },
+    "175ebf15-9e43-5921-b85f-6b71d40ce802": {
+      "module": "Arduboy Inc - Arduboy",
+      "status": "runtime_validated",
+      "notes": "Validated with Ardens using 1nvader.hex from the Arduboy-Arquivista provider. No BIOS required; Arduous is tracked as fallback.",
+      "validated_at": "2026-08-29"
+    },
+    "5565f7db-0d0c-55fe-aa7e-fe719791d1b9": {
+      "module": "Atari - Jaguar",
+      "status": "runtime_validated",
+      "notes": "Flatpak Virtual Jaguar smoke test passed with Tempest 2000 from the HyperSpin provider. No BIOS required; installer extracts per-title ZIPs to playable .j64 payloads.",
+      "validated_at": "2026-08-30"
+    },
+    "b0ef410b-72a4-57b7-a26a-896c6d751c73": {
+      "module": "Commodore - CD32",
+      "status": "runtime_validated",
+      "notes": "Flatpak PUAE smoke test passed with Arabian Nights (EU).chd from the AMIGACD32CHD-Arquivista provider. Requires kick40060.CD32 and kick40060.CD32.ext; both BIOS files are tracked and verified for Steam/Flatpak. Provider coverage is 412/501 (82.2%) across 4 providers; CHD provider is preferred for direct installs.",
+      "validated_at": "2026-08-31"
+    },
+    "60e5b2cc-0649-54b1-b0e0-30d0acac4bcc": {
+      "module": "Handheld Electronic Game",
+      "status": "runtime_validated",
+      "notes": "Validated with Libretro GW using Parachute (Nintendo, Wide Screen). Direct .mgw provider coverage is complete for the current RDB export; no BIOS required.",
+      "validated_at": "2026-08-29"
+    },
+    "329862d7-95e7-5bdd-9f9c-291cac53a1a8": {
+      "module": "LeapFrog - Leapster Learning Game System",
+      "status": "backend_ready",
+      "notes": "Provider, MAME softlist hash, and MAME core strategy are registered. Runtime is not validated because current MAME marks Leapster machines and software entries not working.",
+      "validated_at": "2026-08-29"
+    },
+    "a7d519f9-601d-539c-9d49-c7c7f1f17f16": {
+      "module": "Magnavox - Odyssey2",
+      "status": "runtime_validated",
+      "notes": "Flatpak O2EM smoke test passed with UFO from the Champion provider. Requires o2rom.bin; BIOS source metadata installed and validated for Steam and Flatpak.",
+      "validated_at": "2026-08-30"
+    },
+    "3cf5e7dd-c115-54b5-b395-da2e2c623f7a": {
+      "module": "Mattel - Intellivision",
+      "status": "runtime_validated",
+      "notes": "Validated with FreeIntv using Astrosmash from the TOSEC provider. Requires exec.bin and grom.bin; core and BIOS were installed into Steam and Flatpak RetroArch.",
+      "validated_at": "2026-08-29"
+    },
+    "2bd2cd12-6d99-5379-86dc-be6a5904e280": {
+      "module": "NEC - PC Engine - TurboGrafx 16",
+      "status": "runtime_validated",
+      "notes": "Flatpak Beetle PCE Fast smoke test passed with Alien Crush from the TurboGrafx-16 USA provider. HuCard games require no BIOS; CD titles stay in the separate PC Engine CD module.",
+      "validated_at": "2026-08-30"
+    },
+    "e63c6451-836b-5dbe-8532-63492762b3d9": {
+      "module": "NEC - PC Engine SuperGrafx",
+      "status": "runtime_validated",
+      "notes": "Flatpak Beetle SuperGrafx smoke test passed with Battle Ace from the No-Intro provider. Nested 7z-to-zip-to-sgx extraction works through the installer; no BIOS required for SuperGrafx HuCards.",
+      "validated_at": "2026-08-30"
+    },
+    "e8d2cd7c-e53c-5916-928d-9af9aa48c409": {
+      "module": "Nintendo - Family Computer Disk System",
+      "status": "runtime_validated",
+      "notes": "Flatpak FCEUmm smoke test passed with Galaga from the Cylum provider. Requires disksys.rom in RetroArch system; BIOS checksum ca30b50f880eb660a320674ed365ef7a is present in Steam and Flatpak. Provider catalog has 716 RDB entries with 709 matched to sources across 4 provider catalogs.",
+      "validated_at": "2026-08-30"
+    },
+    "181c391a-2ac2-532b-af04-87046592c200": {
+      "module": "Nintendo - Nintendo 64DD",
+      "status": "runtime_validated",
+      "notes": "Flatpak Mupen64Plus-Next smoke test passed with patched .n64 files from nintendo-64-dd. Raw .ndd providers are kept for coverage only and are not normal playlist-playable.",
+      "validated_at": "2026-08-28"
+    },
+    "5651be84-7270-5c43-8625-a744265f04fd": {
+      "module": "Nintendo - Nintendo DS",
+      "status": "runtime_validated",
+      "notes": "Flatpak melonDS DS smoke test passed with Bomberman (USA). The core fell back to FreeBIOS, so optional DS firmware is not required for basic cartridge launch.",
+      "validated_at": "2026-08-28"
+    },
+    "87a9705b-d6c1-57b0-a59f-5fc180a2b342": {
+      "module": "Nintendo - Nintendo 3DS",
+      "status": "runtime_validated",
+      "notes": "Flatpak Azahar smoke test passed with 3D MahJongg (Europe) from the N3DSEU-Arquivista decrypted provider. No BIOS is required for standard decrypted .3ds cartridge content, but providers must remain decrypted/runtime-compatible and installs should be explicit because retail titles are commonly 128 MB to multi-GB. Provider catalog has 2076 RDB entries with 1567 matched to sources across 4 provider catalogs.",
+      "validated_at": "2026-08-31"
+    },
+    "bc8c836c-4218-5ff1-bfb2-d895381289b4": {
+      "module": "Nintendo - Nintendo 64",
+      "status": "runtime_validated",
+      "notes": "Flatpak Mupen64Plus-Next smoke test passed with Wheel of Fortune (USA) from the N64ROMsPACK provider. No BIOS required for standard N64 cartridges. Provider catalog has 1475 RDB entries with 1172 matched to sources across 4 provider catalogs; TOSEC and N64ROMsPACK are runtime providers, while monolithic No-Intro archives are coverage/admin candidates until selected archive-member indexing is automated.",
+      "validated_at": "2026-08-31"
+    },
+    "7f574026-e1ef-588c-9ce1-a90da8d55378": {
+      "module": "Nintendo - Nintendo DSi",
+      "status": "runtime_validated",
+      "notes": "Flatpak melonDS DS smoke tests passed with USA and Europe DSiWare titles installed from provider zips as named .dsi payloads. Runtime requires DS/DSi BIOS, DSi firmware, and regional NANDs; installer configures melonDS DS DSi/native/direct options with auto-NAND and lets the core cache TMD metadata.",
+      "validated_at": "2026-08-29"
+    },
+    "fad2a671-5d13-54b9-8562-3b058c610348": {
+      "module": "Nintendo - Nintendo Entertainment System",
+      "status": "runtime_validated",
+      "notes": "Flatpak FCEUmm smoke test passed with Contra (USA) from the ultimate-rom-collection provider. No BIOS required for standard NES cartridge content. Provider catalog has 30114 RDB entries with 4962 matched to sources across 3 provider catalogs; no-intro_romset_collection is kept unexpanded because it is a large monolithic archive.",
+      "validated_at": "2026-08-30"
+    },
+    "ed4e8377-e783-581f-ac90-9d8c98e481ae": {
+      "module": "Nintendo - Pokemon Mini",
+      "status": "runtime_validated",
+      "notes": "Flatpak PokeMini smoke test passed with Pokemon Pinball Mini (USA, Europe) from the Ghostware provider. Standard runtime works without external BIOS because PokeMini includes FreeBIOS; optional bios.min is tracked for original firmware parity. Provider catalog has 73 RDB entries with 40 matched to sources across 2 provider catalogs.",
+      "validated_at": "2026-08-30"
+    },
+    "78fd1160-3b20-5192-bd96-9c28af2e8a61": {
+      "module": "Nintendo - Satellaview",
+      "status": "runtime_validated",
+      "notes": "Flatpak Snes9x smoke test passed with Actraiser (Japan) from the ni-n-sat provider. Requires BS-X.bin in RetroArch system; checksum fed4d8242cfbed61343d53d48432aced is present in Steam and Flatpak. Provider catalog has 565 RDB entries with 487 matched to sources across 3 provider catalogs. Per-title provider expansion is intentionally disabled to avoid long setup-time indexing of hundreds of small archives.",
+      "validated_at": "2026-08-31"
+    },
+    "1ab4ffbd-5190-5b57-9dc1-92b24fec2845": {
+      "module": "Nintendo - Sufami Turbo",
+      "status": "runtime_validated",
+      "notes": "Flatpak Snes9x smoke test passed with Poi Poi Ninja World (Japan) from the no-intro_romset_collection provider. Requires STBIOS.bin in RetroArch system; checksum d3a44ba7d42a74d3ac58cb9c14c6a5ca is present in Steam and Flatpak. Provider catalog has 13 RDB entries with 13 matched to sources across 2 provider catalogs.",
+      "validated_at": "2026-08-31"
+    },
+    "bf3926b2-106d-56c9-8166-0fe29c33bad0": {
+      "module": "Nintendo - Super Nintendo Entertainment System",
+      "status": "runtime_validated",
+      "notes": "Flatpak Snes9x smoke test passed with F-ZERO (U) from the gameplay-snes provider. No BIOS required for standard SNES cartridge content. Provider catalog has 7696 RDB entries with 5550 matched to sources across 3 provider catalogs; no-intro_romset_collection and ultimate-rom-collection are kept as large archive coverage while gameplay-snes provides per-title downloads.",
+      "validated_at": "2026-08-31"
+    },
+    "42411369-42f4-5fcc-9500-caa3ed220f32": {
+      "module": "Nintendo - Virtual Boy",
+      "status": "runtime_validated",
+      "notes": "Flatpak Beetle VB smoke test passed with Mario's Tennis from the no-intro_romset_collection provider. No BIOS required. Provider catalog has 65 RDB entries with 31 matched to sources across 2 provider catalogs.",
+      "validated_at": "2026-08-31"
+    },
+    "ba79594a-da19-5127-9a46-9eee6bccf034": {
+      "module": "Nintendo - Wii",
+      "status": "runtime_validated",
+      "notes": "Flatpak Dolphin smoke test passed with New Super Mario Bros. Wii (USA) Rev 2 from the targeted NKit ISO provider. Requires dolphin-emu/Sys in RetroArch system; Dolphin core and info were installed to Steam and Flatpak RetroArch. Provider catalog has 12126 RDB entries with 304 matched to sources across 3 provider catalogs; broad Wii ISO entries are very large and should rely on disk-space preflight and explicit user selection.",
+      "validated_at": "2026-08-31"
+    },
+    "f9bc37b4-6d5b-518c-bfe3-e3a9571332ab": {
+      "module": "Nintendo - Wii U",
+      "status": "needs_backend_work",
+      "notes": "Blocked for Flatpak target: upstream Libretro RDB export returned 404 and cemu_libretro.so is not installed; encrypted content also needs user-provided Cemu keys.txt.",
+      "validated_at": null
+    },
+    "390f4a10-ddc9-57bd-bfec-b08cb8250c7b": {
+      "module": "Philips - Videopac+",
+      "status": "runtime_validated",
+      "notes": "Flatpak O2EM smoke test passed with Pickaxe Pete (Europe) from the no-intro_romset_collection provider. Requires g7400.bin and the o2em_bios core option set to g7400.bin; using the display label left O2EM on the Odyssey2/G7000 BIOS. Provider catalog has 32 RDB entries with 32 matched to sources across 2 provider catalogs.",
+      "validated_at": "2026-08-31"
+    },
+    "ca066374-6220-5f44-828c-302f50a10146": {
+      "module": "Sega - SG-1000",
+      "status": "runtime_validated",
+      "notes": "Flatpak Gearsystem smoke test passed with Bank Panic from the Ghostware provider. No SG-1000 BIOS required; Gearsystem and Genesis Plus GX are tracked as compatible cores.",
+      "validated_at": "2026-08-30"
+    },
+    "6cbd1842-2231-5e82-92fc-73613e2f21a8": {
+      "module": "Sony - PlayStation",
+      "status": "runtime_validated",
+      "notes": "Flatpak SwanStation smoke test passed with Ape Escape (USA) from the CuratedPSXRedumpCHDs provider. Requires scph5500.bin, scph5501.bin, and scph5502.bin for full JP/US/EU BIOS coverage; BIOS source metadata is tracked in the core registry and installed locally for Steam and Flatpak. Provider catalog has 13507 RDB entries with 1455 matched to sources across 2 provider catalogs. Multi-disc games need a later .m3u grouping UX pass.",
+      "validated_at": "2026-08-31"
+    },
+    "f250f78e-521b-5d39-b11c-7754f2e8ebc6": {
+      "module": "Sony - PlayStation 2",
+      "status": "runtime_validated",
+      "notes": "Flatpak LRPS2/PCSX2 smoke test passed with Need for Speed - Underground 2 (USA).chd from ps2-redump-usa-chd-part-N after installing ps2-0230a-20080220.bin under system/pcsx2/bios. Backend master RDB, provider metadata, and core metadata are prepared. Provider catalog has 11183 RDB entries with 2515 matched to sources across 29 provider catalogs, mostly Redump CHD split providers plus homebrew smoke-test providers. Auth-gated Internet Archive providers require local IA credentials in the TUI. Play core still fails to load in the Flatpak runtime due missing libbz2.so.1.0, so prefer LRPS2/PCSX2. Keep PS2 downloads explicit and disk-space checked because most games are multi-GB.",
+      "validated_at": "2026-09-01"
+    },
+    "2ba124e3-51ac-535f-b0fa-0ed4fd88ea00": {
+      "module": "The 3DO Company - 3DO",
+      "status": "runtime_validated",
+      "notes": "Flatpak Opera smoke test passed with AI Shougi (Japan) from the chd_3do provider. Requires panafz10.bin in RetroArch system; BIOS metadata and source URLs are tracked in the core registry. Provider catalog has 638 RDB entries with 620 matched to sources across 2 provider catalogs. Some fuzzy matches need later review for multi-disc and volume labels.",
+      "validated_at": "2026-08-31"
+    },
+    "cf88421d-dd86-5d2d-85d0-c640b1730604": {
+      "module": "Tiger - Game.com",
+      "status": "runtime_validated",
+      "notes": "Flatpak MAME smoke test passed with Lights Out from the gamecom_202211 provider using generated mame_softlist_cmd launcher lightout.cmd. Requires gamecom.zip with external.bin/internal.bin and mame/hash/gamecom.xml; BIOS/hash metadata is tracked in the core registry. Provider catalog has 23 RDB entries with 23 matched to sources across 3 provider catalogs.",
+      "validated_at": "2026-08-31"
+    },
+    "90188f7f-aeff-501b-a10f-f41fb617829f": {
+      "module": "VTech - CreatiVision",
+      "status": "runtime_validated",
+      "notes": "Flatpak MAME smoke test passed with Tennis (Wimbledon, 8K cartridge) from the no-intro_romset_collection provider using generated mame_softlist_cmd launcher tennisa.cmd. Requires crvision.zip with MAME machine ROMs and mame/hash/crvision.xml. Provider catalog has 31 RDB entries with 26 matched to sources across 1 provider catalog; MAME hash notes that games commonly need F10 then R after boot.",
+      "validated_at": "2026-08-31"
+    },
+    "c59cbdeb-e157-529b-b360-a193d53dc65b": {
+      "module": "VTech - V.Smile",
+      "status": "runtime_validated",
+      "notes": "Flatpak MAME smoke test passed with Zayzoos Lernall (Germany) from the MESS_0.151_Software_List_ROMs provider using generated mame_softlist_cmd launcher zayzaeage.cmd. Requires vsmile.zip with vsmile_v100/v102/v103 BIOS files and mame/hash/vsmile_cart.xml. Provider catalog has 455 entries with 227 matched to sources across 2 provider catalogs. The current MAME software-list set on Archive is locked, so the older public MESS 0.151 set is preferred for runtime smoke coverage and No-Intro is retained for broader catalog coverage.",
+      "validated_at": "2026-08-31"
+    },
+    "57249b7f-c969-55d0-a129-6a9eb48cd100": {
+      "module": "Watara - Supervision",
+      "status": "runtime_validated",
+      "notes": "Flatpak Potator smoke test passed with Treasure Hunter (USA, Europe) (Rev 1) from the no-intro_romset_collection provider. No BIOS required. Provider catalog has 99 RDB entries with 73 matched to sources across 2 provider catalogs; remaining unmatched entries are mostly newer aftermarket titles absent from the current providers.",
+      "validated_at": "2026-08-31"
+    },
+    "61637bb4-0f3b-5458-b458-8fcc6541c6f8": {
+      "module": "Sony - PlayStation Portable",
+      "status": "runtime_validated",
+      "notes": "Flatpak PPSSPP smoke test passed with Apache Overkill (USA).chd from the psp-minis-chd provider. No PSP BIOS required, but PPSSPP core assets are required under system/PPSSPP and ppge_atlas.zim checksum was verified. Provider coverage is 4598/6207 (74.1%) across 5 providers; CHD/CSO/ISO direct HTTP downloads are preferred over torrents.",
+      "validated_at": "2026-08-31"
+    },
+    "1ff5f144-8d13-51b9-82c6-365169ba2455": {
+      "module": "NEC - PC Engine CD - TurboGrafx-CD",
+      "status": "runtime_validated",
+      "notes": "Flatpak Beetle PCE Fast smoke test passed with Juuouki.chd from the Cylum TurboGrafx-CD provider. Requires headerless syscard3.pce with MD5 38179df8f4ac870017db21ebcbf53114; local headered BIOS was normalized and installed to Steam/Flatpak. Provider coverage is 498/498 (100%) across 7 providers.",
+      "validated_at": "2026-08-31"
+    },
+    "98e5f218-c591-5a14-bd69-fa25b516c3ed": {
+      "module": "NEC - PC-FX",
+      "status": "runtime_validated",
+      "notes": "Flatpak Beetle PC-FX smoke test passed with Tokimeki Card Paradise - Koi no Royal Straight Flush (Japan).cue from the Noaen Redump provider. Requires pcfx.rom MD5 08e36edbea28a017f79f8d4f7ff9b6d7; BIOS/core/info installed to Steam and Flatpak. Provider coverage is 78/79 (98.7%) across 4 providers; playlist correctly uses the .cue descriptor and suppresses track .bin entries.",
+      "validated_at": "2026-08-31"
+    },
+    "13092bfb-e034-59d6-932a-fbcc217d41f8": {
+      "module": "Microsoft - Xbox",
+      "status": "needs_backend_work",
+      "notes": "Blocked for Flatpak target: Xbox RDB exports, but this Flatpak RetroArch profile has no DirectXbox/xemu libretro core binary installed. DirectXbox core-info is not a viable gameplay target; xemu would also need firmware/HDD automation before runtime validation.",
+      "validated_at": null
+    },
+    "44ea37e8-f7f5-5737-9e47-df022edf4a76": {
+      "module": "Microsoft - Xbox 360",
+      "status": "needs_backend_work",
+      "notes": "Blocked for Flatpak target: upstream Libretro RDB export returned 404 and no Xbox 360/Xenia libretro core binary is installed.",
+      "validated_at": null
+    },
+    "cbb9242e-fd4a-5c18-954b-d87b9536e279": {
+      "module": "Nintendo - Nintendo 3DS (DLC)",
+      "status": "needs_backend_work",
+      "notes": "Blocked by install model: upstream Libretro RDB export returned 404 and DLC is not a normal launchable playlist dataset; needs install-content flow separate from cartridge downloads.",
+      "validated_at": null
+    },
+    "34693a4e-5e7f-5a29-8742-8d1b8988b179": {
+      "module": "Sony - PlayStation 3",
+      "status": "needs_backend_work",
+      "notes": "Blocked for Flatpak target: PS3 RDB exports, but no RPCS3/libretro PS3 core binary is installed.",
+      "validated_at": null
+    },
+    "c9cff519-a273-5594-abf1-a8639764043e": {
+      "module": "Sony - PlayStation 3 (Downloadable)",
+      "status": "needs_backend_work",
+      "notes": "Blocked by runtime and install model: upstream Libretro RDB export returned 404, no RPCS3/libretro Flatpak target is installed, and package/downloadable content needs install-content handling.",
+      "validated_at": null
+    },
+    "46c63a01-210c-596f-aa75-deacd9f45c8c": {
+      "module": "Sony - PlayStation 4",
+      "status": "needs_backend_work",
+      "notes": "Blocked for Flatpak target: upstream Libretro RDB export returned 404 and no PS4 libretro core target is installed.",
+      "validated_at": null
+    },
+    "219b39f7-8c82-5053-8efa-b74c7c654aa7": {
+      "module": "Sony - PlayStation Vita",
+      "status": "backend_ready_external_import_validated",
+      "coverage": {
+        "matched": 119,
+        "total": 239,
+        "percent": 49.8,
+        "provider_only": 903,
+        "provider_only_downloadable": 903,
+        "catalog_total": 1142,
+        "providers": 1
+      },
+      "core": "vita3k standalone",
+      "bios": [
+        "Vita3K firmware 3.74"
+      ],
+      "test_rom": "Angry Birds Trilogy [PCSE00322] [USA] [NoNpDRM].zip",
+      "notes": "User-provided Internet Archive NoNpDRM USA provider was added and exported. Serial/title-ID matching maps 119/239 Vita RDB catalog entries (49.8%) and exposes 903 provider-only downloadable entries, for 1142 total catalog rows. Vita3K standalone is installed and firmware 3.74 is installed. Test package PCSE00322 staged through ROMs Manager without creating RetroArch playlists, then Vita3K imported it successfully. Launch automation remains pending: Vita3K accepts --installed-path PCSE00322 as the title selector but opens the GUI, so TUI needs an external launch UX instead of RetroArch playlist behavior. Test import and staged copy were cleaned up; original downloaded source was left in place.",
+      "validated_at": "2026-09-01"
+    },
+    "62d4f759-78e5-56b9-bc45-4ee6d42a3704": {
+      "module": "Philips - CD-i",
+      "status": "runtime_validated",
+      "notes": "Flatpak SAME_CDI smoke test passed with Frog Feast (USA) homebrew/demo from the Noaen TOSEC provider after installer normalized extensionless CUE FILE references. Requires same_cdi_libretro.so and cdimono1.zip under system/same_cdi/bios. Provider coverage is 645/2404 (26.83%) across 3 providers; provider export is metadata-only for disc archives, with extraction only after selected TUI downloads.",
+      "validated_at": "2026-08-31"
+    },
+    "9c668a1c-e2b5-5a8c-9f2e-0ec7ef74dd3c": {
+      "module": "Commodore - CDTV",
+      "status": "runtime_validated",
+      "coverage": {
+        "matched": 61,
+        "total": 61,
+        "percent": 100.0,
+        "providers": 3
+      },
+      "core": "puae",
+      "bios": [
+        "amiga_a500_kickstart_13",
+        "amiga_cdtv_extended_rom"
+      ],
+      "test_rom": "Team Yankee (Europe)",
+      "notes": "Flatpak PUAE smoke test passed with Team Yankee (Europe).cue from the Commodore Amiga CDTV Redump provider. Requires kick34005.A500 and kick34005.CDTV, plus puae_model/puae_model_cd set to CDTV. Provider coverage is 61/61 (100%) across 3 providers.",
+      "validated_at": "2026-08-31"
     }
   },
-  "updated_at": "2026-08-07T15:37:35.673717"
+  "updated_at": "2026-09-01T08:08:19.609237+00:00"
 }

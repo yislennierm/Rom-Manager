@@ -2,21 +2,12 @@ from textual.app import ComposeResult
 from textual.widgets import Header, Footer, DataTable, Static
 from textual.containers import Container
 from textual.screen import Screen
-from textual import events
 from textual.timer import Timer
-import os
-import threading
 
 from core.frontend_installer import install_completed_jobs
-from data.storage.storage_config_loader import load_storage_config
 from .message_screen import MessageScreen
 
 
-AUTO_INSTALL_BATCH_SIZE = max(1, int(os.environ.get("ROMS_MANAGER_AUTO_INSTALL_BATCH", "25") or "25"))
-AUTO_INSTALL_ARCHIVE_BATCH_SIZE = max(
-    AUTO_INSTALL_BATCH_SIZE,
-    int(os.environ.get("ROMS_MANAGER_AUTO_INSTALL_ARCHIVE_BATCH", "250") or "250"),
-)
 DISPLAY_JOB_LIMIT = 250
 
 
@@ -60,7 +51,6 @@ class DownloadManagerScreen(Screen):
         self.table.zebra_stripes = True
 
         # auto-refresh every 3 seconds
-        self._auto_install_running = False
         self._last_jobs_signature = None
         self.refresh_timer: Timer = self.set_interval(3.0, self.refresh_table)
         self.refresh_table(force=True)
@@ -74,7 +64,6 @@ class DownloadManagerScreen(Screen):
         jobs = self.manager.list_jobs()
         signature = self._jobs_signature(jobs)
         if not force and signature == self._last_jobs_signature:
-            self._maybe_auto_install(jobs)
             return
         self._last_jobs_signature = signature
 
@@ -134,7 +123,6 @@ class DownloadManagerScreen(Screen):
                 job["destination"],
             )
         self._restore_cursor(cursor_row)
-        self._maybe_auto_install(jobs)
 
     def action_refresh(self):
         self.refresh_table(force=True)
@@ -183,83 +171,25 @@ class DownloadManagerScreen(Screen):
         except Exception as exc:
             self.app.push_screen(MessageScreen("Install Failed", str(exc)))
             return
+        errors = report.get("errors") or []
+        status = "error" if errors else "installed"
+        installed_paths_by_job = report.get("installed_paths_by_job") or {}
+        for job in jobs:
+            if job.get("status") != "completed":
+                continue
+            fields = {
+                "install_status": status,
+                "install_frontend_key": report.get("frontend_key"),
+                "install_frontend": report.get("frontend"),
+                "install_error": "; ".join(str(error) for error in errors[:3]) if errors else None,
+            }
+            installed_paths = installed_paths_by_job.get(str(job.get("id")))
+            if installed_paths:
+                fields["installed_paths"] = installed_paths
+            self.manager.update_job_fields(job["id"], **fields)
         self.refresh_table(force=True)
         message = self._format_install_report(report)
         self.app.push_screen(MessageScreen("Install Complete", message))
-
-    def _maybe_auto_install(self, jobs):
-        if getattr(self, "_auto_install_running", False):
-            return
-        active_frontend_key = self._active_frontend_key()
-        ready = [
-            job
-            for job in jobs
-            if job.get("auto_install")
-            and job.get("status") == "completed"
-            and job.get("install_status") != "installing"
-            and not self._installed_for_frontend(job, active_frontend_key)
-            and not self._failed_for_frontend(job, active_frontend_key)
-        ]
-        ready = self._auto_install_batch(ready)
-        if not ready:
-            return
-        self._auto_install_running = True
-        for job in ready:
-            self.manager.update_job_fields(job["id"], install_status="installing")
-        threading.Thread(target=self._auto_install_worker, args=(ready,), daemon=True).start()
-
-    def _auto_install_worker(self, jobs):
-        try:
-            report = install_completed_jobs(jobs)
-        except Exception as exc:
-            for job in jobs:
-                self.manager.update_job_fields(
-                    job["id"],
-                    install_status="error",
-                    install_error=str(exc),
-                    install_frontend_key=self._active_frontend_key(),
-                )
-            self.app.call_from_thread(
-                self.app.push_screen,
-                MessageScreen("Auto Install Failed", str(exc)),
-            )
-        else:
-            errors = report.get("errors") or []
-            status = "error" if errors else "installed"
-            for job in jobs:
-                fields = {"install_status": status}
-                if errors:
-                    fields["install_error"] = "; ".join(str(error) for error in errors[:3])
-                    fields["install_frontend_key"] = report.get("frontend_key")
-                    fields["install_frontend"] = report.get("frontend")
-                else:
-                    fields["install_frontend_key"] = report.get("frontend_key")
-                    fields["install_frontend"] = report.get("frontend")
-                    fields["install_error"] = None
-                self.manager.update_job_fields(job["id"], **fields)
-            self.app.call_from_thread(
-                self.app.notify,
-                f"Installed {report.get('roms_installed', 0)} ROM(s) into RetroArch.",
-                severity="success" if not errors else "warning",
-            )
-        finally:
-            self._auto_install_running = False
-            self.app.call_from_thread(self.refresh_table, True)
-
-    @staticmethod
-    def _auto_install_batch(jobs):
-        if not jobs:
-            return []
-        first = jobs[0]
-        local_path = first.get("local_path")
-        if first.get("archive_member_path") and local_path:
-            same_archive = [
-                job
-                for job in jobs
-                if job.get("archive_member_path") and job.get("local_path") == local_path
-            ]
-            return same_archive[:AUTO_INSTALL_ARCHIVE_BATCH_SIZE]
-        return jobs[:AUTO_INSTALL_BATCH_SIZE]
 
     @staticmethod
     def _jobs_signature(jobs):
@@ -294,28 +224,6 @@ class DownloadManagerScreen(Screen):
         if job.get("auto_install"):
             return "queued"
         return "manual"
-
-    @staticmethod
-    def _active_frontend_key() -> str | None:
-        frontends = (load_storage_config() or {}).get("frontends") or {}
-        for key, entry in frontends.items():
-            if entry.get("active"):
-                return key
-        if frontends:
-            return next(iter(frontends))
-        return None
-
-    @staticmethod
-    def _installed_for_frontend(job, frontend_key: str | None) -> bool:
-        if job.get("install_status") != "installed":
-            return False
-        return bool(frontend_key and job.get("install_frontend_key") == frontend_key)
-
-    @staticmethod
-    def _failed_for_frontend(job, frontend_key: str | None) -> bool:
-        if job.get("install_status") != "error":
-            return False
-        return bool(frontend_key and job.get("install_frontend_key") == frontend_key)
 
     @staticmethod
     def _format_install_report(report) -> str:

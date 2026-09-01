@@ -1,0 +1,291 @@
+{
+  "module": "Nintendo - Nintendo 64DD",
+  "guid": "181c391a-2ac2-532b-af04-87046592c200",
+  "dataset_role": "master_rom_list",
+  "source_kind": "libretro_rdb",
+  "source_label": "Libretro database RDB",
+  "source_url": "https://raw.githubusercontent.com/libretro/libretro-database/master/rdb/Nintendo%20-%20Nintendo%2064DD.rdb",
+  "entry_count": 30,
+  "fetched_at": "2026-08-28T19:35:25.709255",
+  "entries": [
+    {
+      "name": "SimCity 64 (Japan)",
+      "region": "Japan",
+      "rom_name": "SimCity 64 (Japan).ndd",
+      "size": 64931840,
+      "crc": "163456ca",
+      "md5": "ebba03f20096fc2bc178fc3a1f4ec2b6",
+      "sha1": "5d7d5046d702dcc0ea56ce1b96eb90f0c984b51a",
+      "serial": "DSCJ"
+    },
+    {
+      "name": "Randnet Disk (Japan) (Beta)",
+      "region": "Japan",
+      "rom_name": "Randnet Disk (Japan) (Beta) (2000-02-17).ndd",
+      "size": 64931840,
+      "releasemonth": 2,
+      "releaseyear": 2000,
+      "crc": "97e22c11",
+      "md5": "7eff488ec5bf269bdcb53e38d28d1ba2",
+      "sha1": "3660c8db66454ef15a6e6ff665a0a21eb04fe8e8",
+      "serial": "DRDJ"
+    },
+    {
+      "name": "Randnet Disk (Japan) (Beta)",
+      "region": "Japan",
+      "rom_name": "Randnet Disk (Japan) (Beta) (2000-02-04).ndd",
+      "size": 64931840,
+      "releasemonth": 2,
+      "releaseyear": 2000,
+      "crc": "b6e64180",
+      "md5": "cac02c151550c150aaf3a0c921f7ad37",
+      "sha1": "2187279292aad2970cc4d0438d0ced49d1da20b5",
+      "serial": "DRDJ"
+    },
+    {
+      "name": "Randnet Disk (Japan) (Beta)",
+      "region": "Japan",
+      "rom_name": "Randnet Disk (Japan) (Beta) (1999-11-27).ndd",
+      "size": 64931840,
+      "releasemonth": 11,
+      "releaseyear": 1999,
+      "crc": "e662a13f",
+      "md5": "6252d9a42c125e3fce3d0f0969cd0737",
+      "sha1": "07c1a0fd0ffaaee8faa9353cf9a9b06f1d6cdcd4",
+      "serial": "DRDJ"
+    },
+    {
+      "name": "Randnet Disk (Japan) (Beta)",
+      "region": "Japan",
+      "rom_name": "Randnet Disk (Japan) (Beta) (1999-09-28).ndd",
+      "size": 64931840,
+      "releasemonth": 9,
+      "releaseyear": 1999,
+      "crc": "{em\u001b",
+      "md5": "ce2e8f4ff1ac546fad5dc51882e8602f",
+      "sha1": "644dd6d0e0d8e17e0b8c0aaca28414eb30fee593",
+      "serial": "DRDJ"
+    },
+    {
+      "name": "Mario Artist - Talent Studio (Japan) (Beta)",
+      "region": "Japan",
+      "rom_name": "Mario Artist - Talent Studio (Japan) (Beta) (1999-08-05).ndd",
+      "size": 64931840,
+      "releasemonth": 8,
+      "releaseyear": 1999,
+      "crc": "9cba9f11",
+      "md5": "480411a69176fee1b48d78aab0ef7999",
+      "sha1": "bbf33c473fe4892bd362e541ced7393e1e36fd99",
+      "serial": "DMTJ"
+    },
+    {
+      "name": "Mario Artist - Talent Studio (Japan)",
+      "region": "Japan",
+      "rom_name": "Mario Artist - Talent Studio (Japan).ndd",
+      "size": 64931840,
+      "crc": "649bbcb1",
+      "md5": "88228e990b58a94e9b3460beff632304",
+      "sha1": "24ca7508157466e5d289ee49c2c714806d1ecce2",
+      "serial": "DMTJ"
+    },
+    {
+      "name": "Mario Artist - Polygon Studio (Japan)",
+      "region": "Japan",
+      "rom_name": "Mario Artist - Polygon Studio (Japan).ndd",
+      "size": 64931840,
+      "crc": "ac304109",
+      "md5": "da23ee561578b7dad77ed72728b46d30",
+      "sha1": "4e4f267d2d063286bf4c1302386dab8b1ab0d4c6",
+      "serial": "DMGJ"
+    },
+    {
+      "name": "Mario Artist - Paint Studio (Japan) (Beta)",
+      "region": "Japan",
+      "rom_name": "Mario Artist - Paint Studio (Japan) (Beta) (1999-02-11).ndd",
+      "size": 64931840,
+      "releasemonth": 2,
+      "releaseyear": 1999,
+      "crc": "5cb44f5d",
+      "md5": "a76b619ec832a7e2abcfbdfeb5375e39",
+      "sha1": "ddeaf740aadd928a9bbf9cfeaec4c0ea80b75ab2",
+      "serial": "TEST"
+    },
+    {
+      "name": "Mario Artist - Paint Studio (Japan)",
+      "region": "Japan",
+      "rom_name": "Mario Artist - Paint Studio (Japan).ndd",
+      "size": 64931840,
+      "crc": "b732c3ad",
+      "md5": "8485643e5830cd67ed4c0a5fd49e2491",
+      "sha1": "9997e6f118c72f265eb648f18faa48c3a416fb3b",
+      "serial": "DMPJ"
+    },
+    {
+      "name": "Mario Artist - Communication Kit (Japan)",
+      "region": "Japan",
+      "rom_name": "Mario Artist - Communication Kit (Japan).ndd",
+      "size": 64931840,
+      "crc": "3bf36eda",
+      "md5": "114af722029d6386c3bfea4cc8fa603c",
+      "sha1": "8040dcd657227463b840f47f3e24a7f42945e1f8",
+      "serial": "DMBJ"
+    },
+    {
+      "name": "Kyojin no Doshin (Japan)",
+      "region": "Japan",
+      "rom_name": "Kyojin no Doshin (Japan).ndd",
+      "size": 64931840,
+      "crc": "14acd221",
+      "md5": "e8eb810d996e12cd6c47445f87a94c72",
+      "sha1": "3e7eb70138213cc944952c4c659285f729b1fe1a",
+      "serial": "DKDJ"
+    },
+    {
+      "name": "F-Zero X - Expansion Kit (Japan)",
+      "region": "Japan",
+      "rom_name": "F-Zero X - Expansion Kit (Japan).ndd",
+      "size": 64931840,
+      "crc": "x)Zh",
+      "md5": "cb2fb00c3921245ae04bb38ba01abe92",
+      "sha1": "7e8badf857f1fce8aa59307c0fd318128c44418b",
+      "serial": "EFZJ"
+    },
+    {
+      "name": "Dezaemon DD (Japan) (Proto) (1998-02-23T192425) (Expansion)",
+      "region": "Japan",
+      "rom_name": "Dezaemon DD (Japan) (Proto) (1998-02-23T192425) (Expansion).ndd",
+      "size": 64931840,
+      "crc": "07a920f7",
+      "md5": "40aa8ec52c5e025d6c6ad94cebc2218f",
+      "sha1": "f0b3e6c0a944118e4a8ee8ea54da1b103b754241",
+      "serial": "DEZA"
+    },
+    {
+      "name": "Dezaemon DD (Japan) (Proto) (Expansion)",
+      "region": "Japan",
+      "rom_name": "Dezaemon DD (Japan) (Proto) (1997-11-07) (Expansion).ndd",
+      "size": 64931840,
+      "releasemonth": 11,
+      "releaseyear": 1997,
+      "crc": "23fb971e",
+      "md5": "c108a9b1eb024f0d2317c05976ba49f2",
+      "sha1": "75e7c3c7821c898d19b443a317408cbf1c8647b8",
+      "serial": "DEZA"
+    },
+    {
+      "crc": "b30f6e64",
+      "serial": "NUD-DKDJ-JPN"
+    },
+    {
+      "publisher": "Nintendo",
+      "crc": "b19bcadf"
+    },
+    {
+      "publisher": "Nintendo",
+      "crc": "c3ef79f0"
+    },
+    {
+      "genre": "Simulation",
+      "users": 1,
+      "releasemonth": 2,
+      "releaseyear": 2000,
+      "publisher": "Nintendo",
+      "crc": "678488c6"
+    },
+    {
+      "genre": "Educational",
+      "users": 1,
+      "releasemonth": 2,
+      "releaseyear": 2000,
+      "publisher": "RandnetDD Co., Ltd.",
+      "crc": "43abef0f"
+    },
+    {
+      "genre": "Sports",
+      "users": 4,
+      "releasemonth": 2,
+      "releaseyear": 2000,
+      "publisher": "SETA Corporation",
+      "crc": "9b8fff6d"
+    },
+    {
+      "genre": "Educational",
+      "users": 1,
+      "releasemonth": 8,
+      "releaseyear": 2000,
+      "publisher": "Nintendo",
+      "crc": "2a9ed33f"
+    },
+    {
+      "genre": "Educational",
+      "users": 1,
+      "releasemonth": 12,
+      "releaseyear": 1999,
+      "publisher": "Nintendo",
+      "crc": "a38b67ab"
+    },
+    {
+      "genre": "Educational",
+      "users": 1,
+      "releasemonth": 6,
+      "releaseyear": 2000,
+      "publisher": "Nintendo",
+      "crc": "28aca423"
+    },
+    {
+      "genre": "Simulation",
+      "users": 1,
+      "releasemonth": 12,
+      "releaseyear": 1999,
+      "publisher": "Nintendo",
+      "crc": "f245024b"
+    },
+    {
+      "genre": "Simulation",
+      "users": 1,
+      "releasemonth": 12,
+      "releaseyear": 1999,
+      "publisher": "Nintendo",
+      "crc": "b530daab"
+    },
+    {
+      "genre": "Shoot'em Up",
+      "users": 2,
+      "releasemonth": 6,
+      "releaseyear": 1998,
+      "publisher": "Nintendo",
+      "crc": "\u0338J9"
+    },
+    {
+      "name": "Super Mario 64 - Disk Version (Japan) (Proto)",
+      "genre": "Adventure",
+      "region": "Japan",
+      "rom_name": "Super Mario 64 - Disk Version (Japan) (Proto).ndd",
+      "size": 64931840,
+      "users": 1,
+      "franchise": "Mario",
+      "publisher": "Nintendo",
+      "crc": "11589525",
+      "md5": "d9ea905727b44f2774926cb03c2300a7",
+      "sha1": "e8f5c3f0e151cbc3b02184a2437e39fa9d1e2686"
+    },
+    {
+      "genre": "Racing",
+      "users": 4,
+      "releasemonth": 4,
+      "releaseyear": 2000,
+      "franchise": "F-Zero",
+      "publisher": "Randnet",
+      "crc": "d0424928"
+    },
+    {
+      "genre": "Puzzle",
+      "users": 1,
+      "releasemonth": 5,
+      "releaseyear": 2000,
+      "esrb_rating": "E",
+      "publisher": "Nintendo",
+      "crc": ",;~D"
+    }
+  ]
+}

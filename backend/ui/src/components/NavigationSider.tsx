@@ -1,6 +1,7 @@
 import type { MenuProps } from 'antd'
-import { Flex, Input, Layout, Menu, Space, Spin, Typography } from 'antd'
+import { Flex, Layout, Menu, Space, Spin, Typography } from 'antd'
 import React from 'react'
+import SearchField from './SearchField'
 
 type Props = {
   collapsed: boolean
@@ -62,12 +63,12 @@ const NavigationSider: React.FC<Props> = ({
       </Space>
     </div>
 
-    <Input.Search
+    <SearchField
       placeholder="Search ROMs, providers, modules…"
-      allowClear
+      ariaLabel="Search ROMs, providers, and modules"
       value={searchQuery}
-      onChange={(event) => onSearchChange(event.target.value)}
-      onSearch={onSearchSubmit}
+      onChange={onSearchChange}
+      onSubmit={onSearchSubmit}
       className="sider-search"
     />
 

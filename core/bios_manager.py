@@ -6,6 +6,7 @@ import urllib.request
 import zipfile
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple
+from urllib.parse import unquote, urlparse
 
 from data.storage.storage_config_loader import load_storage_config
 from utils.cores_registry import load_registry
@@ -34,7 +35,10 @@ def list_bios_requirements(console_guid: Optional[str] = None) -> List[Dict[str,
         guids = core_meta.get("console_guids") or []
         if console_guid and console_guid not in guids:
             continue
-        bios_ids = core_meta.get("bios_ids") or []
+        bios_ids = list(core_meta.get("bios_ids") or [])
+        console_bios = core_meta.get("console_bios_ids") or {}
+        if console_guid and isinstance(console_bios, dict):
+            bios_ids.extend(console_bios.get(console_guid) or [])
         if not bios_ids:
             requirements.append({
                 "core_id": core_id,
@@ -88,6 +92,19 @@ def install_bios_from_file(source: Path, bios: Dict) -> Dict[str, object]:
     target = root / filename
     target.parent.mkdir(parents=True, exist_ok=True)
 
+    if bios.get("type") == "directory":
+        valid, message = _validate_directory_bios_source(source, bios)
+        if not valid:
+            raise ValueError(message)
+        target.mkdir(parents=True, exist_ok=True)
+        target_file = target / source.name
+        shutil.copy2(source, target_file)
+        valid, message = validate_bios_file(target, bios)
+        if not valid:
+            target_file.unlink(missing_ok=True)
+            raise ValueError(message)
+        return {"target": str(target_file), "status": bios_status(bios)}
+
     zip_contents = bios.get("zip_contents") or []
     if zip_contents:
         valid, message = validate_bios_file(source, bios)
@@ -123,9 +140,13 @@ def install_bios_from_source(bios: Dict, source_id: Optional[str] = None) -> Dic
     if not url:
         raise ValueError("Configured BIOS source has no URL.")
 
-    suffix = Path(str(url).split("?", 1)[0]).suffix or ".bin"
+    url_path = unquote(urlparse(str(url)).path)
+    filename = Path(url_path).name or "download.bin"
+    suffix = Path(filename).suffix or ".bin"
     with tempfile.TemporaryDirectory(prefix="roms-manager-bios-") as temp_dir:
-        download_path = Path(temp_dir) / f"download{suffix}"
+        download_path = Path(temp_dir) / filename
+        if not download_path.suffix:
+            download_path = download_path.with_suffix(suffix)
         request = urllib.request.Request(
             str(url),
             headers={"User-Agent": "Rom-Manager/1.0"},
@@ -144,10 +165,28 @@ def select_bios_source(bios: Dict, source_id: Optional[str] = None) -> Optional[
         return None
     if source_id:
         return next((source for source in sources if source.get("id") == source_id), None)
-    return sources[0]
+    for source in sources:
+        if _bios_source_is_installable(source):
+            return source
+    return next((source for source in sources if source.get("url")), None)
+
+
+def _bios_source_is_installable(source: Dict) -> bool:
+    if not source.get("url"):
+        return False
+    source_type = str(source.get("type") or "").lower()
+    policy = str(source.get("policy") or "").lower()
+    if source_type in {"documentation", "local_transform"}:
+        return False
+    if policy in {"checksum_reference", "user_provided_firmware"}:
+        return False
+    return True
 
 
 def validate_bios_file(path: Path, bios: Dict) -> Tuple[bool, str]:
+    if bios.get("type") == "directory":
+        return _validate_bios_directory(path, bios)
+
     zip_contents = bios.get("zip_contents") or []
     if zip_contents:
         if not zipfile.is_zipfile(path):
@@ -182,6 +221,95 @@ def validate_bios_file(path: Path, bios: Dict) -> Tuple[bool, str]:
     return True, "OK"
 
 
+def _validate_bios_directory(path: Path, bios: Dict) -> Tuple[bool, str]:
+    if not path.is_dir():
+        return False, "Missing directory"
+
+    minimum_files = int(bios.get("minimum_files") or 1)
+    required_extensions = {
+        str(extension).lower()
+        for extension in (bios.get("required_extensions") or [])
+        if extension
+    }
+    allowed_extensions = {
+        str(extension).lower()
+        for extension in (bios.get("allowed_extensions") or [])
+        if extension
+    }
+
+    files = [candidate for candidate in path.iterdir() if candidate.is_file()]
+    if required_extensions:
+        files = [
+            candidate
+            for candidate in files
+            if candidate.suffix.lower() in required_extensions
+        ]
+        if len(files) < minimum_files:
+            extensions = ", ".join(sorted(required_extensions))
+            return False, f"Missing BIOS file ({extensions})"
+    elif allowed_extensions:
+        files = [
+            candidate
+            for candidate in files
+            if candidate.suffix.lower() in allowed_extensions
+        ]
+        if len(files) < minimum_files:
+            return False, "Missing BIOS file"
+    elif len(files) < minimum_files:
+        return False, "Missing BIOS file"
+
+    minimum_file_size = int(bios.get("minimum_file_size") or 0)
+    if minimum_file_size and not any(candidate.stat().st_size >= minimum_file_size for candidate in files):
+        return False, "BIOS file too small"
+
+    known_md5s = {
+        str(value).lower()
+        for value in (bios.get("known_md5s") or [])
+        if value
+    }
+    if known_md5s:
+        for candidate in files:
+            if compute_md5(candidate).lower() in known_md5s:
+                return True, "OK"
+        return True, "Present, checksum not in known list"
+
+    return True, "OK"
+
+
+def _validate_directory_bios_source(source: Path, bios: Dict) -> Tuple[bool, str]:
+    required_extensions = {
+        str(extension).lower()
+        for extension in (bios.get("required_extensions") or [])
+        if extension
+    }
+    allowed_extensions = {
+        str(extension).lower()
+        for extension in (bios.get("allowed_extensions") or [])
+        if extension
+    }
+    extension = source.suffix.lower()
+    if required_extensions and extension not in required_extensions:
+        return False, f"Expected BIOS file extension: {', '.join(sorted(required_extensions))}"
+    if allowed_extensions and extension not in allowed_extensions:
+        return False, f"Unsupported BIOS file extension: {extension or '(none)'}"
+
+    minimum_file_size = int(bios.get("minimum_file_size") or 0)
+    if minimum_file_size and source.stat().st_size < minimum_file_size:
+        return False, f"BIOS file too small; expected at least {_format_bytes(minimum_file_size)}"
+    return True, "OK"
+
+
+def _format_bytes(value: int) -> str:
+    units = ("B", "KB", "MB", "GB")
+    size = float(value)
+    for unit in units:
+        if size < 1024 or unit == units[-1]:
+            if unit == "B":
+                return f"{int(size)} {unit}"
+            return f"{size:.1f} {unit}"
+        size /= 1024
+
+
 def compute_md5(path: Path) -> str:
     hash_md5 = hashlib.md5()
     with path.open("rb") as fh:
@@ -211,6 +339,10 @@ def _candidate_paths(root: Path, filename: str, aliases: Iterable[str] = ()) -> 
         if candidate not in seen:
             paths.append(candidate)
             seen.add(candidate)
+        melonds_candidate = root / "melonDS DS" / candidate_name
+        if melonds_candidate not in seen:
+            paths.append(melonds_candidate)
+            seen.add(melonds_candidate)
         if candidate_name.endswith(".zip"):
             mame_candidate = root / "mame" / "roms" / candidate_name
             if mame_candidate not in seen:

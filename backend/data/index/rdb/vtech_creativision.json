@@ -1,0 +1,339 @@
+{
+  "module": "VTech - CreatiVision",
+  "guid": "90188f7f-aeff-501b-a10f-f41fb617829f",
+  "source_url": "https://api.github.com/repos/libretro/libretro-database/contents/rdb/VTech%20-%20CreatiVision.rdb?ref=master",
+  "entry_count": 36,
+  "fetched_at": "2026-08-31T08:00:39.120017",
+  "entries": [
+    {
+      "name": "Tennis (Europe, Asia) (En) (Wimbledon) (6K)",
+      "region": "Europe",
+      "rom_name": "Tennis (Europe, Asia) (En) (Wimbledon) (6K).rom",
+      "size": 6144,
+      "crc": "1c5ea624",
+      "md5": "b175bae527d90ac2414e906b161cc3f3",
+      "sha1": "88b9fbee783ed966c8c03614779847e0cc8c6692"
+    },
+    {
+      "name": "Tennis (Europe, Asia) (En) (DSE) (Rev 1) (6K)",
+      "region": "Europe",
+      "rom_name": "Tennis (Europe, Asia) (En) (DSE) (Rev 1) (6K).rom",
+      "size": 6144,
+      "crc": ".e\u03e9",
+      "md5": "e05ad31589d0b4d3e7a8cea1b4f0391a",
+      "sha1": "16e5d557449a11656d4821051a8aa61dabcb688e"
+    },
+    {
+      "name": "Tennis (Europe, Asia) (En) (DSE)",
+      "region": "Europe",
+      "rom_name": "Tennis (Europe, Asia) (En) (DSE).rom",
+      "size": 6144,
+      "crc": "(wMk",
+      "md5": "0c475ca46f44eea5e754e87b049a81e7",
+      "sha1": "6d9be5b182b2ba65be6448ea215e0c3adfd4834d"
+    },
+    {
+      "name": "Tennis (Europe, Asia) (En) (Coca-Cola ~ Sprite)",
+      "region": "Europe",
+      "rom_name": "Tennis (Europe, Asia) (En) (Coca-Cola ~ Sprite).rom",
+      "size": 8192,
+      "crc": "098d1cbb",
+      "md5": "8c910a98e1045f668ecc1cee39810834",
+      "sha1": "7ea0c5aa6072e2c9eab711f278fd939986a92602"
+    },
+    {
+      "name": "Tank Attack (Europe, Asia) (En) (6K)",
+      "region": "Europe",
+      "rom_name": "Tank Attack (Europe, Asia) (En) (6K).rom",
+      "size": 6144,
+      "crc": "7e99fb44",
+      "md5": "c200695d35ab7096d85cb4be32c8c740",
+      "sha1": "67b8da0b96ded6b74a78f0f7da21aede9244d379"
+    },
+    {
+      "name": "Stone Age (Europe, Asia) (En)",
+      "region": "Europe",
+      "rom_name": "Stone Age (Europe, Asia) (En).rom",
+      "size": 8192,
+      "crc": "74365e94",
+      "md5": "3b4d8c419fb1bbbd2324ed29dae77c7b",
+      "sha1": "dafe57b0ea5da7431bd5b0393bae7cf256c9a562"
+    },
+    {
+      "name": "Police Jump (Europe, Asia) (En)",
+      "region": "Europe",
+      "rom_name": "Police Jump (Europe, Asia) (En).rom",
+      "size": 8192,
+      "crc": "173ff42c",
+      "md5": "cb9a53961c88ec0210d136792ca3d616",
+      "sha1": "f8a304e9cfa572ad17dab38c33c395771dfc55d7"
+    },
+    {
+      "name": "Planet Defender (Europe, Asia) (En) (6K)",
+      "region": "Europe",
+      "rom_name": "Planet Defender (Europe, Asia) (En) (6K).rom",
+      "size": 6144,
+      "crc": "b8cb39f7",
+      "md5": "ee3ff50bc0a5d339690848d421d63f2d",
+      "sha1": "a89c96ff084f2eb220fc626aaae479d4172b769b"
+    },
+    {
+      "name": "Locomotive (Europe, Asia) (En) (10K)",
+      "region": "Europe",
+      "rom_name": "Locomotive (Europe, Asia) (En) (10K).rom",
+      "size": 10240,
+      "crc": "81b552ef",
+      "md5": "2c84498354cecf47d943b777268040ac",
+      "sha1": "4b383260f8b0db5abe5a0c595f52d3dab55a6fb1"
+    },
+    {
+      "name": "Deep Sea Adventure (Europe, Asia) (En) (6K)",
+      "region": "Europe",
+      "rom_name": "Deep Sea Adventure (Europe, Asia) (En) (6K).rom",
+      "size": 6144,
+      "crc": "28a30e3a",
+      "md5": "4a4cfcf8adb06c0fb62b2e6aaccfff4d",
+      "sha1": "30018a2f7328f747ce21e12c4b0da8dda6334e5f"
+    },
+    {
+      "name": "Crazy Pucker ~ Crazy Moonie ~ Crazy Chewy (Europe, Asia) (En)",
+      "region": "Europe",
+      "rom_name": "Crazy Pucker ~ Crazy Moonie ~ Crazy Chewy (Europe, Asia) (En).rom",
+      "size": 4096,
+      "crc": "c673be37",
+      "md5": "93a92da8d9c40e0f53c8e0f681021f18",
+      "sha1": "0762ba98e9a08b7e6063e2a54734becd83df6eb3"
+    },
+    {
+      "name": "Chopper Rescue (Europe, Asia) (En)",
+      "region": "Europe",
+      "rom_name": "Chopper Rescue (Europe, Asia) (En).rom",
+      "size": 18432,
+      "crc": "afb482ae",
+      "md5": "33c422e85fcd342e722503e776726dd7",
+      "sha1": "43dc37755306ac824492e98c9d0e25379ac69672"
+    },
+    {
+      "name": "BASIC (Europe, Asia) (En) (Rev 3)",
+      "region": "Europe",
+      "rom_name": "BASIC (Europe, Asia) (En) (Rev 3).rom",
+      "size": 12288,
+      "crc": "b8df3b18",
+      "md5": "53d0dd22b311ffcdc1956db6033844e6",
+      "sha1": "d878f23143e3362d5065550c2e1bd80d8f7c25c0"
+    },
+    {
+      "name": "BASIC (Europe, Asia) (En) (Rev 2)",
+      "region": "Europe",
+      "rom_name": "BASIC (Europe, Asia) (En) (Rev 2).rom",
+      "size": 12288,
+      "crc": "10409a1d",
+      "md5": "0e43eb5caf9c0128998d04e033016556",
+      "sha1": "5226bc0fa08f1046179572ed602ce157959bf92f"
+    },
+    {
+      "name": "BASIC (Europe, Asia) (En) (Rev 1)",
+      "region": "Europe",
+      "rom_name": "BASIC (Europe, Asia) (En) (Rev 1).rom",
+      "size": 12288,
+      "crc": "4aee923e",
+      "md5": "89c444347fb1df849fba51be877b6f7d",
+      "sha1": "7523b938d251315ffc54b1cca166790beba8972a"
+    },
+    {
+      "name": "BASIC (Europe, Asia) (En)",
+      "region": "Europe",
+      "rom_name": "BASIC (Europe, Asia) (En).rom",
+      "size": 12288,
+      "crc": "1849efd0",
+      "md5": "cd6202910695e39ede1f5e79d0bde186",
+      "sha1": "96027c0b250e252625143211f3ff6ac4e6e0aeff"
+    },
+    {
+      "name": "Astro Pinball (Europe, Asia) (En)",
+      "region": "Europe",
+      "rom_name": "Astro Pinball (Europe, Asia) (En).rom",
+      "size": 8192,
+      "crc": "d03c0603",
+      "md5": "639d6df87e991247b438c8d015a70d4d",
+      "sha1": "e7cb096d4d16fd8193f7e39c2f73bdf0930c9654"
+    },
+    {
+      "name": "Tennis (Europe, Asia) (En) (Wimbledon) (8K)",
+      "genre": "Sports",
+      "region": "Europe",
+      "rom_name": "Tennis (Europe, Asia) (En) (Wimbledon) (8K).rom",
+      "size": 8192,
+      "developer": "VTech",
+      "crc": "8bed8745",
+      "md5": "1a60104942ef675d6d34c0c3361025de",
+      "sha1": "690a4dcb412e517b172ec5b44c86863ef63b1246"
+    },
+    {
+      "name": "Tennis (Europe, Asia) (En) (DSE) (Rev 1) (8K)",
+      "genre": "Sports",
+      "region": "Europe",
+      "rom_name": "Tennis (Europe, Asia) (En) (DSE) (Rev 1) (8K).rom",
+      "size": 8192,
+      "developer": "VTech",
+      "crc": "c914c092",
+      "md5": "1bda4ee02466b98c6c4cf8c962838d3f",
+      "sha1": "7b64efddb590332c192f6c4a6accce85a6d402c3"
+    },
+    {
+      "name": "Tank Attack (Europe, Asia) (En) (8K)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Tank Attack (Europe, Asia) (En) (8K).rom",
+      "size": 8192,
+      "developer": "VTech",
+      "crc": "2621ffca",
+      "md5": "68fc7cf9039568e8be17d2175d1e342c",
+      "sha1": "f3c69a848f1246faf6f9558c0badddd3db626e5f"
+    },
+    {
+      "name": "Sonic Invader (Europe, Asia) (En)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Sonic Invader (Europe, Asia) (En).rom",
+      "size": 4096,
+      "developer": "VTech",
+      "crc": "vz\u001f8",
+      "md5": "fa49471a2d8d3482fddd77a35655aa26",
+      "sha1": "d77f49bfa951ce0ba505ad4f05f3d0adb697811f"
+    },
+    {
+      "name": "Soccer (Europe, Asia) (En)",
+      "genre": "Sports",
+      "region": "Europe",
+      "rom_name": "Soccer (Europe, Asia) (En).rom",
+      "size": 12288,
+      "developer": "VTech",
+      "crc": "90a7438d",
+      "md5": "facb2b5308502f8acec4d77eaed6ea3a",
+      "sha1": "d7526d3bcf156a38d35ae439080eb8913d56e51e"
+    },
+    {
+      "name": "Police Jump (Europe, Asia) (En) (Rev 1)",
+      "genre": "Miscellaneous",
+      "region": "Europe",
+      "rom_name": "Police Jump (Europe, Asia) (En) (Rev 1).rom",
+      "size": 8192,
+      "developer": "VTech",
+      "crc": "db3d50b2",
+      "md5": "9cb73c1ca4853ba299a97ed55b17727e",
+      "sha1": "0fe6d15c973c73b53c33945e213bc2671ff5d7df"
+    },
+    {
+      "name": "Planet Defender (Europe, Asia) (En) (8K)",
+      "genre": "Miscellaneous",
+      "region": "Europe",
+      "rom_name": "Planet Defender (Europe, Asia) (En) (8K).rom",
+      "size": 8192,
+      "developer": "VTech",
+      "crc": "DW\u01f3",
+      "md5": "02cd5364ee077e02b3d0e1c0a6d2adef",
+      "sha1": "0be7935db55ecf3e70b96e071ecbc489bd22dc73"
+    },
+    {
+      "genre": "Miscellaneous",
+      "developer": "VTech",
+      "crc": "KF<\u0018"
+    },
+    {
+      "name": "Music Maker (Europe, Asia) (En)",
+      "genre": "Miscellaneous",
+      "region": "Europe",
+      "rom_name": "Music Maker (Europe, Asia) (En).rom",
+      "size": 12288,
+      "developer": "VTech",
+      "crc": "f8383d33",
+      "md5": "c19cbb873193f6441ff793b82a5ec19c",
+      "sha1": "d1eb8c679310b8988ac4d018853b979613508b0e"
+    },
+    {
+      "name": "Mouse Puzzle (Europe, Asia) (En)",
+      "genre": "Miscellaneous",
+      "region": "Europe",
+      "rom_name": "Mouse Puzzle (Europe, Asia) (En).rom",
+      "size": 8192,
+      "developer": "VTech",
+      "crc": "e954c46b",
+      "md5": "136caa24d077372d94594cc722a00cf8",
+      "sha1": "c3aa8077756a6101009645711687edd59bf90a98"
+    },
+    {
+      "name": "Locomotive (Europe, Asia) (En) (12K)",
+      "genre": "Miscellaneous",
+      "region": "Europe",
+      "rom_name": "Locomotive (Europe, Asia) (En) (12K).rom",
+      "size": 12288,
+      "developer": "VTech",
+      "crc": "3618b415",
+      "md5": "f86dc1a3df3e1f25ebd60c0f1de4fdb5",
+      "sha1": "4aa0db7b236ac512d777cfc811b58d59f9095ab1"
+    },
+    {
+      "name": "Deep Sea Adventure (Europe, Asia) (En) (8K)",
+      "genre": "Miscellaneous",
+      "region": "Europe",
+      "rom_name": "Deep Sea Adventure (Europe, Asia) (En) (8K).rom",
+      "size": 8192,
+      "developer": "VTech",
+      "crc": ".\r\u0746",
+      "md5": "11ad7d0a0caead0e6d22f055dc0aba6e",
+      "sha1": "d25f82aab473d4c7850ab626ae92d1eac69dbb32"
+    },
+    {
+      "name": "Crazy Chicky (Europe, Asia) (En)",
+      "genre": "Action",
+      "region": "Europe",
+      "rom_name": "Crazy Chicky (Europe, Asia) (En).rom",
+      "size": 4096,
+      "developer": "VTech",
+      "crc": "b1b5bfe5",
+      "md5": "46831e263fdd536a7740861d28f24cc2",
+      "sha1": "c0eed370267644d142a42de6201f7ac6d275104d"
+    },
+    {
+      "genre": "Miscellaneous",
+      "developer": "VTech",
+      "crc": "48e7e8b8"
+    },
+    {
+      "genre": "Miscellaneous",
+      "developer": "VTech",
+      "crc": "14179570"
+    },
+    {
+      "name": "Auto Chase (Europe, Asia) (En)",
+      "genre": "Racing",
+      "region": "Europe",
+      "rom_name": "Auto Chase (Europe, Asia) (En).rom",
+      "size": 8192,
+      "developer": "VTech",
+      "crc": "bd091ee0",
+      "md5": "b6bfea8987d76872661e1dd25ba5d542",
+      "sha1": "369dc9aa55dd2c09376be840f8ebeca450db8b9c"
+    },
+    {
+      "genre": "Action",
+      "developer": "VTech",
+      "crc": "cf7bdfc2"
+    },
+    {
+      "name": "Air Sea Attack (Europe, Asia) (En)",
+      "genre": "Miscellaneous",
+      "region": "Europe",
+      "rom_name": "Air Sea Attack (Europe, Asia) (En).rom",
+      "size": 4096,
+      "developer": "VTech",
+      "crc": "81a9257d",
+      "md5": "2a3000132c6ae8f6712eaee387ad851c",
+      "sha1": "1fbc52f335c0d8bb96578a6ba764f5631c41fd36"
+    },
+    {
+      "count": 35
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, Descriptions, Empty, Flex, Space, Typography } from 'antd'
+import { Button, Descriptions, Empty, Flex, Space, Typography } from 'antd'
 import { CopyOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons'
 import ProviderDetail from './ProviderDetail'
 import ModuleReadinessCard from './ModuleReadinessCard'
@@ -11,6 +11,7 @@ import type {
   ModuleReadiness,
   ModuleSelection,
   ProviderSelection,
+  ProviderStatus,
   RomBrandSelection,
   RomConsoleSelection,
   Selection,
@@ -26,7 +27,7 @@ type Props = {
   selectedBrand: BrandSelection | null
   isRomContext: boolean
   moduleByGuid: Record<string, ModuleEntry>
-  providerStatus: Record<string, any> | null
+  providerStatus: ProviderStatus | null
   moduleReadiness: ModuleReadiness | null
   moduleReadinessLoading: boolean
   providerFetchRunning: boolean
@@ -85,9 +86,8 @@ const DetailPanel: React.FC<Props> = ({
   renderConsoleDetail,
   renderBrandDetail,
   renderProviderCoverage,
-}) => (
-  <Card className="detail-card" title={isRomContext ? undefined : 'Details'}>
-    {selectedProvider ? (
+}) => {
+  const content = selectedProvider ? (
       <Flex vertical gap="large">
         <ConsoleInfoCard
           brand={selectedProvider.brand}
@@ -180,8 +180,18 @@ const DetailPanel: React.FC<Props> = ({
       </Typography.Paragraph>
     ) : (
       <Empty description="Select a resource from the left tree to view its metadata" />
-    )}
-  </Card>
-)
+    )
+
+  if (isRomContext) {
+    return <div className="rom-detail-surface">{content}</div>
+  }
+
+  return (
+    <section className="detail-card" aria-label="Details">
+      <div className="detail-card-header">Details</div>
+      <div className="detail-card-body">{content}</div>
+    </section>
+  )
+}
 
 export default DetailPanel

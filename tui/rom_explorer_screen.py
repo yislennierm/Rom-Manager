@@ -1,4 +1,5 @@
 import os
+import shutil
 from pathlib import Path
 from typing import Dict, List, Set
 
@@ -7,7 +8,14 @@ from textual.widgets import Header, Footer, Static, Input, DataTable
 from textual.containers import Container
 from textual.screen import Screen
 
-from utils.catalog import build_rom_catalog, resolve_module, select_preferred_provider
+from utils.catalog import (
+    build_rom_catalog,
+    provider_download_size,
+    provider_download_source,
+    provider_downloadable,
+    resolve_module,
+    select_preferred_provider,
+)
 from utils.library_sync import load_modules
 from utils.paths import manufacturer_slug, console_slug, provider_slug as slugify_provider
 from data.storage.storage_config_loader import load_storage_config
@@ -19,6 +27,8 @@ from .rom_detail_screen import ROMDetailScreen
 
 DEFAULT_MANUFACTURER = "Sega"
 DEFAULT_CONSOLE = "Dreamcast"
+MAX_BATCH_DOWNLOAD_JOBS = 50
+MIN_FREE_AFTER_QUEUE_BYTES = 512 * 1024 * 1024
 
 
 class ROMExplorerScreen(Screen):
@@ -55,6 +65,7 @@ class ROMExplorerScreen(Screen):
         self.module_lookup: Dict[str, Dict[str, str]] = {}
         self.provider_catalogs: List[Dict] = []
         self.runtime_core_id: str | None = None
+        self.runtime_core_ids: List[str] = []
 
     def compose(self) -> ComposeResult:
         self.label = Static("", id="panel_status")
@@ -121,6 +132,8 @@ class ROMExplorerScreen(Screen):
 
         self.rdb_path = catalog["rdb_path"]
         self.rdb_entry_count = catalog["entry_count"]
+        self.catalog_entry_count = catalog.get("catalog_entry_count") or len(catalog.get("roms") or [])
+        self.provider_only_count = catalog.get("provider_only_count") or 0
         self._provider_total = catalog["provider_total"]
         self.provider_catalogs = catalog.get("provider_catalogs") or []
         self.roms = catalog["roms"]
@@ -128,7 +141,8 @@ class ROMExplorerScreen(Screen):
 
         self.manufacturer = manufacturer
         self.console = console
-        self.runtime_core_id = self._active_runtime_core_id()
+        self.runtime_core_ids = self._active_runtime_core_ids()
+        self.runtime_core_id = self.runtime_core_ids[0] if self.runtime_core_ids else None
 
         if app is not None:
             app.current_manufacturer = manufacturer
@@ -143,13 +157,16 @@ class ROMExplorerScreen(Screen):
             if self._provider_total
             else "no provider caches"
         )
+        entry_info = f"{self.rdb_entry_count} RDB entries"
+        if self.provider_only_count:
+            entry_info = f"{entry_info} · {self.provider_only_count} provider-only · {self.catalog_entry_count} total"
         self.label.update(
-            f"RDB — {manufacturer} / {console} · {self.rdb_entry_count} entries · {provider_info}"
+            f"RDB — {manufacturer} / {console} · {entry_info} · {provider_info}"
             f"{self._runtime_suffix()}"
         )
         self.apply_filter(announce=False)
         self._notify(
-            f"Explorer ready for {manufacturer} / {console} ({self.rdb_entry_count} entries, {provider_info}).",
+            f"Explorer ready for {manufacturer} / {console} ({entry_info}, {provider_info}).",
             severity="info",
         )
 
@@ -209,21 +226,21 @@ class ROMExplorerScreen(Screen):
             return "Ready" if select_preferred_provider(providers) else "No source"
         compatible = self._compatible_provider_records(providers)
         if compatible:
+            core = self._best_provider_core_label(compatible[0])
+            return f"{core}: {len(compatible)}"
+        if providers:
             families = sorted({
                 str((provider.get("metadata") or {}).get("arcade_family") or "arcade")
-                for provider in compatible
+                for provider in providers
             })
-            label = self.runtime_core_id or "core"
-            return f"{label}: {len(compatible)}"
-        if providers:
-            return "Core mismatch"
+            return f"Needs {', '.join(families[:2])}"
         return "No source"
 
     def _runtime_suffix(self) -> str:
         if not self._is_arcade_runtime_sensitive():
             return ""
-        core = self.runtime_core_id or "none"
-        return f" · arcade profile: {core}"
+        cores = ", ".join(self.runtime_core_ids) if self.runtime_core_ids else "none"
+        return f" · arcade cores: {cores}"
 
     @staticmethod
     def _format_size(size_bytes):
@@ -292,9 +309,18 @@ class ROMExplorerScreen(Screen):
             pass
 
     def _create_jobs(self) -> None:
+        guard = self._download_batch_guard()
+        if guard:
+            self.app.bell()
+            self.app.push_screen(MessageScreen("Download Blocked", guard))
+            self._notify("Download batch blocked by size/job guard.", severity="warning")
+            return
+
         jobs_created = 0
         missing_sources = 0
         incompatible_sources = 0
+        blocked_runtime_sources = 0
+        blocked_access_sources = 0
         existing_count = 0
         for rom in self.roms:
             if rom["_key"] not in self.selected_keys:
@@ -307,14 +333,22 @@ class ROMExplorerScreen(Screen):
             if providers and not compatible_providers:
                 incompatible_sources += 1
                 continue
+            if compatible_providers and not any(
+                (provider.get("metadata") or {}).get("runtime_playable") is not False
+                for provider in compatible_providers
+            ):
+                blocked_runtime_sources += 1
+                continue
+            if compatible_providers and not any(provider_downloadable(provider) for provider in compatible_providers):
+                blocked_access_sources += 1
+                continue
             provider_entry = self._select_runtime_provider(compatible_providers)
             if not provider_entry:
                 missing_sources += 1
                 continue
             preferred = provider_entry["rom"]
             metadata = provider_entry.get("metadata") or {}
-            torrent = preferred.get("torrent_url") or preferred.get("torrent")
-            http_url = preferred.get("http_url")
+            torrent, http_url = provider_download_source(preferred)
             if not torrent and not http_url:
                 missing_sources += 1
                 continue
@@ -345,6 +379,8 @@ class ROMExplorerScreen(Screen):
             rom_filename = preferred.get("name") or rom["name"]
             if preferred.get("_archive_member") and preferred.get("_source_bundle"):
                 rom_filename = preferred.get("_source_bundle")
+            download_size = provider_download_size(preferred, rom.get("_size_bytes"))
+            download_md5 = preferred.get("md5") or rom.get("md5")
 
             job = None
             if torrent:
@@ -355,8 +391,8 @@ class ROMExplorerScreen(Screen):
                     destination=target_dir,
                     console=provider_console,
                     manufacturer=provider_manufacturer,
-                    size_bytes=rom.get("_size_bytes"),
-                    md5=rom.get("md5"),
+                    size_bytes=download_size,
+                    md5=download_md5,
                     provider_slug=provider_slug_value,
                     cache_manufacturer=cache_manufacturer,
                     cache_console=cache_console,
@@ -374,8 +410,8 @@ class ROMExplorerScreen(Screen):
                     destination=target_dir,
                     console=provider_console,
                     manufacturer=provider_manufacturer,
-                    size_bytes=rom.get("_size_bytes"),
-                    md5=rom.get("md5"),
+                    size_bytes=download_size,
+                    md5=download_md5,
                     provider_slug=provider_slug_value,
                     cache_manufacturer=cache_manufacturer,
                     cache_console=cache_console,
@@ -405,18 +441,66 @@ class ROMExplorerScreen(Screen):
             if missing_sources:
                 note += f" ({missing_sources} selection(s) lack provider data.)"
             if incompatible_sources:
-                core = self.runtime_core_id or "active core"
-                note += f" ({incompatible_sources} selection(s) have providers, but not for {core}.)"
+                cores = ", ".join(self.runtime_core_ids) if self.runtime_core_ids else "installed arcade cores"
+                note += f" ({incompatible_sources} selection(s) have providers, but not for {cores}.)"
+            if blocked_runtime_sources:
+                note += (
+                    f" ({blocked_runtime_sources} selection(s) are coverage-only; "
+                    "runtime install support is not ready for this provider.)"
+                )
+            if blocked_access_sources:
+                note += (
+                    f" ({blocked_access_sources} selection(s) have provider metadata, "
+                    "but the source requires authentication or is currently unavailable.)"
+                )
             self.app.bell()
             self.app.push_screen(MessageScreen("Info", note))
             self._notify("No download source found for selected ROMs", severity="warning")
         self.selected_keys.clear()
 
+    def _download_batch_guard(self) -> str | None:
+        selected = [rom for rom in self.roms if rom["_key"] in self.selected_keys]
+        if not selected:
+            return None
+        if len(selected) > MAX_BATCH_DOWNLOAD_JOBS:
+            return (
+                f"{len(selected)} ROMs are selected. Narrow the filter or select up to "
+                f"{MAX_BATCH_DOWNLOAD_JOBS} ROMs at a time before queueing downloads."
+            )
+
+        required = 0
+        unknown = 0
+        for rom in selected:
+            providers = rom.get("_providers") or []
+            compatible = self._compatible_provider_records(providers)
+            provider_entry = self._select_runtime_provider(compatible) if compatible else None
+            provider_rom = (provider_entry or {}).get("rom") or {}
+            size = provider_download_size(provider_rom, rom.get("_size_bytes"))
+            try:
+                required += int(size)
+            except (TypeError, ValueError):
+                unknown += 1
+
+        if required:
+            usage = shutil.disk_usage(Path("downloads").resolve())
+            if required + MIN_FREE_AFTER_QUEUE_BYTES > usage.free:
+                return (
+                    f"Selected downloads need about {self._format_size(required)}, but only "
+                    f"{self._format_size(usage.free)} is free. Keep at least "
+                    f"{self._format_size(MIN_FREE_AFTER_QUEUE_BYTES)} free after queueing."
+                )
+        if unknown and len(selected) > 10:
+            return (
+                f"{unknown} selected ROMs have unknown size. Queue 10 or fewer unknown-size "
+                "downloads at a time."
+            )
+        return None
+
     def _compatible_provider_records(self, providers: List[Dict]) -> List[Dict]:
         if not self._is_arcade_runtime_sensitive():
             return providers
-        core_id = self.runtime_core_id
-        if not core_id:
+        core_ids = self.runtime_core_ids
+        if not core_ids:
             return []
         compatible = []
         for provider in providers:
@@ -424,7 +508,7 @@ class ROMExplorerScreen(Screen):
             cores = metadata.get("compatible_cores") or metadata.get("preferred_cores") or []
             if not cores and not metadata.get("arcade_family"):
                 continue
-            if core_id in cores:
+            if any(core_id in cores for core_id in core_ids):
                 compatible.append(provider)
         return compatible
 
@@ -440,7 +524,7 @@ class ROMExplorerScreen(Screen):
 
     def _provider_runtime_rank(self, provider: Dict) -> int:
         family = str((provider.get("metadata") or {}).get("arcade_family") or "")
-        core_id = self.runtime_core_id or ""
+        core_id = self._best_provider_core_id(provider) or ""
         if core_id == "mame":
             return {"mame_current": 0, "mame_legacy": 10}.get(family, 50)
         if core_id == "mame2003_plus":
@@ -452,15 +536,32 @@ class ROMExplorerScreen(Screen):
     def _is_arcade_runtime_sensitive(self) -> bool:
         return (self.manufacturer, self.console) == ("SNK", "Neo Geo")
 
-    def _active_runtime_core_id(self) -> str | None:
+    def _active_runtime_core_ids(self) -> List[str]:
         if (self.manufacturer, self.console) != ("SNK", "Neo Geo"):
-            return None
+            return []
         frontend = self._active_frontend()
         cores_root = Path(frontend.get("cores_path") or "").expanduser()
-        for core_id in ("fbneo", "mame", "mame2003_plus"):
+        installed = []
+        for core_id in ("fbneo", "mame2003_plus", "mame"):
             if (cores_root / f"{core_id}_libretro.so").exists():
+                installed.append(core_id)
+        return installed
+
+    def _best_provider_core_id(self, provider: Dict) -> str | None:
+        metadata = provider.get("metadata") or {}
+        cores = metadata.get("compatible_cores") or metadata.get("preferred_cores") or []
+        for core_id in self.runtime_core_ids:
+            if core_id in cores:
                 return core_id
         return None
+
+    def _best_provider_core_label(self, provider: Dict) -> str:
+        core_id = self._best_provider_core_id(provider)
+        return {
+            "fbneo": "FBNeo",
+            "mame": "MAME",
+            "mame2003_plus": "MAME2003+",
+        }.get(core_id or "", core_id or "Core")
 
     @staticmethod
     def _active_frontend() -> Dict:
@@ -474,6 +575,10 @@ class ROMExplorerScreen(Screen):
         """Queue an archive-level provider export when per-ROM matching is unavailable."""
         for catalog in self.provider_catalogs:
             metadata = catalog.get("metadata") or {}
+            if metadata.get("runtime_playable") is False:
+                continue
+            if not provider_downloadable(metadata):
+                continue
             provider_id = catalog.get("id") or metadata.get("archive_id")
             for provider_rom in catalog.get("roms") or []:
                 http_url = provider_rom.get("http_url")

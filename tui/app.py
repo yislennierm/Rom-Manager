@@ -1,12 +1,13 @@
 import os
 import threading
+from pathlib import Path
 
 if os.environ.get("TERM") in (None, "", "dumb"):
     os.environ["TERM"] = "xterm-256color"
 
 from textual.app import App
 
-from core.account_reconciler import activate_assigned_frontend_consoles, reconcile_assigned_consoles
+from core.account_reconciler import activate_assigned_frontend_consoles
 from core.client_sync import assignment_signature, sync_client_metadata
 from core.download_manager import DownloadManager
 from core.frontend_installer import install_completed_jobs
@@ -74,7 +75,6 @@ class ROMManagerApp(App):
                 return
             result = sync_client_metadata(include_cache=True)
             frontend_report = activate_assigned_frontend_consoles(result.get("manifest"))
-            reconcile_report = reconcile_assigned_consoles(self.download_manager, install_ready=False)
             self._last_sync_signature = assignment_signature(result["manifest"])
             revoked = result.get("revoked") or []
             modules = result.get("manifest", {}).get("modules") or []
@@ -85,9 +85,6 @@ class ROMManagerApp(App):
             frontend_removed = frontend_report.get("removed", 0)
             if frontend_removed:
                 message += f" Deactivated {frontend_removed} revoked console(s)."
-            queued = reconcile_report.get("jobs_created", 0)
-            if queued:
-                message += f" Queued {queued} install download(s)."
             if revoked:
                 message += f" {len(revoked)} revoked console(s) need cleanup."
             self.call_from_thread(self.notify, message, severity="information" if not revoked else "warning")
@@ -102,6 +99,7 @@ class ROMManagerApp(App):
         if self._auto_install_running:
             return
         active_frontend_key = self._active_frontend_key()
+        self._clear_stale_install_states(active_frontend_key)
         jobs = [
             job
             for job in self.download_manager.list_jobs()
@@ -135,6 +133,7 @@ class ROMManagerApp(App):
         else:
             errors = report.get("errors") or []
             status = "error" if errors else "installed"
+            installed_paths_by_job = report.get("installed_paths_by_job") or {}
             for job in jobs:
                 fields = {"install_status": status}
                 if errors:
@@ -145,12 +144,24 @@ class ROMManagerApp(App):
                     fields["install_frontend_key"] = report.get("frontend_key")
                     fields["install_frontend"] = report.get("frontend")
                     fields["install_error"] = None
+                    installed_paths = installed_paths_by_job.get(str(job.get("id")))
+                    if installed_paths:
+                        fields["installed_paths"] = installed_paths
                 self.download_manager.update_job_fields(job["id"], **fields)
-            self.call_from_thread(
-                self.notify,
-                f"Installed {report.get('roms_installed', 0)} ROM(s) into RetroArch.",
-                severity="success" if not errors else "warning",
-            )
+            installed = int(report.get("roms_installed") or 0)
+            skipped = int(report.get("roms_skipped") or 0)
+            if errors or installed:
+                self.call_from_thread(
+                    self.notify,
+                    f"Installed {installed} ROM(s) into RetroArch.",
+                    severity="success" if not errors else "warning",
+                )
+            elif skipped:
+                self.call_from_thread(
+                    self.notify,
+                    f"RetroArch already had {skipped} ROM(s).",
+                    severity="information",
+                )
         finally:
             self._auto_install_running = False
 
@@ -183,13 +194,68 @@ class ROMManagerApp(App):
     def _installed_for_frontend(job, frontend_key: str | None) -> bool:
         if job.get("install_status") != "installed":
             return False
-        return bool(frontend_key and job.get("install_frontend_key") == frontend_key)
+        if not frontend_key or frontend_key not in _frontend_key_set(job.get("install_frontend_key")):
+            return False
+        installed_paths = job.get("installed_paths") or []
+        if installed_paths:
+            return any(Path(str(path)).expanduser().exists() for path in installed_paths)
+        return bool(job.get("local_path") and Path(str(job.get("local_path"))).expanduser().exists())
 
     @staticmethod
     def _failed_for_frontend(job, frontend_key: str | None) -> bool:
         if job.get("install_status") != "error":
             return False
-        return bool(frontend_key and job.get("install_frontend_key") == frontend_key)
+        return bool(frontend_key and frontend_key in _frontend_key_set(job.get("install_frontend_key")))
+
+    def _clear_stale_install_states(self, frontend_key: str | None) -> None:
+        if not frontend_key:
+            return
+        for job in self.download_manager.list_jobs():
+            if job.get("install_status") not in {"installed", "error"}:
+                continue
+            if frontend_key not in _frontend_key_set(job.get("install_frontend_key")):
+                continue
+            if job.get("status") == "completed" and not self._job_source_exists(job):
+                self.download_manager.update_job_fields(
+                    job["id"],
+                    status="queued",
+                    progress=0.0,
+                    speed_kb=0.0,
+                    local_path=None,
+                    install_status=None,
+                    install_error=None,
+                    installed_paths=[],
+                )
+                continue
+            if job.get("install_status") == "installed" and not self._installed_for_frontend(job, frontend_key):
+                self.download_manager.update_job_fields(
+                    job["id"],
+                    install_status=None,
+                    install_error=None,
+                    installed_paths=[],
+                )
+
+    @staticmethod
+    def _job_source_exists(job) -> bool:
+        local_path = job.get("local_path")
+        if local_path and Path(str(local_path)).expanduser().exists():
+            return True
+        destination = job.get("destination")
+        rom_name = job.get("rom_name")
+        if destination and rom_name:
+            destination_path = Path(str(destination)).expanduser()
+            if not destination_path.is_absolute():
+                destination_path = Path.cwd() / destination_path
+            return (destination_path / Path(str(rom_name)).name).exists()
+        return False
+
+
+def _frontend_key_set(value) -> set[str]:
+    if not value:
+        return set()
+    if isinstance(value, (list, tuple, set)):
+        return {str(item).strip() for item in value if str(item).strip()}
+    return {part.strip() for part in str(value).split(",") if part.strip()}
 
 
 if __name__ == "__main__":

@@ -175,6 +175,7 @@ See `python3 roms_manager.py --help` for full argument details.
 - **Normalize filenames**: The RDB contains canonical names + hashes. Use the ROM Explorer detail view to rename your files consistently before importing into RetroArch playlists.
 - **Watch provider coverage**: The Providers column’s fraction shows how many cached providers include that ROM. Use it to spot gaps (e.g., region sets you still need to download).
 - **Global search for duplicates**: Because every ROM entry includes MD5/SHA1, you can quickly find duplicate dumps across consoles or providers.
+- **Track required cores**: Keep the human-readable console/core checklist in [`docs/retroarch-core-matrix.md`](docs/retroarch-core-matrix.md) aligned with `data/emulators/cores.json` as consoles move from provider setup to runtime validation.
 
 ---
 

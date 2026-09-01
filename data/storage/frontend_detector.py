@@ -1,4 +1,3 @@
-import json
 import shutil
 import subprocess
 from pathlib import Path
@@ -13,6 +12,9 @@ def detect_frontends() -> Dict[str, Dict[str, object]]:
     flatpak = _detect_flatpak_retroarch()
     if flatpak:
         detected["retroarch_flatpak"] = flatpak
+    vita3k = _detect_vita3k()
+    if vita3k:
+        detected["vita3k"] = vita3k
     standalone = _detect_native_retroarch()
     if standalone:
         detected["retroarch_standalone"] = standalone
@@ -40,6 +42,13 @@ def merge_detected_frontends(config: dict) -> tuple[dict, int]:
     return config, added
 
 
+def _portable_path(path: Path) -> str:
+    try:
+        return f"~/{path.resolve().relative_to(Path.home().resolve())}"
+    except ValueError:
+        return str(path)
+
+
 def _detect_steam_retroarch() -> Optional[Dict[str, object]]:
     candidates = [
         Path.home() / ".steam/steam/steamapps/common/RetroArch",
@@ -52,11 +61,11 @@ def _detect_steam_retroarch() -> Optional[Dict[str, object]]:
         "name": "RetroArch (Steam)",
         "kind": "retroarch",
         "install_type": "steam",
-        "launcher": str(root / "retroarch"),
-        "roms_path": str(root / "downloads"),
-        "bios_path": str(root / "system"),
-        "playlists_path": str(root / "playlists"),
-        "cores_path": str(root / "cores"),
+        "launcher": _portable_path(root / "retroarch"),
+        "roms_path": _portable_path(root / "downloads"),
+        "bios_path": _portable_path(root / "system"),
+        "playlists_path": _portable_path(root / "playlists"),
+        "cores_path": _portable_path(root / "cores"),
         "platform": "linux",
         "detected": True,
         "active": False,
@@ -76,10 +85,10 @@ def _detect_flatpak_retroarch() -> Optional[Dict[str, object]]:
         "kind": "retroarch",
         "install_type": "flatpak",
         "launcher": "flatpak run org.libretro.RetroArch",
-        "roms_path": str(root / "downloads"),
-        "bios_path": str(root / "system"),
-        "playlists_path": str(root / "playlists"),
-        "cores_path": str(root / "cores"),
+        "roms_path": _portable_path(root / "downloads"),
+        "bios_path": _portable_path(root / "system"),
+        "playlists_path": _portable_path(root / "playlists"),
+        "cores_path": _portable_path(root / "cores"),
         "platform": "linux",
         "detected": True,
         "active": False,
@@ -96,13 +105,42 @@ def _detect_native_retroarch() -> Optional[Dict[str, object]]:
         "kind": "retroarch",
         "install_type": "native",
         "launcher": launcher,
-        "roms_path": str(config_root / "downloads"),
-        "bios_path": str(config_root / "system"),
-        "playlists_path": str(config_root / "playlists"),
-        "cores_path": str(config_root / "cores"),
+        "roms_path": _portable_path(config_root / "downloads"),
+        "bios_path": _portable_path(config_root / "system"),
+        "playlists_path": _portable_path(config_root / "playlists"),
+        "cores_path": _portable_path(config_root / "cores"),
         "platform": "linux",
         "detected": True,
         "active": False,
+    }
+
+
+def _detect_vita3k() -> Optional[Dict[str, object]]:
+    launcher = shutil.which("vita3k")
+    if not launcher:
+        appimage = Path.home() / ".local/opt/vita3k/Vita3K-x86_64.AppImage"
+        if appimage.exists():
+            launcher = _portable_path(appimage)
+    if not launcher:
+        return None
+    if launcher.startswith(str(Path.home())):
+        launcher = _portable_path(Path(launcher))
+    root = Path.home() / ".local/share/Vita3K/Vita3K"
+    package_root = root / "ux0" / "app"
+    package_root.mkdir(parents=True, exist_ok=True)
+    return {
+        "name": "Vita3K",
+        "kind": "external_emulator",
+        "install_type": "vita3k",
+        "launcher": launcher,
+        "roms_path": _portable_path(package_root),
+        "bios_path": _portable_path(root),
+        "platform": "linux",
+        "detected": True,
+        "active": False,
+        "supported_guids": [
+            "219b39f7-8c82-5053-8efa-b74c7c654aa7",
+        ],
     }
 
 

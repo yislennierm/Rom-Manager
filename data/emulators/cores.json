@@ -1,39 +1,208 @@
 {
   "bios_files": {
+    "n64dd_ipl_bios": {
+      "filename": "Mupen64plus/IPL.n64",
+      "aliases": [
+        "IPL.n64",
+        "N64DD IPLROM (J).n64"
+      ],
+      "md5": "8d3d9f294b6e174bc7b1d2fd1c727530",
+      "size": 4194304,
+      "notes": "Nintendo 64DD IPL firmware used by Mupen64Plus-Next for 64DD subsystem support. Libretro marks it optional, but 64DD runtime validation should check for it.",
+      "url": null,
+      "sources": [
+        {
+          "id": "internet_archive_n64dd_iplrom_j",
+          "name": "Internet Archive N64DD IPLROM (J)",
+          "type": "internet_archive_file",
+          "policy": "firmware_user_opt_in",
+          "url": "https://archive.org/download/n-64-dd-iplrom-j/N64DD%20IPLROM%20%28J%29.n64",
+          "index_url": "https://archive.org/details/n-64-dd-iplrom-j",
+          "notes": "Archive file MD5 matches libretro core-info for Mupen64plus/IPL.n64."
+        },
+        {
+          "id": "libretro_mupen64plus_next_core_info",
+          "name": "Mupen64Plus-Next libretro core-info",
+          "type": "documentation",
+          "policy": "metadata_user_opt_in",
+          "url": "https://github.com/libretro/libretro-super/blob/master/dist/info/mupen64plus_next_libretro.info",
+          "index_url": "https://github.com/libretro/libretro-super/blob/master/dist/info/mupen64plus_next_libretro.info",
+          "notes": "Documents .ndd support and the expected firmware path Mupen64plus/IPL.n64."
+        }
+      ]
+    },
+    "nds_bios7": {
+      "filename": "bios7.bin",
+      "md5": "df692a80a5b1bc90728bc3dfc76cd948",
+      "notes": "Nintendo DS ARM7 BIOS used by melonDS DS. Optional for DS mode, required as part of DSi mode setup.",
+      "size": 16384,
+      "sources": [
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/bios7.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/tree/main/bios"
+        }
+      ]
+    },
+    "nds_bios9": {
+      "filename": "bios9.bin",
+      "md5": "a392174eb3e572fed6447e956bde4b25",
+      "notes": "Nintendo DS ARM9 BIOS used by melonDS DS. Optional for DS mode, required as part of DSi mode setup.",
+      "size": 4096,
+      "sources": [
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/bios9.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/tree/main/bios"
+        }
+      ]
+    },
+    "nds_firmware": {
+      "filename": "firmware.bin",
+      "notes": "Nintendo DS firmware used by melonDS DS. Optional for DS mode, required as part of DSi mode setup.",
+      "md5": "94bc5094607c5e6598d50472c52f27f2",
+      "size": 262144,
+      "sources": [
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/firmware.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/tree/main/bios"
+        }
+      ]
+    },
+    "dsi_bios7": {
+      "filename": "dsi_bios7.bin",
+      "notes": "Nintendo DSi ARM7 BIOS required by melonDS DS DSi mode.",
+      "md5": "559dae4ea78eb9d67702c56c1d791e81",
+      "size": 65536,
+      "sources": [
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/dsi_bios7.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/tree/main/bios"
+        }
+      ]
+    },
+    "dsi_bios9": {
+      "filename": "dsi_bios9.bin",
+      "notes": "Nintendo DSi ARM9 BIOS required by melonDS DS DSi mode.",
+      "md5": "87b665fce118f76251271c3732532777",
+      "size": 65536,
+      "sources": [
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/dsi_bios9.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/tree/main/bios"
+        }
+      ]
+    },
+    "dsi_firmware": {
+      "filename": "dsi_firmware.bin",
+      "notes": "Nintendo DSi firmware required by melonDS DS DSi mode.",
+      "md5": "74f23348012d7b3e1cc216c47192ffeb",
+      "size": 131072,
+      "sources": [
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/dsi_firmware.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/tree/main/bios"
+        }
+      ]
+    },
+    "dsi_nand": {
+      "filename": "dsi_nand.bin",
+      "notes": "Nintendo DSi NAND image required by melonDS DS DSi mode and DSiWare launch.",
+      "md5": "dfafb1908da8f527df7a372e649b50be",
+      "size": 251658304,
+      "sources": [
+        {
+          "id": "abdess_retrobios_large_files",
+          "name": "Abdess retrobios large files",
+          "url": "https://github.com/Abdess/retrobios/releases/download/large-files/dsi_nand.bin",
+          "index_url": "https://github.com/Abdess/retrobios/releases/tag/large-files"
+        }
+      ]
+    },
     "saturn_jp_bios": {
       "filename": "sega_101.bin",
       "md5": "85ec9ca47d8f6807718151cbcca8b964",
       "size": 524288,
       "notes": "Official Japanese Saturn BIOS \u2014 required for JP games.",
-      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/sega_101.bin"
+      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/sega_101.bin",
+      "sources": [
+        {
+          "id": "yislennierm_bios_repo",
+          "name": "BIOS-repo",
+          "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/sega_101.bin",
+          "index_url": "https://github.com/yislennierm/BIOS-repo/tree/master/BIOS"
+        }
+      ]
     },
     "saturn_us_eu_bios": {
       "filename": "mpr-17933.bin",
       "md5": "3240872c70984b6cbfda1586cab68dbe",
       "size": 524288,
       "notes": "US/EU Saturn BIOS (also known as 1.01a). Required for US/EU games.",
-      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-17933.bin"
+      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-17933.bin",
+      "sources": [
+        {
+          "id": "yislennierm_bios_repo",
+          "name": "BIOS-repo",
+          "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-17933.bin",
+          "index_url": "https://github.com/yislennierm/BIOS-repo/tree/master/BIOS"
+        }
+      ]
     },
     "saturn_kof95_cart": {
       "filename": "mpr-18811-mx.ic1",
       "md5": "255113ba943c92a54facd25a10fd780c",
       "size": 524288,
       "notes": "ROM cartridge required for The King of Fighters '95.",
-      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-18811-mx.ic1"
+      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-18811-mx.ic1",
+      "sources": [
+        {
+          "id": "yislennierm_bios_repo",
+          "name": "BIOS-repo",
+          "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-18811-mx.ic1",
+          "index_url": "https://github.com/yislennierm/BIOS-repo/tree/master/BIOS"
+        }
+      ]
     },
     "saturn_ultraman_cart": {
       "filename": "mpr-19367-mx.ic1",
       "md5": "1cd19988d1d72a3e7caa0b73234c96b4",
       "size": 524288,
       "notes": "ROM cartridge required for Ultraman: Hikari no Kyojin Densetsu.",
-      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-19367-mx.ic1"
+      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-19367-mx.ic1",
+      "sources": [
+        {
+          "id": "yislennierm_bios_repo",
+          "name": "BIOS-repo",
+          "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/mpr-19367-mx.ic1",
+          "index_url": "https://github.com/yislennierm/BIOS-repo/tree/master/BIOS"
+        }
+      ]
     },
     "saturn_generic_bios": {
       "filename": "saturn_bios.bin",
       "md5": "af5828fdff51384f99b3c4926be27762",
       "size": 524288,
       "notes": "Generic Saturn BIOS used by several cores. Optional for some, recommended for accuracy.",
-      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/saturn_bios.bin"
+      "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/saturn_bios.bin",
+      "sources": [
+        {
+          "id": "yislennierm_bios_repo",
+          "name": "BIOS-repo",
+          "url": "https://raw.githubusercontent.com/yislennierm/BIOS-repo/master/BIOS/saturn_bios.bin",
+          "index_url": "https://github.com/yislennierm/BIOS-repo/tree/master/BIOS"
+        }
+      ]
     },
     "dreamcast_boot_bios": {
       "filename": "dc/dc_boot.bin",
@@ -234,6 +403,49 @@
           "url": "https://raw.githubusercontent.com/Abdess/retrobios/main/bios/Nintendo/Famicom%20Disk%20System/disksys.rom",
           "index_url": "https://github.com/Abdess/retrobios/blob/main/bios/Nintendo/Famicom%20Disk%20System/disksys.rom",
           "notes": "Public RetroBIOS repository entry for Famicom Disk System BIOS."
+        }
+      ]
+    },
+    "pokemini_bios": {
+      "filename": "bios.min",
+      "md5": "1e4fb124a3a886865acb574f388c803d",
+      "size": 4096,
+      "notes": "Optional Pokemon Mini BIOS for the PokeMini core. The libretro core includes an embedded FreeBIOS fallback, so this is not required for basic runtime.",
+      "url": null
+    },
+    "satellaview_bsx_bios": {
+      "filename": "BS-X.bin",
+      "md5": "fed4d8242cfbed61343d53d48432aced",
+      "size": 1048576,
+      "notes": "BS-X BIOS required by Snes9x/bsnes for Nintendo Satellaview .bs content.",
+      "url": null,
+      "sources": [
+        {
+          "id": "abdess_retrobios",
+          "name": "RetroBIOS",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/Abdess/retrobios/main/bios/Nintendo/Satellaview/BS-X.bin",
+          "index_url": "https://github.com/Abdess/retrobios/blob/main/bios/Nintendo/Satellaview/BS-X.bin",
+          "notes": "Checksum matches libretro snes9x_libretro.info firmware notes for BS-X.bin."
+        }
+      ]
+    },
+    "sufami_turbo_bios": {
+      "filename": "STBIOS.bin",
+      "md5": "d3a44ba7d42a74d3ac58cb9c14c6a5ca",
+      "size": 262144,
+      "notes": "Sufami Turbo BIOS required by Snes9x for Nintendo Sufami Turbo .st content.",
+      "url": null,
+      "sources": [
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/STBIOS.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/tree/main/bios",
+          "notes": "Checksum matches libretro snes9x_libretro.info firmware notes for STBIOS.bin."
         }
       ]
     },
@@ -954,6 +1166,742 @@
           "notes": "Install Data/Sys from the libretro Dolphin repository to RETROARCH_SYSTEM_FOLDER/dolphin-emu/Sys."
         }
       ]
+    },
+    "dsi_nand_eur": {
+      "filename": "DSi_Nand_EUR.bin",
+      "md5": "cdec27d169ae7367f54e31f18edd984d",
+      "size": 251658304,
+      "notes": "Nintendo DSi Europe NAND image used by melonDS DS auto-NAND selection for Europe/Australia DSiWare.",
+      "sources": [
+        {
+          "id": "abdess_retrobios_large_files",
+          "name": "Abdess retrobios large files",
+          "url": "https://github.com/Abdess/retrobios/releases/download/large-files/DSi_Nand_EUR.bin",
+          "index_url": "https://github.com/Abdess/retrobios/releases/tag/large-files"
+        }
+      ]
+    },
+    "dsi_nand_jpn": {
+      "filename": "DSi_Nand_JPN.bin",
+      "md5": "c30a3ace97967f8dc51c08331c97826d",
+      "size": 251658304,
+      "notes": "Nintendo DSi Japan NAND image used by melonDS DS auto-NAND selection for Japan DSiWare.",
+      "sources": [
+        {
+          "id": "abdess_retrobios_large_files",
+          "name": "Abdess retrobios large files",
+          "url": "https://github.com/Abdess/retrobios/releases/download/large-files/DSi_Nand_JPN.bin",
+          "index_url": "https://github.com/Abdess/retrobios/releases/tag/large-files"
+        }
+      ]
+    },
+    "intellivision_exec_bios": {
+      "filename": "exec.bin",
+      "md5": "62e761035cb657903761800f4437b8af",
+      "size": 8192,
+      "notes": "Mattel Intellivision Executive ROM required by FreeIntv. Filename is case-sensitive.",
+      "sources": [
+        {
+          "id": "internet_archive_tosec_2014_exec",
+          "name": "Internet Archive TOSEC 2014 Executive ROM",
+          "type": "internet_archive_file",
+          "policy": "firmware_user_opt_in",
+          "url": "https://archive.org/download/MattelIntellivision2014ReferenceSet-CompleteTosecRomCollection/Mattel%20Intellivision%20-%20Firmware%20%28TOSEC-v2014-01-18_CM%29%2FExecutive%20ROM%2C%20The%20%281978%29%28Mattel%29.zip/Executive%20ROM%2C%20The%20%281978%29%28Mattel%29.bin",
+          "index_url": "https://archive.org/details/MattelIntellivision2014ReferenceSet-CompleteTosecRomCollection",
+          "notes": "Direct inner-file URL from the TOSEC firmware ZIP; MD5 matches FreeIntv core-info."
+        }
+      ]
+    },
+    "intellivision_grom_bios": {
+      "filename": "grom.bin",
+      "md5": "0cd5946c6473e42e8e4c2137785e427f",
+      "size": 2048,
+      "notes": "Mattel Intellivision Graphics ROM required by FreeIntv. Filename is case-sensitive.",
+      "sources": [
+        {
+          "id": "internet_archive_tosec_2014_grom",
+          "name": "Internet Archive TOSEC 2014 GROM",
+          "type": "internet_archive_file",
+          "policy": "firmware_user_opt_in",
+          "url": "https://archive.org/download/MattelIntellivision2014ReferenceSet-CompleteTosecRomCollection/Mattel%20Intellivision%20-%20Firmware%20%28TOSEC-v2014-01-18_CM%29%2FGROM%2C%20The%20%281978%29%28General%20Instruments%29.zip/GROM%2C%20The%20%281978%29%28General%20Instruments%29.bin",
+          "index_url": "https://archive.org/details/MattelIntellivision2014ReferenceSet-CompleteTosecRomCollection",
+          "notes": "Direct inner-file URL from the TOSEC firmware ZIP; MD5 matches FreeIntv core-info."
+        }
+      ]
+    },
+    "leapster_bios": {
+      "filename": "leapster.zip",
+      "md5": "0e75c353af98da6f6c267ec414148f75",
+      "size": 18007272,
+      "notes": "MAME machine ROM set for LeapFrog Leapster. MAME also searches this set under system/mame/roms/leapster.zip. The current MAME driver is marked MACHINE_NOT_WORKING.",
+      "aliases": [
+        "mame/roms/leapster.zip"
+      ],
+      "zip_contents": [
+        {
+          "filename": "155-10072-a.bin",
+          "size": 2097152,
+          "md5": "2f74bccc291bb45c3b89d0fa75b81efb"
+        },
+        {
+          "filename": "leapster2_1004.bin",
+          "size": 8388608,
+          "md5": "182686687284cc3fa93dd56830b60597"
+        },
+        {
+          "filename": "leapster2_1006.bin",
+          "size": 8388608,
+          "md5": "0cf62ed5fc2df4cfdd20fe683e5d0356"
+        },
+        {
+          "filename": "leapster2_1008.bin",
+          "size": 8388608,
+          "md5": "8d68e6b6b8e1b3d71649c651802a1c13"
+        },
+        {
+          "filename": "leapstertv/am29pl160cb-90sf.bin",
+          "size": 2097152,
+          "md5": "5f99459515f13395e04aa2316446d131"
+        }
+      ],
+      "sources": [
+        {
+          "id": "internet_archive_mame_0221_leapster",
+          "name": "Internet Archive MAME 0.221 leapster.zip",
+          "type": "internet_archive_file",
+          "policy": "firmware_user_opt_in",
+          "url": "https://archive.org/download/mame-0.221-roms-merged/leapster.zip",
+          "index_url": "https://archive.org/download/mame-0.221-roms-merged/leapster.zip/",
+          "notes": "Verified leapster.zip MAME 0.221 merged ROM set. Contains the baseline Leapster BIOS plus Leapster 2 and Leapster TV BIOS variants available in that set."
+        }
+      ]
+    },
+    "leapster_mame_hash": {
+      "filename": "mame/hash/leapster.xml",
+      "md5": null,
+      "size": null,
+      "notes": "MAME software-list hash file for LeapFrog Leapster cartridges.",
+      "url": null,
+      "sources": [
+        {
+          "id": "mamedev_leapster_hash",
+          "name": "MAME leapster.xml",
+          "type": "github_raw",
+          "policy": "metadata_user_opt_in",
+          "url": "https://raw.githubusercontent.com/mamedev/mame/master/hash/leapster.xml",
+          "index_url": "https://github.com/mamedev/mame/blob/master/hash/leapster.xml",
+          "notes": "Official MAME software-list hash file for Leapster cartridges. Entries are currently marked supported=no."
+        }
+      ]
+    },
+    "gamecom_bios": {
+      "filename": "gamecom.zip",
+      "md5": "f2087ed09f7fa8d8856cfafb20dd00dc",
+      "size": 145138,
+      "notes": "Tiger Game.com MAME machine BIOS set. Must contain external.bin and internal.bin. Place in RetroArch system root; installer mirrors it to mame/roms/gamecom.zip.",
+      "url": null,
+      "zip_contents": [
+        {
+          "filename": "external.bin",
+          "md5": "813364d4863b1d7b7b8fd6a97a416bcf"
+        },
+        {
+          "filename": "internal.bin",
+          "md5": "f7bcefb6daf923c8e5ea2eb69f619efe"
+        }
+      ],
+      "sources": [
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/gamecom.zip",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/blob/main/bios/gamecom.zip",
+          "notes": "Verified gamecom.zip MAME BIOS set with MD5 f2087ed09f7fa8d8856cfafb20dd00dc."
+        }
+      ]
+    },
+    "gamecom_mame_hash": {
+      "filename": "mame/hash/gamecom.xml",
+      "md5": null,
+      "size": null,
+      "notes": "MAME software-list hash file for Tiger Game.com cartridges.",
+      "url": null,
+      "sources": [
+        {
+          "id": "mamedev_gamecom_hash",
+          "name": "MAME gamecom.xml",
+          "type": "github_raw",
+          "policy": "metadata_user_opt_in",
+          "url": "https://raw.githubusercontent.com/mamedev/mame/master/hash/gamecom.xml",
+          "index_url": "https://github.com/mamedev/mame/blob/master/hash/gamecom.xml",
+          "notes": "Official MAME software-list hash file for Tiger Game.com cartridges."
+        }
+      ]
+    },
+    "videopac_plus_g7400_bios": {
+      "filename": "g7400.bin",
+      "aliases": [
+        "G7400.BIN"
+      ],
+      "md5": "c500ff71236068e0dc0d0603d265ae76",
+      "size": 1024,
+      "notes": "Philips Videopac+ / G7400 BIOS required by O2EM for Videopac+ mode.",
+      "url": null,
+      "sources": [
+        {
+          "id": "batocera_plus_update",
+          "name": "Batocera.PLUS UPDATE bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/g7400.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/blob/main/bios/g7400.bin",
+          "notes": "Verified 1024-byte G7400 BIOS payload with MD5 c500ff71236068e0dc0d0603d265ae76."
+        },
+        {
+          "id": "batocera_plus",
+          "name": "Batocera.PLUS BIOS",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-bios/main/g7400.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-bios/blob/main/g7400.bin",
+          "notes": "Alternate public BatoceraPLUS BIOS repository copy with matching MD5."
+        }
+      ]
+    },
+    "crvision_bios": {
+      "filename": "crvision.zip",
+      "md5": "a2049600b290c9e73a74d124785516c4",
+      "size": 441619,
+      "notes": "VTech CreatiVision MAME machine BIOS set. Place in RetroArch system root; installer mirrors it to mame/roms/crvision.zip.",
+      "url": null,
+      "zip_contents": [
+        {
+          "filename": "ap2k.ic3c",
+          "md5": "cbf25d28f7f23ea3313c82587f873cd1"
+        },
+        {
+          "filename": "crvision.u20",
+          "md5": "3b1ef759d8e3fb4071582efd33dd05f9"
+        },
+        {
+          "filename": "it.em.ou.bin",
+          "md5": "2e47e5a78ad3c84ee4e782a1e2d887f9"
+        },
+        {
+          "filename": "lx800.ic3c",
+          "md5": "37f6793f7f3e3af0b506a33283a89d92"
+        },
+        {
+          "filename": "lx810l.ic3c",
+          "md5": "56e4e812c7a3240af96a474240610378"
+        },
+        {
+          "filename": "p72.2c",
+          "md5": "324fb3d389cc0af5cc7df4a6f5c935d0"
+        },
+        {
+          "filename": "pl80.pt6",
+          "md5": "26f9ac2a43dc28df74fea101c5ee1979"
+        },
+        {
+          "filename": "tiny.bin",
+          "md5": "ead508099bf31291543f22291703bba5"
+        },
+        {
+          "filename": "w8_pe9.9b",
+          "md5": "f9e396bd8385cc70a95b70510b80f7d0"
+        }
+      ],
+      "sources": [
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/crvision.zip",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/blob/main/bios/crvision.zip",
+          "notes": "Verified crvision.zip MAME BIOS set with MD5 a2049600b290c9e73a74d124785516c4."
+        },
+        {
+          "id": "abdess_retrobios",
+          "name": "RetroBIOS",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/Abdess/retrobios/main/bios/VTech/CreatiVision/crvision.zip",
+          "index_url": "https://github.com/Abdess/retrobios/blob/main/bios/VTech/CreatiVision/crvision.zip",
+          "notes": "Alternate public RetroBIOS repository copy with matching MD5."
+        }
+      ]
+    },
+    "crvision_mame_hash": {
+      "filename": "mame/hash/crvision.xml",
+      "md5": null,
+      "size": null,
+      "notes": "MAME software-list hash file for VTech CreatiVision cartridges.",
+      "url": null,
+      "sources": [
+        {
+          "id": "mamedev_crvision_hash",
+          "name": "MAME crvision.xml",
+          "type": "github_raw",
+          "policy": "metadata_user_opt_in",
+          "url": "https://raw.githubusercontent.com/mamedev/mame/master/hash/crvision.xml",
+          "index_url": "https://github.com/mamedev/mame/blob/master/hash/crvision.xml",
+          "notes": "Official MAME software-list hash file for CreatiVision cartridges."
+        }
+      ]
+    },
+    "vsmile_bios": {
+      "filename": "vsmile.zip",
+      "md5": "aadb355f8db993f50c6e83eb835dd55d",
+      "size": 3078731,
+      "notes": "VTech V.Smile MAME machine BIOS set. Place in RetroArch system root; installer mirrors it to mame/roms/vsmile.zip.",
+      "url": null,
+      "zip_contents": [
+        {
+          "filename": "vsmile_v100.bin",
+          "md5": "851ff77a89ec3f4f2793eb4aede30e5f"
+        },
+        {
+          "filename": "vsmile_v102.bin",
+          "md5": "f41fcc19ebe1e90fa359cd0df6293fab"
+        },
+        {
+          "filename": "vsmile_v103.bin",
+          "md5": "11e59253c578c8f16ea2375ec398e4e9"
+        }
+      ],
+      "sources": [
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/vsmile.zip",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/blob/main/bios/vsmile.zip",
+          "notes": "Verified vsmile.zip MAME BIOS set with MD5 aadb355f8db993f50c6e83eb835dd55d."
+        },
+        {
+          "id": "abdess_retrobios",
+          "name": "RetroBIOS",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/Abdess/retrobios/main/bios/VTech/V.Smile/vsmile.zip",
+          "index_url": "https://github.com/Abdess/retrobios/blob/main/bios/VTech/V.Smile/vsmile.zip",
+          "notes": "Alternate public RetroBIOS repository copy with matching MD5."
+        }
+      ]
+    },
+    "vsmile_mame_hash": {
+      "filename": "mame/hash/vsmile_cart.xml",
+      "md5": null,
+      "size": null,
+      "notes": "MAME software-list hash file for VTech V.Smile cartridges.",
+      "url": null,
+      "sources": [
+        {
+          "id": "mamedev_vsmile_cart_hash",
+          "name": "MAME vsmile_cart.xml",
+          "type": "github_raw",
+          "policy": "metadata_user_opt_in",
+          "url": "https://raw.githubusercontent.com/mamedev/mame/master/hash/vsmile_cart.xml",
+          "index_url": "https://github.com/mamedev/mame/blob/master/hash/vsmile_cart.xml",
+          "notes": "Official MAME software-list hash file for V.Smile cartridges."
+        }
+      ]
+    },
+    "panafz10_bios": {
+      "filename": "panafz10.bin",
+      "aliases": [
+        "fz10.bin",
+        "FZ10.BIN"
+      ],
+      "md5": "51f2f43ae2f3508a14d9f56597e2d3ce",
+      "size": 1048576,
+      "notes": "Panasonic FZ-10 3DO BIOS for the Opera RetroArch core. Libretro lists several accepted 3DO BIOSes; this is the recommended baseline used for validation.",
+      "url": null,
+      "sources": [
+        {
+          "id": "trapexit_3do_bios",
+          "name": "trapexit/3do-bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/trapexit/3do-bios/master/panafz10.bin",
+          "index_url": "https://github.com/trapexit/3do-bios/blob/master/panafz10.bin",
+          "notes": "Verified panafz10.bin with MD5 51f2f43ae2f3508a14d9f56597e2d3ce."
+        },
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/panafz10.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/blob/main/bios/panafz10.bin",
+          "notes": "Alternate public BIOS repository copy with matching MD5."
+        }
+      ]
+    },
+    "cemu_keys_txt": {
+      "filename": "Cemu/keys.txt",
+      "aliases": [
+        "keys.txt"
+      ],
+      "required": true,
+      "notes": "Cemu requires system/Cemu/keys.txt to load encrypted Wii U titles. Decrypted homebrew/content may not need keys, but normal encrypted dumps do.",
+      "sources": []
+    },
+    "psx_bios_jp": {
+      "filename": "scph5500.bin",
+      "aliases": [
+        "SCPH5500.BIN"
+      ],
+      "md5": "8dd7d5296a650fac7319bce665a6a53c",
+      "size": 524288,
+      "required": true,
+      "notes": "PS1 JP BIOS for SwanStation/Beetle PSX.",
+      "sources": [
+        {
+          "name": "BatoceraPLUS BIOS update",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/scph5500.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/tree/main/bios",
+          "notes": "Verified scph5500.bin with MD5 8dd7d5296a650fac7319bce665a6a53c."
+        }
+      ]
+    },
+    "psx_bios_us": {
+      "filename": "scph5501.bin",
+      "aliases": [
+        "SCPH5501.BIN"
+      ],
+      "md5": "490f666e1afb15b7362b406ed1cea246",
+      "size": 524288,
+      "required": true,
+      "notes": "PS1 US BIOS for SwanStation/Beetle PSX.",
+      "sources": [
+        {
+          "name": "BatoceraPLUS BIOS update",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/scph5501.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/tree/main/bios",
+          "notes": "Verified scph5501.bin with MD5 490f666e1afb15b7362b406ed1cea246."
+        }
+      ]
+    },
+    "psx_bios_eu": {
+      "filename": "scph5502.bin",
+      "aliases": [
+        "SCPH5502.BIN"
+      ],
+      "md5": "32736f17079d0b2b7024407c39bd3050",
+      "size": 524288,
+      "required": true,
+      "notes": "PS1 EU BIOS for SwanStation/Beetle PSX.",
+      "sources": [
+        {
+          "name": "BatoceraPLUS BIOS update",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/scph5502.bin",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/tree/main/bios",
+          "notes": "Verified scph5502.bin with MD5 32736f17079d0b2b7024407c39bd3050."
+        }
+      ]
+    },
+    "amiga_cd32_kickstart": {
+      "filename": "kick40060.CD32",
+      "aliases": [
+        "amiga-os-310-cd32.rom",
+        "Kickstart v3.1 r40.60 (1993)(Commodore)(CD32).rom",
+        "Kickstart v3.1 rev 40.60 (1993)(Commodore)(CD32).rom"
+      ],
+      "md5": "5f8924d013dd57a89cf349f4cdedc6b1",
+      "size": 524288,
+      "notes": "CD32 Kickstart v3.1 rev 40.060 required by PUAE for Commodore CD32 disc content.",
+      "sources": [
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/kick40060.CD32",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/tree/main/bios",
+          "notes": "Public firmware collection entry verified with Libretro PUAE MD5."
+        }
+      ]
+    },
+    "amiga_cd32_extended_rom": {
+      "filename": "kick40060.CD32.ext",
+      "aliases": [
+        "amiga-os-310-cd32-ext.rom",
+        "amiga-ext-310-cd32.rom",
+        "CD32 Extended-ROM r40.60 (1993)(Commodore)(CD32).rom"
+      ],
+      "md5": "bb72565701b1b6faece07d68ea5da639",
+      "size": 524288,
+      "notes": "CD32 extended ROM rev 40.060 required by PUAE for Commodore CD32 disc content.",
+      "sources": [
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/kick40060.CD32.ext",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/tree/main/bios",
+          "notes": "Public firmware collection entry verified with Libretro PUAE MD5."
+        }
+      ]
+    },
+    "ppsspp_assets": {
+      "filename": "PPSSPP/ppge_atlas.zim",
+      "aliases": [],
+      "md5": "866855cc330b9b95cc69135fb7b41d38",
+      "size": 666530,
+      "notes": "PPSSPP core system assets. Libretro documents PPSSPP as HLE with no PSP BIOS required, but the core requires the PPSSPP asset files, including ppge_atlas.zim, under system/PPSSPP for full functionality.",
+      "sources": [
+        {
+          "id": "ppsspp_github_assets",
+          "name": "PPSSPP GitHub assets",
+          "type": "github_directory",
+          "policy": "core_system_files",
+          "url": "https://github.com/hrydgard/ppsspp/tree/master/assets",
+          "notes": "Install the contents of the upstream assets directory into the RetroArch system/PPSSPP directory."
+        }
+      ]
+    },
+    "pce_cd_syscard3": {
+      "filename": "syscard3.pce",
+      "aliases": [
+        "[BIOS] Super CD-ROM System (Japan) (v3.0).pce",
+        "Super CD-ROM2 System V3.00 (J).pce"
+      ],
+      "md5": "38179df8f4ac870017db21ebcbf53114",
+      "size": 262144,
+      "notes": "Required Super CD-ROM2 System Card v3.x BIOS for Beetle PCE Fast when loading PC Engine CD/TurboGrafx-CD content. Headered dumps with MD5 ff1a674273fe3540ccef576376407d1d must have the first 512 bytes removed.",
+      "sources": [
+        {
+          "id": "libretro_beetle_pce_fast_docs",
+          "name": "Libretro Beetle PCE Fast documentation",
+          "type": "documentation",
+          "policy": "checksum_reference",
+          "url": "https://docs.libretro.com/library/beetle_pce_fast/",
+          "notes": "Documents syscard3.pce as the required PCE-CD BIOS with MD5 38179df8f4ac870017db21ebcbf53114."
+        },
+        {
+          "id": "local_header_stripped_syscard3",
+          "name": "Local header-stripped syscard3.pce",
+          "type": "local_transform",
+          "policy": "user_owned_firmware_transform",
+          "url": null,
+          "notes": "Generated by removing the first 512-byte copier header from the existing local syscard3.pce dump."
+        }
+      ]
+    },
+    "cdi_mono1_bios": {
+      "filename": "same_cdi/bios/cdimono1.zip",
+      "aliases": [
+        "cdimono1.zip"
+      ],
+      "md5": null,
+      "size": null,
+      "notes": "Required SAME_CDI BIOS for consumer Philips CD-i games. Place cdimono1.zip under RetroArch system/same_cdi/bios; SAME_CDI can also load it from the content directory, but the app standardizes on the system path.",
+      "url": null,
+      "sources": [
+        {
+          "id": "same_cdi_docs",
+          "name": "SAME_CDI libretro documentation",
+          "type": "documentation",
+          "policy": "metadata_user_opt_in",
+          "url": "https://docs.libretro.com/library/same_cdi/",
+          "index_url": "https://github.com/libretro/same_cdi",
+          "notes": "Documents supported content formats and cdimono1.zip placement under same_cdi/bios."
+        },
+        {
+          "id": "batocera_plus_update",
+          "name": "Batocera.PLUS UPDATE bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/cdimono1.zip",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/blob/main/bios/cdimono1.zip",
+          "notes": "Public BatoceraPLUS update BIOS repository entry for Philips CD-i cdimono1.zip."
+        },
+        {
+          "id": "retrobios",
+          "name": "RetroBIOS",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/Abdess/retrobios/main/bios/Philips/CD-i/cdimono1.zip",
+          "index_url": "https://github.com/Abdess/retrobios/tree/main/bios/Philips/CD-i",
+          "notes": "Public RetroBIOS entry for Philips CD-i cdimono1.zip."
+        }
+      ]
+    },
+    "pcsx2_bios_folder": {
+      "filename": "pcsx2/bios",
+      "type": "directory",
+      "required_extensions": [
+        ".bin"
+      ],
+      "allowed_extensions": [
+        ".bin",
+        ".erom",
+        ".nvm",
+        ".rom1",
+        ".rom2"
+      ],
+      "minimum_files": 1,
+      "minimum_file_size": 4194304,
+      "known_md5s": [
+        "21038400dc633070a78ad53090c53017",
+        "28922c703cc7d2cf856f177f2985b3a9",
+        "d5ce2c7d119f563ce04bc04dbc3a323e",
+        "9a9e8ed7668e6adfc8f7766c08ab9cd0"
+      ],
+      "known_filenames": [
+        "ps2-0230a-20080220.bin",
+        "ps2-0230e-20080220.bin",
+        "ps2-0250e-20100415.bin",
+        "ps2-0230j-20080220.bin",
+        "SCPH30004R.bin",
+        "scph39001.bin",
+        "EROM.BIN"
+      ],
+      "aliases": [],
+      "md5": null,
+      "size": null,
+      "notes": "Required BIOS folder for the PCSX2/LRPS2 core. Libretro documents this as user-provided BIOS dumps under system/pcsx2/bios; ZIP files are not accepted. A single valid PS2 BIOS .bin is normally 4 MB; PS1 scph550x.bin files are not valid for PS2. Batocera 39+ recommends ps2-0230a-20080220.bin for broad NTSC/PAL coverage and documents the expected checksum.",
+      "url": null,
+      "sources": [
+        {
+          "id": "abdess_retrobios_ps2_0230a",
+          "name": "RetroBIOS PS2 0230A",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/Abdess/retrobios/main/bios/Sony/PlayStation%202/ps2-0230a-20080220.bin",
+          "index_url": "https://github.com/Abdess/retrobios/tree/main/bios/Sony/PlayStation%202",
+          "notes": "Public RetroBIOS repository entry for ps2-0230a-20080220.bin. Verified size 4 MB and MD5 21038400dc633070a78ad53090c53017, matching Batocera's PS2 BIOS reference."
+        },
+        {
+          "id": "libretro_lrps2_bios_docs",
+          "name": "Libretro LRPS2 BIOS documentation",
+          "type": "documentation",
+          "policy": "user_provided_firmware",
+          "url": "https://docs.libretro.com/library/lrps2/#bios",
+          "index_url": "https://docs.libretro.com/library/lrps2/",
+          "notes": "Documents required PS2 BIOS folder structure and file handling."
+        },
+        {
+          "id": "batocera_systems_ps2_bios_reference",
+          "name": "Batocera PS2 BIOS checksum reference",
+          "type": "documentation",
+          "policy": "checksum_reference",
+          "url": "https://github.com/batocera-linux/batocera.linux/blob/master/package/batocera/core/batocera-scripts/scripts/batocera-systems",
+          "index_url": "https://github.com/batocera-linux/batocera.linux/blob/master/package/batocera/core/batocera-scripts/scripts/batocera-systems",
+          "notes": "Batocera lists ps2-0230a-20080220.bin with MD5 21038400dc633070a78ad53090c53017. ROMs Manager still installs it under RetroArch LRPS2's expected system/pcsx2/bios folder."
+        },
+        {
+          "id": "batocera_ps2_wiki_bios_reference",
+          "name": "Batocera PS2 BIOS documentation",
+          "type": "documentation",
+          "policy": "checksum_reference",
+          "url": "https://wiki.batocera.org/systems:ps2",
+          "index_url": "https://wiki.batocera.org/systems:ps2",
+          "notes": "Documents Batocera 39+ PS2 BIOS path /userdata/bios/ps2 and recommended regional BIOS filenames. This is a checksum/path reference, not a download source."
+        }
+      ]
+    },
+    "pcsx2_gameindex": {
+      "filename": "pcsx2/resources/GameIndex.yaml",
+      "aliases": [],
+      "md5": null,
+      "size": null,
+      "notes": "Optional PCSX2 game database override. Recent LRPS2 builds embed this database, but RetroArch can still use an external file under system/pcsx2/resources.",
+      "url": "https://raw.githubusercontent.com/PCSX2/pcsx2/master/bin/resources/GameIndex.yaml",
+      "sources": [
+        {
+          "id": "pcsx2_gameindex_github",
+          "name": "PCSX2 GameIndex.yaml",
+          "type": "github_raw",
+          "policy": "core_system_files",
+          "url": "https://raw.githubusercontent.com/PCSX2/pcsx2/master/bin/resources/GameIndex.yaml",
+          "index_url": "https://github.com/PCSX2/pcsx2/tree/master/bin/resources",
+          "notes": "Optional compatibility database override; LRPS2 documentation notes modern builds embed it."
+        }
+      ]
+    },
+    "amiga_a500_kickstart_13": {
+      "filename": "kick34005.A500",
+      "aliases": [
+        "amiga-os-130.rom",
+        "Kickstart v1.3 rev 34.005 (1987)(Commodore)(A500-A1000-A2000-CDTV).rom"
+      ],
+      "md5": "82a21c1890cae844b3df741f2762d48d",
+      "size": 262144,
+      "notes": "Amiga Kickstart v1.3 rev 34.005 required by PUAE for Commodore CDTV disc content.",
+      "sources": [
+        {
+          "id": "libretro_puae_docs",
+          "name": "Libretro PUAE documentation",
+          "type": "documentation",
+          "policy": "checksum_reference",
+          "url": "https://docs.libretro.com/library/puae/",
+          "notes": "Documents kick34005.A500 with MD5 82a21c1890cae844b3df741f2762d48d."
+        },
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/kick34005.A500",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/tree/main/bios",
+          "notes": "Public firmware collection entry checked against Libretro PUAE checksum."
+        },
+        {
+          "id": "abdess_retrobios",
+          "name": "RetroBIOS",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/Abdess/retrobios/main/bios/Commodore/Amiga/kick34005.A500",
+          "index_url": "https://github.com/Abdess/retrobios/tree/main/bios/Commodore/Amiga",
+          "notes": "Alternate public firmware collection entry checked against Libretro PUAE checksum."
+        }
+      ]
+    },
+    "amiga_cdtv_extended_rom": {
+      "filename": "kick34005.CDTV",
+      "aliases": [
+        "amiga-os-130-cdtv-ext.rom",
+        "CDTV Extended-ROM v1.00 (1991)(Commodore)(CDTV).rom"
+      ],
+      "md5": "89da1838a24460e4b93f4f0c5d92d48d",
+      "size": 262144,
+      "notes": "CDTV extended ROM v1.00 required by PUAE for Commodore CDTV disc content.",
+      "sources": [
+        {
+          "id": "libretro_puae_docs",
+          "name": "Libretro PUAE documentation",
+          "type": "documentation",
+          "policy": "checksum_reference",
+          "url": "https://docs.libretro.com/library/puae/",
+          "notes": "Documents kick34005.CDTV with MD5 89da1838a24460e4b93f4f0c5d92d48d."
+        },
+        {
+          "id": "batoceraplus_update_bios",
+          "name": "Batocera.PLUS UPDATE bios",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/main/bios/kick34005.CDTV",
+          "index_url": "https://github.com/BatoceraPLUS/Batocera.PLUS-UPDATE-bios/tree/main/bios",
+          "notes": "Public firmware collection entry checked against Libretro PUAE checksum."
+        },
+        {
+          "id": "abdess_retrobios",
+          "name": "RetroBIOS",
+          "type": "github_raw",
+          "policy": "firmware_user_opt_in",
+          "url": "https://raw.githubusercontent.com/Abdess/retrobios/main/bios/Commodore/Amiga/kick34005.CDTV",
+          "index_url": "https://github.com/Abdess/retrobios/tree/main/bios/Commodore/Amiga",
+          "notes": "Alternate public firmware collection entry checked against Libretro PUAE checksum."
+        }
+      ]
     }
   },
   "cores": {
@@ -992,6 +1940,14 @@
         "72c1d004-1fce-5e54-9936-f41a1bcfe733"
       ],
       "notes": "Recommended RetroArch core for ColecoVision. Requires colecovision.rom in RetroArch's system directory; coleco.rom is also accepted by the core."
+    },
+    "cap32": {
+      "name": "Caprice32",
+      "bios_ids": [],
+      "console_guids": [
+        "e6efac9f-20f1-538e-80f8-152d9adf4678"
+      ],
+      "notes": "Recommended RetroArch core for Amstrad GX4000 through the Caprice32 CPC/GX4000 core. Supports .cpr and .zip content. For GX4000 cartridges, set cap32_model = \"6128+ (experimental)\" and cap32_gfx_colors = \"24bit\". No BIOS required."
     },
     "freechaf": {
       "name": "FreeChaF",
@@ -1056,12 +2012,19 @@
     },
     "mednafen_pce_fast": {
       "name": "Beetle PCE Fast",
-      "bios_ids": [],
+      "bios_ids": [
+        "pce_cd_syscard3"
+      ],
       "console_guids": [
         "2bd2cd12-6d99-5379-86dc-be6a5904e280",
         "1ff5f144-8d13-51b9-82c6-365169ba2455"
       ],
-      "notes": "Recommended RetroArch core for PC Engine/TurboGrafx-16 and PC Engine CD/TurboGrafx-CD. CD BIOS metadata still needs explicit validation."
+      "notes": "Recommended RetroArch core for PC Engine/TurboGrafx-16 and PC Engine CD/TurboGrafx-CD. HuCard games do not require BIOS; CD games require syscard3.pce in the RetroArch system directory.",
+      "optional_bios_ids": [
+        "pce_cd_syscard1",
+        "pce_cd_syscard2",
+        "pce_cd_gexpress"
+      ]
     },
     "flycast": {
       "name": "Flycast",
@@ -1085,16 +2048,35 @@
     "mupen64plus_next": {
       "name": "Mupen64Plus-Next",
       "bios_ids": [],
-      "console_guids": [
-        "bc8c836c-4218-5ff1-bfb2-d895381289b4"
+      "optional_bios_ids": [
+        "n64dd_ipl_bios"
       ],
-      "notes": "Recommended RetroArch core for Nintendo 64."
+      "console_guids": [
+        "bc8c836c-4218-5ff1-bfb2-d895381289b4",
+        "181c391a-2ac2-532b-af04-87046592c200"
+      ],
+      "notes": "Recommended RetroArch core for Nintendo 64 and Nintendo 64DD. Supports .n64, .v64, .z64, .ndd, .bin, and .u1. 64DD uses Mupen64plus/IPL.n64 firmware and may require RetroArch subsystem handling."
+    },
+    "parallel_n64": {
+      "name": "ParaLLEl N64",
+      "bios_ids": [],
+      "optional_bios_ids": [
+        "n64dd_ipl_bios"
+      ],
+      "console_guids": [
+        "bc8c836c-4218-5ff1-bfb2-d895381289b4",
+        "181c391a-2ac2-532b-af04-87046592c200"
+      ],
+      "notes": "Fallback RetroArch core for Nintendo 64 and 64DD, mainly useful when Mupen64Plus-Next is unavailable or a platform benefits from ParaLLEl behavior."
     },
     "beetle_saturn": {
       "name": "Beetle Saturn (Mednafen core)",
+      "core_file": "mednafen_saturn",
       "bios_ids": [
         "saturn_jp_bios",
-        "saturn_us_eu_bios",
+        "saturn_us_eu_bios"
+      ],
+      "optional_bios_ids": [
         "saturn_kof95_cart",
         "saturn_ultraman_cart"
       ],
@@ -1104,9 +2086,12 @@
     },
     "kronos": {
       "name": "Kronos",
+      "core_file": "kronos",
       "bios_ids": [
         "saturn_generic_bios",
-        "stv_bios",
+        "stv_bios"
+      ],
+      "optional_bios_ids": [
         "saturn_kof95_cart",
         "saturn_ultraman_cart"
       ],
@@ -1116,6 +2101,7 @@
     },
     "yabause": {
       "name": "Yabause",
+      "core_file": "yabause",
       "bios_ids": [
         "saturn_generic_bios"
       ],
@@ -1125,6 +2111,7 @@
     },
     "yabasanshiro": {
       "name": "YabaSanshiro",
+      "core_file": "yabasanshiro",
       "bios_ids": [
         "saturn_generic_bios"
       ],
@@ -1530,9 +2517,441 @@
       ],
       "optional_bios_ids": [],
       "console_guids": [
-        "58d85a09-26d6-5da5-a102-c6b9257853da"
+        "58d85a09-26d6-5da5-a102-c6b9257853da",
+        "ba79594a-da19-5127-9a46-9eee6bccf034"
       ],
-      "notes": "Recommended RetroArch core for Nintendo GameCube. Supports .elf, .iso, .gcm, .dol, .tgc, .wbfs, .ciso, .gcz, .rvz, and .m3u. Requires dolphin-emu/Sys in RetroArch system directory for reliable operation."
+      "notes": "Recommended RetroArch core for Nintendo GameCube and Wii. Supports .elf, .iso, .gcm, .dol, .tgc, .wbfs, .ciso, .gcz, .wad, .rvz, .wia, and .m3u. Requires dolphin-emu/Sys in RetroArch system directory for reliable operation."
+    },
+    "melondsds": {
+      "name": "melonDS DS",
+      "bios_ids": [],
+      "optional_bios_ids": [
+        "nds_bios7",
+        "nds_bios9",
+        "nds_firmware",
+        "dsi_bios7",
+        "dsi_bios9",
+        "dsi_firmware",
+        "dsi_nand"
+      ],
+      "console_guids": [
+        "5651be84-7270-5c43-8625-a744265f04fd",
+        "7f574026-e1ef-588c-9ce1-a90da8d55378"
+      ],
+      "notes": "Recommended RetroArch core for Nintendo DS and DSi. Supports .nds, .ids, and .dsi. Plain DS cartridge mode can use FreeBIOS, but DSi mode and DSiWare require DS BIOS, DSi BIOS, firmware, and NAND files.",
+      "console_bios_ids": {
+        "7f574026-e1ef-588c-9ce1-a90da8d55378": [
+          "nds_bios7",
+          "nds_bios9",
+          "nds_firmware",
+          "dsi_bios7",
+          "dsi_bios9",
+          "dsi_firmware",
+          "dsi_nand",
+          "dsi_nand_eur",
+          "dsi_nand_jpn"
+        ]
+      },
+      "install_strategy": {
+        "type": "melonds_dsiware",
+        "console_guid": "7f574026-e1ef-588c-9ce1-a90da8d55378",
+        "payload_extension": ".dsi",
+        "system_subdir": "melonDS DS"
+      }
+    },
+    "desmume": {
+      "name": "DeSmuME",
+      "bios_ids": [],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "5651be84-7270-5c43-8625-a744265f04fd"
+      ],
+      "notes": "Fallback RetroArch core for Nintendo DS. Supports .nds, .ids, and .bin; optional external BIOS/firmware can be enabled through core options."
+    },
+    "azahar": {
+      "name": "Azahar",
+      "bios_ids": [],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "87a9705b-d6c1-57b0-a59f-5fc180a2b342"
+      ],
+      "notes": "Recommended RetroArch core for Nintendo 3DS. Supports .3ds, .3dsx, .z3dsx, .elf, .axf, .cci, .zcci, .cxi, .zcxi, and .app. Requires decrypted ROMs; some games require user-dumped Mii data."
+    },
+    "citra": {
+      "name": "Citra",
+      "bios_ids": [],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "87a9705b-d6c1-57b0-a59f-5fc180a2b342"
+      ],
+      "notes": "Fallback RetroArch core for Nintendo 3DS. Supports .3ds, .3dsx, .elf, .axf, .cci, .cxi, and .app. Requires decrypted ROMs; some games require user-dumped Mii data."
+    },
+    "freeintv": {
+      "name": "FreeIntv",
+      "bios_ids": [
+        "intellivision_exec_bios",
+        "intellivision_grom_bios"
+      ],
+      "console_guids": [
+        "3cf5e7dd-c115-54b5-b395-da2e2c623f7a"
+      ],
+      "notes": "Recommended RetroArch core for Mattel Intellivision. Supports .int, .bin, and .rom. Requires exec.bin and grom.bin in RetroArch system."
+    },
+    "ardens": {
+      "name": "Ardens",
+      "bios_ids": [],
+      "console_guids": [
+        "175ebf15-9e43-5921-b85f-6b71d40ce802"
+      ],
+      "notes": "Recommended RetroArch core for Arduboy and Arduboy FX. Supports .hex and .arduboy; no BIOS required."
+    },
+    "arduous": {
+      "name": "Arduous",
+      "bios_ids": [],
+      "console_guids": [
+        "175ebf15-9e43-5921-b85f-6b71d40ce802"
+      ],
+      "notes": "Fallback RetroArch core for Arduboy. Supports .hex; no BIOS required."
+    },
+    "mame_leapster": {
+      "name": "MAME Current (Leapster)",
+      "core_file": "mame",
+      "bios_ids": [
+        "leapster_bios",
+        "leapster_mame_hash"
+      ],
+      "console_guids": [
+        "329862d7-95e7-5bdd-9f9c-291cac53a1a8"
+      ],
+      "install_strategy": {
+        "type": "mame_softlist_cmd",
+        "machine": "leapster",
+        "software_list": "leapster",
+        "media": "cart",
+        "hash_file": "leapster.xml",
+        "roms_subdir": "leapster",
+        "boot_from_cli_option": "mame_boot_from_cli"
+      },
+      "notes": "Recommended RetroArch path for LeapFrog Leapster via MAME software-list emulation. Current MAME marks the Leapster family MACHINE_NOT_WORKING and software entries unsupported, so this is tracked as backend-ready rather than runtime-validated."
+    },
+    "gw": {
+      "name": "Handheld Electronic (GW)",
+      "core_file": "gw",
+      "bios_ids": [],
+      "console_guids": [
+        "60e5b2cc-0649-54b1-b0e0-30d0acac4bcc"
+      ],
+      "notes": "Recommended RetroArch core for Game & Watch-style handheld electronic .mgw simulators. No BIOS required. Libretro docs describe it as easier to get running than MAME for these games."
+    },
+    "pokemini": {
+      "name": "PokeMini",
+      "bios_ids": [],
+      "optional_bios_ids": [
+        "pokemini_bios"
+      ],
+      "console_guids": [
+        "ed4e8377-e783-581f-ac90-9d8c98e481ae"
+      ],
+      "notes": "Recommended RetroArch core for Nintendo Pokemon Mini. Supports .min content. bios.min is optional because the core can use its embedded FreeBIOS fallback."
+    },
+    "snes9x": {
+      "name": "Snes9x",
+      "bios_ids": [
+        "satellaview_bsx_bios"
+      ],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "78fd1160-3b20-5192-bd96-9c28af2e8a61"
+      ],
+      "notes": "Recommended RetroArch core for Satellaview .bs content. Libretro core-info documents BS-X.bin in the system directory for BS-X/Satellaview."
+    },
+    "snes9x_sufami_turbo": {
+      "name": "Snes9x (Sufami Turbo)",
+      "core_file": "snes9x",
+      "bios_ids": [
+        "sufami_turbo_bios"
+      ],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "1ab4ffbd-5190-5b57-9dc1-92b24fec2845"
+      ],
+      "notes": "Recommended RetroArch core path for Sufami Turbo .st content. Uses snes9x_libretro.so and requires STBIOS.bin in the system directory."
+    },
+    "bsnes": {
+      "name": "bsnes",
+      "bios_ids": [
+        "satellaview_bsx_bios"
+      ],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "78fd1160-3b20-5192-bd96-9c28af2e8a61"
+      ],
+      "notes": "Fallback high-accuracy RetroArch core for Satellaview and SNES. Requires BS-X.bin for Satellaview."
+    },
+    "snes9x_snes": {
+      "name": "Snes9x (SNES)",
+      "core_file": "snes9x",
+      "bios_ids": [],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "bf3926b2-106d-56c9-8166-0fe29c33bad0"
+      ],
+      "notes": "Recommended RetroArch core path for standard Super Nintendo Entertainment System content. Uses snes9x_libretro.so and does not require BIOS for normal cartridges."
+    },
+    "bsnes_snes": {
+      "name": "bsnes (SNES)",
+      "core_file": "bsnes",
+      "bios_ids": [],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "bf3926b2-106d-56c9-8166-0fe29c33bad0"
+      ],
+      "notes": "Fallback high-accuracy RetroArch core path for standard SNES content. Special-chip firmware may be needed for some edge cases, but normal cartridges do not require BIOS."
+    },
+    "mednafen_vb": {
+      "name": "Beetle VB",
+      "bios_ids": [],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "42411369-42f4-5fcc-9500-caa3ed220f32"
+      ],
+      "notes": "Recommended RetroArch core for Nintendo Virtual Boy. Supports .vb, .vboy, and .bin; no BIOS required."
+    },
+    "potator": {
+      "name": "Potator",
+      "bios_ids": [],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "57249b7f-c969-55d0-a129-6a9eb48cd100"
+      ],
+      "notes": "Recommended RetroArch core for Watara Supervision. Supports .bin and .sv content; no BIOS required."
+    },
+    "mame_gamecom": {
+      "name": "MAME Current (Game.com)",
+      "core_file": "mame",
+      "bios_ids": [
+        "gamecom_bios",
+        "gamecom_mame_hash"
+      ],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "cf88421d-dd86-5d2d-85d0-c640b1730604"
+      ],
+      "install_strategy": {
+        "type": "mame_softlist_cmd",
+        "machine": "gamecom",
+        "software_list": "gamecom",
+        "media": "cart1",
+        "hash_file": "gamecom.xml",
+        "roms_subdir": "gamecom",
+        "boot_from_cli_option": "mame_boot_from_cli"
+      },
+      "notes": "Recommended RetroArch path for Tiger Game.com via MAME software-list emulation. Requires gamecom.zip and gamecom.xml."
+    },
+    "o2em_videopac_plus": {
+      "name": "O2EM (Videopac+)",
+      "core_file": "o2em",
+      "bios_ids": [
+        "videopac_plus_g7400_bios"
+      ],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "390f4a10-ddc9-57bd-bfec-b08cb8250c7b"
+      ],
+      "notes": "Recommended RetroArch core path for Philips Videopac+ / G7400. Uses o2em_libretro.so and requires g7400.bin in the RetroArch system directory."
+    },
+    "mame_crvision": {
+      "name": "MAME Current (CreatiVision)",
+      "core_file": "mame",
+      "bios_ids": [
+        "crvision_bios",
+        "crvision_mame_hash"
+      ],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "90188f7f-aeff-501b-a10f-f41fb617829f"
+      ],
+      "install_strategy": {
+        "type": "mame_softlist_cmd",
+        "machine": "crvision",
+        "software_list": "crvision",
+        "media": "cart",
+        "hash_file": "crvision.xml",
+        "roms_subdir": "crvision",
+        "boot_from_cli_option": "mame_boot_from_cli"
+      },
+      "notes": "Recommended RetroArch path for VTech CreatiVision via MAME software-list emulation. Requires crvision.zip and crvision.xml. Games commonly need F10 then R after boot."
+    },
+    "mame_vsmile": {
+      "name": "MAME Current (V.Smile)",
+      "core_file": "mame",
+      "bios_ids": [
+        "vsmile_bios",
+        "vsmile_mame_hash"
+      ],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "c59cbdeb-e157-529b-b360-a193d53dc65b"
+      ],
+      "install_strategy": {
+        "type": "mame_softlist_cmd",
+        "machine": "vsmile",
+        "software_list": "vsmile_cart",
+        "media": "cart",
+        "hash_file": "vsmile_cart.xml",
+        "roms_subdir": "vsmile_cart",
+        "boot_from_cli_option": "mame_boot_from_cli"
+      },
+      "notes": "Recommended RetroArch path for VTech V.Smile via MAME software-list emulation. Requires vsmile.zip and vsmile_cart.xml."
+    },
+    "opera": {
+      "name": "Opera",
+      "bios_ids": [
+        "panafz10_bios"
+      ],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "2ba124e3-51ac-535f-b0fa-0ed4fd88ea00"
+      ],
+      "notes": "Recommended RetroArch core for The 3DO Company - 3DO. Supports .iso, .bin, .cue, and .chd; panafz10.bin is the validation BIOS."
+    },
+    "cemu": {
+      "name": "Cemu",
+      "bios_ids": [
+        "cemu_keys_txt"
+      ],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "f9bc37b4-6d5b-518c-bfe3-e3a9571332ab"
+      ],
+      "notes": "Experimental Libretro Cemu core for Nintendo Wii U. Supports .wud, .wux, .wua, .iso, .rpx, .elf, and .tmd; encrypted titles require system/Cemu/keys.txt and graphics require Vulkan or OpenGL 4.5."
+    },
+    "swanstation": {
+      "name": "SwanStation",
+      "bios_ids": [
+        "psx_bios_jp",
+        "psx_bios_us",
+        "psx_bios_eu"
+      ],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "6cbd1842-2231-5e82-92fc-73613e2f21a8"
+      ],
+      "notes": "Recommended RetroArch core for Sony - PlayStation. Supports .exe, .psexe, .cue, .bin, .img, .iso, .chd, .pbp, .ecm, .mds, .psf, and .m3u. Requires a valid BIOS such as scph5500.bin, scph5501.bin, and scph5502.bin for full region coverage."
+    },
+    "puae": {
+      "name": "PUAE",
+      "bios_ids": [],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "b0ef410b-72a4-57b7-a26a-896c6d751c73",
+        "9c668a1c-e2b5-5a8c-9f2e-0ec7ef74dd3c"
+      ],
+      "notes": "Recommended RetroArch core for Commodore CD32 and CDTV. Supports cue/bin, iso, chd, m3u, and compressed disc archives. Use console-specific model options and BIOS requirements for deterministic CD boot behavior.",
+      "console_bios_ids": {
+        "b0ef410b-72a4-57b7-a26a-896c6d751c73": [
+          "amiga_cd32_kickstart",
+          "amiga_cd32_extended_rom"
+        ],
+        "9c668a1c-e2b5-5a8c-9f2e-0ec7ef74dd3c": [
+          "amiga_a500_kickstart_13",
+          "amiga_cdtv_extended_rom"
+        ]
+      },
+      "core_file": "puae"
+    },
+    "ppsspp": {
+      "name": "PPSSPP",
+      "bios_ids": [
+        "ppsspp_assets"
+      ],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "61637bb4-0f3b-5458-b458-8fcc6541c6f8"
+      ],
+      "notes": "Recommended RetroArch core for Sony PlayStation Portable. Supports .elf, .iso, .cso, .prx, .pbp, and .chd. No PSP BIOS is required, but PPSSPP core assets must exist under system/PPSSPP."
+    },
+    "same_cdi": {
+      "name": "SAME CDi",
+      "core_file": "same_cdi",
+      "bios_ids": [
+        "cdi_mono1_bios"
+      ],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "62d4f759-78e5-56b9-bc45-4ee6d42a3704"
+      ],
+      "notes": "Recommended libretro path for Philips CD-i. Supports .chd, .iso, and .cue content; use CHD/CUE providers when possible. Requires cdimono1.zip under system/same_cdi/bios."
+    },
+    "pcsx2": {
+      "name": "PCSX2 / LRPS2",
+      "core_file": "pcsx2",
+      "bios_ids": [
+        "pcsx2_bios_folder"
+      ],
+      "optional_bios_ids": [
+        "pcsx2_gameindex"
+      ],
+      "console_guids": [
+        "f250f78e-521b-5d39-b11c-7754f2e8ebc6"
+      ],
+      "notes": "Preferred libretro path for Sony PlayStation 2 when BIOS dumps are available. Supports ELF, ISO, CISO, CUE/BIN, CHD, CSO, MDF/NRG/IMG, and M3U. Requires user-provided BIOS files under system/pcsx2/bios."
+    },
+    "play": {
+      "name": "Play!",
+      "core_file": "play",
+      "bios_ids": [],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "f250f78e-521b-5d39-b11c-7754f2e8ebc6"
+      ],
+      "notes": "BIOS-free PlayStation 2 fallback core with lower compatibility than PCSX2/LRPS2. Useful for homebrew smoke tests and machines where PCSX2 BIOS is not configured."
+    },
+    "vita3k": {
+      "name": "Vita3K",
+      "kind": "external_emulator",
+      "install_type": "vita3k",
+      "launcher": "vita3k",
+      "bios_ids": [],
+      "optional_bios_ids": [],
+      "console_guids": [
+        "219b39f7-8c82-5053-8efa-b74c7c654aa7"
+      ],
+      "supported_extensions": [
+        ".pkg",
+        ".vpk",
+        ".zip",
+        ".vci"
+      ],
+      "install_strategy": {
+        "type": "external_vita3k",
+        "console_guid": "219b39f7-8c82-5053-8efa-b74c7c654aa7",
+        "package_extensions": [
+          ".pkg",
+          ".vpk",
+          ".zip",
+          ".vci"
+        ],
+        "folder_install": true,
+        "pkg_requires_zrif": true,
+        "launch_target": "external_emulator",
+        "playlist": "not_applicable",
+        "requires_user_firmware": "conditional"
+      },
+      "notes": "External standalone emulator for Sony PlayStation Vita. Not a libretro core and not installed under RetroArch. Vita3K supports package/archive/folder installs; .pkg files require zRIF/license material. ROMs Manager stages Vita packages locally until automatic Vita3K import/launch is implemented. Backend APIs must not expose local Vita3K paths.",
+      "firmware": {
+        "name": "PS Vita System Software",
+        "version": "3.74",
+        "source": "https://www.playstation.com/en-us/support/hardware/psvita/system-software/",
+        "filename": "PSVUPDAT.PUP",
+        "installed_markers": [
+          "~/.local/share/Vita3K/Vita3K/os0/kd/sysmem.skprx",
+          "~/.local/share/Vita3K/Vita3K/vs0/app/NPXS10000/eboot.bin"
+        ],
+        "minimum_markers": 2,
+        "ready_label": "Vita3K firmware 3.74 installed",
+        "missing_label": "Install Vita3K firmware 3.74"
+      }
     }
   }
 }

@@ -33,7 +33,36 @@ export type RomEntry = {
   crc?: string
   md5?: string
   sha1?: string
+  thumbnail_url?: string
+  thumbnail_category?: string
+  game_title?: string
+  variant_tags?: string[]
+  variant_label?: string
+  variant_count?: number
+  variant_index?: number
+  artwork?: Record<string, {
+    category?: string
+    url?: string
+    path?: string
+    sha?: string
+  }>
   [key: string]: unknown
+}
+
+export type RomEntriesPage = {
+  entries: RomEntry[]
+  total: number
+  catalog_total?: number
+  limit: number
+  offset: number
+}
+
+export type RomEntryFilters = {
+  q?: string
+  availability?: string
+  region?: string
+  format?: string
+  sort?: string
 }
 
 export type RomSetMeta = {
@@ -46,6 +75,10 @@ export type RomSetMeta = {
   source_kind?: string
   source_label?: string
   entry_count?: number
+  rdb_entry_count?: number
+  provider_only_count?: number
+  catalog_total?: number
+  coverage?: Record<string, unknown>
   fetched_at?: string
   source_url?: string
 }
@@ -60,6 +93,14 @@ export type ProviderEntry = {
   size?: string
   updated?: string
   libretro_guid?: string
+  [key: string]: unknown
+}
+
+export type ProviderStatus = {
+  metadata?: boolean
+  listings?: boolean
+  torrent?: boolean
+  rom_json?: boolean
   [key: string]: unknown
 }
 
@@ -127,6 +168,135 @@ export type ProvidersResponse = {
     fetched_at?: string
     console_root?: Record<string, Record<string, ProviderEntry | ProviderEntry[]>>
   }
+}
+
+export type DashboardDatasetInfo = {
+  version?: string | null
+  count: number
+  size?: number
+}
+
+export type DashboardConsole = {
+  guid?: string
+  module: string
+  brand?: string | null
+  console?: string | null
+  category: string
+  status: string
+  completion: number
+  coverage_percent: number
+  entry_count: number
+  provider_linked_entries: number
+  provider_count: number
+  core_count: number
+  required_bios_count: number
+  bios_with_sources: number
+  strategy_types: string[]
+  thumbnail_indexed_titles: number
+  gaps: string[]
+  next_action: string
+  validated_at?: string | null
+  notes?: string | null
+}
+
+export type DashboardAlert = {
+  severity: 'critical' | 'warning' | 'info' | 'success' | string
+  title: string
+  message: string
+  action?: string
+}
+
+export type DashboardRomDataset = {
+  slug: string
+  module?: string | null
+  brand?: string | null
+  console?: string | null
+  guid?: string | null
+  entry_count: number
+  provider_linked_entries: number
+  downloadable_entries: number
+  inline_artwork_entries: number
+  coverage_percent: number
+  known_size: number
+  thumbnail_indexed_titles: number
+  thumbnail_images: number
+  thumbnail_categories: string[]
+  has_thumbnail_index: boolean
+}
+
+export type DashboardResponse = {
+  generated_at: string
+  scope: 'admin' | 'client' | string
+  datasets: {
+    modules: DashboardDatasetInfo
+    providers: DashboardDatasetInfo
+    roms: DashboardDatasetInfo
+    cache: DashboardDatasetInfo
+  }
+  readiness: {
+    total: number
+    average_completion: number
+    buckets: Record<string, number>
+    categories: Record<string, number>
+    statuses: Record<string, number>
+    ready_for_assignment: number
+  }
+  providers: {
+    brands: number
+    consoles: number
+    total: number
+    with_cache: number
+    missing_cache: number
+    with_providers: number
+    without_providers: number
+  }
+  roms: {
+    datasets: number
+    entries: number
+    provider_linked_entries: number
+    downloadable_entries: number
+    inline_artwork_entries: number
+    thumbnail_indexed_titles: number
+    thumbnail_images: number
+    thumbnail_indexes: number
+    known_size: number
+    coverage_percent: number
+    thumbnail_index_percent: number
+    largest_datasets: DashboardRomDataset[]
+    missing_thumbnail_indexes: DashboardRomDataset[]
+  }
+  users: {
+    visible: boolean
+    current_user?: AccessUser
+    total?: number
+    enabled?: number
+    admins?: number
+    clients?: number
+    zero_access?: number
+    zero_access_users?: string[]
+    assigned_total?: number
+    assigned_ready?: number
+    assigned_at_risk?: number
+    risky_users?: Array<{ id: string; at_risk: number }>
+    assigned_console_count?: number
+  }
+  runtime: {
+    cores: number
+    bios_files: number
+    bios_with_sources: number
+    bios_without_sources: number
+    mapped_consoles: number
+    missing_core_metadata: number
+    special_strategy_consoles: Array<{
+      module: string
+      guid?: string | null
+      strategy_types: string[]
+    }>
+  }
+  alerts: DashboardAlert[]
+  work_queue: DashboardConsole[]
+  other_work_queue: DashboardConsole[]
+  ready_consoles: DashboardConsole[]
 }
 
 export type ProviderSelection = {

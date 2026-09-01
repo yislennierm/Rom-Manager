@@ -5,7 +5,6 @@ import os
 import sqlite3
 import sys
 import urllib.request
-import xml.etree.ElementTree as ET
 from typing import Optional
 
 from urllib.error import HTTPError, URLError
@@ -16,6 +15,7 @@ from jsonschema import ValidationError, validate
 from core.providers import (
     add_provider,
     entry_provider_slug,
+    export_roms_to_json,
     load_cached_roms,
     list_providers_with_status,
     load_providers,
@@ -265,47 +265,20 @@ def cmd_explore(console="Dreamcast", manufacturer=None, provider=None, export_js
         return
 
     print("\n📂 Reading from XML file list...")
-    tree = ET.parse(xml_path)
-    root = tree.getroot()
+    try:
+        roms, _ = export_roms_to_json(manufacturer_key, console, system, slug_value, write=False)
+    except Exception as exc:
+        print(f"❌ Failed to read provider ROM list: {exc}")
+        return
 
     extensions = system.get("rom_extensions", [])
-    if not extensions:
-        extensions = [".zip", ".bin"]
-
-    roms = []
-    archive_extensions = [".zip", ".7z", ".rar"]
-
-    for f in root.findall("file"):
-        name = f.get("name")
-        if not name:
-            continue
-
-        name_lower = name.lower()
-        if not any(name_lower.endswith(ext.lower()) for ext in extensions):
-            if not any(name_lower.endswith(ext) for ext in archive_extensions):
-                continue
-
-        roms.append({
-            "name": name,
-            "size": f.get("size"),
-            "md5": f.findtext("md5"),
-            "crc32": f.findtext("crc32"),
-            "sha1": f.findtext("sha1"),
-            "console": console,
-            "manufacturer": manufacturer_key,
-            "torrent_url": torrent_url,
-        })
-
     print(f"🎮 Found {len(roms)} ROMs matching extensions {extensions}.")
     for rom in roms[:10]:
         print(f"  {rom['name']} ({rom['size']} bytes)")
 
-    # Optionally export to JSON
     if export_json:
-        json_path = roms_json_path(manufacturer_key, console, slug_value)
-        with open(json_path, "w") as out:
-            json.dump(roms, out, indent=2)
-        print(f"\n💾 Exported {len(roms)} entries to {json_path}")
+        exported, json_path = export_roms_to_json(manufacturer_key, console, system, slug_value, write=True)
+        print(f"\n💾 Exported {len(exported)} entries to {json_path}")
 
 
 def load_roms(console="Dreamcast", manufacturer=None, provider=None):

@@ -1,0 +1,571 @@
+{
+  "module": "Commodore - CDTV",
+  "guid": "9c668a1c-e2b5-5a8c-9f2e-0ec7ef74dd3c",
+  "source_url": "https://raw.githubusercontent.com/libretro/libretro-database/master/rdb/Commodore%20-%20CDTV.rdb",
+  "entry_count": 62,
+  "fetched_at": "2026-08-31T20:35:28.379509",
+  "entries": [
+    {
+      "name": "Xenon 2 - Megablast (Europe) (En,Fr,De,It)",
+      "region": "Europe",
+      "rom_name": "Xenon 2 - Megablast (Europe) (En,Fr,De,It) (Track 01).bin",
+      "size": 14123760,
+      "crc": "74f0388c",
+      "md5": "c6d86451da6881150267b20a9ed625ec",
+      "sha1": "a1cd9d031308295f76927c660aa37e4c7ff4e9ca"
+    },
+    {
+      "name": "Wrath of the Demon (USA)",
+      "region": "USA",
+      "rom_name": "Wrath of the Demon (USA).bin",
+      "size": 7756896,
+      "crc": "5397eb5c",
+      "md5": "e92c37712b3bc5ab3d339a9e548e4710",
+      "sha1": "5ad8d5b13cdd5bbbe5ea03c508804888f5fa344a"
+    },
+    {
+      "name": "Will Bridge Vol. 1 - Initiation aux Encheres - Practice (France)",
+      "region": "France",
+      "rom_name": "Will Bridge Vol. 1 - Initiation aux Encheres - Practice (France).bin",
+      "size": 25401600,
+      "crc": "d5fb39ce",
+      "md5": "1d094697cd68269ece9824d5148d9f70",
+      "sha1": "c9a4d93361c0d5a989c2b2077879c53224eb8cac"
+    },
+    {
+      "name": "Welcome to CDTV Multimedia (USA)",
+      "region": "USA",
+      "rom_name": "Welcome to CDTV Multimedia (USA).bin",
+      "size": 62069280,
+      "crc": "d76ddb22",
+      "md5": "068fe7f30136c68504fe124a2417e454",
+      "sha1": "11284bb7da00456a538565484344c5a88bd82906"
+    },
+    {
+      "name": "Turrican II - The Final Fight (Germany)",
+      "region": "Germany",
+      "rom_name": "Turrican II - The Final Fight (Germany).bin",
+      "size": 20815200,
+      "crc": "|.?\n",
+      "md5": "87a97d7d2c7981b218e6ffa65f869e7b",
+      "sha1": "715a958452c084db614447c7f3da73dadb0b46db"
+    },
+    {
+      "name": "Turrican (Germany)",
+      "region": "Germany",
+      "rom_name": "Turrican (Germany).bin",
+      "size": 20815200,
+      "crc": "d9d2a700",
+      "md5": "2c5ac366851ae22038a876a0b1e8e579",
+      "sha1": "ccfb408204450abe929b402bbd3c0b4367376f2f"
+    },
+    {
+      "name": "Trivial Pursuit - The CDTV Edition (Europe) (Disc 2)",
+      "region": "Europe",
+      "rom_name": "Trivial Pursuit - The CDTV Edition (Europe) (Disc 2).bin",
+      "size": 269873184,
+      "crc": "ee29ff98",
+      "md5": "474bc93345bf2503ae2a11a1d0148966",
+      "sha1": "d49eae1588d08a51cca075d8ab3ffe23fd5e8e21"
+    },
+    {
+      "name": "Trivial Pursuit - The CDTV Edition (Europe) (Disc 1)",
+      "region": "Europe",
+      "rom_name": "Trivial Pursuit - The CDTV Edition (Europe) (Disc 1).bin",
+      "size": 270562320,
+      "crc": "48b01ac5",
+      "md5": "5b43f79ea4f4419e77024bee6a95461a",
+      "sha1": "ceda26140d4ae1f7cef6763f396d9863d0a421b9"
+    },
+    {
+      "name": "Town with No Name (Europe) (En,Fr,De,Es,It,Da)",
+      "region": "Europe",
+      "rom_name": "Town with No Name (Europe) (En,Fr,De,Es,It,Da) (Track 1).bin",
+      "size": 80732400,
+      "crc": "71f38f74",
+      "md5": "c9819d1148d03786df01eedc6a9f2099",
+      "sha1": "15e684f752c96d9f321f5a3b7458c2da8156a4d7"
+    },
+    {
+      "name": "Time Table of History - Business, Politics & Media - 1991a Edition (USA)",
+      "region": "USA",
+      "rom_name": "Time Table of History - Business, Politics & Media - 1991a Edition (USA).bin",
+      "size": 182642208,
+      "crc": "e1c53227",
+      "md5": "006f3f3288136cb0f1c7b3986388615d",
+      "sha1": "97fccd3602f006cf4956209f2421afe004acc0cc"
+    },
+    {
+      "name": "Team Yankee (Europe)",
+      "region": "Europe",
+      "rom_name": "Team Yankee (Europe).bin",
+      "size": 6091680,
+      "crc": "a500bad1",
+      "md5": "807ed3b870edeae21752141dcabeeb58",
+      "sha1": "845b51c3bf7ea9e0a3e94ac6af544dcab34b5f93"
+    },
+    {
+      "name": "Snoopy - The Case of the Missing Blanket (Sweden)",
+      "region": "Sweden",
+      "rom_name": "Snoopy - The Case of the Missing Blanket (Sweden) (Track 1).bin",
+      "size": 11830560,
+      "crc": "b0c9e975",
+      "md5": "d5b0ee51db3a90d3ed793938e8258c4e",
+      "sha1": "7bcb83f33a11ee2dc01921ddfe9e78c9ead7d828"
+    },
+    {
+      "name": "SimCity (Europe) (En,Fr,De,Es,It)",
+      "region": "Europe",
+      "rom_name": "SimCity (Europe) (En,Fr,De,Es,It) (Track 01).bin",
+      "size": 6091680,
+      "crc": "(}\u0012O",
+      "md5": "aa9de61812285e908c3a111dff70758d",
+      "sha1": "5a84eb2a945b50206da5e6dc3dd1172238a2ff8b",
+      "serial": "91133"
+    },
+    {
+      "name": "Raffles (Sweden)",
+      "region": "Sweden",
+      "rom_name": "Raffles (Sweden).bin",
+      "size": 23320080,
+      "crc": "V<p\b",
+      "md5": "7eb24c2032d3b083b59f987198415491",
+      "sha1": "f35b8960889e34f9cd7cbb539336a33b48752aee"
+    },
+    {
+      "name": "Psycho Killer (Europe)",
+      "region": "Europe",
+      "rom_name": "Psycho Killer (Europe) (Track 1).bin",
+      "size": 57769824,
+      "crc": "f980487b",
+      "md5": "4b19901c0a1d54a5b3072415d4c75269",
+      "sha1": "b736e60d043783af98ff3ab4cd6857c8628c976e"
+    },
+    {
+      "name": "Prehistorik (Europe)",
+      "region": "Europe",
+      "rom_name": "Prehistorik (Europe) (Track 01).bin",
+      "size": 20815200,
+      "crc": "56b4d0fa",
+      "md5": "4a064683c8e096a393953fa89e70f035",
+      "sha1": "24e5ac0166ba71d8dad2a9866effff44e695069d"
+    },
+    {
+      "name": "Pandora's CD (Europe)",
+      "region": "Europe",
+      "rom_name": "Pandora's CD (Europe).bin",
+      "size": 444351600,
+      "crc": "af034f7f",
+      "md5": "1cc8ca2a08fff2a6fba41945e5bb690f",
+      "sha1": "a68fac9b872e436a0ea970b0dbcf347bc0a4a684"
+    },
+    {
+      "name": "Now That's What I Call Games (UK)",
+      "rom_name": "Now That's What I Call Games (UK).bin",
+      "size": 29341200,
+      "crc": "1163b18a",
+      "md5": "fe5e6378777bdbe397cb8d34a0d22e18",
+      "sha1": "97b2532ff7fbf2cf6898fff06094c0330483a11e"
+    },
+    {
+      "name": "New Basics Electronic Cookbook, The - 1991a Edition (USA)",
+      "region": "USA",
+      "rom_name": "New Basics Electronic Cookbook, The - 1991a Edition (USA).bin",
+      "size": 95317152,
+      "crc": "c8d7ef3d",
+      "md5": "59bf30dd84e33e6435de31c256749169",
+      "sha1": "5e66985095280f9829bc8845955391a9e177c73e",
+      "serial": "CDRM-445900"
+    },
+    {
+      "name": "Mud Puddle (USA) (En,Fr,De,Es,It)",
+      "region": "USA",
+      "rom_name": "Mud Puddle (USA) (En,Fr,De,Es,It).bin",
+      "size": 322557984,
+      "crc": "1485937a",
+      "md5": "dafe4aac6fd8ac341c1bb357bc3392be",
+      "sha1": "b5b7c32c7e588cf9c67d80a2d4192cdb21dd1696",
+      "serial": "CDRM-735000"
+    },
+    {
+      "name": "Log!cal (Europe)",
+      "region": "Europe",
+      "rom_name": "Log!cal (Europe).bin",
+      "size": 20815200,
+      "crc": "9005c890",
+      "md5": "cbe25fd3c5bcf9e6edcff7c9e940b864",
+      "sha1": "200f812cb38236840c3189c71108c63d8bc41d24"
+    },
+    {
+      "name": "Lemmings (Europe)",
+      "region": "Europe",
+      "rom_name": "Lemmings (Europe).bin",
+      "size": 69259344,
+      "crc": "1659d12d",
+      "md5": "1ee64a7b66aa58a94adefb98c412f622",
+      "sha1": "ceaec027822c03a08e060b139908c0340c77bb20"
+    },
+    {
+      "name": "Language TV - English (France)",
+      "region": "France",
+      "rom_name": "Language TV - English (France).bin",
+      "size": 399421344,
+      "crc": "fd497b38",
+      "md5": "f4cb8d1a72f86d5c7791be3c9069bea7",
+      "sha1": "52d12aa51de2de874e30aa1889c14ba0c00802e7"
+    },
+    {
+      "name": "Insight Technology (Europe)",
+      "region": "Europe",
+      "rom_name": "Insight Technology (Europe).bin",
+      "size": 619220448,
+      "crc": "2fe34b98",
+      "md5": "fb92ea4c4ef4a6ab30ea3cf921f9f1fb",
+      "sha1": "597d0f1112e7c95748676e657948b180eba9824d",
+      "serial": "CD32-7001"
+    },
+    {
+      "name": "Insight Dinosaurs (Europe)",
+      "region": "Europe",
+      "rom_name": "Insight Dinosaurs (Europe).bin",
+      "size": 766940160,
+      "crc": "67f592d9",
+      "md5": "d35bdb5d6efa2b01b989aefe2cda044f",
+      "sha1": "95da49ffa6f6cfe3933f447272ccb9a2bd6d2619"
+    },
+    {
+      "name": "Hutchinson Encyclopedia, The (Europe)",
+      "region": "Europe",
+      "rom_name": "Hutchinson Encyclopedia, The (Europe).bin",
+      "size": 767163600,
+      "crc": "45a05376",
+      "md5": "79ec5274dd664993cc988cf9ff278d9c",
+      "sha1": "12b0b32c314d419a252723be7af8146372c7444a"
+    },
+    {
+      "name": "Garden Fax - Trees, Shrubs, Roses & Conifers (USA)",
+      "region": "USA",
+      "rom_name": "Garden Fax - Trees, Shrubs, Roses & Conifers (USA).bin",
+      "size": 115196256,
+      "crc": "9004e8a6",
+      "md5": "40b64c56656a3f634688368540a4c176",
+      "sha1": "7abc58ae49c189f5b70f413d300052f9ece706d8",
+      "serial": "CDT-1003"
+    },
+    {
+      "name": "Garden Fax - Indoor Plants (USA)",
+      "region": "USA",
+      "rom_name": "Garden Fax - Indoor Plants (USA).bin",
+      "size": 57769824,
+      "crc": "832fb520",
+      "md5": "5a86d484111723436522a23dea3da5d6",
+      "sha1": "ea0e901b07cb8ced9a033e1fa1c9cac7599901cd",
+      "serial": "CDT-1001"
+    },
+    {
+      "name": "Garden Fax - Garden Plants (USA)",
+      "region": "USA",
+      "rom_name": "Garden Fax - Garden Plants (USA).bin",
+      "size": 57769824,
+      "crc": "2b3cabdd",
+      "md5": "561655a6444cc265217962822edbdabb",
+      "sha1": "7dde3c9d4b9fb0057f9a118756021cc944a0ad79",
+      "serial": "CDT-1002"
+    },
+    {
+      "name": "Garden Fax - Fruits, Vegetables & Herbs (USA)",
+      "region": "USA",
+      "rom_name": "Garden Fax - Fruits, Vegetables & Herbs (USA).bin",
+      "size": 57769824,
+      "crc": "fd17702b",
+      "md5": "f9f02b788f34b93e9579de83cd8bcaa9",
+      "sha1": "81da12d518b0295c191a7d7667294a4763f39430",
+      "serial": "CDT-1004"
+    },
+    {
+      "name": "Games & Goodies (UK)",
+      "rom_name": "Games & Goodies (UK).bin",
+      "size": 125420400,
+      "crc": "aa9f8b83",
+      "md5": "c13282e67847c48343e4c26d8a6eaf4c",
+      "sha1": "4bdca5b99f720bdb38523064165e5bb83c926c85"
+    },
+    {
+      "name": "Fractal Universe (Europe)",
+      "region": "Europe",
+      "rom_name": "Fractal Universe (Europe).bin",
+      "size": 128948400,
+      "crc": "88facd9f",
+      "md5": "798f75337c5e0d9a4039a79ac566cbe6",
+      "sha1": "f848ce3fffc199f684c125c5c71997dfb7c6998c"
+    },
+    {
+      "name": "Fantastic Voyage (USA)",
+      "region": "USA",
+      "rom_name": "Fantastic Voyage (USA).bin",
+      "size": 5244960,
+      "crc": "019d4fcb",
+      "md5": "eee20caf9b36a2f8830f7aeb9584d57c",
+      "sha1": "e32aebdac017a3f19cdbaa746c829fc3c817dcfa"
+    },
+    {
+      "name": "Electric Crayon - All Dogs Go to Heaven (USA)",
+      "region": "USA",
+      "rom_name": "Electric Crayon - All Dogs Go to Heaven (USA).bin",
+      "size": 33092640,
+      "crc": "1b7263ed",
+      "md5": "aca6b8360eed8618db3665f11fad707b",
+      "sha1": "b7507edc8ef7c0e7041decbfada558ee0445e2fc"
+    },
+    {
+      "name": "Deutschland Kompakt (Germany)",
+      "region": "Germany",
+      "rom_name": "Deutschland Kompakt (Germany).bin",
+      "size": 435531600,
+      "crc": "a68713ab",
+      "md5": "1003357013af7251e5704f7cc15487da",
+      "sha1": "922a86de11fd54fdf153e5f2cc808cb6198d1356"
+    },
+    {
+      "name": "Demo II - Amiga Public Domain Collection (Europe)",
+      "region": "Europe",
+      "rom_name": "Demo II - Amiga Public Domain Collection (Europe).bin",
+      "size": 699623568,
+      "crc": "44e2cb21",
+      "md5": "13e934b8e8a3660431ae8cccedcecace",
+      "sha1": "dd5cd17ba6b3aa81f23543803920fb348e760be6"
+    },
+    {
+      "name": "Demo Collection for Amiga CDTV, The (Europe) (Black Disc)",
+      "region": "Europe",
+      "rom_name": "Demo Collection for Amiga CDTV, The (Europe) (Black Disc).bin",
+      "size": 712656000,
+      "crc": "563ed322",
+      "md5": "0e1a3760f4b3141c0462afe267f96903",
+      "sha1": "796c40e4f404a75ff437ae554bf210b553d32721"
+    },
+    {
+      "name": "Defender of the Crown II (USA) (En,Fr,De,Es,It)",
+      "region": "USA",
+      "rom_name": "Defender of the Crown II (USA) (En,Fr,De,Es,It) (Track 01).bin",
+      "size": 65030448,
+      "crc": "<\u001b\u0467",
+      "md5": "8d06279c2d025c37185bd930beef5c2a",
+      "sha1": "def7d790861d74742596bc430ce6ee73f055ced5"
+    },
+    {
+      "name": "Defender of the Crown II (Europe)",
+      "region": "Europe",
+      "rom_name": "Defender of the Crown II (Europe) (Track 01).bin",
+      "size": 65028096,
+      "crc": "9a65e453",
+      "md5": "1f01389edb4a08e917f2e273e163183e",
+      "sha1": "31342fd20f1b39f3704809b734f82f65be8ab7e5",
+      "serial": "CD32-3010"
+    },
+    {
+      "name": "Defender of the Crown (Europe)",
+      "region": "Europe",
+      "rom_name": "Defender of the Crown (Europe) (Track 1).bin",
+      "size": 9878400,
+      "crc": "104f29d5",
+      "md5": "937a65f3cbecc340e006234e811f9386",
+      "sha1": "b481c4a1645bd946c4e9643d55a105e6fa747526",
+      "serial": "CDT-3001"
+    },
+    {
+      "name": "Curse of Ra, The (Germany)",
+      "region": "Germany",
+      "rom_name": "Curse of Ra, The (Germany).bin",
+      "size": 20815200,
+      "crc": "2ad9b4db",
+      "md5": "cc713d8f30095f05172c5c4c19ac43fa",
+      "sha1": "17cf59f01ee8a58a165498674b76dad13d6b265c"
+    },
+    {
+      "name": "Classic Board Games (Europe) (En,Ja,Fr,De,Es,It)",
+      "region": "Europe",
+      "rom_name": "Classic Board Games (Europe) (En,Ja,Fr,De,Es,It).bin",
+      "size": 113926176,
+      "crc": "5540a1d9",
+      "md5": "343851d323c2d708ceb39208f98d712d",
+      "sha1": "3080a6870e2f574672d8349562df52b4014b8427"
+    },
+    {
+      "name": "Cinderella - The Original Fairy Tale (USA) (En,Fr,De,Es,It)",
+      "region": "USA",
+      "rom_name": "Cinderella - The Original Fairy Tale (USA) (En,Fr,De,Es,It).bin",
+      "size": 608222496,
+      "crc": "9483d665",
+      "md5": "9a6f8e3ab8560b1efa1b1e7ae6e6548f",
+      "sha1": "6c848eb2c47a2076fd3e820fee1b72130fe051c3",
+      "serial": "CDRM-735100"
+    },
+    {
+      "name": "Case of the Cautious Condor, The (Europe)",
+      "region": "Europe",
+      "rom_name": "Case of the Cautious Condor, The (Europe).bin",
+      "size": 153204576,
+      "crc": "\u0005z\u000f4",
+      "md5": "b1ef10bd3234fbafa04dcb477b1da105",
+      "sha1": "506500ac32ba1d775d4ef75968cd84e8967f0690"
+    },
+    {
+      "name": "CDTV Demo Disc (Europe) (Disc 2) (Amiga CDTV - Amiga 600 - Amiga 600 HD)",
+      "region": "Europe",
+      "rom_name": "CDTV Demo Disc (Europe) (Disc 2) (Amiga CDTV - Amiga 600 - Amiga 600 HD).bin",
+      "size": 81144000,
+      "crc": "d8a48e3c",
+      "md5": "fce0a1df485e9e5ac538fdc06e29b68b",
+      "sha1": "c6b52e93fb7cae4048cf5c47c0ed54f8d6ddff82"
+    },
+    {
+      "name": "CDTV Demo Disc (Europe) (Disc 1) (Amiga CD Psygnosis Demo)",
+      "region": "Europe",
+      "rom_name": "CDTV Demo Disc (Europe) (Disc 1) (Amiga CD Psygnosis Demo).bin",
+      "size": 35632800,
+      "crc": "3915bf02",
+      "md5": "cc567b2f5973d34527abe5b16971d1e3",
+      "sha1": "eccbbe05cb3cd3329950b873f4da4a7f74b659fe"
+    },
+    {
+      "name": "CDPD 3 (Europe)",
+      "region": "Europe",
+      "rom_name": "CDPD 3 (Europe).bin",
+      "size": 707131152,
+      "crc": "a1a24c58",
+      "md5": "8712be6e9745842a7c9ac72e6f4e8167",
+      "sha1": "589860d5c9b97b4ee4ba14fab6ec29247da6e3d9"
+    },
+    {
+      "name": "CDPD 2 (Europe)",
+      "region": "Europe",
+      "rom_name": "CDPD 2 (Europe).bin",
+      "size": 635216400,
+      "crc": "d042057b",
+      "md5": "9aa3d776a31df428f5d507ff41d4c15f",
+      "sha1": "c23883895864584040bcc03145c8f4a3fa77bb1b"
+    },
+    {
+      "name": "CDPD 1 (Europe) (CD32 Compatible)",
+      "region": "Europe",
+      "rom_name": "CDPD 1 (Europe) (CD32 Compatible).bin",
+      "size": 735348096,
+      "crc": "027037d7",
+      "md5": "179890822e85c9990e50d0888370a73b",
+      "sha1": "b7bfffba90db15f4effd1fd27bf5d302411353c5"
+    },
+    {
+      "name": "CDPD 1 (Europe)",
+      "region": "Europe",
+      "rom_name": "CDPD 1 (Europe).bin",
+      "size": 719100480,
+      "crc": "3a8b9c52",
+      "md5": "48e3f0114fadbbbede435a914dcb2e2d",
+      "sha1": "225aacb6444ac647e32a95181596aff874996137"
+    },
+    {
+      "name": "CD Remix Version II (Europe)",
+      "region": "Europe",
+      "rom_name": "CD Remix Version II (Europe).bin",
+      "size": 69325200,
+      "crc": "5b69da2d",
+      "md5": "cb908fdfc8a2f85c33a5808e68993962",
+      "sha1": "2712b4dd677dc87f76493f7fb382a9760600086d"
+    },
+    {
+      "name": "Bun for Barney, A (USA)",
+      "region": "USA",
+      "rom_name": "Bun for Barney, A (USA) (Track 1).bin",
+      "size": 57769824,
+      "crc": "fde78f74",
+      "md5": "413076048144d9d6ebcad263ce1a27b9",
+      "sha1": "dcc7099de1c33945e8ffd5eda10d3d70c3855dcd",
+      "serial": "CDT-2502"
+    },
+    {
+      "name": "Battlestorm (Europe)",
+      "region": "Europe",
+      "rom_name": "Battlestorm (Europe) (Track 01).bin",
+      "size": 1822800,
+      "crc": "175686ed",
+      "md5": "33beeec5550d7ff07da26e007af35ff2",
+      "sha1": "1aeff50854b19f0810b3abf3d6e010f420c8b8f8"
+    },
+    {
+      "name": "Barney Bear Goes to School (USA)",
+      "region": "USA",
+      "rom_name": "Barney Bear Goes to School (USA) (Track 01).bin",
+      "size": 2391984,
+      "crc": "\u00b08\f",
+      "md5": "d660d7258e04b3de83248f488c58e47c",
+      "sha1": "552497c13fc47fa14a7b626bf6b01de6020e091a"
+    },
+    {
+      "name": "American Heritage - Illustrated Encyclopedic Dictionary - 1991a Edition (USA)",
+      "region": "USA",
+      "rom_name": "American Heritage - Illustrated Encyclopedic Dictionary - 1991a Edition (USA).bin",
+      "size": 523242384,
+      "crc": "7b780ae0",
+      "md5": "880f7e4540e0a25d96a8ee3a1312284d",
+      "sha1": "b5f8db73a1f59d5aac690a598d0b66cc5b35729f",
+      "serial": "CDRM-446200"
+    },
+    {
+      "name": "Advanced Military Systems (Europe)",
+      "region": "Europe",
+      "rom_name": "Advanced Military Systems (Europe).bin",
+      "size": 551607504,
+      "crc": "8c6fb38b",
+      "md5": "753f2ca1e417ae15fa9180a85c0534fc",
+      "sha1": "2e8942920ef41040198a8b59cd87061f51fd1b5f"
+    },
+    {
+      "name": "AMOS PD (UK)",
+      "rom_name": "AMOS PD (UK).bin",
+      "size": 681494352,
+      "crc": "5d0eb96c",
+      "md5": "e696fd1b3fce229c6d55197dc24b115c",
+      "sha1": "c2dab466663a706590931a0e8afc92a60876ed75"
+    },
+    {
+      "name": "17 Bit - Continuation Disc (Europe)",
+      "region": "Europe",
+      "rom_name": "17 Bit - Continuation Disc (Europe).bin",
+      "size": 524512464,
+      "crc": "dP@9",
+      "md5": "4cde0425b6dddb522e611b688744d81c",
+      "sha1": "0c2ac57d774e4dc67f1e5580fa3840e7a1276fd9"
+    },
+    {
+      "name": "17 Bit - Collection for Amiga CDTV (Europe) (Disc B) (The Latest Batch) (Rev 1)",
+      "region": "Europe",
+      "rom_name": "17 Bit - Collection for Amiga CDTV (Europe) (Disc B) (The Latest Batch) (Rev 1).bin",
+      "size": 520027200,
+      "crc": "d24d2746",
+      "md5": "8d312fec9a3de6892c4ab44b8d0d267d",
+      "sha1": "b3bafc74b2766c858599cc6e8f81deac9d0590e0"
+    },
+    {
+      "name": "17 Bit - Collection for Amiga CDTV (Europe) (Disc B) (The Latest Batch)",
+      "region": "Europe",
+      "rom_name": "17 Bit - Collection for Amiga CDTV (Europe) (Disc B) (The Latest Batch).bin",
+      "size": 520556400,
+      "crc": "cf3523d2",
+      "md5": "ddddd464ba83808d6a0e8c386e88013b",
+      "sha1": "796abcd266f6f6366ed12fec264bdeb7851c3e55"
+    },
+    {
+      "name": "17 Bit - Collection for Amiga CDTV (Europe) (Disc A) (The Early Classics)",
+      "region": "Europe",
+      "rom_name": "17 Bit - Collection for Amiga CDTV (Europe) (Disc A) (The Early Classics).bin",
+      "size": 526906800,
+      "crc": "3b70fc1b",
+      "md5": "b1c6f08b7f199283641e672cef13f89a",
+      "sha1": "3d30e7117674698c5f6f401e59626c001ac14a98"
+    },
+    {
+      "count": 61
+    }
+  ]
+}

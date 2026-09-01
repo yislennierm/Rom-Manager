@@ -236,6 +236,7 @@ def export_roms_to_json(
                     console=console,
                     torrent_url=torrent_url,
                     allowed_extensions=extensions,
+                    member_prefixes=provider_entry.get("archive_member_prefixes"),
                     expected_archive_size=_coerce_int(f.get("size") or f.findtext("size")),
                     max_bytes=int(provider_entry.get("expand_archives_max_bytes") or 128 * 1024 * 1024),
                 )
@@ -256,6 +257,7 @@ def export_roms_to_json(
             "preferred_cores": provider_entry.get("preferred_cores"),
             "compatible_cores": provider_entry.get("compatible_cores"),
             "zip_preserve": provider_entry.get("zip_preserve"),
+            "runtime_playable": provider_entry.get("runtime_playable"),
             "compatibility_notes": provider_entry.get("compatibility_notes"),
             "exported_at": datetime.utcnow().isoformat(),
             "roms": roms,
@@ -279,6 +281,7 @@ def _expand_archive_members(
     console: str,
     torrent_url: Optional[str],
     allowed_extensions: List[str],
+    member_prefixes: Optional[List[str]],
     expected_archive_size: Optional[int],
     max_bytes: int,
 ) -> List[Dict]:
@@ -303,6 +306,8 @@ def _expand_archive_members(
             for filename in sorted(files):
                 path = os.path.join(root, filename)
                 rel = os.path.relpath(path, extract_root)
+                if member_prefixes and not _matches_member_prefix(rel, member_prefixes):
+                    continue
                 if not _is_exportable_rom(rel, allowed_extensions):
                     continue
                 members.append(
@@ -318,6 +323,11 @@ def _expand_archive_members(
                     )
                 )
     return members
+
+
+def _matches_member_prefix(relative_name: str, prefixes: List[str]) -> bool:
+    normalized = relative_name.replace("\\", "/").lower()
+    return any(normalized.startswith(prefix.replace("\\", "/").lower()) for prefix in prefixes if prefix)
 
 
 def _download_archive_for_indexing(

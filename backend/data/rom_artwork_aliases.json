@@ -1,0 +1,11 @@
+{
+  "aliases": [
+    {
+      "module": "Nintendo - Family Computer Disk System",
+      "source": "Famimaga Disk Vol. 4 - Clox (Japan) (Disk Writer)",
+      "target": "Famimaga Disk Vol. 4 - Clocks (Japan) (Disk Writer)",
+      "source_type": "libretro_thumbnail_alias",
+      "note": "Catalog spelling differs from libretro-thumbnails spelling."
+    }
+  ]
+}

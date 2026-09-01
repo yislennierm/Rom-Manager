@@ -1,0 +1,750 @@
+{
+  "module": "Nintendo - Pokemon Mini",
+  "guid": "ed4e8377-e783-581f-ac90-9d8c98e481ae",
+  "source_url": "https://raw.githubusercontent.com/libretro/libretro-database/master/rdb/Nintendo%20-%20Pokemon%20Mini.rdb",
+  "entry_count": 76,
+  "fetched_at": "2026-08-30T21:50:00.850303",
+  "entries": [
+    {
+      "name": "Zelda Mini (World) (Demo) (v1.0) (Aftermarket) (Unl)",
+      "description": "Zelda Mini (World) (Demo) (v1.0) (Aftermarket) (Unl)",
+      "rom_name": "Zelda Mini (World) (Demo) (v1.0) (Aftermarket) (Unl).min",
+      "size": 17995,
+      "crc": "87d86d1c",
+      "md5": "d204bb4f33c0034dc6cdd8c9b6ff9846",
+      "sha1": "1e4dc752bfffeb7fc5a281d20d3b583aca8e7f20"
+    },
+    {
+      "name": "Wooloo's Run Away (World) (Demo) (Aftermarket) (Unl)",
+      "description": "Wooloo's Run Away (World) (Demo) (Aftermarket) (Unl)",
+      "rom_name": "Wooloo's Run Away (World) (Demo) (Aftermarket) (Unl).min",
+      "size": 67584,
+      "crc": "5c2fde5f",
+      "md5": "890fed94636776716a2b7b0754c8d5be",
+      "sha1": "2feed40306fa4a253ab206b1e74ef4c407c7fdea"
+    },
+    {
+      "name": "Sonic Arena (World) (v1.0) (En) (Aftermarket) (Unl)",
+      "description": "Sonic Arena (World) (v1.0) (En) (Aftermarket) (Unl)",
+      "rom_name": "Sonic Arena (World) (v1.0) (En) (Aftermarket) (Unl).min",
+      "size": 20224,
+      "crc": "28c3eedd",
+      "md5": "e1fc9f3b2a32990eb0c479c40d28049d",
+      "sha1": "6f20b8f552b925b2d7827cd8197c67ffd0e7c61f"
+    },
+    {
+      "name": "SOKOmini (World) (v1.0) (Hardware Fixed) (Aftermarket) (Unl)",
+      "description": "SOKOmini (World) (v1.0) (Hardware Fixed) (Aftermarket) (Unl)",
+      "rom_name": "SOKOmini (World) (v1.0) (Hardware Fixed) (Aftermarket) (Unl).min",
+      "size": 56288,
+      "crc": "350f91e9",
+      "md5": "2586b3aa4989969c0b200a57c13f5aae",
+      "sha1": "9a4f9152d0fe3cc0f32255bab1d2f1edcc4b00b6"
+    },
+    {
+      "name": "SOKOmini (World) (v1.0) (Aftermarket) (Unl)",
+      "description": "SOKOmini (World) (v1.0) (Aftermarket) (Unl)",
+      "rom_name": "SOKOmini (World) (v1.0) (Aftermarket) (Unl).min",
+      "size": 524288,
+      "crc": "28a67132",
+      "md5": "6048dce48222e4d75e8fdce9c2f55c39",
+      "sha1": "5f79e5ae22fca1e758fbd8c2f438497f12bad4ba"
+    },
+    {
+      "name": "Pongemon (World) (Demo) (Aftermarket) (Unl)",
+      "description": "Pongemon (World) (Demo) (Aftermarket) (Unl)",
+      "rom_name": "Pongemon (World) (Demo) (Aftermarket) (Unl).min",
+      "size": 13440,
+      "crc": "4afeca41",
+      "md5": "3fbd1d94969da4070f37763861763486",
+      "sha1": "d7c9ceb370718046870311c5fec9382e20b1738c"
+    },
+    {
+      "name": "PokeSnake (World) (Aftermarket) (Unl)",
+      "description": "PokeSnake (World) (Aftermarket) (Unl)",
+      "rom_name": "PokeSnake (World) (Aftermarket) (Unl).min",
+      "size": 13440,
+      "crc": "1bcc7c21",
+      "md5": "473b191bc7833fb62388e1d9f21a241c",
+      "sha1": "d772d820eb914cc9a551cca4a59a3885187b134a"
+    },
+    {
+      "name": "Pokemon Psychic Seeds (World) (Demo) (Aftermarket) (Unl)",
+      "description": "Pokemon Psychic Seeds (World) (Demo) (Aftermarket) (Unl)",
+      "rom_name": "Pokemon Psychic Seeds (World) (Demo) (Aftermarket) (Unl).min",
+      "size": 233664,
+      "crc": "ff04b931",
+      "md5": "ab2d43a547fee0ae36db0eac3657242b",
+      "sha1": "0c9f11dc7451d411bf8ab0dd8ff43ef599afa7e2"
+    },
+    {
+      "name": "Pokemon Psychic Seeds (World) (Aftermarket) (Unl)",
+      "description": "Pokemon Psychic Seeds (World) (Aftermarket) (Unl)",
+      "rom_name": "Pokemon Psychic Seeds (World) (Aftermarket) (Unl).min",
+      "size": 272704,
+      "crc": "e2b0d791",
+      "md5": "092819a9abe895f6a0b70a685a854aa7",
+      "sha1": "66d6852ea00840627645c324b0cc0011ac1a85f6"
+    },
+    {
+      "name": "Pokemon Party mini 2 (World) (Aftermarket) (Unl)",
+      "description": "Pokemon Party mini 2 (World) (Aftermarket) (Unl)",
+      "rom_name": "Pokemon Party mini 2 (World) (Aftermarket) (Unl).min",
+      "size": 30528,
+      "crc": "61bb6d4c",
+      "md5": "8a69cc5a94afb712e9b313d13ef7a8a2",
+      "sha1": "dccbf7376f07d1fbecfe0b7d0b0a1389a4360e9d"
+    },
+    {
+      "name": "Pokemon Orange (World) (Demo) (v0.54) (Aftermarket) (Unl)",
+      "description": "Pokemon Orange (World) (Demo) (v0.54) (Aftermarket) (Unl)",
+      "rom_name": "Pokemon Orange (World) (Demo) (v0.54) (Aftermarket) (Unl).min",
+      "size": 19280,
+      "crc": "c81e7bd9",
+      "md5": "de89be869046a1cd60ea469c6df8a2b3",
+      "sha1": "1665a4f57e1b63f57046e1abeb00fd723fc3e772"
+    },
+    {
+      "name": "Pokemon Mini Ambulation (World) (v1.0) (Aftermarket) (Inkbox)",
+      "description": "Pokemon Mini Ambulation (World) (v1.0) (Aftermarket) (Inkbox)",
+      "rom_name": "Pokemon Mini Ambulation (World) (v1.0) (Aftermarket) (Inkbox).min",
+      "size": 61512,
+      "crc": "3ee81b35",
+      "md5": "0156b0b9c002b4f9b9fec777d4503594",
+      "sha1": "5c64e0228ebfa6a61797e92dc27c37c019af9144"
+    },
+    {
+      "name": "PokeMaze (World) (Proto) (Aftermarket) (Unl)",
+      "description": "PokeMaze (World) (Proto) (Aftermarket) (Unl)",
+      "rom_name": "PokeMaze (World) (Proto) (Aftermarket) (Unl).min",
+      "size": 14304,
+      "crc": "mE(j",
+      "md5": "db53ab1335e95df2b33d4ef3735d7af6",
+      "sha1": "c436ae6659b96d2290c6909c751247207e371bfe"
+    },
+    {
+      "name": "PokeMaze (World) (Aftermarket) (Unl)",
+      "description": "PokeMaze (World) (Aftermarket) (Unl)",
+      "rom_name": "PokeMaze (World) (Aftermarket) (Unl).min",
+      "size": 36040,
+      "crc": "3db4b128",
+      "md5": "d48392de0e6a80497c1955042ad38611",
+      "sha1": "f808813cc780be023848a594b9568a06a27f59f4"
+    },
+    {
+      "name": "Petals Around the Rose (World) (Demo) (Aftermarket) (Unl)",
+      "description": "Petals Around the Rose (World) (Demo) (Aftermarket) (Unl)",
+      "rom_name": "Petals Around the Rose (World) (Demo) (Aftermarket) (Unl).min",
+      "size": 17388,
+      "crc": "555d19f0",
+      "md5": "fc837a8a99829a4879dc37adb3435e5e",
+      "sha1": "8728b7e566925afeaa701fb142c66d484b6d1850"
+    },
+    {
+      "name": "Pazuru (World) (Aftermarket) (Unl)",
+      "description": "Pazuru (World) (Aftermarket) (Unl)",
+      "rom_name": "Pazuru (World) (Aftermarket) (Unl).min",
+      "size": 29568,
+      "crc": "08c07ddf",
+      "md5": "ea7a26be47020af10058ac36a8b6d626",
+      "sha1": "bf31fcc3b834be3d2deeb8e15b085be5dc87849b"
+    },
+    {
+      "name": "Pac-It (World) (Demo) (Aftermarket) (Unl)",
+      "description": "Pac-It (World) (Demo) (Aftermarket) (Unl)",
+      "rom_name": "Pac-It (World) (Demo) (Aftermarket) (Unl).min",
+      "size": 82688,
+      "crc": "c9e2b23b",
+      "md5": "c73d85b16295266a4e3fe62ecdb761b2",
+      "sha1": "4057dd97313444d05db4264f57c0917e6b427d6b"
+    },
+    {
+      "name": "P-Type (World) (Demo) (Aftermarket) (Unl)",
+      "description": "P-Type (World) (Demo) (Aftermarket) (Unl)",
+      "rom_name": "P-Type (World) (Demo) (Aftermarket) (Unl).min",
+      "size": 20864,
+      "crc": "c02810fc",
+      "md5": "389dc3409fe795b18a0894548dd7bed6",
+      "sha1": "f2285e76442fa0f18b39f8153eb1912f96392447"
+    },
+    {
+      "name": "Mini Cookie (World) (Demo) (Aftermarket) (Unl)",
+      "description": "Mini Cookie (World) (Demo) (Aftermarket) (Unl)",
+      "rom_name": "Mini Cookie (World) (Demo) (Aftermarket) (Unl).min",
+      "size": 12544,
+      "crc": "b2a9a1ee",
+      "md5": "78197d139406095e68b0043fbf004860",
+      "sha1": "9dfc34364ab09fe3211a0b7188b214780a17e85e"
+    },
+    {
+      "name": "Loopover (World) (Demo) (Aftermarket) (Unl)",
+      "description": "Loopover (World) (Demo) (Aftermarket) (Unl)",
+      "rom_name": "Loopover (World) (Demo) (Aftermarket) (Unl).min",
+      "size": 65600,
+      "crc": "fc2a1c6a",
+      "md5": "be6a27e04fa02f2c7214431e0aa8a2cd",
+      "sha1": "1a11c8abccffccddff2f760e8945bdf2e2af461a"
+    },
+    {
+      "name": "LightsOut (World) (v1.1) (Aftermarket) (Unl)",
+      "description": "LightsOut (World) (v1.1) (Aftermarket) (Unl)",
+      "rom_name": "LightsOut (World) (v1.1) (Aftermarket) (Unl).min",
+      "size": 69376,
+      "crc": "a504bd34",
+      "md5": "43dbd3bda79b2e72276ef444152b695f",
+      "sha1": "cc98b80a9889044e80b408d79d42e4037130b439"
+    },
+    {
+      "name": "Hamburger in Space! (World) (Aftermarket) (Unl)",
+      "description": "Hamburger in Space! (World) (Aftermarket) (Unl)",
+      "rom_name": "Hamburger in Space! (World) (Aftermarket) (Unl).min",
+      "size": 14592,
+      "crc": "a340af09",
+      "md5": "decbb5eacc06db3b4e9f6d206b3bffb9",
+      "sha1": "27c673af03acee80da08340393edcf4568f13ceb"
+    },
+    {
+      "name": "GJPG (World) (Demo) (Aftermarket) (Unl)",
+      "description": "GJPG (World) (Demo) (Aftermarket) (Unl)",
+      "rom_name": "GJPG (World) (Demo) (Aftermarket) (Unl).min",
+      "size": 34176,
+      "crc": "9bb36b84",
+      "md5": "86756b56e0d2e6c40a9e746f67a2d1c0",
+      "sha1": "6becf786c3975c57dc338add6f7f8b3f85b7bf7d"
+    },
+    {
+      "name": "Galactix (World) (Aftermarket) (Unl)",
+      "description": "Galactix (World) (Aftermarket) (Unl)",
+      "rom_name": "Galactix (World) (Aftermarket) (Unl).min",
+      "size": 70046,
+      "crc": "4e6305b7",
+      "md5": "4e66ffdb6eed6652e4a443247a74038a",
+      "sha1": "90fd0d0f8fd8a5d7540e8d324482fb02ac6bec00"
+    },
+    {
+      "name": "Franky the Fruit Fly (World) (v2021-05-21) (Aftermarket) (Unl)",
+      "description": "Franky the Fruit Fly (World) (v2021-05-21) (Aftermarket) (Unl)",
+      "rom_name": "Franky the Fruit Fly (World) (v2021-05-21) (Aftermarket) (Unl).min",
+      "size": 233456,
+      "crc": "04c39c90",
+      "md5": "3e3c37a97fa0c772bdb0237b3c220315",
+      "sha1": "5fd05bc6e5746a311beb22ae5531210569f1e1a2"
+    },
+    {
+      "name": "Flappy Bird (World) (Demo) (Aftermarket) (Unl)",
+      "description": "Flappy Bird (World) (Demo) (Aftermarket) (Unl)",
+      "rom_name": "Flappy Bird (World) (Demo) (Aftermarket) (Unl).min",
+      "size": 32176,
+      "crc": "f370b21d",
+      "md5": "613cb77ff503f8fd374727526b6a1581",
+      "sha1": "46938f04135127201e6f10beacd69bf6710d5a18"
+    },
+    {
+      "name": "Deathtrap (World) (v1.1) (Aftermarket) (Unl)",
+      "description": "Deathtrap (World) (v1.1) (Aftermarket) (Unl)",
+      "rom_name": "Deathtrap (World) (v1.1) (Aftermarket) (Unl).min",
+      "size": 19520,
+      "crc": "5645b12f",
+      "md5": "e82230f90504c966610a31b8186ff419",
+      "sha1": "894fb6f9f3e21ef644f62e569789a4f062e82c47"
+    },
+    {
+      "name": "Coretex (World) (v0.70) (Aftermarket) (Unl)",
+      "description": "Coretex (World) (v0.70) (Aftermarket) (Unl)",
+      "rom_name": "Coretex (World) (v0.70) (Aftermarket) (Unl).min",
+      "size": 29359,
+      "crc": "892b1b54",
+      "md5": "f03d77b9353c9b875a6331275bb480a5",
+      "sha1": "161a2a6c0d34c59ac5353f82d5d87fc00d109834"
+    },
+    {
+      "name": "Bat Trip (World) (Aftermarket) (Unl)",
+      "description": "Bat Trip (World) (Aftermarket) (Unl)",
+      "rom_name": "Bat Trip (World) (Aftermarket) (Unl).min",
+      "size": 78592,
+      "crc": "82ef1716",
+      "md5": "f8cac8a6bec766f8f6905b77aab3b29f",
+      "sha1": "0afdd1a7242f0caa0fdd42f81b8a394b873adf9b"
+    },
+    {
+      "name": "2048 (World) (Aftermarket) (Unl)",
+      "description": "2048 (World) (Aftermarket) (Unl)",
+      "rom_name": "2048 (World) (Aftermarket) (Unl).min",
+      "size": 65536,
+      "crc": "f7e4e560",
+      "md5": "59a694c43054a267c434424edfb7aa10",
+      "sha1": "0e8912627e2ff35c9467ce6da6f03ceac8419524"
+    },
+    {
+      "name": "Togepi no Daibouken (Japan) (Preview)",
+      "region": "Japan",
+      "rom_name": "Togepi no Daibouken (Japan) (Preview).min",
+      "size": 524288,
+      "crc": "8c557c89",
+      "md5": "4b9f57ac5afc15792de84721066cea8f",
+      "sha1": "db7d8209594c6e8edee5932f799f36ecf1cfac9f",
+      "serial": "MTAJ"
+    },
+    {
+      "name": "Togepi no Daibouken (Japan)",
+      "region": "Japan",
+      "rom_name": "Togepi no Daibouken (Japan).min",
+      "size": 524288,
+      "crc": "33b3492b",
+      "md5": "a4eb2facaa5beb947f306ced2bf5cd15",
+      "sha1": "0f56e0a3e72180b1113b900a6d3e4f8e8f570bb3",
+      "serial": "MTAJ"
+    },
+    {
+      "name": "Snorlax's Lunch Time (Japan) (GameCube)",
+      "region": "Japan",
+      "rom_name": "Snorlax's Lunch Time (Japan) (GameCube).min",
+      "size": 524288,
+      "crc": "0186ea70",
+      "md5": "96f6a0cedc7471a0357271dc799ed342",
+      "sha1": "a332feeca96c2b4cad2e1abd2d9b289804101a4a",
+      "serial": "MLTJ"
+    },
+    {
+      "name": "Snorlax's Lunch Time (Europe) (GameCube)",
+      "region": "Europe",
+      "rom_name": "Snorlax's Lunch Time (Europe) (GameCube).min",
+      "size": 524288,
+      "crc": "b9324f30",
+      "md5": "0823b8d49dc88033659f0d4eae114907",
+      "sha1": "22cc052d900909a9032b7c84a0c7ab7c366a4a57",
+      "serial": "MLTE"
+    },
+    {
+      "name": "Silver Falls - Monsters In North Island (World)",
+      "rom_name": "Silver Falls - Monsters In North Island (World) (Aftermarket) (Unl).min",
+      "size": 74419,
+      "crc": "68e0da6f",
+      "md5": "0ce0bead3ee9911765d3d0eb097ee7e7",
+      "sha1": "f3b3a7e95738033712e5adb0acb3b26c8dc2bdb2"
+    },
+    {
+      "name": "Pichu Bros. Mini - Skateboard (Japan) (Preview)",
+      "region": "Japan",
+      "rom_name": "Pichu Bros. Mini - Skateboard (Japan) (Preview).min",
+      "size": 524288,
+      "crc": "dec65262",
+      "md5": "a9c6c4df7522803d8684d1d03283b7ee",
+      "sha1": "b36ed9e3c86d37b128bcefbeb6088c4c66f11c52",
+      "serial": "MBRJ"
+    },
+    {
+      "name": "Pichu Bros. Mini - Netsukikyuu (Japan) (Preview)",
+      "region": "Japan",
+      "rom_name": "Pichu Bros. Mini - Netsukikyuu (Japan) (Preview).min",
+      "size": 524288,
+      "crc": "a22d00a7",
+      "md5": "63f9e1e524397ce39710fb87ca9ea591",
+      "sha1": "041b6bea48d316eb63efcf930a9bda0dd3bd6618",
+      "serial": "MBRJ"
+    },
+    {
+      "name": "Pichu Bros. Mini - Hoppip's Jump Match (Japan) (Preview)",
+      "region": "Japan",
+      "rom_name": "Pichu Bros. Mini - Hoppip's Jump Match (Japan) (Preview).min",
+      "size": 524288,
+      "crc": "be22866a",
+      "md5": "170271a2f4db89d241331805f26a71cf",
+      "sha1": "1c928c1e989f37751536494e1e843ed01c7f2c93",
+      "serial": "MBRJ"
+    },
+    {
+      "name": "Pichu Bros. Mini (Japan)",
+      "region": "Japan",
+      "rom_name": "Pichu Bros. Mini (Japan).min",
+      "size": 524288,
+      "crc": "00d8c968",
+      "md5": "a587b6f5aa51fc8506ae818127e5d1b3",
+      "sha1": "6f9bded4842b451102083d181db9deac2a7696e4",
+      "serial": "MBRJ"
+    },
+    {
+      "name": "Mini Running Ant (World)",
+      "rom_name": "Mini Running Ant (World) (Aftermarket) (Unl).min",
+      "size": 75264,
+      "crc": "296da9bb",
+      "md5": "ef8984f9e252298296f373598ca63e7e",
+      "sha1": "03c19d49263dff65d655d54b89fc4fdecf56d876"
+    },
+    {
+      "name": "Touhou - Bad Apple",
+      "description": "Touhou - Bad Apple",
+      "rom_name": "Touhou - Bad Apple.min",
+      "size": 2039523,
+      "releasemonth": 6,
+      "releaseyear": 2011,
+      "developer": "JustBurn, Mr. Blinky",
+      "crc": ";\u0018?U",
+      "md5": "61e424ae9d05c14625a244b9d3e47241",
+      "sha1": "b24b1842ddf1a552921254705f50349bf8192787"
+    },
+    {
+      "name": "Pokemon Zany Cards (USA, Europe)",
+      "region": "USA",
+      "rom_name": "Pokemon Zany Cards (USA, Europe).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "8a2fc063",
+      "md5": "28ddb09ed326df90b706aa61a851c732",
+      "sha1": "f34909ed7d1c1d432819ff774c0767ebfa42fb84",
+      "serial": "MACE"
+    },
+    {
+      "name": "Pokemon Zany Cards (Germany)",
+      "region": "Germany",
+      "rom_name": "Pokemon Zany Cards (Germany).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "c009d501",
+      "md5": "f974f9ca3a9fbaadcaf4fa1a88b5a763",
+      "sha1": "0922e0147ff097e56d5ec98bf66ef050539329fa",
+      "serial": "MACD"
+    },
+    {
+      "name": "Pokemon Zany Cards (France)",
+      "region": "France",
+      "rom_name": "Pokemon Zany Cards (France).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "830da957",
+      "md5": "a2a2add2f368e532eeecef5566b5fd8e",
+      "sha1": "7a8b3f6a3751cd39431d822fa3a8016ffd2d26d8",
+      "serial": "MACF"
+    },
+    {
+      "name": "Pokemon Tetris (Europe) (En,Fr,De)",
+      "region": "Europe",
+      "rom_name": "Pokemon Tetris (Europe) (En,Fr,De).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "2fb23527",
+      "md5": "f100caf74574aeabe5084f3b5c9e03d2",
+      "sha1": "5fd1198a4725e21629edd4869535b70edfe165d4",
+      "serial": "MSTP"
+    },
+    {
+      "name": "Pokemon Sodateyasan Mini (Japan)",
+      "region": "Japan",
+      "rom_name": "Pokemon Sodateyasan Mini (Japan).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "d55fc4c8",
+      "md5": "0eb5e7e191ce056f3ee2c6572bc61906",
+      "sha1": "3b87d4d61ba3db92190b6ffa055f463adea2363c",
+      "serial": "MSDJ"
+    },
+    {
+      "name": "Pokemon Shock Tetris (Japan)",
+      "region": "Japan",
+      "rom_name": "Pokemon Shock Tetris (Japan).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "b4b5cc20",
+      "md5": "8243ad09f4e470e239056b096083b6bd",
+      "sha1": "e81c3576b0c96e6ca28b958f8dda11cea5fce078",
+      "serial": "MSTJ"
+    },
+    {
+      "name": "Pokemon Race Mini (Japan) (Preview)",
+      "region": "Japan",
+      "rom_name": "Pokemon Race Mini (Japan) (Preview).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "8f731830",
+      "md5": "c8450d0975c7d64f955e527c617f1b6d",
+      "sha1": "6b8dbaa68ede37e64a22ee4b1cbb722f038cf5b5",
+      "serial": "MRCJ"
+    },
+    {
+      "name": "Pokemon Race Mini (Japan)",
+      "region": "Japan",
+      "rom_name": "Pokemon Race Mini (Japan).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "f8c842b5",
+      "md5": "8b50be4cf91a6a3268f5be5e67120056",
+      "sha1": "12bfbd2c8a810b49338148feb6162e29a540ac3a",
+      "serial": "MRCJ"
+    },
+    {
+      "name": "Pokemon Puzzle Collection Vol. 2 (Japan)",
+      "region": "Japan",
+      "rom_name": "Pokemon Puzzle Collection Vol. 2 (Japan).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "76a1bbf8",
+      "md5": "66809741517a2f0809cacd6acdd77b27",
+      "sha1": "11775bbac2e985ef90d4192ed6322dd3b8352ac9",
+      "serial": "MZ2J"
+    },
+    {
+      "name": "Pokemon Puzzle Collection (USA, Europe)",
+      "region": "USA",
+      "rom_name": "Pokemon Puzzle Collection (USA, Europe).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "2b348340",
+      "md5": "1bb47758e8ea1c5ba39acf4a1d10c78e",
+      "sha1": "9c5fa07cc9f93874b297f759a6c6fd98f6ec6f47",
+      "serial": "MPZE"
+    },
+    {
+      "name": "Pokemon Puzzle Collection (USA) (GameCube Preview)",
+      "region": "USA",
+      "rom_name": "Pokemon Puzzle Collection (USA) (GameCube Preview).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "6f8ae656",
+      "md5": "f8dd05808312ffa9cf200bf4633821af",
+      "sha1": "048bb1d30d6ff21be14dd123c52a375e12611238",
+      "serial": "MPZE"
+    },
+    {
+      "name": "Pokemon Puzzle Collection (Japan) (GameCube)",
+      "region": "Japan",
+      "rom_name": "Pokemon Puzzle Collection (Japan) (GameCube).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "da278854",
+      "md5": "beefcfd06308cd3a4f4033325bb11fda",
+      "sha1": "1ce915f0c03bc0ec2e505669336e6b6965f7476c",
+      "serial": "MPZJ"
+    },
+    {
+      "name": "Pokemon Puzzle Collection (Japan)",
+      "region": "Japan",
+      "rom_name": "Pokemon Puzzle Collection (Japan).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "95afae59",
+      "md5": "3d1dfd84aa956d86da8efb7df8dd96db",
+      "sha1": "2da4d24ed3192a88ab0b71ade7aec387987c5000",
+      "serial": "MPZJ"
+    },
+    {
+      "name": "Pokemon Puzzle Collection (Germany) (GameCube Preview)",
+      "region": "Germany",
+      "rom_name": "Pokemon Puzzle Collection (Germany) (GameCube Preview).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "0e7752e8",
+      "md5": "c1f450d01759aff0a34457408d141f2e",
+      "sha1": "7dc61e11b482b873d58657c827e3b166b3882db2",
+      "serial": "MPZD"
+    },
+    {
+      "name": "Pokemon Puzzle Collection (Germany)",
+      "region": "Germany",
+      "rom_name": "Pokemon Puzzle Collection (Germany).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "\"\u0010\u0010F",
+      "md5": "185a1995dc07e222152b591bffbe7720",
+      "sha1": "7c83682f595dc6eafc9c438d92eba7920ff3b2ca",
+      "serial": "MPZD"
+    },
+    {
+      "name": "Pokemon Puzzle Collection (France) (GameCube Preview)",
+      "region": "France",
+      "rom_name": "Pokemon Puzzle Collection (France) (GameCube Preview).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "7776f2bb",
+      "md5": "1811bb9f759ca25e60886a8bc06f9018",
+      "sha1": "d748f54bb50622858ae65cba74ba0cc82415fcbc",
+      "serial": "MPZF"
+    },
+    {
+      "name": "Pokemon Puzzle Collection (France)",
+      "region": "France",
+      "rom_name": "Pokemon Puzzle Collection (France).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "3004c354",
+      "md5": "de1edfaf924dc6cf48c6d3d789ba79d9",
+      "sha1": "5a2927770c1e2c7df3f8cc80c9252bb1111ca3a6",
+      "serial": "MPZF"
+    },
+    {
+      "name": "Pokemon Pinball Mini (USA, Europe)",
+      "region": "USA",
+      "rom_name": "Pokemon Pinball Mini (USA, Europe).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "a0091534",
+      "md5": "086ec88930aa624a09d470858ccc9911",
+      "sha1": "3ec1e04de413c22e9034074789ff2c45646ec0ac",
+      "serial": "MPBE"
+    },
+    {
+      "franchise": "Pokemon",
+      "crc": "50ad9d57"
+    },
+    {
+      "franchise": "Pokemon",
+      "crc": "88ca8cc5"
+    },
+    {
+      "name": "Pokemon Pinball Mini (Japan)",
+      "region": "Japan",
+      "rom_name": "Pokemon Pinball Mini (Japan).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "398d47de",
+      "md5": "842551cdd9e0cafdf2a6a57159d5bbc8",
+      "sha1": "57c78731f17f29d9cddfc7e21b4d8801e8569ca6",
+      "serial": "MPBJ"
+    },
+    {
+      "name": "Pokemon Party Mini - Slowking's Judge (Europe) (GameCube)",
+      "region": "Europe",
+      "rom_name": "Pokemon Party Mini - Slowking's Judge (Europe) (GameCube).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "9fd4d48b",
+      "md5": "a46b17f221404b64e914535831f36c3a",
+      "sha1": "e3bd506b97ea94e9291c2fa4e1395e1829bafeaf",
+      "serial": "MPTE"
+    },
+    {
+      "name": "Pokemon Party Mini - Rocket Start (USA) (GameCube)",
+      "region": "USA",
+      "rom_name": "Pokemon Party Mini - Rocket Start (USA) (GameCube).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "44c5271e",
+      "md5": "f899cab8f35452f83705484e16fef27a",
+      "sha1": "840d43fe55e8e056940ff0b7bc6d7e4e11b5e047",
+      "serial": "MPTE"
+    },
+    {
+      "name": "Pokemon Party Mini - Ricochet Dribble (USA) (GameCube)",
+      "region": "USA",
+      "rom_name": "Pokemon Party Mini - Ricochet Dribble (USA) (GameCube).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "3322ed38",
+      "md5": "21e538081f163dc394a48f17fe5fe39b",
+      "sha1": "ba1db1745933a941479d885fe0d1b52365b7f817",
+      "serial": "MPTE"
+    },
+    {
+      "name": "Pokemon Party Mini - Ricochet Dribble (Japan) (GameCube)",
+      "region": "Japan",
+      "rom_name": "Pokemon Party Mini - Ricochet Dribble (Japan) (GameCube).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "d09db45c",
+      "md5": "a19d177ca3edab37d464e1a3da09b8cf",
+      "sha1": "88b60902f9cf779ebcba1caee7c8477fc2e22598",
+      "serial": "MPTJ"
+    },
+    {
+      "name": "Pokemon Party Mini - Pikachu's Rocket Start (Europe) (GameCube)",
+      "region": "Europe",
+      "rom_name": "Pokemon Party Mini - Pikachu's Rocket Start (Europe) (GameCube).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "f15964af",
+      "md5": "ba35472c8cd0475642c0d6d9aee3c702",
+      "sha1": "b1922f3d43f3a4e36876c3e0e8428809fd999efc",
+      "serial": "MPTE"
+    },
+    {
+      "name": "Pokemon Party Mini - Chansey's Dribble (Europe) (GameCube)",
+      "region": "Europe",
+      "rom_name": "Pokemon Party Mini - Chansey's Dribble (Europe) (GameCube).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "ba504497",
+      "md5": "b8645e28349f7322dbd116785876bb50",
+      "sha1": "c9a5f335c93e9bacf198b976d430cf798bc517bc",
+      "serial": "MPTE"
+    },
+    {
+      "name": "Pokemon Party Mini - Baseline Judge (USA) (GameCube)",
+      "region": "USA",
+      "rom_name": "Pokemon Party Mini - Baseline Judge (USA) (GameCube).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "0cfb4d1c",
+      "md5": "2dea1b54200cea6389357cda076933e5",
+      "sha1": "20004ffc01eeb04e72402e70fc97170111aafa6a",
+      "serial": "MPTE"
+    },
+    {
+      "name": "Pokemon Party Mini - Baseline Judge (Japan) (GameCube)",
+      "region": "Japan",
+      "rom_name": "Pokemon Party Mini - Baseline Judge (Japan) (GameCube).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "f5192440",
+      "md5": "8cf7db86c6b1b27e0c1c2a3aae5c948b",
+      "sha1": "bdad2fc86506f18c16d2bd249cc1ad4ebf6113dd",
+      "serial": "MPTJ"
+    },
+    {
+      "name": "Pokemon Party Mini - Baseline Judge (Europe) (GameCube)",
+      "region": "Europe",
+      "rom_name": "Pokemon Party Mini - Baseline Judge (Europe) (GameCube).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "\u000e\u001e\u0015\u000b",
+      "md5": "e3af7c8142c2129387209ec61d0b778a",
+      "sha1": "a309e00b2a8d7290070f27ec2fe10cfaba048283",
+      "serial": "MPTE"
+    },
+    {
+      "name": "Pokemon Party Mini (USA)",
+      "region": "USA",
+      "rom_name": "Pokemon Party Mini (USA).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "938d3819",
+      "md5": "e0a064e6d758f958752a49c0ce798388",
+      "sha1": "ac94ed80d6f857e9530d17cc77c43aa809bf0415",
+      "serial": "MPTE"
+    },
+    {
+      "name": "Pokemon Party Mini (Japan)",
+      "region": "Japan",
+      "rom_name": "Pokemon Party Mini (Japan).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "ae2dde60",
+      "md5": "4266d987e4203c3da2a2da1b3c2e2d39",
+      "sha1": "4db4568b990077c21320b50dee6a3ceb258809db",
+      "serial": "MPTJ"
+    },
+    {
+      "name": "Pokemon Party Mini (Europe)",
+      "region": "Europe",
+      "rom_name": "Pokemon Party Mini (Europe).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "54acb670",
+      "md5": "2e27709cca64d3eadac14e1bbd663997",
+      "sha1": "58c3210187497cffe989debcc095cb99c465e970",
+      "serial": "MPTP"
+    },
+    {
+      "name": "Pokemon Anime Card Daisakusen (Japan)",
+      "region": "Japan",
+      "rom_name": "Pokemon Anime Card Daisakusen (Japan).min",
+      "size": 524288,
+      "franchise": "Pokemon",
+      "crc": "199d7ab1",
+      "md5": "28451a7512a537ed8ff2b2f4da57a489",
+      "sha1": "2c3aee0d0db8b4a80083732b8db07b0cc72608a8",
+      "serial": "MACJ"
+    },
+    {
+      "count": 75
+    }
+  ]
+}

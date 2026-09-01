@@ -1,92 +1,1226 @@
 {
-  "module": "NEC - PC Engine SuperGrafx",
+  "manufacturer": "NEC",
+  "console": "PC Engine SuperGrafx",
   "guid": "e63c6451-836b-5dbe-8532-63492762b3d9",
-  "source_url": "https://raw.githubusercontent.com/libretro/libretro-database/master/rdb/NEC%20-%20PC%20Engine%20SuperGrafx.rdb",
-  "entry_count": 6,
-  "fetched_at": "2026-08-06T11:17:22.735740",
-  "entries": [
+  "module": {
+    "name": "NEC - PC Engine SuperGrafx",
+    "path": "NEC - PC Engine SuperGrafx",
+    "url": "https://github.com/libretro-thumbnails/NEC_-_PC_Engine_SuperGrafx.git",
+    "branch": "master",
+    "ignore": "dirty",
+    "shallow": "true",
+    "guid": "e63c6451-836b-5dbe-8532-63492762b3d9"
+  },
+  "entry_count": 5,
+  "provider_total": 5,
+  "rdb_path": "backend/data/index/rdb/nec_pc_engine_supergrafx.json",
+  "roms": [
     {
+      "_key": "Aldynes - The Misson Code for Rage Crisis (Japan) (En)::::Aldynes - The Misson Code for Rage Crisis (Japan) (En).sgx::8ce21667658ef9c025ad007f65147c6d::0",
       "name": "Aldynes - The Misson Code for Rage Crisis (Japan) (En)",
-      "genre": "Shoot'em Up",
+      "console": "PC Engine SuperGrafx",
+      "manufacturer": "NEC",
       "region": "Japan",
-      "rom_name": "Aldynes - The Misson Code for Rage Crisis (Japan) (En).sgx",
-      "size": 1048576,
-      "users": 2,
-      "releasemonth": 2,
-      "releaseyear": 1991,
-      "developer": "Produce Co., Ltd.",
-      "publisher": "Hudson",
-      "crc": "4c2126b0",
       "md5": "8ce21667658ef9c025ad007f65147c6d",
-      "sha1": "d876248ee1b80ad11633fd4be8aa21a187b52193"
+      "sha1": "d876248ee1b80ad11633fd4be8aa21a187b52193",
+      "crc32": "4c2126b0",
+      "serial": null,
+      "size": 1048576,
+      "_size_bytes": 1048576,
+      "_search_blob": "aldynes - the misson code for rage crisis (japan) (en) aldynes - the misson code for rage crisis (japan) (en).sgx japan produce co., ltd. hudson",
+      "_rdb": {
+        "name": "Aldynes - The Misson Code for Rage Crisis (Japan) (En)",
+        "genre": "Shoot'em Up",
+        "region": "Japan",
+        "rom_name": "Aldynes - The Misson Code for Rage Crisis (Japan) (En).sgx",
+        "size": 1048576,
+        "users": 2,
+        "releasemonth": 2,
+        "releaseyear": 1991,
+        "developer": "Produce Co., Ltd.",
+        "publisher": "Hudson",
+        "crc": "4c2126b0",
+        "md5": "8ce21667658ef9c025ad007f65147c6d",
+        "sha1": "d876248ee1b80ad11633fd4be8aa21a187b52193"
+      },
+      "_providers": [
+        {
+          "provider_id": "no_intro_romset_collection",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "A/Aldynes - The Misson Code for Rage Crisis (Japan)/Aldynes - The Misson Code for Rage Crisis (Japan).sgx",
+            "size": 1048576,
+            "md5": "8ce21667658ef9c025ad007f65147c6d",
+            "crc32": "4c2126b0",
+            "sha1": "d876248ee1b80ad11633fd4be8aa21a187b52193",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/no-intro_romset_collection/no-intro_romset_collection_archive.torrent",
+            "http_url": "https://archive.org/download/no-intro_romset_collection/NEC%20-%20PC%20Engine%20SuperGrafx.7z",
+            "_archive_member": true,
+            "_archive_member_path": "A/Aldynes - The Misson Code for Rage Crisis (Japan)/Aldynes - The Misson Code for Rage Crisis (Japan).sgx",
+            "_source_bundle": "NEC - PC Engine SuperGrafx.7z",
+            "_source_bundle_size": 2512332
+          },
+          "metadata": {
+            "archive_id": "no-intro_romset_collection",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_2020_roundup",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "Aldynes - The Mission Code for Rage Crisis (1991)(Hudson)(JP)(en)/Aldynes - The Mission Code for Rage Crisis (1991)(Hudson)(JP)(en).pce",
+            "size": 1048576,
+            "md5": "8ce21667658ef9c025ad007f65147c6d",
+            "crc32": "4c2126b0",
+            "sha1": "d876248ee1b80ad11633fd4be8aa21a187b52193",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/TOSEC_2020_Roundup/TOSEC_2020_Roundup_archive.torrent",
+            "http_url": "https://archive.org/download/TOSEC_2020_Roundup/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games%20%28TOSEC-v2018-08-26%29.zip",
+            "_archive_member": true,
+            "_archive_member_path": "Aldynes - The Mission Code for Rage Crisis (1991)(Hudson)(JP)(en)/Aldynes - The Mission Code for Rage Crisis (1991)(Hudson)(JP)(en).pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games (TOSEC-v2018-08-26).zip",
+            "_source_bundle_size": 8809016
+          },
+          "metadata": {
+            "archive_id": "TOSEC_2020_Roundup",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_full_2022_07_10",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "Aldynes - The Mission Code for Rage Crisis (1991)(Hudson)(JP)(en)/Aldynes - The Mission Code for Rage Crisis (1991)(Hudson)(JP)(en).pce",
+            "size": 1048576,
+            "md5": "8ce21667658ef9c025ad007f65147c6d",
+            "crc32": "4c2126b0",
+            "sha1": "d876248ee1b80ad11633fd4be8aa21a187b52193",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/tosec-full-2022-07-10/tosec-full-2022-07-10_archive.torrent",
+            "http_url": "https://archive.org/download/tosec-full-2022-07-10/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games.7z",
+            "_archive_member": true,
+            "_archive_member_path": "Aldynes - The Mission Code for Rage Crisis (1991)(Hudson)(JP)(en)/Aldynes - The Mission Code for Rage Crisis (1991)(Hudson)(JP)(en).pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games.7z",
+            "_source_bundle_size": 2364389
+          },
+          "metadata": {
+            "archive_id": "tosec-full-2022-07-10",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        }
+      ],
+      "_provider_count": 3,
+      "_provider_labels": [
+        "Internet Archive"
+      ],
+      "http_url": "https://archive.org/download/no-intro_romset_collection/NEC%20-%20PC%20Engine%20SuperGrafx.7z",
+      "torrent_url": "https://archive.org/download/no-intro_romset_collection/no-intro_romset_collection_archive.torrent"
     },
     {
+      "_key": "1941 - Counter Attack (Japan)::::1941 - Counter Attack (Japan).sgx::30686dba4795521174658de2492e0046::1",
       "name": "1941 - Counter Attack (Japan)",
-      "genre": "Shoot'em Up",
+      "console": "PC Engine SuperGrafx",
+      "manufacturer": "NEC",
       "region": "Japan",
-      "rom_name": "1941 - Counter Attack (Japan).sgx",
-      "size": 1048576,
-      "users": 2,
-      "releasemonth": 8,
-      "releaseyear": 1991,
-      "franchise": "19XX",
-      "developer": "Capcom",
-      "publisher": "Capcom",
-      "crc": "8c4588e2",
       "md5": "30686dba4795521174658de2492e0046",
-      "sha1": "66873b0e0cc699aa75daf06a3f74c0508037e605"
-    },
-    {
-      "name": "Battle Ace (Japan) (En)",
-      "genre": "Shoot'em Up",
-      "region": "Japan",
-      "rom_name": "Battle Ace (Japan) (En).sgx",
-      "size": 524288,
-      "users": 1,
-      "releasemonth": 11,
-      "releaseyear": 1989,
-      "developer": "Hudson",
-      "publisher": "Hudson",
-      "crc": "3b13af61",
-      "md5": "fc0053c0c050353b87886b1b89349168",
-      "sha1": "edc8f7d2233c92ebd309ac804527c461851a4b63"
-    },
-    {
-      "name": "Madou King Granzort (Japan) (En)",
-      "genre": "Action",
-      "region": "Japan",
-      "rom_name": "Madou King Granzort (Japan) (En).sgx",
-      "size": 524288,
-      "users": 1,
-      "releasemonth": 4,
-      "releaseyear": 1990,
-      "developer": "Sunrise Software",
-      "publisher": "Hudson",
-      "crc": "\u001f\u0004\u0011f",
-      "md5": "7e1e489c50fc6213196e6dbb704f6671",
-      "sha1": "5ed16565753c902e14da9a0c5361ef01fa74463b"
-    },
-    {
-      "name": "Daimakaimura (Japan) (En)",
-      "genre": "Platform",
-      "region": "Japan",
-      "rom_name": "Daimakaimura (Japan) (En).sgx",
+      "sha1": "66873b0e0cc699aa75daf06a3f74c0508037e605",
+      "crc32": "8c4588e2",
+      "serial": null,
       "size": 1048576,
-      "users": 1,
-      "releasemonth": 7,
-      "releaseyear": 1990,
-      "franchise": "Ghost'n Goblins",
-      "developer": "Capcom",
-      "publisher": "NEC",
-      "crc": "b486a8ed",
-      "md5": "6d9ff6f70608166c88fd2553d44ca17a",
-      "sha1": "cab9e4a1a8b6da07cc2c5cc35949928199a417ee"
+      "_size_bytes": 1048576,
+      "_search_blob": "1941 - counter attack (japan) 1941 - counter attack (japan).sgx japan capcom capcom",
+      "_rdb": {
+        "name": "1941 - Counter Attack (Japan)",
+        "genre": "Shoot'em Up",
+        "region": "Japan",
+        "rom_name": "1941 - Counter Attack (Japan).sgx",
+        "size": 1048576,
+        "users": 2,
+        "releasemonth": 8,
+        "releaseyear": 1991,
+        "franchise": "19XX",
+        "developer": "Capcom",
+        "publisher": "Capcom",
+        "crc": "8c4588e2",
+        "md5": "30686dba4795521174658de2492e0046",
+        "sha1": "66873b0e0cc699aa75daf06a3f74c0508037e605"
+      },
+      "_providers": [
+        {
+          "provider_id": "no_intro_romset_collection",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "0-9/1941 - Counter Attack (Japan)/1941 - Counter Attack (Japan).sgx",
+            "size": 1048576,
+            "md5": "30686dba4795521174658de2492e0046",
+            "crc32": "8c4588e2",
+            "sha1": "66873b0e0cc699aa75daf06a3f74c0508037e605",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/no-intro_romset_collection/no-intro_romset_collection_archive.torrent",
+            "http_url": "https://archive.org/download/no-intro_romset_collection/NEC%20-%20PC%20Engine%20SuperGrafx.7z",
+            "_archive_member": true,
+            "_archive_member_path": "0-9/1941 - Counter Attack (Japan)/1941 - Counter Attack (Japan).sgx",
+            "_source_bundle": "NEC - PC Engine SuperGrafx.7z",
+            "_source_bundle_size": 2512332
+          },
+          "metadata": {
+            "archive_id": "no-intro_romset_collection",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_2020_roundup",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "1941 - Counter Attack (1991)(Hudson)(JP)/1941 - Counter Attack (1991)(Hudson)(JP).pce",
+            "size": 1048576,
+            "md5": "30686dba4795521174658de2492e0046",
+            "crc32": "8c4588e2",
+            "sha1": "66873b0e0cc699aa75daf06a3f74c0508037e605",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/TOSEC_2020_Roundup/TOSEC_2020_Roundup_archive.torrent",
+            "http_url": "https://archive.org/download/TOSEC_2020_Roundup/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games%20%28TOSEC-v2018-08-26%29.zip",
+            "_archive_member": true,
+            "_archive_member_path": "1941 - Counter Attack (1991)(Hudson)(JP)/1941 - Counter Attack (1991)(Hudson)(JP).pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games (TOSEC-v2018-08-26).zip",
+            "_source_bundle_size": 8809016
+          },
+          "metadata": {
+            "archive_id": "TOSEC_2020_Roundup",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_full_2022_07_10",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "1941 - Counter Attack (1991)(Hudson)(JP)/1941 - Counter Attack (1991)(Hudson)(JP).pce",
+            "size": 1048576,
+            "md5": "30686dba4795521174658de2492e0046",
+            "crc32": "8c4588e2",
+            "sha1": "66873b0e0cc699aa75daf06a3f74c0508037e605",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/tosec-full-2022-07-10/tosec-full-2022-07-10_archive.torrent",
+            "http_url": "https://archive.org/download/tosec-full-2022-07-10/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games.7z",
+            "_archive_member": true,
+            "_archive_member_path": "1941 - Counter Attack (1991)(Hudson)(JP)/1941 - Counter Attack (1991)(Hudson)(JP).pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games.7z",
+            "_source_bundle_size": 2364389
+          },
+          "metadata": {
+            "archive_id": "tosec-full-2022-07-10",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_2020_roundup",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "1941 - Counter Attack (1991)(Hudson)(JP)[u]/1941 - Counter Attack (1991)(Hudson)(JP)[u].pce",
+            "size": 753152,
+            "md5": "f42b27970b0396e9775918e525f16a03",
+            "crc32": "25a5e19f",
+            "sha1": "bb44e79232c8d170be820c463633f7b08dabe8ac",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/TOSEC_2020_Roundup/TOSEC_2020_Roundup_archive.torrent",
+            "http_url": "https://archive.org/download/TOSEC_2020_Roundup/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games%20%28TOSEC-v2018-08-26%29.zip",
+            "_archive_member": true,
+            "_archive_member_path": "1941 - Counter Attack (1991)(Hudson)(JP)[u]/1941 - Counter Attack (1991)(Hudson)(JP)[u].pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games (TOSEC-v2018-08-26).zip",
+            "_source_bundle_size": 8809016
+          },
+          "metadata": {
+            "archive_id": "TOSEC_2020_Roundup",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_2020_roundup",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "1941 - Counter Attack (1991)(Hudson)(JP)[b]/1941 - Counter Attack (1991)(Hudson)(JP)[b].pce",
+            "size": 1048579,
+            "md5": "f226db1f66cc52bbce819e2288b3d99c",
+            "crc32": "9cc1f2b4",
+            "sha1": "109408ced10dc7b4154163ee407253d733b96f11",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/TOSEC_2020_Roundup/TOSEC_2020_Roundup_archive.torrent",
+            "http_url": "https://archive.org/download/TOSEC_2020_Roundup/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games%20%28TOSEC-v2018-08-26%29.zip",
+            "_archive_member": true,
+            "_archive_member_path": "1941 - Counter Attack (1991)(Hudson)(JP)[b]/1941 - Counter Attack (1991)(Hudson)(JP)[b].pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games (TOSEC-v2018-08-26).zip",
+            "_source_bundle_size": 8809016
+          },
+          "metadata": {
+            "archive_id": "TOSEC_2020_Roundup",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_2020_roundup",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "1941 - Counter Attack (1991)(Hudson)(JP)[a]/1941 - Counter Attack (1991)(Hudson)(JP)[a].pce",
+            "size": 1048576,
+            "md5": "1e68f109d09b58e4dd5e0f3bb32af067",
+            "crc32": "213066f4",
+            "sha1": "fb76ec9d18f5af5b42d0dcb13da1f3fdf7cfd695",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/TOSEC_2020_Roundup/TOSEC_2020_Roundup_archive.torrent",
+            "http_url": "https://archive.org/download/TOSEC_2020_Roundup/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games%20%28TOSEC-v2018-08-26%29.zip",
+            "_archive_member": true,
+            "_archive_member_path": "1941 - Counter Attack (1991)(Hudson)(JP)[a]/1941 - Counter Attack (1991)(Hudson)(JP)[a].pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games (TOSEC-v2018-08-26).zip",
+            "_source_bundle_size": 8809016
+          },
+          "metadata": {
+            "archive_id": "TOSEC_2020_Roundup",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_2020_roundup",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "1941 - Counter Attack (1991)(Hudson)(JP)[b2 freezes]/1941 - Counter Attack (1991)(Hudson)(JP)[b2 freezes].pce",
+            "size": 1048576,
+            "md5": "ffe4e471440be4150ac64089dea92388",
+            "crc32": "d206e241",
+            "sha1": "986238ccd6a50b36ab41d9e483f1fc08d6dd5e87",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/TOSEC_2020_Roundup/TOSEC_2020_Roundup_archive.torrent",
+            "http_url": "https://archive.org/download/TOSEC_2020_Roundup/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games%20%28TOSEC-v2018-08-26%29.zip",
+            "_archive_member": true,
+            "_archive_member_path": "1941 - Counter Attack (1991)(Hudson)(JP)[b2 freezes]/1941 - Counter Attack (1991)(Hudson)(JP)[b2 freezes].pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games (TOSEC-v2018-08-26).zip",
+            "_source_bundle_size": 8809016
+          },
+          "metadata": {
+            "archive_id": "TOSEC_2020_Roundup",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_2020_roundup",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "1941 - Counter Attack (1991)(Hudson)(JP)[h2]/1941 - Counter Attack (1991)(Hudson)(JP)[h2].pce",
+            "size": 1048576,
+            "md5": "f7e393be2ad1c110da21cace7595db41",
+            "crc32": "36b1f821",
+            "sha1": "0f8bc5af2629992dec1cc01c680d100ce2ae4aeb",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/TOSEC_2020_Roundup/TOSEC_2020_Roundup_archive.torrent",
+            "http_url": "https://archive.org/download/TOSEC_2020_Roundup/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games%20%28TOSEC-v2018-08-26%29.zip",
+            "_archive_member": true,
+            "_archive_member_path": "1941 - Counter Attack (1991)(Hudson)(JP)[h2]/1941 - Counter Attack (1991)(Hudson)(JP)[h2].pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games (TOSEC-v2018-08-26).zip",
+            "_source_bundle_size": 8809016
+          },
+          "metadata": {
+            "archive_id": "TOSEC_2020_Roundup",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_2020_roundup",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "1941 - Counter Attack (1991)(Hudson)(JP)[h]/1941 - Counter Attack (1991)(Hudson)(JP)[h].pce",
+            "size": 1048576,
+            "md5": "689ebae6b4fee7a8b3dd6f0b761f478f",
+            "crc32": "a96b6a07",
+            "sha1": "bca73833389cfe731daf3f5395383cd1cc2e157c",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/TOSEC_2020_Roundup/TOSEC_2020_Roundup_archive.torrent",
+            "http_url": "https://archive.org/download/TOSEC_2020_Roundup/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games%20%28TOSEC-v2018-08-26%29.zip",
+            "_archive_member": true,
+            "_archive_member_path": "1941 - Counter Attack (1991)(Hudson)(JP)[h]/1941 - Counter Attack (1991)(Hudson)(JP)[h].pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games (TOSEC-v2018-08-26).zip",
+            "_source_bundle_size": 8809016
+          },
+          "metadata": {
+            "archive_id": "TOSEC_2020_Roundup",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_full_2022_07_10",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "1941 - Counter Attack (1991)(Hudson)(JP)[u]/1941 - Counter Attack (1991)(Hudson)(JP)[u].pce",
+            "size": 753152,
+            "md5": "f42b27970b0396e9775918e525f16a03",
+            "crc32": "25a5e19f",
+            "sha1": "bb44e79232c8d170be820c463633f7b08dabe8ac",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/tosec-full-2022-07-10/tosec-full-2022-07-10_archive.torrent",
+            "http_url": "https://archive.org/download/tosec-full-2022-07-10/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games.7z",
+            "_archive_member": true,
+            "_archive_member_path": "1941 - Counter Attack (1991)(Hudson)(JP)[u]/1941 - Counter Attack (1991)(Hudson)(JP)[u].pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games.7z",
+            "_source_bundle_size": 2364389
+          },
+          "metadata": {
+            "archive_id": "tosec-full-2022-07-10",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_full_2022_07_10",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "1941 - Counter Attack (1991)(Hudson)(JP)[b]/1941 - Counter Attack (1991)(Hudson)(JP)[b].pce",
+            "size": 1048579,
+            "md5": "f226db1f66cc52bbce819e2288b3d99c",
+            "crc32": "9cc1f2b4",
+            "sha1": "109408ced10dc7b4154163ee407253d733b96f11",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/tosec-full-2022-07-10/tosec-full-2022-07-10_archive.torrent",
+            "http_url": "https://archive.org/download/tosec-full-2022-07-10/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games.7z",
+            "_archive_member": true,
+            "_archive_member_path": "1941 - Counter Attack (1991)(Hudson)(JP)[b]/1941 - Counter Attack (1991)(Hudson)(JP)[b].pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games.7z",
+            "_source_bundle_size": 2364389
+          },
+          "metadata": {
+            "archive_id": "tosec-full-2022-07-10",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_full_2022_07_10",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "1941 - Counter Attack (1991)(Hudson)(JP)[a]/1941 - Counter Attack (1991)(Hudson)(JP)[a].pce",
+            "size": 1048576,
+            "md5": "1e68f109d09b58e4dd5e0f3bb32af067",
+            "crc32": "213066f4",
+            "sha1": "fb76ec9d18f5af5b42d0dcb13da1f3fdf7cfd695",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/tosec-full-2022-07-10/tosec-full-2022-07-10_archive.torrent",
+            "http_url": "https://archive.org/download/tosec-full-2022-07-10/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games.7z",
+            "_archive_member": true,
+            "_archive_member_path": "1941 - Counter Attack (1991)(Hudson)(JP)[a]/1941 - Counter Attack (1991)(Hudson)(JP)[a].pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games.7z",
+            "_source_bundle_size": 2364389
+          },
+          "metadata": {
+            "archive_id": "tosec-full-2022-07-10",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_full_2022_07_10",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "1941 - Counter Attack (1991)(Hudson)(JP)[b2 freezes]/1941 - Counter Attack (1991)(Hudson)(JP)[b2 freezes].pce",
+            "size": 1048576,
+            "md5": "ffe4e471440be4150ac64089dea92388",
+            "crc32": "d206e241",
+            "sha1": "986238ccd6a50b36ab41d9e483f1fc08d6dd5e87",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/tosec-full-2022-07-10/tosec-full-2022-07-10_archive.torrent",
+            "http_url": "https://archive.org/download/tosec-full-2022-07-10/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games.7z",
+            "_archive_member": true,
+            "_archive_member_path": "1941 - Counter Attack (1991)(Hudson)(JP)[b2 freezes]/1941 - Counter Attack (1991)(Hudson)(JP)[b2 freezes].pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games.7z",
+            "_source_bundle_size": 2364389
+          },
+          "metadata": {
+            "archive_id": "tosec-full-2022-07-10",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_full_2022_07_10",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "1941 - Counter Attack (1991)(Hudson)(JP)[h2]/1941 - Counter Attack (1991)(Hudson)(JP)[h2].pce",
+            "size": 1048576,
+            "md5": "f7e393be2ad1c110da21cace7595db41",
+            "crc32": "36b1f821",
+            "sha1": "0f8bc5af2629992dec1cc01c680d100ce2ae4aeb",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/tosec-full-2022-07-10/tosec-full-2022-07-10_archive.torrent",
+            "http_url": "https://archive.org/download/tosec-full-2022-07-10/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games.7z",
+            "_archive_member": true,
+            "_archive_member_path": "1941 - Counter Attack (1991)(Hudson)(JP)[h2]/1941 - Counter Attack (1991)(Hudson)(JP)[h2].pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games.7z",
+            "_source_bundle_size": 2364389
+          },
+          "metadata": {
+            "archive_id": "tosec-full-2022-07-10",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_full_2022_07_10",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "1941 - Counter Attack (1991)(Hudson)(JP)[h]/1941 - Counter Attack (1991)(Hudson)(JP)[h].pce",
+            "size": 1048576,
+            "md5": "689ebae6b4fee7a8b3dd6f0b761f478f",
+            "crc32": "a96b6a07",
+            "sha1": "bca73833389cfe731daf3f5395383cd1cc2e157c",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/tosec-full-2022-07-10/tosec-full-2022-07-10_archive.torrent",
+            "http_url": "https://archive.org/download/tosec-full-2022-07-10/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games.7z",
+            "_archive_member": true,
+            "_archive_member_path": "1941 - Counter Attack (1991)(Hudson)(JP)[h]/1941 - Counter Attack (1991)(Hudson)(JP)[h].pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games.7z",
+            "_source_bundle_size": 2364389
+          },
+          "metadata": {
+            "archive_id": "tosec-full-2022-07-10",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        }
+      ],
+      "_provider_count": 3,
+      "_provider_labels": [
+        "Internet Archive"
+      ],
+      "http_url": "https://archive.org/download/no-intro_romset_collection/NEC%20-%20PC%20Engine%20SuperGrafx.7z",
+      "torrent_url": "https://archive.org/download/no-intro_romset_collection/no-intro_romset_collection_archive.torrent"
     },
     {
-      "count": 5
+      "_key": "Battle Ace (Japan) (En)::::Battle Ace (Japan) (En).sgx::fc0053c0c050353b87886b1b89349168::2",
+      "name": "Battle Ace (Japan) (En)",
+      "console": "PC Engine SuperGrafx",
+      "manufacturer": "NEC",
+      "region": "Japan",
+      "md5": "fc0053c0c050353b87886b1b89349168",
+      "sha1": "edc8f7d2233c92ebd309ac804527c461851a4b63",
+      "crc32": "3b13af61",
+      "serial": null,
+      "size": 524288,
+      "_size_bytes": 524288,
+      "_search_blob": "battle ace (japan) (en) battle ace (japan) (en).sgx japan hudson hudson",
+      "_rdb": {
+        "name": "Battle Ace (Japan) (En)",
+        "genre": "Shoot'em Up",
+        "region": "Japan",
+        "rom_name": "Battle Ace (Japan) (En).sgx",
+        "size": 524288,
+        "users": 1,
+        "releasemonth": 11,
+        "releaseyear": 1989,
+        "developer": "Hudson",
+        "publisher": "Hudson",
+        "crc": "3b13af61",
+        "md5": "fc0053c0c050353b87886b1b89349168",
+        "sha1": "edc8f7d2233c92ebd309ac804527c461851a4b63"
+      },
+      "_providers": [
+        {
+          "provider_id": "no_intro_romset_collection",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "B/Battle Ace (Japan)/Battle Ace (Japan).sgx",
+            "size": 524288,
+            "md5": "fc0053c0c050353b87886b1b89349168",
+            "crc32": "3b13af61",
+            "sha1": "edc8f7d2233c92ebd309ac804527c461851a4b63",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/no-intro_romset_collection/no-intro_romset_collection_archive.torrent",
+            "http_url": "https://archive.org/download/no-intro_romset_collection/NEC%20-%20PC%20Engine%20SuperGrafx.7z",
+            "_archive_member": true,
+            "_archive_member_path": "B/Battle Ace (Japan)/Battle Ace (Japan).sgx",
+            "_source_bundle": "NEC - PC Engine SuperGrafx.7z",
+            "_source_bundle_size": 2512332
+          },
+          "metadata": {
+            "archive_id": "no-intro_romset_collection",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_2020_roundup",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "Battle Ace (1989)(Hudson)(JP)(en)/Battle Ace (1989)(Hudson)(JP)(en).pce",
+            "size": 524288,
+            "md5": "fc0053c0c050353b87886b1b89349168",
+            "crc32": "3b13af61",
+            "sha1": "edc8f7d2233c92ebd309ac804527c461851a4b63",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/TOSEC_2020_Roundup/TOSEC_2020_Roundup_archive.torrent",
+            "http_url": "https://archive.org/download/TOSEC_2020_Roundup/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games%20%28TOSEC-v2018-08-26%29.zip",
+            "_archive_member": true,
+            "_archive_member_path": "Battle Ace (1989)(Hudson)(JP)(en)/Battle Ace (1989)(Hudson)(JP)(en).pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games (TOSEC-v2018-08-26).zip",
+            "_source_bundle_size": 8809016
+          },
+          "metadata": {
+            "archive_id": "TOSEC_2020_Roundup",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_full_2022_07_10",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "Battle Ace (1989)(Hudson)(JP)(en)/Battle Ace (1989)(Hudson)(JP)(en).pce",
+            "size": 524288,
+            "md5": "fc0053c0c050353b87886b1b89349168",
+            "crc32": "3b13af61",
+            "sha1": "edc8f7d2233c92ebd309ac804527c461851a4b63",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/tosec-full-2022-07-10/tosec-full-2022-07-10_archive.torrent",
+            "http_url": "https://archive.org/download/tosec-full-2022-07-10/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games.7z",
+            "_archive_member": true,
+            "_archive_member_path": "Battle Ace (1989)(Hudson)(JP)(en)/Battle Ace (1989)(Hudson)(JP)(en).pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games.7z",
+            "_source_bundle_size": 2364389
+          },
+          "metadata": {
+            "archive_id": "tosec-full-2022-07-10",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_2020_roundup",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "Battle Ace (1989)(Hudson)(JP)(en)[b corrupt gfx]/Battle Ace (1989)(Hudson)(JP)(en)[b corrupt gfx].pce",
+            "size": 524288,
+            "md5": "356fbc3619368de77b6d67af74375038",
+            "crc32": "0115fb6f",
+            "sha1": "ca03500834f5b1dcd176158467fcfe998fc69c97",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/TOSEC_2020_Roundup/TOSEC_2020_Roundup_archive.torrent",
+            "http_url": "https://archive.org/download/TOSEC_2020_Roundup/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games%20%28TOSEC-v2018-08-26%29.zip",
+            "_archive_member": true,
+            "_archive_member_path": "Battle Ace (1989)(Hudson)(JP)(en)[b corrupt gfx]/Battle Ace (1989)(Hudson)(JP)(en)[b corrupt gfx].pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games (TOSEC-v2018-08-26).zip",
+            "_source_bundle_size": 8809016
+          },
+          "metadata": {
+            "archive_id": "TOSEC_2020_Roundup",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_2020_roundup",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "Battle Ace (1989)(Hudson)(JP)(en)[b2]/Battle Ace (1989)(Hudson)(JP)(en)[b2].pce",
+            "size": 524288,
+            "md5": "eb237478206bf6e88af5e189696fffcd",
+            "crc32": "5dc4587c",
+            "sha1": "4920ea33375490df0bd7ee616b7cb6e357c41a55",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/TOSEC_2020_Roundup/TOSEC_2020_Roundup_archive.torrent",
+            "http_url": "https://archive.org/download/TOSEC_2020_Roundup/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games%20%28TOSEC-v2018-08-26%29.zip",
+            "_archive_member": true,
+            "_archive_member_path": "Battle Ace (1989)(Hudson)(JP)(en)[b2]/Battle Ace (1989)(Hudson)(JP)(en)[b2].pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games (TOSEC-v2018-08-26).zip",
+            "_source_bundle_size": 8809016
+          },
+          "metadata": {
+            "archive_id": "TOSEC_2020_Roundup",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_full_2022_07_10",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "Battle Ace (1989)(Hudson)(JP)(en)[b corrupt gfx]/Battle Ace (1989)(Hudson)(JP)(en)[b corrupt gfx].pce",
+            "size": 524288,
+            "md5": "356fbc3619368de77b6d67af74375038",
+            "crc32": "0115fb6f",
+            "sha1": "ca03500834f5b1dcd176158467fcfe998fc69c97",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/tosec-full-2022-07-10/tosec-full-2022-07-10_archive.torrent",
+            "http_url": "https://archive.org/download/tosec-full-2022-07-10/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games.7z",
+            "_archive_member": true,
+            "_archive_member_path": "Battle Ace (1989)(Hudson)(JP)(en)[b corrupt gfx]/Battle Ace (1989)(Hudson)(JP)(en)[b corrupt gfx].pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games.7z",
+            "_source_bundle_size": 2364389
+          },
+          "metadata": {
+            "archive_id": "tosec-full-2022-07-10",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_full_2022_07_10",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "Battle Ace (1989)(Hudson)(JP)(en)[b2]/Battle Ace (1989)(Hudson)(JP)(en)[b2].pce",
+            "size": 524288,
+            "md5": "eb237478206bf6e88af5e189696fffcd",
+            "crc32": "5dc4587c",
+            "sha1": "4920ea33375490df0bd7ee616b7cb6e357c41a55",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/tosec-full-2022-07-10/tosec-full-2022-07-10_archive.torrent",
+            "http_url": "https://archive.org/download/tosec-full-2022-07-10/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games.7z",
+            "_archive_member": true,
+            "_archive_member_path": "Battle Ace (1989)(Hudson)(JP)(en)[b2]/Battle Ace (1989)(Hudson)(JP)(en)[b2].pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games.7z",
+            "_source_bundle_size": 2364389
+          },
+          "metadata": {
+            "archive_id": "tosec-full-2022-07-10",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        }
+      ],
+      "_provider_count": 3,
+      "_provider_labels": [
+        "Internet Archive"
+      ],
+      "http_url": "https://archive.org/download/no-intro_romset_collection/NEC%20-%20PC%20Engine%20SuperGrafx.7z",
+      "torrent_url": "https://archive.org/download/no-intro_romset_collection/no-intro_romset_collection_archive.torrent"
+    },
+    {
+      "_key": "Madou King Granzort (Japan) (En)::::Madou King Granzort (Japan) (En).sgx::7e1e489c50fc6213196e6dbb704f6671::3",
+      "name": "Madou King Granzort (Japan) (En)",
+      "console": "PC Engine SuperGrafx",
+      "manufacturer": "NEC",
+      "region": "Japan",
+      "md5": "7e1e489c50fc6213196e6dbb704f6671",
+      "sha1": "5ed16565753c902e14da9a0c5361ef01fa74463b",
+      "crc32": "\u001f\u0004\u0011f",
+      "serial": null,
+      "size": 524288,
+      "_size_bytes": 524288,
+      "_search_blob": "madou king granzort (japan) (en) madou king granzort (japan) (en).sgx japan sunrise software hudson",
+      "_rdb": {
+        "name": "Madou King Granzort (Japan) (En)",
+        "genre": "Action",
+        "region": "Japan",
+        "rom_name": "Madou King Granzort (Japan) (En).sgx",
+        "size": 524288,
+        "users": 1,
+        "releasemonth": 4,
+        "releaseyear": 1990,
+        "developer": "Sunrise Software",
+        "publisher": "Hudson",
+        "crc": "\u001f\u0004\u0011f",
+        "md5": "7e1e489c50fc6213196e6dbb704f6671",
+        "sha1": "5ed16565753c902e14da9a0c5361ef01fa74463b"
+      },
+      "_providers": [
+        {
+          "provider_id": "no_intro_romset_collection",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "M/Madou King Granzort (Japan)/Madou King Granzort (Japan).sgx",
+            "size": 524288,
+            "md5": "7e1e489c50fc6213196e6dbb704f6671",
+            "crc32": "1f041166",
+            "sha1": "5ed16565753c902e14da9a0c5361ef01fa74463b",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/no-intro_romset_collection/no-intro_romset_collection_archive.torrent",
+            "http_url": "https://archive.org/download/no-intro_romset_collection/NEC%20-%20PC%20Engine%20SuperGrafx.7z",
+            "_archive_member": true,
+            "_archive_member_path": "M/Madou King Granzort (Japan)/Madou King Granzort (Japan).sgx",
+            "_source_bundle": "NEC - PC Engine SuperGrafx.7z",
+            "_source_bundle_size": 2512332
+          },
+          "metadata": {
+            "archive_id": "no-intro_romset_collection",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_2020_roundup",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "Madou Ou Granzort (1990)(Hudson)(JP)/Madou Ou Granzort (1990)(Hudson)(JP).pce",
+            "size": 524288,
+            "md5": "7e1e489c50fc6213196e6dbb704f6671",
+            "crc32": "1f041166",
+            "sha1": "5ed16565753c902e14da9a0c5361ef01fa74463b",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/TOSEC_2020_Roundup/TOSEC_2020_Roundup_archive.torrent",
+            "http_url": "https://archive.org/download/TOSEC_2020_Roundup/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games%20%28TOSEC-v2018-08-26%29.zip",
+            "_archive_member": true,
+            "_archive_member_path": "Madou Ou Granzort (1990)(Hudson)(JP)/Madou Ou Granzort (1990)(Hudson)(JP).pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games (TOSEC-v2018-08-26).zip",
+            "_source_bundle_size": 8809016
+          },
+          "metadata": {
+            "archive_id": "TOSEC_2020_Roundup",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_full_2022_07_10",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "Madou Ou Granzort (1990)(Hudson)(JP)/Madou Ou Granzort (1990)(Hudson)(JP).pce",
+            "size": 524288,
+            "md5": "7e1e489c50fc6213196e6dbb704f6671",
+            "crc32": "1f041166",
+            "sha1": "5ed16565753c902e14da9a0c5361ef01fa74463b",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/tosec-full-2022-07-10/tosec-full-2022-07-10_archive.torrent",
+            "http_url": "https://archive.org/download/tosec-full-2022-07-10/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games.7z",
+            "_archive_member": true,
+            "_archive_member_path": "Madou Ou Granzort (1990)(Hudson)(JP)/Madou Ou Granzort (1990)(Hudson)(JP).pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games.7z",
+            "_source_bundle_size": 2364389
+          },
+          "metadata": {
+            "archive_id": "tosec-full-2022-07-10",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        }
+      ],
+      "_provider_count": 3,
+      "_provider_labels": [
+        "Internet Archive"
+      ],
+      "http_url": "https://archive.org/download/no-intro_romset_collection/NEC%20-%20PC%20Engine%20SuperGrafx.7z",
+      "torrent_url": "https://archive.org/download/no-intro_romset_collection/no-intro_romset_collection_archive.torrent"
+    },
+    {
+      "_key": "Daimakaimura (Japan) (En)::::Daimakaimura (Japan) (En).sgx::6d9ff6f70608166c88fd2553d44ca17a::4",
+      "name": "Daimakaimura (Japan) (En)",
+      "console": "PC Engine SuperGrafx",
+      "manufacturer": "NEC",
+      "region": "Japan",
+      "md5": "6d9ff6f70608166c88fd2553d44ca17a",
+      "sha1": "cab9e4a1a8b6da07cc2c5cc35949928199a417ee",
+      "crc32": "b486a8ed",
+      "serial": null,
+      "size": 1048576,
+      "_size_bytes": 1048576,
+      "_search_blob": "daimakaimura (japan) (en) daimakaimura (japan) (en).sgx japan capcom nec",
+      "_rdb": {
+        "name": "Daimakaimura (Japan) (En)",
+        "genre": "Platform",
+        "region": "Japan",
+        "rom_name": "Daimakaimura (Japan) (En).sgx",
+        "size": 1048576,
+        "users": 1,
+        "releasemonth": 7,
+        "releaseyear": 1990,
+        "franchise": "Ghost'n Goblins",
+        "developer": "Capcom",
+        "publisher": "NEC",
+        "crc": "b486a8ed",
+        "md5": "6d9ff6f70608166c88fd2553d44ca17a",
+        "sha1": "cab9e4a1a8b6da07cc2c5cc35949928199a417ee"
+      },
+      "_providers": [
+        {
+          "provider_id": "no_intro_romset_collection",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "D/Daimakaimura (Japan)/Daimakaimura (Japan).sgx",
+            "size": 1048576,
+            "md5": "6d9ff6f70608166c88fd2553d44ca17a",
+            "crc32": "b486a8ed",
+            "sha1": "cab9e4a1a8b6da07cc2c5cc35949928199a417ee",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/no-intro_romset_collection/no-intro_romset_collection_archive.torrent",
+            "http_url": "https://archive.org/download/no-intro_romset_collection/NEC%20-%20PC%20Engine%20SuperGrafx.7z",
+            "_archive_member": true,
+            "_archive_member_path": "D/Daimakaimura (Japan)/Daimakaimura (Japan).sgx",
+            "_source_bundle": "NEC - PC Engine SuperGrafx.7z",
+            "_source_bundle_size": 2512332
+          },
+          "metadata": {
+            "archive_id": "no-intro_romset_collection",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        },
+        {
+          "provider_id": "tosec_full_2022_07_10",
+          "provider_label": "Internet Archive",
+          "rom": {
+            "name": "Daimakaimura (1990)(NEC Avenue)(JP)/Daimakaimura (1990)(NEC Avenue)(JP).pce",
+            "size": 1048576,
+            "md5": "6d9ff6f70608166c88fd2553d44ca17a",
+            "crc32": "b486a8ed",
+            "sha1": "cab9e4a1a8b6da07cc2c5cc35949928199a417ee",
+            "console": "PC Engine SuperGrafx",
+            "manufacturer": "NEC",
+            "torrent_url": "https://archive.org/download/tosec-full-2022-07-10/tosec-full-2022-07-10_archive.torrent",
+            "http_url": "https://archive.org/download/tosec-full-2022-07-10/NEC/SuperGrafx/Games/NEC%20SuperGrafx%20-%20Games.7z",
+            "_archive_member": true,
+            "_archive_member_path": "Daimakaimura (1990)(NEC Avenue)(JP)/Daimakaimura (1990)(NEC Avenue)(JP).pce",
+            "_source_bundle": "NEC/SuperGrafx/Games/NEC SuperGrafx - Games.7z",
+            "_source_bundle_size": 2364389
+          },
+          "metadata": {
+            "archive_id": "tosec-full-2022-07-10",
+            "provider_label": "Internet Archive",
+            "preferred_cores": [
+              "mednafen_supergrafx"
+            ],
+            "compatible_cores": [
+              "mednafen_supergrafx"
+            ],
+            "runtime_playable": true,
+            "romset_version": null,
+            "arcade_family": null,
+            "zip_preserve": null,
+            "compatibility_notes": "SuperGrafx HuCard provider for Beetle SuperGrafx. No BIOS required."
+          }
+        }
+      ],
+      "_provider_count": 2,
+      "_provider_labels": [
+        "Internet Archive"
+      ],
+      "http_url": "https://archive.org/download/no-intro_romset_collection/NEC%20-%20PC%20Engine%20SuperGrafx.7z",
+      "torrent_url": "https://archive.org/download/no-intro_romset_collection/no-intro_romset_collection_archive.torrent"
     }
-  ],
-  "dataset_role": "master_rom_list",
-  "source_kind": "libretro_rdb",
-  "source_label": "Libretro Database RDB"
+  ]
 }

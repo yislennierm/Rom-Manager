@@ -5275,6 +5275,41 @@
           "updated": "2020-09-11"
         }
       ]
+    },
+    "Sony": {
+      "PlayStation Vita": [
+        {
+          "provider": "Internet Archive - Sony PlayStation Vita USA NoNpDRM",
+          "name": "Sony PlayStation Vita USA Full Set NoNpDRM",
+          "archive_id": "sony-playstation-vita-usa-full-set-nonpdrm-format",
+          "base_url": "https://archive.org/download/sony-playstation-vita-usa-full-set-nonpdrm-format/",
+          "files": {
+            "files_xml": "https://archive.org/download/sony-playstation-vita-usa-full-set-nonpdrm-format/sony-playstation-vita-usa-full-set-nonpdrm-format_files.xml",
+            "meta_sqlite": "https://archive.org/download/sony-playstation-vita-usa-full-set-nonpdrm-format/sony-playstation-vita-usa-full-set-nonpdrm-format_meta.sqlite",
+            "torrent": "https://archive.org/download/sony-playstation-vita-usa-full-set-nonpdrm-format/sony-playstation-vita-usa-full-set-nonpdrm-format_archive.torrent"
+          },
+          "rom_extensions": [
+            ".zip"
+          ],
+          "libretro_guid": "219b39f7-8c82-5053-8efa-b74c7c654aa7",
+          "preferred_cores": [
+            "vita3k"
+          ],
+          "compatible_cores": [
+            "vita3k"
+          ],
+          "downloadable": true,
+          "download_access": "public",
+          "requires_auth": false,
+          "runtime_playable": true,
+          "zip_preserve": true,
+          "romset_version": "NoNpDRM USA full set",
+          "compatibility_notes": "User-provided Internet Archive candidate. Files are ZIP-packaged NoNpDRM Vita titles; ROMs Manager stages ZIP/VPK packages for Vita3K and does not generate RetroArch playlists.",
+          "allow_provider_only": true,
+          "provider_only_identity": "serial",
+          "provider_only_notes": "Provider inventory is much broader than the libretro Vita RDB; expose unmatched title IDs as provider-only catalog entries."
+        }
+      ]
     }
   },
   "fetched_at": "2025-11-15T02:37:50.927086"

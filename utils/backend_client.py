@@ -9,10 +9,9 @@ import requests
 import shutil
 import tempfile
 
-from utils.library_sync import MODULES_FILE, RDB_DIR, rdb_json_path
+from utils.library_sync import _modules_file, _rdb_dir, rdb_json_path
 from utils.paths import PROVIDER_FILE, CACHE_DIR, DATA_DIR
 
-RDB_PATH = RDB_DIR
 CACHE_PATH = Path(CACHE_DIR)
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 BACKEND_DATA_PATH = PROJECT_ROOT / "backend" / "data"
@@ -191,17 +190,19 @@ def fetch_modules_snapshot() -> Dict:
 def save_modules_snapshot(snapshot: Dict) -> Path:
     if "modules" not in snapshot:
         raise BackendError("Snapshot missing modules field.")
-    _assert_client_path(MODULES_FILE)
-    MODULES_FILE.parent.mkdir(parents=True, exist_ok=True)
-    MODULES_FILE.write_text(json.dumps(snapshot, indent=2))
-    return MODULES_FILE
+    modules_file = _modules_file()
+    _assert_client_path(modules_file)
+    modules_file.parent.mkdir(parents=True, exist_ok=True)
+    modules_file.write_text(json.dumps(snapshot, indent=2))
+    return modules_file
 
 
 def load_modules_local_metadata() -> Optional[Dict[str, object]]:
-    if not MODULES_FILE.exists():
+    modules_file = _modules_file()
+    if not modules_file.exists():
         return None
     try:
-        payload = json.loads(MODULES_FILE.read_text(encoding="utf-8"))
+        payload = json.loads(modules_file.read_text(encoding="utf-8"))
     except Exception:
         payload = {}
     modules = payload.get("modules")
@@ -209,7 +210,7 @@ def load_modules_local_metadata() -> Optional[Dict[str, object]]:
     return {
         "fetched_at": payload.get("fetched_at"),
         "count": count,
-        "path": str(MODULES_FILE),
+        "path": str(modules_file),
     }
 
 
@@ -241,7 +242,7 @@ def save_providers_snapshot(snapshot: Dict) -> Path:
 def _rom_dataset_path(dataset: Dict) -> Path:
     slug = dataset.get("slug")
     if slug:
-        path = RDB_PATH / f"{slug}.json"
+        path = _rdb_dir() / f"{slug}.json"
     else:
         module_name = dataset.get("module")
         if not module_name:
@@ -305,23 +306,57 @@ def fetch_rom_catalog_metadata() -> Dict:
 
 def download_rom_dataset(identifier: str) -> Dict:
     url = f"{_api_base()}/roms/{identifier}"
-    try:
-        response = requests.get(url, timeout=60, headers=_headers())
-    except requests.RequestException as exc:
-        raise BackendError(f"Backend request failed: {exc}") from exc
-    if response.status_code != 200:
-        raise BackendError(f"Backend returned {response.status_code}: {response.text}")
-    try:
-        payload = response.json()
-    except ValueError as exc:
-        raise BackendError(f"Invalid ROM dataset payload: {exc}") from exc
-    return payload
+    page_size = 500
+    offset = 0
+    combined: Optional[Dict] = None
+    entries = []
+
+    while True:
+        try:
+            response = requests.get(
+                url,
+                timeout=60,
+                headers=_headers(),
+                params={"limit": page_size, "offset": offset},
+            )
+        except requests.RequestException as exc:
+            raise BackendError(f"Backend request failed: {exc}") from exc
+        if response.status_code != 200:
+            raise BackendError(f"Backend returned {response.status_code}: {response.text}")
+        try:
+            payload = response.json()
+        except ValueError as exc:
+            raise BackendError(f"Invalid ROM dataset payload: {exc}") from exc
+
+        if combined is None:
+            combined = dict(payload)
+        page_entries = payload.get("entries")
+        if not isinstance(page_entries, list):
+            page_entries = payload.get("roms")
+        if isinstance(page_entries, list):
+            entries.extend(page_entries)
+
+        if not payload.get("has_more"):
+            break
+        offset += int(payload.get("limit") or page_size)
+
+    if combined is None:
+        raise BackendError("Empty ROM dataset payload")
+    combined.pop("entries", None)
+    combined["roms"] = entries
+    combined["entry_count"] = int(combined.get("catalog_total") or combined.get("entry_count") or len(entries))
+    combined["downloaded_count"] = len(entries)
+    combined["limit"] = len(entries)
+    combined["offset"] = 0
+    combined["has_more"] = False
+    return combined
 
 
 def load_roms_local_metadata() -> Optional[Dict[str, object]]:
-    if not RDB_PATH.exists():
+    rdb_path = _rdb_dir()
+    if not rdb_path.exists():
         return None
-    datasets = list(RDB_PATH.glob("*.json"))
+    datasets = list(rdb_path.glob("*.json"))
     if not datasets:
         return None
     latest_ts = None
@@ -336,7 +371,7 @@ def load_roms_local_metadata() -> Optional[Dict[str, object]]:
     return {
         "fetched_at": latest_ts,
         "count": len(datasets),
-        "path": str(RDB_PATH),
+        "path": str(rdb_path),
     }
 
 

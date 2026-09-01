@@ -288,6 +288,7 @@ def cache_status(manufacturer: str, console: str, provider: str | None = None) -
         )
         rom_json_path = legacy_path
     rom_json_present = os.path.isfile(rom_json_path)
+    rom_json_files = [rom_json_path] if rom_json_present else []
 
     return {
         "metadata": metadata_present,
@@ -297,5 +298,6 @@ def cache_status(manufacturer: str, console: str, provider: str | None = None) -
         "torrent": torrents_present,
         "torrent_files": torrent_files,
         "rom_json": rom_json_present,
+        "rom_json_files": rom_json_files,
         "rom_json_path": rom_json_path,
     }

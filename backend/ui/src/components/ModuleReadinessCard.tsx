@@ -10,7 +10,7 @@ type Props = {
 const ModuleReadinessCard: React.FC<Props> = ({ readiness, loading }) => {
   if (loading) {
     return (
-      <Card size="small" title="Server Readiness">
+      <Card size="small" title="Server readiness" className="readiness-card">
         <Spin />
       </Card>
     )
@@ -20,7 +20,7 @@ const ModuleReadinessCard: React.FC<Props> = ({ readiness, loading }) => {
   }
   const checks = readiness.checks || {}
   return (
-    <Card size="small" title="Server Readiness">
+    <Card size="small" title="Server readiness" className="readiness-card">
       <Flex vertical gap="middle">
         <Flex justify="space-between" align="center" wrap>
           <div>

@@ -8,7 +8,7 @@ from textual.containers import Container
 from textual.screen import Screen
 from textual.widgets import Header, Footer, Static, DataTable, Input
 
-from core.account_reconciler import activate_assigned_frontend_consoles, reconcile_assigned_consoles
+from core.account_reconciler import activate_assigned_frontend_consoles
 from core.revoked_access import update_assignments_from_manifest
 from utils.backend_client import (
     BackendError,
@@ -35,7 +35,7 @@ from utils.backend_client import (
     get_api_key,
     set_api_key,
 )
-from utils.library_sync import RDB_DIR
+from utils.library_sync import rdb_dir
 from .revoked_access_screen import RevokedAccessScreen
 
 TaskHandler = Callable[[], Dict[str, object]]
@@ -185,14 +185,12 @@ class UpdateScreen(Screen):
         )
         for task_id in self.tasks.keys():
             self._run_task(task_id)
-        manager = getattr(self.app, "download_manager", None)
-        if manager is None:
-            self.app.notify("Download manager is not available; skipped RetroArch reconciliation.", severity="warning")
-            return
         revoked = update_assignments_from_manifest(manifest)
         frontend_report = activate_assigned_frontend_consoles(manifest)
-        report = reconcile_assigned_consoles(manager, install_ready=True)
-        self._set_status(self._format_reconcile_report(report))
+        self._set_status(
+            "Account sync complete.\n"
+            "Assigned consoles were activated in RetroArch. Queue ROM downloads from ROM Explorer."
+        )
         frontend_added = frontend_report.get("added", 0)
         if frontend_added:
             self.app.notify(
@@ -202,14 +200,7 @@ class UpdateScreen(Screen):
         frontend_removed = frontend_report.get("removed", 0)
         if frontend_removed:
             self.app.notify(f"Deactivated {frontend_removed} revoked console(s) locally.", severity="warning")
-        queued = report.get("jobs_created", 0)
-        completed = report.get("jobs_completed", 0)
-        if queued:
-            self.app.notify(f"Queued {queued} provider collection download(s).", severity="information")
-        elif completed:
-            self.app.notify("Assigned provider collections are downloaded; RetroArch install checked.", severity="success")
-        else:
-            self.app.notify("No collection-level provider archive to queue.", severity="information")
+        self.app.notify("Account sync complete. Queue ROM downloads from ROM Explorer.", severity="success")
         if revoked:
             self.app.notify(f"{len(revoked)} console(s) no longer assigned. Press [x] to review cleanup.", severity="warning")
 
@@ -329,7 +320,7 @@ class UpdateScreen(Screen):
                 fetched_at = ts
         return {
             "fetched_at": fetched_at,
-            "path": str(RDB_DIR),
+            "path": str(rdb_dir()),
             "count": len(saved),
         }
 

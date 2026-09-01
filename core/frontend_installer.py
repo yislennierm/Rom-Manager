@@ -15,6 +15,49 @@ from utils.library_sync import load_modules
 
 
 MIN_FREE_AFTER_INSTALL_BYTES = 512 * 1024 * 1024
+NINTENDO_DSI_CONSOLE_NAME = "Nintendo - Nintendo DSi"
+SONY_PLAYSTATION_VITA_CONSOLE_NAME = "Sony - PlayStation Vita"
+MELONDS_SYSTEM_SUBDIR = "melonDS DS"
+MELONDS_DSI_REQUIRED_FILES = (
+    "bios7.bin",
+    "bios9.bin",
+    "dsi_bios7.bin",
+    "dsi_bios9.bin",
+    "dsi_firmware.bin",
+    "dsi_nand.bin",
+    "DSi_Nand_EUR.bin",
+    "DSi_Nand_JPN.bin",
+)
+KNOWN_CONSOLE_GUIDS = {
+    "Amstrad - GX4000": "e6efac9f-20f1-538e-80f8-152d9adf4678",
+    "Atari - Jaguar": "5565f7db-0d0c-55fe-aa7e-fe719791d1b9",
+    "Commodore - CD32": "b0ef410b-72a4-57b7-a26a-896c6d751c73",
+    "Commodore - CDTV": "9c668a1c-e2b5-5a8c-9f2e-0ec7ef74dd3c",
+    "Magnavox - Odyssey2": "a7d519f9-601d-539c-9d49-c7c7f1f17f16",
+    "NEC - PC Engine - TurboGrafx 16": "2bd2cd12-6d99-5379-86dc-be6a5904e280",
+    "NEC - PC Engine CD - TurboGrafx-CD": "1ff5f144-8d13-51b9-82c6-365169ba2455",
+    "NEC - PC Engine SuperGrafx": "e63c6451-836b-5dbe-8532-63492762b3d9",
+    "NEC - PC-FX": "98e5f218-c591-5a14-bd69-fa25b516c3ed",
+    "Nintendo - Family Computer Disk System": "e8d2cd7c-e53c-5916-928d-9af9aa48c409",
+    "Nintendo - Nintendo Entertainment System": "fad2a671-5d13-54b9-8562-3b058c610348",
+    "Nintendo - Super Nintendo Entertainment System": "bf3926b2-106d-56c9-8166-0fe29c33bad0",
+    "Nintendo - Wii": "ba79594a-da19-5127-9a46-9eee6bccf034",
+    "Nintendo - Wii U": "f9bc37b4-6d5b-518c-bfe3-e3a9571332ab",
+    "Nintendo - Pokemon Mini": "ed4e8377-e783-581f-ac90-9d8c98e481ae",
+    "Nintendo - Satellaview": "78fd1160-3b20-5192-bd96-9c28af2e8a61",
+    "Nintendo - Sufami Turbo": "1ab4ffbd-5190-5b57-9dc1-92b24fec2845",
+    "Nintendo - Virtual Boy": "42411369-42f4-5fcc-9500-caa3ed220f32",
+    "Philips - Videopac+": "390f4a10-ddc9-57bd-bfec-b08cb8250c7b",
+    "Sega - SG-1000": "ca066374-6220-5f44-828c-302f50a10146",
+    "Sony - PlayStation": "6cbd1842-2231-5e82-92fc-73613e2f21a8",
+    "Sony - PlayStation 2": "f250f78e-521b-5d39-b11c-7754f2e8ebc6",
+    "Sony - PlayStation Portable": "61637bb4-0f3b-5458-b458-8fcc6541c6f8",
+    "The 3DO Company - 3DO": "2ba124e3-51ac-535f-b0fa-0ed4fd88ea00",
+    "Tiger - Game.com": "cf88421d-dd86-5d2d-85d0-c640b1730604",
+    "VTech - CreatiVision": "90188f7f-aeff-501b-a10f-f41fb617829f",
+    "VTech - V.Smile": "c59cbdeb-e157-529b-b360-a193d53dc65b",
+    "Watara - Supervision": "57249b7f-c969-55d0-a129-6a9eb48cd100",
+}
 
 ROM_EXTENSIONS = {
     ".fds",
@@ -28,38 +71,73 @@ ROM_EXTENSIONS = {
     ".bin",
     ".chd",
     ".chf",
+    ".cpr",
+    ".cso",
     ".cue",
     ".ccd",
     ".gdi",
     ".gcm",
     ".gcz",
+    ".3ds",
+    ".3dsx",
+    ".z3dsx",
+    ".cci",
+    ".zcci",
+    ".cxi",
+    ".zcxi",
+    ".app",
+    ".axf",
     ".rvz",
+    ".wud",
+    ".wux",
+    ".wua",
+    ".rpx",
     ".ciso",
     ".wbfs",
+    ".wad",
+    ".wia",
+    ".tmd",
     ".tgc",
     ".dol",
     ".elf",
     ".img",
     ".iso",
+    ".pbp",
+    ".ecm",
+    ".mds",
+    ".psf",
+    ".psexe",
     ".m3u",
+    ".mds",
+    ".nrg",
     ".toc",
+    ".hex",
+    ".arduboy",
+    ".mgw",
     ".neo",
     ".ngc",
     ".ngp",
     ".n64",
     ".v64",
     ".z64",
+    ".tgc",
+    ".nds",
+    ".ids",
+    ".dsi",
     ".ws",
     ".wsc",
     ".a52",
     ".a78",
     ".u1",
+    ".u3",
     ".ndd",
     ".col",
     ".cv",
     ".rom",
     ".j64",
     ".jag",
+    ".vb",
+    ".vboy",
     ".abs",
     ".sms",
     ".gg",
@@ -72,11 +150,18 @@ ROM_EXTENSIONS = {
     ".sg",
     ".sc",
     ".st2",
+    ".st",
+    ".bs",
     ".mv",
     ".md",
     ".gen",
     ".smd",
+    ".sv",
+    ".sfc",
+    ".swc",
+    ".fig",
     ".smc",
+    ".min",
     ".32x",
     ".lnx",
     ".pce",
@@ -86,6 +171,9 @@ ROM_EXTENSIONS = {
     ".1",
     ".2",
     ".3",
+    ".pkg",
+    ".vci",
+    ".vpk",
 }
 
 SKIP_NAMES = {
@@ -96,7 +184,15 @@ SKIP_NAMES = {
 }
 
 BIOS_ALIASES = {
+    "amiga-ext-310-cd32.rom": "kick40060.CD32.ext",
+    "amiga-os-310-cd32-ext.rom": "kick40060.CD32.ext",
+    "amiga-os-310-cd32.rom": "kick40060.CD32",
+    "cd32 extended-rom r40.60 (1993)(commodore)(cd32).rom": "kick40060.CD32.ext",
     "disksys.rom": "disksys.rom",
+    "kick40060.cd32": "kick40060.CD32",
+    "kick40060.cd32.ext": "kick40060.CD32.ext",
+    "kickstart v3.1 r40.60 (1993)(commodore)(cd32).rom": "kick40060.CD32",
+    "kickstart v3.1 rev 40.60 (1993)(commodore)(cd32).rom": "kick40060.CD32",
 }
 
 
@@ -120,13 +216,138 @@ class InsufficientSpaceError(InstallError):
 
 
 def install_completed_jobs(jobs: Iterable[Dict]) -> Dict[str, object]:
-    installer = FrontendInstaller()
-    return installer.install_completed_jobs(jobs)
+    completed = [job for job in jobs if job.get("status") == "completed"]
+    targets = _frontend_install_targets(completed)
+    if not targets:
+        installer = FrontendInstaller()
+        return installer.install_completed_jobs(completed)
+
+    reports = []
+    errors: List[str] = []
+    for frontend_key, frontend, target_jobs in targets:
+        try:
+            installer = FrontendInstaller(frontend_key=frontend_key, frontend=frontend)
+            reports.append(installer.install_completed_jobs(target_jobs))
+        except Exception as exc:
+            errors.append(f"{frontend.get('name') or frontend_key}: {exc}")
+
+    if not reports and errors:
+        raise InstallError("; ".join(errors))
+    return _combine_install_reports(reports, errors)
+
+
+def _frontend_install_targets(jobs: List[Dict]) -> List[Tuple[str, Dict, List[Dict]]]:
+    if not jobs:
+        return []
+
+    config = load_storage_config()
+    frontends = config.get("frontends") or {}
+    module_guid_by_name = {
+        module.get("name"): module.get("guid")
+        for module in load_modules()
+        if module.get("name") and module.get("guid")
+    }
+
+    targets: List[Tuple[str, Dict, List[Dict]]] = []
+    active_keys = {
+        key
+        for key, frontend in frontends.items()
+        if isinstance(frontend, dict) and frontend.get("active")
+    }
+    for key, frontend in frontends.items():
+        if not isinstance(frontend, dict):
+            continue
+        if active_keys and key not in active_keys:
+            continue
+        supported = set(frontend.get("supported_guids") or [])
+        if not supported:
+            continue
+        target_jobs = [
+            job
+            for job in jobs
+            if _job_console_guid(job, module_guid_by_name) in supported
+        ]
+        if target_jobs:
+            targets.append((key, frontend, target_jobs))
+    return targets
+
+
+def _job_console_guid(job: Dict, module_guid_by_name: Dict[str, str]) -> Optional[str]:
+    manufacturer = job.get("manufacturer") or "Unknown"
+    console = job.get("console") or "Unknown"
+    if manufacturer == console:
+        console_name = str(console)
+    else:
+        console_name = f"{manufacturer} - {console}"
+    return (
+        module_guid_by_name.get(console_name)
+        or module_guid_by_name.get(str(console))
+        or KNOWN_CONSOLE_GUIDS.get(console_name)
+        or KNOWN_CONSOLE_GUIDS.get(str(console))
+    )
+
+
+def _combine_install_reports(reports: List[Dict[str, object]], errors: List[str]) -> Dict[str, object]:
+    if not reports:
+        return {
+            "frontend_key": None,
+            "frontend": None,
+            "frontends": [],
+            "roms_root": "",
+            "bios_root": "",
+            "playlists_root": "",
+            "jobs_seen": 0,
+            "roms_installed": 0,
+            "roms_skipped": 0,
+            "bios_installed": 0,
+            "bios_skipped": 0,
+            "bytes_required": 0,
+            "bytes_available": None,
+            "space_checked": False,
+            "playlists_written": [],
+            "installed_paths_by_job": {},
+            "errors": errors,
+        }
+
+    combined = dict(reports[0])
+    combined["frontend_key"] = ",".join(str(report.get("frontend_key")) for report in reports if report.get("frontend_key"))
+    combined["frontend"] = ", ".join(str(report.get("frontend")) for report in reports if report.get("frontend"))
+    combined["frontends"] = reports
+    if len(reports) > 1:
+        combined["roms_root"] = "Multiple frontends"
+        combined["bios_root"] = "Multiple frontends"
+        combined["playlists_root"] = "Multiple frontends"
+    for field in ("roms_installed", "roms_skipped", "bios_installed", "bios_skipped", "bytes_required"):
+        combined[field] = sum(int(report.get(field) or 0) for report in reports)
+    combined["jobs_seen"] = max(int(report.get("jobs_seen") or 0) for report in reports)
+    available_values = [report.get("bytes_available") for report in reports if report.get("bytes_available") is not None]
+    combined["bytes_available"] = min(available_values) if available_values else None
+    combined["space_checked"] = any(bool(report.get("space_checked")) for report in reports)
+    combined["playlists_written"] = [
+        path
+        for report in reports
+        for path in (report.get("playlists_written") or [])
+    ]
+    combined["installed_paths_by_job"] = {}
+    for report in reports:
+        installed_by_job = report.get("installed_paths_by_job") or {}
+        if isinstance(installed_by_job, dict):
+            combined["installed_paths_by_job"].update(installed_by_job)
+    combined["errors"] = [
+        str(error)
+        for report in reports
+        for error in (report.get("errors") or [])
+    ] + errors
+    return combined
 
 
 class FrontendInstaller:
-    def __init__(self) -> None:
-        self.frontend_key, self.frontend = self._active_frontend()
+    def __init__(self, frontend_key: Optional[str] = None, frontend: Optional[Dict] = None) -> None:
+        if frontend_key and frontend:
+            self.frontend_key = frontend_key
+            self.frontend = frontend
+        else:
+            self.frontend_key, self.frontend = self._active_frontend()
         self.registry = load_registry()
         self.module_guid_by_name = {
             module.get("name"): module.get("guid")
@@ -141,6 +362,8 @@ class FrontendInstaller:
 
     def install_completed_jobs(self, jobs: Iterable[Dict]) -> Dict[str, object]:
         completed = [job for job in jobs if job.get("status") == "completed"]
+        if self.frontend.get("kind") == "external_emulator":
+            return self._install_external_completed_jobs(completed)
         report: Dict[str, object] = {
             "frontend_key": self.frontend_key,
             "frontend": self.frontend.get("name") or self.frontend_key,
@@ -156,6 +379,7 @@ class FrontendInstaller:
             "bytes_available": None,
             "space_checked": False,
             "playlists_written": [],
+            "installed_paths_by_job": {},
             "errors": [],
         }
 
@@ -180,9 +404,19 @@ class FrontendInstaller:
                     self._extract_archive_tree(local_path, extract_root)
                     for job in jobs:
                         try:
+                            before_counts = self._install_report_counts(report)
                             only = self._selected_archive_member(extract_root, job.get("archive_member_path"))
-                            installed = self._install_tree(extract_root, manufacturer, console, report, only=only)
+                            installed = self._install_tree(
+                                extract_root,
+                                manufacturer,
+                                console,
+                                report,
+                                only=only,
+                                install_name=job.get("rom_name"),
+                            )
+                            self._ensure_install_found_content(report, before_counts, job)
                             installed_by_console.setdefault((manufacturer, console), []).extend(installed)
+                            self._record_installed_paths(report, job, installed)
                         except Exception as exc:
                             report["errors"].append(str(exc))
                 touched_consoles.add((manufacturer, console))
@@ -198,15 +432,19 @@ class FrontendInstaller:
                     raise InstallError(f"Downloaded file missing for {job.get('rom_name')}")
                 manufacturer = job.get("manufacturer") or "Unknown"
                 console = job.get("console") or "Unknown"
+                before_counts = self._install_report_counts(report)
                 installed = self._install_file(
                     local_path,
                     manufacturer,
                     console,
                     report,
                     job.get("archive_member_path"),
+                    job.get("rom_name"),
                 )
+                self._ensure_install_found_content(report, before_counts, job)
                 touched_consoles.add((manufacturer, console))
                 installed_by_console.setdefault((manufacturer, console), []).extend(installed)
+                self._record_installed_paths(report, job, installed)
             except Exception as exc:
                 report["errors"].append(str(exc))
 
@@ -215,6 +453,131 @@ class FrontendInstaller:
             report["playlists_written"].append(str(playlist))
 
         return report
+
+    def _install_external_completed_jobs(self, completed: List[Dict]) -> Dict[str, object]:
+        report: Dict[str, object] = {
+            "frontend_key": self.frontend_key,
+            "frontend": self.frontend.get("name") or self.frontend_key,
+            "roms_root": str(self.roms_root),
+            "bios_root": str(self.bios_root),
+            "playlists_root": "",
+            "jobs_seen": len(completed),
+            "roms_installed": 0,
+            "roms_skipped": 0,
+            "bios_installed": 0,
+            "bios_skipped": 0,
+            "bytes_required": 0,
+            "bytes_available": None,
+            "space_checked": False,
+            "playlists_written": [],
+            "installed_paths_by_job": {},
+            "errors": [],
+        }
+        self.roms_root.mkdir(parents=True, exist_ok=True)
+        self.bios_root.mkdir(parents=True, exist_ok=True)
+        self._preflight_external_space(completed, report)
+
+        install_type = str(self.frontend.get("install_type") or "").lower()
+        for job in completed:
+            manufacturer = job.get("manufacturer") or "Unknown"
+            console = job.get("console") or "Unknown"
+            console_name = self._console_name(manufacturer, console)
+            try:
+                local_path = self._job_local_path(job)
+                if not local_path or not local_path.exists():
+                    raise InstallError(f"Downloaded file missing for {job.get('rom_name')}")
+                if install_type == "vita3k" and console_name == SONY_PLAYSTATION_VITA_CONSOLE_NAME:
+                    self._stage_vita3k_package(local_path, job, report)
+                    continue
+                raise InstallError(f"No external install strategy for {console_name}.")
+            except Exception as exc:
+                report["errors"].append(str(exc))
+        return report
+
+    def _preflight_external_space(self, jobs: List[Dict], report: Dict[str, object]) -> None:
+        required = 0
+        planned_hashes: set[str] = set()
+        existing_hashes = self._existing_file_hashes(self.roms_root / "_roms_manager_imports")
+        for job in jobs:
+            local_path = self._job_local_path(job)
+            if not local_path or not local_path.exists() or not local_path.is_file():
+                continue
+            digest = self._sha256(local_path)
+            if digest in existing_hashes or digest in planned_hashes:
+                continue
+            planned_hashes.add(digest)
+            required += local_path.stat().st_size
+
+        usage = shutil.disk_usage(self.roms_root)
+        available = usage.free
+        report["bytes_required"] = required
+        report["bytes_available"] = available
+        report["space_checked"] = True
+        if required + MIN_FREE_AFTER_INSTALL_BYTES > available:
+            raise InsufficientSpaceError(
+                self.roms_root,
+                required,
+                available,
+                MIN_FREE_AFTER_INSTALL_BYTES,
+            )
+
+    def _stage_vita3k_package(self, source: Path, job: Dict, report: Dict[str, object]) -> None:
+        suffix = source.suffix.lower()
+        if suffix == ".pkg":
+            raise InstallError(
+                "Vita3K .pkg installs require a zRIF/license key; ROMs Manager does not store "
+                "or automate those keys yet."
+            )
+        if suffix not in {".vpk", ".zip", ".vci"}:
+            raise InstallError(f"Unsupported Vita3K package format: {suffix or source.name}")
+
+        staging_root = self.roms_root / "_roms_manager_imports"
+        staging_root.mkdir(parents=True, exist_ok=True)
+        target = staging_root / _safe_cli_filename(job.get("rom_name") or source.name)
+        if target.exists() and self._same_file(source, target):
+            report["roms_skipped"] += 1
+            self._record_installed_paths(report, job, [target])
+            return
+        if target.exists():
+            target = self._unique_target(target)
+        shutil.copy2(source, target)
+        report["roms_installed"] += 1
+        self._record_installed_paths(report, job, [target])
+        report["errors"].append(
+            "Vita3K package staged locally. Automatic Vita3K import/launch is still pending; "
+            "open Vita3K and install the staged package manually for now."
+        )
+
+    @staticmethod
+    def _record_installed_paths(report: Dict[str, object], job: Dict, installed: List[Path]) -> None:
+        job_id = job.get("id")
+        if job_id is None:
+            return
+        paths = [str(path) for path in installed if path]
+        if not paths:
+            return
+        installed_by_job = report.setdefault("installed_paths_by_job", {})
+        if isinstance(installed_by_job, dict):
+            installed_by_job[str(job_id)] = paths
+
+    @staticmethod
+    def _install_report_counts(report: Dict[str, object]) -> Tuple[int, int, int, int]:
+        return (
+            int(report.get("roms_installed") or 0),
+            int(report.get("roms_skipped") or 0),
+            int(report.get("bios_installed") or 0),
+            int(report.get("bios_skipped") or 0),
+        )
+
+    @staticmethod
+    def _ensure_install_found_content(
+        report: Dict[str, object],
+        before_counts: Tuple[int, int, int, int],
+        job: Dict,
+    ) -> None:
+        after_counts = FrontendInstaller._install_report_counts(report)
+        if after_counts == before_counts:
+            raise InstallError(f"No playable ROM or BIOS file found for {job.get('rom_name')}")
 
     def _archive_member_job_groups(self, jobs: List[Dict]) -> Dict[Tuple[Path, str, str], List[Dict]]:
         groups: Dict[Tuple[Path, str, str], List[Dict]] = {}
@@ -278,9 +641,12 @@ class FrontendInstaller:
                 extract_root = Path(tmp)
                 self._extract_archive_tree(local_path, extract_root)
                 for job in grouped:
-                    selected = self._selected_archive_member(extract_root, job.get("archive_member_path"))
-                    candidate = self._candidate_info(selected) if selected else None
-                    if candidate:
+                    for candidate in self._iter_install_candidates_from_tree(
+                        extract_root,
+                        job.get("archive_member_path"),
+                        manufacturer,
+                        console,
+                    ):
                         account_item(candidate, key)
 
         for job in jobs:
@@ -320,7 +686,10 @@ class FrontendInstaller:
         console: str,
         report: Dict[str, object],
         archive_member_path: Optional[str] = None,
+        install_name: Optional[str] = None,
     ) -> List[Path]:
+        if self._is_nintendo_dsi(manufacturer, console):
+            return self._install_dsiware_file(source, manufacturer, console, report, archive_member_path, install_name)
         if self._should_preserve_archive(source, manufacturer, console, archive_member_path):
             return self._install_tree(source.parent, manufacturer, console, report, only=source)
         if source.suffix.lower() == ".zip" and zipfile.is_zipfile(source):
@@ -328,14 +697,14 @@ class FrontendInstaller:
                 extract_root = Path(tmp)
                 self._extract_archive_tree(source, extract_root)
                 only = self._selected_archive_member(extract_root, archive_member_path)
-                return self._install_tree(extract_root, manufacturer, console, report, only=only)
+                return self._install_tree(extract_root, manufacturer, console, report, only=only, install_name=install_name)
         if self._can_extract_archive(source):
             with tempfile.TemporaryDirectory(prefix="rom-manager-install-") as tmp:
                 extract_root = Path(tmp)
                 self._extract_archive_tree(source, extract_root)
                 only = self._selected_archive_member(extract_root, archive_member_path)
-                return self._install_tree(extract_root, manufacturer, console, report, only=only)
-        return self._install_tree(source.parent, manufacturer, console, report, only=source)
+                return self._install_tree(extract_root, manufacturer, console, report, only=only, install_name=install_name)
+        return self._install_tree(source.parent, manufacturer, console, report, only=source, install_name=install_name)
 
     def _iter_install_candidates(
         self,
@@ -349,6 +718,29 @@ class FrontendInstaller:
             if candidate:
                 yield candidate
             return
+        if self._is_nintendo_dsi(manufacturer, console):
+            if source.suffix.lower() == ".zip" and zipfile.is_zipfile(source):
+                with tempfile.TemporaryDirectory(prefix="rom-manager-space-dsi-") as tmp:
+                    extract_root = Path(tmp)
+                    self._extract_archive_tree(source, extract_root)
+                    yield from self._iter_install_candidates_from_tree(
+                        extract_root,
+                        archive_member_path,
+                        manufacturer,
+                        console,
+                    )
+                return
+            if self._can_extract_archive(source):
+                with tempfile.TemporaryDirectory(prefix="rom-manager-space-dsi-") as tmp:
+                    extract_root = Path(tmp)
+                    self._extract_archive_tree(source, extract_root)
+                    yield from self._iter_install_candidates_from_tree(
+                        extract_root,
+                        archive_member_path,
+                        manufacturer,
+                        console,
+                    )
+                return
         if source.suffix.lower() == ".zip" and zipfile.is_zipfile(source):
             with tempfile.TemporaryDirectory(prefix="rom-manager-space-") as tmp:
                 extract_root = Path(tmp)
@@ -377,6 +769,23 @@ class FrontendInstaller:
         if candidate:
             yield candidate
 
+    def _iter_install_candidates_from_tree(
+        self,
+        root: Path,
+        archive_member_path: Optional[str],
+        manufacturer: Optional[str],
+        console: Optional[str],
+    ) -> Iterable[Dict[str, object]]:
+        if self._is_nintendo_dsi(manufacturer, console):
+            selected = self._selected_dsiware_payload(root, archive_member_path)
+            if selected:
+                yield {"kind": "rom", "size": selected.stat().st_size, "sha256": self._sha256(selected)}
+            return
+        selected = self._selected_archive_member(root, archive_member_path)
+        candidate = self._candidate_info(selected) if selected else None
+        if candidate:
+            yield candidate
+
     @staticmethod
     def _should_preserve_archive(
         source: Path,
@@ -388,6 +797,10 @@ class FrontendInstaller:
             return False
         if source.suffix.lower() != ".zip":
             return False
+        return (manufacturer or "").lower() == "snk" and (console or "").lower() == "neo geo"
+
+    @staticmethod
+    def _replace_existing_rom_by_name(manufacturer: Optional[str], console: Optional[str]) -> bool:
         return (manufacturer or "").lower() == "snk" and (console or "").lower() == "neo geo"
 
     @staticmethod
@@ -534,10 +947,12 @@ class FrontendInstaller:
         console: str,
         report: Dict[str, object],
         only: Optional[Path] = None,
+        install_name: Optional[str] = None,
     ) -> List[Path]:
         installed: List[Path] = []
         files = [only] if only else [path for path in root.rglob("*") if path.is_file()]
-        console_dir = self.roms_root / f"{manufacturer} - {console}"
+        console_name = self._console_name(manufacturer, console)
+        console_dir = self.roms_root / console_name
         console_dir.mkdir(parents=True, exist_ok=True)
         existing_hashes = self._existing_hashes(console_dir)
 
@@ -563,19 +978,155 @@ class FrontendInstaller:
                 report["roms_skipped"] += 1
                 continue
 
-            target = self._unique_target(console_dir / rel)
+            target_rel = install_name if self._is_nintendo_dsi(manufacturer, console) and install_name else rel
+            target = console_dir / target_rel
+            if target.exists() and not self._replace_existing_rom_by_name(manufacturer, console):
+                target = self._unique_target(target)
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(path, target)
             existing_hashes.add(digest)
             installed.append(target)
             report["roms_installed"] += 1
 
+        self._normalize_cue_references(console_dir)
         return installed
 
+    @staticmethod
+    def _normalize_cue_references(console_dir: Path) -> None:
+        for cue_path in console_dir.rglob("*.cue"):
+            try:
+                lines = cue_path.read_text(errors="ignore").splitlines()
+            except OSError:
+                continue
+            changed = False
+            normalized: List[str] = []
+            for line in lines:
+                stripped = line.lstrip()
+                prefix = line[: len(line) - len(stripped)]
+                if not stripped.upper().startswith("FILE "):
+                    normalized.append(line)
+                    continue
+                first_quote = stripped.find('"')
+                second_quote = stripped.find('"', first_quote + 1) if first_quote >= 0 else -1
+                if first_quote < 0 or second_quote < 0:
+                    normalized.append(line)
+                    continue
+                reference = stripped[first_quote + 1 : second_quote]
+                if Path(reference).suffix or (cue_path.parent / reference).exists():
+                    normalized.append(line)
+                    continue
+                replacement = FrontendInstaller._cue_reference_replacement(cue_path.parent, reference)
+                if not replacement:
+                    normalized.append(line)
+                    continue
+                stripped = f'{stripped[: first_quote + 1]}{replacement}{stripped[second_quote:]}'
+                normalized.append(f"{prefix}{stripped}")
+                changed = True
+            if changed:
+                cue_path.write_text("\n".join(normalized) + "\n", encoding="utf-8")
+
+    @staticmethod
+    def _cue_reference_replacement(directory: Path, reference: str) -> Optional[str]:
+        for suffix in (".bin", ".iso", ".img", ".wav", ".flac", ".chd"):
+            candidate = directory / f"{reference}{suffix}"
+            if candidate.exists():
+                return candidate.name
+        return None
+
+    def _install_dsiware_file(
+        self,
+        source: Path,
+        manufacturer: str,
+        console: str,
+        report: Dict[str, object],
+        archive_member_path: Optional[str] = None,
+        install_name: Optional[str] = None,
+    ) -> List[Path]:
+        missing = self._missing_melonds_dsi_files()
+        if missing:
+            raise InstallError(
+                "Nintendo DSi requires melonDS DS system files before install: "
+                + ", ".join(missing)
+            )
+
+        if source.suffix.lower() == ".zip" and zipfile.is_zipfile(source):
+            with tempfile.TemporaryDirectory(prefix="rom-manager-install-dsi-") as tmp:
+                extract_root = Path(tmp)
+                self._extract_archive_tree(source, extract_root)
+                payload = self._selected_dsiware_payload(extract_root, archive_member_path)
+                return self._install_dsiware_payload(payload, manufacturer, console, report, install_name or source.name)
+        if self._can_extract_archive(source):
+            with tempfile.TemporaryDirectory(prefix="rom-manager-install-dsi-") as tmp:
+                extract_root = Path(tmp)
+                self._extract_archive_tree(source, extract_root)
+                payload = self._selected_dsiware_payload(extract_root, archive_member_path)
+                return self._install_dsiware_payload(payload, manufacturer, console, report, install_name or source.name)
+        return self._install_dsiware_payload(source, manufacturer, console, report, install_name or source.name)
+
+    def _install_dsiware_payload(
+        self,
+        source: Path,
+        manufacturer: str,
+        console: str,
+        report: Dict[str, object],
+        install_name: str,
+    ) -> List[Path]:
+        if not source or not source.is_file():
+            raise InstallError("No DSiWare payload found in downloaded archive.")
+        console_dir = self.roms_root / self._console_name(manufacturer, console)
+        console_dir.mkdir(parents=True, exist_ok=True)
+        target_name = self._dsiware_target_name(install_name, source)
+        digest = self._sha256(source)
+        if digest in self._existing_hashes(console_dir):
+            report["roms_skipped"] += 1
+            return []
+        target = self._unique_target(console_dir / target_name)
+        shutil.copy2(source, target)
+        report["roms_installed"] += 1
+        return [target]
+
+    @staticmethod
+    def _selected_dsiware_payload(root: Path, archive_member_path: Optional[str]) -> Path:
+        if archive_member_path:
+            return FrontendInstaller._selected_archive_member(root, archive_member_path)
+        candidates = [
+            path
+            for path in root.rglob("*")
+            if path.is_file()
+            and not FrontendInstaller._should_skip_content(path)
+            and path.name.lower() not in {"titlekeys.txt", "titlekeys.zip", "tmds.zip"}
+            and path.suffix.lower() not in {".txt", ".xml", ".json", ".torrent", ".sqlite", ".db", ".tmd"}
+        ]
+        if not candidates:
+            raise InstallError("No DSiWare payload found in downloaded archive.")
+        rom_like = [path for path in candidates if path.suffix.lower() in {".nds", ".dsi", ".app"}]
+        return max(rom_like or candidates, key=lambda item: item.stat().st_size)
+
+    @staticmethod
+    def _dsiware_target_name(install_name: str, source: Path) -> str:
+        name = Path(str(install_name or source.name)).name
+        while Path(name).suffix.lower() in {".zip", ".7z", ".rar"}:
+            name = Path(name).stem
+        if Path(name).suffix.lower() not in {".nds", ".dsi", ".ids"}:
+            name = f"{Path(name).stem}.dsi"
+        return _safe_filename(name)
+
     def _write_playlist(self, manufacturer: str, console: str) -> Path:
-        console_name = f"{manufacturer} - {console}"
+        console_name = self._console_name(manufacturer, console)
         console_dir = self.roms_root / console_name
         playlist_path = self.playlists_root / f"{console_name}.lpl"
+        if console_name == NINTENDO_DSI_CONSOLE_NAME:
+            self._ensure_melonds_dsi_layout_and_options()
+        if console_name == "Amstrad - GX4000":
+            self._ensure_cap32_gx4000_options()
+        if console_name == "Commodore - CD32":
+            self._ensure_puae_cd32_options()
+        if console_name == "Commodore - CDTV":
+            self._ensure_puae_cdtv_options()
+        if console_name == "Philips - Videopac+":
+            self._ensure_o2em_videopac_plus_options()
+        if console_name == "Sony - PlayStation 2":
+            self._ensure_lrps2_options()
         core_path, core_name = self._resolve_core(console_name)
         label_lookup = self._playlist_label_lookup(console_name)
         existing = self._load_playlist(playlist_path)
@@ -585,12 +1136,13 @@ class FrontendInstaller:
             and install_strategy.get("type") == "mame_softlist_cmd"
             and core_path is not None
         )
+        replace_console_items = use_mame_softlist_cmd or console_name == "Nintendo - Nintendo 64DD"
         playlist_entries = (
             self._mame_softlist_playlist_entries(console_dir, install_strategy)
             if use_mame_softlist_cmd
             else [
                 (rom_path, self._playlist_label(rom_path, label_lookup))
-                for rom_path in self._playlist_rom_paths(console_dir)
+                for rom_path in self._playlist_rom_paths(console_dir, console_name=console_name)
             ]
         )
         seen_paths = {
@@ -609,7 +1161,7 @@ class FrontendInstaller:
                 if self._path_is_relative_to(item_file, console_dir) and not item_file.exists():
                     seen_paths.discard(item_path)
                     continue
-            if use_mame_softlist_cmd and item_path and self._path_is_relative_to(Path(item_path), console_dir):
+            if replace_console_items and item_path and self._path_is_relative_to(Path(item_path), console_dir):
                 seen_paths.discard(item_path)
                 continue
             items.append(item)
@@ -676,6 +1228,14 @@ class FrontendInstaller:
             stem = Path(str(rom_name)).stem.lower()
             lookup[stem] = str(label)
         return lookup
+
+    @staticmethod
+    def _console_name(manufacturer: str, console: str) -> str:
+        if manufacturer and manufacturer == console:
+            return console
+        if manufacturer == "Various" and console == "Handheld Electronic Game":
+            return console
+        return f"{manufacturer} - {console}"
 
     @staticmethod
     def _playlist_label(path: Path, label_lookup: Dict[str, str]) -> str:
@@ -917,8 +1477,78 @@ class FrontendInstaller:
             {"input_auto_game_focus"},
         )
 
+    def _ensure_o2em_videopac_plus_options(self) -> None:
+        retroarch_root = self._retroarch_root(self.roms_root)
+        option_values = {"o2em_bios": "g7400.bin"}
+        for options_path in [
+            retroarch_root / "retroarch-core-options.cfg",
+            retroarch_root / "config" / "O2EM" / "O2EM.opt",
+        ]:
+            self._set_core_options_values(options_path, option_values)
+
+    def _ensure_cap32_gx4000_options(self) -> None:
+        retroarch_root = self._retroarch_root(self.roms_root)
+        option_values = {
+            "cap32_gfx_colors": "24bit",
+            "cap32_model": "6128+ (experimental)",
+        }
+        for options_path in [
+            retroarch_root / "retroarch-core-options.cfg",
+            retroarch_root / "config" / "Caprice32" / "Caprice32.opt",
+            retroarch_root / "config" / "cap32" / "cap32.opt",
+        ]:
+            self._set_core_options_values(options_path, option_values)
+
+    def _ensure_puae_cd32_options(self) -> None:
+        retroarch_root = self._retroarch_root(self.roms_root)
+        option_values = {
+            "puae_model": "CD32",
+            "puae_model_cd": "CD32",
+        }
+        for options_path in [
+            retroarch_root / "retroarch-core-options.cfg",
+            retroarch_root / "config" / "PUAE" / "PUAE.opt",
+            retroarch_root / "config" / "puae" / "puae.opt",
+        ]:
+            self._set_core_options_values(options_path, option_values)
+
+    def _ensure_puae_cdtv_options(self) -> None:
+        retroarch_root = self._retroarch_root(self.roms_root)
+        option_values = {
+            "puae_model": "CDTV",
+            "puae_model_cd": "CDTV",
+        }
+        for options_path in [
+            retroarch_root / "retroarch-core-options.cfg",
+            retroarch_root / "config" / "PUAE" / "PUAE.opt",
+            retroarch_root / "config" / "puae" / "puae.opt",
+        ]:
+            self._set_core_options_values(options_path, option_values)
+
+    def _ensure_lrps2_options(self) -> None:
+        retroarch_root = self._retroarch_root(self.roms_root)
+        option_values = {
+            "pcsx2_renderer": "OpenGL",
+        }
+        for options_path in [
+            retroarch_root / "retroarch-core-options.cfg",
+            retroarch_root / "config" / "LRPS2" / "LRPS2.opt",
+        ]:
+            self._set_core_options_values(options_path, option_values)
+
     @staticmethod
     def _set_core_options(options_path: Path, option_keys: Iterable[str]) -> None:
+        FrontendInstaller._set_core_options_values(
+            options_path,
+            {
+                option_key: ("1" if option_key == "input_auto_game_focus" else "enabled")
+                for option_key in option_keys
+                if option_key
+            },
+        )
+
+    @staticmethod
+    def _set_core_options_values(options_path: Path, option_values: Dict[str, str]) -> None:
         options = {}
         if options_path.exists():
             for line in options_path.read_text(errors="ignore").splitlines():
@@ -926,15 +1556,24 @@ class FrontendInstaller:
                     continue
                 key, value = line.split("=", 1)
                 options[key.strip()] = value.strip()
-        for option_key in option_keys:
-            if option_key:
-                options[option_key] = '"1"' if option_key == "input_auto_game_focus" else '"enabled"'
+        for option_key, value in option_values.items():
+            options[option_key] = json.dumps(str(value))
         options_path.parent.mkdir(parents=True, exist_ok=True)
         lines = [f"{key} = {value}" for key, value in sorted(options.items())]
         options_path.write_text("\n".join(lines) + "\n")
 
-    def _playlist_rom_paths(self, console_dir: Path) -> List[Path]:
+    def _playlist_rom_paths(self, console_dir: Path, console_name: Optional[str] = None) -> List[Path]:
         paths = sorted(path for path in console_dir.rglob("*") if path.is_file() and self._is_rom(path))
+        if console_name == NINTENDO_DSI_CONSOLE_NAME:
+            return [path for path in paths if path.suffix.lower() in {".dsi", ".nds", ".ids"}]
+        if console_name == "Nintendo - Nintendo 64DD":
+            return [
+                path
+                for path in paths
+                if path.suffix.lower() == ".n64"
+                and "/roms/" in path.as_posix().lower()
+                and not path.name.lower().startswith("[bios]")
+            ]
         descriptor_dirs = {
             path.parent
             for path in paths
@@ -947,6 +1586,13 @@ class FrontendInstaller:
         ]
 
     def _resolve_core(self, console_name: str) -> Tuple[Optional[Path], Optional[str]]:
+        registry_preferred = self._registry_core_candidates(console_name)
+        if registry_preferred:
+            for core_id, core_file in registry_preferred:
+                core = self.cores_root / f"{core_file}_libretro.so"
+                if core.exists():
+                    return core, self._core_display_name(core_file) or core_id
+
         if "Family Computer Disk System" in console_name:
             preferred = ["fceumm", "nestopia"]
         elif "Atari - 2600" in console_name:
@@ -959,6 +1605,10 @@ class FrontendInstaller:
             preferred = ["virtualjaguar"]
         elif "Atari - Lynx" in console_name:
             preferred = ["handy"]
+        elif "Amstrad - GX4000" in console_name:
+            preferred = ["cap32"]
+        elif "Commodore - CD32" in console_name or "Commodore - CDTV" in console_name:
+            preferred = ["puae"]
         elif "Bandai - WonderSwan" in console_name:
             preferred = ["mednafen_wswan"]
         elif "Casio - PV-1000" in console_name:
@@ -985,10 +1635,26 @@ class FrontendInstaller:
             if not self._game_master_bios_ok():
                 return None, None
             preferred = ["mame"]
+        elif "Handheld Electronic Game" in console_name:
+            preferred = ["gw"]
+        elif "LeapFrog - Leapster Learning Game System" in console_name:
+            preferred = ["mame"]
         elif "RCA - Studio II" in console_name:
             preferred = ["mame"]
+        elif "Nintendo - Nintendo 64DD" in console_name:
+            preferred = ["mupen64plus_next", "parallel_n64"]
         elif "Nintendo - Nintendo 64" in console_name:
             preferred = ["mupen64plus_next", "parallel_n64"]
+        elif "Nintendo - Pokemon Mini" in console_name:
+            preferred = ["pokemini"]
+        elif "Nintendo - Satellaview" in console_name:
+            preferred = ["snes9x", "bsnes"]
+        elif "Nintendo - Sufami Turbo" in console_name:
+            preferred = ["snes9x", "bsnes"]
+        elif "Nintendo - Super Nintendo Entertainment System" in console_name:
+            preferred = ["snes9x", "bsnes"]
+        elif "Nintendo - Virtual Boy" in console_name:
+            preferred = ["mednafen_vb"]
         elif "Nintendo - Game Boy Advance" in console_name:
             preferred = ["mgba", "vba_m", "gpsp"]
         elif "Nintendo - Game Boy Color" in console_name:
@@ -997,6 +1663,18 @@ class FrontendInstaller:
             preferred = ["gambatte", "mgba", "sameboy", "gearboy"]
         elif "Nintendo - GameCube" in console_name:
             preferred = ["dolphin"]
+        elif "Nintendo - Wii" in console_name:
+            preferred = ["dolphin"]
+        elif "Nintendo - Wii U" in console_name:
+            preferred = ["cemu"]
+        elif "Nintendo - Nintendo 3DS" in console_name:
+            preferred = ["azahar", "citra"]
+        elif "Nintendo - Nintendo DS" in console_name:
+            preferred = ["melondsds", "desmume"]
+        elif "Sony - PlayStation 2" in console_name:
+            preferred = ["pcsx2", "play"]
+        elif "Sony - PlayStation Portable" in console_name:
+            preferred = ["ppsspp"]
         elif "SNK - Neo Geo Pocket" in console_name:
             preferred = ["mednafen_ngp", "race"]
         elif "SNK - Neo Geo CD" in console_name:
@@ -1011,6 +1689,8 @@ class FrontendInstaller:
             preferred = ["mednafen_supergrafx", "geargrafx"]
         elif "NEC - PC-FX" in console_name:
             preferred = ["mednafen_pcfx"]
+        elif "Philips - Videopac+" in console_name:
+            preferred = ["o2em_videopac_plus", "o2em"]
         elif "Sega - Mega-CD - Sega CD" in console_name:
             preferred = ["genesis_plus_gx", "picodrive"]
         elif "Sega - Mega Drive - Genesis" in console_name:
@@ -1029,6 +1709,18 @@ class FrontendInstaller:
             preferred = ["picodrive", "genesis_plus_gx"]
         elif "Sega - Saturn" in console_name:
             preferred = ["mednafen_saturn", "kronos", "yabause"]
+        elif "Sony - PlayStation" in console_name:
+            preferred = ["swanstation", "mednafen_psx_hw", "pcsx_rearmed"]
+        elif "The 3DO Company - 3DO" in console_name:
+            preferred = ["opera"]
+        elif "Tiger - Game.com" in console_name:
+            preferred = ["mame_gamecom", "mame"]
+        elif "VTech - CreatiVision" in console_name:
+            preferred = ["mame_crvision", "mame"]
+        elif "VTech - V.Smile" in console_name:
+            preferred = ["mame_vsmile", "mame"]
+        elif "Watara - Supervision" in console_name:
+            preferred = ["potator"]
         else:
             preferred = []
         for core_id in preferred:
@@ -1044,7 +1736,21 @@ class FrontendInstaller:
                 return (core_path if core_path.exists() else None), self._core_display_name(core_id)
         return None, None
 
+    def _registry_core_candidates(self, console_name: str) -> List[Tuple[str, str]]:
+        guid = self.module_guid_by_name.get(console_name) or self._known_strategy_guid(console_name)
+        if not guid:
+            return []
+        candidates: List[Tuple[str, str]] = []
+        for core_id, meta in (self.registry.get("cores") or {}).items():
+            if guid not in (meta.get("console_guids") or []):
+                continue
+            core_file = meta.get("core_file") or core_id
+            candidates.append((core_id, core_file))
+        return candidates
+
     def _install_strategy(self, console_name: str):
+        if console_name == NINTENDO_DSI_CONSOLE_NAME:
+            return {"type": "melonds_dsiware"}
         if "Emerson - Arcadia 2001" in console_name and (self.cores_root / "amiarcadia_libretro.so").exists():
             return "standard_libretro"
         guid = self.module_guid_by_name.get(console_name) or self._known_strategy_guid(console_name)
@@ -1052,10 +1758,16 @@ class FrontendInstaller:
             return "standard_libretro"
         for meta in (self.registry.get("cores") or {}).values():
             if guid in (meta.get("console_guids") or []) and meta.get("install_strategy"):
-                return meta.get("install_strategy")
+                strategy = meta.get("install_strategy")
+                if isinstance(strategy, dict) and strategy.get("console_guid") and strategy.get("console_guid") != guid:
+                    continue
+                return strategy
         for meta in (self.registry.get("cores") or {}).values():
             if guid in (meta.get("console_guids") or []):
-                return meta.get("install_strategy") or "standard_libretro"
+                strategy = meta.get("install_strategy")
+                if isinstance(strategy, dict) and strategy.get("console_guid") and strategy.get("console_guid") != guid:
+                    return "standard_libretro"
+                return strategy or "standard_libretro"
         return "standard_libretro"
 
     @staticmethod
@@ -1064,10 +1776,20 @@ class FrontendInstaller:
             return "7b81f262-ec70-5234-928d-207322439020"
         if "GamePark - GP32" in console_name:
             return "a69e967b-f947-5962-8578-03ca389c6231"
+        if "Handheld Electronic Game" in console_name:
+            return "60e5b2cc-0649-54b1-b0e0-30d0acac4bcc"
+        if "LeapFrog - Leapster Learning Game System" in console_name:
+            return "329862d7-95e7-5bdd-9f9c-291cac53a1a8"
         if "Epoch - Super Cassette Vision" in console_name:
             return "947cc03e-2c72-5cd0-92d9-8f69f946d59f"
         if "Hartung - Game Master" in console_name:
             return "3a5c3ea5-f514-59fa-9039-75d98e1ca63c"
+        if "Tiger - Game.com" in console_name:
+            return "cf88421d-dd86-5d2d-85d0-c640b1730604"
+        if "VTech - CreatiVision" in console_name:
+            return "90188f7f-aeff-501b-a10f-f41fb617829f"
+        if "VTech - V.Smile" in console_name:
+            return "c59cbdeb-e157-529b-b360-a193d53dc65b"
         if "Casio - PV-1000" in console_name:
             return "71b2e78e-d776-59a6-8bfa-5f84f90e7eca"
         if "Casio - Loopy" in console_name:
@@ -1078,7 +1800,49 @@ class FrontendInstaller:
             return "2de2782e-37a2-5e1c-9f4e-ffbf96872531"
         if "RCA - Studio II" in console_name:
             return "713057d9-8ae9-5b0a-9d1b-cf121b9357ae"
+        if "Nintendo - Nintendo DSi" in console_name:
+            return "7f574026-e1ef-588c-9ce1-a90da8d55378"
         return None
+
+    @staticmethod
+    def _is_nintendo_dsi(manufacturer: Optional[str], console: Optional[str]) -> bool:
+        return (manufacturer or "").lower() == "nintendo" and (console or "").lower() == "nintendo dsi"
+
+    def _missing_melonds_dsi_files(self) -> List[str]:
+        missing = []
+        for filename in MELONDS_DSI_REQUIRED_FILES:
+            if not self._melonds_system_file(filename):
+                missing.append(filename)
+        return missing
+
+    def _melonds_system_file(self, filename: str) -> Optional[Path]:
+        for candidate in [self.bios_root / MELONDS_SYSTEM_SUBDIR / filename, self.bios_root / filename]:
+            if candidate.exists() and candidate.stat().st_size > 0:
+                return candidate
+        return None
+
+    def _ensure_melonds_dsi_layout_and_options(self) -> None:
+        system_subdir = self.bios_root / MELONDS_SYSTEM_SUBDIR
+        system_subdir.mkdir(parents=True, exist_ok=True)
+        for filename in MELONDS_DSI_REQUIRED_FILES:
+            source = self._melonds_system_file(filename)
+            if not source:
+                continue
+            target = system_subdir / filename
+            if source != target and (not target.exists() or not self._same_file(source, target)):
+                shutil.copy2(source, target)
+        self._set_core_options_values(
+            self._retroarch_root(self.roms_root) / "config" / MELONDS_SYSTEM_SUBDIR / f"{MELONDS_SYSTEM_SUBDIR}.opt",
+            {
+                "melonds_console_mode": "dsi",
+                "melonds_sysfile_mode": "native",
+                "melonds_boot_mode": "direct",
+                "melonds_firmware_nds_path": f"{MELONDS_SYSTEM_SUBDIR}/firmware.bin",
+                "melonds_firmware_dsi_path": f"{MELONDS_SYSTEM_SUBDIR}/dsi_firmware.bin",
+                "melonds_dsi_nand_path": "/auto",
+                "melonds_dsi_sdcard": "disabled",
+            },
+        )
 
     def _game_master_bios_ok(self) -> bool:
         expected = "6bff08b5e5f96de405cd56d5f04a08f8"
@@ -1250,6 +2014,16 @@ def _format_bytes(value: int) -> str:
 def _safe_filename(value: str) -> str:
     safe = "".join(char if char.isalnum() or char in " ._-" else "_" for char in value).strip()
     return safe or "content"
+
+
+def _safe_cli_filename(value: str) -> str:
+    stem = Path(value).stem
+    suffix = Path(value).suffix.lower()
+    safe = "".join(char.lower() if char.isascii() and char.isalnum() else "_" for char in stem)
+    safe = "_".join(part for part in safe.split("_") if part)
+    if suffix not in {".pkg", ".vci", ".vpk", ".zip"}:
+        suffix = ""
+    return f"{safe or 'content'}{suffix}"
 
 
 def _parse_int(value) -> Optional[int]:

@@ -2,8 +2,10 @@ import json
 from pathlib import Path
 from typing import Dict, Iterable, List, Set, Tuple
 
-from data.storage.storage_config_loader import CONFIG_PATH, load_storage_config
+from data.storage.frontend_detector import detect_frontends
+from data.storage.storage_config_loader import CONFIG_PATH
 from core.frontend_installer import install_completed_jobs
+from utils.cores_registry import load_registry
 from utils.paths import CACHE_DIR, console_slug, manufacturer_slug, provider_slug
 
 SUPPORTED_AUTO_COLLECTION_SUFFIXES = {".zip"}
@@ -108,54 +110,143 @@ def reconcile_assigned_consoles(download_manager, install_ready: bool = True) ->
 
 
 def activate_assigned_frontend_consoles(manifest: Dict | None = None) -> Dict[str, object]:
-    """Add backend-assigned console GUIDs to the active local frontend config.
+    """Add backend-assigned console GUIDs to compatible local frontends.
 
     This only mutates the client's local storage config. It never writes to the
-    backend and is meant to make RetroArch integration follow account access.
+    backend and is meant to make local frontend integration follow account access.
+    The write is based on the raw config file so detected local launcher paths
+    are not persisted into the tracked project config as a side effect.
     """
-    config = load_storage_config() or {}
+    config = _load_raw_storage_config()
+    config, _added = _merge_detected_frontends(config)
     frontends = config.get("frontends") or {}
-    frontend_key = None
-    frontend = None
-    for key, entry in frontends.items():
-        if entry.get("active"):
-            frontend_key = key
-            frontend = entry
-            break
-    if frontend is None and frontends:
-        frontend_key, frontend = next(iter(frontends.items()))
-    if not frontend_key or frontend is None:
-        return {"frontend": None, "assigned": 0, "added": 0, "changed": False}
+    detected_keys = set(detect_frontends().keys())
+    local_frontends = [
+        (key, entry)
+        for key, entry in frontends.items()
+        if isinstance(entry, dict) and _is_local_frontend(key, entry, detected_keys)
+    ]
+    if not local_frontends:
+        return {
+            "frontend": None,
+            "frontends": [],
+            "assigned": 0,
+            "added": 0,
+            "removed": 0,
+            "changed": False,
+        }
 
     assigned_guids = _assigned_guids(manifest)
     revoked_guids = _revoked_guids()
-    supported = list(frontend.get("supported_guids") or [])
-    filtered_supported = [guid for guid in supported if guid not in revoked_guids]
-    removed = len(supported) - len(filtered_supported)
-    supported = filtered_supported
-    seen = set(supported)
-    added = 0
-    for guid in assigned_guids:
-        if guid and guid not in seen:
-            supported.append(guid)
-            seen.add(guid)
-            added += 1
+    reports: List[Dict[str, object]] = []
+    total_added = 0
+    total_removed = 0
+    changed = False
 
-    changed = added > 0 or removed > 0
+    for frontend_key, frontend in local_frontends:
+        supported = list(frontend.get("supported_guids") or [])
+        filtered_supported = [guid for guid in supported if guid not in revoked_guids]
+        removed = len(supported) - len(filtered_supported)
+        supported = filtered_supported
+        seen = set(supported)
+        added = 0
+        for guid in assigned_guids:
+            if not _frontend_can_support_guid(frontend, guid):
+                continue
+            if guid and guid not in seen:
+                supported.append(guid)
+                seen.add(guid)
+                added += 1
+
+        if added > 0 or removed > 0:
+            frontend["supported_guids"] = supported
+            frontends[frontend_key] = frontend
+            changed = True
+
+        total_added += added
+        total_removed += removed
+        reports.append(
+            {
+                "key": frontend_key,
+                "frontend": frontend.get("name") or frontend_key,
+                "assigned": len(assigned_guids),
+                "added": added,
+                "removed": removed,
+                "supported": len(supported),
+            }
+        )
+
     if changed:
-        frontend["supported_guids"] = supported
-        frontends[frontend_key] = frontend
         config["frontends"] = frontends
         CONFIG_PATH.parent.mkdir(parents=True, exist_ok=True)
         CONFIG_PATH.write_text(json.dumps(config, indent=2), encoding="utf-8")
 
+    frontend_names = ", ".join(str(report["frontend"]) for report in reports)
     return {
-        "frontend": frontend.get("name") or frontend_key,
+        "frontend": frontend_names,
+        "frontends": reports,
         "assigned": len(assigned_guids),
-        "added": added,
-        "removed": removed,
+        "added": total_added,
+        "removed": total_removed,
         "changed": changed,
     }
+
+
+def _load_raw_storage_config() -> Dict:
+    if not CONFIG_PATH.exists():
+        return {}
+    try:
+        payload = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
+def _merge_detected_frontends(config: Dict) -> Tuple[Dict, int]:
+    from data.storage.frontend_detector import merge_detected_frontends
+
+    return merge_detected_frontends(config)
+
+
+def _is_local_frontend(key: str, entry: Dict[str, object], detected_keys: Set[str]) -> bool:
+    return _is_retroarch_frontend(key, entry, detected_keys) or _is_external_frontend(key, entry, detected_keys)
+
+
+def _is_retroarch_frontend(key: str, entry: Dict[str, object], detected_keys: Set[str]) -> bool:
+    if key in detected_keys:
+        detected = detect_frontends().get(key) or {}
+        if detected.get("kind") == "external_emulator":
+            return False
+        return True
+    if entry.get("kind") == "retroarch":
+        return True
+    return str(entry.get("install_type") or "").lower() in {"steam", "flatpak", "native"}
+
+
+def _is_external_frontend(key: str, entry: Dict[str, object], detected_keys: Set[str]) -> bool:
+    if key in detected_keys and entry.get("kind") == "external_emulator":
+        return True
+    return entry.get("kind") == "external_emulator"
+
+
+def _frontend_can_support_guid(frontend: Dict[str, object], guid: str) -> bool:
+    if not guid:
+        return False
+    explicit = set(frontend.get("supported_guids") or [])
+    if guid in explicit:
+        return True
+    registry = load_registry()
+    kind = frontend.get("kind")
+    install_type = str(frontend.get("install_type") or "").lower()
+    for meta in (registry.get("cores") or {}).values():
+        if guid not in (meta.get("console_guids") or []):
+            continue
+        if kind == "external_emulator" or install_type in {"vita3k"}:
+            return meta.get("kind") == "external_emulator" and meta.get("install_type") == install_type
+        if meta.get("kind") == "external_emulator":
+            continue
+        return True
+    return False
 
 
 def _assigned_guids(manifest: Dict | None = None) -> List[str]:

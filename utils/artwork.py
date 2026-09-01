@@ -14,8 +14,9 @@ ARTWORK_CONSOLE_MAP = {
     "Sega Dreamcast": "Sega - Dreamcast",
 }
 
-ARTWORK_CACHE_DIR = os.path.join("data", "cache", "artwork")
-INDEX_DIR = Path("data") / "index" / "libretro"
+DATA_DIR = Path(os.environ.get("ROMS_MANAGER_DATA_ROOT", Path(__file__).resolve().parents[1] / "data")).expanduser()
+ARTWORK_CACHE_DIR = str(DATA_DIR / "cache" / "artwork")
+INDEX_DIR = DATA_DIR / "index" / "libretro"
 
 
 def normalize_rom_name(name: str) -> str:
@@ -34,9 +35,18 @@ def _load_module_index(module: str) -> Optional[Dict]:
         return json.load(fh)
 
 
-def derive_artwork_url(rom: Dict, category: str = "Named_Boxarts") -> Optional[str]:
+def _module_for_rom(rom: Dict) -> Optional[str]:
+    manufacturer = rom.get("manufacturer") or rom.get("brand")
     console = rom.get("console")
-    module = ARTWORK_CONSOLE_MAP.get(console)
+    if manufacturer and console:
+        return f"{manufacturer} - {console}"
+    if console:
+        return ARTWORK_CONSOLE_MAP.get(console)
+    return None
+
+
+def derive_artwork_url(rom: Dict, category: str = "Named_Boxarts") -> Optional[str]:
+    module = _module_for_rom(rom)
     if not module:
         return None
     sanitized = normalize_rom_name(rom.get("name", ""))
@@ -49,8 +59,7 @@ def derive_artwork_url(rom: Dict, category: str = "Named_Boxarts") -> Optional[s
 
 
 def _index_entry_for_rom(rom: Dict) -> Optional[Dict]:
-    console = rom.get("console")
-    module = ARTWORK_CONSOLE_MAP.get(console)
+    module = _module_for_rom(rom)
     if not module:
         return None
     index = _load_module_index(module)
@@ -63,9 +72,9 @@ def _index_entry_for_rom(rom: Dict) -> Optional[Dict]:
 def fetch_artwork(
     rom: Dict,
     cache_base: str = ARTWORK_CACHE_DIR,
+    provider_id: str = "libretro",
 ) -> Optional[str]:
-    console = rom.get("console", "Unknown")
-    module = ARTWORK_CONSOLE_MAP.get(console, "unknown")
+    module = _module_for_rom(rom) or "unknown"
     rom_name = normalize_rom_name(rom.get("name", ""))
     console_dir = Path(cache_base) / _slugify(module)
     os.makedirs(console_dir, exist_ok=True)

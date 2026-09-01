@@ -15,12 +15,13 @@ from .rom_conversion_screen import ROMConversionScreen
 from .cores_screen import CoresScreen
 from .update_screen import UpdateScreen
 from .revoked_access_screen import RevokedAccessScreen
+from .internet_archive_screen import InternetArchiveScreen
 
 
 MENU_STRUCTURE = {
     "Main Menu": ["ROM Explorer", "Download Manager", "Settings", "Tools", "Exit"],
     "ROM Explorer": ["Consoles", "Computers", "Search", "Back"],
-    "Settings": ["Providers", "Storage", "Database", "Cores", "Update", "Revoked Access", "Back"],
+    "Settings": ["Providers", "Storage", "Database", "Cores", "Internet Archive", "Update", "Revoked Access", "Back"],
     "Tools": ["Rom Conversion", "Back"],
 }
 
@@ -92,6 +93,8 @@ class MenuScreen(Screen):
             self.app.push_screen(DatabaseScreen())
         elif option == "Cores":
             self.app.push_screen(CoresScreen())
+        elif option == "Internet Archive":
+            self.app.push_screen(InternetArchiveScreen())
         elif option == "Update":
             self.app.push_screen(UpdateScreen())
         elif option == "Revoked Access":

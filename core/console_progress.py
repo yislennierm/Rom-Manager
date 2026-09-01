@@ -30,6 +30,7 @@ NON_CONSOLE_PREFIXES = (
     "NEC - PC-98",
 )
 NON_CONSOLE_NAMES = {
+    "Atari - 8-bit",
     "Dinothawr",
     "DOOM",
     "Cave Story",
@@ -52,8 +53,20 @@ NON_CONSOLE_NAMES = {
     "Handheld Electronic Game",
     "FBNeo - Arcade Games",
     "Atomiswave",
+    "Jump 'n Bump",
+    "NEC - PC-8001 - PC-8801",
     "Sega - Naomi",
     "Sega - Naomi 2",
+    "Spectravideo - SVI-318 - SVI-328",
+    "Vircon32",
+}
+
+CONSOLE_NAME_ALLOWLIST = {
+    "Amstrad - GX4000",
+    "Commodore - CD32",
+    "Commodore - CDTV",
+    "Microsoft - Xbox",
+    "Microsoft - Xbox 360",
 }
 
 
@@ -205,7 +218,11 @@ def _load_backend_providers() -> Dict:
 
 
 def _is_console_module(name: str) -> bool:
-    if not name or name in NON_CONSOLE_NAMES:
+    if not name:
+        return False
+    if name in CONSOLE_NAME_ALLOWLIST:
+        return True
+    if name in NON_CONSOLE_NAMES:
         return False
     return not name.startswith(NON_CONSOLE_PREFIXES)
 
@@ -248,6 +265,10 @@ def _bios_map(registry: Dict) -> Dict[str, List[Dict]]:
         for guid in meta.get("console_guids") or []:
             for bios_id in meta.get("bios_ids") or []:
                 result[guid].append(bios_files.get(bios_id, {}))
+            console_bios = meta.get("console_bios_ids") or {}
+            if isinstance(console_bios, dict):
+                for bios_id in console_bios.get(guid) or []:
+                    result[guid].append(bios_files.get(bios_id, {}))
     return dict(result)
 
 

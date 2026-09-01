@@ -1,10 +1,10 @@
 import React from 'react'
-import { Alert, Button, Card, Flex, Statistic, Typography } from 'antd'
-import type { DatasetCard } from '../types'
+import { Alert, Button, Typography } from 'antd'
+import type { DatasetCard, DatasetKey, DatasetMeta } from '../types'
 
 type Props = {
   datasets: DatasetCard[]
-  meta: Record<string, any>
+  meta: Record<DatasetKey, DatasetMeta | null>
   loading: boolean
   error: string | null
   onDownload: (dataset: DatasetCard) => void
@@ -15,28 +15,34 @@ export const SummaryCards: React.FC<Props> = ({ datasets, meta, loading, error, 
     {error && (
       <Alert type="error" showIcon message="Unable to load dataset metadata" description={error} className="app-alert" />
     )}
-    <Flex gap="large" wrap className="dataset-summary">
+    <section className="dataset-summary" aria-label="Dataset status">
       {datasets.map((dataset) => {
         const datasetMeta = meta[dataset.key]
         return (
-          <Card key={dataset.key} className="summary-card">
-            <Typography.Title level={5}>{dataset.title}</Typography.Title>
-            <Typography.Text>{dataset.description}</Typography.Text>
-            <Flex gap="large" className="summary-stats">
-              <Statistic title="Entries" value={datasetMeta?.count ?? 0} loading={loading && !datasetMeta} />
-              <Statistic
-                title="Version"
-                value={datasetMeta?.version ? datasetMeta.version : 'N/A'}
-                formatter={(val) => (typeof val === 'string' ? val : 'N/A')}
-              />
-            </Flex>
+          <article key={dataset.key} className="summary-card">
+            <div>
+              <Typography.Title level={4} className="summary-title">{dataset.title}</Typography.Title>
+              <Typography.Text type="secondary">{dataset.description}</Typography.Text>
+            </div>
+            <div className="summary-stats">
+              <div>
+                <Typography.Text className="summary-label">Entries</Typography.Text>
+                <Typography.Text className="summary-value">{loading && !datasetMeta ? '...' : datasetMeta?.count ?? 0}</Typography.Text>
+              </div>
+              <div>
+                <Typography.Text className="summary-label">Version</Typography.Text>
+                <Typography.Text className="summary-version">
+                  {datasetMeta?.version ? datasetMeta.version : 'N/A'}
+                </Typography.Text>
+              </div>
+            </div>
             <Button type="link" onClick={() => onDownload(dataset)} className="summary-link">
               Download JSON
             </Button>
-          </Card>
+          </article>
         )
       })}
-    </Flex>
+    </section>
   </>
 )
 

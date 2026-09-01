@@ -12,7 +12,7 @@ import {
   Layout,
   List,
   Modal,
-  Segmented,
+  Pagination,
   Select,
   Space,
   Spin,
@@ -24,7 +24,7 @@ import {
   message,
   theme,
 } from 'antd'
-import type { MenuProps } from 'antd'
+import type { MenuProps, ThemeConfig } from 'antd'
 import type { DataNode } from 'antd/es/tree'
 import {
   CloudDownloadOutlined,
@@ -35,17 +35,23 @@ import {
   ReloadOutlined,
   SafetyCertificateOutlined,
   SettingOutlined,
+  UnorderedListOutlined,
 } from '@ant-design/icons'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { apiFetch, getAuthToken, isPreviewMode, setAuthToken } from './api'
 import ModulesList from './components/ModulesList'
-import SummaryCards from './components/SummaryCards'
 import NavigationSider from './components/NavigationSider'
 import TopHeader from './components/TopHeader'
 import DetailPanel from './components/DetailPanel'
 import ModuleReadinessCard from './components/ModuleReadinessCard'
 import ConsoleInfoCard from './components/ConsoleInfoCard'
+import ConsoleLogoTitle from './components/ConsoleLogoTitle'
+import DashboardPage from './components/DashboardPage'
+import SearchField from './components/SearchField'
+import SelectField from './components/SelectField'
+import ViewToggle from './components/ViewToggle'
+import useDashboardData from './hooks/useDashboardData'
 import useModulesData from './hooks/useModulesData'
 import useProvidersData from './hooks/useProvidersData'
 import useRomData from './hooks/useRomData'
@@ -61,9 +67,11 @@ import type {
   ProviderCoverage,
   ProviderEntry,
   ProviderSelection,
+  ProviderStatus,
   ProvidersResponse,
   RomBrandSelection,
   RomConsoleSelection,
+  RomEntry,
   RomSetMeta,
   Selection,
 } from './types'
@@ -71,7 +79,61 @@ import './App.css'
 
 dayjs.extend(relativeTime)
 
-const logoUrl = `${import.meta.env.BASE_URL}logo.webp`
+const logoUrl = `${import.meta.env.BASE_URL}logo-current.webp`
+
+const antTheme: ThemeConfig = {
+  algorithm: theme.darkAlgorithm,
+  token: {
+    colorPrimary: '#64ebcf',
+    colorInfo: '#76a8ff',
+    colorSuccess: '#64ebcf',
+    colorWarning: '#f6bd67',
+    colorError: '#ff7c9e',
+    colorBgBase: '#080b12',
+    colorBgContainer: 'rgba(17, 22, 33, 0.82)',
+    colorBgElevated: '#151b28',
+    colorBorder: 'rgba(164, 174, 195, 0.15)',
+    colorBorderSecondary: 'rgba(164, 174, 195, 0.1)',
+    colorText: '#f5f7fb',
+    colorTextSecondary: '#c5ccda',
+    colorTextTertiary: '#818c9f',
+    borderRadius: 11,
+    borderRadiusLG: 18,
+    fontFamily: '"Segoe UI Variable", "Segoe UI", Inter, system-ui, sans-serif',
+    controlHeight: 34,
+    controlHeightLG: 38,
+    boxShadow: '0 18px 50px rgba(0, 0, 0, 0.26)',
+  },
+  components: {
+    Button: {
+      primaryColor: '#06120f',
+      defaultBg: '#111621',
+      defaultBorderColor: 'rgba(164, 174, 195, 0.18)',
+    },
+    Card: {
+      colorBgContainer: 'rgba(17, 22, 33, 0.82)',
+      headerBg: 'transparent',
+    },
+    Layout: {
+      bodyBg: '#080b12',
+      headerBg: '#0b0f18',
+      siderBg: '#0b0f18',
+      footerBg: '#080b12',
+    },
+    Menu: {
+      darkItemBg: 'transparent',
+      darkSubMenuItemBg: 'transparent',
+      darkItemSelectedBg: 'rgba(100, 235, 207, 0.14)',
+      darkItemSelectedColor: '#f5f7fb',
+      darkItemHoverBg: 'rgba(167, 148, 255, 0.1)',
+    },
+    Table: {
+      headerBg: '#151b28',
+      rowHoverBg: 'rgba(100, 235, 207, 0.06)',
+      borderColor: 'rgba(164, 174, 195, 0.12)',
+    },
+  },
+}
 
 const DATASETS: DatasetCard[] = [
   {
@@ -121,6 +183,138 @@ const formatBytes = (size?: number) => {
   return `${(size / 1024 / 1024 / 1024).toFixed(1)} GB`
 }
 
+const textValue = (value: unknown) => (typeof value === 'string' && value.trim() ? value.trim() : undefined)
+
+const romRegionLabel = (entry: { region?: string; name?: string; rom_name?: string }) => {
+  const region = textValue(entry.region)
+  if (region && region !== '—') {
+    return region
+  }
+  const source = entry.name || entry.rom_name || ''
+  const match = source.match(/\((USA|Europe|Japan|World|Germany|France|Spain|Italy|Brazil|Korea|Asia|Canada|Australia)\)/i)
+  return match?.[1] || 'Unknown'
+}
+
+const romFormatLabel = (entry: { rom_name?: string; name?: string }) => {
+  const source = entry.rom_name || entry.name || ''
+  const match = source.match(/\.([a-z0-9]+)$/i)
+  return match ? match[1].toUpperCase() : undefined
+}
+
+const romSourceLabel = (entry: Record<string, unknown>) => {
+  if (entry.provider_only) {
+    return textValue(entry.http_url) ? 'Provider-only' : 'Provider catalog'
+  }
+  if (textValue(entry.http_url)) {
+    return 'Downloadable'
+  }
+  if (textValue(entry.torrent_url)) {
+    return 'Torrent'
+  }
+  return 'Catalog only'
+}
+
+const formatRomCatalogSummary = (meta: {
+  entry_count?: number
+  rdb_entry_count?: number
+  provider_only_count?: number
+  catalog_total?: number
+}) => {
+  const total = Number(meta.catalog_total ?? meta.entry_count ?? 0)
+  const rdb = Number(meta.rdb_entry_count ?? meta.entry_count ?? total)
+  const providerOnly = Number(meta.provider_only_count ?? 0)
+  if (providerOnly > 0) {
+    return `${total} total · ${rdb} RDB · ${providerOnly} provider-only`
+  }
+  return `${rdb} master ROMs`
+}
+
+const romVariantLabel = (entry: Record<string, unknown>) => {
+  const count = typeof entry.variant_count === 'number' ? entry.variant_count : 1
+  const index = typeof entry.variant_index === 'number' ? entry.variant_index : 1
+  const label = textValue(entry.variant_label) || (count > 1 ? 'Standard' : undefined)
+  if (!label && count <= 1) {
+    return undefined
+  }
+  return count > 1 ? `${label || 'Variant'} · ${index} of ${count}` : label
+}
+
+const romFiltersKey = (filters: Record<string, string>) =>
+  JSON.stringify({
+    q: filters.q || '',
+    availability: filters.availability || '',
+    region: filters.region || '',
+    format: filters.format || '',
+    sort: filters.sort || 'name',
+  })
+
+const initialViewKey = () => {
+  if (typeof window === 'undefined') {
+    return 'home'
+  }
+  return new URLSearchParams(window.location.search).get('view') || 'home'
+}
+
+const initialRomViewMode = (): 'list' | 'cards' => {
+  if (typeof window === 'undefined') {
+    return 'list'
+  }
+  const params = new URLSearchParams(window.location.search)
+  const urlMode = params.get('romView')
+  if (urlMode === 'cards' || urlMode === 'list') {
+    return urlMode
+  }
+  const storedMode = window.localStorage.getItem('romViewMode')
+  return storedMode === 'cards' ? 'cards' : 'list'
+}
+
+const openKeysForView = (key: string) => {
+  if (key.startsWith('module:')) {
+    return ['modules-root']
+  }
+  if (key.startsWith('provider:')) {
+    const parts = key.split(':')
+    const keys = ['providers-root']
+    if (parts[1]) keys.push(`provider:${parts[1]}`)
+    if (parts[1] && parts[2]) keys.push(`provider:${parts[1]}:${parts[2]}`)
+    return keys
+  }
+  if (key.startsWith('roms:')) {
+    return ['roms-root']
+  }
+  if (key === 'access-root') {
+    return ['settings-root']
+  }
+  return ['modules-root', 'providers-root']
+}
+
+const updateViewUrl = (key: string) => {
+  if (typeof window === 'undefined') {
+    return
+  }
+  const url = new URL(window.location.href)
+  if (key && key !== 'home') {
+    url.searchParams.set('view', key)
+  } else {
+    url.searchParams.delete('view')
+  }
+  window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`)
+}
+
+const updateRomViewModeUrl = (mode: 'list' | 'cards') => {
+  if (typeof window === 'undefined') {
+    return
+  }
+  const url = new URL(window.location.href)
+  if (mode === 'cards') {
+    url.searchParams.set('romView', mode)
+  } else {
+    url.searchParams.delete('romView')
+  }
+  window.localStorage.setItem('romViewMode', mode)
+  window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`)
+}
+
 function App() {
   const [apiKey, setApiKey] = useState(() => getAuthToken())
   const previewMode = isPreviewMode()
@@ -136,13 +330,13 @@ function App() {
     providers: null,
   })
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
   const { providerData, providerLoading, providerError, fetchProviders } = useProvidersData(apiKey)
   const { modulesData, setModulesData, modulesLoading, fetchModulesPayload } = useModulesData(apiKey)
+  const { dashboard, dashboardLoading, dashboardError, fetchDashboard } = useDashboardData(apiKey)
   const [providerFetchRunning, setProviderFetchRunning] = useState(false)
   const [providerExportRunning, setProviderExportRunning] = useState(false)
   const [validationRunning, setValidationRunning] = useState(false)
-  const [providerStatus, setProviderStatus] = useState<Record<string, any> | null>(null)
+  const [providerStatus, setProviderStatus] = useState<ProviderStatus | null>(null)
   const [providerCoverage, setProviderCoverage] = useState<ProviderCoverage | null>(null)
   const [providerCoverageLoading, setProviderCoverageLoading] = useState(false)
   const [moduleReadiness, setModuleReadiness] = useState<ModuleReadiness | null>(null)
@@ -156,13 +350,25 @@ function App() {
     romEntriesLoading,
     fetchRomMetadata,
     fetchRomEntries,
+    defaultRomPageSize,
   } = useRomData(apiKey)
-  const [romViewMode, setRomViewMode] = useState<'list' | 'cards'>('list')
-  const [selectedKeys, setSelectedKeys] = useState<string[]>(['home'])
+  const [romViewMode, setRomViewMode] = useState<'list' | 'cards'>(() => initialRomViewMode())
+  const [romPage, setRomPage] = useState(1)
+  const [romPageSize, setRomPageSize] = useState(defaultRomPageSize)
+  const [romSearch, setRomSearch] = useState('')
+  const [romAvailability, setRomAvailability] = useState('all')
+  const [romRegion, setRomRegion] = useState('all')
+  const [romFormat, setRomFormat] = useState('all')
+  const [romSort, setRomSort] = useState('name')
+  const [selectedRomEntry, setSelectedRomEntry] = useState<RomEntry | null>(null)
+  const [selectedArtworkKey, setSelectedArtworkKey] = useState('boxart')
+  const [selectedKeys, setSelectedKeys] = useState<string[]>(() => [initialViewKey()])
   const [selection, setSelection] = useState<Selection>({ kind: 'home' })
   const [searchQuery, setSearchQuery] = useState('')
-  const [openKeys, setOpenKeys] = useState<string[]>(['modules-root', 'providers-root'])
-  const [navCollapsed, setNavCollapsed] = useState(false)
+  const [openKeys, setOpenKeys] = useState<string[]>(() => openKeysForView(initialViewKey()))
+  const [navCollapsed, setNavCollapsed] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth <= 720 : false,
+  )
   const [providerModalMode, setProviderModalMode] = useState<'edit' | 'create'>('edit')
   const [providerModalTarget, setProviderModalTarget] = useState<{ brand?: string; console?: string }>({})
   const [isEditModalVisible, setEditModalVisible] = useState(false)
@@ -175,13 +381,23 @@ function App() {
   const [loginForm] = Form.useForm()
   const [messageApi, contextHolder] = message.useMessage()
 
+  const romFilters = useMemo(
+    () => ({
+      q: romSearch.trim(),
+      availability: romAvailability === 'all' ? '' : romAvailability,
+      region: romRegion === 'all' ? '' : romRegion,
+      format: romFormat === 'all' ? '' : romFormat,
+      sort: romSort,
+    }),
+    [romAvailability, romFormat, romRegion, romSearch, romSort],
+  )
+
   const fetchMeta = useCallback(async () => {
     if (!apiKey) {
       setMeta({ modules: null, providers: null })
       return
     }
     setLoading(true)
-    setError(null)
     try {
       const [modules, providers] = await Promise.all(
         DATASETS.map(async (dataset) => {
@@ -197,7 +413,7 @@ function App() {
         providers,
       })
     } catch (err) {
-      setError((err as Error).message)
+      console.error('Failed to load dataset metadata', err)
     } finally {
       setLoading(false)
     }
@@ -268,9 +484,17 @@ function App() {
 
   useEffect(() => {
     if (selection?.kind === 'rom-console') {
-      fetchRomEntries(selection.meta)
+      fetchRomEntries(selection.meta, romPage, romPageSize, romFilters)
     }
-  }, [selection, fetchRomEntries])
+  }, [selection, fetchRomEntries, romPage, romPageSize, romFilters])
+
+  useEffect(() => {
+    setRomPage(1)
+  }, [romFilters])
+
+  useEffect(() => {
+    setSelectedArtworkKey('boxart')
+  }, [selectedRomEntry])
 
   const headerTagline = useMemo(() => {
     const moduleVersion = meta.modules?.version
@@ -596,9 +820,12 @@ function App() {
     handleNavigationSelect(info.key as string)
   }
 
-  const handleNavigationSelect = (key: string) => {
+  const handleNavigationSelect = (key: string, persistUrl = true) => {
     const keys = [key]
     setSelectedKeys(keys)
+    if (persistUrl) {
+      updateViewUrl(key)
+    }
     const targetKey = keys[0] as string | undefined
     if (!targetKey) {
       setSelection(null)
@@ -649,12 +876,49 @@ function App() {
         return
       }
     } else if (targetKey.startsWith('roms:')) {
-      const [, brand] = targetKey.split(':')
+      const [, brand, slugOrGuid] = targetKey.split(':')
+      if (brand && slugOrGuid) {
+        const romSet = romSets.find((meta) => {
+          const key = meta.slug || meta.guid || meta.module
+          return (meta.brand || 'Other') === brand && key === slugOrGuid
+        })
+        if (romSet) {
+          setRomPage(1)
+          setSelection({ kind: 'rom-console', meta: romSet })
+          return
+        }
+      }
       setSelection({ kind: 'rom-brand', brand })
       return
     }
     setSelection(null)
   }
+
+  const openDashboardConsole = (guid?: string | null) => {
+    if (!guid) {
+      handleNavigationSelect('modules-root')
+      return
+    }
+    const moduleEntryIndex = modulesData.findIndex((module) => module.guid === guid)
+    const moduleEntry = modulesData[moduleEntryIndex]
+    if (!moduleEntry) {
+      handleNavigationSelect('modules-root')
+      return
+    }
+    handleNavigationSelect(getModuleNodeKey(moduleEntry, moduleEntryIndex))
+  }
+
+  const openDashboardUsers = () => handleNavigationSelect('access-root')
+  const openDashboardProviders = () => handleNavigationSelect('providers-root')
+  const openDashboardModules = () => handleNavigationSelect('modules-root')
+
+  useEffect(() => {
+    const key = selectedKeys[0]
+    if (!key || key === 'home') {
+      return
+    }
+    handleNavigationSelect(key, false)
+  }, [providerTree.detailLookup, modulesData, romSets])
 
   const fetchProviderStatus = useCallback(async (selection: ProviderSelection | null) => {
     if (!selection) {
@@ -732,10 +996,11 @@ function App() {
 
   const handleRefreshAll = useCallback(() => {
     fetchMeta()
+    fetchDashboard()
     fetchProviders()
     fetchModulesPayload()
     fetchRomMetadata()
-  }, [fetchMeta, fetchProviders, fetchModulesPayload, fetchRomMetadata])
+  }, [fetchDashboard, fetchMeta, fetchProviders, fetchModulesPayload, fetchRomMetadata])
 
   const handleApiKeyChange = useCallback((value: string) => {
     setAuthToken(value)
@@ -778,31 +1043,9 @@ function App() {
     setAccessUsers([])
     setSelectedKeys(['home'])
     setSelection({ kind: 'home' })
+    updateViewUrl('home')
     loginForm.resetFields()
   }, [loginForm])
-
-  const handleDownloadDataset = useCallback(
-    async (dataset: DatasetCard) => {
-      try {
-        const response = await apiFetch(dataset.endpoint)
-        if (!response.ok) {
-          throw new Error(await response.text())
-        }
-        const blob = await response.blob()
-        const url = URL.createObjectURL(blob)
-        const link = document.createElement('a')
-        link.href = url
-        link.download = `${dataset.key}.json`
-        document.body.appendChild(link)
-        link.click()
-        link.remove()
-        URL.revokeObjectURL(url)
-      } catch (err) {
-        messageApi.error(err instanceof Error ? err.message : `Failed to download ${dataset.title}`)
-      }
-    },
-    [messageApi],
-  )
 
   const openCreateAccessModal = () => {
     setAccessModalTarget(null)
@@ -972,9 +1215,18 @@ function App() {
   const getConsoleEntries = (brand: string, consoleName: string): ProviderEntry[] =>
     getConsoleEntriesFromDataset(providerData, brand, consoleName)
 
+  const getRomSetForConsole = (brand: string, consoleName: string, guid?: string): RomSetMeta | undefined =>
+    romSets.find((meta) => {
+      if (guid && meta.guid === guid) {
+        return true
+      }
+      return meta.brand === brand && meta.console === consoleName
+    })
+
   const handleConsoleNavigate = (brand: string, consoleName: string) => {
     const key = `provider:${brand}:${consoleName}`
     setSelectedKeys([key])
+    updateViewUrl(key)
     setSelection({ kind: 'console', brand, console: consoleName })
   }
 
@@ -982,6 +1234,7 @@ function App() {
     const suffix = getCollectionKeySuffix(entry, index)
     const key = `provider:${brand}:${consoleName}:${suffix}`
     setSelectedKeys([key])
+    updateViewUrl(key)
     setSelection({
       kind: 'collection',
       key,
@@ -1001,6 +1254,8 @@ function App() {
     const slugOrGuid = meta.slug || meta.guid || meta.module || brand
     const key = `roms:${brand}:${slugOrGuid}`
     setSelectedKeys([key])
+    updateViewUrl(key)
+    setRomPage(1)
     setSelection({ kind: 'rom-console', meta })
   }
 
@@ -1524,7 +1779,38 @@ function App() {
     })
   }
 
-  const busy = loading || providerLoading
+  const busy = loading || providerLoading || dashboardLoading
+
+  const pageTitle = useMemo(() => {
+    if (!selection || selection.kind === 'home') return 'Overview'
+    if (selection.kind === 'dataset') return selection.dataset === 'modules' ? 'Consoles' : 'Dataset'
+    if (selection.kind === 'providers-root') return 'Providers'
+    if (selection.kind === 'access-root') return 'Users & access'
+    if (selection.kind === 'collection') return selection.collectionLabel
+    if (selection.kind === 'console') return selection.console
+    if (selection.kind === 'brand') return selection.brand
+    if (selection.kind === 'module') return selection.data.name || 'Console module'
+    if (selection.kind === 'rom-console') return selection.meta.console || selection.meta.module || 'ROM catalog'
+    if (selection.kind === 'rom-brand') return selection.brand
+    return 'ROMs Manager'
+  }, [selection])
+
+  const pageSubtitle = useMemo(() => {
+    if (!selection || selection.kind === 'home') return headerTagline
+    if (selection.kind === 'collection') return `${selection.brand} · ${selection.console}`
+    if (selection.kind === 'console') return selection.brand
+    if (selection.kind === 'brand') return 'Provider consoles'
+    if (selection.kind === 'module') return selection.data.guid || 'GUID not assigned'
+    if (selection.kind === 'rom-console') {
+      const meta = selection.meta
+      return `${meta.brand || 'Unknown brand'} · ${formatRomCatalogSummary(meta)}`
+    }
+    if (selection.kind === 'rom-brand') return 'ROM catalogs'
+    if (selection.kind === 'providers-root') return `${providerStats.providerCount} collections across ${providerStats.consoleCount} consoles`
+    if (selection.kind === 'access-root') return `${accessUsers.length} account${accessUsers.length === 1 ? '' : 's'} configured`
+    if (selection.kind === 'dataset') return `${modulesData.length} module${modulesData.length === 1 ? '' : 's'} loaded`
+    return undefined
+  }, [accessUsers.length, headerTagline, modulesData.length, providerStats.consoleCount, providerStats.providerCount, selection])
 
   const renderProviderCoverage = () => {
     if (providerCoverageLoading) {
@@ -1668,6 +1954,19 @@ function App() {
     const entries = getConsoleEntries(consoleSelection.brand, consoleSelection.console)
     const consoleGuid = entries.find((entry) => entry.libretro_guid)?.libretro_guid
     const consoleModule = consoleGuid ? moduleByGuid[consoleGuid]?.name : undefined
+    const romSet = getRomSetForConsole(consoleSelection.brand, consoleSelection.console, consoleGuid)
+    const romCatalogAction = romSet ? (
+      <Button icon={<UnorderedListOutlined />} onClick={() => handleRomConsoleNavigate(romSet)}>
+        View ROM catalog
+      </Button>
+    ) : null
+    const romCatalogSummary = romSet ? (
+      <Typography.Text type="secondary">
+        {formatRomCatalogSummary(romSet)}
+      </Typography.Text>
+    ) : (
+      <Typography.Text type="secondary">No ROM catalog exported</Typography.Text>
+    )
     if (!entries.length) {
       return (
         <Flex vertical gap="large">
@@ -1678,16 +1977,22 @@ function App() {
             module={consoleModule}
           />
           <Flex justify="space-between" align="center">
-            <Typography.Title level={4} style={{ marginBottom: 0 }}>
-              {consoleSelection.brand} · {consoleSelection.console}
-            </Typography.Title>
-            <Button
-              type="primary"
-              icon={<PlusOutlined />}
-              onClick={() => openCreateProviderModal(consoleSelection.brand, consoleSelection.console)}
-            >
-              New provider
-            </Button>
+            <div>
+              <Typography.Title level={4} style={{ marginBottom: 0 }}>
+                {consoleSelection.brand} · {consoleSelection.console}
+              </Typography.Title>
+              {romCatalogSummary}
+            </div>
+            <Space wrap>
+              {romCatalogAction}
+              <Button
+                type="primary"
+                icon={<PlusOutlined />}
+                onClick={() => openCreateProviderModal(consoleSelection.brand, consoleSelection.console)}
+              >
+                New provider
+              </Button>
+            </Space>
           </Flex>
           <ModuleReadinessCard readiness={moduleReadiness} loading={moduleReadinessLoading} />
           {renderProviderCoverage()}
@@ -1708,16 +2013,22 @@ function App() {
         <List
           header={
             <Flex justify="space-between" align="center">
-              <Typography.Title level={4} style={{ marginBottom: 0 }}>
-                {consoleSelection.brand} · {consoleSelection.console}
-              </Typography.Title>
-              <Button
-                type="primary"
-                icon={<PlusOutlined />}
-                onClick={() => openCreateProviderModal(consoleSelection.brand, consoleSelection.console)}
-              >
-                New provider
-              </Button>
+              <div>
+                <Typography.Title level={4} style={{ marginBottom: 0 }}>
+                  {consoleSelection.brand} · {consoleSelection.console}
+                </Typography.Title>
+                {romCatalogSummary}
+              </div>
+              <Space wrap>
+                {romCatalogAction}
+                <Button
+                  type="primary"
+                  icon={<PlusOutlined />}
+                  onClick={() => openCreateProviderModal(consoleSelection.brand, consoleSelection.console)}
+                >
+                  New provider
+                </Button>
+              </Space>
             </Flex>
           }
           dataSource={entries}
@@ -1784,7 +2095,7 @@ function App() {
           >
             <List.Item.Meta
               title={meta.console || meta.module || meta.slug}
-              description={`${meta.entry_count ?? 0} master ROMs`}
+              description={formatRomCatalogSummary(meta)}
             />
             <Typography.Text type="secondary">{meta.guid || meta.slug}</Typography.Text>
           </List.Item>
@@ -1793,19 +2104,183 @@ function App() {
     )
   }
 
+  const renderRomEntryDetail = () => {
+    if (!selectedRomEntry) {
+      return null
+    }
+    const title = selectedRomEntry.game_title || selectedRomEntry.name || selectedRomEntry.rom_name || 'Untitled ROM'
+    const artwork = selectedRomEntry.artwork || {}
+    const artworkItems = [
+      { key: 'boxart', label: 'Box art', item: artwork.boxart },
+      { key: 'snap', label: 'Gameplay', item: artwork.snap },
+      { key: 'title', label: 'Title', item: artwork.title },
+    ].filter(({ item }) => item?.url)
+    const providerCount = typeof selectedRomEntry._provider_count === 'number' ? selectedRomEntry._provider_count : undefined
+    const providerLabels = Array.isArray(selectedRomEntry._provider_labels)
+      ? selectedRomEntry._provider_labels.filter((value) => typeof value === 'string').join(', ')
+      : undefined
+    const availability = romSourceLabel(selectedRomEntry)
+    const format = romFormatLabel(selectedRomEntry)
+    const variant = romVariantLabel(selectedRomEntry)
+    const details = [
+      { label: 'Catalog name', value: selectedRomEntry.name || '—' },
+      { label: 'ROM file', value: selectedRomEntry.rom_name || '—' },
+      { label: 'Serial', value: textValue(selectedRomEntry.serial) || '—' },
+      { label: 'Region', value: romRegionLabel(selectedRomEntry) },
+      { label: 'Format', value: format || '—' },
+      { label: 'Size', value: formatBytes(selectedRomEntry.size) },
+    ]
+    const checksums = [
+      { label: 'CRC', value: textValue(selectedRomEntry.crc) || textValue(selectedRomEntry.crc32) },
+      { label: 'MD5', value: textValue(selectedRomEntry.md5) },
+      { label: 'SHA1', value: textValue(selectedRomEntry.sha1) },
+    ].filter((item): item is { label: string; value: string } => Boolean(item.value))
+    const selectedArtwork = artworkItems.find((item) => item.key === selectedArtworkKey) || artworkItems[0]
+
+    return (
+      <Modal
+        title={null}
+        open={Boolean(selectedRomEntry)}
+        onCancel={() => setSelectedRomEntry(null)}
+        footer={null}
+        width={980}
+        className="rom-entry-modal"
+      >
+        <header className="rom-entry-header">
+          <div>
+            <Typography.Text className="rom-entry-kicker">ROM detail</Typography.Text>
+            <Typography.Title level={3} className="rom-entry-title">
+              {title}
+            </Typography.Title>
+          </div>
+          <Space size={[6, 6]} wrap className="rom-entry-tags">
+            <Tag>{romRegionLabel(selectedRomEntry)}</Tag>
+            {format && <Tag>{format}</Tag>}
+            {variant && <Tag color="geekblue">{variant}</Tag>}
+            <Tag color={textValue(selectedRomEntry.http_url) ? 'green' : textValue(selectedRomEntry.torrent_url) ? 'blue' : 'default'}>
+              {availability}
+            </Tag>
+          </Space>
+        </header>
+        <div className="rom-entry-detail">
+          <div className="rom-entry-artwork-panel">
+            {selectedArtwork?.item?.url ? (
+              <>
+                <div className="rom-entry-artwork">
+                  <img src={selectedArtwork.item.url} alt={`${title} ${selectedArtwork.label}`} />
+                </div>
+                {artworkItems.length > 1 && (
+                  <div className="rom-entry-artwork-strip" aria-label="Artwork views">
+                    {artworkItems.map(({ key, label, item }) => (
+                      <button
+                        key={key}
+                        type="button"
+                        className={`rom-entry-artwork-thumb${selectedArtwork.key === key ? ' is-active' : ''}`}
+                        onClick={() => setSelectedArtworkKey(key)}
+                      >
+                        <img src={item?.url} alt="" loading="lazy" />
+                        <span>{label}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="rom-entry-artwork rom-entry-artwork-empty" />
+            )}
+          </div>
+          <div className="rom-entry-data-panel">
+            <section className="rom-entry-section" aria-labelledby="rom-identity-heading">
+              <Typography.Title id="rom-identity-heading" level={5} className="rom-entry-section-title">
+                Identity
+              </Typography.Title>
+              <dl className="rom-entry-data-list">
+                {details.map((item) => (
+                  <div key={item.label} className="rom-entry-data-row">
+                    <dt>{item.label}</dt>
+                    <dd>{item.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+            <section className="rom-entry-section" aria-labelledby="rom-source-heading">
+              <Typography.Title id="rom-source-heading" level={5} className="rom-entry-section-title">
+                Source
+              </Typography.Title>
+              <dl className="rom-entry-data-list">
+                <div className="rom-entry-data-row">
+                  <dt>Availability</dt>
+                  <dd>{availability}</dd>
+                </div>
+                <div className="rom-entry-data-row">
+                  <dt>Providers</dt>
+                  <dd>{providerCount ?? '—'}{providerLabels ? ` (${providerLabels})` : ''}</dd>
+                </div>
+              </dl>
+            </section>
+            <section className="rom-entry-section" aria-labelledby="rom-checksum-heading">
+              <Typography.Title id="rom-checksum-heading" level={5} className="rom-entry-section-title">
+                Checksums
+              </Typography.Title>
+              {checksums.length ? (
+                <dl className="rom-entry-data-list rom-entry-checksums">
+                  {checksums.map((item) => (
+                    <div key={item.label} className="rom-entry-data-row">
+                      <dt>{item.label}</dt>
+                      <dd>
+                        <Typography.Text copyable code>
+                          {item.value}
+                        </Typography.Text>
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              ) : (
+                <Typography.Text type="secondary">No checksum data available.</Typography.Text>
+              )}
+            </section>
+          </div>
+        </div>
+      </Modal>
+    )
+  }
+
   const renderRomConsoleDetail = (romSelection: RomConsoleSelection) => {
     const meta = romSelection.meta
-    const cacheKey = meta.slug || meta.guid || meta.module || 'roms'
-    const entries = romEntriesCache[cacheKey]
-    const loading = romEntriesLoading && !entries
-    const tableData =
+    const baseCacheKey = meta.slug || meta.guid || meta.module || 'roms'
+    const offset = Math.max(romPage - 1, 0) * romPageSize
+    const cacheKey = `${baseCacheKey}:${offset}:${romPageSize}:${romFiltersKey(romFilters)}`
+    const pageData = romEntriesCache[cacheKey]
+    const entries = pageData?.entries
+    const totalEntries = pageData?.total ?? meta.entry_count ?? 0
+    const catalogEntries = pageData?.catalog_total ?? meta.catalog_total ?? meta.entry_count ?? 0
+    const rdbEntries = meta.rdb_entry_count ?? meta.entry_count ?? 0
+    const providerOnlyEntries = meta.provider_only_count ?? 0
+    const loading = romEntriesLoading && !pageData
+    const tableData: Array<RomEntry & { key: string }> =
       entries?.map((entry, index) => ({
-        key: entry.md5 || entry.sha1 || entry.rom_name || `${index}`,
+        key: String(entry._key || entry.md5 || entry.sha1 || entry.rom_name || entry.name || `${index}`),
         ...entry,
       })) ?? []
     const romColumns = [
-      { title: 'Name', dataIndex: 'name', key: 'name' },
-      { title: 'Region', dataIndex: 'region', key: 'region', width: 120 },
+      {
+        title: 'Game',
+        key: 'game',
+        render: (_: unknown, entry: RomEntry) => (
+          <Space direction="vertical" size={0}>
+            <Typography.Text strong>{entry.game_title || entry.name || entry.rom_name || 'Untitled ROM'}</Typography.Text>
+            {Boolean(entry.provider_only) ? <Tag color="purple">Provider-only</Tag> : null}
+          </Space>
+        ),
+      },
+      { title: 'Region', dataIndex: 'region', key: 'region', width: 120, render: (_: string, entry: RomEntry) => romRegionLabel(entry) },
+      {
+        title: 'Variant',
+        key: 'variant',
+        width: 160,
+        render: (_: unknown, entry: RomEntry) => romVariantLabel(entry) || '—',
+      },
+      { title: 'Serial', dataIndex: 'serial', key: 'serial', width: 130 },
       {
         title: 'Size',
         dataIndex: 'size',
@@ -1813,53 +2288,152 @@ function App() {
         width: 120,
         render: (value: number) => formatBytes(value),
       },
+      {
+        title: 'Source',
+        key: 'source',
+        width: 140,
+        render: (_: unknown, entry: RomEntry) => (
+          <Tag color={textValue(entry.http_url) ? 'green' : textValue(entry.torrent_url) ? 'blue' : 'default'}>
+            {romSourceLabel(entry)}
+          </Tag>
+        ),
+      },
       { title: 'CRC', dataIndex: 'crc', key: 'crc' },
       { title: 'MD5', dataIndex: 'md5', key: 'md5' },
     ]
 
     return (
-      <Flex vertical gap="large">
-        <ConsoleInfoCard brand={meta.brand} console={meta.console} guid={meta.guid} module={meta.module} />
-        <div>
-          <Typography.Title level={4} style={{ marginBottom: 0 }}>
-            {meta.console || meta.module || meta.slug}
-          </Typography.Title>
-          <Typography.Text type="secondary">
-            {meta.brand || 'Unknown brand'} · {meta.guid || 'No GUID'}
-          </Typography.Text>
+      <Flex vertical gap="middle" className="rom-browser">
+        <div className="rom-browser-header">
+          <div>
+            <ConsoleLogoTitle
+              brand={meta.brand}
+              console={meta.console}
+              guid={meta.guid}
+              module={meta.module}
+              fallback={meta.console || meta.module || meta.slug}
+            />
+            <Typography.Text type="secondary">
+              {meta.brand || 'Unknown brand'} · {meta.dataset_role === 'master_rom_list' ? 'Master ROM list' : meta.dataset_role || 'ROM catalog'}
+            </Typography.Text>
+          </div>
+          <Space size={[8, 8]} wrap className="rom-browser-stats">
+            <Tag color="blue">{catalogEntries} total</Tag>
+            {providerOnlyEntries > 0 && <Tag color="purple">{providerOnlyEntries} provider-only</Tag>}
+            {providerOnlyEntries > 0 && <Tag>{rdbEntries} RDB</Tag>}
+            <Tag color={totalEntries === catalogEntries ? 'default' : 'gold'}>{totalEntries} shown</Tag>
+            <Tag>{meta.source_label || meta.source_kind || 'Libretro RDB'}</Tag>
+          </Space>
         </div>
 
-        <Descriptions bordered size="small" column={2} labelStyle={{ width: 180 }}>
-          <Descriptions.Item label="Dataset role">
-            {meta.dataset_role === 'master_rom_list' ? 'Master ROM list' : meta.dataset_role || '—'}
-          </Descriptions.Item>
-          <Descriptions.Item label="Source">
-            {meta.source_label || meta.source_kind || '—'}
-          </Descriptions.Item>
-          <Descriptions.Item label="Entries">{meta.entry_count ?? entries?.length ?? '—'}</Descriptions.Item>
-          <Descriptions.Item label="Fetched">{formatTimestamp(meta.fetched_at)}</Descriptions.Item>
-          <Descriptions.Item label="Source URL" span={2}>
-            {meta.source_url ? (
-              <a href={meta.source_url} target="_blank" rel="noreferrer">
-                {meta.source_url}
-              </a>
-            ) : (
-              '—'
-            )}
-          </Descriptions.Item>
-        </Descriptions>
-
-        <Flex justify="space-between" align="center" wrap className="rom-toolbar">
-          <Typography.Text strong>Master ROM List</Typography.Text>
-          <Segmented
-            value={romViewMode}
-            onChange={(value) => setRomViewMode(value as 'list' | 'cards')}
+        <div className="rom-browser-controls">
+          <SearchField
+            placeholder="Search ROMs"
+            value={romSearch}
+            ariaLabel="Search ROM catalog by title, serial, publisher, or checksum"
+            onChange={setRomSearch}
+            onSubmit={setRomSearch}
+            className="rom-search"
+          />
+          <SelectField
+            value={romAvailability}
+            onChange={setRomAvailability}
+            className="rom-filter"
+            ariaLabel="Filter ROMs by source"
             options={[
-              { label: 'List', value: 'list' },
-              { label: 'Cards', value: 'cards' },
+              { label: 'All sources', value: 'all' },
+              { label: 'Downloadable', value: 'downloadable' },
+              { label: 'Torrent', value: 'torrent' },
+              { label: 'Catalog only', value: 'catalog' },
             ]}
           />
-        </Flex>
+          <SelectField
+            value={romRegion}
+            onChange={setRomRegion}
+            className="rom-filter"
+            ariaLabel="Filter ROMs by region"
+            options={[
+              { label: 'All regions', value: 'all' },
+              { label: 'USA', value: 'USA' },
+              { label: 'Europe', value: 'Europe' },
+              { label: 'Japan', value: 'Japan' },
+              { label: 'World', value: 'World' },
+              { label: 'Unknown', value: 'Unknown' },
+            ]}
+          />
+          <SelectField
+            value={romFormat}
+            onChange={setRomFormat}
+            className="rom-filter"
+            ariaLabel="Filter ROMs by format"
+            options={[
+              { label: 'All formats', value: 'all' },
+              { label: 'ZIP', value: 'zip' },
+              { label: '7Z', value: '7z' },
+              { label: 'CHD', value: 'chd' },
+              { label: 'ISO', value: 'iso' },
+              { label: 'BIN', value: 'bin' },
+              { label: 'NES', value: 'nes' },
+              { label: 'FDS', value: 'fds' },
+              { label: 'GB', value: 'gb' },
+              { label: 'GBC', value: 'gbc' },
+              { label: 'GBA', value: 'gba' },
+              { label: 'NDS', value: 'nds' },
+            ]}
+          />
+          <SelectField
+            value={romSort}
+            onChange={setRomSort}
+            className="rom-filter"
+            ariaLabel="Sort ROMs"
+            options={[
+              { label: 'Name', value: 'name' },
+              { label: 'Availability', value: 'availability' },
+              { label: 'Region', value: 'region' },
+              { label: 'Size', value: 'size' },
+            ]}
+          />
+          <ViewToggle
+            value={romViewMode}
+            onChange={(value) => {
+              const mode = value as 'list' | 'cards'
+              setRomViewMode(mode)
+              updateRomViewModeUrl(mode)
+            }}
+          />
+        </div>
+
+        <details className="rom-console-info">
+          <summary>Console and dataset details</summary>
+          <Flex vertical gap="middle" className="rom-console-info-body">
+            <ConsoleInfoCard brand={meta.brand} console={meta.console} guid={meta.guid} module={meta.module} />
+            <Descriptions bordered size="small" column={2} labelStyle={{ width: 180 }}>
+              <Descriptions.Item label="Dataset role">
+                {meta.dataset_role === 'master_rom_list' ? 'Master ROM list' : meta.dataset_role || '—'}
+              </Descriptions.Item>
+              <Descriptions.Item label="Source">
+                {meta.source_label || meta.source_kind || '—'}
+              </Descriptions.Item>
+              <Descriptions.Item label="Entries">{catalogEntries || '—'}</Descriptions.Item>
+              {providerOnlyEntries > 0 && (
+                <Descriptions.Item label="RDB entries">{rdbEntries || '—'}</Descriptions.Item>
+              )}
+              {providerOnlyEntries > 0 && (
+                <Descriptions.Item label="Provider-only">{providerOnlyEntries}</Descriptions.Item>
+              )}
+              <Descriptions.Item label="Fetched">{formatTimestamp(meta.fetched_at)}</Descriptions.Item>
+              <Descriptions.Item label="Source URL" span={2}>
+                {meta.source_url ? (
+                  <a href={meta.source_url} target="_blank" rel="noreferrer">
+                    {meta.source_url}
+                  </a>
+                ) : (
+                  '—'
+                )}
+              </Descriptions.Item>
+            </Descriptions>
+          </Flex>
+        </details>
 
         {romError && (
           <Alert type="error" showIcon message="ROM error" description={romError} className="app-alert" />
@@ -1869,34 +2443,88 @@ function App() {
           <Spin />
         ) : entries && entries.length ? (
           romViewMode === 'list' ? (
-            <Table columns={romColumns} dataSource={tableData} pagination={{ pageSize: 15 }} size="middle" />
+            <Table
+              columns={romColumns}
+              dataSource={tableData}
+              onRow={(record) => ({
+                onClick: () => setSelectedRomEntry(record as RomEntry),
+              })}
+              rowClassName="rom-table-row"
+              pagination={{
+                current: romPage,
+                pageSize: romPageSize,
+                total: totalEntries,
+                showSizeChanger: true,
+                pageSizeOptions: [30, 60, 120],
+                onChange: (page, pageSize) => {
+                  setRomPage(page)
+                  setRomPageSize(pageSize)
+                },
+              }}
+              size="middle"
+            />
           ) : (
-            <List
-              grid={{ gutter: 16, xs: 1, sm: 2, md: 3, lg: 3, xl: 4 }}
-              dataSource={entries}
-              renderItem={(entry) => (
-                <List.Item key={entry.md5 || entry.sha1 || entry.rom_name}>
-                  <Card className="rom-card" hoverable cover={<div className="rom-card-art" />}>
+            <div className="rom-card-view">
+              <div className="rom-card-grid">
+                {entries.map((entry, index) => (
+                  <button
+                    type="button"
+                    key={entry.md5 || entry.sha1 || entry.rom_name || `${entry.name}-${index}`}
+                    className="rom-card"
+                    aria-label={`Open details for ${entry.game_title || entry.name || entry.rom_name || 'Untitled ROM'}`}
+                    onClick={() => setSelectedRomEntry(entry)}
+                  >
+                    {entry.thumbnail_url ? (
+                      <div className="rom-card-art">
+                        <img
+                          src={entry.thumbnail_url}
+                          alt={entry.name || entry.rom_name || 'ROM artwork'}
+                          loading="lazy"
+                        />
+                      </div>
+                    ) : (
+                      <div className="rom-card-art rom-card-art-placeholder" />
+                    )}
                     <div className="rom-card-body">
                       <Typography.Title level={5} className="rom-card-title">
-                        {entry.name || entry.rom_name || 'Untitled ROM'}
+                        {entry.game_title || entry.name || entry.rom_name || 'Untitled ROM'}
                       </Typography.Title>
-                      <Typography.Text type="secondary">{entry.region || 'Unknown region'}</Typography.Text>
-                      <Typography.Text>Size: {formatBytes(entry.size)}</Typography.Text>
-                      <Typography.Text className="rom-card-hash" copyable>
-                        CRC: {entry.crc || '—'}
-                      </Typography.Text>
-                      <Typography.Text className="rom-card-hash" copyable>
-                        MD5: {entry.md5 || '—'}
-                      </Typography.Text>
-                      <Typography.Text className="rom-card-hash" copyable>
-                        SHA1: {entry.sha1 || '—'}
-                      </Typography.Text>
+                      <div className="rom-card-tags" aria-label="ROM metadata">
+                        <span className="rom-chip">{romRegionLabel(entry)}</span>
+                        {Boolean(entry.provider_only) && <span className="rom-chip rom-chip-provider">Provider-only</span>}
+                        {romVariantLabel(entry) && <span className="rom-chip rom-chip-accent">{romVariantLabel(entry)}</span>}
+                      </div>
+                      <div className="rom-card-footer">
+                        <span className="rom-card-size">{formatBytes(entry.size)}</span>
+                        <span
+                          className={`rom-status ${
+                            textValue(entry.http_url)
+                              ? 'is-downloadable'
+                              : textValue(entry.torrent_url)
+                                ? 'is-torrent'
+                                : 'is-catalog'
+                          }`}
+                        >
+                          {romSourceLabel(entry)}
+                        </span>
+                      </div>
                     </div>
-                  </Card>
-                </List.Item>
-              )}
-            />
+                  </button>
+                ))}
+              </div>
+              <Pagination
+                className="rom-card-pagination"
+                current={romPage}
+                pageSize={romPageSize}
+                total={totalEntries}
+                showSizeChanger
+                pageSizeOptions={[30, 60, 120]}
+                onChange={(page, pageSize) => {
+                  setRomPage(page)
+                  setRomPageSize(pageSize)
+                }}
+              />
+            </div>
           )
         ) : (
           <Empty description="No ROM entries found in this dataset" />
@@ -2019,21 +2647,13 @@ function App() {
 
   if (!apiKey || (!currentUser && !authLoading)) {
     return (
-      <ConfigProvider
-        theme={{
-          algorithm: theme.darkAlgorithm,
-          token: {
-            colorPrimary: '#f4b860',
-            colorBgBase: '#020817',
-            fontFamily: '"Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-          },
-        }}
-      >
+      <ConfigProvider theme={antTheme}>
         {contextHolder}
         <Layout className="app-shell login-shell">
           <Card className="summary-card login-card">
             <Space direction="vertical" size="large" style={{ width: '100%' }}>
-              <div>
+              <div className="login-brand">
+                <img src={logoUrl} alt="ROMs Manager logo" className="login-logo" />
                 <Typography.Title level={3} style={{ marginBottom: 0 }}>
                   Admin login
                 </Typography.Title>
@@ -2070,7 +2690,7 @@ function App() {
 
   if (!currentUser) {
     return (
-      <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
+      <ConfigProvider theme={antTheme}>
         <Layout className="app-shell login-shell">
           <Spin />
         </Layout>
@@ -2079,16 +2699,7 @@ function App() {
   }
 
   return (
-    <ConfigProvider
-      theme={{
-        algorithm: theme.darkAlgorithm,
-        token: {
-          colorPrimary: '#f4b860',
-          colorBgBase: '#020817',
-          fontFamily: '"Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-        },
-      }}
-    >
+    <ConfigProvider theme={antTheme}>
       {contextHolder}
       <Layout className="app-shell">
         <NavigationSider
@@ -2111,7 +2722,11 @@ function App() {
           <TopHeader
             collapsed={navCollapsed}
             user={currentUser}
+            title={pageTitle}
+            subtitle={pageSubtitle}
+            busy={busy}
             onLogout={handleLogout}
+            onRefresh={handleRefreshAll}
             onToggle={() => setNavCollapsed((prev) => !prev)}
           />
 
@@ -2121,32 +2736,17 @@ function App() {
             ) : (
               <>
                 {showHomeSummary && (
-                  <>
-                    <Flex justify="space-between" align="center" className="home-toolbar">
-                      <Typography.Text type="secondary" className="app-tagline">
-                        {headerTagline}
-                      </Typography.Text>
-                      <Button
-                        type="primary"
-                        icon={<ReloadOutlined />}
-                        onClick={handleRefreshAll}
-                        loading={busy}
-                      >
-                        Refresh
-                      </Button>
-                    </Flex>
-                    <Typography.Paragraph className="intro">
-                      Pick an item on the left tree to inspect its metadata. Start with <strong>Providers</strong> to
-                      view archive URLs, torrent links, and configured ROM extensions.
-                    </Typography.Paragraph>
-                    <SummaryCards
-                      datasets={DATASETS}
-                      meta={meta}
-                      loading={loading}
-                      error={error}
-                      onDownload={handleDownloadDataset}
-                    />
-                  </>
+                  <DashboardPage
+                    dashboard={dashboard}
+                    loading={dashboardLoading}
+                    error={dashboardError}
+                    logoUrl={logoUrl}
+                    onRefresh={fetchDashboard}
+                    onOpenConsole={openDashboardConsole}
+                    onOpenUsers={openDashboardUsers}
+                    onOpenProviders={openDashboardProviders}
+                    onOpenModules={openDashboardModules}
+                  />
                 )}
 
                 {showProvidersOverview && renderProvidersOverview()}
@@ -2185,11 +2785,9 @@ function App() {
             )}
           </Layout.Content>
 
-          <Layout.Footer className="app-footer">
-            ROMs Manager backend · Ant Design prototype
-          </Layout.Footer>
         </Layout>
       </Layout>
+      {renderRomEntryDetail()}
       <Modal
         title={`Edit ${selectedProvider?.collectionLabel ?? 'provider'}`}
         open={isEditModalVisible}

@@ -3,6 +3,7 @@ import json
 import os
 import queue
 import shutil
+import tempfile
 import threading
 import time
 import urllib.request
@@ -12,6 +13,7 @@ from urllib.parse import urlparse, urlunparse, quote, unquote
 
 import libtorrent as lt
 
+from utils.internet_archive_auth import headers_for_url
 from utils.paths import DATA_DIR, console_cache_dir, torrent_file_path
 
 # ---------------- Paths ---------------- #
@@ -29,13 +31,34 @@ os.makedirs(DOWNLOADS_DIR, exist_ok=True)
 
 
 ARCHIVE_DOWNLOAD_EXTENSIONS = {".zip", ".7z", ".rar"}
+NON_ROM_TORRENT_EXTENSIONS = {
+    ".cfg",
+    ".cue_sheet.txt",
+    ".doc",
+    ".gif",
+    ".htm",
+    ".html",
+    ".jpeg",
+    ".jpg",
+    ".json",
+    ".log",
+    ".md",
+    ".nfo",
+    ".pdf",
+    ".png",
+    ".sqlite",
+    ".txt",
+    ".xml",
+}
 
 
 def _torrent_file_name_matches(requested: str, candidate: str) -> bool:
     if candidate == requested:
         return True
     requested_base, requested_ext = os.path.splitext(requested)
-    candidate_base, _ = os.path.splitext(candidate)
+    candidate_base, candidate_ext = os.path.splitext(candidate)
+    if candidate_ext in NON_ROM_TORRENT_EXTENSIONS:
+        return False
     if requested_ext in ARCHIVE_DOWNLOAD_EXTENSIONS:
         return False
     return bool(requested_base and requested_base in candidate_base)
@@ -345,13 +368,42 @@ class DownloadManager:
         return self.jobs
 
     def _write_jobs_to_disk(self):
-        temp_path = f"{JOBS_FILE}.tmp"
-        with open(temp_path, "w") as f:
-            json.dump(self.jobs, f, indent=2)
-            f.write("\n")
-            f.flush()
-            os.fsync(f.fileno())
-        os.replace(temp_path, JOBS_FILE)
+        lock_path = f"{JOBS_FILE}.lock"
+        os.makedirs(os.path.dirname(JOBS_FILE), exist_ok=True)
+        with open(lock_path, "a+") as lock:
+            try:
+                import fcntl
+
+                fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+            except Exception:
+                pass
+            temp_path = None
+            try:
+                with tempfile.NamedTemporaryFile(
+                    "w",
+                    dir=os.path.dirname(JOBS_FILE),
+                    prefix="jobs.",
+                    suffix=".tmp",
+                    delete=False,
+                ) as f:
+                    temp_path = f.name
+                    json.dump(self.jobs, f, indent=2)
+                    f.write("\n")
+                    f.flush()
+                    os.fsync(f.fileno())
+                os.replace(temp_path, JOBS_FILE)
+            finally:
+                if temp_path and os.path.exists(temp_path):
+                    try:
+                        os.unlink(temp_path)
+                    except OSError:
+                        pass
+                try:
+                    import fcntl
+
+                    fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
+                except Exception:
+                    pass
 
     def save_jobs(self):
         with self._lock:
@@ -807,7 +859,8 @@ class DownloadManager:
         filepath = os.path.join(destination_dir, filename)
 
         try:
-            with urllib.request.urlopen(url) as response:
+            request = urllib.request.Request(url, headers=headers_for_url(url))
+            with urllib.request.urlopen(request) as response:
                 total = int(response.headers.get("Content-Length") or 0)
                 chunk_size = 64 * 1024
                 downloaded = 0

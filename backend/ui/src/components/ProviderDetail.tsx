@@ -8,7 +8,7 @@ import {
   ExportOutlined,
 } from '@ant-design/icons'
 
-import type { ProviderEntry } from '../types'
+import type { ModuleEntry, ProviderEntry, ProviderStatus } from '../types'
 
 type Props = {
   provider: {
@@ -18,8 +18,8 @@ type Props = {
     archiveId: string
     data: ProviderEntry
   }
-  providerStatus: Record<string, any> | null
-  moduleByGuid: Record<string, any>
+  providerStatus: ProviderStatus | null
+  moduleByGuid: Record<string, ModuleEntry>
   onFetchAssets: () => void
   onExportRoms: () => void
   onEdit: () => void
@@ -123,6 +123,7 @@ export const ProviderDetail: React.FC<Props> = ({
     <div>
       <Typography.Title level={5}>Cached assets</Typography.Title>
       <Table
+        className="data-table"
         size="small"
         pagination={false}
         dataSource={[
@@ -147,6 +148,7 @@ export const ProviderDetail: React.FC<Props> = ({
       <Typography.Title level={5}>Available files</Typography.Title>
       {provider.data.files ? (
         <Table
+          className="data-table"
           size="small"
           pagination={false}
           dataSource={Object.entries(provider.data.files).map(([key, value]) => ({
