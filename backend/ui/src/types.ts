@@ -25,6 +25,7 @@ export type ModuleEntry = {
 }
 
 export type RomEntry = {
+  mister?: { supported: boolean; entry_key: string; reason: string | null; source_kind?: string }
   name?: string
   description?: string
   region?: string
@@ -365,6 +366,7 @@ export type ProvidersHomeSelection = {
 }
 
 export type Selection =
+  | { kind: 'mister' }
   | ProviderSelection
   | BrandSelection
   | ConsoleSelection

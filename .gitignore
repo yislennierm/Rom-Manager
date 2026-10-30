@@ -226,6 +226,9 @@ data/cache/
 backend/data/cache/
 data/client/
 backend/data/users/
+backend/data/mister/
+mister/config.json
+backend/data/roms/mister_snes_demo.json
 
 # Generated frontend/runtime files
 *.lpl
@@ -235,3 +238,18 @@ backend/data/users/
 data/cache/
 data/index/
 data/providers/
+
+backend/data/roms/mister_nes_demo.json
+
+backend/data/prepared_downloads/
+
+backend/data/roms/mister_nes_zip_demo.json
+
+backend/data/roms/mister_snes_zip_demo.json
+
+# MiSTer local catalog/download snapshots
+mister/cache/
+
+# Host-only MiSTer UI preview tools and catalog snapshots
+mister/.preview-tools/
+mister/.preview-cache*/

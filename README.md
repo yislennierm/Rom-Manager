@@ -111,6 +111,14 @@ The build output lands in `backend/ui/dist`, and FastAPI mounts it at `/admin` (
 
 ## Running the TUI
 
+For the MiSTer FPGA client with cached catalogs, offline browsing, direct provider
+downloads, and SNES/NES/Mega Drive installation, including setup and validation,
+see [MiSTer MVP](docs/mister-mvp.md).
+
+Preview MiSTer UI changes locally before deploying: `backend/.venv/bin/python -m mister.preview`,
+then open `http://127.0.0.1:8766`. See the [preview setup](docs/mister-mvp.md#preview-locally-before-deployment)
+for host-only tools and copying or syncing a catalog snapshot.
+
 Start with `python3 -m tui`. The main screens:
 
 ### Menu

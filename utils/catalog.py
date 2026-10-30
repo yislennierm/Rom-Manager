@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import json
 import os
 import re
@@ -6,8 +8,6 @@ from typing import Dict, List, Optional, Set, Tuple
 import zipfile
 
 from utils.internet_archive_auth import ia_cookie_header
-from utils.library_sync import load_modules, rdb_json_path
-from utils.paths import console_dirs, console_cache_dir, path_prefix, PROVIDER_FILE, slugify
 
 
 DOWNLOAD_ARCHIVE_EXTENSIONS = {".zip", ".7z", ".rar"}
@@ -89,6 +89,7 @@ KNOWN_ROM_NAME_EXTENSIONS = DIRECT_ROM_EXTENSIONS | DOWNLOAD_ARCHIVE_EXTENSIONS 
 
 
 def resolve_module(manufacturer: str, console: str, guid: Optional[str] = None) -> Optional[Dict]:
+    from utils.library_sync import load_modules
     modules = load_modules()
     if guid:
         for module in modules:
@@ -108,6 +109,8 @@ def build_rom_catalog(
     rdb_path: str | Path | None = None,
     expand_local_archives: bool = False,
 ) -> Dict:
+    from utils.library_sync import rdb_json_path
+
     module = resolve_module(manufacturer, console, module_guid)
     module_name = module.get("name") if module else None
     if not module_name and not rdb_path:
@@ -136,6 +139,13 @@ def build_rom_catalog(
         "rdb_path": str(rdb_file),
         "module": module,
     }
+
+
+def match_catalog_entries(entries, catalogs, manufacturer, console, *, offset=0, lookup=None):
+    """Port the TUI's RDB/provider matching to small clients with synced metadata."""
+    lookup = lookup if lookup is not None else _build_provider_lookup(catalogs)
+    return [_build_rom_entry(offset + index, entry, manufacturer, console, lookup)
+            for index, entry in enumerate(entries)]
 
 
 def select_preferred_provider(providers: List[Dict]) -> Optional[Dict]:
@@ -245,6 +255,7 @@ def _is_rdb_rom_entry(entry: Dict) -> bool:
 
 
 def _load_providers_data() -> Dict:
+    from utils.paths import PROVIDER_FILE
     try:
         with open(PROVIDER_FILE, "r", encoding="utf-8") as fh:
             return json.load(fh)
@@ -284,7 +295,7 @@ def _resolve_provider_console(
 
 def _provider_slug_from_entry(entry: Dict) -> str:
     raw = entry.get("archive_id") or entry.get("provider") or entry.get("name") or "default"
-    return slugify(raw)
+    return _slug_identifier(raw)
 
 
 def _load_provider_catalogs(
@@ -292,6 +303,8 @@ def _load_provider_catalogs(
     console: str,
     module_guid: Optional[str] = None,
 ) -> List[Dict]:
+    from utils.paths import console_cache_dir, path_prefix
+
     providers = _load_providers_data()
     provider_manufacturer, provider_console, provider_entry = _resolve_provider_console(
         manufacturer,
@@ -638,10 +651,29 @@ def _first_version(values: List[str]) -> Optional[str]:
     return None
 
 
+def _release_qualifiers(name):
+    """Keep prototype/release/collection variants distinct in every client."""
+    qualifiers = set()
+    for parenthetical, bracketed in re.findall(r'\(([^)]*)\)|\[([^]\n]*)\]', str(name).lower()):
+        group = (parenthetical or bracketed).strip()
+        if group == '!' or _first_region([group]):
+            continue
+        tokens = [token for token in re.split(r'[,/ ]+', group) if token]
+        if tokens and all(token in {'en','ja','jp','fr','de','es','it','nl','pt','sv','no','da','fi','ko','zh','ru','pl','cs','ar','he','tr','el','jue','ju','ue'} for token in tokens):
+            continue
+        # Revision/version matching keeps its existing dedicated rules.
+        if re.match(r'^(rev(?:ision)?\b|v(?:ersion)?\s*\d)', group):
+            continue
+        qualifiers.add(re.sub(r'[^a-z0-9]', '', group))
+    return qualifiers
+
+
 def _provider_name_compatible(entry: Dict, provider_name: Optional[str]) -> bool:
     if not provider_name:
         return True
     rdb_name = entry.get("name") or entry.get("description") or entry.get("rom_name") or ""
+    if _release_qualifiers(rdb_name) != _release_qualifiers(provider_name):
+        return False
     if not _shared_prefix_suffix_compatible(rdb_name, provider_name):
         return False
     if not _distinctive_title_tokens_compatible(rdb_name, provider_name):
@@ -658,6 +690,12 @@ def _provider_name_compatible(entry: Dict, provider_name: Optional[str]) -> bool
     if rdb_version and provider_version and rdb_version != provider_version:
         return False
     return True
+
+
+def select_archive_rom_name(title: str, names: List[str]) -> Optional[str]:
+    """Use the same portable archive matching rules on desktop and MiSTer."""
+    from core.archive_names import select_archive_rom_name as select_name
+    return select_name(title, names)
 
 
 def _shared_prefix_suffix_compatible(rdb_name: str, provider_name: str) -> bool:
@@ -1016,8 +1054,7 @@ def _merge_entries(
 ) -> List[Dict]:
     merged: List[Dict] = []
     matched_provider_records: Set[Tuple[str, str]] = set()
-    for idx, entry in enumerate(entries):
-        rom = _build_rom_entry(idx, entry, manufacturer, console, provider_lookup)
+    for rom in match_catalog_entries(entries, [], manufacturer, console, lookup=provider_lookup):
         for provider in rom.get("_providers") or []:
             provider_rom = provider.get("rom") or {}
             matched_provider_records.add((str(provider.get("provider_id") or ""), str(provider_rom.get("name") or "")))

@@ -30,9 +30,16 @@ BACKEND_DATA_DIR = APP_DIR / "data"
 os.environ.setdefault("ROMS_MANAGER_DATA_ROOT", str(BACKEND_DATA_DIR))
 
 from core.services import provider_tasks
-from utils.catalog import build_rom_catalog
+from utils.catalog import build_rom_catalog, _load_provider_catalogs, match_catalog_entries, _is_rdb_rom_entry
 from utils.library_sync import export_module_rdb
 from utils.paths import CACHE_DIR, cache_status, console_slug, manufacturer_slug
+from core.mister import MisterStore, SNES_GUID, SYSTEM_GUIDS, compatibility as mister_compatibility
+from core.download_preparation import SourcePreparer
+from utils.internet_archive_auth import headers_for_url
+from core.client_downloads import DownloadError
+from backend.app.mister_api import make_router as make_mister_router
+from backend.app.client_downloads import DownloadTarget, make_client_download_router
+from core.mister import prepare_rom as prepare_mister_rom, entry_key as mister_entry_key
 
 UI_DIR = APP_DIR / "ui"
 UI_BUILD_DIR = UI_DIR / "dist"
@@ -288,6 +295,7 @@ def current_user(authorization: str | None = Header(default=None)) -> dict:
     if not users:
         return {
             "id": "anonymous",
+            "_auth_method": "anonymous",
             "name": "Anonymous",
             "enabled": True,
             "allowed_console_guids": ["*"],
@@ -302,7 +310,7 @@ def current_user(authorization: str | None = Header(default=None)) -> dict:
         if stored and compare_digest(stored, token_hash):
             if not user.get("enabled", True):
                 raise HTTPException(status_code=403, detail="User is disabled")
-            return user
+            return {**user, "_auth_method": "api_key"}
         sessions = user.get("sessions") or []
         active_sessions = []
         matched_session = False
@@ -324,7 +332,7 @@ def current_user(authorization: str | None = Header(default=None)) -> dict:
         if matched_session:
             if not user.get("enabled", True):
                 raise HTTPException(status_code=403, detail="User is disabled")
-            return user
+            return {**user, "_auth_method": "session"}
         preview_keys = user.get("preview_keys") or []
         active_preview_keys = []
         matched_preview = False
@@ -348,6 +356,7 @@ def current_user(authorization: str | None = Header(default=None)) -> dict:
                 raise HTTPException(status_code=403, detail="User is disabled")
             preview_user = dict(user)
             preview_user["admin"] = False
+            preview_user["_auth_method"] = "preview"
             return preview_user
     raise HTTPException(status_code=401, detail="Invalid API key")
 
@@ -2143,7 +2152,10 @@ def _dashboard_payload(user: dict) -> dict:
 
 
 def _load_rom_dataset(identifier: str) -> dict | None:
-    for rom_file in _iter_rom_files():
+    # Resolve exact slugs first; GUID lookup prefers the real master catalog.
+    files = sorted(_iter_rom_files(), key=lambda path: (path.stem != identifier,
+        path.stem.startswith('mister_') and path.stem.endswith('_demo')))
+    for rom_file in files:
         slug = rom_file.stem
         try:
             payload = json.loads(rom_file.read_text(encoding="utf-8"))
@@ -2162,6 +2174,26 @@ def _load_rom_dataset(identifier: str) -> dict | None:
             payload.setdefault("slug", slug)
             return payload
     return None
+
+
+def _load_client_rom_dataset(identifier):
+    """Attach the TUI's provider matches without modifying the master RDB file."""
+    dataset = _load_rom_dataset(identifier)
+    if not dataset:
+        return None
+    module = dataset.get('module')
+    name = module.get('name') if isinstance(module, dict) else module
+    brand, console = _split_module_label(name or dataset.get('module_name'))
+    if not brand or not console:
+        return dataset
+    catalogs = _load_provider_catalogs(brand, console, dataset.get('guid'))
+    if not catalogs:
+        return dataset
+    entries = [entry for entry in (dataset.get('entries') or dataset.get('roms') or []) if _is_rdb_rom_entry(entry)]
+    matches = match_catalog_entries(entries, catalogs, brand, console)
+    # Preserve original keys/hashes/fields; source matches are an enrichment.
+    result = [{**entry, '_providers': matched['_providers']} for entry, matched in zip(entries, matches)]
+    return {**dataset, 'entries': result}
 
 
 def _slugify_module(value: str) -> str:
@@ -2697,6 +2729,10 @@ async def list_users(_: dict = Depends(require_admin)) -> dict:
 
 @app.post("/access/users")
 async def create_user(request: UserCreateRequest, _: dict = Depends(require_admin)) -> dict:
+    return _create_user_record(request)
+
+
+def _create_user_record(request: UserCreateRequest) -> dict:
     payload = _load_users_payload()
     user_id = request.id.strip()
     if not user_id:
@@ -2729,6 +2765,10 @@ async def update_user(
     request: UserUpdateRequest,
     _: dict = Depends(require_admin),
 ) -> dict:
+    return _update_user_record(user_id, request)
+
+
+def _update_user_record(user_id: str, request: UserUpdateRequest) -> dict:
     payload = _load_users_payload()
     user = _find_user(payload, user_id)
     if not user:
@@ -2858,10 +2898,12 @@ async def fetch_rom_dataset(
     region: str | None = Query(None),
     format: str | None = Query(None),
     sort: str | None = Query("name"),
+    download_target: str | None = Query(None),
+    include_artwork: bool = Query(True),
     user: dict = Depends(current_user),
 ) -> dict:
     """Return the ROM dataset payload for a given slug or GUID."""
-    dataset = _load_rom_dataset(identifier)
+    dataset = _load_client_rom_dataset(identifier)
     if not dataset:
         raise HTTPException(status_code=404, detail=f"ROM dataset '{identifier}' not found")
     if not _guid_allowed(dataset.get("guid"), user):
@@ -2879,6 +2921,20 @@ async def fetch_rom_dataset(
             _filter_rom_entries(entries, q, availability, region, format),
             sort,
         )
+        if download_target:
+            target = CLIENT_DOWNLOAD_TARGETS.get(download_target)
+            if not target:
+                raise HTTPException(404, 'Download target not found')
+            if not user.get('admin') and (user.get('_auth_method') != 'api_key' or target.store.bound_account_id() != user.get('id')):
+                raise HTTPException(403, 'Download target is not assigned to this client')
+            supported = []
+            for entry in filtered_entries:
+                try:
+                    target.prepare_entry(entry, dataset.get('guid'))
+                    supported.append(entry)
+                except DownloadError:
+                    continue
+            filtered_entries = supported
         variant_counts: dict[str, int] = {}
         variant_indexes: dict[str, int] = {}
         for entry in filtered_entries:
@@ -2889,7 +2945,9 @@ async def fetch_rom_dataset(
         total = len(filtered_entries)
         paged_entries = filtered_entries[offset : offset + limit]
         dataset = dict(dataset)
-        dataset["entries"] = _enrich_rom_entries(paged_entries, module_name, variant_counts, variant_indexes)
+        selected = [{**entry, "mister": mister_compatibility(entry, dataset.get("guid"))} for entry in paged_entries]
+        dataset["entries"] = (_enrich_rom_entries(selected, module_name, variant_counts, variant_indexes)
+                              if include_artwork else selected)
         dataset["catalog_total"] = catalog_total
         dataset["total"] = total
         dataset["limit"] = limit
@@ -2901,6 +2959,7 @@ async def fetch_rom_dataset(
             "region": region,
             "format": format,
             "sort": sort,
+            "download_target": download_target,
         }
         dataset.pop("roms", None)
     return dataset
@@ -3159,3 +3218,59 @@ async def download_cache_archive(user: dict = Depends(current_user)) -> FileResp
     )
     response.background = BackgroundTask(_cleanup_temp_file, zip_path)
     return response
+
+
+def _mister_account(account_id: str | None) -> dict | None:
+    user = _find_user(_load_users_payload(), account_id) if account_id else None
+    return _public_user(user) if user else None
+
+
+def _provision_mister_account(name: str, account_id: str | None) -> dict:
+    if account_id:
+        user = _mister_account(account_id)
+        if not user or user['admin'] or not any(_guid_allowed(guid, user) for guid in SYSTEM_GUIDS.values()):
+            raise HTTPException(409, 'The MiSTer account must be a client assigned a supported console in Users & access')
+        return _update_user_record(account_id, UserUpdateRequest(name=name, enabled=True, reset_api_key=True))
+    return _create_user_record(UserCreateRequest(id='mister-fpga', name=name, allowed_console_guids=[SNES_GUID]))
+
+
+def _disable_mister_account(account_id: str) -> None:
+    _update_user_record(account_id, UserUpdateRequest(enabled=False))
+
+
+def _migrate_mister_account(legacy_device: dict) -> str:
+    """Move the installed key's hash into normal accounts without rotating it.
+
+    This callback is idempotent if the JSON save succeeds before the SQLite
+    schema migration is committed. An unrelated account is never replaced.
+    """
+    payload = _load_users_payload()
+    account_id = 'mister-fpga'
+    existing = _find_user(payload, account_id)
+    legacy_hash = legacy_device.get('token_hash') or ''
+    if existing:
+        if existing.get('admin') or existing.get('client_type') != 'mister' or existing.get('api_key_hash', '') != legacy_hash:
+            raise RuntimeError('Cannot migrate MiSTer: account mister-fpga already exists with different credentials')
+        return account_id
+    user = {'id': account_id, 'name': legacy_device.get('name') or 'MiSTer FPGA',
+            'enabled': bool(legacy_device.get('enabled')), 'admin': False,
+            'allowed_console_guids': [SNES_GUID], 'client_type': 'mister'}
+    if legacy_hash:
+        user['api_key_hash'] = legacy_hash
+    payload.setdefault('users', []).append(user)
+    _save_users_payload(payload)
+    return account_id
+
+
+mister_store = MisterStore(
+    os.environ.get("ROMS_MANAGER_MISTER_DB", str(BACKEND_DATA_DIR / "mister" / "state.sqlite3")),
+    migrate_account=_migrate_mister_account,
+)
+download_preparer = SourcePreparer(os.environ.get('ROMS_MANAGER_PREPARATION_CACHE', str(BACKEND_DATA_DIR / 'prepared_downloads')), headers_provider=headers_for_url)
+app.add_event_handler('shutdown', download_preparer.close)
+CLIENT_DOWNLOAD_TARGETS = {
+    'mister': DownloadTarget(mister_store, SYSTEM_GUIDS, prepare_mister_rom, mister_entry_key, download_preparer),
+}
+app.include_router(make_mister_router(mister_store, require_admin, _load_client_rom_dataset, current_user,
+                                    _mister_account, _provision_mister_account, _disable_mister_account, download_preparer))
+app.include_router(make_client_download_router(current_user, _guid_allowed, _load_client_rom_dataset, CLIENT_DOWNLOAD_TARGETS))

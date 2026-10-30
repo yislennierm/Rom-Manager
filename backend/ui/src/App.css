@@ -342,16 +342,32 @@
 }
 
 .login-shell {
+  height: auto;
   min-height: 100vh;
+  min-height: 100svh;
+  overflow: auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 24px;
+  padding: clamp(16px, 4vw, 32px);
+}
+
+.login-shell > * {
+  flex-shrink: 0;
+  margin-block: auto;
 }
 
 .login-card {
   width: min(420px, 100%);
-  padding: 2px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: clamp(24px, 5vw, 32px);
+  background: var(--rm-panel);
+  border: 1px solid var(--rm-border);
+  border-radius: var(--rm-radius-panel);
+  box-shadow: var(--rm-shadow-panel);
 }
 
 .login-brand {
@@ -364,6 +380,27 @@
   width: 92px;
   height: 64px;
   object-fit: contain;
+}
+
+.login-title.ant-typography {
+  margin: 0;
+}
+
+.login-form {
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+}
+
+.login-form > .ant-form-item {
+  margin-bottom: 0;
+}
+
+.login-form .ant-input-affix-wrapper > input.ant-input {
+  background: transparent !important;
+  border: 0;
+  border-radius: 0 !important;
+  box-shadow: none;
 }
 
 .home-brand-panel {
@@ -1710,9 +1747,14 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
+.ant-input-affix-wrapper:has(> input:focus-visible),
 .ant-select-focused .ant-select-selector {
   outline: 2px solid rgba(100, 235, 207, 0.72) !important;
   outline-offset: 2px;
+}
+
+.ant-input-affix-wrapper > input:focus-visible {
+  outline: none !important;
 }
 
 @media (max-width: 1120px) {

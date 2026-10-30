@@ -1,0 +1,2 @@
+# Development host only; never install on MiSTer.
+pyte==0.8.2

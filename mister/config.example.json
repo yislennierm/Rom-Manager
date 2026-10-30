@@ -1,0 +1,5 @@
+{
+  "backend_url": "http://BACKEND_LAN_IP:8000",
+  "device_token": "GENERATE_IN_THE_MISTER_DEVICE_PAGE",
+  "games_root": ""
+}

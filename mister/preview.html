@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MiSTer UI · Local preview</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#12151b;color:#e5e9f0}
+*{box-sizing:border-box}body{margin:0}main{max-width:1440px;margin:0 auto;padding:22px 28px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:18px}
+h1{font-size:20px;line-height:1.4;margin:0 0 4px;font-weight:650}.sub{font-size:13px;color:#a6afbf;margin:0}
+.toolbar,.controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}button{border:1px solid #444d5c;background:#202733;color:#f2f4f8;padding:9px 14px;font:inherit;font-size:13px;border-radius:7px;cursor:pointer}button:hover{background:#303b4c}button.active{background:#e8d768;color:#151515;border-color:#e8d768}button:focus-visible{outline:2px solid #e8d768;outline-offset:3px}button:disabled{opacity:.5;cursor:wait}
+#frame{position:relative;width:100%;aspect-ratio:16/9;background:black;overflow:hidden;border:1px solid #303846;border-radius:5px;box-shadow:0 14px 40px #0004}canvas{display:block;width:100%;height:100%;outline:none}#frame:focus-within{outline:1px solid #e8d768;outline-offset:3px}#ended{position:absolute;inset:0;display:none;align-items:center;justify-content:center;color:#d5dce8;background:#000b;font-size:16px}.footer{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-top:17px}.hint{font-size:12px;line-height:1.8;color:#9ea9bc}.controls button{min-width:40px;padding:7px 12px}.notice{padding:12px 15px;background:#1b222d;border:1px solid #303b4d;border-radius:6px;font-size:12px;line-height:1.8;color:#c1c9d7;margin-top:20px}.notice strong{color:#e8d768}#error{color:#f89b9b;white-space:pre-wrap;font-size:13px}#transcript{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:pre}
+@media(max-width:700px){main{padding:15px 12px}header{gap:10px}h1{font-size:17px}}
+</style>
+</head>
+<body><main>
+<header><div><h1>MiSTer ROMs Manager <span style="color:#929cad;font-weight:400">/ local preview</span></h1><p class="sub">Same Python UI and dialog renderer · 1280 × 720 TV viewport</p></div>
+<div class="toolbar"><button id="sofa" class="active" data-mode="sofa">Sofa · 53 × 22</button><button id="desktop" data-mode="desktop">Desktop · 160 × 45</button><button id="restart">Restart</button></div></header>
+<div id="frame"><canvas id="terminal" width="1280" height="720" tabindex="0" role="application" aria-label="MiSTer terminal preview. Use arrow keys, Enter and Escape."></canvas><div id="ended">Preview exited. Choose Restart to open the menu.</div></div>
+<pre id="transcript" aria-live="polite"></pre>
+<div class="footer"><div class="controls" aria-label="Preview navigation"><button data-key="up" aria-label="Up">↑</button><button data-key="left" aria-label="Left">←</button><button data-key="down" aria-label="Down">↓</button><button data-key="right" aria-label="Right">→</button><button data-key="pageup">PgUp</button><button data-key="pagedown">PgDn</button><button data-key="home">Home</button><button data-key="end">End</button><button data-key="enter">Enter</button><button data-key="back">Back / Esc</button><button data-key="tab">Tab</button></div><div class="hint">Click the screen to focus · Arrows to move · Enter to select · Escape to go back · PgUp/PgDn to scroll<br><span id="dimensions">Sofa: 53 columns × 22 rows</span></div></div>
+<div class="notice"><strong>Preview only.</strong> Browsing uses your local catalog snapshot. Queue changes and download progress are simulated in memory; no ROM is fetched or installed, and nothing is deployed to MiSTer. Switching modes or restarting resets this preview session. Native Linux font appearance and physical controller input still need device verification.</div>
+<p id="error" role="alert"></p>
+</main><script>
+const token='__PREVIEW_TOKEN__', canvas=document.querySelector('#terminal'), ctx=canvas.getContext('2d');
+let mode='sofa', busy=false, last='', chain=Promise.resolve();
+async function post(path,data){const response=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json','X-Preview-Token':token},body:JSON.stringify(data)});if(!response.ok)throw Error('Preview request failed ('+response.status+')');}
+function send(data){chain=chain.then(()=>post('/input',data)).catch(showError);}
+function showError(error){document.querySelector('#error').textContent=error.message;}
+function draw(screen){const serialized=JSON.stringify(screen);if(serialized===last)return;last=serialized;mode=screen.columns===53?'sofa':'desktop';const cellW=mode==='sofa'?24:8,cellH=mode==='sofa'?32:16,offX=(1280-screen.columns*cellW)/2,offY=(720-screen.lines*cellH)/2;
+ctx.fillStyle='#000';ctx.fillRect(0,0,1280,720);ctx.textBaseline='alphabetic';ctx.font=cellH+'px monospace';const stretch=cellW/ctx.measureText('M').width;
+screen.rows.forEach((row,y)=>{let x=0;row.forEach(run=>{const width=Array.from(run.text).length*cellW;ctx.fillStyle=run.style[1];ctx.fillRect(offX+x,offY+y*cellH,width,cellH);ctx.save();ctx.translate(offX+x,offY+y*cellH+cellH*.81);ctx.scale(stretch,1);ctx.fillStyle=run.style[0];ctx.fillText(run.text,0,0);ctx.restore();x+=width;});});
+document.querySelector('#transcript').textContent=screen.rows.map(row=>row.map(run=>run.text).join('')).join('\n');document.querySelector('#ended').style.display=screen.running?'none':'flex';document.querySelector('#dimensions').textContent=`${mode==='sofa'?'Sofa':'Desktop'}: ${screen.columns} columns × ${screen.lines} rows`;for(const button of document.querySelectorAll('[data-mode]'))button.classList.toggle('active',button.dataset.mode===mode);}
+async function poll(){try{if(!busy){const response=await fetch('/screen',{cache:'no-store'});if(!response.ok)throw Error('Preview stopped. Restart the local preview command.');draw(await response.json());}}catch(error){showError(error);}setTimeout(poll,100);}
+async function restart(nextMode){busy=true;try{await chain;await post('/restart',{mode:nextMode});mode=nextMode;last='';document.querySelector('#error').textContent='';}catch(error){showError(error);}finally{busy=false;canvas.focus();}}
+for(const button of document.querySelectorAll('[data-mode]'))button.onclick=()=>restart(button.dataset.mode);document.querySelector('#restart').onclick=()=>restart(mode);for(const button of document.querySelectorAll('[data-key]'))button.onclick=()=>{send({key:button.dataset.key});canvas.focus();};
+canvas.addEventListener('keydown',event=>{if(event.metaKey)return;const keys={ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right',Enter:'enter',Escape:'back',Tab:'tab',PageUp:'pageup',PageDown:'pagedown',Home:'home',End:'end'};if(event.ctrlKey&&event.key.toLowerCase()==='c'){event.preventDefault();send({text:'\x03'});}else if(keys[event.key]){event.preventDefault();send({key:keys[event.key]});}else if(event.key==='Backspace'){event.preventDefault();send({text:'\x7f'});}else if(!event.ctrlKey&&event.key.length===1){event.preventDefault();send({text:event.key});}});
+canvas.focus();poll();
+</script></body></html>

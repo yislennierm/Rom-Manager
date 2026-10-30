@@ -48,6 +48,7 @@ import ModuleReadinessCard from './components/ModuleReadinessCard'
 import ConsoleInfoCard from './components/ConsoleInfoCard'
 import ConsoleLogoTitle from './components/ConsoleLogoTitle'
 import DashboardPage from './components/DashboardPage'
+import MisterPage, { MisterDownload } from './components/MisterPage'
 import SearchField from './components/SearchField'
 import SelectField from './components/SelectField'
 import ViewToggle from './components/ViewToggle'
@@ -737,6 +738,7 @@ function App() {
     }
     return [
       homeNode,
+      ...(currentUser?.admin ? [{ key: 'mister', title: 'MiSTer FPGA', selectable: true, icon: <CloudDownloadOutlined /> }] : []),
       modulesNode,
       providersNode,
       romsNode,
@@ -833,6 +835,10 @@ function App() {
     }
     if (targetKey === 'home') {
       setSelection({ kind: 'home' })
+      return
+    }
+    if (targetKey === 'mister') {
+      setSelection({ kind: 'mister' })
       return
     }
     if (targetKey === 'modules-root') {
@@ -1782,6 +1788,7 @@ function App() {
   const busy = loading || providerLoading || dashboardLoading
 
   const pageTitle = useMemo(() => {
+    if (selection?.kind === 'mister') return 'MiSTer FPGA'
     if (!selection || selection.kind === 'home') return 'Overview'
     if (selection.kind === 'dataset') return selection.dataset === 'modules' ? 'Consoles' : 'Dataset'
     if (selection.kind === 'providers-root') return 'Providers'
@@ -1796,6 +1803,7 @@ function App() {
   }, [selection])
 
   const pageSubtitle = useMemo(() => {
+    if (selection?.kind === 'mister') return 'SNES downloads and device status'
     if (!selection || selection.kind === 'home') return headerTagline
     if (selection.kind === 'collection') return `${selection.brand} · ${selection.console}`
     if (selection.kind === 'console') return selection.brand
@@ -2095,7 +2103,7 @@ function App() {
           >
             <List.Item.Meta
               title={meta.console || meta.module || meta.slug}
-              description={formatRomCatalogSummary(meta)}
+              description={`${formatRomCatalogSummary(meta)}${meta.source_label ? ` · ${meta.source_label}` : ''}`}
             />
             <Typography.Text type="secondary">{meta.guid || meta.slug}</Typography.Text>
           </List.Item>
@@ -2217,6 +2225,9 @@ function App() {
                   <dd>{providerCount ?? '—'}{providerLabels ? ` (${providerLabels})` : ''}</dd>
                 </div>
               </dl>
+              {currentUser?.admin && <MisterDownload key={String(selectedRomEntry.mister?.entry_key || selectedRomEntry._key)}
+                entry={selectedRomEntry} dataset={selectedRomConsole?.meta.slug}
+                onOpen={() => { setSelectedRomEntry(null); handleNavigationSelect('mister') }} />}
             </section>
             <section className="rom-entry-section" aria-labelledby="rom-checksum-heading">
               <Typography.Title id="rom-checksum-heading" level={5} className="rom-entry-section-title">
@@ -2649,41 +2660,46 @@ function App() {
     return (
       <ConfigProvider theme={antTheme}>
         {contextHolder}
-        <Layout className="app-shell login-shell">
-          <Card className="summary-card login-card">
-            <Space direction="vertical" size="large" style={{ width: '100%' }}>
-              <div className="login-brand">
-                <img src={logoUrl} alt="ROMs Manager logo" className="login-logo" />
-                <Typography.Title level={3} style={{ marginBottom: 0 }}>
-                  Admin login
-                </Typography.Title>
-                <Typography.Text type="secondary">Sign in with an administrator account.</Typography.Text>
-              </div>
-              {authError && (
-                <Alert type="error" showIcon message="Login failed" description={authError} />
-              )}
-              <Form layout="vertical" form={loginForm} onFinish={handleLoginSubmit} initialValues={{ username: 'admin' }}>
-                <Form.Item
-                  label="Username"
-                  name="username"
-                  rules={[{ required: true, message: 'Username is required' }]}
-                >
-                  <Input placeholder="admin" autoFocus />
-                </Form.Item>
-                <Form.Item
-                  label="Password"
-                  name="password"
-                  rules={[{ required: true, message: 'Password is required' }]}
-                >
-                  <Input.Password placeholder="Password" />
-                </Form.Item>
-                <Button type="primary" htmlType="submit" loading={authLoading} block>
-                  Login
-                </Button>
-              </Form>
-            </Space>
-          </Card>
-        </Layout>
+        <main className="app-shell login-shell">
+          <section className="login-card" aria-labelledby="login-title">
+            <header className="login-brand">
+              <img src={logoUrl} alt="ROMs Manager logo" className="login-logo" />
+              <Typography.Title level={3} id="login-title" className="login-title">
+                Admin login
+              </Typography.Title>
+              <Typography.Text type="secondary">Sign in with an administrator account.</Typography.Text>
+            </header>
+            {authError && (
+              <Alert type="error" showIcon message="Login failed" description={authError} />
+            )}
+            <Form
+              className="login-form"
+              layout="vertical"
+              size="large"
+              form={loginForm}
+              onFinish={handleLoginSubmit}
+              initialValues={{ username: 'admin' }}
+            >
+              <Form.Item
+                label="Username"
+                name="username"
+                rules={[{ required: true, message: 'Username is required' }]}
+              >
+                <Input placeholder="admin" autoComplete="username" autoFocus />
+              </Form.Item>
+              <Form.Item
+                label="Password"
+                name="password"
+                rules={[{ required: true, message: 'Password is required' }]}
+              >
+                <Input.Password placeholder="Password" autoComplete="current-password" />
+              </Form.Item>
+              <Button type="primary" htmlType="submit" loading={authLoading} block>
+                Login
+              </Button>
+            </Form>
+          </section>
+        </main>
       </ConfigProvider>
     )
   }
@@ -2691,9 +2707,9 @@ function App() {
   if (!currentUser) {
     return (
       <ConfigProvider theme={antTheme}>
-        <Layout className="app-shell login-shell">
+        <main className="app-shell login-shell">
           <Spin />
-        </Layout>
+        </main>
       </ConfigProvider>
     )
   }
@@ -2731,7 +2747,9 @@ function App() {
           />
 
           <Layout.Content className="app-content">
-            {isModulesDataset ? (
+            {selection?.kind === 'mister' && currentUser?.admin ? (
+              <MisterPage />
+            ) : isModulesDataset ? (
               renderModulesDataset()
             ) : (
               <>
